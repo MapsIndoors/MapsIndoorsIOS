@@ -21,7 +21,7 @@ Copyright 2015 by MapsPeople A/S
 LICENSE
 }
   s.author           = { "MapsPeople" => "accounts@mapspeople.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/MapsIndoorsIOS.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/MapsIndoors/MapsIndoorsIOS.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform     = :ios, '7.0'
