@@ -1,0 +1,18 @@
+//
+//  RoutingData.h
+//  MapsIndoorsGenericApp
+//
+//  Created by Daniel Nielsen on 02/09/15.
+//  Copyright (c) 2015 MapsPeople A/S. All rights reserved.
+//
+
+#import <MapsIndoorSDK/MapsIndoorSDK.h>
+
+@interface RoutingData : MPDirectionsService<MPRoutingProviderDelegate>
+
+@property NSUInteger latestRoutingRequestHash;
+@property MPRoute* latestRoute;
+
+- (void)routingFrom:(MPLocation *)from to:(MPLocation *)to by:(NSString *)mode avoid:(NSArray *)restrictions depart:(NSDate *)departureTime arrive:(NSDate *)arrivalTime;
+
+@end

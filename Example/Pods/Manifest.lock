@@ -1,0 +1,78 @@
+PODS:
+  - AFNetworking (2.6.1):
+    - AFNetworking/NSURLConnection (= 2.6.1)
+    - AFNetworking/NSURLSession (= 2.6.1)
+    - AFNetworking/Reachability (= 2.6.1)
+    - AFNetworking/Security (= 2.6.1)
+    - AFNetworking/Serialization (= 2.6.1)
+    - AFNetworking/UIKit (= 2.6.1)
+  - AFNetworking/NSURLConnection (2.6.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.1)
+  - AFNetworking/Security (2.6.1)
+  - AFNetworking/Serialization (2.6.1)
+  - AFNetworking/UIKit (2.6.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - EasyTableView (1.1.1)
+  - Expecta (1.0.3)
+  - Expecta+Snapshots (2.0.0):
+    - Expecta (~> 1.0)
+    - FBSnapshotTestCase/Core (~> 2.0.3)
+  - FBSnapshotTestCase (2.0.6):
+    - FBSnapshotTestCase/SwiftSupport (= 2.0.6)
+  - FBSnapshotTestCase/Core (2.0.6)
+  - FBSnapshotTestCase/SwiftSupport (2.0.6):
+    - FBSnapshotTestCase/Core
+  - GoogleFontsiOS/Core (0.1.1)
+  - GoogleFontsiOS/Roboto (0.1.1):
+    - GoogleFontsiOS/Core
+  - GoogleMaps (1.10.4)
+  - HashBuilder (1.0.1)
+  - MapsIndoors (0.9.6)
+  - MaterialControls (1.0.2)
+  - OCGoogleDirectionsAPI (0.1.4)
+  - Specta (1.0.4)
+  - VCMaterialDesignIcons (2.1.1)
+
+DEPENDENCIES:
+  - AFNetworking (~> 2.5)
+  - EasyTableView (~> 1.1)
+  - Expecta
+  - Expecta+Snapshots
+  - FBSnapshotTestCase
+  - GoogleFontsiOS/Roboto
+  - GoogleMaps
+  - HashBuilder (~> 1.0)
+  - MapsIndoors (from `../`)
+  - MaterialControls (~> 1.0)
+  - OCGoogleDirectionsAPI (~> 0.1)
+  - Specta
+  - VCMaterialDesignIcons (~> 2.1)
+
+EXTERNAL SOURCES:
+  MapsIndoors:
+    :path: ../
+
+SPEC CHECKSUMS:
+  AFNetworking: 8e4e60500beb8bec644cf575beee72990a76d399
+  EasyTableView: 53f1e858d3f2d87a59651d12c3f7c2a01e7e4ce6
+  Expecta: 9d1bff6c8b0eeee73a166a2ee898892478927a15
+  Expecta+Snapshots: 29b38dd695bc72a0ed2bea833937d78df41943ba
+  FBSnapshotTestCase: f53793e19b2782f2948e8597b03ec2bb5aedf5cd
+  GoogleFontsiOS: 9f4a4f886160d8cb723bd936604b3f6b975f1167
+  GoogleMaps: 134bcf57e8d489efbc0c29d532ed421554fabdb2
+  HashBuilder: d2f6cbd492c68350bbcf0fa2216aae50b60657d5
+  MapsIndoors: a6ae10549c6bf25a8aca72aedc605673afd45c87
+  MaterialControls: bdeeb94aa049b73f70739a5514be137d2d45c08a
+  OCGoogleDirectionsAPI: b4374609670455170893cbb88aaf46389f4dbc71
+  Specta: 69bb134672aae190a1379ff91df07dad8dd1f869
+  VCMaterialDesignIcons: 68a944308ab41282ba8555770cb57e3fbf2034be
+
+COCOAPODS: 0.39.0
