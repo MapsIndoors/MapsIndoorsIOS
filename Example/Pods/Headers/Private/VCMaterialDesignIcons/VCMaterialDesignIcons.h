@@ -1,0 +1,1 @@
+../../../VCMaterialDesignIcons/VCMaterialDesignIcons.h

@@ -1,0 +1,1 @@
+../../../../../../MapsIndoorSDK.framework/Versions/A/Headers/MPAppDataProvider.h

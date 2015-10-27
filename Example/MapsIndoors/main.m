@@ -1,17 +1,16 @@
 //
 //  main.m
-//  MapsIndoors
+//  MapsIndoorsGenericApp
 //
-//  Created by Daniel Nielsen on 10/26/2015.
-//  Copyright (c) 2015 Daniel Nielsen. All rights reserved.
+//  Created by Daniel Nielsen on 10/08/15.
+//  Copyright (c) 2015 MapsPeople A/S. All rights reserved.
 //
 
-@import UIKit;
-#import "MIAppDelegate.h"
+#import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
-int main(int argc, char * argv[])
-{
+int main(int argc, char * argv[]) {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([MIAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }
