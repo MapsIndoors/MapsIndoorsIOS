@@ -23,24 +23,12 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [GMSServices provideAPIKey:@"AIzaSyAXVYt1kRtOOztp1piBHWWhG9tVc13Wvdw"];
-    //[GMSServices provideAPIKey:@"ADD_YOUR_OWN_GOOGLE_MAPS_IOS_API_KEY_HERE"];
+    [GMSServices provideAPIKey:@"ADD_YOUR_OWN_GOOGLE_MAPS_IOS_API_KEY_HERE"];
     
-    //Demo venue credentials adapt these data to your needs
-    //Global.solutionId = @"550c26a864617400a40f0000";
-    //Global.venue = @"rtx";
-    //Global.initialPosition = [[MPPoint alloc] initWithLat:57.0858357 lon:9.9573986 zValue:0];
-    
-    //Bella Center credentials/settings
     Global.solutionId = @"550c26a864617400a40f0000";
     Global.venue = @"rtx";
     Global.initialPosition = [[MPPoint alloc] initWithLat:57.085771 lon:9.957593 zValue:0];
     
-    //CPH Credentials/settings
-    //MPFloorTileLayer.tileSize = 512;
-    //Global.solutionId = @"54bcf9a83d4e4103ec0840ca";
-    //Global.venue = @"cph";
-    //Global.initialPosition = [[MPPoint alloc] initWithLat:55.6288696 lon:12.646632 zValue:0];
     
     Global.poiData = [[POIData alloc] init];
     Global.routingData = [[RoutingData alloc] initWithMapsIndoorsSolutionId: Global.solutionId googleApiKey:@"AIzaSyBh-sdICZSAK8Ecr_DjdV-BEXkqHBU5wtU"];
@@ -48,9 +36,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLocationDetailTapped:) name:@"DetailFieldTapped" object:nil];
     
     [[UILabel appearance] setFont:[UIFont systemFontOfSize:15]];
-    
-    //Why do I need this?
-    //Global.routingData.solutionId = Global.solutionId;
     
     
     // Override point for customization after application launch.
