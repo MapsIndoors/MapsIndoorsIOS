@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "MapsIndoors"
-  s.version          = "1.2.24"
+  s.version          = "1.2.27"
   s.summary          = "Library for making the MapsIndoors experience available to your iOS users."
 
 # This description is used to generate tags and improve search results.
@@ -22,7 +22,7 @@ The MapsIndoors SDK is the idea of integrating everything on your venue, like pe
 
 s.homepage         = "http://dev.mapsindoors.com"
 s.screenshots     = ["http://app.mapsindoors.com/mapsindoors/ios/mapsindoors-ios-screenshot1.png", "http://app.mapsindoors.com/mapsindoors/ios/mapsindoors-ios-screenshot2.png", "http://app.mapsindoors.com/mapsindoors/ios/mapsindoors-ios-screenshot3.png"]
- s.license          = { :type => 'Commercial', :text => <<-LICENSE
+ s.license          = { :type => 'MIT', :text => <<-LICENSE
 Copyright 2015 by MapsPeople A/S
 LICENSE
 }
