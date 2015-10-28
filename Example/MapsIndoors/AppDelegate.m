@@ -29,7 +29,6 @@
     Global.venue = @"rtx";
     Global.initialPosition = [[MPPoint alloc] initWithLat:57.085771 lon:9.957593 zValue:0];
     
-    
     Global.poiData = [[POIData alloc] init];
     Global.routingData = [[RoutingData alloc] initWithMapsIndoorsSolutionId: Global.solutionId googleApiKey:@"AIzaSyBh-sdICZSAK8Ecr_DjdV-BEXkqHBU5wtU"];
     
