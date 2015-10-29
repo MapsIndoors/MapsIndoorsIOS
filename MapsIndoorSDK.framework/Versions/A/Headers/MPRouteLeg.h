@@ -33,8 +33,6 @@
 
 @property MPRouteCoordinate<Optional>* start_location;
 @property MPRouteCoordinate<Optional>* end_location;
-
-
 @property NSString<Optional>* start_address;
 @property NSString<Optional>* end_address;
 
