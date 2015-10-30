@@ -35,7 +35,7 @@ PODS:
     - GoogleFontsiOS/Core
   - GoogleMaps (1.10.4)
   - HashBuilder (1.0.1)
-  - MapsIndoors (0.9.6)
+  - MapsIndoors (1.2.40)
   - MaterialControls (1.0.2)
   - OCGoogleDirectionsAPI (0.1.4)
   - Specta (1.0.4)
@@ -69,7 +69,7 @@ SPEC CHECKSUMS:
   GoogleFontsiOS: 9f4a4f886160d8cb723bd936604b3f6b975f1167
   GoogleMaps: 134bcf57e8d489efbc0c29d532ed421554fabdb2
   HashBuilder: d2f6cbd492c68350bbcf0fa2216aae50b60657d5
-  MapsIndoors: a6ae10549c6bf25a8aca72aedc605673afd45c87
+  MapsIndoors: 0eafc6d880ead2a66aa990b3a5e57c5493436eb3
   MaterialControls: bdeeb94aa049b73f70739a5514be137d2d45c08a
   OCGoogleDirectionsAPI: b4374609670455170893cbb88aaf46389f4dbc71
   Specta: 69bb134672aae190a1379ff91df07dad8dd1f869

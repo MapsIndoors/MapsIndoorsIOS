@@ -1,1 +1,0 @@
-../../../../../../MapsIndoorSDK.framework/Versions/A/Headers/NSArray+JSONModel.h

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <EasyTableView/EasyTableView.h>
-#import <MapsIndoorSDK/MapsIndoorSDK.h>
+#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
 #import "UIFont+SystemFontOverride.h"
 
 @interface HorizontalDirectionsController : UIViewController<EasyTableViewDelegate>

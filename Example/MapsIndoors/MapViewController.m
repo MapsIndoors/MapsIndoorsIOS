@@ -8,7 +8,7 @@
 
 #import "MapViewController.h"
 #import "Global.h"
-#import <MapsIndoorSDK/MapsIndoorSDK.h>
+#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
 #import <MaterialControls/MDButton.h>
 #import "UIColor+AppColor.h"
 #import <VCMaterialDesignIcons/VCMaterialDesignIcons.h>

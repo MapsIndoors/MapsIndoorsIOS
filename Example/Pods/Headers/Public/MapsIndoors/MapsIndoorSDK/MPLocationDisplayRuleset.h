@@ -1,1 +1,0 @@
-../../../../../../MapsIndoorSDK.framework/Versions/A/Headers/MPLocationDisplayRuleset.h

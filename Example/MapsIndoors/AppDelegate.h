@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MapsIndoorSDK/MapsIndoorSDK.h>
+#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

@@ -634,7 +634,6 @@
 		428EA6C16C4B1255E8F4BB3303669AE6 /* EasyTableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EasyTableView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42A5F79243A116BC5A79232CCB12E659 /* GFIFontLoader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GFIFontLoader.m; path = Pod/Classes/GFIFontLoader.m; sourceTree = "<group>"; };
 		42CAF5C84B9B422C1221340F6CC8F8A5 /* EasyTableView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EasyTableView-prefix.pch"; sourceTree = "<group>"; };
-		432127AACD22E21AC26957EAA4DCC07B /* MapsIndoorSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapsIndoorSDK.framework; sourceTree = "<group>"; };
 		448855424C6EA4761BDAF49D345E754F /* SPTExcludeGlobalBeforeAfterEach.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPTExcludeGlobalBeforeAfterEach.h; path = Specta/Specta/SPTExcludeGlobalBeforeAfterEach.h; sourceTree = "<group>"; };
 		450DCC533C301006A3101445F5445F92 /* FBSnapshotTestCasePlatform.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSnapshotTestCasePlatform.m; path = FBSnapshotTestCase/FBSnapshotTestCasePlatform.m; sourceTree = "<group>"; };
 		45B0D1ECDCCB690158F5B800E48114BB /* Roboto-Bold.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Roboto-Bold.ttf"; path = "Pod/Assets/Fonts/roboto/Roboto-Bold.ttf"; sourceTree = "<group>"; };
@@ -716,6 +715,7 @@
 		77122FE1F8EF80D09703E2AFD5F53BA8 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Roboto-Italic.ttf"; path = "Pod/Assets/Fonts/roboto/Roboto-Italic.ttf"; sourceTree = "<group>"; };
 		777F7C273082E9B9D279DBE52AA5478A /* MDCollectionViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCollectionViewCell.h; path = iOSUILib/iOSUILib/MDCollectionViewCell.h; sourceTree = "<group>"; };
 		77B16A8AD3823FD5BFC995E7BECF3B44 /* Pods-MapsIndoors_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MapsIndoors_Tests.modulemap"; sourceTree = "<group>"; };
+		7887E00283D0095D126FBE9FA89C0B4B /* MapsIndoorsSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapsIndoorsSDK.framework; sourceTree = "<group>"; };
 		78B57DD7FADEA67A858BD55A725DEAF3 /* Pods-MapsIndoors_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MapsIndoors_Tests-resources.sh"; sourceTree = "<group>"; };
 		78D99EF98D2C206759528738CE6AB604 /* Pods-MapsIndoors_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MapsIndoors_Example-frameworks.sh"; sourceTree = "<group>"; };
 		78FD882F6EB93C0E205A2BBA1E8B6569 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
@@ -1479,14 +1479,6 @@
 			path = Specta;
 			sourceTree = "<group>";
 		};
-		AB73DD88FCA83F974A6A78E599A4F85E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				432127AACD22E21AC26957EAA4DCC07B /* MapsIndoorSDK.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		B5F169F95D15BCEB7472A2264096AD27 /* HashBuilder */ = {
 			isa = PBXGroup;
 			children = (
@@ -1819,6 +1811,14 @@
 			name = Serialization;
 			sourceTree = "<group>";
 		};
+		E0F37F777FC0B1921A4DE0055C597B50 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7887E00283D0095D126FBE9FA89C0B4B /* MapsIndoorsSDK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E3840BCAD7C76C650919DEEF389FA9A1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1830,7 +1830,7 @@
 		E6B785883C8FBD6D5120BF01021A77AB /* MapsIndoors */ = {
 			isa = PBXGroup;
 			children = (
-				AB73DD88FCA83F974A6A78E599A4F85E /* Frameworks */,
+				E0F37F777FC0B1921A4DE0055C597B50 /* Frameworks */,
 				BAB9B3318A167946738CC3D2D8BF7DF2 /* Resources */,
 			);
 			name = MapsIndoors;

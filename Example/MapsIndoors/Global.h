@@ -13,7 +13,7 @@
 #define kYouAreHere @"You are here"
 
 #import <Foundation/Foundation.h>
-#import <MapsIndoorSDK/MapsIndoorSDK.h>
+#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
 #import "POIData.h"
 #import "RoutingData.h"
 
