@@ -86,20 +86,22 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-MapsIndoors_Example/AFNetworking.framework"
   install_framework "Pods-MapsIndoors_Example/EasyTableView.framework"
+  install_framework "Pods-MapsIndoors_Example/FMDB.framework"
   install_framework "Pods-MapsIndoors_Example/GoogleFontsiOS.framework"
   install_framework "Pods-MapsIndoors_Example/HashBuilder.framework"
+  install_framework "Pods-MapsIndoors_Example/JSONModel.framework"
   install_framework "${PODS_ROOT}/../../MapsIndoorsSDK.framework"
   install_framework "Pods-MapsIndoors_Example/MaterialControls.framework"
-  install_framework "Pods-MapsIndoors_Example/OCGoogleDirectionsAPI.framework"
   install_framework "Pods-MapsIndoors_Example/VCMaterialDesignIcons.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-MapsIndoors_Example/AFNetworking.framework"
   install_framework "Pods-MapsIndoors_Example/EasyTableView.framework"
+  install_framework "Pods-MapsIndoors_Example/FMDB.framework"
   install_framework "Pods-MapsIndoors_Example/GoogleFontsiOS.framework"
   install_framework "Pods-MapsIndoors_Example/HashBuilder.framework"
+  install_framework "Pods-MapsIndoors_Example/JSONModel.framework"
   install_framework "${PODS_ROOT}/../../MapsIndoorsSDK.framework"
   install_framework "Pods-MapsIndoors_Example/MaterialControls.framework"
-  install_framework "Pods-MapsIndoors_Example/OCGoogleDirectionsAPI.framework"
   install_framework "Pods-MapsIndoors_Example/VCMaterialDesignIcons.framework"
 fi

@@ -7,7 +7,7 @@
 //
 #import "UIButton+AppButton.h"
 #import "UIColor+AppColor.h"
-#import <MapsIndoorSDK/UIColor+HexString.h>
+#import <MapsIndoorsSDK/UIColor+HexString.h>
 #import <MaterialControls/MDButton.h>
 
 @implementation UIButton (AppButton)

@@ -17,6 +17,7 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		7B9C561B1BDE744900C9D81C /* IndoorAtlas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B9C561A1BDE744900C9D81C /* IndoorAtlas.framework */; };
 		7B9C561F1BDE746A00C9D81C /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B9C561E1BDE746A00C9D81C /* CoreMotion.framework */; };
+		7B9C56871BE395FE00C9D81C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B9C56861BE395FE00C9D81C /* CoreLocation.framework */; };
 		7BBFEC701BDE59BD00570CF8 /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBFEC5D1BDE59BD00570CF8 /* ContainerViewController.m */; };
 		7BBFEC711BDE59BD00570CF8 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBFEC5F1BDE59BD00570CF8 /* DetailViewController.m */; };
 		7BBFEC721BDE59BD00570CF8 /* DirectionsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBFEC611BDE59BD00570CF8 /* DirectionsController.m */; };
@@ -159,6 +160,7 @@
 		7B9C56191BDE710600C9D81C /* MapsIndoors-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MapsIndoors-Prefix.pch"; sourceTree = "<group>"; };
 		7B9C561A1BDE744900C9D81C /* IndoorAtlas.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IndoorAtlas.framework; sourceTree = "<group>"; };
 		7B9C561E1BDE746A00C9D81C /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		7B9C56861BE395FE00C9D81C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7BBFEC5C1BDE59BD00570CF8 /* ContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerViewController.h; sourceTree = "<group>"; };
 		7BBFEC5D1BDE59BD00570CF8 /* ContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerViewController.m; sourceTree = "<group>"; };
 		7BBFEC5E1BDE59BD00570CF8 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B9C56871BE395FE00C9D81C /* CoreLocation.framework in Frameworks */,
 				7B9C561F1BDE746A00C9D81C /* CoreMotion.framework in Frameworks */,
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
@@ -352,6 +355,7 @@
 		6003F58C195388D20070C39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7B9C56861BE395FE00C9D81C /* CoreLocation.framework */,
 				7B9C561E1BDE746A00C9D81C /* CoreMotion.framework */,
 				7B9C561A1BDE744900C9D81C /* IndoorAtlas.framework */,
 				6003F58D195388D20070C39A /* Foundation.framework */,
@@ -928,6 +932,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -969,6 +974,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;

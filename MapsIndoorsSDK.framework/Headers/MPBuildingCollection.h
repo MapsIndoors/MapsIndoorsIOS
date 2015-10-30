@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 MapsPeople A/S. All rights reserved.
 //
 
-#import <JSONModel+networking.h>
+#import <JSONModel/JSONModel+networking.h>
 
 @protocol MPBuilding
 @end
