@@ -6,6 +6,11 @@
 //  Copyright (c) 2015 MapsPeople A/S. All rights reserved.
 //
 
+#define kMapsIndoorsSolutionId @"550c26a864617400a40f0000"
+#define kVenue @"rtx"
+#define kGoogleMapsApiKey @"ADD_YOUR_OWN_GOOGLE_MAPS_API_KEY"
+#define kGoogleDirectionsApiKey @"ADD_YOUR_OWN_GOOGLE_DIRECTIONS_API_KEY"
+
 #import "AppDelegate.h"
 #import "MapViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
@@ -15,7 +20,6 @@
 #import "RoutingData.h"
 #import "UIFont+SystemFontOverride.h"
 
-
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
 @end
@@ -23,14 +27,14 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [GMSServices provideAPIKey:@"ADD_YOUR_OWN_GOOGLE_MAPS_IOS_API_KEY_HERE"];
+    [GMSServices provideAPIKey:kGoogleMapsApiKey];
     
-    Global.solutionId = @"550c26a864617400a40f0000";
-    Global.venue = @"rtx";
+    Global.solutionId = kMapsIndoorsSolutionId;
+    Global.venue = kVenue;
     Global.initialPosition = [[MPPoint alloc] initWithLat:57.085771 lon:9.957593 zValue:0];
     
     Global.poiData = [[POIData alloc] init];
-    Global.routingData = [[RoutingData alloc] initWithMapsIndoorsSolutionId: Global.solutionId googleApiKey:@"AIzaSyBh-sdICZSAK8Ecr_DjdV-BEXkqHBU5wtU"];
+    Global.routingData = [[RoutingData alloc] initWithMapsIndoorsSolutionId: Global.solutionId googleApiKey:kGoogleDirectionsApiKey];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLocationDetailTapped:) name:@"DetailFieldTapped" object:nil];
     
