@@ -7,7 +7,7 @@
 //
 
 #import "GPSPositionProvider.h"
-#import <MapsIndoorSDK/MapsIndoorSDK.h>
+#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
 
 @implementation GPSPositionProvider {
     BOOL _isRunning;

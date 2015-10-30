@@ -13,7 +13,7 @@
 #import "UINavigationController+TransparentNavigationController.h"
 #import "DirectionsController.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
-#import <MapsIndoorSDK/MapsIndoorSDK.h>
+#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
 #import <MaterialControls/MDButton.h>
 #import "UIColor+AppColor.h"
 #import "UIButton+AppButton.h"

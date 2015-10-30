@@ -9,7 +9,7 @@
 #import "Global.h"
 #import "MasterViewController.h"
 #import "SearchViewController.h"
-#import <MapsIndoorSDK/MapsIndoorSDK.h>
+#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import "UINavigationController+TransparentNavigationController.h"
 #import "UISearchBar+AppSearchBar.h"

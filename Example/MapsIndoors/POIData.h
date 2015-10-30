@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 MapsPeople A/S. All rights reserved.
 //
 
-#import <MapsIndoorSDK/MapsIndoorSDK.h>
+#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
 
 @interface POIData : MPLocationsProvider<MPLocationsProviderDelegate>
 

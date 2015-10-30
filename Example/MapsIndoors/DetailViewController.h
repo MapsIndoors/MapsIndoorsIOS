@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MapsIndoorSDK/MapsIndoorSDK.h>
+#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
 #import "UIFont+SystemFontOverride.h"
 
 @interface DetailViewController : UIViewController<MPRoutingProviderDelegate, UITableViewDataSource, UITableViewDelegate>
