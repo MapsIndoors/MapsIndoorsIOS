@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "MapsIndoors"
-  s.version          = "1.2.41"
+  s.version          = "1.3.3"
   s.summary          = "Library for making the MapsIndoors experience available to your iOS users."
   s.description      = <<-DESC
 The MapsIndoors SDK is the idea of integrating everything on your venue, like people, goods, offices, shops, rooms and buildings with the mapping, positioning and wayfinding technologies provided in the MapsIndoors platform. We make the MapsIndoors platform available to interested businesses and/or partners. So if you think you should be one of them, please call us or send us an email. Mean while, you are most welcome to check out the demo project using 'pod try MapsIndoors'.
@@ -35,10 +35,13 @@ LICENSE
 
   s.vendored_frameworks = ['MapsIndoorsSDK.framework']
   s.resources = ['MapsIndoorSDK.bundle']
-  s.libraries = ['sqlite3']
+  s.libraries             = "sqlite3", "c++", "icucore", "z" # required for GoogleMaps.framework
+  s.frameworks            = "AVFoundation", "CoreData", "CoreLocation", "CoreText", "Foundation", "GLKit", "ImageIO", "OpenGLES", "QuartzCore", "SystemConfiguration"
+
+  s.dependency	'FMDB', '~> 2.5'
+  s.dependency	'JSONModel', '~> 1.1'
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'GoogleMaps'
 
 

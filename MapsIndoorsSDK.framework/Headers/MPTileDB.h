@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "FMDatabaseQueue.h"
+#import <FMDB/FMDatabaseQueue.h>
 
 /**
  * Delegate protocol specification that specify an event method that fires when tile database is ready.
