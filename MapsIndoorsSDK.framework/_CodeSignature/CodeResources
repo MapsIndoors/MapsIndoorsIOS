@@ -693,7 +693,7 @@
 		</data>
 		<key>Headers/MPBeaconPositionProvider.h</key>
 		<data>
-		NUtGeuXG8tvxSrU58gXQjyWZeK8=
+		fPCfwcCZ4RxzoSQdmrSg8P/UJ2o=
 		</data>
 		<key>Headers/MPBeaconProvider.h</key>
 		<data>
@@ -701,7 +701,7 @@
 		</data>
 		<key>Headers/MPBuilding.h</key>
 		<data>
-		vT98jIiEtOSBioAXVzqIe38oWPo=
+		bmd8Tpgz/46EsqFgbP7LSZC76+A=
 		</data>
 		<key>Headers/MPBuildingCollection.h</key>
 		<data>
@@ -718,10 +718,6 @@
 		<key>Headers/MPBuildingReference.h</key>
 		<data>
 		iDJbrmPxKsTi71rHjLE3Yw74d9o=
-		</data>
-		<key>Headers/MPCachedLocationsProvider.h</key>
-		<data>
-		8Gv2+zrYprxDA5TBbB0LQS0biR8=
 		</data>
 		<key>Headers/MPCategoryUIBarButtonItem.h</key>
 		<data>
@@ -859,10 +855,6 @@
 		<data>
 		OqCTLfvPxzGduH6Sj1qEh9smNMo=
 		</data>
-		<key>Headers/MPLocationsDB.h</key>
-		<data>
-		A27wgNmX/yq6LHv7Knby8yT0BRw=
-		</data>
 		<key>Headers/MPLocationsProvider.h</key>
 		<data>
 		Bxh2yk4jVIXnujZ8m5i0ylu9BBM=
@@ -873,7 +865,7 @@
 		</data>
 		<key>Headers/MPMapControl.h</key>
 		<data>
-		QjrYXwV4FA8uFef26hkRz7qN+wc=
+		k0s2nFvolZ2gQUK4XqEHl6Px7NU=
 		</data>
 		<key>Headers/MPMapExtend.h</key>
 		<data>
@@ -890,10 +882,6 @@
 		<key>Headers/MPMyLocationButton.h</key>
 		<data>
 		eFJx17UWR/PyYX/j/TCCxyhdKVg=
-		</data>
-		<key>Headers/MPOfflineTileLayer.h</key>
-		<data>
-		xjd/+mJ6IVlkkgT8aadC3GBRnhI=
 		</data>
 		<key>Headers/MPOnlineTileLayer.h</key>
 		<data>
@@ -979,10 +967,6 @@
 		<data>
 		izKipKzBexdgzgBjOn85qdhJdFU=
 		</data>
-		<key>Headers/MPTileDB.h</key>
-		<data>
-		ANOu66fBr/wQLnyPX7EfVdaw1aA=
-		</data>
 		<key>Headers/MPTokenSet.h</key>
 		<data>
 		ZRZ42BasfWh3LxQqKxvZw8ZHDaQ=
@@ -1017,7 +1001,7 @@
 		</data>
 		<key>Headers/MapsIndoorsSDK.h</key>
 		<data>
-		GBETqsXmE2GP/XMMAf1DG+4nKFc=
+		HmjupBjLb+hUgbyYcBDNMxkZdU0=
 		</data>
 		<key>Headers/NSDictionary+MPLocationPropertiesDictionary.h</key>
 		<data>
@@ -1037,7 +1021,7 @@
 		</data>
 		<key>Headers/PointXY.h</key>
 		<data>
-		3uiv52nhxDj3mHbKFDy2KibhbUE=
+		fyBciY0jbk4IlHQceO6m0Vq4d+w=
 		</data>
 		<key>Headers/PositionCalculator.h</key>
 		<data>
@@ -1759,7 +1743,7 @@
 		</data>
 		<key>Headers/MPBeaconPositionProvider.h</key>
 		<data>
-		NUtGeuXG8tvxSrU58gXQjyWZeK8=
+		fPCfwcCZ4RxzoSQdmrSg8P/UJ2o=
 		</data>
 		<key>Headers/MPBeaconProvider.h</key>
 		<data>
@@ -1767,7 +1751,7 @@
 		</data>
 		<key>Headers/MPBuilding.h</key>
 		<data>
-		vT98jIiEtOSBioAXVzqIe38oWPo=
+		bmd8Tpgz/46EsqFgbP7LSZC76+A=
 		</data>
 		<key>Headers/MPBuildingCollection.h</key>
 		<data>
@@ -1784,10 +1768,6 @@
 		<key>Headers/MPBuildingReference.h</key>
 		<data>
 		iDJbrmPxKsTi71rHjLE3Yw74d9o=
-		</data>
-		<key>Headers/MPCachedLocationsProvider.h</key>
-		<data>
-		8Gv2+zrYprxDA5TBbB0LQS0biR8=
 		</data>
 		<key>Headers/MPCategoryUIBarButtonItem.h</key>
 		<data>
@@ -1925,10 +1905,6 @@
 		<data>
 		OqCTLfvPxzGduH6Sj1qEh9smNMo=
 		</data>
-		<key>Headers/MPLocationsDB.h</key>
-		<data>
-		A27wgNmX/yq6LHv7Knby8yT0BRw=
-		</data>
 		<key>Headers/MPLocationsProvider.h</key>
 		<data>
 		Bxh2yk4jVIXnujZ8m5i0ylu9BBM=
@@ -1939,7 +1915,7 @@
 		</data>
 		<key>Headers/MPMapControl.h</key>
 		<data>
-		QjrYXwV4FA8uFef26hkRz7qN+wc=
+		k0s2nFvolZ2gQUK4XqEHl6Px7NU=
 		</data>
 		<key>Headers/MPMapExtend.h</key>
 		<data>
@@ -1956,10 +1932,6 @@
 		<key>Headers/MPMyLocationButton.h</key>
 		<data>
 		eFJx17UWR/PyYX/j/TCCxyhdKVg=
-		</data>
-		<key>Headers/MPOfflineTileLayer.h</key>
-		<data>
-		xjd/+mJ6IVlkkgT8aadC3GBRnhI=
 		</data>
 		<key>Headers/MPOnlineTileLayer.h</key>
 		<data>
@@ -2045,10 +2017,6 @@
 		<data>
 		izKipKzBexdgzgBjOn85qdhJdFU=
 		</data>
-		<key>Headers/MPTileDB.h</key>
-		<data>
-		ANOu66fBr/wQLnyPX7EfVdaw1aA=
-		</data>
 		<key>Headers/MPTokenSet.h</key>
 		<data>
 		ZRZ42BasfWh3LxQqKxvZw8ZHDaQ=
@@ -2083,7 +2051,7 @@
 		</data>
 		<key>Headers/MapsIndoorsSDK.h</key>
 		<data>
-		GBETqsXmE2GP/XMMAf1DG+4nKFc=
+		HmjupBjLb+hUgbyYcBDNMxkZdU0=
 		</data>
 		<key>Headers/NSDictionary+MPLocationPropertiesDictionary.h</key>
 		<data>
@@ -2103,7 +2071,7 @@
 		</data>
 		<key>Headers/PointXY.h</key>
 		<data>
-		3uiv52nhxDj3mHbKFDy2KibhbUE=
+		fyBciY0jbk4IlHQceO6m0Vq4d+w=
 		</data>
 		<key>Headers/PositionCalculator.h</key>
 		<data>

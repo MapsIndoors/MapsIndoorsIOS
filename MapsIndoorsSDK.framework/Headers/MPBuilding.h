@@ -10,7 +10,6 @@
 #import <JSONModel/JSONModel+networking.h>
 #import "MPFloor.h"
 #import "MPGeometry.h"
-#import "MPOfflineTileLayer.h"
 #import "MPPoint.h"
 #import "MPBuildingInfo.h"
 #import <GoogleMaps/GoogleMaps.h>
@@ -31,7 +30,7 @@
 /**
  * Holds relevant data for a single building, and provides a way to interact with the buildings floor levels.
  */
-@interface MPBuilding : JSONModel<MPOfflineTileLayerDelegate>
+@interface MPBuilding : JSONModel
 /**
  * Holds the current floor.
  */

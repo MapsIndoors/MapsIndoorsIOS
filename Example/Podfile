@@ -1,7 +1,8 @@
 source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.1'
 use_frameworks!
 
-target 'MapsIndoors_Example', :exclusive => true do
+target :MapsIndoors_Example, :exclusive => true do
   pod "MapsIndoors", :path => "../"
   
   pod 'AFNetworking', '~> 2.5'
@@ -10,24 +11,13 @@ target 'MapsIndoors_Example', :exclusive => true do
   pod 'GoogleFontsiOS/Roboto'
   pod 'HashBuilder', '~> 1.0'
   pod 'EasyTableView', '~> 1.1'
-  
-  platform :ios, '8.1'
   pod 'GoogleMaps'
   
 end
 
-target 'MapsIndoors_Tests', :exclusive => true do
+target :MapsIndoors_Tests, :exclusive => true do
   pod "MapsIndoors", :path => "../"
 
-    pod 'AFNetworking', '~> 2.5'
-    pod 'MaterialControls', '~> 1.0'
-    pod 'VCMaterialDesignIcons', '~> 2.1'
-    pod 'GoogleFontsiOS/Roboto'
-    pod 'HashBuilder', '~> 1.0'
-    pod 'EasyTableView', '~> 1.1'
-
-    platform :ios, '8.1'
-    pod 'GoogleMaps'
 
   pod 'Specta'
   pod 'Expecta'
@@ -35,3 +25,4 @@ target 'MapsIndoors_Tests', :exclusive => true do
   pod 'Expecta+Snapshots'
   
 end
+

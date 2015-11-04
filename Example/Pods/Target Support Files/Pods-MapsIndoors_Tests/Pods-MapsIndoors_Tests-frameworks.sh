@@ -84,30 +84,16 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-MapsIndoors_Tests/AFNetworking.framework"
-  install_framework "Pods-MapsIndoors_Tests/EasyTableView.framework"
-  install_framework "Pods-MapsIndoors_Tests/FMDB.framework"
-  install_framework "Pods-MapsIndoors_Tests/GoogleFontsiOS.framework"
-  install_framework "Pods-MapsIndoors_Tests/HashBuilder.framework"
   install_framework "Pods-MapsIndoors_Tests/JSONModel.framework"
   install_framework "${PODS_ROOT}/../../MapsIndoorsSDK.framework"
-  install_framework "Pods-MapsIndoors_Tests/MaterialControls.framework"
-  install_framework "Pods-MapsIndoors_Tests/VCMaterialDesignIcons.framework"
   install_framework "Pods-MapsIndoors_Tests/Expecta.framework"
   install_framework "Pods-MapsIndoors_Tests/Expecta_Snapshots.framework"
   install_framework "Pods-MapsIndoors_Tests/FBSnapshotTestCase.framework"
   install_framework "Pods-MapsIndoors_Tests/Specta.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-MapsIndoors_Tests/AFNetworking.framework"
-  install_framework "Pods-MapsIndoors_Tests/EasyTableView.framework"
-  install_framework "Pods-MapsIndoors_Tests/FMDB.framework"
-  install_framework "Pods-MapsIndoors_Tests/GoogleFontsiOS.framework"
-  install_framework "Pods-MapsIndoors_Tests/HashBuilder.framework"
   install_framework "Pods-MapsIndoors_Tests/JSONModel.framework"
   install_framework "${PODS_ROOT}/../../MapsIndoorsSDK.framework"
-  install_framework "Pods-MapsIndoors_Tests/MaterialControls.framework"
-  install_framework "Pods-MapsIndoors_Tests/VCMaterialDesignIcons.framework"
   install_framework "Pods-MapsIndoors_Tests/Expecta.framework"
   install_framework "Pods-MapsIndoors_Tests/Expecta_Snapshots.framework"
   install_framework "Pods-MapsIndoors_Tests/FBSnapshotTestCase.framework"

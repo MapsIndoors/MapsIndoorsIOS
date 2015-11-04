@@ -21,7 +21,6 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsSDKVersionString[];
 #import <MapsIndoorsSDK/MPBuilding.h>
 #import <MapsIndoorsSDK/MPBuildingDataset.h>
 #import <MapsIndoorsSDK/MPCategoryUIBarButtonItem.h>
-#import <MapsIndoorsSDK/MPCachedLocationsProvider.h>
 #import <MapsIndoorsSDK/MPContactModule.h>
 #import <MapsIndoorsSDK/MPFloor.h>
 #import <MapsIndoorsSDK/MPFloorButton.h>
@@ -46,7 +45,6 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsSDKVersionString[];
 #import <MapsIndoorsSDK/MPLocationView.h>
 #import <MapsIndoorsSDK/MPMapControl.h>
 #import <MapsIndoorsSDK/MPMapStyle.h>
-#import <MapsIndoorsSDK/MPOfflineTileLayer.h>
 #import <MapsIndoorsSDK/MPOnlineTileLayer.h>
 #import <MapsIndoorsSDK/MPOpeningHours.h>
 #import <MapsIndoorsSDK/MPOpeningHoursModule.h>
@@ -58,7 +56,6 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsSDKVersionString[];
 #import <MapsIndoorsSDK/MPRoutingControl.h>
 #import <MapsIndoorsSDK/MPRoutingProvider.h>
 #import <MapsIndoorsSDK/MPSite.h>
-#import <MapsIndoorsSDK/MPTileDB.h>
 #import <MapsIndoorsSDK/MPTokenSet.h>
 #import <MapsIndoorsSDK/MPUIViewController.h>
 #import <MapsIndoorsSDK/MPURITemplate.h>
@@ -88,7 +85,6 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsSDKVersionString[];
 #import <MapsIndoorsSDK/MPBeaconCollection.h>
 #import <MapsIndoorsSDK/MPBuildingCollection.h>
 #import <MapsIndoorsSDK/MPBuildingReference.h>
-#import <MapsIndoorsSDK/MPLocationsDB.h>
 #import <MapsIndoorsSDK/MPMapButtonControl.h>
 #import <MapsIndoorsSDK/MPRouteInstructions.h>
 #import <MapsIndoorsSDK/MPRouteResult.h>
