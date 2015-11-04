@@ -13,9 +13,7 @@
 #import "MPLocationDataset.h"
 #import "MPFloorSelectorControl.h"
 #import "MPCategoryUIBarButtonItem.h"
-#import "MPTileDB.h"
 #import "MPLoadIndicator.h"
-#import "MPOfflineTileLayer.h"
 #import "MPOnlineTileLayer.h"
 #import "MPBuildingDataset.h"
 #import "MPLocationDataset.h"
@@ -40,11 +38,6 @@
  * Empty protocol specification.
  */
 @protocol MPOnlineTileLayer
-@end
-/**
- * Empty protocol specification.
- */
-@protocol MPOfflineTileLayer
 @end
 /**
  * Delegate protocol specification to hold the floor change event.
@@ -115,7 +108,7 @@
  [mapControl setupMapWith: clientId site: siteId locations: myProvider venues: nil routing: nil appData: nil];
  </pre></code>
  */
-@interface MPMapControl : NSObject<GMSMapViewDelegate, MPFloorSelectorDelegate, MPOfflineTileLayerDelegate, MPBuildingDelegate, MPInfoSnippetViewDelegate, MPRouteActionDelegate, MPLocationsProviderDelegate, MPVenueProviderDelegate, MPRoutingProviderDelegate, MPPositionProviderDelegate, MPSolutionProviderDelegate>
+@interface MPMapControl : NSObject<GMSMapViewDelegate, MPFloorSelectorDelegate, MPBuildingDelegate, MPInfoSnippetViewDelegate, MPRouteActionDelegate, MPLocationsProviderDelegate, MPVenueProviderDelegate, MPRoutingProviderDelegate, MPPositionProviderDelegate, MPSolutionProviderDelegate>
 
 /**
  * Delegate object containing data events

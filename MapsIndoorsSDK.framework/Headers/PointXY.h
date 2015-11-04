@@ -17,4 +17,3 @@
 
 + (CLLocationCoordinate2D) getRefPoint;
 @end
-

@@ -10,6 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "MPPositionProvider.h"
 #import "MPBeaconProvider.h"
+#import "MPBeacon.h"
 
 @interface MPBeaconPositionProvider : NSObject<MPPositionProvider, CLLocationManagerDelegate, MPBeaconProviderDelegate>
 
@@ -25,5 +26,9 @@
 @property (assign, nonatomic) double lastBeaconRecievedTime;
 @property (nonatomic, retain) MPPoint *pos;
 @property (assign, nonatomic) double probability;
+@property (assign, nonatomic) NSString* debugPositioningState NS_DEPRECATED_IOS(8_0, 9_0);
+@property (assign, nonatomic) NSArray* debugCurrentVisibleBeacons NS_DEPRECATED_IOS(8_0, 9_0);
+@property (assign, nonatomic) MPBeacon* currentNearestBeacon;
+
 
 @end
