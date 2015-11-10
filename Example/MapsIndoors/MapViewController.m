@@ -106,6 +106,13 @@
     [_directionsRenderer.previousRouteLegButton addTarget:self action:@selector(showPreviousRouteLeg) forControlEvents:UIControlEventTouchUpInside];
     
     
+    [_mapControl addObserver:self forKeyPath:@"currentPosition.floor" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
+    int floor = [_mapControl.currentPosition.floor intValue];
+    _mapControl.currentFloor = [NSNumber numberWithInt:floor];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
