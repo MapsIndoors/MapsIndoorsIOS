@@ -36,11 +36,6 @@
 	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We use your current location to find distance and routes to selected indoor/outdoor locations</string>
 	<key>UILaunchStoryboardName</key>
