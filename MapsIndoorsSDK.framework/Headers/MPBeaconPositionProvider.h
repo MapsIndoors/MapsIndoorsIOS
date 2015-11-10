@@ -18,6 +18,7 @@
 
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property (assign, nonatomic) BOOL isRunning;
+@property (assign, nonatomic) BOOL enableCoreLocationFallback;
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
 @property (strong, nonatomic) NSMutableDictionary *beaconPoints;
 @property (strong, nonatomic) NSMutableArray *deadBeaconPoints;
@@ -29,6 +30,7 @@
 @property (assign, nonatomic) NSString* debugPositioningState NS_DEPRECATED_IOS(8_0, 9_0);
 @property (assign, nonatomic) NSArray* debugCurrentVisibleBeacons NS_DEPRECATED_IOS(8_0, 9_0);
 @property (assign, nonatomic) MPBeacon* currentNearestBeacon;
+
 
 
 @end
