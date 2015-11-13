@@ -56,6 +56,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController presentTransparentNavigationBar];
+    self.viewWillAppearCalled = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -78,6 +79,8 @@
     }
     
     [self updateUI];
+    
+    self.viewDidAppearCalled = YES;
 }
 
 - (void)next:(id)sender {

@@ -15,5 +15,9 @@
 
 @property (strong, nonatomic) id detailLocation;
 
+
+@property (nonatomic, assign) BOOL viewDidAppearCalled;
+@property (nonatomic, assign) BOOL viewWillAppearCalled;
+
 @end
 

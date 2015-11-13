@@ -115,6 +115,11 @@
     
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.viewDidAppearCalled = YES;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.barTintColor = [UIColor appPrimaryColor];
@@ -171,6 +176,8 @@
     
     [_mapView addConstraints:constraint_BPOS_V];
     [_mapView addConstraints:constraint_BPOS_H];
+    
+    self.viewWillAppearCalled = YES;
 }
 
 - (void)showCurrentPosition: (id) sender {

@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#ifdef USE_M4B
+#import <GoogleMapsM4B/GoogleMaps.h>
+#else
 #import <GoogleMaps/GoogleMaps.h>
+#endif
 #import "MPBuilding.h"
 #import "MPFloorButton.h"
 

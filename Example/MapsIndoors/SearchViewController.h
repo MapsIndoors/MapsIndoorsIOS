@@ -18,4 +18,8 @@
 @property (nonatomic, weak) IBOutlet UIImageView *headerImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *iconImageView;
 
+
+@property (nonatomic, assign) BOOL viewDidAppearCalled;
+@property (nonatomic, assign) BOOL viewWillAppearCalled;
+
 @end
