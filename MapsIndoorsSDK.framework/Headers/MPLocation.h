@@ -26,7 +26,11 @@
 #import "NSDictionary+MPLocationPropertiesDictionary.h"
 #import "MPContactModule.h"
 #import "MPLocationField.h"
+#ifdef USE_M4B
+#import <GoogleMapsM4B/GoogleMaps.h>
+#else
 #import <GoogleMaps/GoogleMaps.h>
+#endif
 
 @class MPLocationDisplayRuleset;
 @class MPLocationDisplayRule;

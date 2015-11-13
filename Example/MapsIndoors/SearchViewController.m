@@ -84,6 +84,8 @@
     
     _spinner.center = CGPointMake(self.view.frame.size.width*0.5, 240);
     
+    self.viewWillAppearCalled = YES;
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -93,7 +95,10 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [self performSelector:@selector(focusSearchBar:) withObject:nil afterDelay:0.1];
+    
+    self.viewDidAppearCalled = YES;
 }
 
 - (void)focusSearchBar:(id)sender {

@@ -9,7 +9,11 @@
 #define EXP_SHORTHAND
 #include <Specta/Specta.h>
 #include <Expecta/Expecta.h>
+@import Expecta_Snapshots.EXPMatchers_FBSnapshotTest;
 //#include <Expecta+Snapshots/EXPMatchers+FBSnapshotTest.h>
+
+#import "MapViewController.h"
+#import "DetailViewController.h"
 
 //#include "FBExampleView.h"
 //#import "FBViewController.h"
@@ -19,25 +23,25 @@
 XCTAssertNoThrow((expr))
 
 
-SpecBegin(FBExampleView)
+SpecBegin(MapsIndoorsDemo)
 
-//__block CGRect frame = CGRectMake(0, 0, 64, 64);
-//__block NSFileManager *fileManager = [[NSFileManager alloc] init];
-//__block NSString *imagesDirectory = [NSString stringWithFormat:@"%s/%@", FB_REFERENCE_IMAGE_DIR, @"FBExampleViewSpec"];
+__block CGRect frame = CGRectMake(0, 0, 320, 580);
+__block NSFileManager *fileManager = [[NSFileManager alloc] init];
+__block NSString *imagesDirectory = [NSString stringWithFormat:@"%s/%@", FB_REFERENCE_IMAGE_DIR, @"MapsIndoorsDemo"];
 
 describe(@"snapshots", ^{
     
-//    dispatch_block_t deleteSnapshots = ^{
-//        NSArray *files = [fileManager contentsOfDirectoryAtPath:imagesDirectory error:nil];
-//        for (NSString *file in files) {
-//            NSString *fullPath = [imagesDirectory stringByAppendingPathComponent:file];
-//            [fileManager removeItemAtPath:fullPath error:nil];
-//        }
-//    };
-//    
-//    beforeEach(deleteSnapshots);
-//    afterAll(deleteSnapshots);
-//    
+    dispatch_block_t deleteSnapshots = ^{
+        NSArray *files = [fileManager contentsOfDirectoryAtPath:imagesDirectory error:nil];
+        for (NSString *file in files) {
+            NSString *fullPath = [imagesDirectory stringByAppendingPathComponent:file];
+            [fileManager removeItemAtPath:fullPath error:nil];
+        }
+    };
+    
+    beforeEach(deleteSnapshots);
+    afterAll(deleteSnapshots);
+    
 //    describe(@"with a view", ^{
 //        __block FBExampleView *view;
 //        
@@ -95,96 +99,96 @@ describe(@"snapshots", ^{
 //            });
 //        });
 //    });
-//    
-//    describe(@"with a view controller", ^{
-//        __block FBViewController *controller;
-//        
-//        before(^{
-//            controller = [[FBRedViewController alloc] init];
-//            controller.view.frame = frame;
-//        });
-//        
-//        
-//        describe(@"recording", ^{
-//            it(@"named", ^{
-//                expect(controller).toNot.recordSnapshotNamed(@"view controller 1");
-//                expect(controller.viewWillAppearCalled).to.beTruthy();
-//                expect(controller.viewDidAppearCalled).to.beTruthy();
-//                NSString *imageName = [[fileManager contentsOfDirectoryAtPath:imagesDirectory error:nil] firstObject];
-//                expect(imageName).to.contain(@"view controller 1");
-//            });
-//            
-//            
-//            it(@"unnamed", ^{
-//                expect(controller).toNot.to.recordSnapshot();
-//                expect(controller.viewWillAppearCalled).to.beTruthy();
-//                expect(controller.viewDidAppearCalled).to.beTruthy();
-//                NSString *imageName = [[fileManager contentsOfDirectoryAtPath:imagesDirectory error:nil] firstObject];
-//                expect(imageName).to.contain(@"snapshots_with_a_view_controller_recording_unnamed");
-//            });
-//        });
-//        
-//        describe(@"matching", ^{
-//            
-//            describe(@"named", ^{
-//                it(@"matches view controller", ^{
-//                    expect(controller).toNot.recordSnapshotNamed(@"view controller 2");
-//                    
-//                    FBViewController *newVC = [[FBRedViewController alloc] init];
-//                    newVC.view.frame = frame;
-//                    expect(newVC).to.haveValidSnapshotNamed(@"view controller 2");
-//                    expect(newVC.viewWillAppearCalled).to.beTruthy();
-//                    expect(newVC.viewDidAppearCalled).to.beTruthy();
-//                });
-//                
-//                it(@"doesn't match if file doesn't exist", ^{
-//                    expect(controller).toNot.haveValidSnapshotNamed(@"nonexistent image");
-//                    expect(controller.viewWillAppearCalled).to.beTruthy();
-//                    expect(controller.viewDidAppearCalled).to.beTruthy();
-//                });
-//                
-//                it(@"doesn't match if files differ", ^{
-//                    expect(controller).toNot.recordSnapshotNamed(@"view controller 3");
-//                    
-//                    FBViewController *newVC = [[FBBlueViewController alloc] init];
-//                    newVC.view.frame = frame;
-//                    expect(newVC).toNot.haveValidSnapshotNamed(@"view controller 3");
-//                    expect(newVC.viewWillAppearCalled).to.beTruthy();
-//                    expect(newVC.viewDidAppearCalled).to.beTruthy();
-//                });
-//            });
-//            
-//            describe(@"unnamed", ^{
-//                it(@"matches view controller", ^{
-//                    expect(controller).toNot.recordSnapshot();
-//                    
-//                    FBViewController *newVC = [[FBRedViewController alloc] init];
-//                    newVC.view.frame = frame;
-//                    expect(newVC).to.haveValidSnapshot();
-//                    expect(newVC.viewWillAppearCalled).to.beTruthy();
-//                    expect(newVC.viewDidAppearCalled).to.beTruthy();
-//                });
-//                
-//                it(@"doesn't match if file doesn't exist", ^{
-//                    expect(controller).toNot.haveValidSnapshot();
-//                    expect(controller.viewWillAppearCalled).to.beTruthy();
-//                    expect(controller.viewDidAppearCalled).to.beTruthy();
-//                });
-//                
-//                it(@"doesn't match if files differ", ^{
-//                    expect(controller).toNot.recordSnapshot();
-//                    
-//                    FBViewController *newVC = [[FBBlueViewController alloc] init];
-//                    newVC.view.frame = frame;
-//                    expect(newVC).toNot.haveValidSnapshot();
-//                    expect(newVC.viewWillAppearCalled).to.beTruthy();
-//                    expect(newVC.viewDidAppearCalled).to.beTruthy();
-//                });
-//            });
-//            
-//        });
-//        
-//    });
+    
+    describe(@"with a view controller", ^{
+        __block MapViewController *controller;
+        
+        before(^{
+            controller = [[MapViewController alloc] init];
+            controller.view.frame = frame;
+        });
+        
+        
+        describe(@"recording", ^{
+            it(@"named", ^{
+                expect(controller).toNot.recordSnapshotNamed(@"view controller 1");
+                expect(controller.viewWillAppearCalled).to.beTruthy();
+                expect(controller.viewDidAppearCalled).to.beTruthy();
+                NSString *imageName = [[fileManager contentsOfDirectoryAtPath:imagesDirectory error:nil] firstObject];
+                expect(imageName).to.contain(@"view controller 1");
+            });
+            
+            
+            it(@"unnamed", ^{
+                expect(controller).toNot.to.recordSnapshot();
+                expect(controller.viewWillAppearCalled).to.beTruthy();
+                expect(controller.viewDidAppearCalled).to.beTruthy();
+                NSString *imageName = [[fileManager contentsOfDirectoryAtPath:imagesDirectory error:nil] firstObject];
+                expect(imageName).to.contain(@"snapshots_with_a_view_controller_recording_unnamed");
+            });
+        });
+        
+        describe(@"matching", ^{
+            
+            describe(@"named", ^{
+                it(@"matches view controller", ^{
+                    expect(controller).toNot.recordSnapshotNamed(@"view controller 2");
+                    
+                    MapViewController *newVC = [[MapViewController alloc] init];
+                    newVC.view.frame = frame;
+                    expect(newVC).to.haveValidSnapshotNamed(@"view controller 2");
+                    expect(newVC.viewWillAppearCalled).to.beTruthy();
+                    expect(newVC.viewDidAppearCalled).to.beTruthy();
+                });
+                
+                it(@"doesn't match if file doesn't exist", ^{
+                    expect(controller).toNot.haveValidSnapshotNamed(@"nonexistent image");
+                    expect(controller.viewWillAppearCalled).to.beTruthy();
+                    expect(controller.viewDidAppearCalled).to.beTruthy();
+                });
+                
+                it(@"doesn't match if files differ", ^{
+                    expect(controller).toNot.recordSnapshotNamed(@"view controller 3");
+                    
+                    DetailViewController *newVC = [[DetailViewController alloc] init];
+                    newVC.view.frame = frame;
+                    expect(newVC).toNot.haveValidSnapshotNamed(@"view controller 3");
+                    expect(newVC.viewWillAppearCalled).to.beTruthy();
+                    expect(newVC.viewDidAppearCalled).to.beTruthy();
+                });
+            });
+            
+            describe(@"unnamed", ^{
+                it(@"matches view controller", ^{
+                    expect(controller).toNot.recordSnapshot();
+                    
+                    MapViewController *newVC = [[MapViewController alloc] init];
+                    newVC.view.frame = frame;
+                    expect(newVC).to.haveValidSnapshot();
+                    expect(newVC.viewWillAppearCalled).to.beTruthy();
+                    expect(newVC.viewDidAppearCalled).to.beTruthy();
+                });
+                
+                it(@"doesn't match if file doesn't exist", ^{
+                    expect(controller).toNot.haveValidSnapshot();
+                    expect(controller.viewWillAppearCalled).to.beTruthy();
+                    expect(controller.viewDidAppearCalled).to.beTruthy();
+                });
+                
+                it(@"doesn't match if files differ", ^{
+                    expect(controller).toNot.recordSnapshot();
+                    
+                    DetailViewController *newVC = [[DetailViewController alloc] init];
+                    newVC.view.frame = frame;
+                    expect(newVC).toNot.haveValidSnapshot();
+                    expect(newVC.viewWillAppearCalled).to.beTruthy();
+                    expect(newVC.viewDidAppearCalled).to.beTruthy();
+                });
+            });
+            
+        });
+        
+    });
 });
 
 SpecEnd

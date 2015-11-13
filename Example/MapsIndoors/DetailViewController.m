@@ -46,6 +46,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController presentTransparentNavigationBar];
+    self.viewWillAppearCalled = YES;
 }
 
 - (void) pop: (id)sender {
@@ -155,6 +156,9 @@
 //        [self.tableView.superview addConstraints:constraint_POS_H];
 
     }
+    
+    
+    self.viewDidAppearCalled = YES;
     
 }
 

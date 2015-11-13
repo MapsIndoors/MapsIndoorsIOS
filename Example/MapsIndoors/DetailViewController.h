@@ -20,7 +20,12 @@
 @property (nonatomic, weak) IBOutlet UIImageView *backIconView;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 
+
 @property (nonatomic, strong) MPLocation* location;
+
+
+@property (nonatomic, assign) BOOL viewDidAppearCalled;
+@property (nonatomic, assign) BOOL viewWillAppearCalled;
 
 - (UIImage*) materialIcon:(NSString*)iconCode;
 

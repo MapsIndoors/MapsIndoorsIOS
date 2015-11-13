@@ -15,6 +15,10 @@
 @property MPRoute* currentRoute;
 @property (nonatomic, weak) IBOutlet UIView *tableFooter;
 
+
+@property (nonatomic, assign) BOOL viewDidAppearCalled;
+@property (nonatomic, assign) BOOL viewWillAppearCalled;
+
 -(IBAction) pop;
 
 @end

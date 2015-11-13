@@ -701,7 +701,7 @@
 		</data>
 		<key>Headers/MPBuilding.h</key>
 		<data>
-		bmd8Tpgz/46EsqFgbP7LSZC76+A=
+		329DEKNIBltyMT+EmrrBMUaxTJ4=
 		</data>
 		<key>Headers/MPBuildingCollection.h</key>
 		<data>
@@ -733,7 +733,7 @@
 		</data>
 		<key>Headers/MPDirectionsRenderer.h</key>
 		<data>
-		5Pn/cvDsf46LSO7KTl3QNyOtyDw=
+		e+JTFyyamy0Kn6mZebviaulsqKU=
 		</data>
 		<key>Headers/MPDirectionsService.h</key>
 		<data>
@@ -765,7 +765,7 @@
 		</data>
 		<key>Headers/MPFloor.h</key>
 		<data>
-		0rtDS2chkL2K4/rgMQrwGbHdmtE=
+		vmOXOENCTCyLUCVgTNu0BaNvJZs=
 		</data>
 		<key>Headers/MPFloorButton.h</key>
 		<data>
@@ -773,7 +773,7 @@
 		</data>
 		<key>Headers/MPFloorSelectorControl.h</key>
 		<data>
-		AAoOIGGG4FJcCXaGPc3ZiYpCl3I=
+		k4ogJqKzTFo5gvMk4b7UeFfZUZQ=
 		</data>
 		<key>Headers/MPFloorTileLayer.h</key>
 		<data>
@@ -813,7 +813,7 @@
 		</data>
 		<key>Headers/MPLocation.h</key>
 		<data>
-		YjAZRMSi9WcrCNslm1arlmONvIw=
+		VWVGASxYosqf2D2BvbRKw6sdDLs=
 		</data>
 		<key>Headers/MPLocationDataset.h</key>
 		<data>
@@ -865,11 +865,11 @@
 		</data>
 		<key>Headers/MPMapControl.h</key>
 		<data>
-		k0s2nFvolZ2gQUK4XqEHl6Px7NU=
+		ANqzp6wOt7mZnYphHr3C4MvPR8M=
 		</data>
 		<key>Headers/MPMapExtend.h</key>
 		<data>
-		LVlWsQmC6djpXzBwc5mpvKdpTM8=
+		46t+0BoB0uWeqe4Pn0A7okUdhR4=
 		</data>
 		<key>Headers/MPMapRouteLegButton.h</key>
 		<data>
@@ -885,7 +885,7 @@
 		</data>
 		<key>Headers/MPOnlineTileLayer.h</key>
 		<data>
-		mh1SgS4T096KRQhgG7TpuFiwarE=
+		qdbORk9/X7TpVczA8WGigBb8q1o=
 		</data>
 		<key>Headers/MPOpeningHours.h</key>
 		<data>
@@ -913,7 +913,7 @@
 		</data>
 		<key>Headers/MPRoute.h</key>
 		<data>
-		X7E4l8hWPXAMAkdaIqEdxqy2r+E=
+		puUqtJFxFrng6RD1jkD2IFF4FF0=
 		</data>
 		<key>Headers/MPRouteBounds.h</key>
 		<data>
@@ -1045,7 +1045,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		h0Rh1dGJOF88+bwwdXm15hL+FuU=
+		XY/O3IgOHhv/hPrYGxk/+AfRP1o=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -1751,7 +1751,7 @@
 		</data>
 		<key>Headers/MPBuilding.h</key>
 		<data>
-		bmd8Tpgz/46EsqFgbP7LSZC76+A=
+		329DEKNIBltyMT+EmrrBMUaxTJ4=
 		</data>
 		<key>Headers/MPBuildingCollection.h</key>
 		<data>
@@ -1783,7 +1783,7 @@
 		</data>
 		<key>Headers/MPDirectionsRenderer.h</key>
 		<data>
-		5Pn/cvDsf46LSO7KTl3QNyOtyDw=
+		e+JTFyyamy0Kn6mZebviaulsqKU=
 		</data>
 		<key>Headers/MPDirectionsService.h</key>
 		<data>
@@ -1815,7 +1815,7 @@
 		</data>
 		<key>Headers/MPFloor.h</key>
 		<data>
-		0rtDS2chkL2K4/rgMQrwGbHdmtE=
+		vmOXOENCTCyLUCVgTNu0BaNvJZs=
 		</data>
 		<key>Headers/MPFloorButton.h</key>
 		<data>
@@ -1823,7 +1823,7 @@
 		</data>
 		<key>Headers/MPFloorSelectorControl.h</key>
 		<data>
-		AAoOIGGG4FJcCXaGPc3ZiYpCl3I=
+		k4ogJqKzTFo5gvMk4b7UeFfZUZQ=
 		</data>
 		<key>Headers/MPFloorTileLayer.h</key>
 		<data>
@@ -1863,7 +1863,7 @@
 		</data>
 		<key>Headers/MPLocation.h</key>
 		<data>
-		YjAZRMSi9WcrCNslm1arlmONvIw=
+		VWVGASxYosqf2D2BvbRKw6sdDLs=
 		</data>
 		<key>Headers/MPLocationDataset.h</key>
 		<data>
@@ -1915,11 +1915,11 @@
 		</data>
 		<key>Headers/MPMapControl.h</key>
 		<data>
-		k0s2nFvolZ2gQUK4XqEHl6Px7NU=
+		ANqzp6wOt7mZnYphHr3C4MvPR8M=
 		</data>
 		<key>Headers/MPMapExtend.h</key>
 		<data>
-		LVlWsQmC6djpXzBwc5mpvKdpTM8=
+		46t+0BoB0uWeqe4Pn0A7okUdhR4=
 		</data>
 		<key>Headers/MPMapRouteLegButton.h</key>
 		<data>
@@ -1935,7 +1935,7 @@
 		</data>
 		<key>Headers/MPOnlineTileLayer.h</key>
 		<data>
-		mh1SgS4T096KRQhgG7TpuFiwarE=
+		qdbORk9/X7TpVczA8WGigBb8q1o=
 		</data>
 		<key>Headers/MPOpeningHours.h</key>
 		<data>
@@ -1963,7 +1963,7 @@
 		</data>
 		<key>Headers/MPRoute.h</key>
 		<data>
-		X7E4l8hWPXAMAkdaIqEdxqy2r+E=
+		puUqtJFxFrng6RD1jkD2IFF4FF0=
 		</data>
 		<key>Headers/MPRouteBounds.h</key>
 		<data>

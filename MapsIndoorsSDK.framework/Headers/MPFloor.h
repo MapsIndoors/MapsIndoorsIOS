@@ -8,7 +8,11 @@
 
 #import <JSONModel/JSONModel.h>
 #import "MPGeometry.h"
+#ifdef USE_M4B
+#import <GoogleMapsM4B/GoogleMaps.h>
+#else
 #import <GoogleMaps/GoogleMaps.h>
+#endif
 
 /**
  * Floor data model. Holds the floor geometry, display name, z-index and id of the building it belongs to. Furthermore it can hold a reference to a GMSTileLayer.
