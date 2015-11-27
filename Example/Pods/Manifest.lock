@@ -33,11 +33,9 @@ PODS:
   - GoogleFontsiOS/Core (0.1.1)
   - GoogleFontsiOS/Roboto (0.1.1):
     - GoogleFontsiOS/Core
-  - GoogleMaps (1.10.5)
   - HashBuilder (1.0.1)
   - JSONModel (1.1.2)
-  - MapsIndoors (1.3.26):
-    - GoogleMaps (~> 1.10)
+  - MapsIndoors (1.3.50):
     - JSONModel (~> 1.1)
   - MaterialControls (1.0.2)
   - Specta (1.0.4)
@@ -67,10 +65,9 @@ SPEC CHECKSUMS:
   Expecta+Snapshots: 29b38dd695bc72a0ed2bea833937d78df41943ba
   FBSnapshotTestCase: f53793e19b2782f2948e8597b03ec2bb5aedf5cd
   GoogleFontsiOS: 9f4a4f886160d8cb723bd936604b3f6b975f1167
-  GoogleMaps: da51c62c338c2d9c47cdad470a0d1e0e4b8544e4
   HashBuilder: d2f6cbd492c68350bbcf0fa2216aae50b60657d5
   JSONModel: 216584d0311b053ff714f1d6cb700dbf890847bc
-  MapsIndoors: 1a419e3852c6d46891160bc643c0f603e9214b82
+  MapsIndoors: 20d5b9820d6507c4e32c850fbf2158ccbba6177e
   MaterialControls: bdeeb94aa049b73f70739a5514be137d2d45c08a
   Specta: 69bb134672aae190a1379ff91df07dad8dd1f869
   VCMaterialDesignIcons: 68a944308ab41282ba8555770cb57e3fbf2034be
