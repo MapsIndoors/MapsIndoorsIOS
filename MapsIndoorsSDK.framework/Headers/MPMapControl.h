@@ -24,7 +24,6 @@
 #import "MPRoutingControl.h"
 #import "MPLayerType.h"
 #import "MPInfoSnippetView.h"
-#import "JSONModelLib.h"
 #import "MPRoutingProvider.h"
 #import "MPLocationsProvider.h"
 #import "MPVenueProvider.h"
