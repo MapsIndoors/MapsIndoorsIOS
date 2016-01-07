@@ -8,7 +8,7 @@ target :MapsIndoors_Example, :exclusive => true do
   pod 'AFNetworking', '~> 2.5'
   pod 'MaterialControls', '~> 1.0'
   pod 'VCMaterialDesignIcons', '~> 2.1'
-  pod 'GoogleFontsiOS/Roboto'
+  pod 'GoogleFontsiOS/Roboto'		
   pod 'HashBuilder', '~> 1.0'
   pod 'EasyTableView', '~> 1.1'
   

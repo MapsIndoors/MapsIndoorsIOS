@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JSONModelArray.h"
+#import <JSONModel/JSONModelArray.h>
 #import "MPOpeningHours.h"
 
 /**

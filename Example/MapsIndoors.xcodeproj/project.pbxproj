@@ -145,6 +145,7 @@
 		021A69AA4D3C588DB7607CF1 /* Pods-MapsIndoors_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsIndoors_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapsIndoors_Example/Pods-MapsIndoors_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		179FD2986828E33EE85F6E4A /* MapsIndoors.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MapsIndoors.podspec; path = ../MapsIndoors.podspec; sourceTree = "<group>"; };
 		2CD659FEA5582C12FE25C6FE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		5BBF69BAAFAB4B2CBCB13D4B /* Pods-MapsIndoors_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsIndoors_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapsIndoors_Tests/Pods-MapsIndoors_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* MapsIndoors_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapsIndoors_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -154,7 +155,6 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		63504553228DCBAE8ABC3092 /* Pods-MapsIndoors_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsIndoors_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapsIndoors_Tests/Pods-MapsIndoors_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		7B9C56191BDE710600C9D81C /* MapsIndoors-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MapsIndoors-Prefix.pch"; sourceTree = "<group>"; };
 		7B9C561A1BDE744900C9D81C /* IndoorAtlas.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IndoorAtlas.framework; sourceTree = "<group>"; };
 		7B9C561E1BDE746A00C9D81C /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
@@ -293,10 +293,10 @@
 		7BE91FBE1BDE557800A16EE0 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7BE91FBF1BDE557800A16EE0 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7BE91FC01BDE557800A16EE0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		966DCDED7F0A9B1AAF18793C /* Pods-MapsIndoors_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsIndoors_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapsIndoors_Tests/Pods-MapsIndoors_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		9AB961D7B93DBB16D943EFD0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		A15787388D477D4DCD05C185 /* Pods_MapsIndoors_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapsIndoors_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4C41619E8538A4474172EC9 /* Pods-MapsIndoors_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsIndoors_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapsIndoors_Example/Pods-MapsIndoors_Example.release.xcconfig"; sourceTree = "<group>"; };
+		D6DCB7F271D9C8A0E2E861F7 /* Pods-MapsIndoors_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsIndoors_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapsIndoors_Tests/Pods-MapsIndoors_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		D9D1E803B08FF6F45CF0503D /* Pods_MapsIndoors_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapsIndoors_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -581,8 +581,8 @@
 			children = (
 				021A69AA4D3C588DB7607CF1 /* Pods-MapsIndoors_Example.debug.xcconfig */,
 				D4C41619E8538A4474172EC9 /* Pods-MapsIndoors_Example.release.xcconfig */,
-				63504553228DCBAE8ABC3092 /* Pods-MapsIndoors_Tests.debug.xcconfig */,
-				966DCDED7F0A9B1AAF18793C /* Pods-MapsIndoors_Tests.release.xcconfig */,
+				5BBF69BAAFAB4B2CBCB13D4B /* Pods-MapsIndoors_Tests.debug.xcconfig */,
+				D6DCB7F271D9C8A0E2E861F7 /* Pods-MapsIndoors_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1087,7 +1087,7 @@
 					"-weak_framework",
 					GoogleMaps,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Y9ED767H7S.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mapspeople.MapsIndoors-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1172,7 +1172,7 @@
 					"-weak_framework",
 					GoogleMaps,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Y9ED767H7S.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mapspeople.MapsIndoors-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1183,7 +1183,7 @@
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 63504553228DCBAE8ABC3092 /* Pods-MapsIndoors_Tests.debug.xcconfig */;
+			baseConfigurationReference = 5BBF69BAAFAB4B2CBCB13D4B /* Pods-MapsIndoors_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1210,7 +1210,7 @@
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 966DCDED7F0A9B1AAF18793C /* Pods-MapsIndoors_Tests.release.xcconfig */;
+			baseConfigurationReference = D6DCB7F271D9C8A0E2E861F7 /* Pods-MapsIndoors_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";

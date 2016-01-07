@@ -26,6 +26,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsSDKVersionString[];
 #import <MapsIndoorsSDK/MPFloorButton.h>
 #import <MapsIndoorsSDK/MPFloorSelectorControl.h>
 #import <MapsIndoorsSDK/MPFloorTileLayer.h>
+#import <MapsIndoorsSDK/MPPersistentCacheGMSTileLayer.h>
 #import <MapsIndoorsSDK/MPGeometry.h>
 #import <MapsIndoorsSDK/MPInfoSnippetView.h>
 #import <MapsIndoorsSDK/MPLatLng.h>

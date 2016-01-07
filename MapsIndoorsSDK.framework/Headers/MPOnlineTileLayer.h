@@ -22,9 +22,9 @@
 }
 
 /**
- * The google GMSURLTileLayer object.
+ * The google GMSTileLayer object.
  */
-@property GMSURLTileLayer* layer;
+@property GMSTileLayer* layer;
 /**
  * Layer type / identifier.
  */
