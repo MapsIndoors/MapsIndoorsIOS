@@ -44,7 +44,7 @@ PODS:
   - VCMaterialDesignIcons (2.1.1)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.5)
+  - AFNetworking (~> 2)
   - EasyTableView (~> 1.1)
   - Expecta
   - Expecta+Snapshots
@@ -70,7 +70,7 @@ SPEC CHECKSUMS:
   GoogleMaps: c947160008f414c66707a5ea60f35e92055c7670
   HashBuilder: d2f6cbd492c68350bbcf0fa2216aae50b60657d5
   JSONModel: 12523685c4b623553ccf844bbbf7007624317b2c
-  MapsIndoors: 6c87a0667475ced278eb32eebe01301e82963e21
+  MapsIndoors: b7aa5c67f2c99e129509bd6e80a9a1d91dd9a4b4
   MaterialControls: bdeeb94aa049b73f70739a5514be137d2d45c08a
   Specta: ac94d110b865115fe60ff2c6d7281053c6f8e8a2
   VCMaterialDesignIcons: 68a944308ab41282ba8555770cb57e3fbf2034be
