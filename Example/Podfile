@@ -5,7 +5,7 @@ use_frameworks!
 target :MapsIndoors_Example, :exclusive => true do
   pod "MapsIndoors", :path => "../"
   
-  pod 'AFNetworking', '~> 2.5'
+  pod 'AFNetworking', '~> 2.6'
   pod 'MaterialControls', '~> 1.0'
   pod 'VCMaterialDesignIcons', '~> 2.1'
   pod 'GoogleFontsiOS/Roboto'		

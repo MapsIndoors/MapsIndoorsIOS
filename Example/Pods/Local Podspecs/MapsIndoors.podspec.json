@@ -14,7 +14,7 @@
     "text": "Copyright 2015 by MapsPeople A/S\n"
   },
   "authors": {
-    "MapsPeople": "accounts@mapspeople.com"
+    "MapsPeople": "info@mapspeople.com"
   },
   "source": {
     "git": "https://github.com/MapsIndoors/MapsIndoorsIOS.git",
@@ -57,8 +57,5 @@
     "GoogleMaps": [
       "~> 1"
     ]
-  },
-  "pod_target_xcconfig": {
-    "ENABLE_BITCODE": "NO"
   }
 }
