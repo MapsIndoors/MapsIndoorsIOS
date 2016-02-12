@@ -19,7 +19,7 @@
 /**
  * Name/identifier of the rule. Also used as the rule condition for the location categories.
  */
-@property NSString* name;
+@property NSString<Ignore>* name;
 /**
  * The map zoom level above which the location marker should be visible.
  */
@@ -31,15 +31,23 @@
 /**
  * Relative path of the marker icon to use, without extension. Format is png.
  */
-@property NSString* iconPath;
+@property (nonatomic) NSString* iconPath;
+/**
+ * Label template for the resulting location marker - e.g. "{{name}}", "{{roomId}}", "Room #{{roomId}}" etc..
+ */
+@property (nonatomic) NSString* label;
 /**
  * The marker icon to use on markers that apply to the display rule.
  */
-@property UIImage<Optional>* icon;
+@property UIImage<Ignore>* icon;
 /**
  * Whether or not to show a text label instead of the icon.
  */
-@property BOOL showLabel;
+@property (assign, nonatomic) BOOL showLabel;
+/**
+ * Whether or not to show the icon.
+ */
+@property (assign, nonatomic) BOOL visible;
 
 /**
  * Processes the rule conditions at the given map zoom level.

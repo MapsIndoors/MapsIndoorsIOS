@@ -32,6 +32,13 @@
 #import "MPPositionProvider.h"
 #import "MPPositionIndicator.h"
 
+
+//! Project version number for MapsIndoorsSDK.
+FOUNDATION_EXPORT double MapsIndoorsSDKVNum;
+
+//! Project version string for MapsIndoorsSDK.
+FOUNDATION_EXPORT const unsigned char MapsIndoorsSDKVStr[];
+
 //@protocol MPLocatorDelegate <NSObject>
 //@required
 //- (void) MPLocator: onRouteChange;
@@ -193,6 +200,10 @@
  * The offline flag (default is false/online).
  */
 @property BOOL offline;
+/**
+ * Whether or not to hide all map locations. Default is NO
+ */
+@property (nonatomic) BOOL mapLocationsHidden;
 /**
  * The current camera position.
  */

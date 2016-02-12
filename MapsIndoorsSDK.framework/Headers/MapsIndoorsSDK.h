@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
+
 //! Project version number for MapsIndoorsSDK.
 FOUNDATION_EXPORT double MapsIndoorsSDKVersionNumber;
 
 //! Project version string for MapsIndoorsSDK.
 FOUNDATION_EXPORT const unsigned char MapsIndoorsSDKVersionString[];
+
 
 #import <MapsIndoorsSDK/UIColor+HexString.h>
 #import <MapsIndoorsSDK/MPAppData.h>
@@ -91,5 +93,10 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsSDKVersionString[];
 #import <MapsIndoorsSDK/MPRouteResult.h>
 #import <MapsIndoorsSDK/NSString+CustomFont.h>
 #import <MapsIndoorsSDK/UIFont+CustomFont.h>
+#import <MapsIndoorsSDK/MPCategoriesProvider.h>
+#import <MapsIndoorsSDK/MPCategories.h>
+#import <MapsIndoorsSDK/MPLocationsCache.h>
+#import <MapsIndoorsSDK/MPImageProvider.h>
+#import <MapsIndoorsSDK/MPErrorCodes.h>
 
 

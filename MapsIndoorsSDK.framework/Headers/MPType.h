@@ -7,6 +7,7 @@
 //
 
 #import <JSONModel/JSONModel.h>
+#import "MPLocationDisplayRule.h"
 
 /**
  * POI types (used by MapsPeoples services)
@@ -15,5 +16,6 @@
 
 @property NSString* name;
 @property NSString* icon;
+@property MPLocationDisplayRule<Optional>* displayRule;
 
 @end

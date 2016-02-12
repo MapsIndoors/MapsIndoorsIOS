@@ -1,1 +1,0 @@
-../../../MaterialControls/iOSUILib/iOSUILib/Slider/MDSliderIcon.h

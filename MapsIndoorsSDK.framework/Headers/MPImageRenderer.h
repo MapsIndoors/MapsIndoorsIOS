@@ -12,5 +12,6 @@
 @interface MPImageRenderer : NSObject
 
 + (UIImage *) imageWithView:(UIView *)view;
++ (UIImage *) scaledIconFromImage:(UIImage *)image;
 
 @end

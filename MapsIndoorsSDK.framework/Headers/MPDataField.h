@@ -11,6 +11,7 @@
 
 @interface MPDataField : JSONModel
 
+@property NSString<Optional>* key;
 @property NSString* value;
 
 @end

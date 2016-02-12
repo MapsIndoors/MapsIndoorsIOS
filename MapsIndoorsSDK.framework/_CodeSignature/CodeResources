@@ -837,6 +837,14 @@
 		<data>
 		iDJbrmPxKsTi71rHjLE3Yw74d9o=
 		</data>
+		<key>Headers/MPCategories.h</key>
+		<data>
+		1fNqzVfZNVRyfn5UErYIlIF+fvM=
+		</data>
+		<key>Headers/MPCategoriesProvider.h</key>
+		<data>
+		qkPthqWVu9uVwfB3Uj+6+LKG/P0=
+		</data>
 		<key>Headers/MPCategoryUIBarButtonItem.h</key>
 		<data>
 		HimHOTig5344MWIgKLUXLpWfrSM=
@@ -847,7 +855,7 @@
 		</data>
 		<key>Headers/MPDataField.h</key>
 		<data>
-		XQ0zURrXifqKvW19kv9iBP0gvwg=
+		y1SA3Rl9ZhOvAa7IXmtF29CYmQw=
 		</data>
 		<key>Headers/MPDirectionsRenderer.h</key>
 		<data>
@@ -881,6 +889,10 @@
 		<data>
 		4JwiDqXRb7Fa6iEAoTvfjF/DIh8=
 		</data>
+		<key>Headers/MPErrorCodes.h</key>
+		<data>
+		042EdUTPHHLTx9DrN0Ul/4rYWPk=
+		</data>
 		<key>Headers/MPFloor.h</key>
 		<data>
 		vmOXOENCTCyLUCVgTNu0BaNvJZs=
@@ -901,9 +913,13 @@
 		<data>
 		IXJg3DlqgEVFr+4tbDWVs483VNg=
 		</data>
+		<key>Headers/MPImageProvider.h</key>
+		<data>
+		XILRHNtNFlEuSxqlzOxdaI6vwss=
+		</data>
 		<key>Headers/MPImageRenderer.h</key>
 		<data>
-		sNXRkOM9PzOFShtEt4E7yQJ1HYY=
+		qTIB10KtnBqCSn5pNs1kQb6Z87s=
 		</data>
 		<key>Headers/MPInfoSnippetView.h</key>
 		<data>
@@ -931,7 +947,7 @@
 		</data>
 		<key>Headers/MPLocation.h</key>
 		<data>
-		VWVGASxYosqf2D2BvbRKw6sdDLs=
+		/f7KkCROWYdoWx9k48o+WthWcC4=
 		</data>
 		<key>Headers/MPLocationDataset.h</key>
 		<data>
@@ -939,7 +955,7 @@
 		</data>
 		<key>Headers/MPLocationDisplayRule.h</key>
 		<data>
-		vba1CFXUaQlzsogiSh9ofdZMhhc=
+		EgAjUdPKOzca8ztD1S4vyZrq8co=
 		</data>
 		<key>Headers/MPLocationDisplayRuleset.h</key>
 		<data>
@@ -973,9 +989,13 @@
 		<data>
 		OqCTLfvPxzGduH6Sj1qEh9smNMo=
 		</data>
+		<key>Headers/MPLocationsCache.h</key>
+		<data>
+		FtIHelV8CTGRl1dpjIbedL4Q2Jo=
+		</data>
 		<key>Headers/MPLocationsProvider.h</key>
 		<data>
-		Bxh2yk4jVIXnujZ8m5i0ylu9BBM=
+		zyuUHEe/QfRGcjqXTmg7QcXj0bQ=
 		</data>
 		<key>Headers/MPMapButtonControl.h</key>
 		<data>
@@ -983,7 +1003,7 @@
 		</data>
 		<key>Headers/MPMapControl.h</key>
 		<data>
-		bmXCKorZgal/oIQIHbwQkLxALQY=
+		Dhniqk3tWV11lXxA2HwxNmZotWc=
 		</data>
 		<key>Headers/MPMapExtend.h</key>
 		<data>
@@ -996,6 +1016,10 @@
 		<key>Headers/MPMapStyle.h</key>
 		<data>
 		UDSGMIY5aeDilGkKoOA8afrxLVs=
+		</data>
+		<key>Headers/MPMarkerView.h</key>
+		<data>
+		GrveBebynTGYxYh+Ljo+qhPKLSc=
 		</data>
 		<key>Headers/MPMyLocationButton.h</key>
 		<data>
@@ -1095,7 +1119,7 @@
 		</data>
 		<key>Headers/MPType.h</key>
 		<data>
-		ekw2ZaaeGpwJyzdRr25hegjj/6g=
+		66/fcvLsohlz/LOdjJU8ZmrFZpQ=
 		</data>
 		<key>Headers/MPUIViewController.h</key>
 		<data>
@@ -1123,7 +1147,7 @@
 		</data>
 		<key>Headers/MapsIndoorsSDK.h</key>
 		<data>
-		ly7RInC16ujyH0qLoWaB6MHopxM=
+		IYC1lsdFv01nPJrJmdUu4ccW780=
 		</data>
 		<key>Headers/NSDictionary+MPLocationPropertiesDictionary.h</key>
 		<data>
@@ -1136,6 +1160,10 @@
 		<key>Headers/NSString+FontAwesome.h</key>
 		<data>
 		U/JIM+RaWqEgku6pv+a4KB5cHXk=
+		</data>
+		<key>Headers/NSString+UrlRequest.h</key>
+		<data>
+		g9fDttyFV++I4xyF52A7lDdaPZ8=
 		</data>
 		<key>Headers/NSURL+QueryParser.h</key>
 		<data>
@@ -1165,9 +1193,13 @@
 		<data>
 		0iEB9CMqv+3Z2UQPlhxv1Q5c7vk=
 		</data>
+		<key>Headers/UIImage+MapsIndoorsBundle.h</key>
+		<data>
+		zmkpueyJFDjgNQ+p40TzeTSq2uQ=
+		</data>
 		<key>Info.plist</key>
 		<data>
-		Gv2K4t16k2AOabS/xGATdvoA59o=
+		miyQ5x0uYKdh6n57S9npDRXZCTE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -2009,6 +2041,14 @@
 		<data>
 		iDJbrmPxKsTi71rHjLE3Yw74d9o=
 		</data>
+		<key>Headers/MPCategories.h</key>
+		<data>
+		1fNqzVfZNVRyfn5UErYIlIF+fvM=
+		</data>
+		<key>Headers/MPCategoriesProvider.h</key>
+		<data>
+		qkPthqWVu9uVwfB3Uj+6+LKG/P0=
+		</data>
 		<key>Headers/MPCategoryUIBarButtonItem.h</key>
 		<data>
 		HimHOTig5344MWIgKLUXLpWfrSM=
@@ -2019,7 +2059,7 @@
 		</data>
 		<key>Headers/MPDataField.h</key>
 		<data>
-		XQ0zURrXifqKvW19kv9iBP0gvwg=
+		y1SA3Rl9ZhOvAa7IXmtF29CYmQw=
 		</data>
 		<key>Headers/MPDirectionsRenderer.h</key>
 		<data>
@@ -2053,6 +2093,10 @@
 		<data>
 		4JwiDqXRb7Fa6iEAoTvfjF/DIh8=
 		</data>
+		<key>Headers/MPErrorCodes.h</key>
+		<data>
+		042EdUTPHHLTx9DrN0Ul/4rYWPk=
+		</data>
 		<key>Headers/MPFloor.h</key>
 		<data>
 		vmOXOENCTCyLUCVgTNu0BaNvJZs=
@@ -2073,9 +2117,13 @@
 		<data>
 		IXJg3DlqgEVFr+4tbDWVs483VNg=
 		</data>
+		<key>Headers/MPImageProvider.h</key>
+		<data>
+		XILRHNtNFlEuSxqlzOxdaI6vwss=
+		</data>
 		<key>Headers/MPImageRenderer.h</key>
 		<data>
-		sNXRkOM9PzOFShtEt4E7yQJ1HYY=
+		qTIB10KtnBqCSn5pNs1kQb6Z87s=
 		</data>
 		<key>Headers/MPInfoSnippetView.h</key>
 		<data>
@@ -2103,7 +2151,7 @@
 		</data>
 		<key>Headers/MPLocation.h</key>
 		<data>
-		VWVGASxYosqf2D2BvbRKw6sdDLs=
+		/f7KkCROWYdoWx9k48o+WthWcC4=
 		</data>
 		<key>Headers/MPLocationDataset.h</key>
 		<data>
@@ -2111,7 +2159,7 @@
 		</data>
 		<key>Headers/MPLocationDisplayRule.h</key>
 		<data>
-		vba1CFXUaQlzsogiSh9ofdZMhhc=
+		EgAjUdPKOzca8ztD1S4vyZrq8co=
 		</data>
 		<key>Headers/MPLocationDisplayRuleset.h</key>
 		<data>
@@ -2145,9 +2193,13 @@
 		<data>
 		OqCTLfvPxzGduH6Sj1qEh9smNMo=
 		</data>
+		<key>Headers/MPLocationsCache.h</key>
+		<data>
+		FtIHelV8CTGRl1dpjIbedL4Q2Jo=
+		</data>
 		<key>Headers/MPLocationsProvider.h</key>
 		<data>
-		Bxh2yk4jVIXnujZ8m5i0ylu9BBM=
+		zyuUHEe/QfRGcjqXTmg7QcXj0bQ=
 		</data>
 		<key>Headers/MPMapButtonControl.h</key>
 		<data>
@@ -2155,7 +2207,7 @@
 		</data>
 		<key>Headers/MPMapControl.h</key>
 		<data>
-		bmXCKorZgal/oIQIHbwQkLxALQY=
+		Dhniqk3tWV11lXxA2HwxNmZotWc=
 		</data>
 		<key>Headers/MPMapExtend.h</key>
 		<data>
@@ -2168,6 +2220,10 @@
 		<key>Headers/MPMapStyle.h</key>
 		<data>
 		UDSGMIY5aeDilGkKoOA8afrxLVs=
+		</data>
+		<key>Headers/MPMarkerView.h</key>
+		<data>
+		GrveBebynTGYxYh+Ljo+qhPKLSc=
 		</data>
 		<key>Headers/MPMyLocationButton.h</key>
 		<data>
@@ -2267,7 +2323,7 @@
 		</data>
 		<key>Headers/MPType.h</key>
 		<data>
-		ekw2ZaaeGpwJyzdRr25hegjj/6g=
+		66/fcvLsohlz/LOdjJU8ZmrFZpQ=
 		</data>
 		<key>Headers/MPUIViewController.h</key>
 		<data>
@@ -2295,7 +2351,7 @@
 		</data>
 		<key>Headers/MapsIndoorsSDK.h</key>
 		<data>
-		ly7RInC16ujyH0qLoWaB6MHopxM=
+		IYC1lsdFv01nPJrJmdUu4ccW780=
 		</data>
 		<key>Headers/NSDictionary+MPLocationPropertiesDictionary.h</key>
 		<data>
@@ -2308,6 +2364,10 @@
 		<key>Headers/NSString+FontAwesome.h</key>
 		<data>
 		U/JIM+RaWqEgku6pv+a4KB5cHXk=
+		</data>
+		<key>Headers/NSString+UrlRequest.h</key>
+		<data>
+		g9fDttyFV++I4xyF52A7lDdaPZ8=
 		</data>
 		<key>Headers/NSURL+QueryParser.h</key>
 		<data>
@@ -2336,6 +2396,10 @@
 		<key>Headers/UIFont+RegisterURL.h</key>
 		<data>
 		0iEB9CMqv+3Z2UQPlhxv1Q5c7vk=
+		</data>
+		<key>Headers/UIImage+MapsIndoorsBundle.h</key>
+		<data>
+		zmkpueyJFDjgNQ+p40TzeTSq2uQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>

@@ -88,10 +88,6 @@
  */
 @property GMSMarker<Optional> *marker;
 /**
- * Ground property used to display on map.
- */
-@property GMSGroundOverlay<Optional> *groundOverlay;
-/**
  * Location image. 
  */
 @property UIImage<Optional> *image;
