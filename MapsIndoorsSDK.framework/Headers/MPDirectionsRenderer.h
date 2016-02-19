@@ -38,6 +38,7 @@
 @property (nonatomic, strong) UIColor* solidColor;
 @property (nonatomic, strong) UIColor* backgroundColor;
 @property (nonatomic) BOOL fitBounds;
+@property (nonatomic) UIEdgeInsets edgeInsets;
 
 - (void)animate:(NSTimeInterval)duration;
 

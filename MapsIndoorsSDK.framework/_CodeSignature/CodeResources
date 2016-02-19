@@ -859,7 +859,7 @@
 		</data>
 		<key>Headers/MPDirectionsRenderer.h</key>
 		<data>
-		e+JTFyyamy0Kn6mZebviaulsqKU=
+		YWQwCS5S3BzliVArTUNJ41OBuuc=
 		</data>
 		<key>Headers/MPDirectionsService.h</key>
 		<data>
@@ -947,7 +947,7 @@
 		</data>
 		<key>Headers/MPLocation.h</key>
 		<data>
-		/f7KkCROWYdoWx9k48o+WthWcC4=
+		6L5SwZYd0oUzAly2i66Tskt1gOo=
 		</data>
 		<key>Headers/MPLocationDataset.h</key>
 		<data>
@@ -1003,11 +1003,11 @@
 		</data>
 		<key>Headers/MPMapControl.h</key>
 		<data>
-		Dhniqk3tWV11lXxA2HwxNmZotWc=
+		pncZk3rhPWs6XC/3Ic1CyBZ7iEk=
 		</data>
 		<key>Headers/MPMapExtend.h</key>
 		<data>
-		46t+0BoB0uWeqe4Pn0A7okUdhR4=
+		NoYQ5bQs7GH9M4JvdxifiZGPjik=
 		</data>
 		<key>Headers/MPMapRouteLegButton.h</key>
 		<data>
@@ -1147,7 +1147,7 @@
 		</data>
 		<key>Headers/MapsIndoorsSDK.h</key>
 		<data>
-		IYC1lsdFv01nPJrJmdUu4ccW780=
+		7+E6w4CzOwRao8EWv8ugJePUrZo=
 		</data>
 		<key>Headers/NSDictionary+MPLocationPropertiesDictionary.h</key>
 		<data>
@@ -1199,7 +1199,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		miyQ5x0uYKdh6n57S9npDRXZCTE=
+		FFiny2F9GW8fLKcoO0NqrYPE36E=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -2063,7 +2063,7 @@
 		</data>
 		<key>Headers/MPDirectionsRenderer.h</key>
 		<data>
-		e+JTFyyamy0Kn6mZebviaulsqKU=
+		YWQwCS5S3BzliVArTUNJ41OBuuc=
 		</data>
 		<key>Headers/MPDirectionsService.h</key>
 		<data>
@@ -2151,7 +2151,7 @@
 		</data>
 		<key>Headers/MPLocation.h</key>
 		<data>
-		/f7KkCROWYdoWx9k48o+WthWcC4=
+		6L5SwZYd0oUzAly2i66Tskt1gOo=
 		</data>
 		<key>Headers/MPLocationDataset.h</key>
 		<data>
@@ -2207,11 +2207,11 @@
 		</data>
 		<key>Headers/MPMapControl.h</key>
 		<data>
-		Dhniqk3tWV11lXxA2HwxNmZotWc=
+		pncZk3rhPWs6XC/3Ic1CyBZ7iEk=
 		</data>
 		<key>Headers/MPMapExtend.h</key>
 		<data>
-		46t+0BoB0uWeqe4Pn0A7okUdhR4=
+		NoYQ5bQs7GH9M4JvdxifiZGPjik=
 		</data>
 		<key>Headers/MPMapRouteLegButton.h</key>
 		<data>
@@ -2351,7 +2351,7 @@
 		</data>
 		<key>Headers/MapsIndoorsSDK.h</key>
 		<data>
-		IYC1lsdFv01nPJrJmdUu4ccW780=
+		7+E6w4CzOwRao8EWv8ugJePUrZo=
 		</data>
 		<key>Headers/NSDictionary+MPLocationPropertiesDictionary.h</key>
 		<data>

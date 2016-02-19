@@ -133,6 +133,10 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsSDKVStr[];
  */
 @property MPFloorSelectorControl *floorSelector;
 /**
+ * Hide floor selector UI element.
+ */
+@property (nonatomic) BOOL floorSelectorHidden;
+/**
  * Location info-snippet UI element.
  */
 @property MPInfoSnippetView *infoSnippet;

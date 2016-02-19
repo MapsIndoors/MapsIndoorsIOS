@@ -5,6 +5,8 @@
 //  Created by Daniel Nielsen on 7/29/13.
 //  Copyright (c) 2013 MapsPeople A/S. All rights reserved.
 //
+
+
 #define kLocationPropertyDescription @"description"
 #define kLocationPropertyDirections @"directions"
 #define kLocationPropertyImage @"image"

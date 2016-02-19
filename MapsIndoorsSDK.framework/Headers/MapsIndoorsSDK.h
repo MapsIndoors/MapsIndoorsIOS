@@ -16,7 +16,6 @@ FOUNDATION_EXPORT double MapsIndoorsSDKVersionNumber;
 //! Project version string for MapsIndoorsSDK.
 FOUNDATION_EXPORT const unsigned char MapsIndoorsSDKVersionString[];
 
-
 #import <MapsIndoorsSDK/UIColor+HexString.h>
 #import <MapsIndoorsSDK/MPAppData.h>
 #import <MapsIndoorsSDK/MPAppMode.h>
