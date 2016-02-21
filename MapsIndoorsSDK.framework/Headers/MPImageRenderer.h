@@ -13,5 +13,7 @@
 
 + (UIImage *) imageWithView:(UIView *)view;
 + (UIImage *) scaledIconFromImage:(UIImage *)image;
++ (UIImage *) imageResize :(UIImage*)img andResizeTo:(CGSize)newSize;
+
 
 @end
