@@ -17,7 +17,7 @@
 @protocol MPDirectionsRendererDelegate <NSObject>
 /**
  * Floor change event.
- * @param RoutingCollection The Routing data collection.
+ * @param The floor level.
  */
 @optional
 - (void) floorDidChange: (NSNumber*)floor;

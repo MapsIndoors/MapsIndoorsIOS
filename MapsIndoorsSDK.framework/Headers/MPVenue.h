@@ -38,6 +38,10 @@
  */
 @property NSArray<Optional>* buildings;
 /**
+ * Geographic BBox array [w,s,e,n] for this venue.
+ */
+@property NSArray<Optional>* bbox;
+/**
  * Array of entry points in this venue.
  */
 @property NSArray<Optional, MPPoint>* entryPoints;

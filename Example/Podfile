@@ -2,35 +2,26 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.1'
 use_frameworks!
 
-target :MapsIndoors_Example, :exclusive => true do
+target :MapsIndoors_Example do
   pod "MapsIndoors", :path => "../"
-  
+
   pod 'AFNetworking', '~> 2.6'
   pod 'MaterialControls', '~> 1.0'
   pod 'VCMaterialDesignIcons', '~> 2.1'
-  pod 'GoogleFontsiOS/Roboto'		
+  pod 'GoogleFontsiOS/Roboto'
   pod 'HashBuilder', '~> 1.0'
   pod 'EasyTableView', '~> 1.1'
-  
-  
+
+
 end
 
-target :MapsIndoors_Tests, :exclusive => true do
+target :MapsIndoors_Tests do
   pod "MapsIndoors", :path => "../"
 
   pod 'Specta'
   pod 'Expecta'
   pod 'FBSnapshotTestCase'
   pod 'Expecta+Snapshots'
-  
-  
-end
 
 
-post_install do |installer|
-    installer.pods_project.targets.each do |target|
-        target.build_configurations.each do |config|
-            config.build_settings['ENABLE_BITCODE'] = 'NO'
-        end
-    end
 end

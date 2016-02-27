@@ -101,10 +101,10 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsSDKVStr[];
  Convenience class for setting up a Google map with MapsPeople venues, buildings, locations and other map content. To get started, setup a Google map and do:
  
  <code><pre>
- NSString* clientId = @"mapspeople-client-id";
- NSString* siteId = @"mapspeople-site-id";
+ NSString* solutionId = @"mapspeople-solution-id";
+ NSString* venueName = @"mapspeople-site-id";
  MPMapControl* mapControl = [[MPMapControl alloc] initWithMap: myGoogleMap];
- [mapControl setupMapWith: clientId site: siteId];
+ [mapControl setupMapWith: solutionId site: venueName];
  </pre></code>
  
  To setup with locations, venues or routing from your own service, make a subclass of e.g. MPLocationsProvider, and do:
@@ -112,10 +112,10 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsSDKVStr[];
  <code><pre>
  MyCustomLocationsProvider* myProvider = [[MyCustomLocationsProvider alloc] init];
  MPRoutingProvider* myProvider = [[MPRoutingProvider alloc] init];
- NSString* clientId = @"mapspeople-client-id";
- NSString* siteId = @"mapspeople-site-id";
+ NSString* solutionId = @"mapspeople-solution-id";
+ NSString* venueName = @"mapspeople-site-id";
  MPMapControl* mapControl = [[MPMapControl alloc] initWithMap: myGoogleMap];
- [mapControl setupMapWith: clientId site: siteId locations: myProvider venues: nil routing: nil appData: nil];
+ [mapControl setupMapWith: solutionId site: venueName locations: myProvider venues: nil routing: nil appData: nil];
  </pre></code>
  */
 @interface MPMapControl : NSObject<GMSMapViewDelegate, MPFloorSelectorDelegate, MPBuildingDelegate, MPInfoSnippetViewDelegate, MPRouteActionDelegate, MPLocationsProviderDelegate, MPVenueProviderDelegate, MPRoutingProviderDelegate, MPPositionProviderDelegate, MPSolutionProviderDelegate>
@@ -185,13 +185,13 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsSDKVStr[];
  */
 @property (nonatomic, strong) GMSMapView* map;
 /**
- * The site id, used for fetching location data.
+ * The venue name, at which the map should target its view.
  */
-@property NSString* siteId;
+@property (nonatomic) NSString* venue;
 /**
- * The client id, used for fetching venue data.
+ * The solution id, used for fetching venue/routing data.
  */
-@property NSString* clientId;
+@property (nonatomic, readonly) NSString* solutionId;
 /**
  * A reference to the google map delegate.
  */
@@ -281,27 +281,27 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsSDKVStr[];
               venues:(MPVenueProvider*)venueProvider
              routing:(MPRoutingProvider*)routingProvider;
 /**
- * Setup the venue map with default providers based on given client id (only venues).
- * @param clientId The MapsPeople client id.
+ * Setup the venue map with default providers based on given solution id (only venues).
+ * @param solutionId The MapsPeople solution id.
  */
-- (void)setupMapWith:(NSString*)clientId;
+- (void)setupMapWith:(NSString*)solutionId;
 /**
- * Setup the venue map with default providers based on given client id and siteId (venues, locations and routing if accessible).
- * @param clientId The MapsPeople client id.
- * @param siteId The MapsPeople site id, used for locations and routing.
+ * Setup the venue map with default providers based on given solution id (venues, locations and routing if accessible).
+ * @param solutionId The MapsPeople solution id.
+ * @param venueName The MapsPeople site id, used for locations and routing.
  */
-- (void)setupMapWith:(NSString*)clientId site:(NSString*)siteId;
+- (void)setupMapWith:(NSString*)solutionId site:(NSString*)venueName;
 /**
- * Setup the venue map with default providers based on given client id and siteId (venues, locations and routing if accessible).
- * @param clientId The MapsPeople client id.
- * @param siteId The MapsPeople site id, used for locations and routing.
+ * Setup the venue map with default providers based on given solution id (venues, locations and routing if accessible).
+ * @param solutionId The MapsPeople solution id.
+ * @param venueName The MapsPeople site id, used for locations and routing.
  * @param locationsProvider The locations provider from which the MapControl is fetching its location data.
  * @param venueProvider The venue provider from which the MapControl is fetching its venue data.
  * @param routingProvider The routing provider to which the MapControl is performing its route requests.
  * @param appDataProvider The app data provider from which the MapControl is fetching app data, such as location display rules and location labelling.
  */
-- (void)setupMapWith:(NSString*)clientId
-                site:(NSString*)siteId
+- (void)setupMapWith:(NSString*)solutionId
+                site:(NSString*)venueName
            locations:(MPLocationsProvider*)locationsProvider
               venues:(MPVenueProvider*)venueProvider
              routing:(MPRoutingProvider*)routingProvider;
@@ -341,9 +341,6 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsSDKVStr[];
 - (void)showUserPosition:(BOOL)show;
 - (void)showInfoSnippetWithLocation:(MPLocation*)location;
 + (NSString*) solutionId;
-//TEMP
--(void) saveDataFor:(NSString*)key value:(NSString*)value;
-- (NSString*) getDataFor:(NSString*)key;
 - (void)goTo:(MPLocation*)location;
 - (void)updateViews:(NSNotification *)notification;
 + (MPSolution*)getSolution;

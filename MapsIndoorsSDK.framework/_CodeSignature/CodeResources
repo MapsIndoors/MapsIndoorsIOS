@@ -16,10 +16,6 @@
 		<data>
 		pM4z2WOz2V62mj7dBpAcoRDOs7Y=
 		</data>
-		<key>GoogleMaps.bundle/GMSCoreResources.bundle/Assets.car</key>
-		<data>
-		WiMCPQT0+9tKvA7lGBOIRW1znJE=
-		</data>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/DroidSansMerged-Regular.ttf</key>
 		<data>
 		IM7pUc3dgbBfKBC7eTUgbJOheGI=
@@ -62,7 +58,7 @@
 		</data>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/Info.plist</key>
 		<data>
-		oHV+pAfuryW252P80onUlUOszPI=
+		k4cqm9N4m5ZNTxr3/XoZWN+La58=
 		</data>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/Roboto-Black.ttf</key>
 		<data>
@@ -303,6 +299,30 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>GoogleMaps.bundle/GMSCoreResources.bundle/googlelogo_56x20_with_2_stroke_color_60x22pt.png</key>
+		<data>
+		qt5rEX9/KpwjzpfELuiZyR/+1dg=
+		</data>
+		<key>GoogleMaps.bundle/GMSCoreResources.bundle/googlelogo_56x20_with_2_stroke_color_60x22pt@2x.png</key>
+		<data>
+		48mqRZUIq+kzOn+nIitvLWNEULw=
+		</data>
+		<key>GoogleMaps.bundle/GMSCoreResources.bundle/googlelogo_56x20_with_2_stroke_color_60x22pt@3x.png</key>
+		<data>
+		mC19RGyfM01PzJnRDVsVzTdBCDY=
+		</data>
+		<key>GoogleMaps.bundle/GMSCoreResources.bundle/googlelogo_light_56x20_with_2_stroke_color_60x22pt.png</key>
+		<data>
+		qDkONAqsAv/0ZXOmHg21sWD0VnE=
+		</data>
+		<key>GoogleMaps.bundle/GMSCoreResources.bundle/googlelogo_light_56x20_with_2_stroke_color_60x22pt@2x.png</key>
+		<data>
+		0eJAsnvV7iSfOe7YyGHqq/Y1vFw=
+		</data>
+		<key>GoogleMaps.bundle/GMSCoreResources.bundle/googlelogo_light_56x20_with_2_stroke_color_60x22pt@3x.png</key>
+		<data>
+		G3jvxaw9jGW4MK/IX0uIVS9HLGY=
+		</data>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/he.lproj/GMSCore.strings</key>
 		<dict>
 			<key>hash</key>
@@ -565,30 +585,6 @@
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>GoogleMaps.bundle/GMSCoreResources.bundle/watermark_dark.png</key>
-		<data>
-		63eYdUFheu5yypNTAWWnQCy8qjI=
-		</data>
-		<key>GoogleMaps.bundle/GMSCoreResources.bundle/watermark_dark@2x.png</key>
-		<data>
-		gcGR4qLpbB+piM7W9RYdD16HWt0=
-		</data>
-		<key>GoogleMaps.bundle/GMSCoreResources.bundle/watermark_dark@3x.png</key>
-		<data>
-		JTkZCBQ9D5ID9xQHkJzW3TZpeF4=
-		</data>
-		<key>GoogleMaps.bundle/GMSCoreResources.bundle/watermark_light.png</key>
-		<data>
-		zbY5Uu0D+ug025BfT3Ycyq/GNcI=
-		</data>
-		<key>GoogleMaps.bundle/GMSCoreResources.bundle/watermark_light@2x.png</key>
-		<data>
-		bbgcx/QICGC1sv9go8rlNc31ppQ=
-		</data>
-		<key>GoogleMaps.bundle/GMSCoreResources.bundle/watermark_light@3x.png</key>
-		<data>
-		KK8OXQ4K4PI5xJDPrgX1174VsGo=
-		</data>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/zh_CN.lproj/GMSCore.strings</key>
 		<dict>
 			<key>hash</key>
@@ -618,43 +614,7 @@
 		</dict>
 		<key>GoogleMaps.bundle/Info.plist</key>
 		<data>
-		rungo4ktOZr1Hcrn6wegokd1n1M=
-		</data>
-		<key>GoogleMaps.bundle/active.png</key>
-		<data>
-		smb+v7Xif5wYnashnJcYA+4r4gk=
-		</data>
-		<key>GoogleMaps.bundle/active@2x.png</key>
-		<data>
-		271y3686ODQjvyauHyAjb2Rh1dc=
-		</data>
-		<key>GoogleMaps.bundle/active@3x.png</key>
-		<data>
-		Bi2U7cX7QPn6lKcJyCJ4CZkf8Gc=
-		</data>
-		<key>GoogleMaps.bundle/active_grouped.png</key>
-		<data>
-		7xEcPexLDRVedg/RvXErenZqI+4=
-		</data>
-		<key>GoogleMaps.bundle/active_grouped@2x.png</key>
-		<data>
-		IY2q//phzI4AgDP7/hXqsajsiDk=
-		</data>
-		<key>GoogleMaps.bundle/active_grouped@3x.png</key>
-		<data>
-		ijvpmeXNJjnNDvLjXynj6PXFA6A=
-		</data>
-		<key>GoogleMaps.bundle/back.png</key>
-		<data>
-		Iy3XCzpZJw3LaMzczZiJrswDndU=
-		</data>
-		<key>GoogleMaps.bundle/back@2x.png</key>
-		<data>
-		XOEKJN3UbBqlvMsyvX8JVRozVhg=
-		</data>
-		<key>GoogleMaps.bundle/back@3x.png</key>
-		<data>
-		MGHKglbVrOfmVaNap6QErc8nOfo=
+		I8EUWgEM7Dxa7SnFXzdiyJf6yEM=
 		</data>
 		<key>GoogleMaps.bundle/bubble_left.png</key>
 		<data>
@@ -680,30 +640,6 @@
 		<data>
 		0ARa68NRdaS39NQgog84Ig5I19A=
 		</data>
-		<key>GoogleMaps.bundle/card_bg.png</key>
-		<data>
-		uhlUzfVhFjj2fBd5GMgIVHl39+0=
-		</data>
-		<key>GoogleMaps.bundle/card_bg@2x.png</key>
-		<data>
-		pm3vcXmazExbeb6nQg/l585P4CY=
-		</data>
-		<key>GoogleMaps.bundle/card_bg@3x.png</key>
-		<data>
-		YUMRQx2a1biW2DgAw369EOhmFMs=
-		</data>
-		<key>GoogleMaps.bundle/close.png</key>
-		<data>
-		tleJpeOLTfRgJIelc0eU7PgxGXo=
-		</data>
-		<key>GoogleMaps.bundle/close@2x.png</key>
-		<data>
-		TJlUy/0Y6wVVCYPcgnLgzMw1NPw=
-		</data>
-		<key>GoogleMaps.bundle/close@3x.png</key>
-		<data>
-		c7R8eL6q7pjTy/Sxe69aFdLOHac=
-		</data>
 		<key>GoogleMaps.bundle/default_marker.png</key>
 		<data>
 		IStGQ5l1R+rz2tiiOLO+U7hD3PM=
@@ -725,22 +661,6 @@
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>GoogleMaps.bundle/place_picker_nav_back.png</key>
-		<data>
-		AEDobW+JBVF4XD9/EWu7Yp0cqyE=
-		</data>
-		<key>GoogleMaps.bundle/place_picker_nav_back@2x.png</key>
-		<data>
-		pdvBPaTBgZeHthV2FwkyKEmgNak=
-		</data>
-		<key>GoogleMaps.bundle/place_picker_search_icon.png</key>
-		<data>
-		yJ5Fd2DOukr18ytWujRF80qx8vo=
-		</data>
-		<key>GoogleMaps.bundle/place_picker_search_icon@2x.png</key>
-		<data>
-		uyWxOXTnGsRmrUSgvcs02bbxp8s=
-		</data>
 		<key>GoogleMaps.bundle/powered-by-google-dark.png</key>
 		<data>
 		HCXmeRWTByP1fdRTUClloOklIzc=
@@ -859,7 +779,7 @@
 		</data>
 		<key>Headers/MPDirectionsRenderer.h</key>
 		<data>
-		YWQwCS5S3BzliVArTUNJ41OBuuc=
+		UXvL3+23gj5qqi86tBX3agXupfo=
 		</data>
 		<key>Headers/MPDirectionsService.h</key>
 		<data>
@@ -1003,7 +923,7 @@
 		</data>
 		<key>Headers/MPMapControl.h</key>
 		<data>
-		pncZk3rhPWs6XC/3Ic1CyBZ7iEk=
+		8iB6zskXbx/uB6PnLJVnUtGgjBI=
 		</data>
 		<key>Headers/MPMapExtend.h</key>
 		<data>
@@ -1135,7 +1055,7 @@
 		</data>
 		<key>Headers/MPVenue.h</key>
 		<data>
-		NXlfMo6AXhmqLK13Ml5hx2hS/u0=
+		XFvsOmuyALOJf04z3dKHx3Wc4Ww=
 		</data>
 		<key>Headers/MPVenueCollection.h</key>
 		<data>
@@ -1220,10 +1140,6 @@
 		<data>
 		pM4z2WOz2V62mj7dBpAcoRDOs7Y=
 		</data>
-		<key>GoogleMaps.bundle/GMSCoreResources.bundle/Assets.car</key>
-		<data>
-		WiMCPQT0+9tKvA7lGBOIRW1znJE=
-		</data>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/DroidSansMerged-Regular.ttf</key>
 		<data>
 		IM7pUc3dgbBfKBC7eTUgbJOheGI=
@@ -1266,7 +1182,7 @@
 		</data>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/Info.plist</key>
 		<data>
-		oHV+pAfuryW252P80onUlUOszPI=
+		k4cqm9N4m5ZNTxr3/XoZWN+La58=
 		</data>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/Roboto-Black.ttf</key>
 		<data>
@@ -1507,6 +1423,30 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>GoogleMaps.bundle/GMSCoreResources.bundle/googlelogo_56x20_with_2_stroke_color_60x22pt.png</key>
+		<data>
+		qt5rEX9/KpwjzpfELuiZyR/+1dg=
+		</data>
+		<key>GoogleMaps.bundle/GMSCoreResources.bundle/googlelogo_56x20_with_2_stroke_color_60x22pt@2x.png</key>
+		<data>
+		48mqRZUIq+kzOn+nIitvLWNEULw=
+		</data>
+		<key>GoogleMaps.bundle/GMSCoreResources.bundle/googlelogo_56x20_with_2_stroke_color_60x22pt@3x.png</key>
+		<data>
+		mC19RGyfM01PzJnRDVsVzTdBCDY=
+		</data>
+		<key>GoogleMaps.bundle/GMSCoreResources.bundle/googlelogo_light_56x20_with_2_stroke_color_60x22pt.png</key>
+		<data>
+		qDkONAqsAv/0ZXOmHg21sWD0VnE=
+		</data>
+		<key>GoogleMaps.bundle/GMSCoreResources.bundle/googlelogo_light_56x20_with_2_stroke_color_60x22pt@2x.png</key>
+		<data>
+		0eJAsnvV7iSfOe7YyGHqq/Y1vFw=
+		</data>
+		<key>GoogleMaps.bundle/GMSCoreResources.bundle/googlelogo_light_56x20_with_2_stroke_color_60x22pt@3x.png</key>
+		<data>
+		G3jvxaw9jGW4MK/IX0uIVS9HLGY=
+		</data>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/he.lproj/GMSCore.strings</key>
 		<dict>
 			<key>hash</key>
@@ -1769,30 +1709,6 @@
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>GoogleMaps.bundle/GMSCoreResources.bundle/watermark_dark.png</key>
-		<data>
-		63eYdUFheu5yypNTAWWnQCy8qjI=
-		</data>
-		<key>GoogleMaps.bundle/GMSCoreResources.bundle/watermark_dark@2x.png</key>
-		<data>
-		gcGR4qLpbB+piM7W9RYdD16HWt0=
-		</data>
-		<key>GoogleMaps.bundle/GMSCoreResources.bundle/watermark_dark@3x.png</key>
-		<data>
-		JTkZCBQ9D5ID9xQHkJzW3TZpeF4=
-		</data>
-		<key>GoogleMaps.bundle/GMSCoreResources.bundle/watermark_light.png</key>
-		<data>
-		zbY5Uu0D+ug025BfT3Ycyq/GNcI=
-		</data>
-		<key>GoogleMaps.bundle/GMSCoreResources.bundle/watermark_light@2x.png</key>
-		<data>
-		bbgcx/QICGC1sv9go8rlNc31ppQ=
-		</data>
-		<key>GoogleMaps.bundle/GMSCoreResources.bundle/watermark_light@3x.png</key>
-		<data>
-		KK8OXQ4K4PI5xJDPrgX1174VsGo=
-		</data>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/zh_CN.lproj/GMSCore.strings</key>
 		<dict>
 			<key>hash</key>
@@ -1822,43 +1738,7 @@
 		</dict>
 		<key>GoogleMaps.bundle/Info.plist</key>
 		<data>
-		rungo4ktOZr1Hcrn6wegokd1n1M=
-		</data>
-		<key>GoogleMaps.bundle/active.png</key>
-		<data>
-		smb+v7Xif5wYnashnJcYA+4r4gk=
-		</data>
-		<key>GoogleMaps.bundle/active@2x.png</key>
-		<data>
-		271y3686ODQjvyauHyAjb2Rh1dc=
-		</data>
-		<key>GoogleMaps.bundle/active@3x.png</key>
-		<data>
-		Bi2U7cX7QPn6lKcJyCJ4CZkf8Gc=
-		</data>
-		<key>GoogleMaps.bundle/active_grouped.png</key>
-		<data>
-		7xEcPexLDRVedg/RvXErenZqI+4=
-		</data>
-		<key>GoogleMaps.bundle/active_grouped@2x.png</key>
-		<data>
-		IY2q//phzI4AgDP7/hXqsajsiDk=
-		</data>
-		<key>GoogleMaps.bundle/active_grouped@3x.png</key>
-		<data>
-		ijvpmeXNJjnNDvLjXynj6PXFA6A=
-		</data>
-		<key>GoogleMaps.bundle/back.png</key>
-		<data>
-		Iy3XCzpZJw3LaMzczZiJrswDndU=
-		</data>
-		<key>GoogleMaps.bundle/back@2x.png</key>
-		<data>
-		XOEKJN3UbBqlvMsyvX8JVRozVhg=
-		</data>
-		<key>GoogleMaps.bundle/back@3x.png</key>
-		<data>
-		MGHKglbVrOfmVaNap6QErc8nOfo=
+		I8EUWgEM7Dxa7SnFXzdiyJf6yEM=
 		</data>
 		<key>GoogleMaps.bundle/bubble_left.png</key>
 		<data>
@@ -1884,30 +1764,6 @@
 		<data>
 		0ARa68NRdaS39NQgog84Ig5I19A=
 		</data>
-		<key>GoogleMaps.bundle/card_bg.png</key>
-		<data>
-		uhlUzfVhFjj2fBd5GMgIVHl39+0=
-		</data>
-		<key>GoogleMaps.bundle/card_bg@2x.png</key>
-		<data>
-		pm3vcXmazExbeb6nQg/l585P4CY=
-		</data>
-		<key>GoogleMaps.bundle/card_bg@3x.png</key>
-		<data>
-		YUMRQx2a1biW2DgAw369EOhmFMs=
-		</data>
-		<key>GoogleMaps.bundle/close.png</key>
-		<data>
-		tleJpeOLTfRgJIelc0eU7PgxGXo=
-		</data>
-		<key>GoogleMaps.bundle/close@2x.png</key>
-		<data>
-		TJlUy/0Y6wVVCYPcgnLgzMw1NPw=
-		</data>
-		<key>GoogleMaps.bundle/close@3x.png</key>
-		<data>
-		c7R8eL6q7pjTy/Sxe69aFdLOHac=
-		</data>
 		<key>GoogleMaps.bundle/default_marker.png</key>
 		<data>
 		IStGQ5l1R+rz2tiiOLO+U7hD3PM=
@@ -1929,22 +1785,6 @@
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>GoogleMaps.bundle/place_picker_nav_back.png</key>
-		<data>
-		AEDobW+JBVF4XD9/EWu7Yp0cqyE=
-		</data>
-		<key>GoogleMaps.bundle/place_picker_nav_back@2x.png</key>
-		<data>
-		pdvBPaTBgZeHthV2FwkyKEmgNak=
-		</data>
-		<key>GoogleMaps.bundle/place_picker_search_icon.png</key>
-		<data>
-		yJ5Fd2DOukr18ytWujRF80qx8vo=
-		</data>
-		<key>GoogleMaps.bundle/place_picker_search_icon@2x.png</key>
-		<data>
-		uyWxOXTnGsRmrUSgvcs02bbxp8s=
-		</data>
 		<key>GoogleMaps.bundle/powered-by-google-dark.png</key>
 		<data>
 		HCXmeRWTByP1fdRTUClloOklIzc=
@@ -2063,7 +1903,7 @@
 		</data>
 		<key>Headers/MPDirectionsRenderer.h</key>
 		<data>
-		YWQwCS5S3BzliVArTUNJ41OBuuc=
+		UXvL3+23gj5qqi86tBX3agXupfo=
 		</data>
 		<key>Headers/MPDirectionsService.h</key>
 		<data>
@@ -2207,7 +2047,7 @@
 		</data>
 		<key>Headers/MPMapControl.h</key>
 		<data>
-		pncZk3rhPWs6XC/3Ic1CyBZ7iEk=
+		8iB6zskXbx/uB6PnLJVnUtGgjBI=
 		</data>
 		<key>Headers/MPMapExtend.h</key>
 		<data>
@@ -2339,7 +2179,7 @@
 		</data>
 		<key>Headers/MPVenue.h</key>
 		<data>
-		NXlfMo6AXhmqLK13Ml5hx2hS/u0=
+		XFvsOmuyALOJf04z3dKHx3Wc4Ww=
 		</data>
 		<key>Headers/MPVenueCollection.h</key>
 		<data>
