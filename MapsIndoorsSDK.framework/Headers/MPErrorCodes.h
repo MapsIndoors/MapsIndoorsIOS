@@ -14,4 +14,7 @@
 #define kMPErrorCodeSolutionNotFound 10005
 #define kMPErrorCodeLocationsCacheNotAvailableForMapExtend 10006
 
+#define kMPErrorCodeMessagesNotFound 20001
+#define kMPErrorCodeMessageDetailsNotFound 20002
+
 #define kMPMapsIndoorsDomain @"com.mapspeople.MapsIndoors"

@@ -100,5 +100,9 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsSDKVersionString[];
 #import <MapsIndoorsSDK/MPMarkerView.h>
 #import <MapsIndoorsSDK/NSString+UrlRequest.h>
 #import <MapsIndoorsSDK/UIImage+MapsIndoorsBundle.h>
+#import <MapsIndoorsSDK/MPMessage.h>
+#import <MapsIndoorsSDK/MPMessageDataset.h>
+#import <MapsIndoorsSDK/MPMessageProvider.h>
+#import <MapsIndoorsSDK/MPStringCache.h>
 
 
