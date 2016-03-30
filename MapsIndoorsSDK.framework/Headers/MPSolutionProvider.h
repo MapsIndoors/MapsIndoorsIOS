@@ -27,7 +27,7 @@
 /**
  * Solution provider delegate.
  */
-@property (weak) id <MPSolutionProviderDelegate> delegate;
+@property id <MPSolutionProviderDelegate> delegate;
 /**
  * Get solutions from this provider.
  */
