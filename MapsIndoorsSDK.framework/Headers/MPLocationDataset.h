@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <JSONModel/JSONModel+networking.h>
 #import "MPLocation.h"
 
 /**

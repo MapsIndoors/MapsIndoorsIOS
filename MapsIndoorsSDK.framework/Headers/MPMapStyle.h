@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 MapsPeople A/S. All rights reserved.
 //
 
-#import <JSONModel/JSONModel.h>
+@import JSONModel;
 
 /**
  * Map style (used by MapsPeoples services)

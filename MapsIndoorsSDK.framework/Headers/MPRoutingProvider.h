@@ -19,6 +19,8 @@
 - (void) onRouteResultReady: (MPRoute*)route;
 @end
 
+typedef void(^mpRouteHandlerBlockType)(MPRoute* route, NSError* error);
+
 @interface MPRoutingProvider : NSObject
 
 @property (weak) id <MPRoutingProviderDelegate> delegate;

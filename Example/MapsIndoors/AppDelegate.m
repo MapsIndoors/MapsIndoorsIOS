@@ -6,10 +6,6 @@
 //  Copyright (c) 2015 MapsPeople A/S. All rights reserved.
 //
 
-#define kMapsIndoorsSolutionId @"550c26a864617400a40f0000"
-#define kVenue @"rtx"
-#define kGoogleMapsApiKey @"ADD_YOUR_OWN_GOOGLE_MAPS_API_KEY"
-#define kGoogleDirectionsApiKey @"ADD_YOUR_OWN_GOOGLE_DIRECTIONS_API_KEY"
 
 #import "AppDelegate.h"
 #import "MapViewController.h"
@@ -34,7 +30,7 @@
     Global.initialPosition = [[MPPoint alloc] initWithLat:57.085771 lon:9.957593 zValue:0];
     
     Global.poiData = [[POIData alloc] init];
-    Global.routingData = [[RoutingData alloc] initWithMapsIndoorsSolutionId: Global.solutionId googleApiKey:kGoogleDirectionsApiKey];
+    Global.routingData = [[RoutingData alloc] initWithMapsIndoorsSolutionId: kMapsIndoorsSolutionId googleApiKey:kGoogleDirectionsApiKey];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLocationDetailTapped:) name:@"DetailFieldTapped" object:nil];
     

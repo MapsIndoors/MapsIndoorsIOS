@@ -7,9 +7,9 @@
 //
 
 #import "Global.h"
-#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
-
+@import MapsIndoorsSDK;
 #import "GPSPositionProvider.h"
+#import "BeaconPositionProvider.h"
 
 @implementation Global
 
@@ -49,6 +49,12 @@ static RoutingData* routingData;
 + (void) setRoutingData:(RoutingData*)value
 { @synchronized(self) { routingData = value; } }
 
+static NSArray* appColors;
++ (NSArray*) appColors
+{ @synchronized(self) { return appColors; } }
++ (void) setAppColors:(NSArray*)value
+{ @synchronized(self) { appColors = value; } }
+
 static id<MPPositionProvider> positionProvider;
 + (id<MPPositionProvider>) positionProvider
 { @synchronized(self) { return positionProvider; } }
@@ -56,6 +62,10 @@ static id<MPPositionProvider> positionProvider;
 + (void) setupPositioning {
     positionProvider = [[GPSPositionProvider alloc] init];
     [positionProvider startPositioning:nil];
+    //positionProvider = [[MFPPositionProvider alloc] init];
+    //[positionProvider startPositioning:nil];
+    //positionProvider = [[BeaconPositionProvider alloc] initWithUUID:@"f7826da6-4fa2-4e98-8024-bc5b71e0893e"];
+    //[positionProvider startPositioning:Global.solutionId];
 }
 
 + (NSString*)getIconUrlForType:(NSString*) typeName {

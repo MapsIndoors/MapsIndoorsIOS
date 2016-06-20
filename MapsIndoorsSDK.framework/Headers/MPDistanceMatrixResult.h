@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h> 
-#import <JSONModel/JSONModel+networking.h>
+@import JSONModel;
 #import "MPDistanceMatrixRows.h"
 
 @interface MPDistanceMatrixResult : JSONModel

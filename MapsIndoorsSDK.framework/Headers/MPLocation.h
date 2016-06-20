@@ -23,17 +23,11 @@
 #import <Foundation/Foundation.h>
 #import "MPPoint.h"
 #import "MPLocationDisplayRuleset.h"
-#import <JSONModel/JSONModel+networking.h>
 #import "MPLocationProperty.h"
 #import "NSDictionary+MPLocationPropertiesDictionary.h"
 #import "MPContactModule.h"
 #import "MPLocationField.h"
-#ifdef USE_M4B
-#import <GoogleMapsM4B/GoogleMaps.h>
-#else
-#import <GoogleMaps/GoogleMaps.h>
-#endif
-
+@import GoogleMaps;
 @class MPLocationDisplayRuleset;
 @class MPLocationDisplayRule;
 

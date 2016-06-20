@@ -6,7 +6,7 @@
 //  Copyright © 2015 MapsPeople A/S. All rights reserved.
 //
 
-#import <JSONModel/JSONModel.h>
+@import JSONModel;
 #import "MPRouteCoordinate.h"
 
 @interface MPRouteBounds : JSONModel

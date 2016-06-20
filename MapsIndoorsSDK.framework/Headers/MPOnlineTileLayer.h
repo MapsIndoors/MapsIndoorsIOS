@@ -6,11 +6,7 @@
 //  Copyright (c) 2013 MapsPeople A/S. All rights reserved.
 //
 
-#ifdef USE_M4B
-#import <GoogleMapsM4B/GoogleMaps.h>
-#else
-#import <GoogleMaps/GoogleMaps.h>
-#endif
+@import GoogleMaps;
 #import "MPVenue.h"
 #import "MPFloor.h"
 

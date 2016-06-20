@@ -6,7 +6,7 @@
 //  Copyright © 2016 Daniel Nielsen. All rights reserved.
 //
 
-#import <JSONModel/JSONModel.h>
+@import JSONModel;
 #import "MPDataField.h"
 
 @protocol MPDataField

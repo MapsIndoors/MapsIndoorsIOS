@@ -795,7 +795,7 @@
 		</data>
 		<key>Headers/MPAppData.h</key>
 		<data>
-		M83J6hmOMiGG6tYwi2zTjTvS7Gk=
+		ERnHJUEN+Ejd/Cp5H7A395Efcrk=
 		</data>
 		<key>Headers/MPAppMode.h</key>
 		<data>
@@ -803,7 +803,7 @@
 		</data>
 		<key>Headers/MPBeacon.h</key>
 		<data>
-		kF4vY/dNl7+WMqA3H63Ctyf3z7M=
+		wMgopo4wqSMSyszrQH7FmlBXdOM=
 		</data>
 		<key>Headers/MPBeaconCollection.h</key>
 		<data>
@@ -819,27 +819,27 @@
 		</data>
 		<key>Headers/MPBuilding.h</key>
 		<data>
-		329DEKNIBltyMT+EmrrBMUaxTJ4=
+		hZSJnQzqWyp5hiYXzMptknxstP4=
 		</data>
 		<key>Headers/MPBuildingCollection.h</key>
 		<data>
-		UoAEr9BHvmAr62nBE+LbpeYQFSU=
+		Ls3OvcJdO/yKn3W52YjX3BjmCPY=
 		</data>
 		<key>Headers/MPBuildingDataset.h</key>
 		<data>
-		ldxGntHhGZUz1xQx1jESebWnIOU=
+		72fiHSbLQGCx42TjdEwuSUdJPes=
 		</data>
 		<key>Headers/MPBuildingInfo.h</key>
 		<data>
-		2qwJwXr2NHgjI50lXOAtmKTLZDo=
+		lolIYqMJXwmjE0vU8H4d7lFPNrc=
 		</data>
 		<key>Headers/MPBuildingReference.h</key>
 		<data>
-		iDJbrmPxKsTi71rHjLE3Yw74d9o=
+		+PrPmauStRUdz3zdzZM4zrRz4uc=
 		</data>
 		<key>Headers/MPCategories.h</key>
 		<data>
-		1fNqzVfZNVRyfn5UErYIlIF+fvM=
+		QmCu0EOfL5G7VmO+j4nrCZO9Sdo=
 		</data>
 		<key>Headers/MPCategoriesProvider.h</key>
 		<data>
@@ -851,15 +851,15 @@
 		</data>
 		<key>Headers/MPContactModule.h</key>
 		<data>
-		mob9ZlE4/sjJRhDXTnCRQ+wlRJo=
+		w4lPysubD8vRRkn8J8bpMPzgC3s=
 		</data>
 		<key>Headers/MPDataField.h</key>
 		<data>
-		y1SA3Rl9ZhOvAa7IXmtF29CYmQw=
+		tR3Q6ms6CbfFp610uPo3Cv1zWfs=
 		</data>
 		<key>Headers/MPDirectionsRenderer.h</key>
 		<data>
-		UXvL3+23gj5qqi86tBX3agXupfo=
+		xHcJxlte7BknYToU530wIgBC82k=
 		</data>
 		<key>Headers/MPDirectionsService.h</key>
 		<data>
@@ -867,7 +867,7 @@
 		</data>
 		<key>Headers/MPDistanceMatrixElements.h</key>
 		<data>
-		mZWHf4EESOmlccSkFatL9TGR+VI=
+		zhls6RIRn062H5WDFs7nspBL1Ms=
 		</data>
 		<key>Headers/MPDistanceMatrixProvider.h</key>
 		<data>
@@ -875,11 +875,11 @@
 		</data>
 		<key>Headers/MPDistanceMatrixResult.h</key>
 		<data>
-		izsLlAY35AqGtOF0GBPgLjXBvZo=
+		A3c7e0wXfLRBBWTzYoOXJCM/UJY=
 		</data>
 		<key>Headers/MPDistanceMatrixRows.h</key>
 		<data>
-		JX+uRDzLbxk7jozNFDibBIC6Kew=
+		wfjv6wK74WiQEarplu1EBHJICqs=
 		</data>
 		<key>Headers/MPDouble.h</key>
 		<data>
@@ -887,7 +887,7 @@
 		</data>
 		<key>Headers/MPEncodedPolyline.h</key>
 		<data>
-		4JwiDqXRb7Fa6iEAoTvfjF/DIh8=
+		P8fBzv/cYMm2TqniPMcC6+eAp6I=
 		</data>
 		<key>Headers/MPErrorCodes.h</key>
 		<data>
@@ -895,7 +895,7 @@
 		</data>
 		<key>Headers/MPFloor.h</key>
 		<data>
-		vmOXOENCTCyLUCVgTNu0BaNvJZs=
+		2vinF6gnZyXRDbOL3SoLSsj81aM=
 		</data>
 		<key>Headers/MPFloorButton.h</key>
 		<data>
@@ -903,7 +903,7 @@
 		</data>
 		<key>Headers/MPFloorSelectorControl.h</key>
 		<data>
-		k4ogJqKzTFo5gvMk4b7UeFfZUZQ=
+		fgGqOI/1j17Fd/IULKfAjQ6AIXk=
 		</data>
 		<key>Headers/MPFloorTileLayer.h</key>
 		<data>
@@ -911,7 +911,7 @@
 		</data>
 		<key>Headers/MPGeometry.h</key>
 		<data>
-		IXJg3DlqgEVFr+4tbDWVs483VNg=
+		J/upMGcRbGqQfMCZRRJQ9wM7rdM=
 		</data>
 		<key>Headers/MPImageProvider.h</key>
 		<data>
@@ -927,11 +927,11 @@
 		</data>
 		<key>Headers/MPLatLng.h</key>
 		<data>
-		V/ggvXpcRT9OcoF2vYnRpR9qsLk=
+		iTGhNUKoSKm8JJwYAmV9RVeDo2g=
 		</data>
 		<key>Headers/MPLatLngBounds.h</key>
 		<data>
-		VpDNLYUCA/EBn7c4nAbBrM9p+hY=
+		LRyYbCn+xGQKeHwPR7uxg3Sxeao=
 		</data>
 		<key>Headers/MPLayerType.h</key>
 		<data>
@@ -947,23 +947,23 @@
 		</data>
 		<key>Headers/MPLocation.h</key>
 		<data>
-		6L5SwZYd0oUzAly2i66Tskt1gOo=
+		TxW4RBejHB7vvUIhI7ANU2lj5+c=
 		</data>
 		<key>Headers/MPLocationDataset.h</key>
 		<data>
-		ZumKG8i+BEl7fDmjB4lqrIvGmoU=
+		Gl7vZXW+H8ho5/eTXSLKVGATyCE=
 		</data>
 		<key>Headers/MPLocationDisplayRule.h</key>
 		<data>
-		EgAjUdPKOzca8ztD1S4vyZrq8co=
+		z0TyRQKUxun/cmLDwOYk8TCEMwU=
 		</data>
 		<key>Headers/MPLocationDisplayRuleset.h</key>
 		<data>
-		RU8bE4YPrPNGSmvTL/5nqbXVRjQ=
+		01yvprn3Wx6MsAVNHaW41A8/59Q=
 		</data>
 		<key>Headers/MPLocationField.h</key>
 		<data>
-		+OkR/qAnZGg4K55gBaM2ygrU/Ao=
+		vB+j9utDvWbCpLg0urYln6sbI98=
 		</data>
 		<key>Headers/MPLocationProperty.h</key>
 		<data>
@@ -1003,11 +1003,11 @@
 		</data>
 		<key>Headers/MPMapControl.h</key>
 		<data>
-		8iB6zskXbx/uB6PnLJVnUtGgjBI=
+		gLjz+RfmJMEdond3NpE+5OxsvoY=
 		</data>
 		<key>Headers/MPMapExtend.h</key>
 		<data>
-		NoYQ5bQs7GH9M4JvdxifiZGPjik=
+		rZTcpttwPAOdFPABAsaM+H3qjT0=
 		</data>
 		<key>Headers/MPMapRouteLegButton.h</key>
 		<data>
@@ -1015,7 +1015,7 @@
 		</data>
 		<key>Headers/MPMapStyle.h</key>
 		<data>
-		UDSGMIY5aeDilGkKoOA8afrxLVs=
+		qlwxX3AudOFtOQNo63f0uTQhKTg=
 		</data>
 		<key>Headers/MPMarkerView.h</key>
 		<data>
@@ -1023,11 +1023,11 @@
 		</data>
 		<key>Headers/MPMessage.h</key>
 		<data>
-		2xa7BfLDA0gkl2TaQm9wHIG8gm0=
+		7AroPffzzlGjN6y/Z+gLGK75EW0=
 		</data>
 		<key>Headers/MPMessageDataset.h</key>
 		<data>
-		SDKhrgXyJ/oIn9u93DaEtjj8q1Y=
+		eANP76g5EuSZcSLGEQiuNWS6l5Y=
 		</data>
 		<key>Headers/MPMessageProvider.h</key>
 		<data>
@@ -1039,23 +1039,23 @@
 		</data>
 		<key>Headers/MPOnlineTileLayer.h</key>
 		<data>
-		hbxFfJUJcSUyMfqkz+EfsTjtOEU=
+		HEuojNnE296PJ0tdq9dPsJJEydM=
 		</data>
 		<key>Headers/MPOpeningHours.h</key>
 		<data>
-		Dks94fA2QNV4PHYjHq4HiWplJu4=
+		mbK589nvG5t/08UT8vDx7jn6BgY=
 		</data>
 		<key>Headers/MPOpeningHoursModule.h</key>
 		<data>
-		5JDlcG+82AFJFTApypey5RdZCjI=
+		SZbeeXJycrYpjZrtJOfQjOAWGcQ=
 		</data>
 		<key>Headers/MPPersistentCacheGMSTileLayer.h</key>
 		<data>
-		hvSfdo8aZXJ8V2VmsOjtyCLjW5o=
+		vMJkxGAX8gY0+bgNr0A0F2cJK/Y=
 		</data>
 		<key>Headers/MPPoint.h</key>
 		<data>
-		9J3QDHREw1SJ0zKfre8O8AYyBCY=
+		Neu2gzpdoJLb+5VghauyMypzg1A=
 		</data>
 		<key>Headers/MPPositionIndicator.h</key>
 		<data>
@@ -1067,43 +1067,43 @@
 		</data>
 		<key>Headers/MPPositionResult.h</key>
 		<data>
-		gr7vyQte5rmefmauJ9z2SV2NbiE=
+		I5FvlQCE16zSqW8jpY8xd0IY9UQ=
 		</data>
 		<key>Headers/MPRoute.h</key>
 		<data>
-		puUqtJFxFrng6RD1jkD2IFF4FF0=
+		MF2i7exFHUpHf6xc2lbTUK2Vk+I=
 		</data>
 		<key>Headers/MPRouteBounds.h</key>
 		<data>
-		1qJODYJTp0FkVBJaERbZufQcFBc=
+		dUtaDyJ9Qz6SQSfKmxodCSm5GZY=
 		</data>
 		<key>Headers/MPRouteCoordinate.h</key>
 		<data>
-		Sl29Hm86I85QmcwkzfHMa11eO2I=
+		FUbxxFT7PQ7r03G+dZgtO39oa1U=
 		</data>
 		<key>Headers/MPRouteInfo.h</key>
 		<data>
-		4stPShS3HFpSah3wO0OXI9sJQJU=
+		MHWVn8n/cRxqahiO7l6jFu5IZ1M=
 		</data>
 		<key>Headers/MPRouteInstructions.h</key>
 		<data>
-		ad/bTTEDBET2LGACY/sfgRGvb3w=
+		nheeaoMnBdpON64Y6pBfvSrDN88=
 		</data>
 		<key>Headers/MPRouteLeg.h</key>
 		<data>
-		meFk4DdV4TF13OGz3TPmHCqqSA4=
+		MT/WxjFTRZb9QX00s7SatN//Gv4=
 		</data>
 		<key>Headers/MPRouteProperty.h</key>
 		<data>
-		Ptpjv8nl2v5ZDWXjm9xzFW9nnkM=
+		uSpoam0lfeJdUq3V3fLEsz6KU4A=
 		</data>
 		<key>Headers/MPRouteResult.h</key>
 		<data>
-		ALIrm/5n66KeDyaHADy96moS8ew=
+		ETg8XWM2rVQkCOfs7SSDMNAd4Wg=
 		</data>
 		<key>Headers/MPRouteStep.h</key>
 		<data>
-		A2SMxE64hxQFCpCjM4ipbRsMMvY=
+		MeC7rW1q2xx1Lv/VGuesJNu3Dh4=
 		</data>
 		<key>Headers/MPRoutingControl.h</key>
 		<data>
@@ -1111,15 +1111,15 @@
 		</data>
 		<key>Headers/MPRoutingProvider.h</key>
 		<data>
-		r/X2Ur/9Aa0a/qXWgt9PazsHTuA=
+		f1OSz0QQf3j0JlpA66fy15C45Pw=
 		</data>
 		<key>Headers/MPSite.h</key>
 		<data>
-		7Fkv6AKpChw/BbXwi6BupLetS1U=
+		YWDpCU0NtVYclPmg4zPvzqf393A=
 		</data>
 		<key>Headers/MPSolution.h</key>
 		<data>
-		oSnMpjxWva6EAM/J5q1cE3UzACg=
+		iGMOzJ4WSgRYByUfdLFuYpcrJpg=
 		</data>
 		<key>Headers/MPSolutionProvider.h</key>
 		<data>
@@ -1131,11 +1131,11 @@
 		</data>
 		<key>Headers/MPTokenSet.h</key>
 		<data>
-		ZRZ42BasfWh3LxQqKxvZw8ZHDaQ=
+		A11UiHVXqk7jYnSUTvQI7F6Mo/k=
 		</data>
 		<key>Headers/MPType.h</key>
 		<data>
-		66/fcvLsohlz/LOdjJU8ZmrFZpQ=
+		33M3jJabs+/5HVsZm4s4EIEaAPM=
 		</data>
 		<key>Headers/MPUIViewController.h</key>
 		<data>
@@ -1151,11 +1151,11 @@
 		</data>
 		<key>Headers/MPVenue.h</key>
 		<data>
-		XFvsOmuyALOJf04z3dKHx3Wc4Ww=
+		jfOcZU5SMITlrxxwj+3GD/TDB2g=
 		</data>
 		<key>Headers/MPVenueCollection.h</key>
 		<data>
-		6QeqvBo2jUbX/82ubYryz+RK63Y=
+		2tfoa9YV8VaVIe9T0reyi2K9xZs=
 		</data>
 		<key>Headers/MPVenueProvider.h</key>
 		<data>
@@ -1191,7 +1191,7 @@
 		</data>
 		<key>Headers/PositionCalculator.h</key>
 		<data>
-		ILEwxm6dcOLxX14fkAZNMfH6D0U=
+		z/XUYWO8M96UvrVM8uFYALY8fu0=
 		</data>
 		<key>Headers/UIColor+HexString.h</key>
 		<data>
@@ -1215,11 +1215,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		YcJstzvBuO3bYYVZEUKn6dc6KDc=
+		9vKSAaOf0pDgqBUFOD4RapafY5Q=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		Vstl9HyvdKDXRtoubuCmdi6FTZU=
+		</data>
+		<key>embedded.mobileprovision</key>
+		<data>
+		x1G+0g330KiESVN91yyWgwrlMFg=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -2916,11 +2920,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			M83J6hmOMiGG6tYwi2zTjTvS7Gk=
+			ERnHJUEN+Ejd/Cp5H7A395Efcrk=
 			</data>
 			<key>hash2</key>
 			<data>
-			neyeHNRBnA1mytHJwXHkom9BU25+NI6WR8Vw/s/CMsc=
+			L47Q4x/aF4Nd6EgRzPMYORrhQN2j3Q2Y4RltdLmPNfk=
 			</data>
 		</dict>
 		<key>Headers/MPAppMode.h</key>
@@ -2938,11 +2942,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			kF4vY/dNl7+WMqA3H63Ctyf3z7M=
+			wMgopo4wqSMSyszrQH7FmlBXdOM=
 			</data>
 			<key>hash2</key>
 			<data>
-			iPF3hmvJNam7Q0EEyla4FnsEVpaZjCxxRQx5rwDVXO4=
+			7CQIQ4zP07aeow9VD6JVGvnc0GyJqzrAENq8VLUDG0A=
 			</data>
 		</dict>
 		<key>Headers/MPBeaconCollection.h</key>
@@ -2982,66 +2986,66 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			329DEKNIBltyMT+EmrrBMUaxTJ4=
+			hZSJnQzqWyp5hiYXzMptknxstP4=
 			</data>
 			<key>hash2</key>
 			<data>
-			zksJ6zkzszD3H+GYzeCIpK/yUDQLvvKmqSANva99w+g=
+			slRFzBxt5EFJ/udreNwlEu6igq2oUvlsItVykVPhWOg=
 			</data>
 		</dict>
 		<key>Headers/MPBuildingCollection.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			UoAEr9BHvmAr62nBE+LbpeYQFSU=
+			Ls3OvcJdO/yKn3W52YjX3BjmCPY=
 			</data>
 			<key>hash2</key>
 			<data>
-			6liGTEC30WLes1+n1CxHaIYcGVMJCl4DbPIUqdwZ1/U=
+			7IkRWRv6CY0iGXl9eGAqYbuoHZjza0FlsPcXUZi7+BY=
 			</data>
 		</dict>
 		<key>Headers/MPBuildingDataset.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ldxGntHhGZUz1xQx1jESebWnIOU=
+			72fiHSbLQGCx42TjdEwuSUdJPes=
 			</data>
 			<key>hash2</key>
 			<data>
-			5dS2mMF6CbUEWu71W2XlVbdeDLa5/SSBg+8dOUJAUQY=
+			JXQqKyLIByPZq8c39Yd3cY0EviF21Y+sqTQTGwaGePo=
 			</data>
 		</dict>
 		<key>Headers/MPBuildingInfo.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			2qwJwXr2NHgjI50lXOAtmKTLZDo=
+			lolIYqMJXwmjE0vU8H4d7lFPNrc=
 			</data>
 			<key>hash2</key>
 			<data>
-			ltLdxDzE/YIiUFZrcCUiFmJ4hX+dqydZ/lD298TSOVQ=
+			ge/rpVXE1p8AWMa+8+FhDc8TI8ab9KiblONIVFnm0P8=
 			</data>
 		</dict>
 		<key>Headers/MPBuildingReference.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			iDJbrmPxKsTi71rHjLE3Yw74d9o=
+			+PrPmauStRUdz3zdzZM4zrRz4uc=
 			</data>
 			<key>hash2</key>
 			<data>
-			hH5s38soXxe/Sq0u9VZ11eIvQg2+Dg8d8P3wviJwpd8=
+			VDP103jts2KiVinqBgHMqzFsXJMoyl7exLJH9bZRRcw=
 			</data>
 		</dict>
 		<key>Headers/MPCategories.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			1fNqzVfZNVRyfn5UErYIlIF+fvM=
+			QmCu0EOfL5G7VmO+j4nrCZO9Sdo=
 			</data>
 			<key>hash2</key>
 			<data>
-			DWxNsKrhljJjbO6oARpwJqvKi2FsnUH4kD50JJxgPvA=
+			kxnJZVrj+QCPNFDJ+RtsnXnCPjUv0XuauRz3UtTxKow=
 			</data>
 		</dict>
 		<key>Headers/MPCategoriesProvider.h</key>
@@ -3070,33 +3074,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mob9ZlE4/sjJRhDXTnCRQ+wlRJo=
+			w4lPysubD8vRRkn8J8bpMPzgC3s=
 			</data>
 			<key>hash2</key>
 			<data>
-			BILswIT2osXkGeM7eJwzMn8sxJ8icm8m6/VwGD0LhYQ=
+			2SCykFhoj1VkE1/OzR0Nmm47quZBZe77n8GrcCH4MMo=
 			</data>
 		</dict>
 		<key>Headers/MPDataField.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			y1SA3Rl9ZhOvAa7IXmtF29CYmQw=
+			tR3Q6ms6CbfFp610uPo3Cv1zWfs=
 			</data>
 			<key>hash2</key>
 			<data>
-			ebspP28rTB5+Y9dzw+jKa7bI1joGuaDYiNWDz7fKWLg=
+			Oz1tqfPw2WPA9KuIDwbUPIFnT8oAc5ePZKyoNtIIdFI=
 			</data>
 		</dict>
 		<key>Headers/MPDirectionsRenderer.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			UXvL3+23gj5qqi86tBX3agXupfo=
+			xHcJxlte7BknYToU530wIgBC82k=
 			</data>
 			<key>hash2</key>
 			<data>
-			Nl2KyInvGBGrHdEr00LbVZaVqq3K/m8yeF/0JVOqLtQ=
+			gxHnOR0mjVzQQGE4/RnPURR7/sSnqah3a6cEntgTxQY=
 			</data>
 		</dict>
 		<key>Headers/MPDirectionsService.h</key>
@@ -3114,11 +3118,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mZWHf4EESOmlccSkFatL9TGR+VI=
+			zhls6RIRn062H5WDFs7nspBL1Ms=
 			</data>
 			<key>hash2</key>
 			<data>
-			9bUkVbjdknN35DLnkn7GFkNuB+jylV3ZPoNCzGTn6Ik=
+			JwtCVipgBdtY1MzI2Vg+nMBbi9LUXPOOjnqGa08dXJY=
 			</data>
 		</dict>
 		<key>Headers/MPDistanceMatrixProvider.h</key>
@@ -3136,22 +3140,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			izsLlAY35AqGtOF0GBPgLjXBvZo=
+			A3c7e0wXfLRBBWTzYoOXJCM/UJY=
 			</data>
 			<key>hash2</key>
 			<data>
-			tSxDCyQGrJ2v+zmd2feeOelpX3TBk+yAOdx2T9bgVYM=
+			ywEr9LvMNDXGixtddNRtxk5XdSviUOi8S04mwNBISqc=
 			</data>
 		</dict>
 		<key>Headers/MPDistanceMatrixRows.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			JX+uRDzLbxk7jozNFDibBIC6Kew=
+			wfjv6wK74WiQEarplu1EBHJICqs=
 			</data>
 			<key>hash2</key>
 			<data>
-			ADrC/eA2VloXVSZFnyAbQgKJhcxpC6vOz0Yw+NMv9/k=
+			LJlRk4HPBWEM93d+7XQtrszdcQqBhV/pCEl4z+Nkav8=
 			</data>
 		</dict>
 		<key>Headers/MPDouble.h</key>
@@ -3169,11 +3173,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			4JwiDqXRb7Fa6iEAoTvfjF/DIh8=
+			P8fBzv/cYMm2TqniPMcC6+eAp6I=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZjpteeSYLqaQUN+LXHkH953O/kKoWPkSnAVmemIzgRY=
+			Y5KULMXslUUeRBxKFrxN66TPkfQXRserqucGpJ0kX8g=
 			</data>
 		</dict>
 		<key>Headers/MPErrorCodes.h</key>
@@ -3191,11 +3195,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			vmOXOENCTCyLUCVgTNu0BaNvJZs=
+			2vinF6gnZyXRDbOL3SoLSsj81aM=
 			</data>
 			<key>hash2</key>
 			<data>
-			BpsoVlCLp8DY+AvrNT17irsBrechjCqQWcrcJprVVmg=
+			D2U4Dk/KUOzj/29fGp7K/8o44jYNoVX2+h1HVRO3pGE=
 			</data>
 		</dict>
 		<key>Headers/MPFloorButton.h</key>
@@ -3213,11 +3217,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			k4ogJqKzTFo5gvMk4b7UeFfZUZQ=
+			fgGqOI/1j17Fd/IULKfAjQ6AIXk=
 			</data>
 			<key>hash2</key>
 			<data>
-			Mk5iBWkrDKLt/b8pkxfGR7El5H+qyjOHh/6s83mShss=
+			RHSk5nYshqmcU/W40fQje67FR+h1vpOnptsDTSzayjg=
 			</data>
 		</dict>
 		<key>Headers/MPFloorTileLayer.h</key>
@@ -3235,11 +3239,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			IXJg3DlqgEVFr+4tbDWVs483VNg=
+			J/upMGcRbGqQfMCZRRJQ9wM7rdM=
 			</data>
 			<key>hash2</key>
 			<data>
-			3wmpP/0neJzK/6KYmOr4924OeNKJy2QklQ5FQTD6d2Y=
+			HEFD6YfjODDL83G6d2BzkvdFjauLn2ppxXeeRJgbO6g=
 			</data>
 		</dict>
 		<key>Headers/MPImageProvider.h</key>
@@ -3279,22 +3283,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			V/ggvXpcRT9OcoF2vYnRpR9qsLk=
+			iTGhNUKoSKm8JJwYAmV9RVeDo2g=
 			</data>
 			<key>hash2</key>
 			<data>
-			bYyU9sur/dkOIq3aJDgga++UpwO79TVDF1FOQLdLVYU=
+			odveN6/slHn3zB/CQA3sPQ5Jwftg4HsHvQ+7kQxlHuU=
 			</data>
 		</dict>
 		<key>Headers/MPLatLngBounds.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			VpDNLYUCA/EBn7c4nAbBrM9p+hY=
+			LRyYbCn+xGQKeHwPR7uxg3Sxeao=
 			</data>
 			<key>hash2</key>
 			<data>
-			HPvXUAI26qPAga3bmMip1OARwpxXLS4ZTZYmDQQAj14=
+			+xjr27AIoK1YxVRx9j+icvd0MwXEpZ9j0dkoCXWU57M=
 			</data>
 		</dict>
 		<key>Headers/MPLayerType.h</key>
@@ -3334,55 +3338,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			6L5SwZYd0oUzAly2i66Tskt1gOo=
+			TxW4RBejHB7vvUIhI7ANU2lj5+c=
 			</data>
 			<key>hash2</key>
 			<data>
-			Gn2BQVpVFfs6x4xbVM8luxC4VVEzyVWe0SqqHfbaM0g=
+			RV0F5Jg3NKVhHVrlfdXSlRu9E0ZbmuNQGsQBkLgXb4U=
 			</data>
 		</dict>
 		<key>Headers/MPLocationDataset.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ZumKG8i+BEl7fDmjB4lqrIvGmoU=
+			Gl7vZXW+H8ho5/eTXSLKVGATyCE=
 			</data>
 			<key>hash2</key>
 			<data>
-			UeZA8rdper2O0ZM0vUVRIBmH8YzA/WY1njoFEVt8zoA=
+			nu1dTNR/RpOysqKCDdThppNyDt6lz/QJj9IChsBEvJg=
 			</data>
 		</dict>
 		<key>Headers/MPLocationDisplayRule.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			EgAjUdPKOzca8ztD1S4vyZrq8co=
+			z0TyRQKUxun/cmLDwOYk8TCEMwU=
 			</data>
 			<key>hash2</key>
 			<data>
-			+2aNwisJayKAKhG6PFRtTEhfg3PltyZDZ3FArjPjQFk=
+			DhcTHGJ8Qpg4zff8Pc/l15VFtWK1hOsxwvFHCN+0WeQ=
 			</data>
 		</dict>
 		<key>Headers/MPLocationDisplayRuleset.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			RU8bE4YPrPNGSmvTL/5nqbXVRjQ=
+			01yvprn3Wx6MsAVNHaW41A8/59Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			VcQnuG7/h/DoSUqs5i/tIBtwNgS8zOf+1uSpPCz2/rc=
+			A7WDS6olM2ZA7buvk2CdX5CSCMMLdf+rTZd+z95I9hM=
 			</data>
 		</dict>
 		<key>Headers/MPLocationField.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+OkR/qAnZGg4K55gBaM2ygrU/Ao=
+			vB+j9utDvWbCpLg0urYln6sbI98=
 			</data>
 			<key>hash2</key>
 			<data>
-			1ZUqx+x7ubyg+oZRd3rszga1POoG1SUuwlSOzI9qsdw=
+			iNXig30yH+rkGj2gLu17woemeLPkMfNRVQkRGgrY0m0=
 			</data>
 		</dict>
 		<key>Headers/MPLocationProperty.h</key>
@@ -3488,22 +3492,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8iB6zskXbx/uB6PnLJVnUtGgjBI=
+			gLjz+RfmJMEdond3NpE+5OxsvoY=
 			</data>
 			<key>hash2</key>
 			<data>
-			GxyOFE3MqtAu6KB7p+cfQwGQZDezIIe/GJFzDOthp0U=
+			dkMZ/jTX82LfT7v3UeZaZtl2J75lLx1SoX6ra3CohIs=
 			</data>
 		</dict>
 		<key>Headers/MPMapExtend.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			NoYQ5bQs7GH9M4JvdxifiZGPjik=
+			rZTcpttwPAOdFPABAsaM+H3qjT0=
 			</data>
 			<key>hash2</key>
 			<data>
-			IfTUy5Lmh+7SbZkzLRUEw3yY+7dz9E27P2WTKvIMxvg=
+			X9G33jbfQDnVFBUopH2W6mwUMLyf6ejoZYiM4G45g1Q=
 			</data>
 		</dict>
 		<key>Headers/MPMapRouteLegButton.h</key>
@@ -3521,11 +3525,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			UDSGMIY5aeDilGkKoOA8afrxLVs=
+			qlwxX3AudOFtOQNo63f0uTQhKTg=
 			</data>
 			<key>hash2</key>
 			<data>
-			e2m7TL1jbnO35eIja6DCtfhC4+h+joJWEesfJqOd3lU=
+			GEVGS5EXXcIFA0Tjy4kpYtxoXtP1rCtZDWZIHSz2lMA=
 			</data>
 		</dict>
 		<key>Headers/MPMarkerView.h</key>
@@ -3543,22 +3547,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2xa7BfLDA0gkl2TaQm9wHIG8gm0=
+			7AroPffzzlGjN6y/Z+gLGK75EW0=
 			</data>
 			<key>hash2</key>
 			<data>
-			gmlmuIhIK+7roWr/Eq8OCc1Ky2FGJOCva/5qWzoa/uA=
+			EksdGlPrLV+DdcN87Mjlhio26mBPDPcyO/PvHp/wwvQ=
 			</data>
 		</dict>
 		<key>Headers/MPMessageDataset.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			SDKhrgXyJ/oIn9u93DaEtjj8q1Y=
+			eANP76g5EuSZcSLGEQiuNWS6l5Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			cKsDfgKXW1fhxtZJW8ctLGSL2cn49owJeNveXYxgisI=
+			QKlCySd2CmQ7Bof7Ux3NkwrbaIqk6db8gs68vo6gERU=
 			</data>
 		</dict>
 		<key>Headers/MPMessageProvider.h</key>
@@ -3587,55 +3591,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			hbxFfJUJcSUyMfqkz+EfsTjtOEU=
+			HEuojNnE296PJ0tdq9dPsJJEydM=
 			</data>
 			<key>hash2</key>
 			<data>
-			tt77jQLhau4h2kMtLhZMu29G2Ox/ZluKvxhPM9JQTlU=
+			//Ou7dcesWly6qqgHCRkqLYvmIcIsvUf04cKCwBY/X8=
 			</data>
 		</dict>
 		<key>Headers/MPOpeningHours.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Dks94fA2QNV4PHYjHq4HiWplJu4=
+			mbK589nvG5t/08UT8vDx7jn6BgY=
 			</data>
 			<key>hash2</key>
 			<data>
-			niluYS2tr/rQs51BcLaynQUwRKPpoTwk+7UgwvGm41k=
+			GF1FdEW2p2eSBAgcJxDUzvDzlHrWrvFmnaF0D8/JZ5k=
 			</data>
 		</dict>
 		<key>Headers/MPOpeningHoursModule.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5JDlcG+82AFJFTApypey5RdZCjI=
+			SZbeeXJycrYpjZrtJOfQjOAWGcQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			iv60BmSODQfoIQBVeJZliqEWV2sNMgKdjoksmTPRj5w=
+			Leoaf/KGcIWJ4371OBVEowWiuZc21kf85OVemBIKRx4=
 			</data>
 		</dict>
 		<key>Headers/MPPersistentCacheGMSTileLayer.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			hvSfdo8aZXJ8V2VmsOjtyCLjW5o=
+			vMJkxGAX8gY0+bgNr0A0F2cJK/Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			YOPWSM/74DRt0MPH/WsoAFG2acC9CjLcJUMoLubjle0=
+			xGpeB0+qZ8D4nmmVS48h13RQ7OX5VlOGWSXlUe3e85c=
 			</data>
 		</dict>
 		<key>Headers/MPPoint.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9J3QDHREw1SJ0zKfre8O8AYyBCY=
+			Neu2gzpdoJLb+5VghauyMypzg1A=
 			</data>
 			<key>hash2</key>
 			<data>
-			e4nSZDySlSTQ5N27GDJ1NULBgpIzelqNj14rLmKTNRM=
+			j9nIgqxVNQfT6XuBJV2Iq3MSmbHpFVjYXsAReKkRo30=
 			</data>
 		</dict>
 		<key>Headers/MPPositionIndicator.h</key>
@@ -3664,110 +3668,110 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			gr7vyQte5rmefmauJ9z2SV2NbiE=
+			I5FvlQCE16zSqW8jpY8xd0IY9UQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			hJCGxLmdBR0ts/NvrG1i4t+Yy+fiQ/+Lef8INM3i6NY=
+			NDr+kY6bDS/yYKIzkvQOMUYI2JxJml5m5kT5h8A0lw4=
 			</data>
 		</dict>
 		<key>Headers/MPRoute.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			puUqtJFxFrng6RD1jkD2IFF4FF0=
+			MF2i7exFHUpHf6xc2lbTUK2Vk+I=
 			</data>
 			<key>hash2</key>
 			<data>
-			Rda/bnwS8tRtfe14oYzOTVJv5CkA58oE2ewLgYY/fl0=
+			zvAKAskmisKVo7Arm5wRY9O9F/uSCBz/liIYyC83r5Y=
 			</data>
 		</dict>
 		<key>Headers/MPRouteBounds.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			1qJODYJTp0FkVBJaERbZufQcFBc=
+			dUtaDyJ9Qz6SQSfKmxodCSm5GZY=
 			</data>
 			<key>hash2</key>
 			<data>
-			agw3untMvXpf03j8sfG7rZhZ7mDPRexEjpvd+KYEbyU=
+			w+CEPgvlxTpJdVHqMeiefYrAvY0I3ebT+WxNmTlMswo=
 			</data>
 		</dict>
 		<key>Headers/MPRouteCoordinate.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Sl29Hm86I85QmcwkzfHMa11eO2I=
+			FUbxxFT7PQ7r03G+dZgtO39oa1U=
 			</data>
 			<key>hash2</key>
 			<data>
-			4qCXpjGEX4r0DjiM/PywSW6cTfJK3mO90dprPCUX1bo=
+			PB5VD+OJsLEA10L4zgnLJOAuef9QWnlHa/QU1B+kgFI=
 			</data>
 		</dict>
 		<key>Headers/MPRouteInfo.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			4stPShS3HFpSah3wO0OXI9sJQJU=
+			MHWVn8n/cRxqahiO7l6jFu5IZ1M=
 			</data>
 			<key>hash2</key>
 			<data>
-			9c+/gNiAwoGzC98dl9Uw1r9EmfS5BmmqVjKubsKEWEI=
+			AKGLbwBdUmUG2B0bYBeBdA9tGNL5dbG5oSnkUXAz2ok=
 			</data>
 		</dict>
 		<key>Headers/MPRouteInstructions.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ad/bTTEDBET2LGACY/sfgRGvb3w=
+			nheeaoMnBdpON64Y6pBfvSrDN88=
 			</data>
 			<key>hash2</key>
 			<data>
-			b+5sKYVbbvtx80uWDoHBduBrgjb6OtZebdyknarw/Ns=
+			Wyoz3JXgQDYF1N4M51pwhAuTYrdBWpDf9B7kfyHnBYY=
 			</data>
 		</dict>
 		<key>Headers/MPRouteLeg.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			meFk4DdV4TF13OGz3TPmHCqqSA4=
+			MT/WxjFTRZb9QX00s7SatN//Gv4=
 			</data>
 			<key>hash2</key>
 			<data>
-			Wcj1iWVnj+yaBOO179++HhAW1bLGmWe8sU+rUGYHzKU=
+			/ru82AqI9tknNa3bUb/XKrVzNmFlbR9ly5gGbXNyTZ0=
 			</data>
 		</dict>
 		<key>Headers/MPRouteProperty.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Ptpjv8nl2v5ZDWXjm9xzFW9nnkM=
+			uSpoam0lfeJdUq3V3fLEsz6KU4A=
 			</data>
 			<key>hash2</key>
 			<data>
-			WK+criOHbSXwMRAGRvT4JHDsGwMZ/7mUWS2BYA/7rxQ=
+			l7jnr8X7J55mvHGwCe8a0sxVj5Imd14INlDB4KqBuWc=
 			</data>
 		</dict>
 		<key>Headers/MPRouteResult.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ALIrm/5n66KeDyaHADy96moS8ew=
+			ETg8XWM2rVQkCOfs7SSDMNAd4Wg=
 			</data>
 			<key>hash2</key>
 			<data>
-			VByl5BTnmY3kzUVtREwBM9fFBPlll2N0Chdiv/xwXW4=
+			YykAnhSZsJQk+gJIfLvvFsE0tUXJKU8uGN82ZXo5nCo=
 			</data>
 		</dict>
 		<key>Headers/MPRouteStep.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			A2SMxE64hxQFCpCjM4ipbRsMMvY=
+			MeC7rW1q2xx1Lv/VGuesJNu3Dh4=
 			</data>
 			<key>hash2</key>
 			<data>
-			rSYHIql2G0kL6D5+R0dEOTbzj968MHhKiuPbvgEaLBU=
+			QZeJrZrZWRonmI2cD8do4NLPyMLPGO+ykj/Tat1coek=
 			</data>
 		</dict>
 		<key>Headers/MPRoutingControl.h</key>
@@ -3785,33 +3789,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			r/X2Ur/9Aa0a/qXWgt9PazsHTuA=
+			f1OSz0QQf3j0JlpA66fy15C45Pw=
 			</data>
 			<key>hash2</key>
 			<data>
-			L1nKHdQvgJJXJtOBRVb9hB4zFH/yIJzMP6IrsVY+/1I=
+			EFBMqIOdgRnItotc+d7L/n91VIjO2Kfr1CWmBqKoPq8=
 			</data>
 		</dict>
 		<key>Headers/MPSite.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			7Fkv6AKpChw/BbXwi6BupLetS1U=
+			YWDpCU0NtVYclPmg4zPvzqf393A=
 			</data>
 			<key>hash2</key>
 			<data>
-			qvIePVHPNYPIDMBN6D7tVmbjOObUyfmoqGBXXkmtuEY=
+			X+EaGMRcYMoTchd/TuNpTnA0h+s8HZdZwORVnpzUIWw=
 			</data>
 		</dict>
 		<key>Headers/MPSolution.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			oSnMpjxWva6EAM/J5q1cE3UzACg=
+			iGMOzJ4WSgRYByUfdLFuYpcrJpg=
 			</data>
 			<key>hash2</key>
 			<data>
-			WrgLZe/1TaxtBHHk18BALZcN2yCaCjUXTTT5nec/NvE=
+			/cTdmncm2oXMYSQJig3F9delEDYix2RKHqJvxDXEA1k=
 			</data>
 		</dict>
 		<key>Headers/MPSolutionProvider.h</key>
@@ -3840,22 +3844,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ZRZ42BasfWh3LxQqKxvZw8ZHDaQ=
+			A11UiHVXqk7jYnSUTvQI7F6Mo/k=
 			</data>
 			<key>hash2</key>
 			<data>
-			Km8C0ntSNVzGIndOVF3oWNBYiHioIVAmeNB+XrSTFgM=
+			GBqS6jS/0aAyTBJXUKHqGWA0R3eR8dG/Bsu0izahnms=
 			</data>
 		</dict>
 		<key>Headers/MPType.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			66/fcvLsohlz/LOdjJU8ZmrFZpQ=
+			33M3jJabs+/5HVsZm4s4EIEaAPM=
 			</data>
 			<key>hash2</key>
 			<data>
-			xAObHxOWGTYpoMjgi3WDtzD/iJ4yQuZVelJFiZ5qp9U=
+			G7i3UtjYX9TDtipUzyJCidU+AIa3l2FSU55g+YW7g70=
 			</data>
 		</dict>
 		<key>Headers/MPUIViewController.h</key>
@@ -3895,22 +3899,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			XFvsOmuyALOJf04z3dKHx3Wc4Ww=
+			jfOcZU5SMITlrxxwj+3GD/TDB2g=
 			</data>
 			<key>hash2</key>
 			<data>
-			ta/ZhGHBqHH/iGsqM1FnqzcnO4yublx5INBAdKzdbSM=
+			vweUU0ixW2JIu79SSM0VjSFZOQiEjFZZyvOhSZG58AE=
 			</data>
 		</dict>
 		<key>Headers/MPVenueCollection.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			6QeqvBo2jUbX/82ubYryz+RK63Y=
+			2tfoa9YV8VaVIe9T0reyi2K9xZs=
 			</data>
 			<key>hash2</key>
 			<data>
-			nwPabFOeaAC+oRGC0KRu+8Zj7qC9DVefprn+iGTzykU=
+			vkLARB8VlAUo0d8izfN9S7Ag5lN1hzaD6EKPFWzpaDQ=
 			</data>
 		</dict>
 		<key>Headers/MPVenueProvider.h</key>
@@ -4005,11 +4009,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ILEwxm6dcOLxX14fkAZNMfH6D0U=
+			z/XUYWO8M96UvrVM8uFYALY8fu0=
 			</data>
 			<key>hash2</key>
 			<data>
-			bZjwOZ9UyZpqDUoGFYJd/XAC0GJ7Een/cH4508L3KY4=
+			vhjCKxMGsIhGL4eWX1gbYn9LZSiV+OArPF7cHGzV16o=
 			</data>
 		</dict>
 		<key>Headers/UIColor+HexString.h</key>
@@ -4076,6 +4080,17 @@
 			<key>hash2</key>
 			<data>
 			DaJG1zu2z3NmA7503kQUDcuCqCbVVeNQQ8+jIuknoCk=
+			</data>
+		</dict>
+		<key>embedded.mobileprovision</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			x1G+0g330KiESVN91yyWgwrlMFg=
+			</data>
+			<key>hash2</key>
+			<data>
+			cDdil/ZjtnM+ih/aQuMSp4tLJMQBnwHpHpHUp3oU+kc=
 			</data>
 		</dict>
 	</dict>

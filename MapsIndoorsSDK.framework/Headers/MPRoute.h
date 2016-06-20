@@ -6,12 +6,8 @@
 //  Copyright (c) 2013 MapsPeople A/S. All rights reserved.
 //
 
-#import <JSONModel/JSONModel.h>
-#ifdef USE_M4B
-#import <GoogleMapsM4B/GoogleMaps.h>
-#else
-#import <GoogleMaps/GoogleMaps.h>
-#endif
+@import JSONModel;
+@import GoogleMaps;
 #import "MPEncodedPolyline.h"
 #import "MPRouteProperty.h"
 #import "MPRouteCoordinate.h"

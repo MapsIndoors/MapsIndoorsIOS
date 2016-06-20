@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <JSONModel/JSONModel+networking.h>
+@import JSONModel;
 #import "MPMessage.h"
 
 /**

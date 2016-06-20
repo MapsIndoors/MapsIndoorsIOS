@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <JSONModel/JSONModel.h>
+@import JSONModel;
 #import "MPLocation.h"
 @class MPLocation;
 /**

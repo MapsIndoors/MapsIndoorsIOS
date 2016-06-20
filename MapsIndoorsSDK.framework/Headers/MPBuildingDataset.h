@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 MapsPeople A/S. All rights reserved.
 //
 
-#import <JSONModel/JSONModel.h>
+@import JSONModel;
 #import "MPBuilding.h"
 
 /**

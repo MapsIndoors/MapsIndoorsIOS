@@ -6,11 +6,7 @@
 //  Copyright (c) 2014 MapsPeople A/S. All rights reserved.
 //
 #import <Foundation/Foundation.h>
-#ifdef USE_M4B
-#import <GoogleMapsM4B/GoogleMaps.h>
-#else
-#import <GoogleMaps/GoogleMaps.h>
-#endif
+@import GoogleMaps;
 @interface MPMapExtend : NSObject
 
 - (id)initWithGMSBounds:(GMSCoordinateBounds*)bounds;

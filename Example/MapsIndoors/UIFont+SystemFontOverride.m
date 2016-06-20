@@ -7,7 +7,7 @@
 //
 
 #import "UIFont+SystemFontOverride.h"
-#import <GoogleFontsiOS/UIFont+Roboto.h>
+@import GoogleFontsiOS;
 
 @implementation UIFont (SystemFontOverride)
 

@@ -6,13 +6,9 @@
 //  Copyright (c) 2014 MapsPeople A/S. All rights reserved.
 //
 
-#import <JSONModel/JSONModel.h>
+@import JSONModel;
 #import "MPGeometry.h"
-#ifdef USE_M4B
-#import <GoogleMapsM4B/GoogleMaps.h>
-#else
-#import <GoogleMaps/GoogleMaps.h>
-#endif
+@import GoogleMaps;
 
 /**
  * Floor data model. Holds the floor geometry, display name, z-index and id of the building it belongs to. Furthermore it can hold a reference to a GMSTileLayer.

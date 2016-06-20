@@ -9,8 +9,8 @@
 #import "Global.h"
 #import "MasterViewController.h"
 #import "SearchViewController.h"
-#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
-#import <AFNetworking/UIImageView+AFNetworking.h>
+@import MapsIndoorsSDK;
+@import AFNetworking;
 #import "UINavigationController+TransparentNavigationController.h"
 #import "UISearchBar+AppSearchBar.h"
 
@@ -41,6 +41,7 @@
     //self.detailViewController = (UITableViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
     self.searchBar.delegate = self;
+    self.searchBar.placeholder = @"Search";
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(solutionDataReady:) name:@"SolutionDataReady" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLocationsReady:) name:@"LocationsDataReady" object:nil];

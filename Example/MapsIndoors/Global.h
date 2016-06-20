@@ -13,8 +13,8 @@
 #define kYouAreHere @"You are here"
 
 #import <Foundation/Foundation.h>
-#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
-#import "POIData.h"
+@import MapsIndoorsSDK;
+#import  "POIData.h"
 #import "RoutingData.h"
 
 
@@ -37,6 +37,9 @@
 
 + (RoutingData*) routingData;
 + (void) setRoutingData:(RoutingData*)value;
+
++ (NSArray*) appColors;
++ (void) setAppColors:(NSArray*)value;
 
 + (id<MPPositionProvider>) positionProvider;
 
