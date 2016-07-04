@@ -11,6 +11,13 @@
 #import "MPBuilding.h"
 #import "MPVenue.h"
 #import "MPMapExtend.h"
+
+
+typedef void(^mpVenueDetailsHandlerBlockType)(MPVenue* venue, NSError* error);
+typedef void(^mpVenueListHandlerBlockType)(MPVenueCollection* venueCollection, NSError* error);
+typedef void(^mpBuildingDetailsHandlerBlockType)(MPBuilding* venue, NSError* error);
+typedef void(^mpBuildingListHandlerBlockType)(NSArray* buildings, NSError* error);
+
 /**
  * Venue provider delegate.
  */
@@ -45,5 +52,21 @@
 - (void)getBuildingsAsync: (NSString*)venue arg: (NSString*) solutionId language: (NSString*) language;
 - (void)getBuildingDetailsAsync: (NSString*)buildingId arg: (NSString*) solutionId language: (NSString*) language;
 - (void)getVenueDetailsAsync: (NSString*)venueId arg: (NSString*) solutionId language: (NSString*) language;
+
+/**
+ * Get venues from this provider.
+ */
+- (void)getVenuesAsync: (NSString*) arg language: (NSString*) language completionHandler:(mpVenueListHandlerBlockType)handler;
+/**
+ * Get building within bounds from this provider.
+ */
+- (void)getBuildingWithinBoundsAsync: (MPMapExtend*)mapExtend arg: (NSString*) solutionId language: (NSString*) language completionHandler:(mpBuildingDetailsHandlerBlockType)handler;
+
+- (void)getBuildingsAsync: (NSString*)venue arg: (NSString*) solutionId language: (NSString*) language completionHandler:(mpBuildingListHandlerBlockType)handler;
+
+- (void)getBuildingDetailsAsync: (NSString*)buildingId arg: (NSString*) solutionId language: (NSString*) language completionHandler:(mpBuildingDetailsHandlerBlockType)handler;
+
+- (void)getVenueDetailsAsync: (NSString*)venueId arg: (NSString*) solutionId language: (NSString*) language completionHandler:(mpVenueDetailsHandlerBlockType)handler;
+
 
 @end

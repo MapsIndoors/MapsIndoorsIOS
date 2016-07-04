@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "MPDistanceMatrixResult.h"
 
+typedef void(^mpMatrixHandlerBlockType)(MPDistanceMatrixResult* matrixResult, NSError* error);
+
 @protocol MPDistanceMatrixProviderDelegate <NSObject>
 /**
  * Routing result ready event method.
@@ -26,11 +28,11 @@
 @property NSString* graphId;
 @property NSString* vehicle;
 
-- (void)getDistanceMatrixWithOrigins:(NSArray*) origins destinations:(NSArray*)destinations travelMode: (NSString*)travelMode avoid:(NSArray*)restrictions depart:(NSDate*)departureTime arrive:(NSDate*)arrivalTime;
+- (void)getDistanceMatrixWithOrigins:(NSArray*) origins destinations:(NSArray*)destinations travelMode: (NSString*)travelMode avoid:(NSArray*)restrictions depart:(NSDate*)departureTime arrive:(NSDate*)arrivalTime completionHandler: (mpMatrixHandlerBlockType)handler;
 
 - (void)getDistanceMatrixWithOrigins:(NSArray*) origins destinations:(NSArray*)destinations travelMode: (NSString*)travelMode;
 
-- (void)getGoogleDistanceMatrixWithOrigins:(NSArray*) origins destinations:(NSArray*)destinations travelMode: (NSString*)travelMode avoid:(NSArray*)restrictions depart:(NSDate*)departureTime arrive:(NSDate*)arrivalTime;
+- (void)getGoogleDistanceMatrixWithOrigins:(NSArray*) origins destinations:(NSArray*)destinations travelMode: (NSString*)travelMode avoid:(NSArray*)restrictions depart:(NSDate*)departureTime arrive:(NSDate*)arrivalTime completionHandler: (mpMatrixHandlerBlockType)handler;
 
 - (void)getGoogleDistanceMatrixWithOrigins:(NSArray*) origins destinations:(NSArray*)destinations travelMode: (NSString*)travelMode;
 

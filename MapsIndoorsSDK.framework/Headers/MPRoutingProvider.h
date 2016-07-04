@@ -36,4 +36,9 @@ typedef void(^mpRouteHandlerBlockType)(MPRoute* route, NSError* error);
 - (void)getGoogleRoutingFrom:(NSString*)from to:(NSString*)to by:(NSString*)mode avoid:(NSArray*)restrictions;
 - (void)getGoogleRoutingFrom:(NSString*)from to:(NSString*)to by:(NSString*)mode avoid:(NSArray*)restrictions depart:(NSDate*)departureTime arrive:(NSDate*)arrivalTime;
 
+- (void)getRoutingFrom:(MPPoint*)from to:(MPPoint*)to by:(NSString*)mode avoid:(NSArray*)restrictions completionHandler: (mpRouteHandlerBlockType)handler;
+- (void)getRoutingFrom:(MPPoint*)from to:(MPPoint*)to by:(NSString*)mode avoid:(NSArray*)restrictions depart:(NSDate*)departureTime arrive:(NSDate*)arrivalTime completionHandler: (mpRouteHandlerBlockType)handler;
+- (void)getGoogleRoutingFrom:(NSString*)from to:(NSString*)to by:(NSString*)mode avoid:(NSArray*)restrictions completionHandler: (mpRouteHandlerBlockType)handler;
+- (void)getGoogleRoutingFrom:(NSString*)from to:(NSString*)to by:(NSString*)mode avoid:(NSArray*)restrictions depart:(NSDate*)departureTime arrive:(NSDate*)arrivalTime completionHandler: (mpRouteHandlerBlockType)handler;
+
 @end	

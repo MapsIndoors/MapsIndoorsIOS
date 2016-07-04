@@ -8,6 +8,7 @@
 
 @import JSONModel;
 #import "MPBuilding.h"
+#import "MPVenue.h"
 
 /**
  * Venue protocol specification
@@ -25,5 +26,7 @@
 @property NSArray<MPVenue>* venues;
 
 - (MPBuilding*) getBuilding:(NSString*)buildingId;
+- (MPVenue *)getNearestVenue:(MPPoint*)geometry withinRadius: (int)meterRadius;
+
 
 @end

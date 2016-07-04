@@ -863,7 +863,7 @@
 		</data>
 		<key>Headers/MPDirectionsService.h</key>
 		<data>
-		cvp+l5eWSWo26H8kbgYaVtswvmY=
+		kqeYj+36Ax8sR4DAGjRB+9iQY8Y=
 		</data>
 		<key>Headers/MPDistanceMatrixElements.h</key>
 		<data>
@@ -871,7 +871,7 @@
 		</data>
 		<key>Headers/MPDistanceMatrixProvider.h</key>
 		<data>
-		MzTHGZmfj0vWYvhsHJ5QHX4rt60=
+		2YsLXU4130lPlk66nSb13GgZi3o=
 		</data>
 		<key>Headers/MPDistanceMatrixResult.h</key>
 		<data>
@@ -891,11 +891,11 @@
 		</data>
 		<key>Headers/MPErrorCodes.h</key>
 		<data>
-		kCzsgOLF6Q39l5NDayFgdcUCXPs=
+		CL9XEm/TXOQ1YI39X4l5VFy2Me0=
 		</data>
 		<key>Headers/MPFloor.h</key>
 		<data>
-		2vinF6gnZyXRDbOL3SoLSsj81aM=
+		Wzf5PlTR+Cha3P3tIk1Yd9IVA6M=
 		</data>
 		<key>Headers/MPFloorButton.h</key>
 		<data>
@@ -1111,7 +1111,7 @@
 		</data>
 		<key>Headers/MPRoutingProvider.h</key>
 		<data>
-		f1OSz0QQf3j0JlpA66fy15C45Pw=
+		qMFWQ4tjumNl4y5FSOJZ4g8rTt4=
 		</data>
 		<key>Headers/MPSite.h</key>
 		<data>
@@ -1155,11 +1155,11 @@
 		</data>
 		<key>Headers/MPVenueCollection.h</key>
 		<data>
-		2tfoa9YV8VaVIe9T0reyi2K9xZs=
+		oRwIUPDFYYsOsP2xI7QitZ8vlwc=
 		</data>
 		<key>Headers/MPVenueProvider.h</key>
 		<data>
-		oBpTs9t5ePutaIyAeqi416ew454=
+		ahnZTxiOl/o/17uhw5S0YQjIp/w=
 		</data>
 		<key>Headers/MapsIndoorsSDK.h</key>
 		<data>
@@ -1215,15 +1215,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		9vKSAaOf0pDgqBUFOD4RapafY5Q=
+		bk/T6tnNidWQiJMfb0deAcrfok0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		Vstl9HyvdKDXRtoubuCmdi6FTZU=
-		</data>
-		<key>embedded.mobileprovision</key>
-		<data>
-		x1G+0g330KiESVN91yyWgwrlMFg=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -3107,11 +3103,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cvp+l5eWSWo26H8kbgYaVtswvmY=
+			kqeYj+36Ax8sR4DAGjRB+9iQY8Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			VduEmgBfbhAWIS/OlWQmpifumOriu/iw4yx+lKufLb8=
+			WP2OcgT1+oTB8aFoGWu1LSTfq2vK3+yCKwmnu8cWHo0=
 			</data>
 		</dict>
 		<key>Headers/MPDistanceMatrixElements.h</key>
@@ -3129,11 +3125,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			MzTHGZmfj0vWYvhsHJ5QHX4rt60=
+			2YsLXU4130lPlk66nSb13GgZi3o=
 			</data>
 			<key>hash2</key>
 			<data>
-			C2rk6qIIZrcVkmArL5TIjWEmvz+q9U/vsm4dZCX+UEg=
+			Q1vnttQn2b8QSutlWwd/PR2ra/7JwFoZGAmCFjkv8gk=
 			</data>
 		</dict>
 		<key>Headers/MPDistanceMatrixResult.h</key>
@@ -3184,22 +3180,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			kCzsgOLF6Q39l5NDayFgdcUCXPs=
+			CL9XEm/TXOQ1YI39X4l5VFy2Me0=
 			</data>
 			<key>hash2</key>
 			<data>
-			tsnrM/pitgII2R6B+Q0I2Sa1jkH1NBKc8mAt1MLil2I=
+			Dr6d3RSLEMZVe+M+yycd+0ritSiHrivfcaNiDbc5HSM=
 			</data>
 		</dict>
 		<key>Headers/MPFloor.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			2vinF6gnZyXRDbOL3SoLSsj81aM=
+			Wzf5PlTR+Cha3P3tIk1Yd9IVA6M=
 			</data>
 			<key>hash2</key>
 			<data>
-			D2U4Dk/KUOzj/29fGp7K/8o44jYNoVX2+h1HVRO3pGE=
+			U584jAy+fHQ7nDbk+HSw9oXwCQFPQM8c3ztEeE0xQDI=
 			</data>
 		</dict>
 		<key>Headers/MPFloorButton.h</key>
@@ -3789,11 +3785,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			f1OSz0QQf3j0JlpA66fy15C45Pw=
+			qMFWQ4tjumNl4y5FSOJZ4g8rTt4=
 			</data>
 			<key>hash2</key>
 			<data>
-			EFBMqIOdgRnItotc+d7L/n91VIjO2Kfr1CWmBqKoPq8=
+			K4ue4AppxveL6yNPEzC44H/XmPhl9ikfE5gm5udzA+k=
 			</data>
 		</dict>
 		<key>Headers/MPSite.h</key>
@@ -3910,22 +3906,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2tfoa9YV8VaVIe9T0reyi2K9xZs=
+			oRwIUPDFYYsOsP2xI7QitZ8vlwc=
 			</data>
 			<key>hash2</key>
 			<data>
-			vkLARB8VlAUo0d8izfN9S7Ag5lN1hzaD6EKPFWzpaDQ=
+			JqOjPf+4Xssm+RLj/hKB0lSFm8DYvDoNiwoY7EPGfts=
 			</data>
 		</dict>
 		<key>Headers/MPVenueProvider.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			oBpTs9t5ePutaIyAeqi416ew454=
+			ahnZTxiOl/o/17uhw5S0YQjIp/w=
 			</data>
 			<key>hash2</key>
 			<data>
-			3xaQ5ZhWIWLYvvTZCZBUPixGOpzClvniOUmmHMld9xE=
+			aFa2sWsbc+iPZYzY7RNZl9M66C08taTaaH/Uj6sT1c8=
 			</data>
 		</dict>
 		<key>Headers/MapsIndoorsSDK.h</key>
@@ -4080,17 +4076,6 @@
 			<key>hash2</key>
 			<data>
 			DaJG1zu2z3NmA7503kQUDcuCqCbVVeNQQ8+jIuknoCk=
-			</data>
-		</dict>
-		<key>embedded.mobileprovision</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			x1G+0g330KiESVN91yyWgwrlMFg=
-			</data>
-			<key>hash2</key>
-			<data>
-			cDdil/ZjtnM+ih/aQuMSp4tLJMQBnwHpHpHUp3oU+kc=
 			</data>
 		</dict>
 	</dict>

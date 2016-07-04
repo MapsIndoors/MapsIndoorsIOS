@@ -17,4 +17,7 @@
 #define kMPErrorCodeMessagesNotFound 20001
 #define kMPErrorCodeMessageDetailsNotFound 20002
 
+#define kMPErrorCodeDirectionsRouteNotFound 30001
+#define kMPErrorCodeDirectionsMatrixNotFound 30002
+
 #define kMPMapsIndoorsDomain @"com.mapspeople.MapsIndoors"

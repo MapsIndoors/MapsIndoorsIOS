@@ -17,7 +17,7 @@
 /**
  * Floor geometry.
  */
-@property MPGeometry* geometry;
+//@property MPGeometry* geometry;
 /**
  * The GMSTileLayer created to this floor.
  */
