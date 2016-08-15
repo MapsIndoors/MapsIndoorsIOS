@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-@import MapsIndoorsSDK;
+#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
+
 #import  "UIFont+SystemFontOverride.h"
 
 @interface SearchViewController : UITableViewController<UISearchResultsUpdating, UISearchBarDelegate>
@@ -17,5 +18,8 @@
 @property (nonatomic, weak) IBOutlet UIView *searchBarContainer;
 @property (nonatomic, weak) IBOutlet UIImageView *headerImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *iconImageView;
+
+
+@property (nonatomic, strong) NSString* headerImageUrl;
 
 @end

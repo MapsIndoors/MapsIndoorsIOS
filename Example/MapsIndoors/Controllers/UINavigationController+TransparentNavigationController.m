@@ -8,23 +8,21 @@
 
 #import "UINavigationController+TransparentNavigationController.h"
 #import "UIColor+AppColor.h"
+@import VCMaterialDesignIcons;
 
 @implementation UINavigationController (TransparentNavigationController)
 
 - (void)awakeFromNib {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewDidLoad) name:@"Reload" object:nil];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
     self.navigationBar.tintColor = [UIColor whiteColor];
     [self.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
     
     UIView *statusBarBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, -20, 1280, 20)];
-    statusBarBackgroundView.layer.opacity = 0.5;
+    statusBarBackgroundView.tag = 909;
+    statusBarBackgroundView.layer.opacity = 0.35;
     statusBarBackgroundView.backgroundColor = [UIColor appDarkPrimaryColor];
     
     [self.navigationBar addSubview:statusBarBackgroundView];
+
 }
 
 - (void)presentTransparentNavigationBar
@@ -33,8 +31,29 @@
     [self.navigationBar setTranslucent:YES];
     [self.navigationBar setShadowImage:[UIImage new]];
     [self setNavigationBarHidden:NO animated:NO];
+
+    //self.navigationBar.tintColor = [UIColor clearColor];
     
-    self.navigationBar.tintColor = [UIColor clearColor];
+    UIImage* backImg = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_arrow_left fontSize:28.0f].image;
+    self.navigationItem.leftBarButtonItem.image = backImg;
+    
+    UIView *statusBarBackgroundView = [self.navigationBar viewWithTag:909];
+    statusBarBackgroundView.layer.opacity = 0.35;
+    
+}
+
+- (void)resetNavigationBar
+{
+    [self.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.navigationBar setTranslucent:YES];
+    [self.navigationBar setShadowImage:nil];
+    [self setNavigationBarHidden:NO animated:NO];
+    
+    self.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationBar.barTintColor = [UIColor appPrimaryColor];
+    
+    UIView *statusBarBackgroundView = [self.navigationBar viewWithTag:909];
+    statusBarBackgroundView.layer.opacity = 0.35;
 }
 
 - (void)hideTransparentNavigationBar
@@ -44,10 +63,10 @@
     [self.navigationBar setTranslucent:[[UINavigationBar appearance] isTranslucent]];
     [self.navigationBar setShadowImage:[[UINavigationBar appearance] shadowImage]];
     self.navigationBar.tintColor = [UIColor whiteColor];
-}
-
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
+    
+    
+    UIView *statusBarBackgroundView = [self.navigationBar viewWithTag:909];
+    statusBarBackgroundView.layer.opacity = 0.35;
 }
 
 @end

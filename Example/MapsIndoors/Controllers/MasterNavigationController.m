@@ -10,18 +10,29 @@
 #import "DetailViewController.h"
 #import "Global.h"
 #import "AppDelegate.h"
+#import "UIColor+AppColor.h"
+#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
+#import "VenueSelectorController.h"
+#import "LocalizationSystem.h"
+@import VCMaterialDesignIcons;
 
 @interface MasterNavigationController ()
 
 @end
 
 @implementation MasterNavigationController {
-    
+    NSUserDefaults* _prefs;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //    NSString* locToOpen = @"5639f27b0064920f8c09b9ea";
+    NSString* locToOpen = ((AppDelegate*)[UIApplication sharedApplication].delegate).locationIdToOpen;
+    if (locToOpen) {
+        [self performSelector:@selector(openLocationWithId:) withObject:locToOpen afterDelay:1.0];
+    }
     
 }
 
@@ -83,7 +94,7 @@
                                              from:nil
                                          forEvent:nil];
     
-    [Global.poiData getLocationDetailsAsync:Global.solutionId withId:locationId language:@"en"];
+    [Global.poiData getLocationDetailsAsync:Global.solutionId withId:locationId language:LocalizationGetLanguage];
 }
 
 @end

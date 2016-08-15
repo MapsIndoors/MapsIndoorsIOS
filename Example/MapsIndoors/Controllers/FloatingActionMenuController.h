@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-@import MapsIndoorsSDK;@import MaterialControls;
+#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
+@import MaterialControls;
 #import "UIFont+SystemFontOverride.h"
 
 @interface FloatingActionMenuController : UIViewController

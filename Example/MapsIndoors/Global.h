@@ -9,12 +9,10 @@
 //Directions rendering
 #define kDashSize 4;
 #define kLineWidth 4;
-//Strings
-#define kYouAreHere @"You are here"
 
 #import <Foundation/Foundation.h>
-@import MapsIndoorsSDK;
-#import  "POIData.h"
+#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
+#import "POIData.h"
 #import "RoutingData.h"
 
 
@@ -26,8 +24,8 @@
 + (MPSolution*) solution;
 + (void) setSolution:(MPSolution*)value;
 
-+ (NSString*) venue;
-+ (void) setVenue:(NSString*)value;
++ (MPVenue*) venue;
++ (void) setVenue:(MPVenue*)value;
 
 + (MPPoint*) initialPosition;
 + (void) setInitialPosition:(MPPoint*)value;
@@ -46,5 +44,10 @@
 + (void) setupPositioning;
 
 + (NSString*)getIconUrlForType: (NSString*)typeName;
+
++ (MPLocationDisplayRule*)getDisplayRuleForType:(NSString*) typeName;
+
++ (NSString*) getAddressForLocation: (MPLocation*) location;
+
 
 @end

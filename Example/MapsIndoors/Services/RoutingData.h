@@ -6,11 +6,14 @@
 //  Copyright (c) 2015 MapsPeople A/S. All rights reserved.
 //
 
-@import MapsIndoorsSDK;
+#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
+
 @interface RoutingData : MPDirectionsService<MPRoutingProviderDelegate>
 
 @property NSUInteger latestRoutingRequestHash;
 @property MPRoute* latestRoute;
+@property MPLocation* origin;
+@property MPLocation* destination;
 
 - (void)routingFrom:(MPLocation *)from to:(MPLocation *)to by:(NSString *)mode avoid:(NSArray *)restrictions depart:(NSDate *)departureTime arrive:(NSDate *)arrivalTime;
 

@@ -8,8 +8,12 @@
 
 #import "POIData.h"
 #import "Global.h"
+#import "LocalizedStrings.h"
+@import MaterialControls;
 
-@implementation POIData
+@implementation POIData {
+    MDSnackbar* _bar;
+}
 
 - (instancetype)init
 {
@@ -25,13 +29,23 @@
 - (void)getLocationsUsingQueryAsync:(MPLocationQuery *)locationQuery language:(NSString *)language {
     _locationQuery = locationQuery;
     if (locationQuery) {
-        [super getLocationsUsingQueryAsync:locationQuery language:language];
+        [super getLocationsUsingQueryAsync:locationQuery language:language completionHandler:^(MPLocationDataset *locationData, NSError *error) {
+            if (error && !_bar.isShowing) {
+                _bar = [[MDSnackbar alloc] initWithText:kLangCouldNotFindLocations actionTitle:@"" duration:4.0];
+                [_bar show];
+            }
+        }];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationsRequestStarted" object: nil];
     }
 }
 
 - (void)getLocationDetailsAsync:(NSString *)solutionId withId:(NSString *)locationId language:(NSString *)language {
-    [super getLocationDetailsAsync:solutionId withId:locationId language:language];
+    [super getLocationDetailsAsync:solutionId withId:locationId language:language completionHandler:^(MPLocation *location, NSError *error) {
+        if (error && !_bar.isShowing) {
+            _bar = [[MDSnackbar alloc] initWithText:kLangCouldNotFindLocationDetails actionTitle:@"" duration:4.0];
+            [_bar show];
+        }
+    }];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationsRequestStarted" object: nil];
 }
 

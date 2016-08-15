@@ -39,6 +39,6 @@
 /**
  * The array of route actions in this route leg.
  */
-@property NSArray<MPRouteStep, Optional>* steps;
+@property NSMutableArray<MPRouteStep, Optional>* steps;
 
 @end

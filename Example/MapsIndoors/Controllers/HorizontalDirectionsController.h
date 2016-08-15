@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <EasyTableView/EasyTableView.h>
-@import MapsIndoorsSDK;
+#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
+
 #import "UIFont+SystemFontOverride.h"
 
 @interface HorizontalDirectionsController : UIViewController<EasyTableViewDelegate>
@@ -17,6 +18,7 @@
 @property EasyTableView* tableView;
 @property (nonatomic, weak) IBOutlet UIView *tableFooter;
 @property (nonatomic, weak) IBOutlet UIView *tableHeader;
+@property (nonatomic, weak) IBOutlet UILabel *headerTitle;
 
 - (IBAction)closeRouting;
 

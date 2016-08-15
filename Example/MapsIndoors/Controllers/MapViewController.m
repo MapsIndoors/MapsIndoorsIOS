@@ -9,17 +9,23 @@
 #import "MapViewController.h"
 #import "Global.h"
 #import <GoogleMaps/GoogleMaps.h>
-@import MapsIndoorsSDK;@import MaterialControls;
+#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
+
+@import MaterialControls;
 #import "UIColor+AppColor.h"
 @import VCMaterialDesignIcons;
 #import "HorizontalDirectionsController.h"
 #import "FloatingActionMenuController.h"
 //#import "MFPPositionProvider.h"
 #import "BeaconPositionProvider.h"
+#import "UIViewController+Custom.h"
+#import "LocalizedStrings.h"
+#import "AppDelegate.h"
 
 #define kDirectionsContainerHeight 180
 #define kRouteFromHere @"Route from here"
 #define kRouteToHere @"Route to here"
+
 
 @interface MapViewController ()
 
@@ -33,6 +39,7 @@
     UIView* _directionsContainer;
     UIView* _floatingActionMenuContainer;
     FloatingActionMenuController* _floatingActionMenuController;
+    HorizontalDirectionsController* _horizontalDirectionsController;
     GMSMarker* _longPressMarker;
     MPLocation* _origin;
     MPLocation* _destination;
@@ -51,7 +58,9 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showHorizontalDirections:) name:@"ShowHorizontalDirections" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getNearest:) name:@"ShowNearest" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeRouting:) name:@"CloseRouting" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openDirectionsSettings:) name:@"OpenDirectionsSettings" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRouteResultReady:) name:@"RoutingDataReady" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onVenueChanged:) name:@"VenueChanged" object:nil];
     
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:@"Reload" object:nil];
@@ -75,7 +84,9 @@
                                                             longitude:Global.initialPosition.lng
                                                                  zoom:17];
     }
-    _mapView = [GMSMapView mapWithFrame:CGRectZero camera:_camera];
+    if (_mapView == nil) {
+        _mapView = [GMSMapView mapWithFrame:CGRectZero camera:_camera];
+    }
     //_mapView.myLocationEnabled = YES;
     self.view = _mapView;
     
@@ -83,7 +94,7 @@
     
     _mapControl = [[MPMapControl alloc] initWithMap:_mapView];
     
-    [_mapControl setupMapWith: Global.solutionId site: Global.venue];
+    [_mapControl setupMapWith: Global.solutionId site: kVenue];
     
     _mapControl.currentFloor = [NSNumber numberWithInt:Global.initialPosition.zIndex];
     
@@ -117,70 +128,85 @@
     [_directionsRenderer.nextRouteLegButton addTarget:self action:@selector(showNextRouteLeg) forControlEvents:UIControlEventTouchUpInside];
     [_directionsRenderer.previousRouteLegButton addTarget:self action:@selector(showPreviousRouteLeg) forControlEvents:UIControlEventTouchUpInside];
     _directionsRenderer.edgeInsets = UIEdgeInsetsMake(80, 20, 210, 60);
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.barTintColor = [UIColor appPrimaryColor];
     
-    _floatingActionMenuController = [[FloatingActionMenuController alloc] init];
-    _floatingActionMenuContainer = _floatingActionMenuController.view;
-    //_floatingActionMenuContainer.frame = CGRectMake(self.view.frame.size.width-80, self.view.frame.size.height-80, 60, 60);
-    _floatingActionMenuContainer.translatesAutoresizingMaskIntoConstraints = NO;
-    [self addChildViewController:_floatingActionMenuController];
-    [_mapView addSubview:_floatingActionMenuContainer];
+    if (_floatingActionMenuContainer == nil) {
     
-    //NSLog(@"(%f, %f)", self.view.frame.size.width-80, self.view.frame.size.height-80);
+        _floatingActionMenuController = [[FloatingActionMenuController alloc] init];
+        _floatingActionMenuContainer = _floatingActionMenuController.view;
+        //_floatingActionMenuContainer.frame = CGRectMake(self.view.frame.size.width-80, self.view.frame.size.height-80, 60, 60);
+        _floatingActionMenuContainer.translatesAutoresizingMaskIntoConstraints = NO;
+        [self addChildViewController:_floatingActionMenuController];
+        [_mapView addSubview:_floatingActionMenuContainer];
+        
+        //NSLog(@"(%f, %f)", self.view.frame.size.width-80, self.view.frame.size.height-80);
+        
+        
+        _horizontalDirectionsController = [[HorizontalDirectionsController alloc] init];
+        _directionsContainer = _horizontalDirectionsController.view;
+        _directionsContainer.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, kDirectionsContainerHeight);
+        [self addChildViewController:_horizontalDirectionsController];
+        [_mapView addSubview:_directionsContainer];
+        _directionsContainer.layer.zPosition = 99999999;
+        
+        NSDictionary* viewsDictionary = @{@"fabView":_floatingActionMenuContainer};
+        // Define the views Positions
+        
+        NSArray *constraint_POS_V = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[fabView(60)]-16-|"
+                                                                            options:0
+                                                                            metrics:nil
+                                                                              views:viewsDictionary];
+        
+        NSArray *constraint_POS_H = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[fabView(60)]-16-|"
+                                                                            options:0
+                                                                            metrics:nil
+                                                                              views:viewsDictionary];
+        
+        [self.view addConstraints:constraint_POS_V];
+        [self.view addConstraints:constraint_POS_H];
+        
+        
+        _myLocationBtn = [[MPMyLocationButton alloc] init];
+        _myLocationBtn.translatesAutoresizingMaskIntoConstraints = NO;
+        [_myLocationBtn addTarget:self action:@selector(showCurrentPosition:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [_mapView addSubview:_myLocationBtn];
+        
+        NSArray *constraint_BPOS_V = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-80-[btn]"
+                                                                            options:0
+                                                                            metrics:nil
+                                                                              views:@{@"btn":_myLocationBtn}];
+
+        NSArray *constraint_BPOS_H = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[btn]-4-|"
+                                                                            options:0
+                                                                            metrics:nil
+                                                                              views:@{@"btn":_myLocationBtn}];
+        
+        [_mapView addConstraints:constraint_BPOS_V];
+        [_mapView addConstraints:constraint_BPOS_H];
     
-    
-    HorizontalDirectionsController* hdc = [[HorizontalDirectionsController alloc] init];
-    _directionsContainer = hdc.view;
-    _directionsContainer.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, kDirectionsContainerHeight);
-    [self addChildViewController:hdc];
-    [_mapView addSubview:_directionsContainer];
-    _directionsContainer.layer.zPosition = 99999999;
-    
-    NSDictionary* viewsDictionary = @{@"fabView":_floatingActionMenuContainer};
-    // Define the views Positions
-    
-    NSArray *constraint_POS_V = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[fabView(60)]-16-|"
-                                                                        options:0
-                                                                        metrics:nil
-                                                                          views:viewsDictionary];
-    
-    NSArray *constraint_POS_H = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[fabView(60)]-16-|"
-                                                                        options:0
-                                                                        metrics:nil
-                                                                          views:viewsDictionary];
-    
-    [self.view addConstraints:constraint_POS_V];
-    [self.view addConstraints:constraint_POS_H];
-    
-    
-    _myLocationBtn = [[MPMyLocationButton alloc] init];
-    _myLocationBtn.translatesAutoresizingMaskIntoConstraints = NO;
-    [_myLocationBtn addTarget:self action:@selector(showCurrentPosition:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [_mapView addSubview:_myLocationBtn];
-    
-    NSArray *constraint_BPOS_V = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-80-[btn]"
-                                                                        options:0
-                                                                        metrics:nil
-                                                                          views:@{@"btn":_myLocationBtn}];
-    
-    NSArray *constraint_BPOS_H = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[btn]-4-|"
-                                                                        options:0
-                                                                        metrics:nil
-                                                                          views:@{@"btn":_myLocationBtn}];
-    
-    [_mapView addConstraints:constraint_BPOS_V];
-    [_mapView addConstraints:constraint_BPOS_H];
+    }
     
 }
 
-- (void) reload {
-    [self viewDidLoad];
-    [self viewWillAppear:NO];
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    NSError* err = nil;
+    NSString* venueString = [[NSUserDefaults standardUserDefaults] objectForKey:@"venue"];
+    if (venueString) {
+        MPVenue* venue = [[MPVenue alloc] initWithString: venueString error: &err];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"VenueChanged" object:venue];
+    }
+    else {
+        [self openVenueSelector];
+    }
 }
 
 - (void)showCurrentPosition: (id) sender {
@@ -225,9 +251,9 @@
     else {
         qObj.near = Global.initialPosition;
     }
-    qObj.query = notification.object;
+    qObj.categories = @[notification.object];
     qObj.max = 2;
-    [_locations getLocationsUsingQueryAsync:qObj language:@"en"];
+    [_locations getLocationsUsingQueryAsync:qObj language:LocalizationGetLanguage];
 }
 
 - (void)solutionDataReady:(MPSolution *)solution {
@@ -262,13 +288,17 @@
 - (void)onLocationsReady:(NSNotification *)notification {
     [self closeRouting:nil];
     _mapControl.searchResult = notification.object;
+    MPLocation* firstLoc = _mapControl.searchResult.firstObject;
+    _mapControl.currentFloor = firstLoc.floor;
     [_mapControl showSearchResult:YES];
     if (Global.poiData.locationQuery.categories) {
-        self.title = [NSString stringWithFormat:@"Search for '%@'", [[Global.poiData.locationQuery.categories componentsJoinedByString:@", "] uppercaseString]];
+        self.title = [NSString stringWithFormat:kLangSearching_for_var, [[Global.poiData.locationQuery.categories componentsJoinedByString:@", "] uppercaseString]];
+    } else if (Global.poiData.locationQuery.types) {
+        self.title = [NSString stringWithFormat:kLangSearching_for_var, [[Global.poiData.locationQuery.types componentsJoinedByString:@", "] uppercaseString]];
     } else if (Global.poiData.locationQuery.query) {
-        self.title = [NSString stringWithFormat:@"Search for '%@'", [Global.poiData.locationQuery.query uppercaseString]];
+        self.title = [NSString stringWithFormat:kLangSearching_for_var, [Global.poiData.locationQuery.query uppercaseString]];
     } else {
-        self.title = @"Search Result";
+        self.title = kLangSearchResult;
     }
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:_closeImg style:UIBarButtonItemStylePlain target:self action:@selector(clearMap)];
 }
@@ -280,8 +310,12 @@
     _directionsRenderer.route = nil;
     self.navigationItem.rightBarButtonItem = nil;
     [self closeRouting:nil];
-    [_mapView animateToCameraPosition:_camera];
-    self.title = @"Wayfinder";
+    if (Global.venue) {
+        [_mapView animateWithCameraUpdate:[GMSCameraUpdate fitBounds:[Global.venue getBoundingBox] withPadding:0]];
+    } else {
+        [_mapView animateToCameraPosition:_camera];
+    }
+    self.title = Global.venue.name;
     [_floatingActionMenuController closeFloatingActionMenu];
     if (_longPressMarker) _longPressMarker.map = nil;
 }
@@ -310,7 +344,7 @@
 - (void)renderRouteLeg:(NSNotification*)notification {
     _mapControl.searchResult = nil;
     [_mapControl.floorSelector removeFromSuperview];
-    self.title = @"Directions";
+    self.title = kLangGet_directions;
     if (notification.object) {
         _directionsRenderer.routeLegIndex = [notification.object intValue];
         //[self updateCameraToLeg: [notification.object intValue]];
@@ -365,6 +399,11 @@
     }
 }
 
+- (void) openDirectionsSettings:(NSNotification*)notification {
+    [self closeRouting:nil];
+    [self toggleSidebar];
+}
+
 - (void) updateCameraToLeg: (int)legIndex {
     if (_directionsRenderer.route.legs.count > legIndex && legIndex > 0) {
         MPRouteLeg* leg = [_directionsRenderer.route.legs objectAtIndex:legIndex];
@@ -412,5 +451,14 @@
 - (void)onRouteResultReady:(NSNotification*) notification {
     _directionsRenderer.route = notification.object;
 }
+
+- (void)onVenueChanged:(NSNotification*) notification {
+    Global.venue = notification.object;
+    _mapControl.venue = Global.venue.venueKey;
+    [_mapView animateWithCameraUpdate:[GMSCameraUpdate fitBounds:[Global.venue getBoundingBox] withPadding:0]];
+    self.title = Global.venue.name;
+    
+}
+
 
 @end

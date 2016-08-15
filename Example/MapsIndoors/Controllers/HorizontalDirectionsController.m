@@ -15,6 +15,8 @@
 @import AFNetworking;
 @import MaterialControls;
 #import "UIButton+AppButton.h"
+#import "LocalizationSystem.h"
+#import "LocalizedStrings.h"
 
 @interface HorizontalDirectionsController ()
 
@@ -24,6 +26,23 @@
     RoutingData* _routing;
     MDButton* _nextBtn;
     MDButton* _prevBtn;
+    MPVenueProvider* _venueProvider;
+}
+
+- (instancetype)init {
+    self = [super init];
+    
+    _venueProvider = [[MPVenueProvider alloc] init];
+    _routing = Global.routingData;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRouteResultReady:) name:@"RoutingDataReady" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(next:) name:@"ShowNextRouteLegInList" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(prev:) name:@"ShowPreviousRouteLegInList" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:@"Reload" object:nil];
+    
+    
+    return self;
 }
 
 - (void)viewDidLoad {
@@ -31,11 +50,7 @@
     
     [self initializeTableView];
     
-    _routing = Global.routingData;
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRouteResultReady:) name:@"RoutingDataReady" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(next:) name:@"ShowNextRouteLegInList" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(prev:) name:@"ShowPreviousRouteLegInList" object:nil];
+    self.headerTitle.text = kLangShowing_route;
     
 }
 
@@ -52,12 +67,12 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     if (_nextBtn == nil) {
-        _prevBtn = [UIButton appRectButtonWithTitle:@"Previous" target:self selector:@selector(prev:)];
+        _prevBtn = [UIButton appRectButtonWithTitle:kLangPrev target:self selector:@selector(prev:)];
         [_prevBtn setTitleColor:[UIColor appSecondaryTextColor] forState:UIControlStateNormal];
         _prevBtn.backgroundColor = [UIColor appTextAndIconColor];
         _prevBtn.enabled = NO;
         
-        _nextBtn = [UIButton appRectButtonWithTitle:@"Next" target:self selector:@selector(next:) xOffset:self.tableFooter.frame.size.width-120];
+        _nextBtn = [UIButton appRectButtonWithTitle:kLangNext target:self selector:@selector(next:) xOffset:self.tableFooter.frame.size.width-120];
         
         [self.tableFooter addSubview:_prevBtn];
         [self.tableFooter addSubview:_nextBtn];
@@ -148,16 +163,8 @@
     cell.lineMiddle.dashedGap = 0;
     cell.lineMiddle.dashedLength = 100;
     
-    if (leg.start_address) {
-        cell.firstLabel.text = leg.start_address;
-    } else {
-        cell.firstLabel.text = [NSString stringWithFormat:@"Level %@", lastStep.start_location.zLevel];
-    }
-    if (leg.end_address) {
-        cell.secondLabel.text = leg.end_address;
-    } else {
-        cell.secondLabel.text = [NSString stringWithFormat:@"Level %@", lastStep.end_location.zLevel];
-    }
+    cell.firstLabel.text = leg.start_address;
+    cell.secondLabel.text = leg.end_address;
     
     cell.firstIcon.image = [UIImage imageNamed:@"empty_icon"];
     cell.secondIcon.image = [UIImage imageNamed:@"empty_icon"];
@@ -183,7 +190,7 @@
     } else if (rowIndex == self.currentRoute.legs.count - 1) {
         cell.lineBottom.hidden = YES;
         cell.secondLabel.text = _routing.destination.name;
-        [cell.secondIcon setImageWithURL:[NSURL URLWithString: [Global getIconUrlForType:_routing.destination.type]] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+        [cell.secondIcon setImageWithURL:[NSURL URLWithString: [Global getIconUrlForType:_routing.destination.type]] placeholderImage:[UIImage imageNamed:@"placeholder2"]];
     }
     
     if (self.currentRoute.legs.count == 1) {
@@ -248,7 +255,7 @@
 }
 
 - (void)closeRouting {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"CloseRouting" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenDirectionsSettings" object:nil];
     self.currentRoute = nil;
     [self.tableView reloadData];
 }

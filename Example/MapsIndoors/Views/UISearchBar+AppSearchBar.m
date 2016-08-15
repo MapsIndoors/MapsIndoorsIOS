@@ -42,6 +42,8 @@
     
     self.placeholder = @"";
     
+    self.showsCancelButton = NO;
+    
     
 }
 

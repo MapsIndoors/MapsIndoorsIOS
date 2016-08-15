@@ -17,6 +17,6 @@
 /**
  * Opening hours module array data model.
  */
-@interface MPOpeningHoursModule : JSONModelArray<MPOpeningHours>
+@interface MPOpeningHoursModule : NSArray<MPOpeningHours>
 
 @end

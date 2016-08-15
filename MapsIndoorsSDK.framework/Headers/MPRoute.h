@@ -28,7 +28,7 @@
 /**
  * The route legs: the different route components. Typically a route from 1st floor to 2nd floor will consist of two route legs.
  */
-@property NSArray<MPRouteLeg, Optional>* legs;
+@property NSMutableArray<MPRouteLeg, Optional>* legs;
 @property MPEncodedPolyline<Optional>* overview_polyline;
 @property NSString<Optional>* summary;
 @property NSArray<Optional>* warnings;

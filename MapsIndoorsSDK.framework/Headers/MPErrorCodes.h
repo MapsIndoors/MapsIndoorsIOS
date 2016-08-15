@@ -6,18 +6,24 @@
 //  Copyright © 2016 Daniel Nielsen. All rights reserved.
 //
 
-#define kMPErrorCodeLocationsCacheNotBuilt 10000
-#define kMPErrorCodeLocationsNotFound 10001
-#define kMPErrorCodeLocationDetailsNotFound 10002
-#define kMPErrorCodeVenueNotFound 10003
-#define kMPErrorCodeBuildingNotFound 10004
-#define kMPErrorCodeSolutionNotFound 10005
-#define kMPErrorCodeLocationsCacheNotAvailableForMapExtend 10006
+#define kMPErrorCodeLocationsCacheNotBuilt 100100
+#define kMPErrorCodeLocationsCacheNotAvailableForMapExtend 100130
+#define kMPErrorCodeLocationsNotFound 100110
+#define kMPErrorCodeLocationDetailsNotFound 100120
 
-#define kMPErrorCodeMessagesNotFound 20001
-#define kMPErrorCodeMessageDetailsNotFound 20002
+#define kMPErrorCodeVenueDetailsNotFound 100200
+#define kMPErrorCodeVenuesNotFound 100210
 
-#define kMPErrorCodeDirectionsRouteNotFound 30001
-#define kMPErrorCodeDirectionsMatrixNotFound 30002
+#define kMPErrorCodeBuildingDetailsNotFound 100300
+#define kMPErrorCodeBuildingsNotFound 100310
+
+#define kMPErrorCodeSolutionDetailsNotFound 100400
+#define kMPErrorCodeSolutionsNotFound 100410
+
+#define kMPErrorCodeMessagesNotFound 100500
+#define kMPErrorCodeMessageDetailsNotFound 100510
+
+#define kMPErrorCodeDirectionsRouteNotFound 100610
+#define kMPErrorCodeDirectionsMatrixNotFound 100620
 
 #define kMPMapsIndoorsDomain @"com.mapspeople.MapsIndoors"

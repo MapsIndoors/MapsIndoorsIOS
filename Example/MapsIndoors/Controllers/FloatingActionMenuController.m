@@ -8,7 +8,11 @@
 
 #import "FloatingActionMenuController.h"
 #import "UIColor+AppColor.h"
+#import "LocalizationSystem.h"
+#import "LocalizedStrings.h"
+#import "Global.h"
 @import VCMaterialDesignIcons;
+@import AFNetworking;
 
 
 @interface FloatingActionMenuController ()
@@ -17,6 +21,10 @@
 
 @implementation FloatingActionMenuController {
     
+    MPAppDataProvider* _appDataProvider;
+    MDSnackbar* _bar;
+    
+    NSMutableArray* _menuItemModels;
     NSArray* _menuItems;
     NSArray* _menuItemsTop;
     UIView* _menuOpenContainerView;
@@ -31,6 +39,24 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeFloatingActionMenu) name:@"MenuOpenedOrClosed" object:nil];
+    _appDataProvider = [[MPAppDataProvider alloc] init];
+    [_appDataProvider getAppDataAsync:Global.solutionId language:LocalizationGetLanguage completionHandler:^(MPAppData *appData, NSError *error) {
+        if (error && !_bar.isShowing) {
+            _bar = [[MDSnackbar alloc] initWithText:kLangCouldNotFindContent actionTitle:@"" duration:4.0];
+            [_bar show];
+        }
+        else if (appData) {
+            _menuItemModels = [NSMutableArray array];
+            for (NSDictionary* item in [appData.menuInfo objectForKey:@"fabmenu"]) {
+                NSError* err;
+                MPMenuItem* menuItem = [[MPMenuItem alloc] initWithDictionary:item error:&err];
+                if (err == nil)
+                    [_menuItemModels addObject:menuItem];
+            }
+            [self setupFloatingActionBtn];
+        }
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,7 +65,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self setupFloatingActionBtn];
+    //[self setupFloatingActionBtn];
 }
 
 /*
@@ -57,20 +83,20 @@
     UIView* itemsView = [[UIView alloc] initWithFrame:CGRectMake(10, 0, 40, 240)];
     _menuItemsTop = @[@120, @60, @0];
     _initTop = 180;
-    MDButton *restRoomBtn = [[MDButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40) type:MDButtonTypeFloatingAction rippleColor:[UIColor appLightPrimaryColor]];
-    restRoomBtn.tag = 0;
-    [restRoomBtn addTarget:self action:@selector(getNearest:) forControlEvents:UIControlEventTouchDown];
-    MDButton *stairsBtn = [[MDButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40) type:MDButtonTypeFloatingAction rippleColor:[UIColor appLightPrimaryColor]];
-    stairsBtn.tag = 1;
-    [stairsBtn addTarget:self action:@selector(getNearest:) forControlEvents:UIControlEventTouchDown];
-    MDButton *entranceBtn = [[MDButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40) type:MDButtonTypeFloatingAction rippleColor:[UIColor appLightPrimaryColor]];
-    entranceBtn.tag = 2;
-    [entranceBtn addTarget:self action:@selector(getNearest:) forControlEvents:UIControlEventTouchDown];
+    MDButton *btn1 = [[MDButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40) type:MDButtonTypeFloatingAction rippleColor:[UIColor appLightPrimaryColor]];
+    btn1.tag = 0;
+    [btn1 addTarget:self action:@selector(getNearest:) forControlEvents:UIControlEventTouchDown];
+    MDButton *btn2 = [[MDButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40) type:MDButtonTypeFloatingAction rippleColor:[UIColor appLightPrimaryColor]];
+    btn2.tag = 1;
+    [btn2 addTarget:self action:@selector(getNearest:) forControlEvents:UIControlEventTouchDown];
+    MDButton *btn3 = [[MDButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40) type:MDButtonTypeFloatingAction rippleColor:[UIColor appLightPrimaryColor]];
+    btn3.tag = 2;
+    [btn3 addTarget:self action:@selector(getNearest:) forControlEvents:UIControlEventTouchDown];
     MDButton *nearestBtn = [[MDButton alloc] initWithFrame:CGRectMake(0, 0, 60, 60) type:MDButtonTypeFloatingAction rippleColor:[UIColor colorWithWhite:255 alpha:.2f]];
     
-    restRoomBtn.backgroundColor = [UIColor whiteColor];
-    stairsBtn.backgroundColor = [UIColor whiteColor];
-    entranceBtn.backgroundColor = [UIColor whiteColor];
+    btn1.backgroundColor = [UIColor whiteColor];
+    btn2.backgroundColor = [UIColor whiteColor];
+    btn3.backgroundColor = [UIColor whiteColor];
     nearestBtn.backgroundColor = [UIColor appAccentColor];
     
     //Image icons or fonts?
@@ -85,47 +111,51 @@
     
     _menuCloseImage = iconClose.image;
     
+    
     UIImageView* imageView = [[UIImageView alloc] initWithFrame:nearestBtn.frame];
     imageView.contentMode = UIViewContentModeCenter;
     imageView.image = _menuOpenImage;
     [nearestBtn addSubview:imageView];
     [nearestBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    [nearestBtn setTitle:@"FIND NEAREST" forState:UIControlStateNormal];
+    [nearestBtn setTitle:[kLangFind_nearest uppercaseString] forState:UIControlStateNormal];
     [nearestBtn setTitleEdgeInsets:UIEdgeInsetsMake(3.0f, -190.0f, 0.0f, 20.0f)];
     
-    UIImageView* imageView1 = [[UIImageView alloc] initWithFrame:restRoomBtn.frame];
+    MPMenuItem* item1 = [_menuItemModels objectAtIndex:0];
+    
+    UIImageView* imageView1 = [[UIImageView alloc] initWithFrame:btn1.frame];
     imageView1.contentMode = UIViewContentModeCenter;
-    imageView1.image = [UIImage imageNamed:@"RestroomBlack"];
-    imageView1.image = [imageView1.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    imageView1.tintColor = [UIColor appSecondaryTextColor];
-    [restRoomBtn addSubview:imageView1];
-    //[restRoomBtn setTitle:@"Restrooms" forState:UIControlStateNormal];
+    [imageView1 setImageWithURL:[NSURL URLWithString: item1.iconUrl]];
+//    imageView1.image = [imageView1.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+//    imageView1.tintColor = [UIColor appSecondaryTextColor];
+    [btn1 addSubview:imageView1];
     
-    UIImageView* imageView2 = [[UIImageView alloc] initWithFrame:stairsBtn.frame];
+    MPMenuItem* item2 = [_menuItemModels objectAtIndex:1];
+    
+    UIImageView* imageView2 = [[UIImageView alloc] initWithFrame:btn2.frame];
     imageView2.contentMode = UIViewContentModeCenter;
-    imageView2.image = [UIImage imageNamed:@"StairsBlack"];
-    imageView2.image = [imageView2.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    imageView2.tintColor = [UIColor appSecondaryTextColor];
-    [stairsBtn addSubview:imageView2];
-    //[stairsBtn setTitle:@"Stairs" forState:UIControlStateNormal];
+    [imageView2 setImageWithURL:[NSURL URLWithString: item2.iconUrl]];
+//    imageView2.image = [imageView2.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+//    imageView2.tintColor = [UIColor appSecondaryTextColor];
+    [btn2 addSubview:imageView2];
     
-    UIImageView* imageView3 = [[UIImageView alloc] initWithFrame:entranceBtn.frame];
+    MPMenuItem* item3 = [_menuItemModels objectAtIndex:2];
+    
+    UIImageView* imageView3 = [[UIImageView alloc] initWithFrame:btn3.frame];
     imageView3.contentMode = UIViewContentModeCenter;
-    imageView3.image = [UIImage imageNamed:@"ExitBlack"];
-    imageView3.image = [imageView3.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    imageView3.tintColor = [UIColor appSecondaryTextColor];
-    [entranceBtn addSubview:imageView3];
-    //[entranceBtn setTitle:@"Entrance" forState:UIControlStateNormal];
+    [imageView3 setImageWithURL:[NSURL URLWithString: item3.iconUrl]];
+//    imageView3.image = [imageView3.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+//    imageView3.tintColor = [UIColor appSecondaryTextColor];
+    [btn3 addSubview:imageView3];
     
     _menuOpenBtnImageView = imageView;
     
-    _menuItems = @[restRoomBtn, stairsBtn, entranceBtn];
+    _menuItems = @[btn1, btn2, btn3];
     
     
     [_menuOpenContainerView addSubview:nearestBtn];
-    [itemsView addSubview:restRoomBtn];
-    [itemsView addSubview:stairsBtn];
-    [itemsView addSubview:entranceBtn];
+    [itemsView addSubview:btn1];
+    [itemsView addSubview:btn2];
+    [itemsView addSubview:btn3];
     
     [self.view addSubview:itemsView];
     [self.view addSubview:_menuOpenContainerView];
@@ -179,12 +209,11 @@
 
 - (void) getNearest:(id)sender {
     
-    NSString* nearestQuery = [@[@"toilet",@"stairs",@"entrance"] objectAtIndex:((UIButton*)sender).tag];
+    MPMenuItem* selectedItem = [_menuItemModels objectAtIndex:((UIButton*)sender).tag];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowNearest" object: nearestQuery];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowNearest" object: selectedItem.categoryKey];
     
     [self toggleFloatingActionMenu:nil];
 }
-
 
 @end

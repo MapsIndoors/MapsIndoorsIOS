@@ -13,6 +13,10 @@
 @import AFNetworking;
 #import "UISearchBar+AppSearchBar.h"
 #import "POIData.h"
+@import VCMaterialDesignIcons;
+#import "UIViewController+Custom.h"
+#import "MPLocationCell.h"
+#import "LocalizedStrings.h"
 
 
 @interface SearchViewController ()
@@ -22,22 +26,38 @@
 @implementation SearchViewController {
     POIData* _locations;
     DetailViewController* _destController;
+    MPVenueProvider* _venueProvider;
+    NSArray* _venues;
+    NSArray* _buildings;
     UIActivityIndicatorView *_spinner;
     UIView* _tableHeaderView;
 }
 
 
-- (void) reload {
-    [self viewDidLoad];
-    [self viewWillAppear:NO];
-}
-
 - (void)awakeFromNib {
     [super awakeFromNib];
     _locations = Global.poiData;
     
+    _venueProvider = [[MPVenueProvider alloc] init];
+    
+    [_venueProvider getVenuesAsync:Global.solutionId language:LocalizationGetLanguage completionHandler:^(MPVenueCollection *venueCollection, NSError *error) {
+        if (error == nil) {
+            _venues = venueCollection.venues;
+            [self.tableView reloadData];
+        }
+    }];
+    
+    [_venueProvider getBuildingsAsync:@"all" arg:Global.solutionId language:LocalizationGetLanguage completionHandler:^(NSArray *buildings, NSError *error) {
+        if (error == nil) {
+            _buildings = buildings;
+            [self.tableView reloadData];
+        }
+    }];
+    
+     
     _spinner = [[UIActivityIndicatorView alloc]
                 initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    _spinner.hidesWhenStopped = YES;
     
     [[NSNotificationCenter defaultCenter] addObserver:_spinner selector:@selector(startAnimating) name:@"LocationsRequestStarted" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLocationsReady:) name:@"LocationsDataReady" object:nil];
@@ -57,11 +77,13 @@
     
     [self.searchController.searchBar setCustomStyle];
     
-    
     [self.searchBarContainer addSubview: self.searchController.searchBar];
     
     [[UITextField appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setDefaultTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
 
+    if (self.headerImageUrl) {
+        [self.headerImageView setImageWithURL:[NSURL URLWithString: self.headerImageUrl] placeholderImage:[UIImage imageNamed:@"placeholder1"]];
+    }
     
     //Finally since the search view covers the table view when active we make the table view controller define the presentation context:
     
@@ -69,11 +91,12 @@
     
     self.tableView.contentInset = UIEdgeInsetsMake(-64,0,0,0);
     
-    _spinner.hidesWhenStopped = YES;
     [self.tableView addSubview:_spinner];
     
     
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin;
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"MPLocationCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"LocationCell"];
     
     
     
@@ -81,6 +104,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    [self presentCustomBackButton];
+    
     //[self.navigationController presentTransparentNavigationBar];
     if (_locations.locationQuery && _locations.locationQuery.categories && Global.solution) {
         for (MPType* type in Global.solution.types) {
@@ -89,9 +115,9 @@
             }
         }
     }
-    self.searchController.searchBar.placeholder = @"Search";
+    self.searchController.searchBar.placeholder = kLangSearch;
     if (_locations.locationQuery && _locations.locationQuery.categories)
-        self.searchController.searchBar.placeholder = [NSString stringWithFormat:@"Search %@", [_locations.locationQuery.categories firstObject]];
+        self.searchController.searchBar.placeholder = [NSString stringWithFormat:kLangSearch_var, [_locations.locationQuery.categories firstObject]];
     
     //[self.searchController.searchBar sizeToFit];
     //self.searchController.searchBar.frame = CGRectMake(0, 0, self.view.frame.size.width, 44);
@@ -141,6 +167,11 @@
 }
 
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"DetailSegue" sender:nil];
+}
+
+
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -150,29 +181,64 @@
         _destController = (DetailViewController *)[segue destinationViewController];
         //_destController.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         //_destController.navigationItem.leftItemsSupplementBackButton = YES;
-        [_locations getLocationDetailsAsync:Global.solutionId withId: object.locationId language:@"en"];
+        [_locations getLocationDetailsAsync:Global.solutionId withId: object.locationId language:LocalizationGetLanguage];
     }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell" forIndexPath:indexPath];
+    MPLocationCell *cell = (MPLocationCell *)[tableView dequeueReusableCellWithIdentifier:@"LocationCell" forIndexPath:indexPath];
+    if (cell == nil) {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"LocationCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+    
     if (indexPath.row < self.objects.count) {
     MPLocation *object = self.objects[indexPath.row];
         cell.textLabel.text = [object name];
         NSString* distText = @"";
         if (Global.positionProvider.latestPositionResult) {
             float dist = [Global.positionProvider.latestPositionResult.geometry distanceTo: [object getPoint]] * 1.2;
-            distText = [NSString stringWithFormat:@"   ~ %d m", (int)dist];
-        }
-        cell.detailTextLabel.text = [NSString stringWithFormat: @"Level %@%@", object.floor, distText];
-        
-        if (Global.solution) {
-            for (MPType* type in Global.solution.types) {
-                if ([type.name isEqualToString:object.type]) {
-                    [cell.imageView setImageWithURL:[NSURL URLWithString:type.icon] placeholderImage:[UIImage imageNamed:@"placeholder2"]];
-                }
+            if (dist > 999.999) {
+                distText = [NSString stringWithFormat:@"%d km", (int)(dist/1000)];
+            } else {
+                distText = [NSString stringWithFormat:@"%d m", (int)dist];
             }
+        }
+        
+        cell.distanceLabel.text = distText;
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"venueKey LIKE[c] %@", object.venue];
+        MPVenue* venue = [[_venues filteredArrayUsingPredicate:predicate] firstObject];
+        cell.buildingLabel.text = venue.name;
+        
+        NSPredicate *bPredicate = [NSPredicate predicateWithFormat:@"administrativeId LIKE[c] %@", object.building];
+        MPBuilding* building = [[_buildings filteredArrayUsingPredicate:bPredicate] firstObject];
+        if (building != nil) {
+            cell.floorLabel.hidden = NO;
+            cell.floorIcon.hidden = NO;
+            
+            if (![building.name isEqualToString:venue.name]) {
+                cell.buildingLabel.text = [NSString stringWithFormat:@"%@, %@", venue.name, building.name];
+            }
+            
+            [_venueProvider getBuildingDetailsAsync:building.buildingId arg:Global.solutionId language:LocalizationGetLanguage completionHandler:^(MPBuilding *building, NSError *error) {
+                if(error == nil) {
+                    MPFloor* floor = [building.floors objectForKey:[object.floor stringValue]];
+                    cell.floorLabel.text = floor.name;
+                }
+            }];
+        } else {
+            cell.floorLabel.hidden = YES;
+            cell.floorIcon.hidden = YES;
+        }
+        
+        if (object.displayRule.icon) {
+            cell.imageView.image = object.displayRule.icon;
+        } else if (object.displayRule.iconPath) {
+            [cell.imageView setImageWithURL:[NSURL URLWithString:object.displayRule.iconPath] placeholderImage:[UIImage imageNamed:@"placeholder2"]];
+        } else {
+            [cell.imageView setImageWithURL:[NSURL URLWithString:[Global getIconUrlForType:object.type]] placeholderImage:[UIImage imageNamed:@"placeholder2"]];
         }
     }
     
@@ -198,7 +264,7 @@
         } else {
             _locations.locationQuery.orderBy = @"name";
         }
-        [_locations getLocationsUsingQueryAsync:_locations.locationQuery language:@"en"];
+        [_locations getLocationsUsingQueryAsync:_locations.locationQuery language:LocalizationGetLanguage];
     }
 }
 

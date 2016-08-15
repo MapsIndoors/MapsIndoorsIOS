@@ -15,7 +15,7 @@
 
 typedef void(^mpVenueDetailsHandlerBlockType)(MPVenue* venue, NSError* error);
 typedef void(^mpVenueListHandlerBlockType)(MPVenueCollection* venueCollection, NSError* error);
-typedef void(^mpBuildingDetailsHandlerBlockType)(MPBuilding* venue, NSError* error);
+typedef void(^mpBuildingDetailsHandlerBlockType)(MPBuilding* building, NSError* error);
 typedef void(^mpBuildingListHandlerBlockType)(NSArray* buildings, NSError* error);
 
 /**

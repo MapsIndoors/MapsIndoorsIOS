@@ -5,7 +5,8 @@
 //
 
 #import "BeaconPositionProvider.h"
-@import MapsIndoorsSDK;@import MaterialControls;
+#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
+@import MaterialControls;
 #include <sys/time.h>
 
 

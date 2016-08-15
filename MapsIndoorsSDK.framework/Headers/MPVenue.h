@@ -8,6 +8,7 @@
 #define kDefaultTilesURL "https://mtw-tiles.cloudapp.net/venues/{venueId}/{style}/{buildingId}/{floor}/{z}/{x}/{y}.png"
 
 @import JSONModel;
+@import GoogleMaps;
 #import "MPMapStyle.h"
 #import "MPPoint.h"
 
@@ -18,13 +19,19 @@
 @end
 
 /**
+ * Venue Info
+ */
+@protocol MPVenueInfo
+@end
+
+/**
  * The venue model holds data about the buildings and floors in a venue, plus additional meta-data.
  */
 @interface MPVenue : JSONModel
 /**
  * Solution id
  */
-@property NSString* solutionId;
+@property NSString<Optional>* solutionId;
 /**
  * Venue id
  */
@@ -50,9 +57,13 @@
  */
 @property NSString* graphId;
 /**
+ * Venue key.
+ */
+@property NSString<Optional>* venueKey;
+/**
  * Venue name.
  */
-@property NSString* name;
+@property NSString<Optional>* name;
 /**
  * Array of possible map styles.
  */
@@ -61,5 +72,9 @@
  * Get a default style. If none is set, it will be the first string value in the list of map styles
  */
 - (NSString*)getDefaultStyle;
+/**
+ * Get the geographic bounding box for the venue
+ */
+- (GMSCoordinateBounds *)getBoundingBox;
 
 @end

@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-@import MapsIndoorsSDK;
+#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
+
 #import  <MobileCoreServices/MobileCoreServices.h>
 
 @interface GPSPositionProvider : NSObject<MPPositionProvider, CLLocationManagerDelegate>{

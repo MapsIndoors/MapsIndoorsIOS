@@ -23,9 +23,7 @@
 		7BBFECFF1BDE5A6900570CF8 /* Back.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BBFECAB1BDE5A6900570CF8 /* Back.png */; };
 		7BBFED001BDE5A6900570CF8 /* Back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BBFECAC1BDE5A6900570CF8 /* Back@2x.png */; };
 		7BBFED011BDE5A6900570CF8 /* Back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BBFECAD1BDE5A6900570CF8 /* Back@3x.png */; };
-		7BBFED021BDE5A6900570CF8 /* bcdining.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 7BBFECAE1BDE5A6900570CF8 /* bcdining.jpeg */; };
-		7BBFED031BDE5A6900570CF8 /* bcdining2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7BBFECAF1BDE5A6900570CF8 /* bcdining2.jpg */; };
-		7BBFED041BDE5A6900570CF8 /* bchall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7BBFECB01BDE5A6900570CF8 /* bchall.jpg */; };
+		7BBFED041BDE5A6900570CF8 /* header_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7BBFECB01BDE5A6900570CF8 /* header_image.jpg */; };
 		7BBFED051BDE5A6900570CF8 /* CIFFShowroom.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BBFECB11BDE5A6900570CF8 /* CIFFShowroom.png */; };
 		7BBFED061BDE5A6900570CF8 /* CIFFShowroom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BBFECB21BDE5A6900570CF8 /* CIFFShowroom@2x.png */; };
 		7BBFED071BDE5A6900570CF8 /* CIFFShowroom@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BBFECB31BDE5A6900570CF8 /* CIFFShowroom@3x.png */; };
@@ -103,6 +101,15 @@
 		7BE91FC11BDE557800A16EE0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE91FBF1BDE557800A16EE0 /* AppDelegate.m */; };
 		7BE91FC21BDE557800A16EE0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BE91FC01BDE557800A16EE0 /* Images.xcassets */; };
 		8DE7AA648E155CC99385D474 /* Pods_MapsIndoors_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 023E7105FD4BB27787D6FCBC /* Pods_MapsIndoors_Tests.framework */; };
+		A28BCF2D1D625E57004F2CDE /* MPLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BCF2B1D625E57004F2CDE /* MPLocationCell.m */; };
+		A28BCF2E1D625E57004F2CDE /* MPLocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A28BCF2C1D625E57004F2CDE /* MPLocationCell.xib */; };
+		A28BCF331D625E9A004F2CDE /* UIViewController+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BCF301D625E9A004F2CDE /* UIViewController+Custom.m */; };
+		A28BCF341D625E9A004F2CDE /* VenueSelectorController.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BCF321D625E9A004F2CDE /* VenueSelectorController.m */; };
+		A28BCF371D625EA7004F2CDE /* PlacePickerSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BCF361D625EA7004F2CDE /* PlacePickerSearchController.m */; };
+		A28BCF3B1D625F3A004F2CDE /* LocalizationSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BCF391D625F3A004F2CDE /* LocalizationSystem.m */; };
+		A28BCF3E1D625FE2004F2CDE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A28BCF401D625FE2004F2CDE /* Localizable.strings */; };
+		A28BCF431D6261E0004F2CDE /* MPNotificationsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BCF421D6261E0004F2CDE /* MPNotificationsHelper.m */; };
+		A28BCF451D626734004F2CDE /* Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = A28BCF441D626734004F2CDE /* Location.gpx */; };
 		A28E0FF11D1403BA00164AF2 /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E0FC61D1403BA00164AF2 /* ContainerViewController.m */; };
 		A28E0FF21D1403BA00164AF2 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E0FC81D1403BA00164AF2 /* DetailViewController.m */; };
 		A28E0FF31D1403BA00164AF2 /* DirectionsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E0FCA1D1403BA00164AF2 /* DirectionsController.m */; };
@@ -169,9 +176,7 @@
 		7BBFECAB1BDE5A6900570CF8 /* Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Back.png; sourceTree = "<group>"; };
 		7BBFECAC1BDE5A6900570CF8 /* Back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Back@2x.png"; sourceTree = "<group>"; };
 		7BBFECAD1BDE5A6900570CF8 /* Back@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Back@3x.png"; sourceTree = "<group>"; };
-		7BBFECAE1BDE5A6900570CF8 /* bcdining.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bcdining.jpeg; sourceTree = "<group>"; };
-		7BBFECAF1BDE5A6900570CF8 /* bcdining2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bcdining2.jpg; sourceTree = "<group>"; };
-		7BBFECB01BDE5A6900570CF8 /* bchall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bchall.jpg; sourceTree = "<group>"; };
+		7BBFECB01BDE5A6900570CF8 /* header_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = header_image.jpg; sourceTree = "<group>"; };
 		7BBFECB11BDE5A6900570CF8 /* CIFFShowroom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CIFFShowroom.png; sourceTree = "<group>"; };
 		7BBFECB21BDE5A6900570CF8 /* CIFFShowroom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CIFFShowroom@2x.png"; sourceTree = "<group>"; };
 		7BBFECB31BDE5A6900570CF8 /* CIFFShowroom@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CIFFShowroom@3x.png"; sourceTree = "<group>"; };
@@ -255,6 +260,22 @@
 		8EC427F9886D56FAB03C3065 /* Pods-MapsIndoors_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsIndoors_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapsIndoors_Tests/Pods-MapsIndoors_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		950C0254C9A06CBF6F5FA9E4 /* Pods-MapsIndoors_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsIndoors_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapsIndoors_Example/Pods-MapsIndoors_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		9AB961D7B93DBB16D943EFD0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		A28BCF2A1D625E57004F2CDE /* MPLocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPLocationCell.h; sourceTree = "<group>"; };
+		A28BCF2B1D625E57004F2CDE /* MPLocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPLocationCell.m; sourceTree = "<group>"; };
+		A28BCF2C1D625E57004F2CDE /* MPLocationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MPLocationCell.xib; sourceTree = "<group>"; };
+		A28BCF2F1D625E9A004F2CDE /* UIViewController+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Custom.h"; sourceTree = "<group>"; };
+		A28BCF301D625E9A004F2CDE /* UIViewController+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Custom.m"; sourceTree = "<group>"; };
+		A28BCF311D625E9A004F2CDE /* VenueSelectorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueSelectorController.h; sourceTree = "<group>"; };
+		A28BCF321D625E9A004F2CDE /* VenueSelectorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueSelectorController.m; sourceTree = "<group>"; };
+		A28BCF351D625EA7004F2CDE /* PlacePickerSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacePickerSearchController.h; sourceTree = "<group>"; };
+		A28BCF361D625EA7004F2CDE /* PlacePickerSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacePickerSearchController.m; sourceTree = "<group>"; };
+		A28BCF381D625F3A004F2CDE /* LocalizationSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizationSystem.h; sourceTree = "<group>"; };
+		A28BCF391D625F3A004F2CDE /* LocalizationSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizationSystem.m; sourceTree = "<group>"; };
+		A28BCF3A1D625F3A004F2CDE /* LocalizedStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizedStrings.h; sourceTree = "<group>"; };
+		A28BCF3F1D625FE2004F2CDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A28BCF411D6261E0004F2CDE /* MPNotificationsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPNotificationsHelper.h; sourceTree = "<group>"; };
+		A28BCF421D6261E0004F2CDE /* MPNotificationsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPNotificationsHelper.m; sourceTree = "<group>"; };
+		A28BCF441D626734004F2CDE /* Location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		A28E0FC51D1403BA00164AF2 /* ContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerViewController.h; sourceTree = "<group>"; };
 		A28E0FC61D1403BA00164AF2 /* ContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerViewController.m; sourceTree = "<group>"; };
 		A28E0FC71D1403BA00164AF2 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
@@ -375,6 +396,7 @@
 		6003F593195388D20070C39A /* Example for MapsIndoors */ = {
 			isa = PBXGroup;
 			children = (
+				A28BCF441D626734004F2CDE /* Location.gpx */,
 				7BE91FBE1BDE557800A16EE0 /* AppDelegate.h */,
 				7BE91FBF1BDE557800A16EE0 /* AppDelegate.m */,
 				A28E0FC41D1403BA00164AF2 /* Controllers */,
@@ -382,8 +404,13 @@
 				A28E10091D1403FC00164AF2 /* Global.h */,
 				A28E100A1D1403FC00164AF2 /* Global.m */,
 				7BE91FC01BDE557800A16EE0 /* Images.xcassets */,
+				A28BCF381D625F3A004F2CDE /* LocalizationSystem.h */,
+				A28BCF391D625F3A004F2CDE /* LocalizationSystem.m */,
+				A28BCF3A1D625F3A004F2CDE /* LocalizedStrings.h */,
 				A28E100C1D14042200164AF2 /* MasterViewController.h */,
 				A28E100D1D14042200164AF2 /* MasterViewController.m */,
+				A28BCF411D6261E0004F2CDE /* MPNotificationsHelper.h */,
+				A28BCF421D6261E0004F2CDE /* MPNotificationsHelper.m */,
 				A28E0FD91D1403BA00164AF2 /* Services */,
 				7BBFED501BDE5AE300570CF8 /* Supporting Files */,
 				A28E100E1D14042200164AF2 /* UIColor+AppColor.h */,
@@ -434,9 +461,7 @@
 				7BBFECAB1BDE5A6900570CF8 /* Back.png */,
 				7BBFECAC1BDE5A6900570CF8 /* Back@2x.png */,
 				7BBFECAD1BDE5A6900570CF8 /* Back@3x.png */,
-				7BBFECAE1BDE5A6900570CF8 /* bcdining.jpeg */,
-				7BBFECAF1BDE5A6900570CF8 /* bcdining2.jpg */,
-				7BBFECB01BDE5A6900570CF8 /* bchall.jpg */,
+				7BBFECB01BDE5A6900570CF8 /* header_image.jpg */,
 				7BBFECB11BDE5A6900570CF8 /* CIFFShowroom.png */,
 				7BBFECB21BDE5A6900570CF8 /* CIFFShowroom@2x.png */,
 				7BBFECB31BDE5A6900570CF8 /* CIFFShowroom@3x.png */,
@@ -522,6 +547,7 @@
 				7B9C56191BDE710600C9D81C /* MapsIndoors-Prefix.pch */,
 				7BBFED511BDE5B1300570CF8 /* Info.plist */,
 				7BBFED521BDE5B1300570CF8 /* main.m */,
+				A28BCF401D625FE2004F2CDE /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -529,6 +555,12 @@
 		A28E0FC41D1403BA00164AF2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A28BCF351D625EA7004F2CDE /* PlacePickerSearchController.h */,
+				A28BCF361D625EA7004F2CDE /* PlacePickerSearchController.m */,
+				A28BCF2F1D625E9A004F2CDE /* UIViewController+Custom.h */,
+				A28BCF301D625E9A004F2CDE /* UIViewController+Custom.m */,
+				A28BCF311D625E9A004F2CDE /* VenueSelectorController.h */,
+				A28BCF321D625E9A004F2CDE /* VenueSelectorController.m */,
 				A28E0FC51D1403BA00164AF2 /* ContainerViewController.h */,
 				A28E0FC61D1403BA00164AF2 /* ContainerViewController.m */,
 				A28E0FC71D1403BA00164AF2 /* DetailViewController.h */,
@@ -571,6 +603,9 @@
 		A28E0FE21D1403BA00164AF2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A28BCF2A1D625E57004F2CDE /* MPLocationCell.h */,
+				A28BCF2B1D625E57004F2CDE /* MPLocationCell.m */,
+				A28BCF2C1D625E57004F2CDE /* MPLocationCell.xib */,
 				A28E0FE31D1403BA00164AF2 /* DirectionsCellView.h */,
 				A28E0FE41D1403BA00164AF2 /* DirectionsCellView.m */,
 				A28E0FE51D1403BA00164AF2 /* DirectionsCellView.xib */,
@@ -656,6 +691,11 @@
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
 						DevelopmentTeam = A8V6656PYZ;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					6003F5AD195388D20070C39A = {
 						DevelopmentTeam = A8V6656PYZ;
@@ -711,9 +751,8 @@
 				7BBFED281BDE5A6900570CF8 /* lounge.jpg in Resources */,
 				7BBFED371BDE5A6900570CF8 /* Restaurant@2x.png in Resources */,
 				7BBFED451BDE5A6900570CF8 /* StairsBlack.png in Resources */,
-				7BBFED031BDE5A6900570CF8 /* bcdining2.jpg in Resources */,
 				7BBFED191BDE5A6900570CF8 /* Exit.png in Resources */,
-				7BBFED041BDE5A6900570CF8 /* bchall.jpg in Resources */,
+				7BBFED041BDE5A6900570CF8 /* header_image.jpg in Resources */,
 				7BBFED271BDE5A6900570CF8 /* InternationalHotel@3x.png in Resources */,
 				7BBFED2F1BDE5A6900570CF8 /* Parking@3x.png in Resources */,
 				7BBFED121BDE5A6900570CF8 /* Elevator@2x.png in Resources */,
@@ -740,6 +779,7 @@
 				7BBFED4B1BDE5A6900570CF8 /* Walk@2x.png in Resources */,
 				7BBFED1F1BDE5A6900570CF8 /* Findnearest.png in Resources */,
 				A28E10021D1403BA00164AF2 /* HorizontalDirectionsCellView.xib in Resources */,
+				A28BCF451D626734004F2CDE /* Location.gpx in Resources */,
 				A28E10001D1403BA00164AF2 /* DirectionsCellView.xib in Resources */,
 				A28E10061D1403BA00164AF2 /* Main.storyboard in Resources */,
 				7BBFED4D1BDE5A6900570CF8 /* placeholder.png in Resources */,
@@ -748,6 +788,7 @@
 				7BBFED2D1BDE5A6900570CF8 /* Parking.png in Resources */,
 				7BBFED221BDE5A6900570CF8 /* Hall.png in Resources */,
 				7BBFED051BDE5A6900570CF8 /* CIFFShowroom.png in Resources */,
+				A28BCF2E1D625E57004F2CDE /* MPLocationCell.xib in Resources */,
 				7BBFED431BDE5A6900570CF8 /* Stairs@2x.png in Resources */,
 				7BBFED071BDE5A6900570CF8 /* CIFFShowroom@3x.png in Resources */,
 				7BBFED111BDE5A6900570CF8 /* elevator_action@2x.png in Resources */,
@@ -765,7 +806,6 @@
 				7BBFED4F1BDE5A6900570CF8 /* placeholder@3x.png in Resources */,
 				7BBFED231BDE5A6900570CF8 /* Hall@2x.png in Resources */,
 				7BBFED421BDE5A6900570CF8 /* Stairs.png in Resources */,
-				7BBFED021BDE5A6900570CF8 /* bcdining.jpeg in Resources */,
 				7BBFED3D1BDE5A6900570CF8 /* RestroomBlack@2x.png in Resources */,
 				A28E10031D1403BA00164AF2 /* HorizontalDirectionsController.xib in Resources */,
 				7BBFED261BDE5A6900570CF8 /* InternationalHotel@2x.png in Resources */,
@@ -773,6 +813,7 @@
 				7BBFED3E1BDE5A6900570CF8 /* RestroomBlack@3x.png in Resources */,
 				7BBFED131BDE5A6900570CF8 /* empty_icon.png in Resources */,
 				7BBFED491BDE5A6900570CF8 /* Venue@2x.png in Resources */,
+				A28BCF3E1D625FE2004F2CDE /* Localizable.strings in Resources */,
 				7BBFED081BDE5A6900570CF8 /* Clock.png in Resources */,
 				7BBFED251BDE5A6900570CF8 /* International Hotel.png in Resources */,
 				7BBFED211BDE5A6900570CF8 /* Findnearest@3x.png in Resources */,
@@ -889,18 +930,24 @@
 			files = (
 				A28E0FF51D1403BA00164AF2 /* HorizontalDirectionsController.m in Sources */,
 				A28E0FF31D1403BA00164AF2 /* DirectionsController.m in Sources */,
+				A28BCF2D1D625E57004F2CDE /* MPLocationCell.m in Sources */,
 				A28E0FFA1D1403BA00164AF2 /* UINavigationController+TransparentNavigationController.m in Sources */,
 				A28E100B1D1403FC00164AF2 /* Global.m in Sources */,
+				A28BCF431D6261E0004F2CDE /* MPNotificationsHelper.m in Sources */,
 				A28E0FF81D1403BA00164AF2 /* SearchViewController.m in Sources */,
+				A28BCF341D625E9A004F2CDE /* VenueSelectorController.m in Sources */,
 				A28E0FFC1D1403BA00164AF2 /* GPSPositionProvider.m in Sources */,
+				A28BCF331D625E9A004F2CDE /* UIViewController+Custom.m in Sources */,
 				A28E10121D14042200164AF2 /* MasterViewController.m in Sources */,
 				A28E10011D1403BA00164AF2 /* DottedLine.m in Sources */,
 				7BE91FC11BDE557800A16EE0 /* AppDelegate.m in Sources */,
+				A28BCF3B1D625F3A004F2CDE /* LocalizationSystem.m in Sources */,
 				A28E0FF61D1403BA00164AF2 /* MapViewController.m in Sources */,
 				A28E0FFD1D1403BA00164AF2 /* POIData.m in Sources */,
 				A28E10081D1403BA00164AF2 /* UISearchBar+AppSearchBar.m in Sources */,
 				A28E0FF41D1403BA00164AF2 /* FloatingActionMenuController.m in Sources */,
 				A28E0FFF1D1403BA00164AF2 /* DirectionsCellView.m in Sources */,
+				A28BCF371D625EA7004F2CDE /* PlacePickerSearchController.m in Sources */,
 				7BBFED541BDE5B1300570CF8 /* main.m in Sources */,
 				A28E10131D14042200164AF2 /* UIColor+AppColor.m in Sources */,
 				A28E10071D1403BA00164AF2 /* UIButton+AppButton.m in Sources */,
@@ -939,6 +986,14 @@
 				6003F5B9195388D20070C39A /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A28BCF401D625FE2004F2CDE /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A28BCF3F1D625FE2004F2CDE /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

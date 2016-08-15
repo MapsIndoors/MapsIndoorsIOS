@@ -9,15 +9,17 @@
 
 #import "Global.h"
 #import "DetailViewController.h"
-#import "TextViewController.h"
-@import VCMaterialDesignIcons;
 #import "UINavigationController+TransparentNavigationController.h"
 #import "DirectionsController.h"
-@import AFNetworking;
-@import MapsIndoorsSDK;
-@import MaterialControls;
+#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
 #import "UIColor+AppColor.h"
 #import "UIButton+AppButton.h"
+#import "UIViewController+Custom.h"
+#import "AppDelegate.h"
+#import "LocalizedStrings.h"
+@import VCMaterialDesignIcons;
+@import AFNetworking;
+@import MaterialControls;
 
 @interface DetailViewController ()
 
@@ -30,30 +32,35 @@
     MDButton* _routeBtn;
     MDButton* _showMapBtn;
     NSDictionary* _directionsItem;
+    UIActivityIndicatorView *_spinner;
 }
 
 @synthesize location = _location;
-
-- (void) reload {
-    [self viewDidLoad];
-    [self viewWillAppear:NO];
-}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     _routing = Global.routingData;
     
+    _spinner = [[UIActivityIndicatorView alloc]
+                initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    _spinner.hidesWhenStopped = YES;
     
-    //[[NSNotificationCenter defaultCenter] addObserver:_mapControl.loader selector:@selector(startAnimating) name:@"LocationsRequestStarted" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:_spinner selector:@selector(startAnimating) name:@"LocationsRequestStarted" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLocationDetailsReady:) name:@"LocationDetailsReady" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRouteResultReady:) name:@"RoutingDataReady" object:nil];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:@"Reload" object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    [self presentCustomBackButton];
+    
+    UIImage* shareImg = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_share fontSize:28.0f].image;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:shareImg style:UIBarButtonItemStylePlain target:self action:@selector(shareLocation)];
+    
     [self.navigationController presentTransparentNavigationBar];
+    
 }
 
 - (void) pop: (id)sender {
@@ -61,6 +68,7 @@
 }
 
 - (void)onLocationDetailsReady:(NSNotification*)notification {
+    [_spinner stopAnimating];
     _fields = [NSMutableArray arrayWithCapacity:0];
     
     if (_location != notification.object) {
@@ -68,16 +76,25 @@
     }
 }
 
+- (void)shareLocation {
+    //NSString* shareText = [NSString stringWithFormat:@"Let's meet here - %@ - %@ - Powered by MapsIndoors®", self.location.name, self.location.descr];
+    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"https://clients.mapsindoors.com/sdu/%@/details/%@", Global.venue.venueId, self.location.locationId]];
+    UIActivityViewController* shareCtrl = [[UIActivityViewController alloc] initWithActivityItems:@[url] applicationActivities:nil];
+    AppDelegate* app = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    [app.window.rootViewController presentViewController:shareCtrl animated:YES completion:nil];
+    [self toggleSidebar];
+}
+
 - (void)setLocation:(MPLocation *)location {
     _location = location;
     if (_location) {
-        if (_location.descr) [_fields addObject:@{@"type": @"description", @"text": _location.descr}];
+        if (_location.descr) [_fields addObject:@{@"text": _location.descr}];
         
-        MPLocation* from = [[MPLocation alloc] initWithPoint:Global.positionProvider.latestPositionResult.geometry andName:kYouAreHere];
+        MPLocation* from = [[MPLocation alloc] initWithPoint:Global.positionProvider.latestPositionResult.geometry andName:kLangMy_position];
         
         [_routing routingFrom: from to: _location by:@"walking" avoid:nil depart:nil arrive:nil];
         
-        [self.iconImageView setImageWithURL:[NSURL URLWithString: [Global getIconUrlForType:_location.type]]];
+        [self.iconImageView setImageWithURL:[NSURL URLWithString: [Global getIconUrlForType:_location.type]] placeholderImage:[UIImage imageNamed:@"placeholder"]];
         
         self.titleLabel.text = _location.name;
         //[self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"lounge"] forBarMetrics:UIBarMetricsDefault];
@@ -94,7 +111,7 @@
                         if ([key isEqualToString:@"email"]) [_fields addObject:@{@"type": key, @"text": field.value, @"icon": [self materialIcon:VCMaterialDesignIconCode.md_email]}];
                     } else {
                         //Image
-                        [self.headerImageView setImageWithURL:[NSURL URLWithString:field.value]];
+                        [self.headerImageView setImageWithURL:[NSURL URLWithString:field.value] placeholderImage:[UIImage imageNamed:@"placeholder"]];
                     }
                 }
             }
@@ -111,37 +128,66 @@
     self.tableView.dataSource = self;
     
     CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame = CGRectMake(0, 0, 600, 140);
+    gradient.frame = CGRectMake(0, 0, 600, 184);
     gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.6f] CGColor], nil];
     gradient.startPoint = CGPointMake(0, .5f);
     gradient.endPoint = CGPointMake(0, 1.0f);
-    [self.headerImageView.layer insertSublayer:gradient atIndex:0];
     
-    self.backIconView.image = [self.backIconView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    self.backIconView.tintColor = [UIColor appPrimaryColor];
+    
+    CAGradientLayer *gradientTop = [CAGradientLayer layer];
+    gradientTop.frame = CGRectMake(0, 0, 600, 184);
+    gradientTop.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.6f] CGColor], nil];
+    gradientTop.startPoint = CGPointMake(0.2f, 0.4f);
+    gradientTop.endPoint = CGPointMake(0, 0);
+    
+    
+    [self.headerImageView.layer insertSublayer:gradient atIndex:0];
+    [self.headerImageView.layer insertSublayer:gradientTop atIndex:1];
+    
+    //self.backIconView.image = [self.backIconView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [self.backIconView setUserInteractionEnabled:YES];
-    self.backIconView.backgroundColor = [UIColor clearColor];
     UITapGestureRecognizer *singleTap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pop:)];
     [singleTap setNumberOfTapsRequired:1];
     [self.backIconView addGestureRecognizer:singleTap];
     
-    [self.tableView setContentInset:UIEdgeInsetsMake(-64,0,0,0)];
+    [self.tableView addSubview:_spinner];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self.navigationController presentTransparentNavigationBar];
+    
     if (_showMapBtn == nil) {
-        _showMapBtn = [UIButton appRectButtonWithTitle:@"Show on map" target:self selector:@selector(showMapController:)];
+        _showMapBtn = [UIButton appRectButtonWithTitle:kLangShow_on_map target:self selector:@selector(showMapController:)];
         [_showMapBtn setTitleColor:[UIColor appSecondaryTextColor] forState:UIControlStateNormal];
         _showMapBtn.backgroundColor = [UIColor appTextAndIconColor];
         
-        _routeBtn = [UIButton appRectButtonWithTitle:@"Route" target:self selector:@selector(showDirectionsController:) xOffset:self.tableFooter.frame.size.width-120];
+        _routeBtn = [UIButton appRectButtonWithTitle:kLangGet_directions target:self selector:@selector(showDirectionsController:) xOffset:self.tableFooter.frame.size.width-120];
         
         [self.tableFooter addSubview:_showMapBtn];
         [self.tableFooter addSubview:_routeBtn];
         
+//        [self.tableFooter removeFromSuperview];
+//        [self.tableView.superview addSubview:self.tableFooter];
+////        self.tableView.layer.zPosition = 1;
+////        self.tableFooter.layer.zPosition = 999;
+//        self.tableFooter.translatesAutoresizingMaskIntoConstraints = NO;
+//        NSDictionary* viewsDictionary = @{@"footer":self.tableFooter};
+//        NSArray *constraint_POS_V = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[footer]-58-|"
+//                                                                            options:0
+//                                                                            metrics:nil
+//                                                                              views:viewsDictionary];
+//        
+//        NSArray *constraint_POS_H = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-16-[footer]"
+//                                                                            options:0
+//                                                                            metrics:nil
+//                                                                              views:viewsDictionary];
+//        
+//        //self.tableView.frame = CGRectMake(self.tableView.frame.origin.x, self.tableView.frame.origin.y, self.tableView.frame.size.width, self.tableView.frame.size.height-200);
+//        
+//        [self.tableView.superview addConstraints:constraint_POS_V];
+//        [self.tableView.superview addConstraints:constraint_POS_H];
 
     }
     
@@ -206,12 +252,6 @@
         cell.imageView.image = [dict objectForKey:@"icon"];
     else cell.imageView.image = nil;
     cell.textLabel.text = [dict objectForKey:@"text"];
-    cell.textLabel.lineBreakMode = NSLineBreakByTruncatingTail;
-    if ([[dict objectForKey:@"type"] isEqualToString:@"website"]) {
-        cell.textLabel.numberOfLines = 1;
-    } else {
-        cell.textLabel.numberOfLines = 3;
-    }
     
     return cell;
 }
@@ -222,46 +262,20 @@
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    NSDictionary* dict = nil;
-    
     if (self.tableView.indexPathForSelectedRow) {
-        dict = [_fields objectAtIndex:self.tableView.indexPathForSelectedRow.row];
-        
-        if ([[dict objectForKey:@"type"] isEqualToString:@"description"] && ![identifier isEqualToString:@"TextSegue"]) {
-            [self performSegueWithIdentifier:@"TextSegue" sender:self];
-            return NO;
-        }
-    
+        NSDictionary* dict = [_fields objectAtIndex:self.tableView.indexPathForSelectedRow.row];
         if (![[dict objectForKey:@"type"] isEqualToString:@"directions"]) {
             return NO;
         }
     }
-    if ([[UIDevice currentDevice] userInterfaceIdiom] != UIUserInterfaceIdiomPad) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowHorizontalDirections" object:nil];
-        [_routing routingFrom:_routing.origin to:_routing.destination by:@"walking" avoid:nil depart:nil arrive:nil];
-        //Hide side menu/master view
-        UIBarButtonItem* btn = self.splitViewController.displayModeButtonItem;
-        [[UIApplication sharedApplication] sendAction:btn.action
-                                                   to:btn.target
-                                                 from:nil
-                                             forEvent:nil];
-        return NO;
-    }
-    
     return YES;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"TextSegue"]) {
-        NSDictionary* dict = [_fields objectAtIndex:self.tableView.indexPathForSelectedRow.row];
-        ((TextViewController*)segue.destinationViewController).text = [dict objectForKey:@"text"];
-    }
-}
 
 - (void)onRouteResultReady:(NSNotification *)notification {
     _route = notification.object;
     NSMutableArray *mutableArray = [[NSMutableArray alloc] init];
-    NSDictionary* directionsItem = @{@"type": @"directions", @"text": [NSString stringWithFormat: @"%d minutes walk", (int)ceil([_route.duration floatValue] / 60.0f)], @"icon": [self materialIcon:VCMaterialDesignIconCode.md_walk]};
+    NSDictionary* directionsItem = @{@"type": @"directions", @"text": [NSString stringWithFormat: kLangMinutes_walk, (int)ceil([_route.duration floatValue] / 60.0f)], @"icon": [self materialIcon:VCMaterialDesignIconCode.md_walk]};
     if (_directionsItem == nil) {
         _directionsItem = directionsItem;
         [mutableArray addObject:_directionsItem];

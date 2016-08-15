@@ -7,7 +7,8 @@
 //
 
 #import "Global.h"
-@import MapsIndoorsSDK;
+#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
+
 #import "GPSPositionProvider.h"
 #import "BeaconPositionProvider.h"
 
@@ -25,10 +26,10 @@ static MPSolution* solution;
 + (void) setSolution:(MPSolution*)value
 { @synchronized(self) { solution = value; } }
 
-static NSString* venue;
-+ (NSString*) venue
+static MPVenue* venue;
++ (MPVenue*) venue
 { @synchronized(self) { return venue; } }
-+ (void) setVenue:(NSString*)value
++ (void) setVenue:(MPVenue*)value
 { @synchronized(self) { venue = value; } }
 
 static MPPoint* initialPosition;
@@ -77,6 +78,38 @@ static id<MPPositionProvider> positionProvider;
         }
     }
     return @"";
+}
+
++ (MPLocationDisplayRule*)getDisplayRuleForType:(NSString*) typeName {
+    if (Global.solution) {
+        for (MPType* type in Global.solution.types) {
+            if ([type.name isEqualToString:typeName]) {
+                return type.displayRule;
+            }
+        }
+    }
+    return nil;
+}
+
+
++ (NSString*) getAddressForLocation: (MPLocation*) location {
+    MPLocationDisplayRule* displayRule = location.displayRule;
+    if (displayRule == nil) displayRule = [Global getDisplayRuleForType:location.type];
+    NSString* addr = location.name;
+    if (displayRule) {
+        addr = [displayRule getLabelContent:location];
+    }
+//    if (location.building) {
+//        if (location.building.length > 3) {
+//            addr = [addr stringByAppendingFormat:@" in %@", location.building];
+//        } else {
+//            addr = [addr stringByAppendingFormat:@" in building %@", location.building];
+//        }
+//    }
+//    if (location.venue) {
+//        addr = [addr stringByAppendingFormat:@" at %@", location.venue];
+//    }
+    return addr;
 }
 
 @end
