@@ -45,6 +45,10 @@
  */
 @property NSArray<Optional>* buildings;
 /**
+ * Venue anchor point.
+ */
+@property MPPoint<Optional>* anchor;
+/**
  * Geographic BBox array [w,s,e,n] for this venue.
  */
 @property NSArray<Optional>* bbox;
