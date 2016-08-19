@@ -61,6 +61,7 @@ enum MPRouteActionDirection {
 @property NSArray<MPRouteCoordinate, Optional>* geometry;
 @property NSString<Optional>* html_instructions;
 @property NSString<Optional>* highway;
+@property NSString<Optional>* routeContext;
 
 - (MPPoint*)getActionPoint;
 

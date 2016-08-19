@@ -63,7 +63,7 @@
 /**
  * Venue key.
  */
-@property NSString<Optional>* venueKey;
+@property (nonatomic, strong) NSString<Optional>* venueKey;
 /**
  * Venue name.
  */
