@@ -1,6 +1,6 @@
 //
 //  PlacePickerSearchController.m
-//  MapsIndoorsSDK
+//  MapsIndoors
 //
 //  Created by Daniel Nielsen on 23/06/16.
 //  Copyright © 2016 Daniel Nielsen. All rights reserved.
@@ -9,7 +9,7 @@
 #import "PlacePickerSearchController.h"
 #import "Global.h"
 #import "UISearchBar+AppSearchBar.h"
-#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
+#import <MapsIndoors/MapsIndoors.h>
 #import "PlacePickerSearchController.h"
 #import "UINavigationController+TransparentNavigationController.h"
 #import "LocalizationSystem.h"

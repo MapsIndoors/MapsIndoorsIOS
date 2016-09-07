@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6003F589195388D20070C39A"
-               BuildableName = "MapsIndoors_Example.app"
-               BlueprintName = "MapsIndoors_Example"
+               BuildableName = "MapsIndoors App.app"
+               BlueprintName = "MapsIndoors App"
                ReferencedContainer = "container:MapsIndoors.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "MapsIndoors_Example.app"
-            BlueprintName = "MapsIndoors_Example"
+            BuildableName = "MapsIndoors App.app"
+            BlueprintName = "MapsIndoors App"
             ReferencedContainer = "container:MapsIndoors.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -66,8 +66,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "MapsIndoors_Example.app"
-            BlueprintName = "MapsIndoors_Example"
+            BuildableName = "MapsIndoors App.app"
+            BlueprintName = "MapsIndoors App"
             ReferencedContainer = "container:MapsIndoors.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -89,8 +89,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "MapsIndoors_Example.app"
-            BlueprintName = "MapsIndoors_Example"
+            BuildableName = "MapsIndoors App.app"
+            BlueprintName = "MapsIndoors App"
             ReferencedContainer = "container:MapsIndoors.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

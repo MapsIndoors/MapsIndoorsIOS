@@ -7,7 +7,7 @@
 //
 
 #import "UIColor+AppColor.h"
-#import <MapsIndoorsSDK/UIColor+HexString.h>
+#import <MapsIndoors/UIColor+HexString.h>
 
 @implementation UIColor (AppColors)
 

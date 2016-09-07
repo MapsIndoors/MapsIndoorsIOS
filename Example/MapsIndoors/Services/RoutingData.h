@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 MapsPeople A/S. All rights reserved.
 //
 
-#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
+#import <MapsIndoors/MapsIndoors.h>
 
 @interface RoutingData : MPDirectionsService<MPRoutingProviderDelegate>
 

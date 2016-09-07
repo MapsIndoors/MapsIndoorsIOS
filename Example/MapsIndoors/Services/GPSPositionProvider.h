@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
+#import <MapsIndoors/MapsIndoors.h>
 
 #import  <MobileCoreServices/MobileCoreServices.h>
 

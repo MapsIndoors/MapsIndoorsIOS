@@ -9,7 +9,7 @@
 #import "MapViewController.h"
 #import "Global.h"
 #import <GoogleMaps/GoogleMaps.h>
-#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
+#import <MapsIndoors/MapsIndoors.h>
 
 @import MaterialControls;
 #import "UIColor+AppColor.h"

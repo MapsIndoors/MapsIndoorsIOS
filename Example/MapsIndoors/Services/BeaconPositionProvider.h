@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
+#import <MapsIndoors/MapsIndoors.h>
 
 @interface BeaconPositionProvider : NSObject<MPPositionProvider, CLLocationManagerDelegate, MPBeaconProviderDelegate>
 

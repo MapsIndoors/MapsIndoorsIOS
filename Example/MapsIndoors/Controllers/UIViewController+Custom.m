@@ -1,6 +1,6 @@
 //
 //  UIViewController+VenueOpener.m
-//  MapsIndoorsSDK
+//  MapsIndoors
 //
 //  Created by Daniel Nielsen on 06/07/16.
 //  Copyright © 2016 Daniel Nielsen. All rights reserved.

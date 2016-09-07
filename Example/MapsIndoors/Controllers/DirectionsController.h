@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
+#import <MapsIndoors/MapsIndoors.h>
 #import "UIFont+SystemFontOverride.h"
 #import "DottedLine.h"
 @import MaterialControls;

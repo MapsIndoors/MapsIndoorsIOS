@@ -26,19 +26,23 @@ PODS:
     - Expecta (~> 1.0)
     - FBSnapshotTestCase/Core (~> 2.0)
     - Specta (~> 1.0)
-  - FBSnapshotTestCase (2.1.1):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.1)
-  - FBSnapshotTestCase/Core (2.1.1)
-  - FBSnapshotTestCase/SwiftSupport (2.1.1):
+  - FBSnapshotTestCase (2.1.2):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.2)
+  - FBSnapshotTestCase/Core (2.1.2)
+  - FBSnapshotTestCase/SwiftSupport (2.1.2):
     - FBSnapshotTestCase/Core
   - GoogleFontsiOS/Core (0.1.1)
   - GoogleFontsiOS/Roboto (0.1.1):
     - GoogleFontsiOS/Core
-  - GoogleMaps (1.12.1)
+  - GoogleMaps (2.0.1):
+    - GoogleMaps/Maps (= 2.0.1)
+  - GoogleMaps/Base (2.0.1)
+  - GoogleMaps/Maps (2.0.1):
+    - GoogleMaps/Base (= 2.0.1)
   - HashBuilder (1.0.1)
-  - JSONModel (1.2.0)
-  - MapsIndoors (1.6.4-6):
-    - GoogleMaps (= 1.12.1)
+  - JSONModel (1.4.0)
+  - MapsIndoors (1.6.22):
+    - GoogleMaps (= 2.0.1)
     - JSONModel (~> 1)
   - MaterialControls (1.1.0)
   - Specta (1.0.5)
@@ -66,16 +70,16 @@ SPEC CHECKSUMS:
   EasyTableView: 53f1e858d3f2d87a59651d12c3f7c2a01e7e4ce6
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
   Expecta+Snapshots: c343f410c7a6392f3e22e78f94c44b6c0749a516
-  FBSnapshotTestCase: 432afd8d059ccef7f207225894840a03fbcf7474
+  FBSnapshotTestCase: 918c55861356ee83aee7843d759f55a18ff6982b
   GoogleFontsiOS: 9f4a4f886160d8cb723bd936604b3f6b975f1167
-  GoogleMaps: d4e7526e96e78faf7131ea95f13dd5411cc2916d
+  GoogleMaps: f09da64fc987c1aa29394567c3cab5a3df83c402
   HashBuilder: d2f6cbd492c68350bbcf0fa2216aae50b60657d5
-  JSONModel: 12523685c4b623553ccf844bbbf7007624317b2c
-  MapsIndoors: c0aeb817337070f2d9664423b3dbd8953f831c82
+  JSONModel: 58fe3f8c29ff95ed94e7ee7dde87e807f5da5371
+  MapsIndoors: fc756edec9dc2928d853b4447fbb595faa638418
   MaterialControls: aaabe6957059da904d5750f1d2ca2eee6f977e01
   Specta: ac94d110b865115fe60ff2c6d7281053c6f8e8a2
   VCMaterialDesignIcons: 68a944308ab41282ba8555770cb57e3fbf2034be
 
-PODFILE CHECKSUM: 918dd55a6a64f60cd4b2f891c06f915aa3f524c2
+PODFILE CHECKSUM: c9d2fdda77ce399b8ce2eb7abdefca89349588b5
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.1.0.beta.1

@@ -7,7 +7,7 @@
 //
 
 #import "Global.h"
-#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
+#import <MapsIndoors/MapsIndoors.h>
 
 #import "GPSPositionProvider.h"
 #import "BeaconPositionProvider.h"

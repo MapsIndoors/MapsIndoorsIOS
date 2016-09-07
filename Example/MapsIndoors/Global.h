@@ -11,7 +11,7 @@
 #define kLineWidth 4;
 
 #import <Foundation/Foundation.h>
-#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
+#import <MapsIndoors/MapsIndoors.h>
 #import "POIData.h"
 #import "RoutingData.h"
 

@@ -2,7 +2,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.1'
 use_frameworks!
 
-target :MapsIndoors_Example do
+target 'MapsIndoors App' do
   pod "MapsIndoors", :path => "../"
 
   pod 'AFNetworking', '~> 2.6'

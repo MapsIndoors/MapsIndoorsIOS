@@ -1,9 +1,9 @@
-	//
-//  main.m
-//  MapsIndoorsGenericApp
 //
-//  Created by Daniel Nielsen on 10/08/15.
-//  Copyright (c) 2015 MapsPeople A/S. All rights reserved.
+//  main.m
+//  MapsIndoors Sample App
+//
+//  Created by Daniel Nielsen on 01/09/16.
+//  Copyright © 2016 MapsPeople A/S. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

@@ -1,6 +1,6 @@
 //
 //  PlacePickerSearchController.h
-//  MapsIndoorsSDK
+//  MapsIndoors
 //
 //  Created by Daniel Nielsen on 23/06/16.
 //  Copyright © 2016 Daniel Nielsen. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UIFont+SystemFontOverride.h"
-#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
+#import <MapsIndoors/MapsIndoors.h>
 
 
 typedef void(^mpLocationSelectBlockType)(MPLocation* location);

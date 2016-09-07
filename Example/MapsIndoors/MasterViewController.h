@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UIFont+SystemFontOverride.h"
-#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
+#import <MapsIndoors/MapsIndoors.h>
 
 @class MapViewController;
 

@@ -11,7 +11,7 @@
 #import "DetailViewController.h"
 #import "UINavigationController+TransparentNavigationController.h"
 #import "DirectionsController.h"
-#import <MapsIndoorsSDK/MapsIndoorsSDK.h>
+#import <MapsIndoors/MapsIndoors.h>
 #import "UIColor+AppColor.h"
 #import "UIButton+AppButton.h"
 #import "UIViewController+Custom.h"

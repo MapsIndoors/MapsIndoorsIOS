@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1994284B7211ACE33B1C6C87 /* Pods_MapsIndoors_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA27416D600A41926A7BB09 /* Pods_MapsIndoors_Tests.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -14,7 +15,6 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
-		7B9C561B1BDE744900C9D81C /* IndoorAtlas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B9C561A1BDE744900C9D81C /* IndoorAtlas.framework */; };
 		7B9C561F1BDE746A00C9D81C /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B9C561E1BDE746A00C9D81C /* CoreMotion.framework */; };
 		7B9C56871BE395FE00C9D81C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B9C56861BE395FE00C9D81C /* CoreLocation.framework */; };
 		7BBFECFC1BDE5A6900570CF8 /* Auditorium.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BBFECA81BDE5A6900570CF8 /* Auditorium.png */; };
@@ -100,7 +100,6 @@
 		7BBFED541BDE5B1300570CF8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBFED521BDE5B1300570CF8 /* main.m */; };
 		7BE91FC11BDE557800A16EE0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE91FBF1BDE557800A16EE0 /* AppDelegate.m */; };
 		7BE91FC21BDE557800A16EE0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BE91FC01BDE557800A16EE0 /* Images.xcassets */; };
-		8DE7AA648E155CC99385D474 /* Pods_MapsIndoors_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 023E7105FD4BB27787D6FCBC /* Pods_MapsIndoors_Tests.framework */; };
 		A28BCF2D1D625E57004F2CDE /* MPLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BCF2B1D625E57004F2CDE /* MPLocationCell.m */; };
 		A28BCF2E1D625E57004F2CDE /* MPLocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A28BCF2C1D625E57004F2CDE /* MPLocationCell.xib */; };
 		A28BCF331D625E9A004F2CDE /* UIViewController+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BCF301D625E9A004F2CDE /* UIViewController+Custom.m */; };
@@ -108,7 +107,7 @@
 		A28BCF371D625EA7004F2CDE /* PlacePickerSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BCF361D625EA7004F2CDE /* PlacePickerSearchController.m */; };
 		A28BCF3B1D625F3A004F2CDE /* LocalizationSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BCF391D625F3A004F2CDE /* LocalizationSystem.m */; };
 		A28BCF3E1D625FE2004F2CDE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A28BCF401D625FE2004F2CDE /* Localizable.strings */; };
-		A28BCF431D6261E0004F2CDE /* MPNotificationsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BCF421D6261E0004F2CDE /* MPNotificationsHelper.m */; };
+		A28BCF431D6261E0004F2CDE /* NotificationsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BCF421D6261E0004F2CDE /* NotificationsHelper.m */; };
 		A28BCF451D626734004F2CDE /* Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = A28BCF441D626734004F2CDE /* Location.gpx */; };
 		A28E0FF11D1403BA00164AF2 /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E0FC61D1403BA00164AF2 /* ContainerViewController.m */; };
 		A28E0FF21D1403BA00164AF2 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E0FC81D1403BA00164AF2 /* DetailViewController.m */; };
@@ -138,7 +137,7 @@
 		A28E10121D14042200164AF2 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E100D1D14042200164AF2 /* MasterViewController.m */; };
 		A28E10131D14042200164AF2 /* UIColor+AppColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E100F1D14042200164AF2 /* UIColor+AppColor.m */; };
 		A28E10141D14042200164AF2 /* UIFont+SystemFontOverride.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E10111D14042200164AF2 /* UIFont+SystemFontOverride.m */; };
-		FFC959EE3072BD1B5AB2E1DB /* Pods_MapsIndoors_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC3BD4E975BAC33E29BE8F29 /* Pods_MapsIndoors_Example.framework */; };
+		DF1ACE6B8C4C8751D5BC9C5E /* Pods_MapsIndoors_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D676DB7FFAD454001088FAA6 /* Pods_MapsIndoors_App.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,12 +151,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		023E7105FD4BB27787D6FCBC /* Pods_MapsIndoors_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapsIndoors_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0D18BF1F718E719435C67263 /* Pods-MapsIndoors_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsIndoors_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapsIndoors_Tests/Pods-MapsIndoors_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		06D817E7486702CBFAEF4DB8 /* Pods-MapsIndoors_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsIndoors_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapsIndoors_Tests/Pods-MapsIndoors_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		179FD2986828E33EE85F6E4A /* MapsIndoors.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MapsIndoors.podspec; path = ../MapsIndoors.podspec; sourceTree = "<group>"; };
-		17DF7E4CCDA88AE7687C5C29 /* Pods-MapsIndoors_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsIndoors_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapsIndoors_Example/Pods-MapsIndoors_Example.release.xcconfig"; sourceTree = "<group>"; };
 		2CD659FEA5582C12FE25C6FE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		6003F58A195388D20070C39A /* MapsIndoors_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapsIndoors_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DC71E6650E26E96780A3853 /* Pods-MapsIndoors App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsIndoors App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapsIndoors App/Pods-MapsIndoors App.debug.xcconfig"; sourceTree = "<group>"; };
+		6003F58A195388D20070C39A /* MapsIndoors App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MapsIndoors App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -257,9 +255,7 @@
 		7BE91FBE1BDE557800A16EE0 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7BE91FBF1BDE557800A16EE0 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7BE91FC01BDE557800A16EE0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		8EC427F9886D56FAB03C3065 /* Pods-MapsIndoors_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsIndoors_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapsIndoors_Tests/Pods-MapsIndoors_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		950C0254C9A06CBF6F5FA9E4 /* Pods-MapsIndoors_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsIndoors_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapsIndoors_Example/Pods-MapsIndoors_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		9AB961D7B93DBB16D943EFD0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		9BFA1B91509CE7429FC8A01E /* Pods-MapsIndoors App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsIndoors App.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapsIndoors App/Pods-MapsIndoors App.release.xcconfig"; sourceTree = "<group>"; };
 		A28BCF2A1D625E57004F2CDE /* MPLocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPLocationCell.h; sourceTree = "<group>"; };
 		A28BCF2B1D625E57004F2CDE /* MPLocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPLocationCell.m; sourceTree = "<group>"; };
 		A28BCF2C1D625E57004F2CDE /* MPLocationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MPLocationCell.xib; sourceTree = "<group>"; };
@@ -273,8 +269,8 @@
 		A28BCF391D625F3A004F2CDE /* LocalizationSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizationSystem.m; sourceTree = "<group>"; };
 		A28BCF3A1D625F3A004F2CDE /* LocalizedStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizedStrings.h; sourceTree = "<group>"; };
 		A28BCF3F1D625FE2004F2CDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A28BCF411D6261E0004F2CDE /* MPNotificationsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPNotificationsHelper.h; sourceTree = "<group>"; };
-		A28BCF421D6261E0004F2CDE /* MPNotificationsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPNotificationsHelper.m; sourceTree = "<group>"; };
+		A28BCF411D6261E0004F2CDE /* NotificationsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsHelper.h; sourceTree = "<group>"; };
+		A28BCF421D6261E0004F2CDE /* NotificationsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationsHelper.m; sourceTree = "<group>"; };
 		A28BCF441D626734004F2CDE /* Location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		A28E0FC51D1403BA00164AF2 /* ContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerViewController.h; sourceTree = "<group>"; };
 		A28E0FC61D1403BA00164AF2 /* ContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerViewController.m; sourceTree = "<group>"; };
@@ -326,7 +322,9 @@
 		A28E100F1D14042200164AF2 /* UIColor+AppColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AppColor.m"; sourceTree = "<group>"; };
 		A28E10101D14042200164AF2 /* UIFont+SystemFontOverride.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+SystemFontOverride.h"; sourceTree = "<group>"; };
 		A28E10111D14042200164AF2 /* UIFont+SystemFontOverride.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+SystemFontOverride.m"; sourceTree = "<group>"; };
-		EC3BD4E975BAC33E29BE8F29 /* Pods_MapsIndoors_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapsIndoors_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCA27416D600A41926A7BB09 /* Pods_MapsIndoors_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapsIndoors_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D676DB7FFAD454001088FAA6 /* Pods_MapsIndoors_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapsIndoors_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5601B94A011890E01A69EA5 /* Pods-MapsIndoors_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsIndoors_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapsIndoors_Tests/Pods-MapsIndoors_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,9 +336,8 @@
 				7B9C561F1BDE746A00C9D81C /* CoreMotion.framework in Frameworks */,
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
-				7B9C561B1BDE744900C9D81C /* IndoorAtlas.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				FFC959EE3072BD1B5AB2E1DB /* Pods_MapsIndoors_Example.framework in Frameworks */,
+				DF1ACE6B8C4C8751D5BC9C5E /* Pods_MapsIndoors_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,13 +347,24 @@
 			files = (
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				8DE7AA648E155CC99385D474 /* Pods_MapsIndoors_Tests.framework in Frameworks */,
+				1994284B7211ACE33B1C6C87 /* Pods_MapsIndoors_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		42DD076E483DE95A0C2C3C00 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3DC71E6650E26E96780A3853 /* Pods-MapsIndoors App.debug.xcconfig */,
+				9BFA1B91509CE7429FC8A01E /* Pods-MapsIndoors App.release.xcconfig */,
+				06D817E7486702CBFAEF4DB8 /* Pods-MapsIndoors_Tests.debug.xcconfig */,
+				F5601B94A011890E01A69EA5 /* Pods-MapsIndoors_Tests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -365,14 +373,14 @@
 				6003F5B5195388D20070C39A /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
-				F7CBB4358B73B171C40ABEA2 /* Pods */,
+				42DD076E483DE95A0C2C3C00 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
 		6003F58B195388D20070C39A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6003F58A195388D20070C39A /* MapsIndoors_Example.app */,
+				6003F58A195388D20070C39A /* MapsIndoors App.app */,
 				6003F5AE195388D20070C39A /* MapsIndoors_Tests.xctest */,
 			);
 			name = Products;
@@ -387,8 +395,8 @@
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
-				EC3BD4E975BAC33E29BE8F29 /* Pods_MapsIndoors_Example.framework */,
-				023E7105FD4BB27787D6FCBC /* Pods_MapsIndoors_Tests.framework */,
+				D676DB7FFAD454001088FAA6 /* Pods_MapsIndoors_App.framework */,
+				CCA27416D600A41926A7BB09 /* Pods_MapsIndoors_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -409,8 +417,8 @@
 				A28BCF3A1D625F3A004F2CDE /* LocalizedStrings.h */,
 				A28E100C1D14042200164AF2 /* MasterViewController.h */,
 				A28E100D1D14042200164AF2 /* MasterViewController.m */,
-				A28BCF411D6261E0004F2CDE /* MPNotificationsHelper.h */,
-				A28BCF421D6261E0004F2CDE /* MPNotificationsHelper.m */,
+				A28BCF411D6261E0004F2CDE /* NotificationsHelper.h */,
+				A28BCF421D6261E0004F2CDE /* NotificationsHelper.m */,
 				A28E0FD91D1403BA00164AF2 /* Services */,
 				7BBFED501BDE5AE300570CF8 /* Supporting Files */,
 				A28E100E1D14042200164AF2 /* UIColor+AppColor.h */,
@@ -447,7 +455,6 @@
 			children = (
 				179FD2986828E33EE85F6E4A /* MapsIndoors.podspec */,
 				2CD659FEA5582C12FE25C6FE /* README.md */,
-				9AB961D7B93DBB16D943EFD0 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
@@ -624,50 +631,39 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		F7CBB4358B73B171C40ABEA2 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				950C0254C9A06CBF6F5FA9E4 /* Pods-MapsIndoors_Example.debug.xcconfig */,
-				17DF7E4CCDA88AE7687C5C29 /* Pods-MapsIndoors_Example.release.xcconfig */,
-				0D18BF1F718E719435C67263 /* Pods-MapsIndoors_Tests.debug.xcconfig */,
-				8EC427F9886D56FAB03C3065 /* Pods-MapsIndoors_Tests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6003F589195388D20070C39A /* MapsIndoors_Example */ = {
+		6003F589195388D20070C39A /* MapsIndoors App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "MapsIndoors_Example" */;
+			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "MapsIndoors App" */;
 			buildPhases = (
-				F9BD9D431706CDED8CF49C94 /* 📦 Check Pods Manifest.lock */,
+				F9BD9D431706CDED8CF49C94 /* [CP] Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				C28AA757898C58E1442BC9E1 /* 📦 Embed Pods Frameworks */,
-				D28F8504C1A79FF9B6151E93 /* 📦 Copy Pods Resources */,
+				C28AA757898C58E1442BC9E1 /* [CP] Embed Pods Frameworks */,
+				D28F8504C1A79FF9B6151E93 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = MapsIndoors_Example;
+			name = "MapsIndoors App";
 			productName = MapsIndoors;
-			productReference = 6003F58A195388D20070C39A /* MapsIndoors_Example.app */;
+			productReference = 6003F58A195388D20070C39A /* MapsIndoors App.app */;
 			productType = "com.apple.product-type.application";
 		};
 		6003F5AD195388D20070C39A /* MapsIndoors_Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "MapsIndoors_Tests" */;
 			buildPhases = (
-				6681E6548A7D33DD125650BD /* 📦 Check Pods Manifest.lock */,
+				6681E6548A7D33DD125650BD /* [CP] Check Pods Manifest.lock */,
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				27CCB81057D75C0E710C1636 /* 📦 Embed Pods Frameworks */,
-				A7397863826D30BAD39BC635 /* 📦 Copy Pods Resources */,
+				27CCB81057D75C0E710C1636 /* [CP] Embed Pods Frameworks */,
+				A7397863826D30BAD39BC635 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -716,7 +712,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6003F589195388D20070C39A /* MapsIndoors_Example */,
+				6003F589195388D20070C39A /* MapsIndoors App */,
 				6003F5AD195388D20070C39A /* MapsIndoors_Tests */,
 			);
 		};
@@ -831,14 +827,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		27CCB81057D75C0E710C1636 /* 📦 Embed Pods Frameworks */ = {
+		27CCB81057D75C0E710C1636 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -846,29 +842,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MapsIndoors_Tests/Pods-MapsIndoors_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6681E6548A7D33DD125650BD /* 📦 Check Pods Manifest.lock */ = {
+		6681E6548A7D33DD125650BD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		A7397863826D30BAD39BC635 /* 📦 Copy Pods Resources */ = {
+		A7397863826D30BAD39BC635 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -876,49 +872,49 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MapsIndoors_Tests/Pods-MapsIndoors_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C28AA757898C58E1442BC9E1 /* 📦 Embed Pods Frameworks */ = {
+		C28AA757898C58E1442BC9E1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MapsIndoors_Example/Pods-MapsIndoors_Example-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MapsIndoors App/Pods-MapsIndoors App-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D28F8504C1A79FF9B6151E93 /* 📦 Copy Pods Resources */ = {
+		D28F8504C1A79FF9B6151E93 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MapsIndoors_Example/Pods-MapsIndoors_Example-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MapsIndoors App/Pods-MapsIndoors App-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F9BD9D431706CDED8CF49C94 /* 📦 Check Pods Manifest.lock */ = {
+		F9BD9D431706CDED8CF49C94 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -933,7 +929,7 @@
 				A28BCF2D1D625E57004F2CDE /* MPLocationCell.m in Sources */,
 				A28E0FFA1D1403BA00164AF2 /* UINavigationController+TransparentNavigationController.m in Sources */,
 				A28E100B1D1403FC00164AF2 /* Global.m in Sources */,
-				A28BCF431D6261E0004F2CDE /* MPNotificationsHelper.m in Sources */,
+				A28BCF431D6261E0004F2CDE /* NotificationsHelper.m in Sources */,
 				A28E0FF81D1403BA00164AF2 /* SearchViewController.m in Sources */,
 				A28BCF341D625E9A004F2CDE /* VenueSelectorController.m in Sources */,
 				A28E0FFC1D1403BA00164AF2 /* GPSPositionProvider.m in Sources */,
@@ -974,7 +970,7 @@
 /* Begin PBXTargetDependency section */
 		7B62D3451BE8B58000F4B5BB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6003F589195388D20070C39A /* MapsIndoors_Example */;
+			target = 6003F589195388D20070C39A /* MapsIndoors App */;
 			targetProxy = 7B62D3441BE8B58000F4B5BB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1082,7 +1078,7 @@
 		};
 		6003F5C0195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 950C0254C9A06CBF6F5FA9E4 /* Pods-MapsIndoors_Example.debug.xcconfig */;
+			baseConfigurationReference = 3DC71E6650E26E96780A3853 /* Pods-MapsIndoors App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
@@ -1100,60 +1096,6 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/MapsIndoors/Info.plist";
 				MODULE_NAME = ExampleApp;
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-l\"c++\"",
-					"-l\"icucore\"",
-					"-l\"sqlite3\"",
-					"-l\"z\"",
-					"-framework",
-					"\"AFNetworking\"",
-					"-framework",
-					"\"AVFoundation\"",
-					"-framework",
-					"\"Accelerate\"",
-					"-framework",
-					"\"CoreBluetooth\"",
-					"-framework",
-					"\"CoreData\"",
-					"-framework",
-					"\"CoreGraphics\"",
-					"-framework",
-					"\"CoreLocation\"",
-					"-framework",
-					"\"CoreText\"",
-					"-framework",
-					"\"EasyTableView\"",
-					"-framework",
-					"\"Foundation\"",
-					"-framework",
-					"\"GLKit\"",
-					"-framework",
-					"\"GoogleFontsiOS\"",
-					"-framework",
-					"\"HashBuilder\"",
-					"-framework",
-					"\"ImageIO\"",
-					"-framework",
-					"\"JSONModel\"",
-					"-framework",
-					"\"MapsIndoorsSDK\"",
-					"-framework",
-					"\"MaterialControls\"",
-					"-framework",
-					"\"OpenGLES\"",
-					"-framework",
-					"\"QuartzCore\"",
-					"-framework",
-					"\"Security\"",
-					"-framework",
-					"\"SystemConfiguration\"",
-					"-framework",
-					"\"VCMaterialDesignIcons\"",
-					"-weak_framework",
-					GoogleMaps,
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mapspeople.MapsIndoors-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1164,7 +1106,7 @@
 		};
 		6003F5C1195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 17DF7E4CCDA88AE7687C5C29 /* Pods-MapsIndoors_Example.release.xcconfig */;
+			baseConfigurationReference = 9BFA1B91509CE7429FC8A01E /* Pods-MapsIndoors App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
@@ -1182,60 +1124,6 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/MapsIndoors/Info.plist";
 				MODULE_NAME = ExampleApp;
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-l\"c++\"",
-					"-l\"icucore\"",
-					"-l\"sqlite3\"",
-					"-l\"z\"",
-					"-framework",
-					"\"AFNetworking\"",
-					"-framework",
-					"\"AVFoundation\"",
-					"-framework",
-					"\"Accelerate\"",
-					"-framework",
-					"\"CoreBluetooth\"",
-					"-framework",
-					"\"CoreData\"",
-					"-framework",
-					"\"CoreGraphics\"",
-					"-framework",
-					"\"CoreLocation\"",
-					"-framework",
-					"\"CoreText\"",
-					"-framework",
-					"\"EasyTableView\"",
-					"-framework",
-					"\"Foundation\"",
-					"-framework",
-					"\"GLKit\"",
-					"-framework",
-					"\"GoogleFontsiOS\"",
-					"-framework",
-					"\"HashBuilder\"",
-					"-framework",
-					"\"ImageIO\"",
-					"-framework",
-					"\"JSONModel\"",
-					"-framework",
-					"\"MapsIndoorsSDK\"",
-					"-framework",
-					"\"MaterialControls\"",
-					"-framework",
-					"\"OpenGLES\"",
-					"-framework",
-					"\"QuartzCore\"",
-					"-framework",
-					"\"Security\"",
-					"-framework",
-					"\"SystemConfiguration\"",
-					"-framework",
-					"\"VCMaterialDesignIcons\"",
-					"-weak_framework",
-					GoogleMaps,
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mapspeople.MapsIndoors-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1246,7 +1134,7 @@
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0D18BF1F718E719435C67263 /* Pods-MapsIndoors_Tests.debug.xcconfig */;
+			baseConfigurationReference = 06D817E7486702CBFAEF4DB8 /* Pods-MapsIndoors_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1273,7 +1161,7 @@
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8EC427F9886D56FAB03C3065 /* Pods-MapsIndoors_Tests.release.xcconfig */;
+			baseConfigurationReference = F5601B94A011890E01A69EA5 /* Pods-MapsIndoors_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1306,7 +1194,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "MapsIndoors_Example" */ = {
+		6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "MapsIndoors App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5C0195388D20070C39A /* Debug */,
