@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+
+typedef void(^mpCategoriesHandlerBlockType)(NSArray* categories, NSError* error);
+
+
 /**
  * Categories provider delegate.
  */
@@ -32,4 +36,8 @@
  * Get Categories from this provider.
  */
 - (void)getCategoriesAsync: (NSString*) solutionId locale: (NSString*) locale;
+/**
+ * Get Categories from this provider and provide a callback handler.
+ */
+- (void)getCategoriesAsync: (NSString*) solutionId locale: (NSString*) locale completionHandler: (mpCategoriesHandlerBlockType) completionHandler;
 @end

@@ -14,4 +14,10 @@
                             encoding:(NSStringEncoding)enc
                                error:(NSError * _Nullable * _Nullable)error;
 
++ (nullable NSString*)stringWithContentsOfURL:(nonnull NSURL *)url
+                              ifModifiedSince:(NSDate* _Nullable) ifModifiedSinceDate
+                                     encoding:(NSStringEncoding)enc
+                                        error:(NSError * _Nullable * _Nullable)error
+                                     response:(NSHTTPURLResponse * _Nullable * _Nullable)response;
+
 @end

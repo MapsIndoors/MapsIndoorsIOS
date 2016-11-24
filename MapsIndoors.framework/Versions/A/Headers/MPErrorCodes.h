@@ -26,4 +26,7 @@
 #define kMPErrorCodeDirectionsRouteNotFound 100610
 #define kMPErrorCodeDirectionsMatrixNotFound 100620
 
+#define kMPErrorCodeCategoriesNotFound 100710
+#define kMPErrorCodeAppDataNotFound 100810
+
 #define kMPMapsIndoorsDomain @"com.mapspeople.MapsIndoors"

@@ -20,7 +20,8 @@
 @interface PositionCalculator : NSObject
 
 + (double)convertRSSItoMeter:(double) RSSI A:(double) A;
-
+//Returns the position based on trilateration on the given measurements given a reference point of (0,0).
+// Note: The error margin is given as z.
 - (MPPoint*)calcLatLngPos:(NSArray *)measurements;
 
 @end

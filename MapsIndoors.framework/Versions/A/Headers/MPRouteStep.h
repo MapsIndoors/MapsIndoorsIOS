@@ -45,6 +45,7 @@ enum MPRouteActionDirection {
 #import "MPRouteProperty.h"
 #import "MPRouteCoordinate.h"
 #import "MPEncodedPolyline.h"
+#import "MPTransitDetails.h"
 
 @protocol MPRouteCoordinate
 @end
@@ -62,7 +63,10 @@ enum MPRouteActionDirection {
 @property NSString<Optional>* html_instructions;
 @property NSString<Optional>* highway;
 @property NSString<Optional>* routeContext;
+@property MPRouteStep<Optional>* steps;
+@property MPTransitDetails<Optional>* transit_details;
 
 - (MPPoint*)getActionPoint;
+- (NSNumber*)getStartFloorName;
 
 @end

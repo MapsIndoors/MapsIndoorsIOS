@@ -18,11 +18,7 @@
  * The solution model holds data about the buildings and floors in a solution, plus additional meta-data.
  */
 @interface MPSolution : JSONModel
-/**
- * Solution id
- */
-@property NSString* id;
-@property NSString* customerId;
+
 @property NSString* name;
 @property NSString* defaultLanguage;
 @property NSArray* availableLanguages;

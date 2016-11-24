@@ -147,3 +147,9 @@
 #import <MapsIndoors/MPMIAPI.h>
 #import <MapsIndoors/MPVersion.h>
 #import <MapsIndoors/MPNotificationsHelper.h>
+#import <MapsIndoors/MPMapsIndoors.h>
+#import <MapsIndoors/MPTransitDetails.h>
+#import <MapsIndoors/MPTransitLine.h>
+#import <MapsIndoors/MPTransitStop.h>
+#import <MapsIndoors/MPTransitAgency.h>
+#import <MapsIndoors/MPTransitVehicle.h>

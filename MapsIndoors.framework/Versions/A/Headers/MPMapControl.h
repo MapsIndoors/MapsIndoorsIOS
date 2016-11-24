@@ -305,6 +305,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
  * Get location by string id reference.
  */
 - (MPLocation*)getLocationById:(NSString*) idString;
+
 /**
  * Execute routing from one given to another given location
  */

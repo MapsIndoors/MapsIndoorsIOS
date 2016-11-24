@@ -53,6 +53,10 @@
  */
 @property NSArray<Optional>* bbox;
 /**
+ * Geographic bounds array [[lng,lat],[lng,lat],...] for this venue.
+ */
+@property NSArray<NSArray*>* bounds;
+/**
  * Array of entry points in this venue.
  */
 @property NSArray<Optional, MPPoint>* entryPoints;
@@ -80,5 +84,9 @@
  * Get the geographic bounding box for the venue
  */
 - (GMSCoordinateBounds *)getBoundingBox;
+/**
+ * Get the geographic bounds for the venue
+ */
+- (GMSCoordinateBounds *)getVenueBounds;
 
 @end

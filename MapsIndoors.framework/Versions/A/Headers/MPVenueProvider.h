@@ -17,6 +17,7 @@ typedef void(^mpVenueDetailsHandlerBlockType)(MPVenue* venue, NSError* error);
 typedef void(^mpVenueListHandlerBlockType)(MPVenueCollection* venueCollection, NSError* error);
 typedef void(^mpBuildingDetailsHandlerBlockType)(MPBuilding* building, NSError* error);
 typedef void(^mpBuildingListHandlerBlockType)(NSArray* buildings, NSError* error);
+typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, MPFloor* floor, NSError* error);
 
 /**
  * Venue provider delegate.
@@ -61,12 +62,25 @@ typedef void(^mpBuildingListHandlerBlockType)(NSArray* buildings, NSError* error
  * Get building within bounds from this provider.
  */
 - (void)getBuildingWithinBoundsAsync: (MPMapExtend*)mapExtend arg: (NSString*) solutionId language: (NSString*) language completionHandler:(mpBuildingDetailsHandlerBlockType)handler;
-
+/**
+ * Get buildings from this provider.
+ */
 - (void)getBuildingsAsync: (NSString*)venue arg: (NSString*) solutionId language: (NSString*) language completionHandler:(mpBuildingListHandlerBlockType)handler;
-
+/**
+ * Get a single building.
+ */
 - (void)getBuildingDetailsAsync: (NSString*)buildingId arg: (NSString*) solutionId language: (NSString*) language completionHandler:(mpBuildingDetailsHandlerBlockType)handler;
-
+/**
+ * Get a single venue.
+ */
 - (void)getVenueDetailsAsync: (NSString*)venueId arg: (NSString*) solutionId language: (NSString*) language completionHandler:(mpVenueDetailsHandlerBlockType)handler;
-
+/**
+ * Get all possible data related to the provided geographical point. Callback arguments are venue, building and floor objects.
+ */
+- (void)getDataFromPointAsync: (MPPoint*)point solutionId: (NSString*) solutionId language: (NSString*) language completionHandler:(mpGeocodeHandlerBlockType)completionHandler;
+/**
+ * Syncronously get all possible data related to the provided geographical point. Retrieves the data from a static cache, returns nil if cache is not ready.
+ */
++ (NSDictionary*)getDataFromPoint: (MPPoint*)point solutionId: (NSString*) solutionId language: (NSString*) language;
 
 @end

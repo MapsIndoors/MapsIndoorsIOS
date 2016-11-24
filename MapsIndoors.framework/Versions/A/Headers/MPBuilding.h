@@ -53,6 +53,7 @@
 @property NSMutableDictionary<MPFloor, Optional>* floors;
 @property NSString* name;
 @property MPPoint* anchor;
+@property NSArray<NSArray*>* bounds;
 
 /**
  * Get the current floor.
@@ -88,5 +89,9 @@
  * Hide the building from the map.
  */
 - (void) hideBuilding;
+/**
+ * Get the geographic bounds for the building
+ */
+- (GMSCoordinateBounds *)getBuildingBounds;
 
 @end

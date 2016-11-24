@@ -56,6 +56,7 @@
 @property (nonatomic) NSString<Optional> *descr;
 @property (nonatomic) MPContactModule<Optional> *contact;
 @property (nonatomic) NSDictionary<MPLocationField, Optional> *fields;
+@property (nonatomic) NSArray<NSString*> *aliases;
 /**
  * Location name.
  */
