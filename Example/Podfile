@@ -6,7 +6,7 @@ target 'MapsIndoors App' do
   pod "MapsIndoors", :path => "../"
 
   pod 'AFNetworking', '~> 2.6'
-  pod 'MaterialControls', '~> 1.0'
+  pod 'MaterialControls', '~> 1.2'
   pod 'VCMaterialDesignIcons', '~> 2.1'
   pod 'GoogleFontsiOS/Roboto'
   pod 'HashBuilder', '~> 1.0'
