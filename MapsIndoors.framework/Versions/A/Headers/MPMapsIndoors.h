@@ -21,10 +21,21 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 + (BOOL) provideSolutionId:(NSString*)solutionId;
 
 /**
+ * Sets the language for the content provided by MapsIndoors.
+ * @param language The language for which the content should be fetched. Uses the two-letter language code ISO 639-1.
+ */
++ (void) setLanguage:(NSString*)languageCode;
+
+/**
+ * Gets the current language for the content provided by MapsIndoors.
+ * @param language The language for which the content should be fetched. Uses the two-letter language code ISO 639-1.
+ */
++ (NSString*) getLanguage;
+
+/**
  * Fetch all neccesary content to be able to run MapsIndoors in offline environments
- * @param language The language for which the content should be fetched. Uses language code ISO 639-1.
  * @param completionHandler Callback function that fires when content has been fetched or if this process resolves in an error. Note: Does not automtically retry fetch.
  */
-+ (void)fetchDataForOfflineUse:(NSString*)language completionHandler: (mpOfflineDataHandlerBlockType) completionHandler;
++ (void)fetchDataForOfflineUse: (mpOfflineDataHandlerBlockType) completionHandler;
 
 @end
