@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <JSONModel/JSONModel.h>
+#import <CoreLocation/CoreLocation.h>
 
 #import "MPGeometry.h"
 
@@ -54,5 +55,6 @@
 - (double)distanceTo:(MPPoint*)point;
 - (NSString *)latLngString;
 + (MPPoint*)parse: (NSString*) coordinate;
+- (CLLocationCoordinate2D)getCoordinate;
 
 @end

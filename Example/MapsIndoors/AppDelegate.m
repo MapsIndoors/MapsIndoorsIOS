@@ -42,8 +42,6 @@
     
     [[UILabel appearance] setFont:[UIFont systemFontOfSize:15]];
     
-    
-    
     // Override point for customization after application launch.
     UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
     self.navigationController = [splitViewController.viewControllers lastObject];
