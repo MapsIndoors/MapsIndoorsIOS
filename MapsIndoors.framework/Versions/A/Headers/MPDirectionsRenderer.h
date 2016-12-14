@@ -30,6 +30,7 @@
 @property (nonatomic, strong) UIButton* nextRouteLegButton;
 @property (nonatomic, strong) UIButton* previousRouteLegButton;
 @property (nonatomic) NSInteger routeLegIndex;
+@property (nonatomic) NSInteger routeStepIndex;
 
 @property (nonatomic, strong) UIColor* solidColor;
 @property (nonatomic, strong) UIColor* backgroundColor;
