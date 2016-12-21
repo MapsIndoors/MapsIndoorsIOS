@@ -13,5 +13,6 @@
 @property (nonatomic) NSNumber<Optional>* zLevel;
 @property NSNumber* lat;
 @property NSNumber* lng;
+@property NSString<Optional>* floor_name;
 
 @end

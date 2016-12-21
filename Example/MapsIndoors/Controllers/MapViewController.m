@@ -94,7 +94,7 @@
     
     _mapControl = [[MPMapControl alloc] initWithMap:_mapView];
     
-    [_mapControl setupMapWith: Global.solutionId site: kVenue];
+    [_mapControl setupMapWith: Global.solutionId];
     
     _mapControl.currentFloor = [NSNumber numberWithInt:Global.initialPosition.zIndex];
     

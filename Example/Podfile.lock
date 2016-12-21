@@ -41,7 +41,7 @@ PODS:
     - GoogleMaps/Base (= 2.1.0)
   - HashBuilder (1.0.1)
   - JSONModel (1.4.0)
-  - MapsIndoors (1.7.4-beta10):
+  - MapsIndoors (1.7.21-beta):
     - GoogleMaps (= 2.1.0)
     - JSONModel (~> 1)
   - MaterialControls (1.2.2)
@@ -75,7 +75,7 @@ SPEC CHECKSUMS:
   GoogleMaps: 06589b9a38097bce0cd6e90f0fd9b5e4b4a9344c
   HashBuilder: d2f6cbd492c68350bbcf0fa2216aae50b60657d5
   JSONModel: 58fe3f8c29ff95ed94e7ee7dde87e807f5da5371
-  MapsIndoors: ed95921d1c07e1a38584cf4935da218e515171a6
+  MapsIndoors: 873a5f6e49443eb896bfa1241d0064a86cebc189
   MaterialControls: 1c6b29e78d3a13d8dd6a67ed31b6d26eb5de8f72
   Specta: ac94d110b865115fe60ff2c6d7281053c6f8e8a2
   VCMaterialDesignIcons: 68a944308ab41282ba8555770cb57e3fbf2034be

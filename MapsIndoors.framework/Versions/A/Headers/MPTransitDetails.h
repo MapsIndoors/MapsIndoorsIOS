@@ -18,6 +18,8 @@
 @property MPTransitLine<Optional>* line;
 //arrival_stop contains information about the stop/station for this part of the trip.
 @property MPTransitStop<Optional>* arrival_stop;
+//arrival_stop contains information about the stop/station for this part of the trip.
+@property MPTransitStop<Optional>* departure_stop;
 //Contains the arrival times for this leg of the journey.
 @property MPTransitTime<Optional>* arrival_time;
 //Contains the departure times for this leg of the journey.

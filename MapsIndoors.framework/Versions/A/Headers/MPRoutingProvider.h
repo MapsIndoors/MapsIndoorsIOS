@@ -28,6 +28,8 @@ typedef void(^mpRouteHandlerBlockType)(MPRoute* route, NSError* error);
 @property NSString* googleApiKey;
 @property NSString* venue;
 @property NSString* vehicle;
+@property NSString* language;
+
 
 - (id)initWithArea:(NSString *)venueName;
 - (id)initWithMapsIndoorsSolutionId:(NSString *)solutionId googleApiKey: (NSString*) googleApiKey;

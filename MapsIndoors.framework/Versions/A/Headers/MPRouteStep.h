@@ -49,6 +49,11 @@ enum MPRouteActionDirection {
 
 @protocol MPRouteCoordinate
 @end
+/**
+ * Route step empty protocol specification.
+ */
+@protocol MPRouteStep
+@end
 
 @interface MPRouteStep : JSONModel
 
@@ -63,7 +68,7 @@ enum MPRouteActionDirection {
 @property NSString<Optional>* html_instructions;
 @property NSString<Optional>* highway;
 @property NSString<Optional>* routeContext;
-@property MPRouteStep<Optional>* steps;
+@property NSMutableArray<MPRouteStep, Optional>* steps;
 @property MPTransitDetails<Optional>* transit_details;
 
 - (MPPoint*)getActionPoint;
