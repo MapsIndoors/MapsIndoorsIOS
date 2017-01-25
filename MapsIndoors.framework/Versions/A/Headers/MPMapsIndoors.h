@@ -38,4 +38,17 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
  */
 + (void)fetchDataForOfflineUse: (mpOfflineDataHandlerBlockType) completionHandler;
 
+/**
+ * Sets the offline mode for the content provided by MapsIndoors. NB: This forces the implementation to be offline, even if there is no data available offline.
+ * @param offlineMode The offline mode. Can be true/offline false/offline.
+ */
+
++ (void) setOfflineMode:(BOOL)offline;
+
+/**
+ * Gets the current offline mode.
+ */
+
++ (BOOL) getOfflineMode;
+
 @end

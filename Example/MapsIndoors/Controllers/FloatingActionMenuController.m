@@ -79,88 +79,91 @@
 */
 
 - (void) setupFloatingActionBtn {
-    _menuOpenContainerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
-    UIView* itemsView = [[UIView alloc] initWithFrame:CGRectMake(10, 0, 40, 240)];
-    _menuItemsTop = @[@120, @60, @0];
-    _initTop = 180;
-    MDButton *btn1 = [[MDButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40) type:MDButtonTypeFloatingAction rippleColor:[UIColor appLightPrimaryColor]];
-    btn1.tag = 0;
-    [btn1 addTarget:self action:@selector(getNearest:) forControlEvents:UIControlEventTouchDown];
-    MDButton *btn2 = [[MDButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40) type:MDButtonTypeFloatingAction rippleColor:[UIColor appLightPrimaryColor]];
-    btn2.tag = 1;
-    [btn2 addTarget:self action:@selector(getNearest:) forControlEvents:UIControlEventTouchDown];
-    MDButton *btn3 = [[MDButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40) type:MDButtonTypeFloatingAction rippleColor:[UIColor appLightPrimaryColor]];
-    btn3.tag = 2;
-    [btn3 addTarget:self action:@selector(getNearest:) forControlEvents:UIControlEventTouchDown];
-    MDButton *nearestBtn = [[MDButton alloc] initWithFrame:CGRectMake(0, 0, 60, 60) type:MDButtonTypeFloatingAction rippleColor:[UIColor colorWithWhite:255 alpha:.2f]];
-    
-    btn1.backgroundColor = [UIColor whiteColor];
-    btn2.backgroundColor = [UIColor whiteColor];
-    btn3.backgroundColor = [UIColor whiteColor];
-    nearestBtn.backgroundColor = [UIColor appAccentColor];
-    
-    //Image icons or fonts?
-    
-    VCMaterialDesignIcons* icon = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_search fontSize:30];
-    [icon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
-    
-    _menuOpenImage = [UIImage imageNamed:@"Findnearest"];;
-    
-    VCMaterialDesignIcons* iconClose = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_close fontSize:30];
-    [iconClose addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
-    
-    _menuCloseImage = iconClose.image;
-    
-    
-    UIImageView* imageView = [[UIImageView alloc] initWithFrame:nearestBtn.frame];
-    imageView.contentMode = UIViewContentModeCenter;
-    imageView.image = _menuOpenImage;
-    [nearestBtn addSubview:imageView];
-    [nearestBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    [nearestBtn setTitle:[kLangFind_nearest uppercaseString] forState:UIControlStateNormal];
-    [nearestBtn setTitleEdgeInsets:UIEdgeInsetsMake(3.0f, -190.0f, 0.0f, 20.0f)];
-    
-    MPMenuItem* item1 = [_menuItemModels objectAtIndex:0];
-    
-    UIImageView* imageView1 = [[UIImageView alloc] initWithFrame:btn1.frame];
-    imageView1.contentMode = UIViewContentModeCenter;
-    [imageView1 setImageWithURL:[NSURL URLWithString: item1.iconUrl]];
-//    imageView1.image = [imageView1.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-//    imageView1.tintColor = [UIColor appSecondaryTextColor];
-    [btn1 addSubview:imageView1];
-    
-    MPMenuItem* item2 = [_menuItemModels objectAtIndex:1];
-    
-    UIImageView* imageView2 = [[UIImageView alloc] initWithFrame:btn2.frame];
-    imageView2.contentMode = UIViewContentModeCenter;
-    [imageView2 setImageWithURL:[NSURL URLWithString: item2.iconUrl]];
-//    imageView2.image = [imageView2.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-//    imageView2.tintColor = [UIColor appSecondaryTextColor];
-    [btn2 addSubview:imageView2];
-    
-    MPMenuItem* item3 = [_menuItemModels objectAtIndex:2];
-    
-    UIImageView* imageView3 = [[UIImageView alloc] initWithFrame:btn3.frame];
-    imageView3.contentMode = UIViewContentModeCenter;
-    [imageView3 setImageWithURL:[NSURL URLWithString: item3.iconUrl]];
-//    imageView3.image = [imageView3.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-//    imageView3.tintColor = [UIColor appSecondaryTextColor];
-    [btn3 addSubview:imageView3];
-    
-    _menuOpenBtnImageView = imageView;
-    
-    _menuItems = @[btn1, btn2, btn3];
-    
-    
-    [_menuOpenContainerView addSubview:nearestBtn];
-    [itemsView addSubview:btn1];
-    [itemsView addSubview:btn2];
-    [itemsView addSubview:btn3];
-    
-    [self.view addSubview:itemsView];
-    [self.view addSubview:_menuOpenContainerView];
-    
-    [nearestBtn addTarget:self action:@selector(toggleFloatingActionMenu:) forControlEvents:UIControlEventTouchDown];
+    if (_menuItemModels.count > 2) {
+        _menuOpenContainerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
+        UIView* itemsView = [[UIView alloc] initWithFrame:CGRectMake(10, 0, 40, 240)];
+        _menuItemsTop = @[@120, @60, @0];
+        _initTop = 180;
+        MDButton *btn1 = [[MDButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40) type:MDButtonTypeFloatingAction rippleColor:[UIColor appLightPrimaryColor]];
+        btn1.tag = 0;
+        [btn1 addTarget:self action:@selector(getNearest:) forControlEvents:UIControlEventTouchDown];
+        MDButton *btn2 = [[MDButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40) type:MDButtonTypeFloatingAction rippleColor:[UIColor appLightPrimaryColor]];
+        btn2.tag = 1;
+        [btn2 addTarget:self action:@selector(getNearest:) forControlEvents:UIControlEventTouchDown];
+        MDButton *btn3 = [[MDButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40) type:MDButtonTypeFloatingAction rippleColor:[UIColor appLightPrimaryColor]];
+        btn3.tag = 2;
+        [btn3 addTarget:self action:@selector(getNearest:) forControlEvents:UIControlEventTouchDown];
+        MDButton *nearestBtn = [[MDButton alloc] initWithFrame:CGRectMake(0, 0, 60, 60) type:MDButtonTypeFloatingAction rippleColor:[UIColor colorWithWhite:255 alpha:.2f]];
+        
+        btn1.backgroundColor = [UIColor whiteColor];
+        btn2.backgroundColor = [UIColor whiteColor];
+        btn3.backgroundColor = [UIColor whiteColor];
+        nearestBtn.backgroundColor = [UIColor appAccentColor];
+        
+        //Image icons or fonts?
+        
+        VCMaterialDesignIcons* icon = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_search fontSize:30];
+        [icon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
+        
+        _menuOpenImage = [UIImage imageNamed:@"Findnearest"];;
+        
+        VCMaterialDesignIcons* iconClose = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_close fontSize:30];
+        [iconClose addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
+        
+        _menuCloseImage = iconClose.image;
+        
+        
+        UIImageView* imageView = [[UIImageView alloc] initWithFrame:nearestBtn.frame];
+        imageView.contentMode = UIViewContentModeCenter;
+        imageView.image = _menuOpenImage;
+        [nearestBtn addSubview:imageView];
+        [nearestBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [nearestBtn setTitle:[kLangFind_nearest uppercaseString] forState:UIControlStateNormal];
+        [nearestBtn setTitleEdgeInsets:UIEdgeInsetsMake(3.0f, -190.0f, 0.0f, 20.0f)];
+        
+        MPMenuItem* item1 = [_menuItemModels objectAtIndex:0];
+        
+        UIImageView* imageView1 = [[UIImageView alloc] initWithFrame:btn1.frame];
+        imageView1.contentMode = UIViewContentModeCenter;
+        [imageView1 setImageWithURL:[NSURL URLWithString: item1.iconUrl]];
+    //    imageView1.image = [imageView1.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    //    imageView1.tintColor = [UIColor appSecondaryTextColor];
+        [btn1 addSubview:imageView1];
+        
+        MPMenuItem* item2 = [_menuItemModels objectAtIndex:1];
+        
+        UIImageView* imageView2 = [[UIImageView alloc] initWithFrame:btn2.frame];
+        imageView2.contentMode = UIViewContentModeCenter;
+        [imageView2 setImageWithURL:[NSURL URLWithString: item2.iconUrl]];
+    //    imageView2.image = [imageView2.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    //    imageView2.tintColor = [UIColor appSecondaryTextColor];
+        [btn2 addSubview:imageView2];
+        
+        MPMenuItem* item3 = [_menuItemModels objectAtIndex:2];
+        
+        UIImageView* imageView3 = [[UIImageView alloc] initWithFrame:btn3.frame];
+        imageView3.contentMode = UIViewContentModeCenter;
+        [imageView3 setImageWithURL:[NSURL URLWithString: item3.iconUrl]];
+    //    imageView3.image = [imageView3.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    //    imageView3.tintColor = [UIColor appSecondaryTextColor];
+        [btn3 addSubview:imageView3];
+        
+        _menuOpenBtnImageView = imageView;
+        
+        _menuItems = @[btn1, btn2, btn3];
+        
+        
+        [_menuOpenContainerView addSubview:nearestBtn];
+        [itemsView addSubview:btn1];
+        [itemsView addSubview:btn2];
+        [itemsView addSubview:btn3];
+        
+        [self.view addSubview:itemsView];
+        [self.view addSubview:_menuOpenContainerView];
+        
+        [nearestBtn addTarget:self action:@selector(toggleFloatingActionMenu:) forControlEvents:UIControlEventTouchDown];
+        
+    }
     
 }
 

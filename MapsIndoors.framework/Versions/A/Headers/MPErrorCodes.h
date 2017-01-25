@@ -29,4 +29,6 @@
 #define kMPErrorCodeCategoriesNotFound 100710
 #define kMPErrorCodeAppDataNotFound 100810
 
+#define kMPErrorCodeOfflineContentNotFound 101010
+
 #define kMPMapsIndoorsDomain @"com.mapspeople.MapsIndoors"

@@ -17,7 +17,6 @@
 #import "NotificationsHelper.h"
 #import "LocalizationSystem.h"
 
-
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
 @end
