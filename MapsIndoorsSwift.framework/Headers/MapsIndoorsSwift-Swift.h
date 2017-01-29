@@ -136,15 +136,29 @@ SWIFT_CLASS("_TtC16MapsIndoorsSwift17DirectionsService")
 @end
 
 
+SWIFT_CLASS("_TtC16MapsIndoorsSwift15EncodedPolyline")
+@interface EncodedPolyline : NSObject
+@property (nonatomic, copy) NSString * _Nonnull points;
+- (nullable instancetype)initWithJson:(NSDictionary<NSString *, id> * _Nonnull)json OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+@class ZLevelObject;
+@class NumberObject;
+
 SWIFT_CLASS("_TtC16MapsIndoorsSwift11IndoorPoint")
 @interface IndoorPoint : NSObject
-@property (nonatomic) double lat;
-@property (nonatomic) double lng;
+@property (nonatomic) double latitude;
+@property (nonatomic) double longitude;
 @property (nonatomic) NSInteger floor;
+@property (nonatomic, strong) ZLevelObject * _Nonnull zLevel;
+@property (nonatomic, strong) NumberObject * _Nonnull lat;
+@property (nonatomic, strong) NumberObject * _Nonnull lng;
 - (nullable instancetype)initWithJson:(NSDictionary<NSString *, id> * _Nonnull)json OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLat:(double)lat lng:(double)lng floor:(NSInteger)floor OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithLat:(double)lat lng:(double)lng;
+- (CLLocationCoordinate2D)getCoordinates;
 @end
 
 
@@ -175,7 +189,23 @@ SWIFT_CLASS("_TtC16MapsIndoorsSwift16MapsIndoorsSwift")
   @param completionHandler Callback function that fires when content has been fetched or if this process resolves in an error. Note: Does not automatically retry fetch.
 */
 + (void)fetchDataForOfflineUse:(void (^ _Nonnull)(NSError * _Nullable))completionHandler;
+/**
+  Sets the offline mode for the content provided by MapsIndoors. NB: This forces the implementation to be offline, even if there is no data available offline.
+  @param offlineMode The offline mode. Can be true/offline false/offline.
+*/
++ (void)setOfflineMode:(BOOL)offlineMode;
+/**
+  Gets the current offline mode.
+*/
++ (BOOL)getOfflineMode;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC16MapsIndoorsSwift12NumberObject")
+@interface NumberObject : NSObject
+@property (nonatomic) double doubleValue;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
 @class RouteLeg;
@@ -207,6 +237,7 @@ SWIFT_CLASS("_TtC16MapsIndoorsSwift11RouteBounds")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
+@class RouteProperty;
 @class RouteStep;
 
 /**
@@ -221,11 +252,11 @@ SWIFT_CLASS("_TtC16MapsIndoorsSwift8RouteLeg")
     </li>
   </ul>
 */
-@property (nonatomic) double distance;
+@property (nonatomic, strong) RouteProperty * _Nonnull distance;
 /**
   The routeleg duration
 */
-@property (nonatomic) double duration;
+@property (nonatomic, strong) RouteProperty * _Nonnull duration;
 @property (nonatomic, strong) IndoorPoint * _Nullable start_location;
 @property (nonatomic, strong) IndoorPoint * _Nullable end_location;
 @property (nonatomic, copy) NSString * _Nullable start_address;
@@ -243,6 +274,8 @@ SWIFT_CLASS("_TtC16MapsIndoorsSwift8RouteLeg")
 SWIFT_CLASS("_TtC16MapsIndoorsSwift13RouteProperty")
 @interface RouteProperty : NSObject
 @property (nonatomic, copy) NSString * _Nullable text;
+@property (nonatomic) double value;
+- (float)floatValue;
 - (nonnull instancetype)init:(double)value OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithJson:(NSDictionary<NSString *, id> * _Nonnull)json OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -255,8 +288,8 @@ SWIFT_CLASS("_TtC16MapsIndoorsSwift9RouteStep")
 @property (nonatomic, copy) NSString * _Nullable travel_mode;
 @property (nonatomic, strong) IndoorPoint * _Nullable end_location;
 @property (nonatomic, strong) IndoorPoint * _Nullable start_location;
-@property (nonatomic) double distance;
-@property (nonatomic) double duration;
+@property (nonatomic, strong) RouteProperty * _Nonnull distance;
+@property (nonatomic, strong) RouteProperty * _Nonnull duration;
 @property (nonatomic, copy) NSString * _Nullable maneuver;
 @property (nonatomic, copy) NSArray<IndoorPoint *> * _Nullable geometry;
 @property (nonatomic, copy) NSString * _Nullable html_instructions;
@@ -264,7 +297,7 @@ SWIFT_CLASS("_TtC16MapsIndoorsSwift9RouteStep")
 @property (nonatomic, copy) NSString * _Nullable routeContext;
 @property (nonatomic, copy) NSArray<RouteStep *> * _Nullable steps;
 @property (nonatomic, strong) TransitDetails * _Nullable transit_details;
-@property (nonatomic, copy) NSString * _Nullable encodedPolyline;
+@property (nonatomic, strong) EncodedPolyline * _Nullable polyline;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithJson:(NSDictionary<NSString *, id> * _Nonnull)json OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -349,6 +382,13 @@ SWIFT_CLASS("_TtC16MapsIndoorsSwift14TransitVehicle")
 
 
 @interface UIImage (SWIFT_EXTENSION(MapsIndoorsSwift))
+@end
+
+
+SWIFT_CLASS("_TtC16MapsIndoorsSwift12ZLevelObject")
+@interface ZLevelObject : NSObject
+@property (nonatomic) int intValue;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
 #pragma clang diagnostic pop

@@ -38,6 +38,14 @@
  * Set the background color for the selected floor button.
  */
 + (void) setSelectedColor:(UIColor*)value;
+/**
+ * Get the tint color for the floor buttons.
+ */
++ (UIColor*) tintColor;
+/**
+ * Set the tint color for the floor buttons.
+ */
++ (void) setTintColor:(UIColor*)value;
 
 /**
  * The current floor.
