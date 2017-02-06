@@ -3,7 +3,7 @@
 //  MapsIndoors
 //
 //  Created by Daniel Nielsen on 11/02/16.
-//  Copyright © 2016 Daniel Nielsen. All rights reserved.
+//  Copyright  Daniel Nielsen. All rights reserved.
 //
 
 #import "MPVersion.h"

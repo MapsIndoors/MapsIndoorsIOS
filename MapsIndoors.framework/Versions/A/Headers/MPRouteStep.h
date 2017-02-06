@@ -3,7 +3,7 @@
 //  Indoor
 //
 //  Created by Daniel Nielsen on 12/2/13.
-//  Copyright (c) 2013 MapsPeople A/S. All rights reserved.
+//  Copyright (c) 2017 MapsPeople A/S. All rights reserved.
 //
 
 #define kSTRAIGHT_MANEUVER @"Straight"

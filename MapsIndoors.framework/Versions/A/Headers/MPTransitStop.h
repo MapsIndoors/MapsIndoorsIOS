@@ -3,7 +3,7 @@
 //  MapsIndoorsSDK
 //
 //  Created by Daniel Nielsen on 24/11/2016.
-//  Copyright © 2016 Daniel-Nielsen. All rights reserved.
+//  Copyright  Daniel-Nielsen. All rights reserved.
 //
 
 #import <JSONModel/JSONModel.h>

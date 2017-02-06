@@ -3,7 +3,7 @@
 //  MapsIndoors SDK for iOS
 //
 //  Created by Daniel Nielsen on 7/29/13.
-//  Copyright (c) 2013 MapsPeople A/S. All rights reserved.
+//  Copyright (c) 2017 MapsPeople A/S. All rights reserved.
 //
 
 
@@ -48,27 +48,27 @@
 /**
  * Location ID string.
  */
-@property (nonatomic) NSString *locationId;
-@property (nonatomic) NSString *type;
-@property (nonatomic) NSString<Optional> *venue;
-@property (nonatomic) NSString<Optional> *building;
-@property (nonatomic) NSString<Optional> *roomId;
-@property (nonatomic) NSString<Optional> *descr;
-@property (nonatomic) MPContactModule<Optional> *contact;
-@property (nonatomic) NSDictionary<MPLocationField, Optional> *fields;
-@property (nonatomic) NSArray<NSString*> *aliases;
+@property (nonatomic, strong) NSString *locationId;
+@property (nonatomic, strong) NSString *type;
+@property (nonatomic, strong) NSString<Optional> *venue;
+@property (nonatomic, strong) NSString<Optional> *building;
+@property (nonatomic, strong) NSString<Optional> *roomId;
+@property (nonatomic, strong) NSString<Optional> *descr;
+@property (nonatomic, strong) MPContactModule<Optional> *contact;
+@property (nonatomic, strong) NSDictionary<MPLocationField, Optional> *fields;
+@property (nonatomic, strong) NSArray<NSString*> *aliases;
 /**
  * Location name.
  */
-@property (nonatomic) NSString *name;
+@property (nonatomic, strong) NSString *name;
 /**
  * If the location resides on a specific floor level, this string property is set. 
  */
-@property (nonatomic) NSNumber* floor;
+@property (nonatomic, strong) NSNumber* floor;
 /**
  * The categories for this location, as an array of strings.
  */
-@property NSMutableDictionary<Optional> *categories;
+@property (nonatomic, strong) NSMutableDictionary<Optional> *categories;
 /**
  * Dictionary of location properties. The keys 'image' and 'description' will allways be present, and possibly others, such as 'address', 'contact', 'openinghours' and '_tags' or your own data structure.
  */
