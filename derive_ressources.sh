@@ -4,6 +4,9 @@ mkdir -p res
 
 BASEURL="https://api.mapsindoors.com"
 
+DATATIMESTAMP=$(date -j -f "%a %b %d %T %Z %Y" "`date`" "+%s")
+echo "{ \"timestamp\" : $DATATIMESTAMP }" > res/mi_sync_timestamp.json
+
 for relUrl in "/sync/venues" "/sync/buildings" "/sync/appconfig" "/sync/solutions" "/sync/locations" "/$SID/api/categories" "/$SID/api/graphs" "/sync/tiles"; do
     url="$BASEURL$relUrl?solutionId=$SID"
     path="mi$(echo ${relUrl//\//_})"
@@ -25,8 +28,11 @@ for fileName in "res/mi_sync_solutions.json" "res/mi_sync_tiles.json" "res/mi_sy
     do
         path="$(echo $url | cut -d '/' -f4-)"
         path="mi_$(echo ${path//\//_})"
-        echo "Downloading asset from $url to path $path"
-        curl $url -o "res/$path"
+        path="res/$path"
+        if [ ! -f $path ]; then
+            echo "Downloading asset from $url to path $path"
+            curl $url -o $path
+        fi
     done
 done
 
