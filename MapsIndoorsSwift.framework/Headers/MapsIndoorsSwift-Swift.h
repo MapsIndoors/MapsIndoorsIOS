@@ -209,10 +209,18 @@ SWIFT_CLASS("_TtC16MapsIndoorsSwift12NumberObject")
 @end
 
 @class RouteLeg;
+
+SWIFT_PROTOCOL("_TtP16MapsIndoorsSwift13RouteProtocol_")
+@protocol RouteProtocol
+@property (nonatomic, readonly) double duration;
+@property (nonatomic, readonly) double distance;
+@property (nonatomic, readonly, copy) NSArray<RouteLeg *> * _Nullable legs;
+@end
+
 @class RouteBounds;
 
 SWIFT_CLASS("_TtC16MapsIndoorsSwift5Route")
-@interface Route : NSObject
+@interface Route : NSObject <RouteProtocol>
 @property (nonatomic, copy) NSString * _Nullable copyrights;
 /**
   The route legs: the different route components. Typically a route from 1st floor to 2nd floor will consist of two route legs.
@@ -280,6 +288,7 @@ SWIFT_CLASS("_TtC16MapsIndoorsSwift13RouteProperty")
 - (nonnull instancetype)initWithJson:(NSDictionary<NSString *, id> * _Nonnull)json OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
+
 
 @class TransitDetails;
 
@@ -355,7 +364,7 @@ SWIFT_CLASS("_TtC16MapsIndoorsSwift11TransitLine")
 SWIFT_CLASS("_TtC16MapsIndoorsSwift11TransitStop")
 @interface TransitStop : NSObject
 @property (nonatomic, copy) NSString * _Nullable name;
-@property (nonatomic, strong) RouteProperty * _Nullable location;
+@property (nonatomic, strong) IndoorPoint * _Nullable location;
 - (nonnull instancetype)initWithJson:(NSDictionary<NSString *, id> * _Nonnull)json OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
