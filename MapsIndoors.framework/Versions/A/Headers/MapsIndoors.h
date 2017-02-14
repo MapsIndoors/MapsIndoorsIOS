@@ -86,6 +86,7 @@
 #import <MapsIndoors/MPMapControl.h>
 #import <MapsIndoors/MPMapStyle.h>
 #import <MapsIndoors/MPOnlineTileLayer.h>
+#import <MapsIndoors/MPOfflineDataHelper.h>
 #import <MapsIndoors/MPOpeningHours.h>
 #import <MapsIndoors/MPOpeningHoursModule.h>
 #import <MapsIndoors/MPPoint.h>
