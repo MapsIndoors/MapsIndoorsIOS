@@ -31,4 +31,6 @@
 
 #define kMPErrorCodeOfflineContentNotFound 101010
 
+#define kMPErrorCodeImageAssetNotFound 101110
+
 #define kMPMapsIndoorsDomain @"com.mapspeople.MapsIndoors"
