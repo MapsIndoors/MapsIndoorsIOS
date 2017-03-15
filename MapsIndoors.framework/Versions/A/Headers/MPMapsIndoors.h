@@ -21,6 +21,12 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 + (BOOL) provideSolutionId:(NSString*)solutionId;
 
 /**
+ * Gets the current MapsIndoors solution id.
+ * @param The solution id as a string value.
+ */
++ (NSString*) getSolutionId;
+
+/**
  * Sets the language for the content provided by MapsIndoors.
  * @param language The language for which the content should be fetched. Uses the two-letter language code ISO 639-1.
  */
@@ -28,7 +34,7 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 
 /**
  * Gets the current language for the content provided by MapsIndoors.
- * @param language The language for which the content should be fetched. Uses the two-letter language code ISO 639-1.
+ * @returns The language for which the content should be fetched. Uses the two-letter language code ISO 639-1.
  */
 + (NSString*) getLanguage;
 

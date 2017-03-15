@@ -32,9 +32,5 @@
 @property NSString* arg;         //Backwards compatibility with using arg as Solution Id
 @property int max;
 
--(void)setQuery:(NSString *)query;
--(NSString *)getQuery;
-+(void)setTokens:(NSArray*)buildingTokens withFloorTokens:(NSArray*)floorTokens;
-+(NSString *)getPattern:(NSArray *) tokenlist;
-
++(MPLocationQuery*) queryWithUrl: (NSURL*) url;
 @end
