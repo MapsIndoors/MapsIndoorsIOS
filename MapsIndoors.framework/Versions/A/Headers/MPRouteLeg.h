@@ -12,6 +12,11 @@
 #import "MPRouteProperty.h"
 #import "MPRouteStep.h"
 
+typedef enum MPRouteLegType {
+    MPRouteLegTypeMapsIndoors,
+    MPRouteLegTypeGoogle
+} MPRouteLegType;
+
 /**
  * Route leg model. A route model will consist of one ore more route legs. Typically a route from 1st floor to 2nd floor will consist of two route legs. Thus, a route leg defines a continueus route part within the same floor and/or building and/or vehicle.
  */
