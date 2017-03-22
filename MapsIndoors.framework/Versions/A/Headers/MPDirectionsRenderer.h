@@ -20,7 +20,8 @@
 @end
 
 typedef enum MPDirectionsRenderFit {
-    MPDirectionsRenderFitFirstIndoorStraightStepUpwards,
+    MPDirectionsRenderFitIndoorPathFirstLineUpwards,
+    MPDirectionsRenderFitIndoorPathUpwards,
     MPDirectionsRenderFitNorthBound
 } MPDirectionsRenderFit;
 
