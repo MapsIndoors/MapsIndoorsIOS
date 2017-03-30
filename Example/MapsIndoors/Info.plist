@@ -22,6 +22,11 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<false/>
+	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>This demo app uses your position in order to demo seamless routing from your location to a MapsIndoors venue</string>
 	<key>UIBackgroundModes</key>
