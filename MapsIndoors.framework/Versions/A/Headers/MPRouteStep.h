@@ -64,7 +64,7 @@ enum MPRouteActionDirection {
 @property NSNumber<Optional>* duration;
 @property NSString<Optional>* maneuver;
 @property MPEncodedPolyline<Optional>* polyline;
-@property NSArray<MPRouteCoordinate, Optional>* geometry;
+@property NSMutableArray<MPRouteCoordinate, Optional>* geometry;
 @property NSString<Optional>* html_instructions;
 @property NSString<Optional>* highway;
 @property NSString<Optional>* routeContext;
