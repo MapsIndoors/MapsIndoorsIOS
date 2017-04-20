@@ -33,6 +33,7 @@
         }
         
         [locationManager startUpdatingLocation];
+        [locationManager startUpdatingHeading];
     }
 }
 
@@ -55,7 +56,9 @@
             
             self.latestPositionResult = [[MPPositionResult alloc] init];
             self.latestPositionResult.geometry = [[MPPoint alloc] initWithLat:loc.coordinate.latitude lon:loc.coordinate.longitude];
-            [self.latestPositionResult setHeadingDegrees:loc.course];
+            if ( (loc.course >= 0) && (loc.course <= 360) ) {
+                [self.latestPositionResult setHeadingDegrees:loc.course];
+            }
             [self.latestPositionResult setProbability:loc.horizontalAccuracy];
             self.latestPositionResult.provider = self;
             
@@ -64,6 +67,19 @@
             }
             
             [[NSNotificationCenter defaultCenter] postNotificationName:@"PositionUpdate" object: self.latestPositionResult];
+        }
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading {
+    
+    if ( self.latestPositionResult ) {
+        if ( (newHeading.trueHeading >= 0) && (newHeading.trueHeading <= 360) ) {
+            [self.latestPositionResult setHeadingDegrees:newHeading.trueHeading];
+            
+            if ( [self.delegate respondsToSelector:@selector(onPositionUpdate:)] ) {
+                [self.delegate onPositionUpdate:self.latestPositionResult];
+            }
         }
     }
 }
