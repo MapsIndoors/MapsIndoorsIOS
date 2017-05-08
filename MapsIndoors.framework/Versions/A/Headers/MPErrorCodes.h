@@ -3,7 +3,7 @@
 //  MapsIndoors
 //
 //  Created by Daniel Nielsen on 05/02/16.
-//  Copyright  Daniel Nielsen. All rights reserved.
+//  Copyright © 2016 Daniel Nielsen. All rights reserved.
 //
 
 #define kMPErrorCodeLocationsCacheNotBuilt 100100
@@ -30,7 +30,5 @@
 #define kMPErrorCodeAppDataNotFound 100810
 
 #define kMPErrorCodeOfflineContentNotFound 101010
-
-#define kMPErrorCodeImageAssetNotFound 101110
 
 #define kMPMapsIndoorsDomain @"com.mapspeople.MapsIndoors"

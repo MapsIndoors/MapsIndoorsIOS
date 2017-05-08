@@ -3,7 +3,7 @@
 //  MapsIndoorsSDK
 //
 //  Created by Daniel Nielsen on 04/11/2016.
-//  Copyright  Daniel-Nielsen. All rights reserved.
+//  Copyright © 2016 Daniel-Nielsen. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -21,12 +21,6 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 + (BOOL) provideSolutionId:(NSString*)solutionId;
 
 /**
- * Gets the current MapsIndoors solution id.
- * @param The solution id as a string value.
- */
-+ (NSString*) getSolutionId;
-
-/**
  * Sets the language for the content provided by MapsIndoors.
  * @param language The language for which the content should be fetched. Uses the two-letter language code ISO 639-1.
  */
@@ -34,7 +28,7 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 
 /**
  * Gets the current language for the content provided by MapsIndoors.
- * @returns The language for which the content should be fetched. Uses the two-letter language code ISO 639-1.
+ * @param language The language for which the content should be fetched. Uses the two-letter language code ISO 639-1.
  */
 + (NSString*) getLanguage;
 

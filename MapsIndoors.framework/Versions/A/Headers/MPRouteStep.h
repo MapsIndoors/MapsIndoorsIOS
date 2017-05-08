@@ -3,7 +3,7 @@
 //  Indoor
 //
 //  Created by Daniel Nielsen on 12/2/13.
-//  Copyright (c) 2017 MapsPeople A/S. All rights reserved.
+//  Copyright (c) 2013 MapsPeople A/S. All rights reserved.
 //
 
 #define kSTRAIGHT_MANEUVER @"Straight"
@@ -64,7 +64,7 @@ enum MPRouteActionDirection {
 @property NSNumber<Optional>* duration;
 @property NSString<Optional>* maneuver;
 @property MPEncodedPolyline<Optional>* polyline;
-@property NSMutableArray<MPRouteCoordinate, Optional>* geometry;
+@property NSArray<MPRouteCoordinate, Optional>* geometry;
 @property NSString<Optional>* html_instructions;
 @property NSString<Optional>* highway;
 @property NSString<Optional>* routeContext;

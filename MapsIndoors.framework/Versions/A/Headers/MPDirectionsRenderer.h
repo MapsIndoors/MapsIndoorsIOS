@@ -16,14 +16,10 @@
  * @param The floor level.
  */
 @optional
-- (void) floorDidChange: (NSNumber*)floor; 
+- (void) floorDidChange: (NSNumber*)floor;
 @end
 
-typedef enum MPDirectionsRenderFit {
-    MPDirectionsRenderFitIndoorPathFirstLineUpwards,
-    MPDirectionsRenderFitIndoorPathUpwards,
-    MPDirectionsRenderFitNorthBound
-} MPDirectionsRenderFit;
+
 
 @interface MPDirectionsRenderer : NSObject
 
@@ -39,7 +35,6 @@ typedef enum MPDirectionsRenderFit {
 @property (nonatomic, strong) UIColor* solidColor;
 @property (nonatomic, strong) UIColor* backgroundColor;
 @property (nonatomic) BOOL fitBounds;
-@property (nonatomic) MPDirectionsRenderFit fitMode;
 @property (nonatomic) UIEdgeInsets edgeInsets;
 
 - (void)animate:(NSTimeInterval)duration;
