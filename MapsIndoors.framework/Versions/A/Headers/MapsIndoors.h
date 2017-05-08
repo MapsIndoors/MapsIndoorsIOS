@@ -3,7 +3,7 @@
 //  MapsIndoors
 //
 //  Created by Daniel Nielsen on 30/08/16.
-//  Copyright © 2016 Daniel-Nielsen. All rights reserved.
+//  Copyright  Daniel-Nielsen. All rights reserved.
 //
 
 
@@ -86,6 +86,7 @@
 #import <MapsIndoors/MPMapControl.h>
 #import <MapsIndoors/MPMapStyle.h>
 #import <MapsIndoors/MPOnlineTileLayer.h>
+#import <MapsIndoors/MPOfflineDataHelper.h>
 #import <MapsIndoors/MPOpeningHours.h>
 #import <MapsIndoors/MPOpeningHoursModule.h>
 #import <MapsIndoors/MPPoint.h>

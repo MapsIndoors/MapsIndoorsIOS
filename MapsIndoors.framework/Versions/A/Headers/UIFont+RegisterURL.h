@@ -3,7 +3,7 @@
 //  SNKit
 //
 //  Created by Dominik Pich on 21.06.13.
-//  Copyright (c) 2013 Dominik Pich. All rights reserved.
+//  Copyright (c) 2017 Dominik Pich. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

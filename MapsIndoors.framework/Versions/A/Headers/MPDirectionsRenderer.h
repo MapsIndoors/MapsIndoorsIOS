@@ -16,16 +16,25 @@
  * @param The floor level.
  */
 @optional
-- (void) floorDidChange: (NSNumber*)floor;
+- (void) floorDidChange: (NSNumber*)floor; 
 @end
 
-
+typedef enum MPDirectionsRenderFit {
+    MPDirectionsRenderFitIndoorPathFirstLineUpwards,
+    MPDirectionsRenderFitIndoorPathUpwards,
+    MPDirectionsRenderFitNorthBound
+} MPDirectionsRenderFit;
 
 @interface MPDirectionsRenderer : NSObject
 
 @property (weak) id <MPDirectionsRendererDelegate> delegate;
-
+/**
+ Assigns (or unassigns) a Google map object
+ */
 @property (nonatomic, strong) GMSMapView* map;
+/**
+ Assigns (or unassigns) a route object
+ */
 @property (nonatomic, strong) MPRoute* route;
 @property (nonatomic, strong) UIButton* nextRouteLegButton;
 @property (nonatomic, strong) UIButton* previousRouteLegButton;
@@ -35,6 +44,7 @@
 @property (nonatomic, strong) UIColor* solidColor;
 @property (nonatomic, strong) UIColor* backgroundColor;
 @property (nonatomic) BOOL fitBounds;
+@property (nonatomic) MPDirectionsRenderFit fitMode;
 @property (nonatomic) UIEdgeInsets edgeInsets;
 
 - (void)animate:(NSTimeInterval)duration;

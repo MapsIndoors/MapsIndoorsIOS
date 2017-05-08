@@ -28,7 +28,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NSString+FontAwesome.h"
-
+/// :nodoc:
 @interface FAImageView : UIImageView
 
 /* The background color for the default view displayed when the image is missing */

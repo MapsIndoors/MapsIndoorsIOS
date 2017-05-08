@@ -37,6 +37,10 @@
  */
 @property NSString* venueId;
 /**
+ * Venue default floor
+ */
+@property NSNumber<Optional>* defaultFloor;
+/**
  * The general url template to be used when creating floor layers for this venue. If used by this framework, the url string must have format "prefix{param_1}infix{param_N}suffix", e.g.: "http://tiles.url.com/{floor}/{x}/{y}/{zoom}.png". See also MPURITemplate.
  */
 @property NSString* tilesUrl;
