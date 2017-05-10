@@ -124,14 +124,31 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
  * Provides the contextual information needed for setting up a map with specific MapsPeople site data
  */
 @property MPAppData *appData;
+
+/**
+ * Custom floor selector for the map to use.
+ * When provided, the MapControl will not create a floor selector control autonomously.
+ */
+@property (nonatomic, strong) id<MPFloorSelectorProtocol>       customFloorSelector;
+
 /**
  * Floor selector UI element.
+ *
+ * If a custom floor selector is not provided (@sa customFloorSelector), MPMapControl will create a default floor selector.
+ * If you need a customized floor selector beyond what MPFloorSelectorControl provides, 
+ * or need finer control over location and visibility of the floor selector, 
+ * a custom floor selector can be provided to the MapControl using the MPFloorSelectorControl property.
+ *
+ * May be nil if a custom floor selector has been provided.
  */
-@property MPFloorSelectorControl *floorSelector;
+@property (readonly) MPFloorSelectorControl* floorSelector;
+
 /**
  * Hide floor selector UI element.
+ * Only applies to default floor selector; if a custom floor selector is provided, the MapControl is not repsonsible for it's visibility.
  */
 @property (nonatomic) BOOL floorSelectorHidden;
+
 /**
  * Location info-snippet UI element.
  */
