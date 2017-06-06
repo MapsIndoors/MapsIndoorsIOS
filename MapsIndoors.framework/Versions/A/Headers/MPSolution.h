@@ -22,14 +22,21 @@
 @property NSString* name;
 @property NSString* defaultLanguage;
 @property NSArray* availableLanguages;
+@property NSString<Optional>* mapClientUrl;
 
 /**
  * Array of types in this solution.
  */
 @property NSArray<MPType>* types;
+
 /**
  * Get a URL for a given type.
  */
 - (NSString*)getTypeUrl:(NSString *)arg;
+
+/**
+ * Get a link for a location in a specific venue, for use with the web-client.
+ */
+- (NSString*) getMapClientUrlForVenueId:(NSString*)venueId locationId:(NSString*)locationId;
 
 @end

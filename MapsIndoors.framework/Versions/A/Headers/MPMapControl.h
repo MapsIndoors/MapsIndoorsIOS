@@ -268,7 +268,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 /**
  * Current language.
  */
-@property (nonatomic) NSString* language;
+@property (nonatomic) NSString* language DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors getLanguage]/[MapsIndoors setLanguage:] instead");
 /**
  * Building locations.
  */
