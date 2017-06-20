@@ -6,7 +6,7 @@
 //  Copyright  Daniel-Nielsen. All rights reserved.
 //
 
-#import <JSONModel/JSONModel.h>
+#import "JSONModel.h"
 #import "MPRouteProperty.h"
 
 @interface MPTransitStop : JSONModel

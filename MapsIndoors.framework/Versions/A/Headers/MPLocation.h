@@ -27,7 +27,7 @@
 #import "NSDictionary+MPLocationPropertiesDictionary.h"
 #import "MPContactModule.h"
 #import "MPLocationField.h"
-#import <JSONModel/JSONModel.h>
+#import "JSONModel.h"
 #import <GoogleMaps/GoogleMaps.h>
 @class MPLocationDisplayRuleset;
 @class MPLocationDisplayRule;

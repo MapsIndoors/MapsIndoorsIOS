@@ -5,7 +5,7 @@
 //  Created by Daniel Nielsen on 15/12/14.
 //  Copyright (c) 2014 MapsPeople A/S. All rights reserved.
 //
-#import <JSONModel/JSONModel.h>
+#import "JSONModel.h"
 
 @protocol MPLocationField
 

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MPPoint.h"
-#import <JSONModel/JSONModel.h>
+#import "JSONModel.h"
 
 @interface MPBeacon : JSONModel
 

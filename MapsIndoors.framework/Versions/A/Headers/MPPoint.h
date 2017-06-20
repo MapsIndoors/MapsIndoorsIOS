@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <JSONModel/JSONModel.h>
+#import "JSONModel.h"
 #import <CoreLocation/CoreLocation.h>
 
 #import "MPGeometry.h"

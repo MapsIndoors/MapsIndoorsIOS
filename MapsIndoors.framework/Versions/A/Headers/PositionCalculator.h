@@ -13,7 +13,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "MPLocationDisplayRule.h"
-#import <JSONModel/JSONModel.h>
+#import "JSONModel.h"
 #import "PointXY.h"
 #import "MPLatLng.h"
 
