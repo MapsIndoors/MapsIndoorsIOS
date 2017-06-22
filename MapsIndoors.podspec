@@ -29,6 +29,8 @@ LICENSE
   #s.dependency 'Gloss', '1.1.1'
   #s.dependency 'Zip', '0.6.0'
 
+  s.frameworks = "UserNotifications"
+
   s.ios.deployment_target    = '8.0'
   s.ios.preserve_paths = ['MapsIndoors.framework','Scripts']
   #s.ios.public_header_files  = 'MapsIndoors.framework/Versions/A/Headers/*.h'
