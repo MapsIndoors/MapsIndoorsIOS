@@ -22,6 +22,7 @@
 @property NSString* name;
 @property NSString* defaultLanguage;
 @property NSArray* availableLanguages;
+@property NSArray* modules;
 @property NSString<Optional>* mapClientUrl;
 
 /**

@@ -10,6 +10,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "MPRoute.h"
 
+// Renderer delegate protocol
 @protocol MPDirectionsRendererDelegate <NSObject>
 /**
  * Floor change event.
