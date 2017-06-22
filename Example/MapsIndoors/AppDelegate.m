@@ -61,6 +61,7 @@
     
     _locationManager = [[CLLocationManager alloc] init];
     _locationManager.delegate = self;
+    
     [MPNotificationsHelper setupNotificationsForApp:application withLocationManager:_locationManager];
     [MPNotificationsHelper fetchMessagesForSolution:Global.solutionId completionHandler:nil messageHandler:^(MPMessage * message) {
         [MPNotificationsHelper monitorRegionForMessage:message withLocationManager:_locationManager];

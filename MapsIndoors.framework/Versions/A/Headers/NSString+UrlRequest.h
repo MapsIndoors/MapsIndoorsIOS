@@ -10,11 +10,11 @@
 
 @interface NSString(UrlRequest)
 
-+ (nullable NSString*)stringWithContentsOfURL:(nonnull NSURL *)url
++ (nullable NSString*)mp_stringWithContentsOfURL:(nonnull NSURL *)url
                             encoding:(NSStringEncoding)enc
                                error:(NSError * _Nullable * _Nullable)error;
 
-+ (nullable NSString*)stringWithContentsOfURL:(nonnull NSURL *)url
++ (nullable NSString*)mp_stringWithContentsOfURL:(nonnull NSURL *)url
                               ifModifiedSince:(NSDate* _Nullable) ifModifiedSinceDate
                                      encoding:(NSStringEncoding)enc
                                         error:(NSError * _Nullable * _Nullable)error
