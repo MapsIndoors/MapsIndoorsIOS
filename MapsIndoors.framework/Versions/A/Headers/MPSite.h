@@ -6,7 +6,7 @@
 //  Copyright (c) 2017 MapsPeople A/S. All rights reserved.
 //
 
-#import <JSONModel/JSONModel.h>
+#import "JSONModel.h"
 
 /**
  * Site / app class. Holds a basic identifier.

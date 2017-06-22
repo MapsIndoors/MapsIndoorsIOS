@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 MapsPeople A/S. All rights reserved.
 //
 
-#import <JSONModel/JSONModel.h>
+#import "JSONModel.h"
 #import "MPType.h"
 
 /**
@@ -22,6 +22,7 @@
 @property NSString* name;
 @property NSString* defaultLanguage;
 @property NSArray* availableLanguages;
+@property NSArray* modules;
 @property NSString<Optional>* mapClientUrl;
 
 /**

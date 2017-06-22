@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "MPRouteProperty.h"
-#import <JSONModel/JSONModel.h>
+#import "JSONModel.h"
 
 @protocol MPDistanceMatrixElements
 @end
