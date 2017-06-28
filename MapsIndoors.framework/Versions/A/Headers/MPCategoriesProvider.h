@@ -9,35 +9,44 @@
 #import <Foundation/Foundation.h>
 
 
+/**
+ Callback block for getting category data or handling error in doing so.
+ 
+ @param categories Array of categories. Will be nil if an error occurred
+ @param error Error object. Will be nil if fetching was complete
+ */
 typedef void(^mpCategoriesHandlerBlockType)(NSArray* categories, NSError* error);
 
 
 /**
- * Categories provider delegate.
+ Categories provider delegate.
  */
 @protocol MPCategoriesProviderDelegate <NSObject>
 /**
- * Categories data ready event method.
- * @param CategoriesCollection The Categories data collection.
+ Categories data ready event method.
+ @param  CategoriesCollection The Categories data collection.
  */
 @required
 - (void) onCategoriesReady: (NSArray*)categories;
 @end
 
 /**
- * Categories provider interface, that defines a delegate and a method for Categories queries.
+ A categories provider acts as a service for the location categories belonging to a specific MapsIndoors solution/dataset.
  */
 @interface MPCategoriesProvider : NSObject
 /**
- * Categories provider delegate.
+ Categories provider delegate.
  */
 @property (weak) id <MPCategoriesProviderDelegate> delegate;
 /**
- * Get Categories from this provider.
+ Get categories from the specified solution.
+
+ @param solutionId MapsIndoors solution id string
+ @param locale Specifies which language to fetch categories in. Uses 2 character ISO 639-1 representation
  */
 - (void)getCategoriesAsync: (NSString*) solutionId locale: (NSString*) locale;
 /**
- * Get Categories from this provider and provide a callback handler.
+ Get Categories from this provider and provide a callback handler.
  */
 - (void)getCategoriesAsync: (NSString*) solutionId locale: (NSString*) locale completionHandler: (mpCategoriesHandlerBlockType) completionHandler;
 @end

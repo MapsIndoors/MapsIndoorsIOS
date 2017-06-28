@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 
 /**
- * Beacons provider delegate.
+ Beacons provider delegate.
  */
 @protocol MPBeaconProviderDelegate <NSObject>
 /**
- * Beacons data ready event method.
- * @param BeaconsCollection The Beacons data collection.
+ Beacons data ready event method.
+ @param  BeaconsCollection The Beacons data collection.
  */
 @required
 - (void) onBeaconsReady: (NSArray*)beaconData;
@@ -22,13 +22,13 @@
 @end
 
 /**
- * Beacons provider protocol.
+ Beacons provider protocol.
  */
 @protocol MPBeaconProvider <NSObject>
 
 @property (weak) id <MPBeaconProviderDelegate> delegate;
 /**
- * Method to initiate fetching of Beacons from the provider.
+ Method to initiate fetching of Beacons from the provider.
  */
 @required
 - (void)getBeacons: (NSArray*) beaconIds clientId: (NSString*) clientId;
@@ -36,20 +36,20 @@
 @end
 
 /**
- * Beacons provider that defines a delegate and a method to initiate fetching of Beacons from the provider.
+ Beacons provider that defines a delegate and a method to initiate fetching of Beacons from the provider.
  */
 @interface MPBeaconProvider : NSObject<MPBeaconProvider>
 /**
- * Beacons provider delegate.
+ Beacons provider delegate.
  */
 @property (weak) id <MPBeaconProviderDelegate> delegate;
 
 /**
- * Method to initiate fetching of Beacons from the provider.
+ Method to initiate fetching of Beacons from the provider.
  */
 - (void)getBeacons: (NSArray*) beaconIds clientId: (NSString*) clientId;
 /**
- * Method to query a subset of Beacons from the provider.
+ Method to query a subset of Beacons from the provider.
  */
 
 - (id)init;

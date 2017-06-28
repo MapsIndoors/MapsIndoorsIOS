@@ -11,7 +11,7 @@
 @protocol MPBeacon
 @end
 
-@interface MPBeaconCollection : JSONModel
+@interface MPBeaconCollection : MPJSONModel
 
 @property NSArray<MPBeacon>* list;
 

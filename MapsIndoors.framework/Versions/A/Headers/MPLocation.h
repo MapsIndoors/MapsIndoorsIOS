@@ -27,7 +27,7 @@
 #import "NSDictionary+MPLocationPropertiesDictionary.h"
 #import "MPContactModule.h"
 #import "MPLocationField.h"
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 #import <GoogleMaps/GoogleMaps.h>
 @class MPLocationDisplayRuleset;
 @class MPLocationDisplayRule;
@@ -35,18 +35,18 @@
 
 
 /**
- * This class holds the data for a single location and a marker to display the data on a map.
+ This class holds the data for a single location and a marker to display the data on a map.
  */
-@interface MPLocation : JSONModel
+@interface MPLocation : MPJSONModel
 /**
- * Location constructor.
- * @param point The geographic point.
- * @param name The name of the location.
+ Location constructor.
+ @param  point The geographic point.
+ @param  name The name of the location.
  */
 - (id)initWithPoint:(MPPoint*)point andName:(NSString*)name;
 - (id)initWithLocation:(MPLocation*)location;
 /**
- * Location ID string.
+ Location ID string.
  */
 @property (nonatomic, strong) NSString *locationId;
 @property (nonatomic, strong) NSString *type;
@@ -58,89 +58,89 @@
 @property (nonatomic, strong) NSDictionary<MPLocationField, Optional> *fields;
 @property (nonatomic, strong) NSArray<NSString*> *aliases;
 /**
- * Location name.
+ Location name.
  */
 @property (nonatomic, strong) NSString<Optional> *name;
 /**
- * If the location resides on a specific floor level, this string property is set. 
+ If the location resides on a specific floor level, this string property is set. 
  */
 @property (nonatomic, strong) NSNumber* floor;
 /**
- * The categories for this location, as an array of strings.
+ The categories for this location, as an array of strings.
  */
 @property (nonatomic, strong) NSMutableDictionary<Optional> *categories;
 /**
- * Dictionary of location properties. The keys 'image' and 'description' will allways be present, and possibly others, such as 'address', 'contact', 'openinghours' and '_tags' or your own data structure.
+ Dictionary of location properties. The keys 'image' and 'description' will always be present, and possibly others, such as 'address', 'contact', 'openinghours' and '_tags' or your own data structure.
  */
 @property NSMutableDictionary *properties;
 /**
- * The data type (equals "Feature").
+ The data type (equals "Feature").
  */
 //@property NSString *type;
 /**
- * Geometry as a Lat/Long point.
+ Geometry as a Lat/Long point.
  */
 @property (nonatomic) MPPoint *geometry;
 /**
- * Marker property used to display on map.
+ Marker property used to display on map.
  */
 @property GMSMarker<Optional> *marker;
 /**
- * Location image. 
+ Location image. 
  */
 @property UIImage<Optional> *image;
 /**
- * Location display rule.
+ Location display rule.
  */
 @property MPLocationDisplayRule<Optional> *displayRule;
 
 /**
- * Add the location to a map
- * @param map The map that will hold the marker.
+ Add the location to a map
+ @param  map The map that will hold the marker.
  */
 - (void)addToMap:(GMSMapView*) map;
 /**
- * Add the location to a map with given display rules.
- * @param map The map that will hold the marker.
- * @param displayRuleset The display ruleset that defines the display of the marker.
- * @see MPLocationDisplayRuleset
+ Add the location to a map with given display rules.
+ @param  map The map that will hold the marker.
+ @param  displayRuleset The display ruleset that defines the display of the marker.
+   @see MPLocationDisplayRuleset
  */
 - (void)addToMap:(GMSMapView*) map WithRules:(MPLocationDisplayRuleset*) displayRuleset;
 /**
- * Add the location to a map with given display rules.
- * @param map The map that will hold the marker.
- * @param floor Floor level.
- * @param displayRuleset The display ruleset that defines the display of the marker.
- * @see MPLocationDisplayRuleset
+ Add the location to a map with given display rules.
+ @param  map The map that will hold the marker.
+ @param  floor Floor level.
+ @param  displayRuleset The display ruleset that defines the display of the marker.
+   @see MPLocationDisplayRuleset
  */
 - (void)addToMap:(GMSMapView*) map floor:(int)floor WithRules:(MPLocationDisplayRuleset*) displayRuleset;/**
- * Update the location on a map with given display rules.
- * @param map The map that triggered the update.
- * @param displayRuleset The display ruleset that defines the display of the marker.
- * @param floor Floor level.
- * @see MPLocationDisplayRuleset
+ Update the location on a map with given display rules.
+ @param  map The map that triggered the update.
+ @param  displayRuleset The display ruleset that defines the display of the marker.
+ @param  floor Floor level.
+   @see MPLocationDisplayRuleset
  */
 - (void)updateView:(GMSMapView*) map floor:(int)floor displayRules:(MPLocationDisplayRuleset*) displayRuleset;
 /**
- * Create a label image with a given text.
- * @param text The text to label with.
+ Create a label image with a given text.
+ @param  text The text to label with.
  */
 - (UIImage*) drawLabel:(NSString*) text;
 - (void)removeFromMap;
 /**
- * Set the location image based on information in:
+ Set the location image based on information in:
  *
- * [self.properties objectForKey:@"image"];
+   [self.properties objectForKey:@"image"];
  *
  */
 - (void)setImage;
 /**
- * Get the point holding coordinates for the location object
+ Get the point holding coordinates for the location object
  *
  */
 - (MPPoint*)getPoint;
 /**
- * Get location property of the given type identifier
+ Get location property of the given type identifier
  *
  */
 - (MPLocationProperty*)getProperty:(NSString*)propertyType;

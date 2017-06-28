@@ -6,18 +6,18 @@
 //  Copyright (c) 2015 MapsPeople A/S. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 #import "MPType.h"
 
 /**
- * Type protocol specification
+ Type protocol specification
  */
 @protocol MPType
 @end
 /**
- * The solution model holds data about the buildings and floors in a solution, plus additional meta-data.
+ The solution model holds data about the buildings and floors in a solution, plus additional meta-data.
  */
-@interface MPSolution : JSONModel
+@interface MPSolution : MPJSONModel
 
 @property NSString* name;
 @property NSString* defaultLanguage;
@@ -26,12 +26,12 @@
 @property NSString<Optional>* mapClientUrl;
 
 /**
- * Array of types in this solution.
+ Array of types in this solution.
  */
 @property NSArray<MPType>* types;
 
 /**
- * Get a URL for a given type.
+ Get a URL for a given type.
  */
 - (NSString*)getTypeUrl:(NSString *)arg;
 

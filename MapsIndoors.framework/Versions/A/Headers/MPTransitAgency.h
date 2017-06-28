@@ -6,12 +6,12 @@
 //  Copyright  Daniel-Nielsen. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 
 @protocol MPTransitAgency
 @end
 
-@interface MPTransitAgency : JSONModel
+@interface MPTransitAgency : MPJSONModel
 
 //name contains the name of the transit agency.
 @property NSString<Optional>* name;

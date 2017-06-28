@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 MapsPeople A/S. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 
-@interface MPRouteCoordinate : JSONModel
+@interface MPRouteCoordinate : MPJSONModel
 
 @property (nonatomic) NSNumber<Optional>* zLevel;
 @property NSNumber* lat;

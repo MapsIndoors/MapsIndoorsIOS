@@ -7,30 +7,30 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 
 /**
- * Opening hours item data model.
+ Opening hours item data model.
  */
-@interface MPOpeningHours : JSONModel
+@interface MPOpeningHours : MPJSONModel
 /**
- * Day of week integer. 0-6 compares to Monday-Sunday
+ Day of week integer. 0-6 compares to Monday-Sunday
  */
 @property int dayOfWeek;
 /**
- * Opening time of day - as free string representation.
+ Opening time of day - as free string representation.
  */
 @property NSString* opens;
 /**
- * Closing time of day - as free string representation.
+ Closing time of day - as free string representation.
  */
 @property NSString* close;
 /**
- * Start date for this opening hours item.
+ Start date for this opening hours item.
  */
 @property NSDate* validFrom;
 /**
- * End date for this opening hours item.
+ End date for this opening hours item.
  */
 @property NSDate* validThrough;
 

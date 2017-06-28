@@ -7,89 +7,89 @@
 //
 #define kDefaultTilesURL "https://mtw-tiles.cloudapp.net/venues/{venueId}/{style}/{buildingId}/{floor}/{z}/{x}/{y}.png"
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import "MPMapStyle.h"
 #import "MPPoint.h"
 
 /**
- * Map style protocol specification
+ Map style protocol specification
  */
 @protocol MPMapStyle
 @end
 
 /**
- * Venue Info
+ Venue Info
  */
 @protocol MPVenueInfo
 @end
 
 /**
- * The venue model holds data about the buildings and floors in a venue, plus additional meta-data.
+ The venue model holds data about the buildings and floors in a venue, plus additional meta-data.
  */
-@interface MPVenue : JSONModel
+@interface MPVenue : MPJSONModel
 /**
- * Solution id
+ Solution id
  */
 @property NSString<Optional>* solutionId;
 /**
- * Venue id
+ Venue id
  */
 @property NSString* venueId;
 /**
- * Venue default floor
+ Venue default floor
  */
 @property NSNumber<Optional>* defaultFloor;
 /**
- * The general url template to be used when creating floor layers for this venue. If used by this framework, the url string must have format "prefix{param_1}infix{param_N}suffix", e.g.: "http://tiles.url.com/{floor}/{x}/{y}/{zoom}.png". See also MPURITemplate.
+ The general url template to be used when creating floor layers for this venue. If used by this framework, the url string must have format "prefix{param_1}infix{param_N}suffix", e.g.: "http://tiles.url.com/{floor}/{x}/{y}/{zoom}.png". See also MPURITemplate.
  */
 @property NSString* tilesUrl;
 /**
- * Array of buildings in this venue.
+ Array of buildings in this venue.
  */
 @property NSArray<Optional>* buildings;
 /**
- * Venue anchor point.
+ Venue anchor point.
  */
 @property MPPoint<Optional>* anchor;
 /**
- * Geographic BBox array [w,s,e,n] for this venue.
+ Geographic BBox array [w,s,e,n] for this venue.
  */
 @property NSArray<Optional>* bbox;
 /**
- * Geographic bounds array [[lng,lat],[lng,lat],...] for this venue.
+ Geographic bounds array [[lng,lat],[lng,lat],...] for this venue.
  */
 @property NSArray<NSArray*>* bounds;
 /**
- * Array of entry points in this venue.
+ Array of entry points in this venue.
  */
 @property NSArray<Optional, MPPoint>* entryPoints;
 /**
- * Route network/graph identifier for the given venue.
+ Route network/graph identifier for the given venue.
  */
 @property NSString* graphId;
 /**
- * Venue key.
+ Venue key.
  */
 @property (nonatomic, strong) NSString<Optional>* venueKey;
 /**
- * Venue name.
+ Venue name.
  */
 @property NSString<Optional>* name;
 /**
- * Array of possible map styles.
+ Array of possible map styles.
  */
 @property NSArray<MPMapStyle>* styles;
 /**
- * Get a default style. If none is set, it will be the first string value in the list of map styles
+ Get a default style. If none is set, it will be the first string value in the list of map styles
  */
 - (NSString*)getDefaultStyle;
 /**
- * Get the geographic bounding box for the venue
+ Get the geographic bounding box for the venue
  */
 - (GMSCoordinateBounds *)getBoundingBox;
 /**
- * Get the geographic bounds for the venue
+ Get the geographic bounds for the venue
  */
 - (GMSCoordinateBounds *)getVenueBounds;
 

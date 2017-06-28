@@ -9,19 +9,19 @@
 #import <Foundation/Foundation.h>
 
 /**
- * Provides a static way to access the possible app modes
+ Provides a static way to access the possible app modes
  */
 @interface MPAppMode : NSObject
 /**
- * Indoor app mode (equals 0)
+ Indoor app mode (equals 0)
  */
 + (int)INDOOR;
 /**
- * Outdoor app mode (equals 1)
+ Outdoor app mode (equals 1)
  */
 + (int)OUTDOOR;
 /**
- * Indoor and outdoor app mode (equals 2)
+ Indoor and outdoor app mode (equals 2)
  */
 + (int)INDOOR_AND_OUTDOOR;
 

@@ -34,14 +34,14 @@ PODS:
   - GoogleFontsiOS/Core (0.1.1)
   - GoogleFontsiOS/Roboto (0.1.1):
     - GoogleFontsiOS/Core
-  - GoogleMaps (2.2.0):
-    - GoogleMaps/Maps (= 2.2.0)
-  - GoogleMaps/Base (2.2.0)
-  - GoogleMaps/Maps (2.2.0):
+  - GoogleMaps (2.3.0):
+    - GoogleMaps/Maps (= 2.3.0)
+  - GoogleMaps/Base (2.3.0)
+  - GoogleMaps/Maps (2.3.0):
     - GoogleMaps/Base
   - HashBuilder (1.0.1)
-  - MapsIndoors (1.8.96-beta):
-    - GoogleMaps (= 2.2.0)
+  - MapsIndoors (1.8.100-beta):
+    - GoogleMaps (= 2.3)
   - MaterialControls (1.2.2)
   - Specta (1.0.6)
   - VCMaterialDesignIcons (2.1.1)
@@ -61,7 +61,7 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   MapsIndoors:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
@@ -70,13 +70,13 @@ SPEC CHECKSUMS:
   Expecta+Snapshots: dcff217eef506dabd6dfdc7864ea2da321fafbb8
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   GoogleFontsiOS: 9f4a4f886160d8cb723bd936604b3f6b975f1167
-  GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
+  GoogleMaps: 340a6a0bebd17c2db8abcd3921976c7c53c86cb8
   HashBuilder: d2f6cbd492c68350bbcf0fa2216aae50b60657d5
-  MapsIndoors: 8caed010a63da0f1a53e9ab4aed812c446b424eb
+  MapsIndoors: d8a2a9907da886a149983e51cfb519c2a7458cea
   MaterialControls: 1c6b29e78d3a13d8dd6a67ed31b6d26eb5de8f72
   Specta: f506f3a8361de16bc0dcf3b17b75e269072ba465
   VCMaterialDesignIcons: 68a944308ab41282ba8555770cb57e3fbf2034be
 
 PODFILE CHECKSUM: f67ee0ffd417b6f948899bcc9553ea65937e3442
 
-COCOAPODS: 1.2.1.rc.1
+COCOAPODS: 1.2.0

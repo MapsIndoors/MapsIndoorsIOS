@@ -12,41 +12,41 @@
 
 @class MPLocationDisplayRule;
 /**
- * Empty protocol specification.
+ Empty protocol specification.
  */
 @protocol MPLocationDisplayRule
 @end
 
 /**
- * This class holds a ruleset that defines how and when to show different location markers.
+ This class holds a ruleset that defines how and when to show different location markers.
  */
-@interface MPLocationDisplayRuleset : JSONModel
+@interface MPLocationDisplayRuleset : MPJSONModel
 
 /**
- * The base url to the bundle containing the icons for this ruleset. Set the value to your bundle identifier.
+ The base url to the bundle containing the icons for this ruleset. Set the value to your bundle identifier.
  */
 @property NSString *iconBaseUrl;
 /**
- * Array of display rules.
+ Array of display rules.
  */
 @property NSMutableArray *displayRules;
 
 /**
- * Method for retrieving the first occurence of a rule based on a set of rule names.
+ Method for retrieving the first occurence of a rule based on a set of rule names.
  */
 - (MPLocationDisplayRule*)getRule:(NSArray*) ruleNames;
 /**
- * Get the first occurence of a rule based on a rule name.
+ Get the first occurence of a rule based on a rule name.
  */
 - (MPLocationDisplayRule*)firstOccur:(NSString*) ruleName;
 
 - (NSArray*)getListOfNamesOnZoomLevel:(float) zoom;
 /**
- * Method for retrieving the first occurence of a rules icon based on a set of rule names.
+ Method for retrieving the first occurence of a rules icon based on a set of rule names.
  */
 - (UIImage *)getIcon:(NSArray*) ruleNames;
 /**
- * Fetch all the ruleset icons and store them into memory.
+ Fetch all the ruleset icons and store them into memory.
  */
 - (void)fetchIcons;
 

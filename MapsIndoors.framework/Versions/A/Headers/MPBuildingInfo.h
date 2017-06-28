@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 
-@interface MPBuildingInfo : JSONModel
+@interface MPBuildingInfo : MPJSONModel
 
 @property NSString* name;
 @property NSArray* aliases;

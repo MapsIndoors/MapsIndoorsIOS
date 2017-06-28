@@ -11,32 +11,32 @@
 #import "MPFloor.h"
 
 /**
- * Online tile layer. Used to serve a google map with a MapsPeople online tileservice.
+ Online tile layer. Used to serve a google map with a MapsPeople online tileservice.
  */
 @interface MPOnlineTileLayer : NSObject {
     int _balancingIndex;
 }
 
 /**
- * The google GMSTileLayer object.
+ The google GMSTileLayer object.
  */
 @property GMSTileLayer* layer;
 /**
- * Layer type / identifier.
+ Layer type / identifier.
  */
 @property (nonatomic) NSString* layerType;
 /**
- * Instantiate using a layer type.
+ Instantiate using a layer type.
  */
 - (id)initWithLayer: (NSString*)layerType;
 - (id)init;
 /**
- * Helper method to generate the correct url, based on level and layer type.
+ Helper method to generate the correct url, based on level and layer type.
  */
 - (NSString*)getTileUrl: (NSUInteger)zoom x:(NSUInteger)x y:(NSUInteger)y;
 /**
- * Add the layer to a map.
- * @param map The Google map view.
+ Add the layer to a map.
+ @param  map The Google map view.
  */
 - (void)addToMap:(GMSMapView*) map;
 

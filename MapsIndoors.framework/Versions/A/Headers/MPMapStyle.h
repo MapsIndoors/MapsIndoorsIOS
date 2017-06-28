@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 MapsPeople A/S. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 
 /**
- * Map style (used by MapsPeoples services)
+ Map style (used by MapsPeoples services)
  */
-@interface MPMapStyle : JSONModel
+@interface MPMapStyle : MPJSONModel
 
 @property NSString* folder;
 @property NSString* displayName;

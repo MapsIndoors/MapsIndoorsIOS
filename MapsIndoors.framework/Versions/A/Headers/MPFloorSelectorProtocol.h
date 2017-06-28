@@ -16,21 +16,21 @@
 @protocol MPFloorSelectorProtocol <NSObject>
 
 /**
- * Delegate object to hold the floor change event method.
+  Delegate object to hold the floor change event method.
  */
 @required
 @property (weak) id <MPFloorSelectorDelegate> delegate;
 
 /**
- * Set floor level.
- * @param floor The floor to switch to.
+  Set floor level.
+  @param floor The floor to switch to.
  */
 @required
 - (void)setFloor:(NSNumber*)floor;
 
 /**
- * Update the floor selector based on a building.
- * @param building The building that the floor selector should reflect.
+  Update the floor selector based on a building.
+  @param building The building that the floor selector should reflect.
  */
 @required
 - (void)updateFloors:(MPBuilding*)building;
@@ -45,12 +45,12 @@
 
 
 /**
- * Delegate protocol specification to hold the floor change event.
+  Delegate protocol specification to hold the floor change event.
  */
 @protocol MPFloorSelectorDelegate <NSObject>
 
 /**
- * Floor change event method. Must be implemented by delegate object.
+  Floor change event method. Must be implemented by delegate object.
  */
 @required
 - (void) floorHasChanged:(NSNumber*)floorIndex;

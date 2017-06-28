@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 
-@interface MPDataField : JSONModel
+@interface MPDataField : MPJSONModel
 
 @property NSString<Optional>* key;
 @property NSString* value;

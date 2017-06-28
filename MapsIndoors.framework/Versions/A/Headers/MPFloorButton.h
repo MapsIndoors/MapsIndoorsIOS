@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 /**
- * Create a button with a floor index property
+ Create a button with a floor index property
  */
 @interface MPFloorButton : UIButton
 
 /**
- * Floor index property, corresponds to the index property of MPFloor
+ Floor index property, corresponds to the index property of MPFloor
  */
 @property NSNumber* floorIndex;
 

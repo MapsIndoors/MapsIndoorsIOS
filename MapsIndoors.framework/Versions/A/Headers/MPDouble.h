@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 
 /**
- * Basic point geometry class.
+ Basic point geometry class.
  */
 @interface MPDouble : NSObject
 
 @property double doubleValue;
 
 /**
- * double initialization.
+ double initialization.
  */
 - (MPDouble*)init:(double)value;
 

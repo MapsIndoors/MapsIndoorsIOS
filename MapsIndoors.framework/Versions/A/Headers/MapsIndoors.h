@@ -163,10 +163,10 @@
 #import <MapsIndoors/MPTransitTime.h>
 #import <MapsIndoors/MPTransitVehicle.h>
 
-#import <MapsIndoors/JSONAPI.h>
-#import <MapsIndoors/JSONHTTPClient.h>
-#import <MapsIndoors/JSONKeyMapper.h>
-#import <MapsIndoors/JSONModel.h>
-#import <MapsIndoors/JSONModelClassProperty.h>
-#import <MapsIndoors/JSONModelError.h>
-#import <MapsIndoors/JSONValueTransformer.h>
+#import <MapsIndoors/MPJSONAPI.h>
+#import <MapsIndoors/MPJSONHTTPClient.h>
+#import <MapsIndoors/MPJSONKeyMapper.h>
+#import <MapsIndoors/MPJSONModel.h>
+#import <MapsIndoors/MPJSONModelClassProperty.h>
+#import <MapsIndoors/MPJSONModelError.h>
+#import <MapsIndoors/MPJSONValueTransformer.h>

@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 /**
- * Category button item. Convenient for setting up a menu bar of main categories.
+ Category button item. Convenient for setting up a menu bar of main categories.
  */
 @interface MPCategoryUIBarButtonItem : UIBarButtonItem
 /**
- * Category for the button.
+ Category for the button.
  */
 @property NSString* category;
 @end

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 /**
- * Creates a location property, holding a type identifier and a value
+ Creates a location property, holding a type identifier and a value
  */
 @interface MPLocationProperty : NSObject
 
@@ -17,7 +17,7 @@
 @property NSObject* propertyValue;
 
 /**
- * Initialization that takes a type identifier and a value
+ Initialization that takes a type identifier and a value
  */
 - (id)initWithValue:(NSObject*)value andType:(NSString*)type;
 

@@ -10,25 +10,25 @@
 #import "MPLocation.h"
 
 /**
- * Empty protocol specification
+ Empty protocol specification
  */
 @protocol MPLocation
 @end
 
 /**
- * Dataset that holds locations, searched results and a filter.
+ Dataset that holds locations, searched results and a filter.
  */
-@interface MPLocationDataset : JSONModel
+@interface MPLocationDataset : MPJSONModel
 /**
- * Main location array in the data set.
+ Main location array in the data set.
  */
 @property (nonatomic, strong) NSArray<MPLocation> *list;
 /**
- * Array to hold filtered results in the data set.
+ Array to hold filtered results in the data set.
  */
 @property (nonatomic, strong) NSArray<Optional> *searchResult;
 /**
- * String used as text filter.
+ String used as text filter.
  */
 @property (nonatomic, strong) NSArray<Optional> *categories;
 
