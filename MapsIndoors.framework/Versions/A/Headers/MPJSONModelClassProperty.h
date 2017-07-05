@@ -1,5 +1,5 @@
 //
-//  JSONModelClassProperty.h
+//  MPJSONModelClassProperty.h
 //
 //  @version 1.4
 //  @author Marin Todorov (http://www.underplot.com) and contributors
@@ -25,14 +25,14 @@ enum kCustomizationTypes {
 typedef enum kCustomizationTypes PropertyGetterType;
 
 /**
- * **You do not need to instantiate this class yourself.** This class is used internally by JSONModel
+ * **You do not need to instantiate this class yourself.** This class is used internally by MPJSONModel
  * to inspect the declared properties of your model class.
  *
  * Class to contain the information, representing a class property
  * It features the property's name, type, whether it's a required property,
  * and (optionally) the class protocol
  */
-@interface JSONModelClassProperty : NSObject
+@interface MPJSONModelClassProperty : NSObject
 
 // deprecated
 @property (assign, nonatomic) BOOL isIndex DEPRECATED_ATTRIBUTE;

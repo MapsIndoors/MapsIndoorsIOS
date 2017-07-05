@@ -40,7 +40,7 @@ enum MPRouteActionDirection {
     DOWN_DIRECTION = 0
 };
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 #import "MPPoint.h"
 #import "MPRouteProperty.h"
 #import "MPRouteCoordinate.h"
@@ -50,12 +50,12 @@ enum MPRouteActionDirection {
 @protocol MPRouteCoordinate
 @end
 /**
- * Route step empty protocol specification.
+ Route step empty protocol specification.
  */
 @protocol MPRouteStep
 @end
 
-@interface MPRouteStep : JSONModel
+@interface MPRouteStep : MPJSONModel
 
 @property NSString<Optional>* travel_mode;
 @property MPRouteCoordinate<Optional>* end_location;

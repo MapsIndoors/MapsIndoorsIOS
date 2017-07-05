@@ -6,9 +6,9 @@
 //  Copyright  Daniel-Nielsen. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 
-@interface MPTransitTime : JSONModel
+@interface MPTransitTime : MPJSONModel
 //the time specified as a string. The time is displayed in the time zone of the transit stop.
 @property NSString<Optional>* text;
 //value the time specified as Unix time, or seconds since midnight, January 1, 1970 UTC.

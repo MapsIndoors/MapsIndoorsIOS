@@ -13,8 +13,8 @@
 // Renderer delegate protocol
 @protocol MPDirectionsRendererDelegate <NSObject>
 /**
- * Floor change event.
- * @param The floor level.
+ Floor change event.
+ @param  The floor level.
  */
 @optional
 - (void) floorDidChange: (NSNumber*)floor; 

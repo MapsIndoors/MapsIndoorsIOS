@@ -39,7 +39,7 @@ static NSString* cellIdentifier = @"venueTableCell";
     self.navigationController.navigationBar.barStyle  = UIBarStyleBlackOpaque;
     self.navigationController.navigationBar.barTintColor =[UIColor appPrimaryColor];
     
-    self.title = [NSString stringWithFormat:@"SDU Map - %@", kLangSelect_venue];
+    self.title = kLangSelect_venue;
     
     UIImage* backImg = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_arrow_left fontSize:28.0f].image;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:backImg style:UIBarButtonItemStylePlain target:self action:@selector(backPressed)];

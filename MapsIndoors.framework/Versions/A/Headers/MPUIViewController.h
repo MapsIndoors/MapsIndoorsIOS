@@ -11,15 +11,15 @@
 #import "MPLocationDataset.h"
 
 /**
- * Simple view controller interface with current location and location data models for convenient interoperation
+ Simple view controller interface with current location and location data models for convenient interoperation
  */
 @interface MPUIViewController : UIViewController
 /**
- * Location dataset model
+ Location dataset model
  */
 @property MPLocationDataset* locationData;
 /**
- * Current location property, useful for location detail views.
+ Current location property, useful for location detail views.
  */
 @property MPLocation* currentLocation;
 

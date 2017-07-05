@@ -6,13 +6,13 @@
 //  Copyright  Daniel-Nielsen. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 #import "MPTransitStop.h"
 #import "MPTransitLine.h"
 #import "MPRouteProperty.h"
 #import "MPTransitTime.h"
 
-@interface MPTransitDetails : JSONModel
+@interface MPTransitDetails : MPJSONModel
 
 //Line contains information about the transit line used in this step, and may include the the following properties:
 @property MPTransitLine<Optional>* line;

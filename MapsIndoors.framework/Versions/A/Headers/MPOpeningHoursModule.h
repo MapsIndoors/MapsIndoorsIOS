@@ -10,12 +10,12 @@
 #import "MPOpeningHours.h"
 
 /**
- * Protocol specification
+ Protocol specification
  */
 @protocol MPOpeningHours
 @end
 /**
- * Opening hours module array data model.
+ Opening hours module array data model.
  */
 @interface MPOpeningHoursModule : NSArray<MPOpeningHours>
 

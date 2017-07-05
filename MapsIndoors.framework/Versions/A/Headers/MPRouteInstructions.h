@@ -6,10 +6,10 @@
 //  Copyright (c) 2017 MapsPeople A/S. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 
 __attribute__((deprecated))
-@interface MPRouteInstructions : JSONModel
+@interface MPRouteInstructions : MPJSONModel
 
 @property NSArray* indications;
 @property NSArray* descriptions;

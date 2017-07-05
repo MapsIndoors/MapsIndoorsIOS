@@ -6,13 +6,13 @@
 //  Copyright (c) 2017 MapsPeople A/S. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 
 /**
- * Rounting is under development.
+ Route info model
  */
 __attribute__((deprecated))
-@interface MPRouteInfo : JSONModel
+@interface MPRouteInfo : MPJSONModel
 
 //@property BOOL routeFound;
 @property float took;

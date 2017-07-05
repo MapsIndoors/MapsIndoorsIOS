@@ -8,19 +8,19 @@
 
 #import <Foundation/Foundation.h>
 /**
- * Provides a static way to access the possible layer types for general purpose MapsPeople services
+ Provides a static way to access the possible layer types for general purpose MapsPeople services
  */
 @interface MPLayerType : NSObject
 /**
- * Normal is the base map layer
+ Normal is the base map layer
  */
 + (NSString*)NORMAL;
 /**
- * Satellite map layer
+ Satellite map layer
  */
 + (NSString*)SATELLITE;
 /**
- * Hybrid is a satellite map layer with roads and tracks on top of it.
+ Hybrid is a satellite map layer with roads and tracks on top of it.
  */
 + (NSString*)HYBRID;
 

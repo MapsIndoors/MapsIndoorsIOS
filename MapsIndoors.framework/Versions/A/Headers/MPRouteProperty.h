@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 MapsPeople A/S. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 
-@interface MPRouteProperty : JSONModel
+@interface MPRouteProperty : MPJSONModel
 
 @property NSString* text;
 @property NSNumber* value;

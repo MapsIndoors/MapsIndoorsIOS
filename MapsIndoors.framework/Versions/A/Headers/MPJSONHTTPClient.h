@@ -1,5 +1,5 @@
 //
-//  JSONModelHTTPClient.h
+//  MPJSONModelHTTPClient.h
 //
 //  @version 1.4
 //  @author Marin Todorov (http://www.underplot.com) and contributors
@@ -13,7 +13,7 @@
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 
 extern NSString *const kHTTPMethodGET DEPRECATED_ATTRIBUTE;
 extern NSString *const kHTTPMethodPOST DEPRECATED_ATTRIBUTE;
@@ -21,10 +21,10 @@ extern NSString *const kContentTypeAutomatic DEPRECATED_ATTRIBUTE;
 extern NSString *const kContentTypeJSON DEPRECATED_ATTRIBUTE;
 extern NSString *const kContentTypeWWWEncoded DEPRECATED_ATTRIBUTE;
 
-typedef void (^JSONObjectBlock)(id json, JSONModelError *err) DEPRECATED_ATTRIBUTE;
+typedef void (^JSONObjectBlock)(id json, MPJSONModelError *err) DEPRECATED_ATTRIBUTE;
 
 DEPRECATED_ATTRIBUTE
-@interface JSONHTTPClient : NSObject
+@interface MPJSONHTTPClient : NSObject
 
 + (NSMutableDictionary *)requestHeaders DEPRECATED_ATTRIBUTE;
 + (void)setDefaultTextEncoding:(NSStringEncoding)encoding DEPRECATED_ATTRIBUTE;

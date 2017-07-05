@@ -6,24 +6,24 @@
 //  Copyright (c) 2014 MapsPeople A/S. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 #import "MPGeometry.h"
 #import <GoogleMaps/GoogleMaps.h>
 
 /**
- * Floor data model. Holds the floor geometry, display name, z-index and id of the building it belongs to. Furthermore it can hold a reference to a GMSTileLayer.
+ Floor data model. Holds the floor geometry, display name, z-index and id of the building it belongs to. Furthermore it can hold a reference to a GMSTileLayer.
  */
-@interface MPFloor : JSONModel
+@interface MPFloor : MPJSONModel
 /**
- * Floor geometry.
+ Floor geometry.
  */
 //@property MPGeometry* geometry;
 /**
- * The GMSTileLayer created to this floor.
+ The GMSTileLayer created to this floor.
  */
 @property GMSTileLayer<Optional>* tileLayer;
 /**
- * Floor layer style, if any.
+ Floor layer style, if any.
  */
 @property NSString<Optional>* style;
 @property NSNumber<Optional>* zIndex;

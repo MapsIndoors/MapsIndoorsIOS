@@ -13,8 +13,8 @@ typedef void(^mpMatrixHandlerBlockType)(MPDistanceMatrixResult* matrixResult, NS
 
 @protocol MPDistanceMatrixProviderDelegate <NSObject>
 /**
- * Routing result ready event method.
- * @param RoutingCollection The Routing data collection.
+ Routing result ready event method.
+ @param  RoutingCollection The Routing data collection.
  */
 @required
 - (void) onDistanceMatrixResultReady: (MPDistanceMatrixResult*)distanceMatrixResult;

@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 MapsPeople A/S. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 #import "MPRouteProperty.h"
 
 @protocol MPRoute
 @end
 
-@interface MPRouteResult : JSONModel
+@interface MPRouteResult : MPJSONModel
 
 @property NSArray<MPRoute, Optional>* routes;
 @property NSString<Optional>* status;

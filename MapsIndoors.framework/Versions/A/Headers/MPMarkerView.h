@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MPMarkerView : UIButton
-
+@interface MPMarkerView : UIView
+- (void)setImageSize:(CGSize) size;
+- (void)setImage:(UIImage*) image;
+- (void)setTitle:(NSString*) title;
 @end

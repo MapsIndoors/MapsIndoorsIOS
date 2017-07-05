@@ -6,18 +6,18 @@
 //
 //
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 
 /**
- * Basic geometry class holding one or more coordinate sets
+ Basic geometry class holding one or more coordinate sets
  */
-@interface MPGeometry : JSONModel
+@interface MPGeometry : MPJSONModel
 /**
- * Type of data (equals Geometry)
+ Type of data (equals Geometry)
  */
 //@property NSString *type;
 /**
- * Array holding one or more coordinate sets (if so, the array will be an array of arrays)
+ Array holding one or more coordinate sets (if so, the array will be an array of arrays)
  */
 @property NSArray *coordinates;
 

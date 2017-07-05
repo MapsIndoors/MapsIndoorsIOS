@@ -9,7 +9,7 @@
 #import "MPGeometry.h"
 
 /**
- * Line geometry class
+ Line geometry class
  */
 @interface MPLineGeometry : MPGeometry
 

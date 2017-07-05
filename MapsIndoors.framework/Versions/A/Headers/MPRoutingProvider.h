@@ -12,8 +12,8 @@
 
 @protocol MPRoutingProviderDelegate <NSObject>
 /**
- * Routing result ready event method.
- * @param RoutingCollection The Routing data collection.
+ Routing result ready event method.
+ @param  RoutingCollection The Routing data collection.
  */
 @required
 - (void) onRouteResultReady: (MPRoute*)route;

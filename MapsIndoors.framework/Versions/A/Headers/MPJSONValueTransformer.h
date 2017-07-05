@@ -1,5 +1,5 @@
 //
-//  JSONValueTransformer.h
+//  MPJSONValueTransformer.h
 //
 //  @version 1.4
 //  @author Marin Todorov (http://www.underplot.com) and contributors
@@ -27,21 +27,21 @@ extern BOOL isNull(id value);
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-#pragma mark - JSONValueTransformer interface
+#pragma mark - MPJSONValueTransformer interface
 /**
  * **You don't need to call methods of this class manually.**
  *
  * Class providing methods to transform values from one class to another.
  * You are given a number of built-in transformers, but you are encouraged to
  * extend this class with your own categories to add further value transformers.
- * Just few examples of what can you add to JSONValueTransformer: hex colors in JSON to UIColor,
+ * Just few examples of what can you add to MPJSONValueTransformer: hex colors in JSON to UIColor,
  * hex numbers in JSON to NSNumber model properties, base64 encoded strings in JSON to UIImage properties, and more.
  *
- * The class is invoked by JSONModel while transforming incoming
+ * The class is invoked by MPJSONModel while transforming incoming
  * JSON types into your target class property classes, and vice versa.
- * One static copy is create and store in the JSONModel class scope.
+ * One static copy is create and store in the MPJSONModel class scope.
  */
-@interface JSONValueTransformer : NSObject
+@interface MPJSONValueTransformer : NSObject
 
 @property (strong, nonatomic, readonly) NSDictionary *primitivesNames;
 

@@ -1,5 +1,5 @@
 //
-//  JSONAPI.h
+//  MPJSONAPI.h
 //
 //  @version 1.4
 //  @author Marin Todorov (http://www.underplot.com) and contributors
@@ -14,10 +14,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JSONHTTPClient.h"
+#import "MPJSONHTTPClient.h"
 
 DEPRECATED_ATTRIBUTE
-@interface JSONAPI : NSObject
+@interface MPJSONAPI : NSObject
 
 + (void)setAPIBaseURLWithString:(NSString *)base DEPRECATED_ATTRIBUTE;
 + (void)setContentType:(NSString *)ctype DEPRECATED_ATTRIBUTE;

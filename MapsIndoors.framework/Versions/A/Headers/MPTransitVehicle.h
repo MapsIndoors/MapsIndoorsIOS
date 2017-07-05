@@ -6,9 +6,9 @@
 //  Copyright  Daniel-Nielsen. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 
-@interface MPTransitVehicle : JSONModel
+@interface MPTransitVehicle : MPJSONModel
 
 //name contains the name of the vehicle on this line. eg. "Subway."
 @property NSString<Optional>* name;

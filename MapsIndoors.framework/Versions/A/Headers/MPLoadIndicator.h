@@ -10,38 +10,38 @@
 #import <UIKit/UIKit.h>
 
 /**
- * A basic load indicator, with the option to set a text.
+ A basic load indicator, with the option to set a text.
  */
 @interface MPLoadIndicator : NSObject
 /**
- * The indicator view.
+ The indicator view.
  */
 @property UIActivityIndicatorView *indicatorView;
 /**
- * View holding the load indicator.
+ View holding the load indicator.
  */
 @property UIView* parentView;
 /**
- * The text view
+ The text view
  */
 @property UITextView* textView;
 /**
- * Instantiates the indicator and places the indicator in a view.
- * @param view The view to hold the indicator.
+ Instantiates the indicator and places the indicator in a view.
+ @param  view The view to hold the indicator.
  */
 - (id)initOnView:(UIView*) view;
 /**
- * Instantiates the indicator and places the indicator in a view with a given text.
- * @param view The view to hold the indicator.
- * @param text The text to display with the indicator.
+ Instantiates the indicator and places the indicator in a view with a given text.
+ @param  view The view to hold the indicator.
+ @param  text The text to display with the indicator.
  */
 - (id)initOnView:(UIView*) view withText:(NSString*) text;
 /**
- * Start and show the indicator animation
+ Start and show the indicator animation
  */
 - (void) start;
 /**
- * Stop and hide the indicator animation
+ Stop and hide the indicator animation
  */
 - (void) stop;
 

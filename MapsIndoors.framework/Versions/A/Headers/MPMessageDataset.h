@@ -7,21 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 #import "MPMessage.h"
 
 /**
- * Empty protocol specification
+ Empty protocol specification
  */
 @protocol MPMessage
 @end
 
 /**
- * Dataset that holds Messages, searched results and a filter.
+ Dataset that holds Messages, searched results and a filter.
  */
-@interface MPMessageDataset : JSONModel
+@interface MPMessageDataset : MPJSONModel
 /**
- * Main Message array in the data set.
+ Main Message array in the data set.
  */
 @property (nonatomic, strong) NSArray<MPMessage> *list;
 

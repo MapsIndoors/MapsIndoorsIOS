@@ -12,13 +12,13 @@
 #import "MPInfoSnippetView.h"
 
 /**
- * Delegate protocol specification that specify an event method that fires when offline tile database is ready.
+ Delegate protocol specification that specify an event method that fires when offline tile database is ready.
  */
 @protocol MPRouteActionDelegate <NSObject>
 
 /**
- * Event method that fires when an route action is performed.
- * @param The route action.
+ Event method that fires when an route action is performed.
+ @param  The route action.
  */
 @required
 - (void) onRouteActionPerform: (MPRouteStep*)action;

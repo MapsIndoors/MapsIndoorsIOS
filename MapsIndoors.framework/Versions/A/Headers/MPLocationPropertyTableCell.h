@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 /**
- * Creates a special table cell view. Does nothing but presetting the cell style UITableViewCellStyleValue2 regardless of the input.
+ Creates a special table cell view. Does nothing but presetting the cell style UITableViewCellStyleValue2 regardless of the input.
  */
 
 @interface MPLocationPropertyTableCell : UITableViewCell

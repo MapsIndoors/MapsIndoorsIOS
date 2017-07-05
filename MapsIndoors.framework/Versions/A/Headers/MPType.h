@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 MapsPeople A/S. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 #import "MPLocationDisplayRule.h"
 
 /**
- * POI types (used by MapsPeoples services)
+ POI types (used by MapsPeoples services)
  */
-@interface MPType : JSONModel
+@interface MPType : MPJSONModel
 
 @property NSString* name;
 @property NSString* icon;

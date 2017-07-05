@@ -129,7 +129,6 @@
     [_directionsRenderer.previousRouteLegButton addTarget:self action:@selector(showPreviousRouteLeg) forControlEvents:UIControlEventTouchUpInside];
     _directionsRenderer.edgeInsets = UIEdgeInsetsMake(80, 20, 210, 60);
     
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {

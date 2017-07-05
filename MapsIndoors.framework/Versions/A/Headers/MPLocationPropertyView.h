@@ -11,56 +11,56 @@
 #import "MPLocationProperty.h"
 
 /**
- * Delegate protocol specification
+ Delegate protocol specification
  */
 @protocol MPLocationPropertyViewDelegate <NSObject>
 /**
- * Delegate method that is to fire when a locations property is tapped in MPLocationPropertyView
+ Delegate method that is to fire when a locations property is tapped in MPLocationPropertyView
  */
 @required
 - (void) onLocationPropertyTapped:(MPLocationProperty *)locationProperty;
 @end
 
 /**
- * Creates a view designed to contain an icon and some content (default is text) side by side.
+ Creates a view designed to contain an icon and some content (default is text) side by side.
  */
 @interface MPLocationPropertyView : UIView
 
 /**
- * Delegate object
+ Delegate object
  */
 @property (weak) id <MPLocationPropertyViewDelegate> delegate;
 /**
- * Parent view reference.
+ Parent view reference.
  */
 @property UIView* parentView;
 /**
- * Container view, holding the icon and content view.
+ Container view, holding the icon and content view.
  */
 @property UIView* containerView;
 /**
- * The icon view, which normally will be placed to the left.
+ The icon view, which normally will be placed to the left.
  */
 @property UIView* iconView;
 /**
- * The content view, which normally will be placed to the right.
+ The content view, which normally will be placed to the right.
  */
 @property UIView* contentView;
 /**
- * The location property, that should be displayed in the view
+ The location property, that should be displayed in the view
  */
 @property MPLocationProperty* locationProperty;
 
 /**
- * Initialization with location property, icon and whether to interpret the icon value as a reference or a font icon value.
+ Initialization with location property, icon and whether to interpret the icon value as a reference or a font icon value.
  */
 - (id)initWithProperty:(MPLocationProperty *)property andIcon: (NSString*)icon useFontIcon: (BOOL)useFont;
 /**
- * Add the view to it's parent, setting the width to its parents width.
+ Add the view to it's parent, setting the width to its parents width.
  */
 - (void)addToView: (UIView*) view;
 /**
- * Attach a new location property to this view
+ Attach a new location property to this view
  */
 - (void)attachProperty:(MPLocationProperty *)property andIcon: (NSString*)icon;
 /**

@@ -6,15 +6,15 @@
 //  Copyright (c) 2017 MapsPeople A/S. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 
 /**
- * Site / app class. Holds a basic identifier.
+ Site / app class. Holds a basic identifier.
  */
-@interface MPSite : JSONModel
+@interface MPSite : MPJSONModel
 
 /**
- * Site name / identifier.
+ Site name / identifier.
  */
 @property NSString* name;
 
