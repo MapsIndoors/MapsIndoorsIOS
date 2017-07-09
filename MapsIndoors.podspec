@@ -15,7 +15,7 @@ The MapsIndoors SDK is the idea of integrating everything on your venue, like pe
                        DESC
 
 s.homepage         = "https://mapspeople.com/developers"
-s.screenshots     = "http://d3jdh4j7ox95tn.cloudfront.net/mapsindoors/ios/mapsindoors-ios-screenshot1.png", "http://d3jdh4j7ox95tn.cloudfront.net/mapsindoors/ios/mapsindoors-ios-screenshot2.png", "http://d3jdh4j7ox95tn.cloudfront.net/mapsindoors/ios/mapsindoors-ios-screenshot3.png"
+s.screenshots     = "https://d3jdh4j7ox95tn.cloudfront.net/mapsindoors/ios/mapsindoors-ios-screenshot1.png", "https://d3jdh4j7ox95tn.cloudfront.net/mapsindoors/ios/mapsindoors-ios-screenshot2.png", "https://d3jdh4j7ox95tn.cloudfront.net/mapsindoors/ios/mapsindoors-ios-screenshot3.png"
  s.license          = { :type => 'Commercial', :text => <<-LICENSE
 Copyright 2016 by MapsPeople A/S
 LICENSE
