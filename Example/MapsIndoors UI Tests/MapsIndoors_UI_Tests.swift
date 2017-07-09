@@ -14,6 +14,7 @@ class MapsIndoors_UI_Tests: XCTestCase {
         super.setUp()
         
         continueAfterFailure = false
+        
         XCUIApplication().launch()
 
     }
@@ -26,6 +27,13 @@ class MapsIndoors_UI_Tests: XCTestCase {
     func testApp() {
         
         let app = XCUIApplication()
+        
+        if (app.alerts.buttons.element(boundBy: 1).isHittable) {
+            app.alerts.buttons.element(boundBy: 1).tap()
+        }
+        if (app.alerts.buttons.element(boundBy: 1).isHittable) {
+            app.alerts.buttons.element(boundBy: 1).tap()
+        }
         if app.tables.cells.element(boundBy: 0).isHittable {
             app.tables.cells.element(boundBy: 0).tap()
         }
