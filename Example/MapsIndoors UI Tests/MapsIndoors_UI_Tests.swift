@@ -28,10 +28,10 @@ class MapsIndoors_UI_Tests: XCTestCase {
         
         let app = XCUIApplication()
         
-        if (app.alerts.buttons.element(boundBy: 1).isHittable) {
+        if (app.alerts.count > 0 && app.alerts.buttons.element(boundBy: 1).isHittable) {
             app.alerts.buttons.element(boundBy: 1).tap()
         }
-        if (app.alerts.buttons.element(boundBy: 1).isHittable) {
+        if (app.alerts.count > 0 && app.alerts.buttons.element(boundBy: 1).isHittable) {
             app.alerts.buttons.element(boundBy: 1).tap()
         }
         if app.tables.cells.element(boundBy: 0).isHittable {

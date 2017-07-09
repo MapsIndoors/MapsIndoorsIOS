@@ -44,12 +44,14 @@ class MapsIndoors_Unit_Tests: XCTestCase {
     
     func testBuildings() {
         let expectation = self.expectation(description: "Buildings Request")
+        var hasFullfilled = false
         venues.getBuildingsAsync("all", arg: solution, language: "en", completionHandler: { (buildings, error) in
             if error != nil {
                 print("Error is: \(error.debugDescription)")
             }
-            else {
+            else if hasFullfilled == false {
                 expectation.fulfill()
+                hasFullfilled = true
             }
         })
         waitForExpectations(timeout: 5.0, handler: {(_ error: Error?) -> Void in
