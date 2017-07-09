@@ -32,11 +32,29 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6003F5AD195388D20070C39A"
-               BuildableName = "MapsIndoors_Tests.xctest"
-               BlueprintName = "MapsIndoors_Tests"
+               BlueprintIdentifier = "A2ADED931F10F5B8009527AD"
+               BuildableName = "MapsIndoors Unit Tests.xctest"
+               BlueprintName = "MapsIndoors Unit Tests"
                ReferencedContainer = "container:MapsIndoors.xcodeproj">
             </BuildableReference>
+            <LocationScenarioReference
+               identifier = "com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier"
+               referenceType = "1">
+            </LocationScenarioReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A2ADED851F10F59B009527AD"
+               BuildableName = "MapsIndoors UI Tests.xctest"
+               BlueprintName = "MapsIndoors UI Tests"
+               ReferencedContainer = "container:MapsIndoors.xcodeproj">
+            </BuildableReference>
+            <LocationScenarioReference
+               identifier = "../MapsIndoors/Location.gpx"
+               referenceType = "0">
+            </LocationScenarioReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>

@@ -2,26 +2,27 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '9.0'
 use_frameworks!
 
-target 'MapsIndoors App' do
-  pod "MapsIndoors", :path => "../"
-
-  pod 'AFNetworking', '~> 2.6'
-  pod 'MaterialControls', '~> 1.2'
-  pod 'VCMaterialDesignIcons', '~> 2.1'
-  pod 'GoogleFontsiOS/Roboto'
-  pod 'HashBuilder', '~> 1.0'
-  pod 'EasyTableView', '~> 1.1'
-
+def mapsindoors_pods
+    pod "MapsIndoors", :path => "../"
+    
+    pod 'AFNetworking', '~> 2.6'
+    pod 'MaterialControls', '~> 1.2'
+    pod 'VCMaterialDesignIcons', '~> 2.1'
+    pod 'GoogleFontsiOS/Roboto'
+    pod 'HashBuilder', '~> 1.0'
+    pod 'EasyTableView', '~> 1.1'
 end
 
-target :MapsIndoors_Tests do
-  pod "MapsIndoors", :path => "../"
+target 'MapsIndoors App' do
+    mapsindoors_pods
+end
 
-  pod 'Specta'
-  pod 'Expecta'
-  pod 'FBSnapshotTestCase'
-  pod 'Expecta+Snapshots'
+target 'MapsIndoors UI Tests' do
+    mapsindoors_pods
+end
 
+target 'MapsIndoors Unit Tests' do
+    mapsindoors_pods
 end
 
 post_install do |installer|

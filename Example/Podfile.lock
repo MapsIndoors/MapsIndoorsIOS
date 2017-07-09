@@ -21,42 +21,27 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - EasyTableView (1.1.1)
-  - Expecta (1.0.5)
-  - Expecta+Snapshots (3.1.1):
-    - Expecta (~> 1.0)
-    - FBSnapshotTestCase/Core (~> 2.0)
-    - Specta (~> 1.0)
-  - FBSnapshotTestCase (2.1.4):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
-  - FBSnapshotTestCase/Core (2.1.4)
-  - FBSnapshotTestCase/SwiftSupport (2.1.4):
-    - FBSnapshotTestCase/Core
   - GoogleFontsiOS/Core (0.1.1)
   - GoogleFontsiOS/Roboto (0.1.1):
     - GoogleFontsiOS/Core
-  - GoogleMaps (2.2.0):
-    - GoogleMaps/Maps (= 2.2.0)
-  - GoogleMaps/Base (2.2.0)
-  - GoogleMaps/Maps (2.2.0):
+  - GoogleMaps (2.3.0):
+    - GoogleMaps/Maps (= 2.3.0)
+  - GoogleMaps/Base (2.3.0)
+  - GoogleMaps/Maps (2.3.0):
     - GoogleMaps/Base
   - HashBuilder (1.0.1)
   - MapsIndoors (1.9.0-beta):
-    - GoogleMaps (= 2.2.0)
+    - GoogleMaps (= 2.3)
   - MaterialControls (1.2.2)
-  - Specta (1.0.6)
   - VCMaterialDesignIcons (2.1.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.6)
   - EasyTableView (~> 1.1)
-  - Expecta
-  - Expecta+Snapshots
-  - FBSnapshotTestCase
   - GoogleFontsiOS/Roboto
   - HashBuilder (~> 1.0)
   - MapsIndoors (from `../`)
   - MaterialControls (~> 1.2)
-  - Specta
   - VCMaterialDesignIcons (~> 2.1)
 
 EXTERNAL SOURCES:
@@ -66,17 +51,13 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   EasyTableView: 53f1e858d3f2d87a59651d12c3f7c2a01e7e4ce6
-  Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
-  Expecta+Snapshots: dcff217eef506dabd6dfdc7864ea2da321fafbb8
-  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   GoogleFontsiOS: 9f4a4f886160d8cb723bd936604b3f6b975f1167
-  GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
+  GoogleMaps: 340a6a0bebd17c2db8abcd3921976c7c53c86cb8
   HashBuilder: d2f6cbd492c68350bbcf0fa2216aae50b60657d5
-  MapsIndoors: 3b3cf094a09a26b35eeb1c09ec44eba48be7fb29
+  MapsIndoors: 0d0eff1d531dcf7e2e89395d775061c1add08f64
   MaterialControls: 1c6b29e78d3a13d8dd6a67ed31b6d26eb5de8f72
-  Specta: f506f3a8361de16bc0dcf3b17b75e269072ba465
   VCMaterialDesignIcons: 68a944308ab41282ba8555770cb57e3fbf2034be
 
-PODFILE CHECKSUM: f67ee0ffd417b6f948899bcc9553ea65937e3442
+PODFILE CHECKSUM: b5cf214e2de7095770c3be17244ce98fe17ed883
 
 COCOAPODS: 1.2.1.rc.1
