@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import <UIKit/UIKit.h>
+#import <CoreGraphics/CoreGraphics.h>
+#import "MPImageProvider.h"
 
 typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 
@@ -65,5 +68,13 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
  Set the color that MapsIndoors should use when rendering labels on the map.
  */
 @property (class, assign) UIColor* mapLabelColor;
+//default map icon size
+@property(class) CGSize mapIconSize ;
+//the imageProvider used by all the SDK
+@property(class) id<MPImageProvider> imageProvider;
+
+//+ (void) setImageProvider:(id<MPImageProvider>)ip;
+
+
 
 @end

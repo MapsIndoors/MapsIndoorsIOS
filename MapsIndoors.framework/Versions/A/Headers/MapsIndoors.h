@@ -123,6 +123,7 @@
 #import <MapsIndoors/MPCategories.h>
 #import <MapsIndoors/MPLocationsCache.h>
 #import <MapsIndoors/MPImageProvider.h>
+#import <MapsIndoors/MPPngImageProvider.h>
 #import <MapsIndoors/MPErrorCodes.h>
 #import <MapsIndoors/MPMarkerView.h>
 #import <MapsIndoors/NSString+UrlRequest.h>
