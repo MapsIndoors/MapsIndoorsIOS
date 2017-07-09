@@ -4,6 +4,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.9.1-beta1] - 2017-07-09
+### Added
+- Support for custom image providers, optionally by setting MapsIndoors.imageProvider
+
 ## [1.9.0-beta2] - 2017-07-08
 ### Changed
 - Fix image streching on non-quadratic marker icons

@@ -9,10 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@protocol MPImageProvider <NSObject>
+@protocol MPImageProvider<NSObject>
 
-- (void)downloadCacheImage:(NSString*)url;
 - (void)getImageFromUrlStringAsync: (NSString*)url imageSize: (CGSize) size completionHandler: (void (^)(UIImage* image, NSError* error)) completionHandler;
 
+@end
+
+@interface MPImageProvider : NSObject<MPImageProvider>
+
+- (void)getImageFromUrlStringAsync: (NSString*)url imageSize: (CGSize) size completionHandler: (void (^)(UIImage* image, NSError* error)) completionHandler;
++ (void)getImageFromUrlStringAsync: (NSString*)url completionHandler: (void (^)(UIImage* image, NSError* error)) completionHandler;
 
 @end
