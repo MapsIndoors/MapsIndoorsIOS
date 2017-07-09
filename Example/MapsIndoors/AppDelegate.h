@@ -9,9 +9,9 @@
 #define kMapsIndoorsSolutionId @"550c26a864617400a40f0000"                  // ADD YOUR OWN MAPSINDOORS SOLUTION ID
 #define kVenue @"rtx"                                                       // OPTIONALLY ADD A VENUE NAME
 //ADD_YOUR_OWN_GOOGLE_MAPS_IOS_API_KEY
-#define kGoogleMapsApiKey @"AIzaSyD7brwk6bFeDi9UN3h9AUqPJ2xPWV_yagc"           // ADD YOUR OWN GOOGLE MAPS IOS API KEY
+#define kGoogleMapsApiKey @"ADD_YOUR_OWN_GOOGLE_MAPS_IOS_API_KEY"           // ADD YOUR OWN GOOGLE MAPS IOS API KEY
 //ADD_YOUR_OWN_GOOGLE_DIRECTIONS_API_KEY
-#define kGoogleDirectionsApiKey @"AIzaSyD7brwk6bFeDi9UN3h9AUqPJ2xPWV_yagc"   // ADD YOUR OWN GOOGLE MAPS DIRECTIONS API KEY
+#define kGoogleDirectionsApiKey @"ADD_YOUR_OWN_GOOGLE_MAPS_IOS_API_KEY"   // ADD YOUR OWN GOOGLE MAPS DIRECTIONS API KEY
 
 // If you don't have a Google Maps API, here is how you do it:
 // Create a project: https://console.developers.google.com/projectcreate
