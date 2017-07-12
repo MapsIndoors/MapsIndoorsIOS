@@ -11,14 +11,15 @@
 #import <UIKit/UIKit.h>
 #import <CoreGraphics/CoreGraphics.h>
 #import "MPImageProvider.h"
+#import "MPPositionProvider.h"
 
 typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 
 @interface MapsIndoors : NSObject
 
 /**
-   Provides your Solution Id to the MapsIndoors SDK for iOS. This key is generated for your solution.
-   @return YES if the Solution Id was successfully provided
+ Provides your Solution Id to the MapsIndoors SDK for iOS. This key is generated for your solution.
+ @return YES if the Solution Id was successfully provided
  */
 + (BOOL) provideSolutionId:(NSString*)solutionId;
 
@@ -60,21 +61,28 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 + (BOOL) getOfflineMode;
 
 /**
- Set the font that MapsIndoors should use when rendering labels on the map.
+ The font that MapsIndoors should use when rendering labels on the map.
  */
-@property (class, assign) UIFont* mapLabelFont;
+@property (class) UIFont* mapLabelFont;
 
 /**
- Set the color that MapsIndoors should use when rendering labels on the map.
+ The color that MapsIndoors should use when rendering labels on the map.
  */
-@property (class, assign) UIColor* mapLabelColor;
-//default map icon size
-@property(class) CGSize mapIconSize ;
-//the imageProvider used by all the SDK
+@property (class) UIColor* mapLabelColor;
+
+/**
+ The position provider that MapsIndoors should use when user location services are needed.
+ */
+@property (class) id<MPPositionProvider> positionProvider;
+
+/**
+ Default map icon size
+ */
+@property(class) CGSize mapIconSize;
+
+/**
+ The image provider that MapsIndoors should use when image ressources are needed. MapsIndoors will provide a default if this property is nil.
+ */
 @property(class) id<MPImageProvider> imageProvider;
-
-//+ (void) setImageProvider:(id<MPImageProvider>)ip;
-
-
 
 @end

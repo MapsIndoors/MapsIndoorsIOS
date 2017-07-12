@@ -4,9 +4,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.10.0-beta] - 2017-07-12
+### Added
+- Support for statically adding a position provider, optionally by setting MapsIndoors.positionProvider
+
 ## [1.9.1-beta1] - 2017-07-09
 ### Added
-- Support for custom image providers, optionally by setting MapsIndoors.imageProvider
+- Support for custom image provider, optionally by setting MapsIndoors.imageProvider
 
 ## [1.9.0-beta2] - 2017-07-08
 ### Changed
