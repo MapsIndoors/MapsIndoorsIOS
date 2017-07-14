@@ -42,6 +42,8 @@ class MapsIndoors_UI_Tests: XCTestCase {
         app.searchFields.element(boundBy: 0).tap()
         app.searchFields["Search"].typeText("mapspeople")
         
+        wait(for: 2)
+        
         app.tables.cells.element(boundBy: 0).coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
         app.buttons["Get directions"].tap()
         
@@ -54,6 +56,9 @@ class MapsIndoors_UI_Tests: XCTestCase {
         let searchSearchField = app.searchFields["Search"]
         searchSearchField.tap()
         searchSearchField.typeText("reception")
+        
+        wait(for: 2)
+        
         app.tables.cells.element(boundBy: 0).tap()
         app.buttons["Show on map"].tap()
         app.navigationBars["Get directions"].children(matching: .button).element(boundBy: 1).tap()
