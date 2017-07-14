@@ -4,6 +4,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.10.0] - 2017-07-14
+### Changed
+- Fix geometry property nil when copying MPLocation
+- Fix unlabeled icons not respecting MapsIndoors.mapIconSize
+
+### Added
+- Support for statically adding a position provider, optionally by setting MapsIndoors.positionProvider
+
+## [1.10.0-beta5] - 2017-07-13
+### Changed
+- Fix geometry property nil when copying MPLocation
+- Fix unlabeled icons not respecting MapsIndoors.mapIconSize
+
 ## [1.10.0-beta] - 2017-07-12
 ### Added
 - Support for statically adding a position provider, optionally by setting MapsIndoors.positionProvider
