@@ -13,7 +13,7 @@
 //ADD_YOUR_OWN_GOOGLE_DIRECTIONS_API_KEY
 #define kGoogleDirectionsApiKey @"ADD_YOUR_OWN_GOOGLE_MAPS_IOS_API_KEY"   // ADD YOUR OWN GOOGLE MAPS DIRECTIONS API KEY
 
-// If you don't have a Google Maps API, here is how you do it:
+// If you don't have a Google Maps API key, here is how you do it:
 // Create a project: https://console.developers.google.com/projectcreate
 // Enable the APIs here: https://console.developers.google.com/apis/library
 // You will need to enable Google Maps iOS SDK, Directions API and Distance Matrix API
