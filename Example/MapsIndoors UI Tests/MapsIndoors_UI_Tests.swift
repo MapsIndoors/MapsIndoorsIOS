@@ -40,7 +40,7 @@ class MapsIndoors_UI_Tests: XCTestCase {
         app.navigationBars["RTX"].children(matching: .button).element.tap()
         
         app.searchFields.element(boundBy: 0).tap()
-        app.searchFields["Search"].typeText("mapspeople")
+        app.searchFields["Search"].typeText("Maps")
         
         wait(for: 2)
         
