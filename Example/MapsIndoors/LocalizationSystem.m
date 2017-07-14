@@ -7,6 +7,7 @@
 //
 
 #import "LocalizationSystem.h"
+#import <MapsIndoors/MapsIndoors.h>
 
 @implementation LocalizationSystem
 
@@ -73,6 +74,8 @@ static NSBundle *bundle = nil;
 - (void) setLanguage:(NSString*) l{
 	NSString *path = [[ NSBundle mainBundle ] pathForResource:l ofType:@"lproj" ];
 	
+    [MapsIndoors setLanguage:l];
+    
     [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:l, nil] forKey:@"AppleLanguages"];
     [[NSUserDefaults standardUserDefaults]synchronize];
 

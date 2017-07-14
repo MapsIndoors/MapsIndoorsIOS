@@ -15,6 +15,11 @@
 @synthesize imageView = _imageView;
 @synthesize textLabel = _textLabel;
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.accessibilityElements = @[self.textLabel, self.imageView, self.floorIcon, self.distanceIcon, self.distanceLabel];
+}
+
 - (void)didMoveToSuperview {
     
     [self setupBuildingLabel];

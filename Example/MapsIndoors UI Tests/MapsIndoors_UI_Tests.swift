@@ -42,9 +42,14 @@ class MapsIndoors_UI_Tests: XCTestCase {
         app.searchFields.element(boundBy: 0).tap()
         app.searchFields["Search"].typeText("mapspeople")
         
-        app.tables.cells.element(boundBy: 0).tap()
+        app.tables.cells.element(boundBy: 0).coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
         app.buttons["Get directions"].tap()
-        app.tables.buttons["My position"].tap()
+        
+        if (app.tables.buttons["My position"].exists) {
+            app.tables.buttons["My position"].tap()
+        } else {
+            app.tables.buttons["Origin"].tap()
+        }
         
         let searchSearchField = app.searchFields["Search"]
         searchSearchField.tap()
@@ -53,6 +58,18 @@ class MapsIndoors_UI_Tests: XCTestCase {
         app.buttons["Show on map"].tap()
         app.navigationBars["Get directions"].children(matching: .button).element(boundBy: 1).tap()
         
+    }
+    
+    func wait(for duration: TimeInterval) {
+        let waitExpectation = expectation(description: "Waiting")
+        
+        let when = DispatchTime.now() + duration
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            waitExpectation.fulfill()
+        }
+        
+        // We use a buffer here to avoid flakiness with Timer on CI
+        waitForExpectations(timeout: duration + 0.5)
     }
     
 }

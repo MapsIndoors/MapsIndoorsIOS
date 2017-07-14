@@ -137,6 +137,7 @@
 		A28E10141D14042200164AF2 /* UIFont+SystemFontOverride.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E10111D14042200164AF2 /* UIFont+SystemFontOverride.m */; };
 		A2ADED891F10F59C009527AD /* MapsIndoors_UI_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ADED881F10F59C009527AD /* MapsIndoors_UI_Tests.swift */; };
 		A2ADED971F10F5B8009527AD /* MapsIndoors_Unit_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ADED961F10F5B8009527AD /* MapsIndoors_Unit_Tests.swift */; };
+		A2FC6D881F18FAFF00FE2D37 /* Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = A28BCF441D626734004F2CDE /* Location.gpx */; };
 		DF1ACE6B8C4C8751D5BC9C5E /* Pods_MapsIndoors_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D676DB7FFAD454001088FAA6 /* Pods_MapsIndoors_App.framework */; };
 /* End PBXBuildFile section */
 
@@ -881,6 +882,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2FC6D881F18FAFF00FE2D37 /* Location.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

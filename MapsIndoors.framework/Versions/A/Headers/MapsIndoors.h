@@ -67,6 +67,8 @@
 #import <MapsIndoors/MPBeacon.h>
 #import <MapsIndoors/MPDouble.h>
 #import <MapsIndoors/PositionCalculator.h>
+#import <MapsIndoors/MPDataProvider.h>
+#import <MapsIndoors/NSObject+MPLanguageSupport.h>
 
 #import <MapsIndoors/FAImageView.h>
 #import <MapsIndoors/MPBeaconCollection.h>

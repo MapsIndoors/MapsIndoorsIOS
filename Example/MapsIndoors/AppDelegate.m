@@ -29,6 +29,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [GMSServices provideAPIKey:kGoogleMapsApiKey];
     
+    LocalizationSetLanguage(@"en");
+    
     //Demo venue credentials - adapt these data to your needs
     Global.solutionId = kMapsIndoorsSolutionId; //Rtx test solution
     Global.initialPosition = [[MPPoint alloc] initWithLat:57.0858357 lon:9.9573986 zValue:0];
