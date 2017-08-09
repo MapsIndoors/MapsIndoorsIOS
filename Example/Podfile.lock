@@ -30,7 +30,7 @@ PODS:
   - GoogleMaps/Maps (2.3.0):
     - GoogleMaps/Base
   - HashBuilder (1.0.1)
-  - MapsIndoors (1.10.2-beta4):
+  - MapsIndoors (1.10.2-beta5):
     - GoogleMaps (= 2.3)
   - MaterialControls (1.2.2)
   - VCMaterialDesignIcons (2.1.1)
@@ -46,7 +46,7 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   MapsIndoors:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
@@ -54,10 +54,10 @@ SPEC CHECKSUMS:
   GoogleFontsiOS: 9f4a4f886160d8cb723bd936604b3f6b975f1167
   GoogleMaps: 340a6a0bebd17c2db8abcd3921976c7c53c86cb8
   HashBuilder: d2f6cbd492c68350bbcf0fa2216aae50b60657d5
-  MapsIndoors: e0b5e7c84a3b3884eea1a4c6d029d375554af880
+  MapsIndoors: bdf4df4715e5f2d1b750fc4ae1758e447aad974d
   MaterialControls: 1c6b29e78d3a13d8dd6a67ed31b6d26eb5de8f72
   VCMaterialDesignIcons: 68a944308ab41282ba8555770cb57e3fbf2034be
 
 PODFILE CHECKSUM: b5cf214e2de7095770c3be17244ce98fe17ed883
 
-COCOAPODS: 1.2.1.rc.1
+COCOAPODS: 1.2.0

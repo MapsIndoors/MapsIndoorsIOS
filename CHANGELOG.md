@@ -4,6 +4,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.10.2-beta5] - 2017-08-09
+### Changed
+- Optimized tile loading performance.
+
 ## [1.10.2-beta4] - 2017-07-14
 ### Changed
 - Internal works, optimizing network requests and caching mechanisms
