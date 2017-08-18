@@ -3,6 +3,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+- None
+
+## [1.10.4-beta1] - 2017-08-18
+### Fixed
+- TileService: Only report error when we cant get tileUrlData *and* we dont have cached data.
+- Prevent multiple calls to completionHandler from -[MapsIndoors fetchDataForOfflineUse:]
+- Calls to -[MPSolutionProvider getSolutionAsync:completionHandler:] while a call is already ongoing would fail to call completion handler.
+
+## [1.10.3-beta1] - 2017-08-09
+### Changed
+- Updated Google Maps SDK dependency.
 
 ## [1.10.2-beta6] - 2017-08-09
 ### Changed
