@@ -5,6 +5,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 - None
 
+## [1.10.5-beta1] - 2017-08-24
+### Fixed
+- MPLocationsProvider: Unable to filter by Type in some cases.
+
 ## [1.10.4-beta1] - 2017-08-18
 ### Fixed
 - TileService: Only report error when we cant get tileUrlData *and* we dont have cached data.
@@ -26,11 +30,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Internal works, optimizing network requests and caching mechanisms
 
 ## [1.10.1] - 2017-07-14
-### Changed
+### Fixed
 - Fix `MPLocation.copy()` results in nil `MPLocation.descr`
 
 ## [1.10.0] - 2017-07-14
-### Changed
+### Fixed
 - Fix geometry property nil when copying `MPLocation`
 - Fix unlabeled icons not respecting `MapsIndoors.mapIconSize`
 
@@ -38,7 +42,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Support for statically adding a position provider, optionally by setting `MapsIndoors.positionProvider`
 
 ## [1.10.0-beta5] - 2017-07-13
-### Changed
+### Fixed
 - Fix geometry property nil when copying `MPLocation`
 - Fix unlabeled icons not respecting `MapsIndoors.mapIconSize`
 
@@ -51,7 +55,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Support for custom image provider, optionally by setting `MapsIndoors.imageProvider`
 
 ## [1.9.0-beta2] - 2017-07-08
-### Changed
+### Fixed
 - Fix image streching on non-quadratic marker icons
 
 ## [1.9.0-beta] - 2017-07-05
@@ -62,5 +66,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Static properties `mapLabelColor` and `mapLabelFont` to `MapsIndoors`
 - Default click handling to venue markers
 
-### Changed
-- Bugfixing
+### Fixed
+- Internal bugfixing
