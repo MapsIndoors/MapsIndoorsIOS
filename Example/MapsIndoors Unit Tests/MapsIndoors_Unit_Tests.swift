@@ -8,9 +8,11 @@
 
 import XCTest
 
-class MapsIndoors_Unit_Tests: XCTestCase {
+class MapsIndoors_Unit_Tests: XCTestCase, MPLocationsProviderDelegate {
     
     private let venues = MPVenueProvider()
+    private let locations = MPLocationsProvider()
+    private static var locationsDelegateExpectation = XCTestExpectation()
     private let solution = "550c26a864617400a40f0000"
     
     override func setUp() {
@@ -23,6 +25,21 @@ class MapsIndoors_Unit_Tests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+    }
+    
+    func testLocations() {
+        MapsIndoors_Unit_Tests.locationsDelegateExpectation = self.expectation(description: "Locations Delegate Request")
+        locations!.delegate = self
+        let query = MPLocationQuery()
+        query.solutionId = solution
+        query.types = ["Office"]
+        query.query = "MapsPeople"
+        locations!.getLocationsUsingQueryAsync(query, language: "en")
+        waitForExpectations(timeout: 5.0, handler: {(_ error: Error?) -> Void in
+            if error != nil {
+                XCTFail("Expectation Failed with error: \(error.debugDescription)")
+            }
+        })
     }
     
     func testVenues() {
@@ -104,6 +121,17 @@ class MapsIndoors_Unit_Tests: XCTestCase {
                 XCTFail("Expectation Failed with error: \(error.debugDescription)")
             }
         })
+    }
+    
+    func onLocationDetailsReady(_ location: MPLocation!) {
+        
+    }
+    func onLocationsReady(_ locationData: MPLocationDataset!) {
+        if locationData.list.count > 0 {
+            //print("Found \(locationData.list.first.debugDescription)")
+            XCTAssert(locationData.list.first.debugDescription.contains("mapspeople"))
+            MapsIndoors_Unit_Tests.locationsDelegateExpectation.fulfill()
+        }
     }
 }
 
