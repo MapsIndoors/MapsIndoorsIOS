@@ -5,6 +5,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 - None
 
+## [1.10.5-beta2] - 2017-08-24
+### Fixed
+- MPFloorSelector: Fixed a few layout issues.
+
 ## [1.10.5-beta1] - 2017-08-24
 ### Fixed
 - MPLocationsProvider: Unable to filter by Type in some cases.
