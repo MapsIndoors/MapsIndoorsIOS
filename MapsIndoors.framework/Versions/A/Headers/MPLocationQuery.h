@@ -10,6 +10,13 @@
 #import "MPMapExtend.h"
 #import "MPPoint.h"
 
+/**
+ Locations query mode
+ */
+typedef enum MPLocationQueryMode {
+    MPLocationQueryModeAutocomplete,
+    MPLocationQueryModeNormal
+} MPLocationQueryMode;
 
 /**
  Locations query object used in conjunction with the MPLocationsProvider
@@ -76,6 +83,10 @@
  Limit the amount of results from the MPLocationsProvider
  */
 @property int max;
+/**
+ Limit the amount of results from the MPLocationsProvider
+ */
+@property MPLocationQueryMode queryMode;
 /**
  Parses an url, identifies query elements and returns a query object
  */

@@ -5,6 +5,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 - None
 
+## [1.11.0-beta2] - 2017-08-29
+### Changed
+- Internal refactoring.
+
+## [1.11.0-beta1] - 2017-08-29
+### Fixed
+- Fixed issue with MPLocationsProvider fired in parallel. 
+- Added property queryMode to MPLocationsQuery, can be set to MPLocationsQueryModeAutocomplete or MPLocationsQueryModeNormal (default)
+
 ## [1.10.5-beta2] - 2017-08-24
 ### Fixed
 - MPFloorSelector: Fixed a few layout issues.
