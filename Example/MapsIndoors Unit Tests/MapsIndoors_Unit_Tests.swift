@@ -7,12 +7,12 @@
 //
 
 import XCTest
+@testable import MapsIndoors
 
-class MapsIndoors_Unit_Tests: XCTestCase, MPLocationsProviderDelegate {
+class MapsIndoors_Unit_Tests: XCTestCase {
     
     private let venues = MPVenueProvider()
     private let locations = MPLocationsProvider()
-    private static var locationsDelegateExpectation = XCTestExpectation()
     private let solution = "550c26a864617400a40f0000"
     
     override func setUp() {
@@ -28,13 +28,23 @@ class MapsIndoors_Unit_Tests: XCTestCase, MPLocationsProviderDelegate {
     }
     
     func testLocations() {
-        MapsIndoors_Unit_Tests.locationsDelegateExpectation = self.expectation(description: "Locations Delegate Request")
-        locations!.delegate = self
+        let expectation = self.expectation(description: "Locations Request")
+        var hasFullfilled = false
         let query = MPLocationQuery()
         query.solutionId = solution
         query.types = ["Office"]
-        query.query = "MapsPeople"
-        locations!.getLocationsUsingQueryAsync(query, language: "en")
+        query.query = "mapspeople sales"
+        query.max = 1
+        locations!.getLocationsUsingQueryAsync(query, language: "en", completionHandler: { (locationData, error) in
+            let l = locationData?.list.first as! NSObject
+            let name = l.value(forKey: "name") as! String
+            if (name.caseInsensitiveCompare("mapspeople sales") == .orderedSame) {
+                if hasFullfilled == false {
+                    expectation.fulfill()
+                    hasFullfilled = true
+                }
+            }
+        });
         waitForExpectations(timeout: 5.0, handler: {(_ error: Error?) -> Void in
             if error != nil {
                 XCTFail("Expectation Failed with error: \(error.debugDescription)")
@@ -123,17 +133,6 @@ class MapsIndoors_Unit_Tests: XCTestCase, MPLocationsProviderDelegate {
                 XCTFail("Expectation Failed with error: \(error.debugDescription)")
             }
         })
-    }
-    
-    func onLocationDetailsReady(_ location: MPLocation!) {
-        
-    }
-    func onLocationsReady(_ locationData: MPLocationDataset!) {
-        if locationData.list.count > 0 {
-            //print("Found \(locationData.list.first.debugDescription)")
-            XCTAssert(locationData.list.first.debugDescription.contains("mapspeople"))
-            MapsIndoors_Unit_Tests.locationsDelegateExpectation.fulfill()
-        }
     }
 }
 
