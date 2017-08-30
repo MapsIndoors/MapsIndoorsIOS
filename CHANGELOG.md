@@ -5,6 +5,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 - None
 
+## [1.11.1-beta1] - 2017-08-29
+### Fixed
+- Fixed issue getting no route results when creating a directions request before initialising MPMapControl.
+
 ## [1.11.0-beta2] - 2017-08-29
 ### Changed
 - Internal refactoring.
