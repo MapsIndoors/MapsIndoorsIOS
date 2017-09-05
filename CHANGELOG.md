@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
  - None
  -->
 
+## [1.11.1-beta3] - 2017-09-05
+### Fixed
+- Fixed an crash occuring when the floorselector is initially set hidden (MPMapControl.floorSleectorHidden = YES), and subsequently shown via 'MPMapControl.floorSleectorHidden = NO'.' 
 
 ## [1.11.1-beta2] - 2017-08-29
 ### Fixed
