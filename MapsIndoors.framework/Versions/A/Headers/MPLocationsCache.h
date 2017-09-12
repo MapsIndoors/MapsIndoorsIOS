@@ -13,7 +13,7 @@
 
 @interface MPLocationsCache : NSObject
 
-+ (void)setupForSolution: (NSString*)solutionId floor:(NSNumber*)floorLevel language: (NSString*) language readyHandler:(void(^)(void))readyHandler;
++ (void)setupForSolution: (NSString*)solutionId floor:(NSNumber*)floorLevel language: (NSString*) language completionHandler:(void (^)(NSError* error))completionHandler;
 + (void) getCachedLocations:(NSString*)solution mapExtend: (MPMapExtend*)mapExtend floor:(NSNumber*)floor language:(NSString*) language completionHandler:(void (^)(NSArray* locations, NSError* error))completionHandler;
 + (void) getCachedLocationsUsingQuery:(MPLocationQuery*)locationQuery language:(NSString*) language completionHandler:(void (^)(NSArray* locations, NSError* error))completionHandler;
 

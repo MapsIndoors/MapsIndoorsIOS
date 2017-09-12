@@ -7,21 +7,28 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
  - None
  -->
 
+## [1.11.1-beta6] - 2017-09-12
+### Changed
+- Avoid auto-switching current building's floor if a non-empty search result is not visible on that new floor.
+
+### Fixed
+- Fixed missing call to completionHandler in rare occations using `MPLocationsProvider`.
+
 ## [1.11.1-beta4] - 2017-09-05
 ### Fixed
-- Added missing call to completionHandler when route not found using MPDirectionsService
+- Added missing call to completionHandler when route not found using `MPDirectionsService`.
 
 ## [1.11.1-beta3] - 2017-09-05
 ### Fixed
-- Fixed an crash occuring when the floorselector is initially set hidden (MPMapControl.floorSleectorHidden = YES), and subsequently shown via 'MPMapControl.floorSelectorHidden = NO'.' 
+- Fixed an crash occuring when the floorselector is initially set hidden `MPMapControl.floorSelectorHidden = YES`, and subsequently shown via `MPMapControl.floorSelectorHidden = NO`.
 
 ## [1.11.1-beta2] - 2017-08-29
 ### Fixed
-- Fixed issue getting multiple delegate or completionHandler calls from MPVenueProvider.
+- Fixed issue getting multiple delegate or completionHandler calls from `MPVenueProvider`.
 
 ## [1.11.1-beta1] - 2017-08-29
 ### Fixed
-- Fixed issue getting no route results when creating a directions request before initialising MPMapControl.
+- Fixed issue getting no route results when creating a directions request before initialising `MPMapControl`.
 
 ## [1.11.0-beta2] - 2017-08-29
 ### Changed
@@ -29,8 +36,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.11.0-beta1] - 2017-08-29
 ### Fixed
-- Fixed issue with MPLocationsProvider fired in parallel. 
-- Added property queryMode to MPLocationsQuery, can be set to MPLocationsQueryModeAutocomplete or MPLocationsQueryModeNormal (default)
+- Fixed issue with `MPLocationsProvider` fired in parallel. 
+- Added property queryMode to `MPLocationsQuery`, can be set to `MPLocationsQueryModeAutocomplete` or `MPLocationsQueryModeNormal` (default).
 
 ## [1.10.5-beta2] - 2017-08-24
 ### Fixed
@@ -58,11 +65,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.10.2-beta4] - 2017-07-14
 ### Changed
-- Internal works, optimizing network requests and caching mechanisms
+- Internal works, optimizing network requests and caching mechanisms.
 
 ## [1.10.1] - 2017-07-14
 ### Fixed
-- Fix `MPLocation.copy()` results in nil `MPLocation.descr`
+- Fix `MPLocation.copy()` results in nil `MPLocation.descr`.
 
 ## [1.10.0] - 2017-07-14
 ### Fixed
