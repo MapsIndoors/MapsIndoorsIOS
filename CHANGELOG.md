@@ -1,11 +1,13 @@
 # Changelog
-The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
-and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+Changelog for MapsIndoors for iOS. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!---
  ## [Unreleased]
  - None
  -->
+## [1.11.2-beta1] - 2017-09-15
+### Changed
+- Improved the internal works of ´[MPVenuesProvider getBuildingWithinBoundsAsync]´.
 
 ## [1.11.1-beta8] - 2017-09-14
 ### Fixed
