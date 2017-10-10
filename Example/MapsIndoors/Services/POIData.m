@@ -32,7 +32,7 @@
         [super getLocationsUsingQueryAsync:locationQuery language:language completionHandler:^(MPLocationDataset *locationData, NSError *error) {
             if (error && !_bar.isShowing) {
                 _bar = [[MDSnackbar alloc] initWithText:kLangCouldNotFindLocations actionTitle:@"" duration:4.0];
-                [_bar show];
+                //[_bar show];
             }
         }];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationsRequestStarted" object: nil];
@@ -43,7 +43,7 @@
     [super getLocationDetailsAsync:solutionId withId:locationId language:language completionHandler:^(MPLocation *location, NSError *error) {
         if (error && !_bar.isShowing) {
             _bar = [[MDSnackbar alloc] initWithText:kLangCouldNotFindLocationDetails actionTitle:@"" duration:4.0];
-            [_bar show];
+            //[_bar show];
         }
     }];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationsRequestStarted" object: nil];

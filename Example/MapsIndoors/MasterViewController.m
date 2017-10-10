@@ -75,7 +75,7 @@
     [_appDataProvider getAppDataAsync:Global.solutionId language:LocalizationGetLanguage completionHandler:^(MPAppData *appData, NSError *error) {
         if (error && !_bar.isShowing) {
             _bar = [[MDSnackbar alloc] initWithText:kLangCouldNotFindContent actionTitle:@"" duration:4.0];
-            [_bar show];
+            //[_bar show];
         }
         else if (appData) {
             _appData = appData;

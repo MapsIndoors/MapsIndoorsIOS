@@ -10,7 +10,7 @@ def mapsindoors_pods
     pod 'VCMaterialDesignIcons', '~> 2.1'
     pod 'GoogleFontsiOS/Roboto'
     pod 'HashBuilder', '~> 1.0'
-    pod 'EasyTableView', '~> 1.1'
+    pod 'EasyTableView', '~> 2.1'
 end
 
 target 'MapsIndoors App' do

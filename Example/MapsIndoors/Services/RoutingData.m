@@ -40,7 +40,7 @@
     [_service routingFrom:from to:to by:mode avoid:restrictions depart:departureTime arrive:arrivalTime completionHandler:^(MPRoute *route, NSError *error) {
         if (error && !_bar.isShowing) {
             _bar = [[MDSnackbar alloc] initWithText:kLangCouldNotFindDirections actionTitle:@"" duration:4.0];
-            [_bar show];
+            //[_bar show];
         }
     }];
     

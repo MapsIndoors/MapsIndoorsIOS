@@ -27,6 +27,7 @@
     MDButton* _nextBtn;
     MDButton* _prevBtn;
     MPVenueProvider* _venueProvider;
+    NSIndexPath* _selectedIndexPath;
 }
 
 - (instancetype)init {
@@ -55,7 +56,7 @@
 }
 
 - (void) initializeTableView {
-    self.tableView = [[EasyTableView alloc] initWithFrame:CGRectMake(16, 44, 640, 73) numberOfColumns:4 ofWidth:186];
+    self.tableView = [[EasyTableView alloc] initWithFrame:CGRectMake(16, 44, 640, 73) ofWidth:186];
     self.tableView.delegate = self;
     [self.view addSubview: self.tableView];
     
@@ -81,18 +82,52 @@
     }
 }
 
+- (void)easyTableView:(EasyTableView *)easyTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    _selectedIndexPath = indexPath;
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RouteLegSelected" object:@(indexPath.row)];
+    
+//    DirectionsCellView* deselecedCell = (DirectionsCellView*)deselectedView;
+//    DirectionsCellView* cell = (DirectionsCellView*)selectedView;
+//
+//    [UIView animateWithDuration:0.4 animations:^{
+//        deselecedCell.lineBottom.layer.opacity = 1;
+//        deselecedCell.lineTop.layer.opacity = 1;
+//
+//        deselectedView.layer.opacity = 0.4;
+//        selectedView.layer.opacity = 1;
+//
+//        cell.lineBottom.layer.opacity = 0.4;
+//        cell.lineTop.layer.opacity = 0.4;
+//    }];
+//
+//
+//
+//
+//    NSLog(@"%tu / %f", indexPath.row, self.currentRoute.legs.count-0.9999f);
+//
+//    //[self.tableView setScrollFraction: 0.5f animated:YES];
+//    //[self.tableView setScrollFraction:(indexPath.row/(self.currentRoute.legs.count-0.9999f)) animated:YES];
+    
+    [self updateUI];
+}
+
 - (void)next:(id)sender {
-    NSInteger nextIndex = self.tableView.selectedIndexPath.row + 1;
+    NSInteger nextIndex = _selectedIndexPath.row + 1;
     if (nextIndex < self.currentRoute.legs.count) {
-        [self.tableView selectCellAtIndexPath:[NSIndexPath indexPathForRow:nextIndex inSection:0] animated:YES];
+        NSIndexPath* newIndexPath = [NSIndexPath indexPathForRow:nextIndex inSection:0];
+        [self easyTableView:self.tableView didSelectRowAtIndexPath:newIndexPath];
+        //[self.tableView selectCellAtIndexPath:[NSIndexPath indexPathForRow:nextIndex inSection:0] animated:YES];
     }
     [self updateUI];
 }
 
 - (void)prev:(id)sender {
-    NSInteger nextIndex = self.tableView.selectedIndexPath.row - 1;
+    NSInteger nextIndex = _selectedIndexPath.row - 1;
     if (nextIndex >= 0) {
-        [self.tableView selectCellAtIndexPath:[NSIndexPath indexPathForRow:nextIndex inSection:0] animated:YES];
+        NSIndexPath* newIndexPath = [NSIndexPath indexPathForRow:nextIndex inSection:0];
+        [self easyTableView:self.tableView didSelectRowAtIndexPath:newIndexPath];
+        //[self.tableView selectCellAtIndexPath:[NSIndexPath indexPathForRow:nextIndex inSection:0] animated:YES];
     }
     [self updateUI];
     
@@ -103,11 +138,11 @@
     _nextBtn.enabled = YES;
     _prevBtn.layer.opacity = 1;
     _nextBtn.layer.opacity = 1;
-    if (self.tableView.selectedIndexPath.row == 0) {
+    if (_selectedIndexPath.row == 0) {
         _prevBtn.enabled = NO;
         _prevBtn.layer.opacity = 0.4;
     }
-    if (self.tableView.selectedIndexPath.row == self.currentRoute.legs.count - 1) {
+    if (_selectedIndexPath.row == self.currentRoute.legs.count - 1) {
         _nextBtn.enabled = NO;
         _nextBtn.layer.opacity = 0.4;
     }
@@ -122,17 +157,13 @@
     return 0;
 }
 
-- (UIView *)easyTableView:(EasyTableView *)easyTableView viewForRect:(CGRect)rect {
-    //DirectionsCellView *cell = (DirectionsCellView *)[tableView.tableView dequeueReusableCellWithIdentifier:@"DirectionLegCell" forIndexPath:indexPath];
-    //if (cell == nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"HorizontalDirectionsCellView" owner:self options:nil];
-        DirectionsCellView *cell = [nib objectAtIndex:0];
-        cell.layer.opacity = 0.4;
-    //}
-    return cell;
-}
-
-- (void)easyTableView:(EasyTableView *)easyTableView setDataForView:(UIView *)view forIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)easyTableView:(EasyTableView *)easyTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"HorizontalDirectionsCellView" owner:self options:nil];
+    
+    DirectionsCellView *cell = [nib objectAtIndex:0];
+    cell.layer.opacity = 0.4;
+    
     MPRouteLeg* leg = [self.currentRoute.legs objectAtIndex:indexPath.row];
     NSInteger rowIndex = indexPath.row;
     
@@ -142,8 +173,6 @@
     if (indexPath.row < self.currentRoute.legs.count - 1) {
         nextLegFirstStep = [((MPRouteLeg*)[self.currentRoute.legs objectAtIndex:indexPath.row + 1]).steps firstObject];
     }
-    
-    DirectionsCellView *cell = (DirectionsCellView *)view;
     
     cell.layer.opacity = 0.4;
     
@@ -196,34 +225,7 @@
     if (self.currentRoute.legs.count == 1) {
         cell.lineBottom.hidden = YES;
     }
-    
-}
-
-- (void)easyTableView:(EasyTableView *)easyTableView selectedView:(UIView *)selectedView atIndexPath:(NSIndexPath *)indexPath deselectedView:(UIView *)deselectedView {
-    
-    DirectionsCellView* deselecedCell = (DirectionsCellView*)deselectedView;
-    DirectionsCellView* cell = (DirectionsCellView*)selectedView;
-    
-    [UIView animateWithDuration:0.4 animations:^{
-        deselecedCell.lineBottom.layer.opacity = 1;
-        deselecedCell.lineTop.layer.opacity = 1;
-        
-        deselectedView.layer.opacity = 0.4;
-        selectedView.layer.opacity = 1;
-        
-        cell.lineBottom.layer.opacity = 0.4;
-        cell.lineTop.layer.opacity = 0.4;
-    }];
-    
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"RouteLegSelected" object:@(indexPath.row)];
-    
-    NSLog(@"%tu / %f", indexPath.row, self.currentRoute.legs.count-0.9999f);
-    
-    //[self.tableView setScrollFraction: 0.5f animated:YES];
-    //[self.tableView setScrollFraction:(indexPath.row/(self.currentRoute.legs.count-0.9999f)) animated:YES];
-    
-    [self updateUI];
+    return cell;
 }
 
 - (void)pop {
@@ -235,6 +237,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSInteger)easyTableView:(EasyTableView *)easyTableView numberOfRowsInSection:(NSInteger)section {
+    if (self.currentRoute) return self.currentRoute.legs.count;
+    return 0;
+}
 
 - (void)onRouteResultReady:(NSNotification *)notification {
     self.currentRoute = notification.object;
@@ -251,17 +257,17 @@
 }
 
 - (void) selectFirstCell {
-    [self.tableView selectCellAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES];
+    [self easyTableView:self.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
 }
 
 - (void)closeRouting {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenDirectionsSettings" object:nil];
     self.currentRoute = nil;
-    [self.tableView reloadData];
+    [self.tableView reload];
 }
 
 - (BOOL)viewVisible {
-    return (self.view.frame.origin.y < [UIScreen mainScreen].applicationFrame.size.height);
+    return (self.view.frame.origin.y < [UIScreen mainScreen].bounds.size.height);
 }
 
 @end
