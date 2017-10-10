@@ -16,4 +16,9 @@ typedef void(^mpDataHandlerBlockType)(NSData* _Nullable data, NSError* _Nullable
               ifModifiedSince:(NSDate* _Nullable)ifModifiedSinceDate
               comletionHander:(mpDataHandlerBlockType _Nonnull )handler;
 
++ (void)dataWithContentsOfURL:(nonnull NSURL *)url
+              ifModifiedSince:(NSDate * _Nullable)ifModifiedSinceDate
+          waitForSessionToken:(BOOL)wait
+              comletionHander:(mpDataHandlerBlockType _Nonnull)handler;
+
 @end

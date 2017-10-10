@@ -2,12 +2,23 @@
 Changelog for MapsIndoors for iOS. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!---
- ## [Unreleased]
- - None
- -->
+## [Unreleased]
+- Tweaks and fixes to search algorithm.
+-->
+
+## [1.12.0-beta3] - 2017-10-09
+### Added
+- Added a `MPRouteLeg.legType`  property
+### Changed
+- Internal works: More backend resolving improvements and SDK session handling
+
+## [1.11.3-beta3] - 2017-09-26
+### Changed
+- Internal works: Backend resolving improvements
+
 ## [1.11.2-beta1] - 2017-09-15
 ### Changed
-- Improved the internal works of ´[MPVenuesProvider getBuildingWithinBoundsAsync]´.
+- Improved the internal works of `[MPVenuesProvider getBuildingWithinBoundsAsync]`.
 
 ## [1.11.1-beta8] - 2017-09-14
 ### Fixed
@@ -46,7 +57,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 ## [1.11.0-beta1] - 2017-08-29
 ### Fixed
-- Fixed issue with `MPLocationsProvider` fired in parallel. 
+- Fixed issue with `MPLocationsProvider` fired in parallel.
 - Added property queryMode to `MPLocationsQuery`, can be set to `MPLocationsQueryModeAutocomplete` or `MPLocationsQueryModeNormal` (default).
 
 ## [1.10.5-beta2] - 2017-08-24
@@ -116,3 +127,4 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 ### Fixed
 - Internal bugfixing
+

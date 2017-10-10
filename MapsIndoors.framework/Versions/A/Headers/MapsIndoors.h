@@ -129,3 +129,4 @@
 #import <MapsIndoors/MPJSONModelClassProperty.h>
 #import <MapsIndoors/MPJSONModelError.h>
 #import <MapsIndoors/MPJSONValueTransformer.h>
+#import <MapsIndoors/MPGeometryHelper.h>
