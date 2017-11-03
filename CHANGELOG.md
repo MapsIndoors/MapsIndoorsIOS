@@ -3,12 +3,17 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 <!---
  ## [Unreleased]
- - Tweaks and fixes to search algorithm.
  -->
 
-## [1.12.2-beta1] - 2017-10-24
+## [1.12.2-beta14] - 2017-11-03
+### Fixed
+- Fixed issues related to language code validation.
+
+## [1.12.2-beta13] - 2017-11-02
 ### Fixed
 - Fixed problems related to offline/flight-mode.
+### Changed
+- Search algorithm improvement.
 
 ## [1.12.1-beta1] - 2017-10-13
 ### Fixed
