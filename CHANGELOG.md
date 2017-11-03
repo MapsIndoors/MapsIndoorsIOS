@@ -5,7 +5,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
  ## [Unreleased]
  -->
 
-## [1.12.2-beta14] - 2017-11-03
+## [1.12.2-beta15] - 2017-11-03
 ### Fixed
 - Fixed issues related to language code validation.
 
