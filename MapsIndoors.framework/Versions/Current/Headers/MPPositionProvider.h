@@ -47,6 +47,26 @@ enum MPPositionProviderType {
 @protocol MPPositionProvider <NSObject>
 
 /**
+ Set location services flag that determines if app should request location always or only when in use
+ */
+@property (nonatomic) BOOL                              preferAlwaysLocationPermission;
+
+/**
+ Get location services activity status
+ */
+@property (nonatomic, readonly) BOOL                    locationServicesActive;     // enabled AND authorized
+
+/**
+ Request location services permissions
+ */
+- (void) requestLocationPermissions;
+/**
+ Update location services permission status
+ */
+- (void) updateLocationPermissionStatus;
+
+
+/**
  Start the provider. The argument value is depending on the implementation.
 
  @param arg The argument value is depending on the implementation

@@ -12,6 +12,13 @@
 #import "MPRouteProperty.h"
 #import "MPRouteCoordinate.h"
 #import "MPRouteBounds.h"
+#import "MPLocation.h"
+
+struct MPRouteSegmentPath {
+    NSInteger legIndex;
+    NSInteger stepIndex;
+};
+typedef struct MPRouteSegmentPath MPRouteSegmentPath;
 
 /**
  Protocol MPRouteLeg specification.
@@ -67,5 +74,8 @@
  Make the route fully visible on the map.
  */
 - (void)showAll;
-
+/**
+ Find route segment path (route leg and route step) nearest to a point and floor index.
+ */
+- (MPRouteSegmentPath)findNearestRouteSegmentPathFromPoint:(MPPoint*)point floor: (NSNumber*) floorIndex;
 @end

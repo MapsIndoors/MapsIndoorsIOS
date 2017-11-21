@@ -55,6 +55,11 @@
 @property (class) UIColor*       selectedFloorButtonTitleColor;
 
 /**
+ *  The color of the indicator current user location floor.
+ */
+@property (class) UIColor*       userFloorColor;
+
+/**
  *  The backgroundColor of floor selector buttons in normal state.
  */
 @property (class) UIColor*       floorButtonBackgroundColor;
@@ -136,6 +141,11 @@
   Update the floor selector view frame. Needed upon switch to landscape/portrait
  */
 - (void)updateFrame;
+
+/**
+ Sets the floor index that the user/device is located. This value is used to provide an indicator on the floor selector, regardless of the floor actually displayed
+ */
+- (void)setUserFloor: (NSNumber*)floorIndex;
 
 /**
    The maximum height that the floor selector may occupy
