@@ -5,6 +5,10 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
  ## [Unreleased]
  -->
 
+## [2.0.0-alpha19] - 2017-12-08
+### New
+- On-device route calculation optionally with routing-data embedded into the app.
+
 ## [1.12.2-beta15] - 2017-11-03
 ### Fixed
 - Fixed issues related to language code validation.
