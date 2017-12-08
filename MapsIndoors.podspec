@@ -17,7 +17,7 @@ The MapsIndoors SDK is the idea of integrating everything on your venue, like pe
 s.homepage         = "https://mapspeople.com/developers"
 s.screenshots     = "https://d3jdh4j7ox95tn.cloudfront.net/mapsindoors/ios/mapsindoors-ios-screenshot1.png", "https://d3jdh4j7ox95tn.cloudfront.net/mapsindoors/ios/mapsindoors-ios-screenshot2.png", "https://d3jdh4j7ox95tn.cloudfront.net/mapsindoors/ios/mapsindoors-ios-screenshot3.png"
  s.license          = { :type => 'Commercial', :text => <<-LICENSE
-Copyright 2016 by MapsPeople A/S
+Copyright 2016-2017 by MapsPeople A/S
 LICENSE
 }
   s.author           = { "MapsPeople" => "info@mapspeople.com" }
@@ -29,9 +29,9 @@ LICENSE
   #s.dependency 'Gloss', '1.1.1'
   #s.dependency 'Zip', '0.6.0'
 
-  s.frameworks = "UserNotifications"
+  s.frameworks = "UserNotifications", "GameplayKit"
 
-  s.ios.deployment_target    = '8.0'
+  s.ios.deployment_target    = '9.0'
   s.ios.preserve_paths = ['MapsIndoors.framework','Scripts']
   #s.ios.public_header_files  = 'MapsIndoors.framework/Versions/A/Headers/*.h'
   s.ios.vendored_frameworks  = 'MapsIndoors.framework'#, 'MapsIndoorsSwift.framework'
