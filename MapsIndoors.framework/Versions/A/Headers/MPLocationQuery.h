@@ -91,4 +91,10 @@ typedef enum MPLocationQueryMode {
  Parses an url, identifies query elements and returns a query object
  */
 +(MPLocationQuery*) queryWithUrl: (NSURL*) url;
+
+/**
+ Query Generation - if the query is reused for multiple searches this will hold the most recent query generation
+ */
+@property (readonly) NSUInteger        queryGeneration;
+
 @end
