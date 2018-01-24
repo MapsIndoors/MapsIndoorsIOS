@@ -2,9 +2,6 @@ SID=
 KEY=
 LANG=
 
-ENVIRONMENT="dev"
-DB_PATH="/data/db"
-
 function usage()
 {
     echo "This script downloads and bundles all needed ressources for MapsIndoors to work offline"
@@ -49,8 +46,12 @@ echo "content-key is $SID";
 echo "api-key is $KEY";
 echo "language is $LANG";
 
+if [ -z ${TEMP_ROOT+x} ]; then
+    echo "Exiting! TEMP_ROOT is not set."
+    exit 1;
+fi
 
-OUTPUTPATH="${SRCROOT}/res"
+OUTPUTPATH="${TEMP_ROOT}/res"
 rm -rf ${OUTPUTPATH}
 mkdir -p ${OUTPUTPATH}
 
@@ -69,7 +70,7 @@ for relUrl in "/sync/venues" "/sync/buildings" "/sync/appconfig" "/sync/solution
     status_code=$(curl $url -o $path --write-out %{http_code})
     if [[ $status_code > 204 ]] ; then
         echo "Exiting because of http error"
-        exit;
+        exit 1;
     fi
 done
 
