@@ -324,4 +324,13 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
  */
 + (BOOL) isOfflineDataAvailableForSolutionId:(NSString*)solutionId language:(NSString*)language;
 
+/**
+ Determine if cached or preloaded data is available for the given solutionId.
+ 
+ @param solutionId
+ @param language
+ @return YES if offline or preloaded data is available, else NO,
+ */
++ (BOOL) isOfflineDataAvailableForSolutionId:(NSString*)solutionId language:(NSString*)language;
+
 @end

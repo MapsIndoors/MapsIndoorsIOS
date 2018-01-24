@@ -36,6 +36,7 @@ typedef void(^mpSolutionHandlerBlockType)(MPSolution* solution, NSError* error);
  */
 @property (weak) id <MPSolutionProviderDelegate> delegate;
 
+<<<<<<< HEAD
 /**
  Get solution from this provider.
  */
@@ -56,8 +57,27 @@ typedef void(^mpSolutionHandlerBlockType)(MPSolution* solution, NSError* error);
 /**
  Determine if cached or preloaded data is available for the given solutionId.
  
+=======
+/**
+ Get solution from this provider.
+ */
+- (void)getSolutionAsync: (NSString*) solutionId;
+
+/**
+ Get solution from this provider and supply a callback handler function.
+ */
+- (void)getSolutionAsync: (NSString*) solutionId completionHandler: (mpSolutionHandlerBlockType)completionHandler;
+
+/**
+ Determine if cached or preloaded data is available for the given solutionId.
+
+>>>>>>> 5168bf5a9e34df5e00f496f1239e6c60f995ed3d
  @param solutionId
  @return YES if offline or preloaded data is available, else NO,
  */
 + (BOOL) isOfflineDataAvailableForSolutionId:(NSString*)solutionId;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5168bf5a9e34df5e00f496f1239e6c60f995ed3d
 @end

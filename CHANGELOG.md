@@ -5,9 +5,15 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
  ## [Unreleased]
  -->
 
-## [2.0.0-alpha19] - 2017-12-08
+## [2.0.0-alpha24] - 2017-12-12
 ### New
 - On-device route calculation optionally with routing-data embedded into the app.
+- Fetching of all MapsIndoors content now possible using `[MapsIndoors fetchDataForOfflineUse:]`
+### Changed
+- Deprecations introduced on various UI controls
+- Deprecations introduced on various methods
+### Removed
+- Made peripheral code private that was public before
 
 ## [1.12.2-beta15] - 2017-11-03
 ### Fixed
@@ -39,7 +45,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 ## [1.11.1-beta8] - 2017-09-14
 ### Fixed
-- Fixed multi-language issue in ´MPCategoriesProvider´.
+- Fixed multi-language issue in `MPCategoriesProvider`.
 
 ## [1.11.1-beta7] - 2017-09-12
 ### Changed
@@ -88,8 +94,8 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ## [1.10.4-beta1] - 2017-08-18
 ### Fixed
 - TileService: Only report error when we cant get tileUrlData *and* we dont have cached data.
-- Prevent multiple calls to completionHandler from -[MapsIndoors fetchDataForOfflineUse:]
-- Calls to -[MPSolutionProvider getSolutionAsync:completionHandler:] while a call is already ongoing would fail to call completion handler.
+- Prevent multiple calls to completionHandler from `[MapsIndoors fetchDataForOfflineUse:]`
+- Calls to `[MPSolutionProvider getSolutionAsync:completionHandler:]` while a call is already ongoing would fail to call completion handler.
 
 ## [1.10.3-beta1] - 2017-08-09
 ### Changed

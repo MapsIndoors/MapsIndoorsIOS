@@ -210,6 +210,13 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
   Get location by string id reference.
  */
 - (MPLocation*)getLocationById:(NSString*) idString;
+<<<<<<< HEAD
+=======
+/**
+  Venue collection setter. This will draw the venue on the map, if valid floor tileurl(s) exist.
+ */
+- (void)setVenueCollection:(MPVenueCollection *)venueCollection;
+>>>>>>> 5168bf5a9e34df5e00f496f1239e6c60f995ed3d
 /**
   Show a given array of locations. The display will override any zoom level condition made from display rules. Clear the locations by calling again with 
   [showLocations:nil fitBounds:NO]
