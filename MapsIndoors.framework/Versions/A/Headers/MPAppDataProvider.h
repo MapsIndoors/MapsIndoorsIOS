@@ -50,14 +50,31 @@ typedef void(^mpAppDataHandlerBlockType)(MPAppData* appData, NSError* error);
  @param language Specifies which language to fetch. Only supports the available languages in the specified solution.
  @param handler Data fetch and error callback handler block
  */
-- (void)getAppDataAsync:(NSString *)solutionId language: (NSString*) language completionHandler:(mpAppDataHandlerBlockType)handler;
+- (void)getAppDataAsync:(NSString *)solutionId language: (NSString*) language completionHandler:(mpAppDataHandlerBlockType)handler DEPRECATED_MSG_ATTRIBUTE("Use getAppDataWithCompletion: instead");
 /**
  Get app metadata. Assign a delegate object to this instance in order to handle the data fetch.
 
  @param solutionId The solution to get app metadata for
  @param language Specifies which language to fetch content for. Uses 2 character ISO 639-1 representation. Only supports the available languages in the specified solution.
  */
-- (void)getAppDataAsync:(NSString *)solutionId language: (NSString*) language;
+- (void)getAppDataAsync:(NSString *)solutionId language: (NSString*) language DEPRECATED_MSG_ATTRIBUTE("Use getAppData instead");
+/**
+ Get app metadata and handle the data with a callback block
+ @param handler Data fetch and error callback handler block
+ */
+- (void)getAppDataWithCompletion:(mpAppDataHandlerBlockType)handler;
+/**
+ Get app metadata. Assign a delegate object to this instance in order to handle the data fetch.
+ */
+- (void)getAppData;
 
+/**
+ Determine if cached or preloaded data is available for the given solutionId.
+ 
+ @param solutionId
+ @param language
+ @return YES if offline or preloaded data is available, else NO,
+ */
++ (BOOL) isOfflineDataAvailableForSolutionId:(NSString*)solutionId language:(NSString*)language;
 
 @end

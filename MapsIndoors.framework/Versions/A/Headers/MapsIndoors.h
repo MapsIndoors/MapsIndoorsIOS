@@ -12,7 +12,6 @@
 
 #import <MapsIndoors/UIColor+HexString.h>
 #import <MapsIndoors/MPAppData.h>
-#import <MapsIndoors/MPAppMode.h>
 #import <MapsIndoors/MPBuilding.h>
 #import <MapsIndoors/MPBuildingDataset.h>
 #import <MapsIndoors/MPCategoryUIBarButtonItem.h>
@@ -37,19 +36,11 @@
 #import <MapsIndoors/MPLocationPropertyTableCell.h>
 #import <MapsIndoors/MPLocationPropertyView.h>
 #import <MapsIndoors/MPLocationsProvider.h>
-#import <MapsIndoors/MPLocationTableViewController.h>
 #import <MapsIndoors/MPLocationView.h>
 #import <MapsIndoors/MPMapControl.h>
 #import <MapsIndoors/MPMapStyle.h>
-#import <MapsIndoors/MPOnlineTileLayer.h>
-#import <MapsIndoors/MPOpeningHours.h>
-#import <MapsIndoors/MPOpeningHoursModule.h>
 #import <MapsIndoors/MPPoint.h>
-#import <MapsIndoors/MPSite.h>
-#import <MapsIndoors/MPTokenSet.h>
-#import <MapsIndoors/MPUIViewController.h>
 #import <MapsIndoors/MPURITemplate.h>
-#import <MapsIndoors/MPVector.h>
 #import <MapsIndoors/MPVenue.h>
 #import <MapsIndoors/MPVenueCollection.h>
 #import <MapsIndoors/MPVenueProvider.h>
@@ -77,7 +68,6 @@
 #import <MapsIndoors/UIFont+CustomFont.h>
 #import <MapsIndoors/MPCategoriesProvider.h>
 #import <MapsIndoors/MPCategories.h>
-#import <MapsIndoors/MPLocationsCache.h>
 #import <MapsIndoors/MPImageProvider.h>
 #import <MapsIndoors/MPPngImageProvider.h>
 #import <MapsIndoors/MPErrorCodes.h>
@@ -92,6 +82,7 @@
 #import <MapsIndoors/MPMenuItem.h>
 #import <MapsIndoors/MPMIAPI.h>
 #import <MapsIndoors/MPVersion.h>
+#import <MapsIndoors/MPVersionConstants.h>
 #import <MapsIndoors/MPNotificationsHelper.h>
 #import <MapsIndoors/MPMapsIndoors.h>
 
@@ -127,4 +118,4 @@
 #import <MapsIndoors/MPJSONModelClassProperty.h>
 #import <MapsIndoors/MPJSONModelError.h>
 #import <MapsIndoors/MPJSONValueTransformer.h>
-#import <MapsIndoors/MPGeometryHelper.h>
+

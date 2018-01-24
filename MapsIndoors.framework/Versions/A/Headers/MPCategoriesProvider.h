@@ -22,10 +22,12 @@ typedef void(^mpCategoriesHandlerBlockType)(NSArray* categories, NSError* error)
  Categories provider delegate.
  */
 @protocol MPCategoriesProviderDelegate <NSObject>
+
 /**
  Categories data ready event method.
  @param  CategoriesCollection The Categories data collection.
  */
+
 @required
 - (void) onCategoriesReady: (NSArray*)categories;
 @end
@@ -34,19 +36,39 @@ typedef void(^mpCategoriesHandlerBlockType)(NSArray* categories, NSError* error)
  A categories provider acts as a service for the location categories belonging to a specific MapsIndoors solution/dataset.
  */
 @interface MPCategoriesProvider : NSObject
+
 /**
  Categories provider delegate.
  */
 @property (weak) id <MPCategoriesProviderDelegate> delegate;
+
 /**
  Get categories from the specified solution.
 
  @param solutionId MapsIndoors solution id string
  @param locale Specifies which language to fetch categories in. Uses 2 character ISO 639-1 representation
  */
-- (void)getCategoriesAsync: (NSString*) solutionId locale: (NSString*) locale;
+- (void)getCategoriesAsync: (NSString*) solutionId locale: (NSString*) locale DEPRECATED_MSG_ATTRIBUTE("Use getCategories instead");
 /**
  Get Categories from this provider and provide a callback handler.
  */
-- (void)getCategoriesAsync: (NSString*) solutionId locale: (NSString*) locale completionHandler: (mpCategoriesHandlerBlockType) completionHandler;
+- (void)getCategoriesAsync: (NSString*) solutionId locale: (NSString*) locale completionHandler: (mpCategoriesHandlerBlockType) completionHandler DEPRECATED_MSG_ATTRIBUTE("Use getCategoriesWithCompletion: instead");
+/**
+ Get categories from the specified solution.
+ 
+ */
+- (void)getCategories;
+/**
+ Get Categories from this provider and provide a callback handler.
+ */
+- (void)getCategoriesWithCompletion: (mpCategoriesHandlerBlockType) completionHandler;
+/**
+ Determine if cached or preloaded data is available for the given solutionId.
+ 
+ @param solutionId
+ @param language
+ @return YES if offline or preloaded data is available, else NO,
+ */
++ (BOOL) isOfflineDataAvailableForSolutionId:(NSString*)solutionId language:(NSString*)language;
+
 @end

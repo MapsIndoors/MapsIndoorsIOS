@@ -17,7 +17,7 @@
 @interface MPLocationDisplayRule : MPJSONModel
 
 /**
- Name/identifier of the rule. Also used as the rule condition for the location categories.
+ Name/identifier of the rule. Also used as the rule condition for the location types.
  */
 @property NSString<Ignore>* name;
 /**
@@ -37,13 +37,21 @@
  */
 @property (nonatomic) NSString* label;
 /**
+ The highlight outline color.
+ */
+@property (nonatomic) UIColor<Optional>* highlightOutlineColor;
+/**
  The marker icon to use on markers that apply to the display rule.
  */
 @property (nonatomic) UIImage<Ignore>* icon;
 /**
- Whether or not to show a text label instead of the icon.
+ Whether or not to show a text label. See label property
  */
 @property (assign, nonatomic) BOOL showLabel;
+/**
+ Whether or not to show an outline.
+ */
+@property (assign, nonatomic) BOOL showOutline;
 /**
  Whether or not to show the icon.
  */

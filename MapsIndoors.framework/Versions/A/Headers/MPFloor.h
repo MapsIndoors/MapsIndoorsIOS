@@ -28,6 +28,7 @@
 @property NSString<Optional>* style;
 @property NSNumber<Optional>* zIndex;
 @property NSString<Optional>* buildingId;
+@property NSArray<NSArray*>* bounds;
 @property NSString* name;
 
 @end

@@ -14,6 +14,7 @@
 /**
  Delegate protocol specification that specify an event method that fires when offline tile database is ready.
  */
+DEPRECATED_ATTRIBUTE
 @protocol MPRouteActionDelegate <NSObject>
 
 /**
@@ -27,6 +28,7 @@
 @end
 
 
+DEPRECATED_ATTRIBUTE
 @interface MPRoutingControl : UIView
 
 @property (weak) id <MPRouteActionDelegate> delegate;

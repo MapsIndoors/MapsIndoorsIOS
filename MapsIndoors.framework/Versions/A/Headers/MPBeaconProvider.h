@@ -32,6 +32,8 @@
  */
 @required
 - (void)getBeacons: (NSArray*) beaconIds clientId: (NSString*) clientId;
+@required
+- (void)getBeacons: (NSString*) solutionId;
 
 @end
 
@@ -47,10 +49,11 @@
 /**
  Method to initiate fetching of Beacons from the provider.
  */
-- (void)getBeacons: (NSArray*) beaconIds clientId: (NSString*) clientId;
+- (void)getBeacons: (NSArray*) beaconIds clientId: (NSString*) clientId DEPRECATED_MSG_ATTRIBUTE("Use -(void)getBeacons:(NSString*)solutionId instead");
 /**
- Method to query a subset of Beacons from the provider.
+ Method to initiate fetching of Beacons from the provider.
  */
+- (void)getBeacons: (NSString*) solutionId;
 
 - (id)init;
 

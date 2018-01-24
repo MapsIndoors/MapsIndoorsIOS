@@ -6,10 +6,10 @@
 //  Copyright  Daniel Nielsen. All rights reserved.
 //
 
-#import "MPVersion.h"
-
 #ifndef MPVersion_h
 #define MPVersion_h
+
+#import "MPVersionConstants.h"
 
 @interface MPSDKVersion : NSObject
 

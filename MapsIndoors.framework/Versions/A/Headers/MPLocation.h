@@ -25,7 +25,6 @@
 #import "MPLocationDisplayRuleset.h"
 #import "MPLocationProperty.h"
 #import "NSDictionary+MPLocationPropertiesDictionary.h"
-#import "MPContactModule.h"
 #import "MPLocationField.h"
 #import "MPJSONModel.h"
 #import <GoogleMaps/GoogleMaps.h>
@@ -56,7 +55,6 @@
 @property (nonatomic, strong) NSString<Optional> *building;
 @property (nonatomic, strong) NSString<Optional> *roomId;
 @property (nonatomic, strong) NSString<Optional> *descr;
-@property (nonatomic, strong) MPContactModule<Optional> *contact;
 @property (nonatomic, strong) NSDictionary<MPLocationField, Optional> *fields;
 @property (nonatomic, strong) NSArray<NSString*> *aliases;
 /**

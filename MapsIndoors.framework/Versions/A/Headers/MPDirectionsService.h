@@ -13,12 +13,17 @@
 
 @interface MPDirectionsService : NSObject
 
+/**
+ The maximum number of elements to "spend" in each call to the Distance Matrix API.
+ */
+@property (nonatomic, class) NSUInteger     maxElementsPerGoogleDistanceMatrixRequest;
+
 @property (weak) id <MPRoutingProviderDelegate> delegate;
 @property NSString* solutionId;
 @property NSString* googleApiKey;
 @property NSString* language;
 
-- (id)initWithMapsIndoorsSolutionId:(NSString *)solutionId googleApiKey: (NSString*) googleApiKey;
+- (id)initWithMapsIndoorsSolutionId:(NSString *)solutionId googleApiKey: (NSString*) googleApiKey DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors configure:] to apply contentId and Google API Key");
 - (void)routingFrom:(MPLocation *)from to:(MPLocation *)to by:(NSString *)mode avoid:(NSArray *)restrictions depart:(NSDate *)departureTime arrive:(NSDate *)arrivalTime;
 - (void)routingFrom:(MPLocation *)from to:(MPLocation *)to by:(NSString *)mode;
 

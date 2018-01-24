@@ -110,16 +110,6 @@
 @property (nonatomic, weak, readonly) UIImageView*  topImageView;
 
 /**
-  An outer container view for the buttons.
- */
-@property UIView* container;
-
-/**
-  The view holding the floor selector.
- */
-@property UIView* parentView;
-
-/**
   Method that fires when a floor button is pressed.
   @param sender The button tapped
  */
@@ -129,13 +119,13 @@
   Add the floor selector to a map.
   @param map The map that should hold the floor selector.
  */
-- (void)addToMap:(GMSMapView*)map;
+- (void)addToMap:(GMSMapView*)map DEPRECATED_MSG_ATTRIBUTE("Please use addSubview on containing view instead");
 
 /**
   Add the floor selector to a view.
   @param view The view that should hold the floor selector.
  */
-- (void)addToView:(UIView*)view;
+- (void)addToView:(UIView*)view DEPRECATED_MSG_ATTRIBUTE("Please use addSubview on containing view instead");
 
 /**
   Update the floor selector view frame. Needed upon switch to landscape/portrait
