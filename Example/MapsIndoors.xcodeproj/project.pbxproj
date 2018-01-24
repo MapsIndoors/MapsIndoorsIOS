@@ -918,7 +918,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${SRCROOT}/Pods/MapsIndoors/derive_ressources.sh --api-key 550c26a864617400a40f0000 --content-key 550c26a864617400a40f0000 --language en";
+			shellScript = "#${SRCROOT}/../Scripts/derive_ressources.sh --solution-id=\"550c26a864617400a40f0000\" --language=\"en\"";
 		};
 		7342DDCAD72ED8F2D6872817 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
