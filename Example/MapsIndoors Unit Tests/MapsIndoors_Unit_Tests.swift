@@ -35,7 +35,7 @@ class MapsIndoors_Unit_Tests: XCTestCase {
         query.types = ["Office"]
         query.query = "mapspeople sales"
         query.max = 1
-        locations!.getLocationsUsingQueryAsync(query, language: "en", completionHandler: { (locationData, error) in
+        locations.getLocationsUsingQueryAsync(query, language: "en", completionHandler: { (locationData, error) in
             let l = locationData?.list.first as! NSObject
             let name = l.value(forKey: "name") as! String
             if (name.caseInsensitiveCompare("mapspeople sales") == .orderedSame) {

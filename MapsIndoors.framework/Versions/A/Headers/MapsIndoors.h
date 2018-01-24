@@ -51,12 +51,10 @@
 #import <MapsIndoors/MPLocationQuery.h>
 #import <MapsIndoors/MPMapExtend.h>
 #import <MapsIndoors/MPPositionProvider.h>
-#import <MapsIndoors/MPBeaconPositionProvider.h>
 #import <MapsIndoors/MPImageRenderer.h>
 #import <MapsIndoors/MPMyLocationButton.h>
 #import <MapsIndoors/MPBeacon.h>
-#import <MapsIndoors/MPDouble.h>
-#import <MapsIndoors/PositionCalculator.h>
+#import <MapsIndoors/MPBeaconProvider.h>
 #import <MapsIndoors/NSObject+MPLanguageSupport.h>
 
 #import <MapsIndoors/FAImageView.h>

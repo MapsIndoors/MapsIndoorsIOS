@@ -105,7 +105,6 @@
 		A28BCF371D625EA7004F2CDE /* PlacePickerSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BCF361D625EA7004F2CDE /* PlacePickerSearchController.m */; };
 		A28BCF3B1D625F3A004F2CDE /* LocalizationSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BCF391D625F3A004F2CDE /* LocalizationSystem.m */; };
 		A28BCF3E1D625FE2004F2CDE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A28BCF401D625FE2004F2CDE /* Localizable.strings */; };
-		A28BCF431D6261E0004F2CDE /* NotificationsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BCF421D6261E0004F2CDE /* NotificationsHelper.m */; };
 		A28BCF451D626734004F2CDE /* Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = A28BCF441D626734004F2CDE /* Location.gpx */; };
 		A28E0FF11D1403BA00164AF2 /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E0FC61D1403BA00164AF2 /* ContainerViewController.m */; };
 		A28E0FF21D1403BA00164AF2 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E0FC81D1403BA00164AF2 /* DetailViewController.m */; };
@@ -117,7 +116,6 @@
 		A28E0FF81D1403BA00164AF2 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E0FD41D1403BA00164AF2 /* SearchViewController.m */; };
 		A28E0FF91D1403BA00164AF2 /* TextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E0FD61D1403BA00164AF2 /* TextViewController.m */; };
 		A28E0FFA1D1403BA00164AF2 /* UINavigationController+TransparentNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E0FD81D1403BA00164AF2 /* UINavigationController+TransparentNavigationController.m */; };
-		A28E0FFB1D1403BA00164AF2 /* BeaconPositionProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E0FDB1D1403BA00164AF2 /* BeaconPositionProvider.m */; };
 		A28E0FFC1D1403BA00164AF2 /* GPSPositionProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E0FDD1D1403BA00164AF2 /* GPSPositionProvider.m */; };
 		A28E0FFD1D1403BA00164AF2 /* POIData.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E0FDF1D1403BA00164AF2 /* POIData.m */; };
 		A28E0FFE1D1403BA00164AF2 /* RoutingData.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E0FE11D1403BA00164AF2 /* RoutingData.m */; };
@@ -137,6 +135,9 @@
 		A28E10141D14042200164AF2 /* UIFont+SystemFontOverride.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E10111D14042200164AF2 /* UIFont+SystemFontOverride.m */; };
 		A2ADED891F10F59C009527AD /* MapsIndoors_UI_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ADED881F10F59C009527AD /* MapsIndoors_UI_Tests.swift */; };
 		A2ADED971F10F5B8009527AD /* MapsIndoors_Unit_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ADED961F10F5B8009527AD /* MapsIndoors_Unit_Tests.swift */; };
+		A2D03C412018841700086830 /* MPPositionCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D03C3C2018841600086830 /* MPPositionCalculator.m */; };
+		A2D03C422018841700086830 /* BeaconPositionProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D03C3D2018841600086830 /* BeaconPositionProvider.m */; };
+		A2D03C432018841700086830 /* PointXY.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D03C402018841700086830 /* PointXY.m */; };
 		A2FC6D881F18FAFF00FE2D37 /* Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = A28BCF441D626734004F2CDE /* Location.gpx */; };
 		DF1ACE6B8C4C8751D5BC9C5E /* Pods_MapsIndoors_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D676DB7FFAD454001088FAA6 /* Pods_MapsIndoors_App.framework */; };
 /* End PBXBuildFile section */
@@ -278,8 +279,6 @@
 		A28BCF391D625F3A004F2CDE /* LocalizationSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizationSystem.m; sourceTree = "<group>"; };
 		A28BCF3A1D625F3A004F2CDE /* LocalizedStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizedStrings.h; sourceTree = "<group>"; };
 		A28BCF3F1D625FE2004F2CDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A28BCF411D6261E0004F2CDE /* NotificationsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsHelper.h; sourceTree = "<group>"; };
-		A28BCF421D6261E0004F2CDE /* NotificationsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationsHelper.m; sourceTree = "<group>"; };
 		A28BCF441D626734004F2CDE /* Location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		A28E0FC51D1403BA00164AF2 /* ContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerViewController.h; sourceTree = "<group>"; };
 		A28E0FC61D1403BA00164AF2 /* ContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerViewController.m; sourceTree = "<group>"; };
@@ -301,8 +300,6 @@
 		A28E0FD61D1403BA00164AF2 /* TextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewController.m; sourceTree = "<group>"; };
 		A28E0FD71D1403BA00164AF2 /* UINavigationController+TransparentNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+TransparentNavigationController.h"; sourceTree = "<group>"; };
 		A28E0FD81D1403BA00164AF2 /* UINavigationController+TransparentNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+TransparentNavigationController.m"; sourceTree = "<group>"; };
-		A28E0FDA1D1403BA00164AF2 /* BeaconPositionProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconPositionProvider.h; sourceTree = "<group>"; };
-		A28E0FDB1D1403BA00164AF2 /* BeaconPositionProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconPositionProvider.m; sourceTree = "<group>"; };
 		A28E0FDC1D1403BA00164AF2 /* GPSPositionProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSPositionProvider.h; sourceTree = "<group>"; };
 		A28E0FDD1D1403BA00164AF2 /* GPSPositionProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSPositionProvider.m; sourceTree = "<group>"; };
 		A28E0FDE1D1403BA00164AF2 /* POIData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIData.h; sourceTree = "<group>"; };
@@ -338,6 +335,13 @@
 		A2ADED961F10F5B8009527AD /* MapsIndoors_Unit_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsIndoors_Unit_Tests.swift; sourceTree = "<group>"; };
 		A2ADED981F10F5B8009527AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2C59E3B1F123B520024FA51 /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		A2D03C3B2018841500086830 /* MPPositionCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPPositionCalculator.h; sourceTree = "<group>"; };
+		A2D03C3C2018841600086830 /* MPPositionCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPPositionCalculator.m; sourceTree = "<group>"; };
+		A2D03C3D2018841600086830 /* BeaconPositionProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconPositionProvider.m; sourceTree = "<group>"; };
+		A2D03C3E2018841600086830 /* BeaconPositionProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconPositionProvider.h; sourceTree = "<group>"; };
+		A2D03C3F2018841700086830 /* PointXY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointXY.h; sourceTree = "<group>"; };
+		A2D03C402018841700086830 /* PointXY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointXY.m; sourceTree = "<group>"; };
+		A2D03C44201884B600086830 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		BA47BF978ACBE9230CF7CFAB /* Pods_MapsIndoors_Unit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapsIndoors_Unit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA27416D600A41926A7BB09 /* Pods_MapsIndoors_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapsIndoors_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D676DB7FFAD454001088FAA6 /* Pods_MapsIndoors_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapsIndoors_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -448,10 +452,9 @@
 				A28BCF381D625F3A004F2CDE /* LocalizationSystem.h */,
 				A28BCF391D625F3A004F2CDE /* LocalizationSystem.m */,
 				A28BCF3A1D625F3A004F2CDE /* LocalizedStrings.h */,
+				A2D03C44201884B600086830 /* Constant.h */,
 				A28E100C1D14042200164AF2 /* MasterViewController.h */,
 				A28E100D1D14042200164AF2 /* MasterViewController.m */,
-				A28BCF411D6261E0004F2CDE /* NotificationsHelper.h */,
-				A28BCF421D6261E0004F2CDE /* NotificationsHelper.m */,
 				A28E0FD91D1403BA00164AF2 /* Services */,
 				7BBFED501BDE5AE300570CF8 /* Supporting Files */,
 				A28E100E1D14042200164AF2 /* UIColor+AppColor.h */,
@@ -609,8 +612,12 @@
 		A28E0FD91D1403BA00164AF2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				A28E0FDA1D1403BA00164AF2 /* BeaconPositionProvider.h */,
-				A28E0FDB1D1403BA00164AF2 /* BeaconPositionProvider.m */,
+				A2D03C3E2018841600086830 /* BeaconPositionProvider.h */,
+				A2D03C3D2018841600086830 /* BeaconPositionProvider.m */,
+				A2D03C3B2018841500086830 /* MPPositionCalculator.h */,
+				A2D03C3C2018841600086830 /* MPPositionCalculator.m */,
+				A2D03C3F2018841700086830 /* PointXY.h */,
+				A2D03C402018841700086830 /* PointXY.m */,
 				A28E0FDC1D1403BA00164AF2 /* GPSPositionProvider.h */,
 				A28E0FDD1D1403BA00164AF2 /* GPSPositionProvider.m */,
 				A28E0FDE1D1403BA00164AF2 /* POIData.h */,
@@ -1119,11 +1126,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A28E0FF51D1403BA00164AF2 /* HorizontalDirectionsController.m in Sources */,
+				A2D03C422018841700086830 /* BeaconPositionProvider.m in Sources */,
 				A28E0FF31D1403BA00164AF2 /* DirectionsController.m in Sources */,
 				A28BCF2D1D625E57004F2CDE /* MPLocationCell.m in Sources */,
 				A28E0FFA1D1403BA00164AF2 /* UINavigationController+TransparentNavigationController.m in Sources */,
 				A28E100B1D1403FC00164AF2 /* Global.m in Sources */,
-				A28BCF431D6261E0004F2CDE /* NotificationsHelper.m in Sources */,
 				A28E0FF81D1403BA00164AF2 /* SearchViewController.m in Sources */,
 				A28BCF341D625E9A004F2CDE /* VenueSelectorController.m in Sources */,
 				A28E0FFC1D1403BA00164AF2 /* GPSPositionProvider.m in Sources */,
@@ -1139,14 +1146,15 @@
 				A28E0FFF1D1403BA00164AF2 /* DirectionsCellView.m in Sources */,
 				A28BCF371D625EA7004F2CDE /* PlacePickerSearchController.m in Sources */,
 				7BBFED541BDE5B1300570CF8 /* main.m in Sources */,
+				A2D03C432018841700086830 /* PointXY.m in Sources */,
 				A28E10131D14042200164AF2 /* UIColor+AppColor.m in Sources */,
 				A28E10071D1403BA00164AF2 /* UIButton+AppButton.m in Sources */,
 				A28E0FFE1D1403BA00164AF2 /* RoutingData.m in Sources */,
 				A28E10141D14042200164AF2 /* UIFont+SystemFontOverride.m in Sources */,
 				A28E0FF11D1403BA00164AF2 /* ContainerViewController.m in Sources */,
 				A28E0FF91D1403BA00164AF2 /* TextViewController.m in Sources */,
+				A2D03C412018841700086830 /* MPPositionCalculator.m in Sources */,
 				A28E0FF71D1403BA00164AF2 /* MasterNavigationController.m in Sources */,
-				A28E0FFB1D1403BA00164AF2 /* BeaconPositionProvider.m in Sources */,
 				A28E0FF21D1403BA00164AF2 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
