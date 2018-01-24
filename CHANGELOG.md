@@ -4,6 +4,14 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 <!---
  ## [Unreleased]
  -->
+ 
+ ## [2.0.0-alpha36] - 2018-01-24
+ ### New
+ - Fetching and bundling of all MapsIndoors content now possible using build run script phase
+ ### Changed
+ - Deprecations introduced on various methods
+ ### Removed
+ - All beacon positioning related logic (moved to public app code)
 
 ## [2.0.0-alpha24] - 2017-12-12
 ### New
