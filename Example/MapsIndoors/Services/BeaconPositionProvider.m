@@ -5,19 +5,31 @@
 //
 
 #import "BeaconPositionProvider.h"
+#import "MPPositionCalculator.h"
 #import <MapsIndoors/MapsIndoors.h>
 @import MaterialControls;
 #include <sys/time.h>
+#import "Constant.h"
 
+@interface BeaconPositionProvider ()
+
+@property (nonatomic, readwrite) BOOL                   locationServicesEnabled;
+@property (nonatomic, readwrite) CLAuthorizationStatus  authorizationStatus;
+@property (nonatomic, readwrite) BOOL                   locationServicesActive;     // enabled AND authorized
+@property (nonatomic, readwrite) NSUInteger             permissionsChangeCount;
+
+@end
 
 @implementation BeaconPositionProvider {
     NSString* _UUID;
     NSString* _clientId;
     NSArray* _currentRangedBeacons;
+    NSArray* _currentServerBeacons;
     BOOL _firstGPSUpdate;
     MDToast* _toast;
     NSNumber* _manualFloor;
     NSDate* _lastManualFloorDate;
+    
 }
 
 @synthesize providerType = _providerType;
@@ -62,6 +74,10 @@
         probability = 0;
         lastBeaconRecievedTime = [self GetTime]-10;
         _firstGPSUpdate = YES;
+        
+        #if defined(MI_SDK_VERSION_MAJOR) && (MI_SDK_VERSION_MAJOR >= 2)
+            [self.beaconProvider getBeacons:_clientId];
+        #endif
     }
 }
 
@@ -81,31 +97,17 @@
         for (CLBeacon* beacon in beacons) {
             [beaconIds addObject: [self formatBeaconIdFromBeacon:beacon]];
         }
-        [self.beaconProvider getBeacons:beaconIds clientId:_clientId];
     }
-}
-
-- (NSString*) formatBeaconIdFromBeacon: (CLBeacon*) beacon {
-    return [[NSString stringWithFormat:@"%@-%@-%@", [beacon.proximityUUID UUIDString], beacon.major, beacon.minor] lowercaseString];
-}
-
-- (void)setProviderType:(int)providerType {
-    _providerType = providerType;
-}
-
-- (void)startPositioningAfter:(int)millis arg:(NSString *)arg {
-    [self performSelector:@selector(startPositioning:) withObject:arg afterDelay:millis];
-}
-
-//Got a response from the server. We now have all the relevant (server) object to compare to.
-- (void)onBeaconsReady:(NSArray *)beaconData {
-    if ( beaconData.count == 0 )
+    
+    
+    if ( _currentServerBeacons.count == 0 )
         return;
+    
     double minDist = DBL_MAX;
     MPBeacon* selectedBeacon;
     //Find the equivalent server beacon (MPBeacon) for all the found beacons (in _currentRangedBeacons)
     for (CLBeacon* clBeacon in _currentRangedBeacons) {
-        MPBeacon *mpBeacon = [self GetServerBeacon:clBeacon mpBeacons:beaconData];
+        MPBeacon *mpBeacon = [self GetServerBeacon:clBeacon mpBeacons:_currentServerBeacons];
         if ( !mpBeacon || clBeacon.accuracy < 0 || clBeacon.rssi < -85) {
             continue;
         }
@@ -116,17 +118,17 @@
                 mpBeacon.RSSI = [[NSMutableArray alloc]init];
             }
             //Add the new value and remove the oldest if needed
-            [mpBeacon.RSSI addObject: [[MPDouble alloc] init:clBeacon.rssi]];
+            [mpBeacon.RSSI addObject: @(clBeacon.rssi)];
             if ( mpBeacon.RSSI.count > 5 ) {
                 [mpBeacon.RSSI removeObjectAtIndex:0];
             }
             //Finally get the new average RSSI for this beacon
             double avgRSSIval = 0;
-            for (MPDouble *d in mpBeacon.RSSI) {
+            for (NSNumber *d in mpBeacon.RSSI) {
                 avgRSSIval += d.doubleValue;
             }
             avgRSSIval /= mpBeacon.RSSI.count;
-            double distance = [PositionCalculator convertRSSItoMeter:avgRSSIval A:[mpBeacon.maxTxPower doubleValue]];
+            double distance = [MPPositionCalculator convertRSSItoMeter:avgRSSIval A:[mpBeacon.maxTxPower doubleValue]];
             if ([[mpBeacon.beaconId lowercaseString] isEqualToString:[self formatBeaconIdFromBeacon:clBeacon]]) {
                 if ( distance < minDist && mpBeacon.RSSI.count >= 5)  {
                     minDist = distance;
@@ -145,6 +147,71 @@
         self.lastBeaconRecievedTime = [self GetTime];
         [self setNewLocation];
     }
+    
+}
+
+- (NSString*) formatBeaconIdFromBeacon: (CLBeacon*) beacon {
+    return [[NSString stringWithFormat:@"%@-%@-%@", [beacon.proximityUUID UUIDString], beacon.major, beacon.minor] lowercaseString];
+}
+
+- (void)setProviderType:(int)providerType {
+    _providerType = providerType;
+}
+
+- (void)startPositioningAfter:(int)millis arg:(NSString *)arg {
+    [self performSelector:@selector(startPositioning:) withObject:arg afterDelay:millis];
+}
+
+
+- (void) updateLocationPermissionStatus {
+    
+    BOOL    bDidChange = NO;
+    
+    BOOL bEnabled = [CLLocationManager locationServicesEnabled];
+    if ( self.locationServicesEnabled !=  bEnabled ) {
+        self.locationServicesEnabled = bEnabled;
+        bDidChange = YES;
+        NSLog( @"%s: locationServicesEnabled => %@", __PRETTY_FUNCTION__, @(self.locationServicesEnabled) );
+    }
+    
+    CLAuthorizationStatus   status = [CLLocationManager authorizationStatus];
+    if ( self.authorizationStatus != status ) {
+        NSLog( @"%s: authorizationStatus %@ => %@", __PRETTY_FUNCTION__, @(self.authorizationStatus), @(status) );
+        self.authorizationStatus = status;
+        bDidChange = YES;
+        
+        BOOL isActiveNow = (status == kCLAuthorizationStatusAuthorizedAlways) || (status == kCLAuthorizationStatusAuthorizedWhenInUse);
+        if ( isActiveNow != self.locationServicesActive ) {
+            self.locationServicesActive = isActiveNow;
+            
+            if ( isActiveNow ) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationLocationServicesActivated object:self];
+                
+            } else {
+                
+                self.latestPositionResult = nil;
+                [self setNewLocation];
+            }
+        }
+    }
+    
+    if ( bDidChange ) {
+        ++self.permissionsChangeCount;
+    }
+}
+
+- (void)requestLocationPermissions {
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+}
+
+
+//Got a response from the server. We now have all the relevant (server) object to compare to.
+- (void)onBeaconsReady:(NSArray *)beaconData {
+    
+    _currentServerBeacons = beaconData;
+    
 }
 
 - (void)setNewLocation
@@ -222,13 +289,16 @@
     return deg * ( M_PI / 180);
 }
 
-//Return unix time in seconds
-- (double)GetTime
+- (double) GetTime
 {
     struct timeval time;
     gettimeofday(&time, NULL);
     return (double)((time.tv_sec * 1000) + (time.tv_usec / 1000))/1000.0f;
 }
 
+
+@synthesize preferAlwaysLocationPermission;
+
+@synthesize locationServicesActive;
 
 @end

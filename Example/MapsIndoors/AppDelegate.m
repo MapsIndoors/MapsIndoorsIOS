@@ -14,7 +14,6 @@
 #import "UIColor+AppColor.h"
 #import "RoutingData.h"
 #import "UIFont+SystemFontOverride.h"
-#import "NotificationsHelper.h"
 #import "LocalizationSystem.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>

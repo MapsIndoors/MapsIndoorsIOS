@@ -51,7 +51,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [[NSNotificationCenter defaultCenter] addObserver:_mapControl.loader selector:@selector(startAnimating) name:@"LocationsRequestStarted" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLocationsReady:) name:@"LocationsDataReady" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLocationDetailsReady:) name:@"LocationDetailsReady" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(renderRouteLeg:) name:@"RouteLegSelected" object:nil];
