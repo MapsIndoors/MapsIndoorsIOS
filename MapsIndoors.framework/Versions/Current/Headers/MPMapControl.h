@@ -175,18 +175,18 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
  */
 - (void)setupMapWith:(MPLocationsProvider*)locationsProvider
               venues:(MPVenueProvider*)venueProvider
-             routing:(MPRoutingProvider*)routingProvider;
+             routing:(MPRoutingProvider*)routingProvider DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors provideApiKey:contentKey:] and initWithMap: when setting up");
 /**
   Setup the venue map with default providers based on given solution id (only venues).
   @param solutionId The MapsPeople solution id.
  */
-- (void)setupMapWith:(NSString*)solutionId;
+- (void)setupMapWith:(NSString*)solutionId DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors provideApiKey:contentKey:] and initWithMap: when setting up");
 /**
   Setup the venue map with default providers based on given solution id (venues, locations and routing if accessible).
   @param solutionId The MapsPeople solution id.
   @param venueName The MapsPeople site id, used for locations and routing.
  */
-- (void)setupMapWith:(NSString*)solutionId site:(NSString*)venueName;
+- (void)setupMapWith:(NSString*)solutionId site:(NSString*)venueName DEPRECATED_MSG_ATTRIBUTE("Use only [MapsIndoors provideApiKey:contentKey:] and initWithMap: when setting up");
 /**
   Setup the venue map with default providers based on given solution id (venues, locations and routing if accessible).
   @param solutionId The MapsPeople solution id.
@@ -200,7 +200,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
                 site:(NSString*)venueName
            locations:(MPLocationsProvider*)locationsProvider
               venues:(MPVenueProvider*)venueProvider
-             routing:(MPRoutingProvider*)routingProvider;
+             routing:(MPRoutingProvider*)routingProvider DEPRECATED_MSG_ATTRIBUTE("Use only [MapsIndoors provideApiKey:contentKey:] and initWithMap: when setting up");
 
 /**
   Get the location that wraps the given marker.
@@ -210,10 +210,6 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
   Get location by string id reference.
  */
 - (MPLocation*)getLocationById:(NSString*) idString;
-/**
-  Venue collection setter. This will draw the venue on the map, if valid floor tileurl(s) exist.
- */
-- (void)setVenueCollection:(MPVenueCollection *)venueCollection;
 /**
   Show a given array of locations. The display will override any zoom level condition made from display rules. Clear the locations by calling again with 
   [showLocations:nil fitBounds:NO]

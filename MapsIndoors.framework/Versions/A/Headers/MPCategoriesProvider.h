@@ -48,7 +48,6 @@ typedef void(^mpCategoriesHandlerBlockType)(NSArray* categories, NSError* error)
  @param solutionId MapsIndoors solution id string
  @param locale Specifies which language to fetch categories in. Uses 2 character ISO 639-1 representation
  */
-<<<<<<< HEAD
 - (void)getCategoriesAsync: (NSString*) solutionId locale: (NSString*) locale DEPRECATED_MSG_ATTRIBUTE("Use getCategories instead");
 /**
  Get Categories from this provider and provide a callback handler.
@@ -63,15 +62,6 @@ typedef void(^mpCategoriesHandlerBlockType)(NSArray* categories, NSError* error)
  Get Categories from this provider and provide a callback handler.
  */
 - (void)getCategoriesWithCompletion: (mpCategoriesHandlerBlockType) completionHandler;
-=======
-- (void)getCategoriesAsync: (NSString*) solutionId locale: (NSString*) locale;
-
-/**
- Get Categories from this provider and provide a callback handler.
- */
-- (void)getCategoriesAsync: (NSString*) solutionId locale: (NSString*) locale completionHandler: (mpCategoriesHandlerBlockType) completionHandler;
-
->>>>>>> 5168bf5a9e34df5e00f496f1239e6c60f995ed3d
 /**
  Determine if cached or preloaded data is available for the given solutionId.
  

@@ -39,8 +39,7 @@ typedef void(^mpMessageListHandlerBlockType)(NSArray<MPMessage>* messages, NSErr
  @param  language The language code. Must be one of the MapsIndoors solutions supported content languages.
  @param  handler The handler callback block. Contains the MPMessage object (can be nil) and an NSError object (can be nil).
  */
-@required
-- (void)getMessagesAsync: (NSString*) solutionId language: (NSString*) language completionHandler: (mpMessageListHandlerBlockType) handler;
+- (void)getMessagesAsync: (NSString*) solutionId language: (NSString*) language completionHandler: (mpMessageListHandlerBlockType) handler DEPRECATED_MSG_ATTRIBUTE("Use getMessagesWithCompletion: instead");
 /**
  Method to query a unique Message from the provider based on an id.
  @param  solutionId The MapsIndoors solution ID.
@@ -48,8 +47,18 @@ typedef void(^mpMessageListHandlerBlockType)(NSArray<MPMessage>* messages, NSErr
  @param  language The language code. Must be one of the MapsIndoors solutions supported content languages.
  @param  handler The handler callback block. Contains the MPMessage object (can be nil) and an NSError object (can be nil).
  */
-@required
-- (void)getMessageDetailsAsync: (NSString*) solutionId withId:(NSString*)messageId language: (NSString*) language completionHandler: (mpMessageDetailsHandlerBlockType) handler;
+- (void)getMessageDetailsAsync: (NSString*) solutionId withId:(NSString*)messageId language: (NSString*) language completionHandler: (mpMessageDetailsHandlerBlockType) handler DEPRECATED_MSG_ATTRIBUTE("Use getMessageWithId:: instead");
+/**
+ Method to initiate fetching of all Messages from the provider.
+ @param  handler The handler callback block. Contains the MPMessage object (can be nil) and an NSError object (can be nil).
+ */
+- (void)getMessagesWithCompletion: (mpMessageListHandlerBlockType) handler;
+/**
+ Method to query a unique Message from the provider based on an id.
+ @param  messageId The MapsIndoors Message ID.
+ @param  handler The handler callback block. Contains the MPMessage object (can be nil) and an NSError object (can be nil).
+ */
+- (void)getMessageWithId:(NSString*)messageId completionHandler: (mpMessageDetailsHandlerBlockType) handler;
 @end
 
 
@@ -57,27 +66,5 @@ typedef void(^mpMessageListHandlerBlockType)(NSArray<MPMessage>* messages, NSErr
  Messages provider that defines a delegate and a method to initiate fetching of Messages from the provider.
  */
 @interface MPMessagesProvider : NSObject<MPMessagesProvider>
-/**
- Messages provider delegate.
- */
-@property (weak) id <MPMessageProviderDelegate> delegate;
-
-- (id)init;
-
-/**
- Method to initiate fetching of all Messages from the provider in a specific translation.
- @param  solutionId The MapsIndoors solution ID.
- @param  language The language code. Must be one of the MapsIndoors solutions supported content languages.
- */
-- (void)getMessagesAsync: (NSString*) solutionId language: (NSString*) language completionHandler: (mpMessageListHandlerBlockType) handler;
-/**
- Method to query a unique Message from the provider based on an id.
- @param  solutionId The MapsIndoors solution ID.
- @param  MessageId The MapsIndoors Message ID.
- @param  language The language code. Must be one of the MapsIndoors solutions supported content languages.
- @param  handler The handler callback block. Contains the MPMessage object (can be nil) and an NSError object (can be nil).
- */
-- (void)getMessageDetailsAsync: (NSString*) solutionId withId:(NSString*)messageId language: (NSString*) language completionHandler: (mpMessageDetailsHandlerBlockType) handler;
-
 
 @end

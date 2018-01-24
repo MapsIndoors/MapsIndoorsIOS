@@ -26,13 +26,13 @@
 /**
  Array to hold filtered results in the data set.
  */
-@property (nonatomic, strong) NSArray<Optional> *searchResult;
+@property (nonatomic, strong) NSArray<Optional> *searchResult DEPRECATED_ATTRIBUTE;
 /**
  String used as text filter.
  */
-@property (nonatomic, strong) NSArray<Optional> *categories;
+@property (nonatomic, strong) NSArray<Optional> *categories DEPRECATED_ATTRIBUTE;
 
-- (NSArray*)filterByName:(NSString*)name;
-- (NSArray*)filterByName:(NSString*)name andCategories:(NSArray*)categories;
+- (NSArray*)filterByName:(NSString*)name DEPRECATED_ATTRIBUTE;
+- (NSArray*)filterByName:(NSString*)name andCategories:(NSArray*)categories DEPRECATED_ATTRIBUTE;
 
 @end

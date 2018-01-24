@@ -100,24 +100,7 @@ typedef void(^mpLocationListHandlerBlockType)(MPLocationDataset* locationData, N
  @param  locationQuery Locations query object. Must at least define your MapsIndoors solution ID (MPLocationQuery.solutionId)
  @param  language The language code. Must be one of the MapsIndoors solutions supported content languages.
  */
-<<<<<<< HEAD
 - (void)getLocationsUsingQueryAsync: (MPLocationQuery*) locationQuery language: (NSString*) language DEPRECATED_MSG_ATTRIBUTE("Use getLocationsUsingQuery: instead");
-=======
-@required
-- (void)getLocationsUsingQueryAsync: (MPLocationQuery*) locationQuery language: (NSString*) language completionHandler: (mpLocationListHandlerBlockType) handler;
-
-/**
- Determine if cached or preloaded data is available for the given solutionId.
- 
- @param solutionId
- @param language
- @return YES if offline or preloaded data is available, else NO,
- */
-+ (BOOL) isOfflineDataAvailableForSolutionId:(NSString*)solutionId language:(NSString*)language;
-
-@end
-
->>>>>>> 5168bf5a9e34df5e00f496f1239e6c60f995ed3d
 
 /**
  Determine if cached or preloaded data is available for the given solutionId.

@@ -28,12 +28,7 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
  @param solutionId The MapsIndoors content key
  @return YES if the Solution Id was successfully provided
  */
-<<<<<<< HEAD
 + (BOOL) provideSolutionId:(NSString*)solutionId DEPRECATED_MSG_ATTRIBUTE("Use +provideApiKey:googleAPIKey:contentKey: instead");
-=======
-+ (BOOL) provideSolutionId:(NSString*)solutionId DEPRECATED_MSG_ATTRIBUTE("Use +provideApiKey:contentKey: instead");
-
->>>>>>> 5168bf5a9e34df5e00f496f1239e6c60f995ed3d
 
 /**
  Provides your API key and content key to the MapsIndoors SDK. These keys are unique for your MapsIndoors solution and are used to identify and authorise use of the data provided by MapsIndoors.
@@ -42,11 +37,7 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
  @param solutionId The MapsIndoors content key
  @return Whether the API key and content key was successfully provided
  */
-<<<<<<< HEAD
 + (BOOL) provideAPIKey:(NSString*)mapsIndoorsAPIKey googleAPIKey:(NSString*)googleAPIKey contentKey:(NSString*)solutionId;
-=======
-+ (BOOL) provideAPIKey:(NSString*)apiKey contentKey:(NSString*)solutionId;
->>>>>>> 5168bf5a9e34df5e00f496f1239e6c60f995ed3d
 
 /**
  Gets the current MapsIndoors solution id.
@@ -134,7 +125,6 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
  */
 @property (class) id<MPLocationsProvider> locationsProvider;
 
-<<<<<<< HEAD
 /**
  Set the font that MapsIndoors should use when rendering labels on the map, and enable or disable white halo for improved visibility.
  */
@@ -143,7 +133,5 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
  Returns whether halo is enabled for map labels.
  */
 + (BOOL)isMapLabelHaloEnabled;
-=======
->>>>>>> 5168bf5a9e34df5e00f496f1239e6c60f995ed3d
 
 @end

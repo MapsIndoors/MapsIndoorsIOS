@@ -39,19 +39,25 @@ typedef void(^mpSolutionHandlerBlockType)(MPSolution* solution, NSError* error);
 /**
  Get solution from this provider.
  */
-- (void)getSolutionAsync: (NSString*) solutionId;
-
+- (void)getSolutionAsync: (NSString*) solutionId DEPRECATED_MSG_ATTRIBUTE("Use getSolution instead");
 /**
  Get solution from this provider and supply a callback handler function.
  */
-- (void)getSolutionAsync: (NSString*) solutionId completionHandler: (mpSolutionHandlerBlockType)completionHandler;
+- (void)getSolutionAsync: (NSString*) solutionId completionHandler: (mpSolutionHandlerBlockType)completionHandler DEPRECATED_MSG_ATTRIBUTE("Use getSolutionWithCompletion: instead");
+/**
+ Get solution from this provider.
+ */
+- (void)getSolution;
+/**
+ Get solution from this provider and supply a callback handler function.
+ */
+- (void)getSolutionWithCompletion: (mpSolutionHandlerBlockType)completionHandler;
 
 /**
  Determine if cached or preloaded data is available for the given solutionId.
-
+ 
  @param solutionId
  @return YES if offline or preloaded data is available, else NO,
  */
 + (BOOL) isOfflineDataAvailableForSolutionId:(NSString*)solutionId;
-
 @end

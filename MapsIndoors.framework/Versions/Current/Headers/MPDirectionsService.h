@@ -23,7 +23,7 @@
 @property NSString* googleApiKey;
 @property NSString* language;
 
-- (id)initWithMapsIndoorsSolutionId:(NSString *)solutionId googleApiKey: (NSString*) googleApiKey;
+- (id)initWithMapsIndoorsSolutionId:(NSString *)solutionId googleApiKey: (NSString*) googleApiKey DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors configure:] to apply contentId and Google API Key");
 - (void)routingFrom:(MPLocation *)from to:(MPLocation *)to by:(NSString *)mode avoid:(NSArray *)restrictions depart:(NSDate *)departureTime arrive:(NSDate *)arrivalTime;
 - (void)routingFrom:(MPLocation *)from to:(MPLocation *)to by:(NSString *)mode;
 
