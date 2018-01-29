@@ -4,19 +4,19 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 <!---
  ## [Unreleased]
  -->
- 
- ## [2.0.0-alpha36] - 2018-01-24
- ### New
- - Fetching and bundling of all MapsIndoors content now possible using build run script phase
- ### Changed
- - Deprecations introduced on various methods
- ### Removed
- - All beacon positioning related logic (moved to public app code)
+
+## [2.0.0-alpha36] - 2018-01-24
+### New
+- Fetching and bundling of all MapsIndoors content now possible using build run script phase
+### Changed
+- Deprecations introduced on various methods
+### Removed
+- All beacon positioning related logic (moved to public app code)
 
 ## [2.0.0-alpha24] - 2017-12-12
 ### New
 - On-device route calculation optionally with routing-data embedded into the app.
-- Fetching of all MapsIndoors content now possible using `[MapsIndoors fetchDataForOfflineUse:]`
+- Fetching of all MapsIndoors content now possible using `[MapsIndoors sync:]`
 ### Changed
 - Deprecations introduced on various UI controls
 - Deprecations introduced on various methods
