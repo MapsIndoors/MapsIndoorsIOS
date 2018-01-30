@@ -10,6 +10,7 @@
 #import "MPDistanceMatrixProvider.h"
 #import "MPVenueProvider.h"
 #import "MPRoutingProvider.h"
+#import "MPDirectionsQuery.h"
 
 @interface MPDirectionsService : NSObject
 
@@ -23,11 +24,13 @@
 @property NSString* googleApiKey;
 @property NSString* language;
 
-- (id)initWithMapsIndoorsSolutionId:(NSString *)solutionId googleApiKey: (NSString*) googleApiKey DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors configure:] to apply contentId and Google API Key");
-- (void)routingFrom:(MPLocation *)from to:(MPLocation *)to by:(NSString *)mode avoid:(NSArray *)restrictions depart:(NSDate *)departureTime arrive:(NSDate *)arrivalTime;
-- (void)routingFrom:(MPLocation *)from to:(MPLocation *)to by:(NSString *)mode;
+- (id)initWithMapsIndoorsSolutionId:(NSString *)solutionId googleApiKey: (NSString*) googleApiKey DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors provideAPIKey:::] to apply MapsIndoors API key,  content key and Google API key");
+- (void)routingFrom:(MPLocation *)from to:(MPLocation *)to by:(NSString *)mode avoid:(NSArray *)restrictions depart:(NSDate *)departureTime arrive:(NSDate *)arrivalTime DEPRECATED_MSG_ATTRIBUTE("Use routingWithQuery: instead");
+- (void)routingFrom:(MPLocation *)from to:(MPLocation *)to by:(NSString *)mode DEPRECATED_MSG_ATTRIBUTE("Use routingWithQuery: instead");
 
-- (void)routingFrom:(MPLocation *)from to:(MPLocation *)to by:(NSString *)mode avoid:(NSArray *)restrictions depart:(NSDate *)departureTime arrive:(NSDate *)arrivalTime completionHandler: (mpRouteHandlerBlockType)handler;
-- (void)routingFrom:(MPLocation *)from to:(MPLocation *)to by:(NSString *)mode completionHandler: (mpRouteHandlerBlockType)handler;
+- (void)routingFrom:(MPLocation *)from to:(MPLocation *)to by:(NSString *)mode avoid:(NSArray *)restrictions depart:(NSDate *)departureTime arrive:(NSDate *)arrivalTime completionHandler: (mpRouteHandlerBlockType)handler DEPRECATED_MSG_ATTRIBUTE("Use routingWithQuery:completionHandler: instead");
+- (void)routingFrom:(MPLocation *)from to:(MPLocation *)to by:(NSString *)mode completionHandler: (mpRouteHandlerBlockType)handler DEPRECATED_MSG_ATTRIBUTE("Use routingWithQuery:completionHandler: instead");
+- (void)routingWithQuery:(MPDirectionsQuery*)directionsQuery completionHandler: (mpRouteHandlerBlockType)handler;
+- (void)routingWithQuery:(MPDirectionsQuery*)directionsQuery;
 
 @end

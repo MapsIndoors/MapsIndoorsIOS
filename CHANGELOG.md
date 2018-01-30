@@ -5,6 +5,13 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
  ## [Unreleased]
  -->
 
+## [2.0.0-alpha39] - 2018-01-30
+### Changed
+- Added `MPDirectionsQuery` and new method to query routes on `MPDirectionsService`
+### Fixed
+- Fixed an error where fetching of messages failed because of mal-formatted language
+- Fixed callback issues when calling multiple route requests simultaneously
+
 ## [2.0.0-alpha36] - 2018-01-24
 ### New
 - Fetching and bundling of all MapsIndoors content now possible using build run script phase
@@ -16,7 +23,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ## [2.0.0-alpha24] - 2017-12-12
 ### New
 - On-device route calculation optionally with routing-data embedded into the app.
-- Fetching of all MapsIndoors content now possible using `[MapsIndoors sync:]`
+- Fetching of all MapsIndoors content now possible using `[MapsIndoors synchroniseContent:]`
 ### Changed
 - Deprecations introduced on various UI controls
 - Deprecations introduced on various methods
