@@ -54,47 +54,57 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
  */
 @optional
 - (void) mapContentReady;
+
 /**
   Data fetch event method. Can be implemented by delegate object.
  */
 @optional
 - (void) appDataReady:(MPAppData*)appData DEPRECATED_MSG_ATTRIBUTE("Use mapContentReady instead");
+
 /**
   Data fetch event method. Can be implemented by delegate object.
  */
-
 @optional
 - (void) locationDataReady:(MPLocationDataset*)locations DEPRECATED_MSG_ATTRIBUTE("Use mapContentReady instead");
+
 /**
   Data fetch event method. Can be implemented by delegate object.
  */
-
 @optional
 - (void) solutionDataReady:(MPSolution*)solution DEPRECATED_MSG_ATTRIBUTE("Use mapContentReady instead");
+
 /**
   Data fetch event method. Can be implemented by delegate object.
  */
-
 @optional
 - (void) venueDataReady:(MPVenueCollection*)venueCollection DEPRECATED_MSG_ATTRIBUTE("Use mapContentReady instead");
+
 /**
   Data fetch event method. Can be implemented by delegate object.
  */
-
 @optional
 - (void) onPositionUpdate:(MPPositionResult*)positionResult DEPRECATED_MSG_ATTRIBUTE("Use MPPositionProvider instead");
+
 /**
   Location info snippet tap event method. Can be implemented by delegate object.
  */
-
 @optional
 - (void) infoSnippetTapped:(MPLocation*)location tapPosition:(NSString*)position DEPRECATED_ATTRIBUTE;
+
 /**
   Location info snippet tap event method. Can be implemented by delegate object.
  */
-
 @optional
 - (void) floorDidChange:(NSNumber*)floor;
+
+/**
+ Called when MPMapControl wants to automatically switch floor, for example when the map is panned and the visible buildings have changed.
+ 
+ @param toFloor The floor being changed to.
+ @return YES if the floor change is allowed, else NO.
+ */
+@optional
+- (BOOL) allowAutomaticSwitchToFloor:(NSNumber*)toFloor;
 
 @end
 

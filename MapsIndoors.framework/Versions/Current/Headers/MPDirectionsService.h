@@ -20,9 +20,9 @@
 @property (nonatomic, class) NSUInteger     maxElementsPerGoogleDistanceMatrixRequest;
 
 @property (weak) id <MPRoutingProviderDelegate> delegate;
-@property NSString* solutionId;
-@property NSString* googleApiKey;
-@property NSString* language;
+@property NSString* solutionId DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors provideAPIKey:::] to apply MapsIndoors API key, content key and Google API key");
+@property NSString* googleApiKey DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors provideAPIKey:::] to apply MapsIndoors API key, content key and Google API key");
+@property NSString* language DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors setLanguage:] to apply language globally");
 
 - (id)initWithMapsIndoorsSolutionId:(NSString *)solutionId googleApiKey: (NSString*) googleApiKey DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors provideAPIKey:::] to apply MapsIndoors API key,  content key and Google API key");
 - (void)routingFrom:(MPLocation *)from to:(MPLocation *)to by:(NSString *)mode avoid:(NSArray *)restrictions depart:(NSDate *)departureTime arrive:(NSDate *)arrivalTime DEPRECATED_MSG_ATTRIBUTE("Use routingWithQuery: instead");
