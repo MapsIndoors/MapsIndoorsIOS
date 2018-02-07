@@ -161,7 +161,7 @@
 /* Begin PBXFileReference section */
 		06D817E7486702CBFAEF4DB8 /* Pods-MapsIndoors_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsIndoors_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapsIndoors_Tests/Pods-MapsIndoors_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		0C3648CE0D7583968CD5148B /* Pods-MapsIndoors Unit Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsIndoors Unit Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapsIndoors Unit Tests/Pods-MapsIndoors Unit Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		179FD2986828E33EE85F6E4A /* MapsIndoors.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MapsIndoors.podspec; path = ../MapsIndoors.podspec; sourceTree = "<group>"; };
+		179FD2986828E33EE85F6E4A /* MapsIndoors.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MapsIndoors.podspec; path = ../MapsIndoors.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		1E8240CC0A76832BA415F2F2 /* Pods_MapsIndoors_UI_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapsIndoors_UI_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CD659FEA5582C12FE25C6FE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		304266BF1EFBF23800C43033 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
@@ -936,7 +936,8 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MapsIndoors.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1001,7 +1002,8 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MapsIndoors.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1066,7 +1068,8 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MapsIndoors.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
