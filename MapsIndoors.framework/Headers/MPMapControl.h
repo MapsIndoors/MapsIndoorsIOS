@@ -172,6 +172,12 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 @property (nonatomic) NSString* venue;
 
 /**
+ Indicates whether or not basic data for the map has been loaded.
+ This does *not* indicate whether maptiles have been loaded and displayed.
+ */
+@property (nonatomic, readonly) BOOL    mapContentReady;
+
+/**
   Initialize a MPMapControl object with given map.
   @param map The map to build the map control on.
  */
