@@ -15,7 +15,6 @@
 @property (nonatomic) double probability;
 @property (nonatomic) double bearing;
 @property (nonatomic) CLLocationCoordinate2D position;
-@property (nonatomic,retain) GMSMapView* map;
 @property (nonatomic) bool showProbability;
 
 - (id)initWithPoint:(MPPoint *)point andName:(NSString *)name;

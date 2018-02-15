@@ -1,9 +1,54 @@
-# Changelog
+---
+title: Changelog
+---
 Changelog for MapsIndoors for iOS. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!---
  ## [Unreleased]
  -->
+ ## [1.12.5] - 2018-01-15
+ ### Fixed
+ - Fixed issue causing blue dot to disappear in some cases
+ 
+ ## [1.12.4] - 2018-01-12
+ ### Fixed
+- Fixed issue causing `MPVenueProvider` not to return any buildings once in a while
+- Fixed issue causing `MPDirectionsService` not to return proper callbacks
+- Fixed issues related to language code validation.
+- Fixed problems related to offline/flight-mode.
+- Fixed possible calling of callback block twice in `MPMessageProvider`
+- Fixed multi-language issue in ´MPCategoriesProvider´.
+- Fixed missing call to completionHandler in rare occations using `MPLocationsProvider`.
+- Fixed missing call to completionHandler when route not found using `MPDirectionsService`.
+- Fixed an crash occuring when the floorselector is initially set hidden `MPMapControl.floorSelectorHidden = YES`, and subsequently shown via `MPMapControl.floorSelectorHidden = NO`.
+- Fixed issue getting multiple delegate or completionHandler calls from `MPVenueProvider`.
+- Fixed issue getting no route results when creating a directions request before initialising `MPMapControl`.
+- Fixed issue with `MPLocationsProvider` fired in parallel.
+- MPFloorSelector: Fixed a few layout issues.
+- TileService: Only report error when we cant get tileUrlData *and* we dont have cached data.
+- Prevent multiple calls to completionHandler from -[MapsIndoors fetchDataForOfflineUse:]
+- Calls to -[MPSolutionProvider getSolutionAsync:completionHandler:] while a call is already ongoing would fail to call completion handler.
+
+ ### Added
+ - Added a `MPRouteLeg.legType`  property
+ - Added property queryMode to `MPLocationsQuery`, can be set to `MPLocationsQueryModeAutocomplete` or `MPLocationsQueryModeNormal` (default).
+
+ ### Changed
+ - Search algorithm improvement.
+ - Internal works: Backend resolving improvements and SDK session handling
+ - Improved the internal works of `[MPVenuesProvider getBuildingWithinBoundsAsync]`.
+ - Internal refactoring.
+ - Avoid auto-switching current building's floor if a non-empty search result is not visible on that new floor.
+ - Internal refactoring.
+ - Updated Google Maps SDK dependency.
+
+## [1.12.3-beta1] - 2018-01-12
+### Fixed
+- Fixed issue causing `MPVenueProvider` not to return any buildings once in a while
+
+## [1.12.2-beta17] - 2017-11-03
+### Fixed
+- Fixed issue causing `MPDirectionsService` not to return proper callbacks
 
 ## [1.12.2-beta15] - 2017-11-03
 ### Fixed
@@ -94,8 +139,6 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ## [1.10.2-beta6] - 2017-08-09
 ### Changed
 - Optimized tile loading performance.
-
-## [1.10.2-beta5] - 2017-08-09
 
 ## [1.10.2-beta4] - 2017-07-14
 ### Changed
