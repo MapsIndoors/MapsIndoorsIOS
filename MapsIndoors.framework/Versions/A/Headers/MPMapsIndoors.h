@@ -20,6 +20,7 @@
 typedef void(^mpSyncContentHandlerBlockType)(NSError* error);
 typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 
+#define kMPNotificationPositionProviderReassign @"POSITION_PROVIDER_REASSIGNED"
 
 @interface MapsIndoors : NSObject
 

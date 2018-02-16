@@ -239,7 +239,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
  */
 - (void)addDisplayRule:(MPLocationDisplayRule*)rule;
 - (void)addDisplayRules:(NSArray<MPLocationDisplayRule>*)rules;
-- (void)addPositionProvider:(id<MPPositionProvider>)provider;
+- (void)addPositionProvider:(id<MPPositionProvider>)provider DEPRECATED_MSG_ATTRIBUTE("Use MapsIndoors.positionProvider instead");
 - (void)clearTileCache;
 - (void)clearMap;
 - (void)showUserPosition:(BOOL)show;
