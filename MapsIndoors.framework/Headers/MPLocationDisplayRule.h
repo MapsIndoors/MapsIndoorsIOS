@@ -103,7 +103,7 @@
 /**
  Defered instantiate a display rule with parameters.
  @param  name The name and identifier of the rule.
- @param  URL The icon URL used to display locations that qualify conditions of this rule.
+ @param  iconURL The icon URL used to display locations that qualify conditions of this rule.
  @param  zOn The map zoom level above which the location marker should display.
  @param  doShowLabel Whether or not to show a text label instead of the icon.
  */

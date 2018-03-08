@@ -188,7 +188,6 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
   @param locationsProvider The locations provider from which the MapControl is fetching its location data.
   @param venueProvider The venue provider from which the MapControl is fetching its venue data.
   @param routingProvider The routing provider to which the MapControl is performing its route requests.
-  @param appDataProvider The app data provider from which the MapControl is fetching app data, such as location display rules and location labelling.
  */
 - (void)setupMapWith:(MPLocationsProvider*)locationsProvider
               venues:(MPVenueProvider*)venueProvider
@@ -211,7 +210,6 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
   @param locationsProvider The locations provider from which the MapControl is fetching its location data.
   @param venueProvider The venue provider from which the MapControl is fetching its venue data.
   @param routingProvider The routing provider to which the MapControl is performing its route requests.
-  @param appDataProvider The app data provider from which the MapControl is fetching app data, such as location display rules and location labelling.
  */
 - (void)setupMapWith:(NSString*)solutionId
                 site:(NSString*)venueName

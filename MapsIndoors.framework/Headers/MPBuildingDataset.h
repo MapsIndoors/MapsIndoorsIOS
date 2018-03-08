@@ -23,12 +23,12 @@
 @property NSArray* features;
 /**
  Retrieve a building by its unique shortname.
- @param  The shortname of the building
+ @param shortName The shortname of the building
  */
 - (MPBuilding*) getBuilding: (NSString*) shortName;
 /**
  Assign a delegate object to all buildings in the collection, this object will hold the onBuildingReady:shortName event method.
- @param  The delegate object
+ @param delegate The delegate object
  */
 - (void) setBuildingDelegate: (NSObject<MPBuildingDelegate>*) delegate;
 /**

@@ -78,7 +78,8 @@
 - (void) setFloor: (NSNumber*)floor;
 /**
  Use this method to actually shift floor and show the building level.
- @param  floor The floor number that represents the building level.
+ @param newFloor The floor number that represents the building level.
+ @param map Affected map.
  */
 - (void) showBuilding:(NSNumber*) newFloor onMap:(GMSMapView*)map DEPRECATED_ATTRIBUTE;
 /**

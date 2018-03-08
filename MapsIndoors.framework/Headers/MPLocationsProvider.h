@@ -109,8 +109,8 @@ typedef void(^mpLocationListHandlerBlockType)(MPLocationDataset* locationData, N
 /**
  Determine if cached or preloaded data is available for the given solutionId.
  
- @param solutionId
- @param language
+ @param solutionId  SolutionId to check for offline data availability.
+ @param language Language to check for offline data availability.
  @return YES if offline or preloaded data is available, else NO,
  */
 + (BOOL) isOfflineDataAvailableForSolutionId:(NSString*)solutionId language:(NSString*)language;

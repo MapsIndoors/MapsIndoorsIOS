@@ -33,7 +33,8 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 /**
  Provides your API key and content key to the MapsIndoors SDK. These keys are unique for your MapsIndoors solution and are used to identify and authorise use of the data provided by MapsIndoors.
 
- @param apiKey The MapsIndoors API key
+ @param mapsIndoorsAPIKey The MapsIndoors API key
+ @param googleAPIKey The Google API key.
  @param solutionId The MapsIndoors content key
  @return Whether the API key and content key was successfully provided
  */
@@ -41,7 +42,7 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 
 /**
  Gets the current MapsIndoors solution id.
- @param  The solution id as a string value.
+ @return The solution id as a string value.
  */
 + (NSString*) getSolutionId;
 + (NSString*) getMapsIndoorsAPIKey;
@@ -49,7 +50,7 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 
 /**
  Sets the language for the content provided by MapsIndoors.
- @param  language The language for which the content should be fetched. Uses the two-letter language code ISO 639-1.
+ @param languageCode The language for which the content should be fetched. Uses the two-letter language code ISO 639-1.
  */
 + (void) setLanguage:(NSString*)languageCode;
 
@@ -72,9 +73,9 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 
 /**
  Sets the offline mode for the content provided by MapsIndoors. NB: This forces the implementation to be offline, even if there is no data available offline.
- @param  offlineMode The offline mode. Can be true/offline false/offline.
+ @param offlineMode The offline mode. Can be true/offline false/online.
  */
-+ (void) setOfflineMode:(BOOL)offline;
++ (void) setOfflineMode:(BOOL)offlineMode;
 
 /**
  Gets the current offline mode.

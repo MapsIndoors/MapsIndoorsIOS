@@ -46,7 +46,7 @@ typedef void(^mpMessageListHandlerBlockType)(NSArray<MPMessage>* messages, NSErr
 /**
  Method to query a unique Message from the provider based on an id.
  @param  solutionId The MapsIndoors solution ID.
- @param  MessageId The MapsIndoors Message ID.
+ @param  messageId The MapsIndoors Message ID.
  @param  language The language code. Must be one of the MapsIndoors solutions supported content languages.
  @param  handler The handler callback block. Contains the MPMessage object (can be nil) and an NSError object (can be nil).
  */

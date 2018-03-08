@@ -81,7 +81,7 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
 - (void) onVenuesReady: (MPVenueCollection*)venueCollection;
 /**
  Building data ready event method.
- @param  buildings The building data object.
+ @param  building The building data object.
  */
 - (void) onBuildingWithinBoundsReady: (MPBuilding*)building;
 /**
@@ -282,7 +282,6 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
 /**
  Get buildings from this provider
  
- @param venue Venue key as set in MPVenue.venueKey
  @param handler Buildings fetch callback block
  */
 - (void)getBuildingsWithCompletion:(mpBuildingListHandlerBlockType)handler;
@@ -310,6 +309,7 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
  @param completionHandler Data fetch callback block. Arguments will be nullable venue, building and floor objects.
  */
 - (void)getDataFromPoint: (MPPoint*)point completionHandler:(mpGeocodeHandlerBlockType)completionHandler;
+
 /**
  Synchronously get all possible data related to the provided geographical point.
  
@@ -318,14 +318,11 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
  */
 + (NSDictionary*)getDataFromPoint: (MPPoint*)point;
 
-
-
-
 /**
  Determine if cached or preloaded data is available for the given solutionId.
  
- @param solutionId
- @param language
+ @param solutionId  solutionId to checkfor offline data availability.
+ @param language language to check for offline availability.
  @return YES if offline or preloaded data is available, else NO,
  */
 + (BOOL) isOfflineDataAvailableForSolutionId:(NSString*)solutionId language:(NSString*)language;
