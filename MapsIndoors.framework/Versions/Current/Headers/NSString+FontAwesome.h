@@ -23,13 +23,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MPDefines.h"
 
 static NSString *const kFontAwesomeFamilyName = @"FontAwesome";
 
 /**
  @abstract FontAwesome Icons.
  */
-DEPRECATED_ATTRIBUTE
+MP_DEPRECATED_ATTRIBUTE
 typedef NS_ENUM(NSInteger, FAIcon) {
 	FAGlass,
 	FAMusic,

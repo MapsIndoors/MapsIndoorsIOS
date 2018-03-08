@@ -7,13 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MPLocation.h"
-#import "MPLocationProperty.h"
+#import "MPDefines.h"
+
+
+@class MPLocation;
+@class MPLocationProperty;
+
 
 /**
  Delegate protocol specification
  */
-DEPRECATED_ATTRIBUTE
+MP_DEPRECATED_ATTRIBUTE
 @protocol MPLocationPropertyViewDelegate <NSObject>
 /**
  Delegate method that is to fire when a locations property is tapped in MPLocationPropertyView

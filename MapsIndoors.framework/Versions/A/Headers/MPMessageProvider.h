@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MPDefines.h"
 #import "MPMessageDataset.h"
+
 
 typedef void(^mpMessageDetailsHandlerBlockType)(MPMessage* message, NSError* error);
 typedef void(^mpMessageListHandlerBlockType)(NSArray<MPMessage>* messages, NSError* error);
+
 
 /**
  Messages provider delegate.
@@ -39,7 +42,7 @@ typedef void(^mpMessageListHandlerBlockType)(NSArray<MPMessage>* messages, NSErr
  @param  language The language code. Must be one of the MapsIndoors solutions supported content languages.
  @param  handler The handler callback block. Contains the MPMessage object (can be nil) and an NSError object (can be nil).
  */
-- (void)getMessagesAsync: (NSString*) solutionId language: (NSString*) language completionHandler: (mpMessageListHandlerBlockType) handler DEPRECATED_MSG_ATTRIBUTE("Use getMessagesWithCompletion: instead");
+- (void)getMessagesAsync: (NSString*) solutionId language: (NSString*) language completionHandler: (mpMessageListHandlerBlockType) handler MP_DEPRECATED_MSG_ATTRIBUTE("Use getMessagesWithCompletion: instead");
 /**
  Method to query a unique Message from the provider based on an id.
  @param  solutionId The MapsIndoors solution ID.
@@ -47,7 +50,7 @@ typedef void(^mpMessageListHandlerBlockType)(NSArray<MPMessage>* messages, NSErr
  @param  language The language code. Must be one of the MapsIndoors solutions supported content languages.
  @param  handler The handler callback block. Contains the MPMessage object (can be nil) and an NSError object (can be nil).
  */
-- (void)getMessageDetailsAsync: (NSString*) solutionId withId:(NSString*)messageId language: (NSString*) language completionHandler: (mpMessageDetailsHandlerBlockType) handler DEPRECATED_MSG_ATTRIBUTE("Use getMessageWithId:: instead");
+- (void)getMessageDetailsAsync: (NSString*) solutionId withId:(NSString*)messageId language: (NSString*) language completionHandler: (mpMessageDetailsHandlerBlockType) handler MP_DEPRECATED_MSG_ATTRIBUTE("Use getMessageWithId:: instead");
 /**
  Method to initiate fetching of all Messages from the provider.
  @param  handler The handler callback block. Contains the MPMessage object (can be nil) and an NSError object (can be nil).

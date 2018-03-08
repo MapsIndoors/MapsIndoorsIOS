@@ -40,6 +40,7 @@
 #import <MapsIndoors/MPMapControl.h>
 #import <MapsIndoors/MPMapStyle.h>
 #import <MapsIndoors/MPPoint.h>
+#import <MapsIndoors/MPVector.h>
 #import <MapsIndoors/MPURITemplate.h>
 #import <MapsIndoors/MPVenue.h>
 #import <MapsIndoors/MPVenueCollection.h>
@@ -86,6 +87,7 @@
 
 #import <MapsIndoors/MPDirectionsRenderer.h>
 #import <MapsIndoors/MPDirectionsService.h>
+#import <MapsIndoors/MPDirectionsQuery.h>
 #import <MapsIndoors/MPDistanceMatrixElements.h>
 #import <MapsIndoors/MPDistanceMatrixProvider.h>
 #import <MapsIndoors/MPDistanceMatrixResult.h>

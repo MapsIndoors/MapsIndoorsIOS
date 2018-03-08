@@ -17,7 +17,7 @@
 + (nullable NSString*)mp_stringWithContentsOfURL:(nonnull NSURL *)url
                               ifModifiedSince:(NSDate* _Nullable) ifModifiedSinceDate
                                      encoding:(NSStringEncoding)enc
-                                        error:(NSError * _Nullable * _Nullable)error
-                                     response:(NSHTTPURLResponse * _Nullable * _Nullable)response;
+                                        error:(NSError * _Nullable __autoreleasing * _Nullable)error
+                                     response:(NSHTTPURLResponse * _Nullable __autoreleasing * _Nullable)response;
 
 @end

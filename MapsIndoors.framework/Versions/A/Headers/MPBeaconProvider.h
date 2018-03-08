@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MPDefines.h"
+
 
 /**
  Beacons provider delegate.
@@ -49,7 +51,7 @@
 /**
  Method to initiate fetching of Beacons from the provider.
  */
-- (void)getBeacons: (NSArray*) beaconIds clientId: (NSString*) clientId DEPRECATED_MSG_ATTRIBUTE("Use -(void)getBeacons:(NSString*)solutionId instead");
+- (void)getBeacons: (NSArray*) beaconIds clientId: (NSString*) clientId MP_DEPRECATED_MSG_ATTRIBUTE("Use -(void)getBeacons:(NSString*)solutionId instead");
 /**
  Method to initiate fetching of Beacons from the provider.
  */

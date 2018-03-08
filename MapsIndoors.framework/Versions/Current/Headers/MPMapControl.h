@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <GoogleMaps/GoogleMaps.h>
+#import "MPDefines.h"
 #import "MPLocation.h"
 #import "MPAppData.h"
 #import "MPLocationDataset.h"
@@ -59,37 +60,37 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
   Data fetch event method. Can be implemented by delegate object.
  */
 @optional
-- (void) appDataReady:(MPAppData*)appData DEPRECATED_MSG_ATTRIBUTE("Use mapContentReady instead");
+- (void) appDataReady:(MPAppData*)appData MP_DEPRECATED_MSG_ATTRIBUTE("Use mapContentReady instead");
 
 /**
   Data fetch event method. Can be implemented by delegate object.
  */
 @optional
-- (void) locationDataReady:(MPLocationDataset*)locations DEPRECATED_MSG_ATTRIBUTE("Use mapContentReady instead");
+- (void) locationDataReady:(MPLocationDataset*)locations MP_DEPRECATED_MSG_ATTRIBUTE("Use mapContentReady instead");
 
 /**
   Data fetch event method. Can be implemented by delegate object.
  */
 @optional
-- (void) solutionDataReady:(MPSolution*)solution DEPRECATED_MSG_ATTRIBUTE("Use mapContentReady instead");
+- (void) solutionDataReady:(MPSolution*)solution MP_DEPRECATED_MSG_ATTRIBUTE("Use mapContentReady instead");
 
 /**
   Data fetch event method. Can be implemented by delegate object.
  */
 @optional
-- (void) venueDataReady:(MPVenueCollection*)venueCollection DEPRECATED_MSG_ATTRIBUTE("Use mapContentReady instead");
+- (void) venueDataReady:(MPVenueCollection*)venueCollection MP_DEPRECATED_MSG_ATTRIBUTE("Use mapContentReady instead");
 
 /**
   Data fetch event method. Can be implemented by delegate object.
  */
 @optional
-- (void) onPositionUpdate:(MPPositionResult*)positionResult DEPRECATED_MSG_ATTRIBUTE("Use MPPositionProvider instead");
+- (void) onPositionUpdate:(MPPositionResult*)positionResult MP_DEPRECATED_MSG_ATTRIBUTE("Use MPPositionProvider instead");
 
 /**
   Location info snippet tap event method. Can be implemented by delegate object.
  */
 @optional
-- (void) infoSnippetTapped:(MPLocation*)location tapPosition:(NSString*)position DEPRECATED_ATTRIBUTE;
+- (void) infoSnippetTapped:(MPLocation*)location tapPosition:(NSString*)position MP_DEPRECATED_ATTRIBUTE;
 
 /**
   Location info snippet tap event method. Can be implemented by delegate object.
@@ -157,7 +158,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 /**
  Current language.
  */
-@property (nonatomic) NSString* language DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors getLanguage]/[MapsIndoors setLanguage:] instead");
+@property (nonatomic) NSString* language MP_DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors getLanguage]/[MapsIndoors setLanguage:] instead");
 /**
  The current floor.
  */
@@ -191,18 +192,18 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
  */
 - (void)setupMapWith:(MPLocationsProvider*)locationsProvider
               venues:(MPVenueProvider*)venueProvider
-             routing:(MPRoutingProvider*)routingProvider DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors provideApiKey:contentKey:] and initWithMap: when setting up");
+             routing:(MPRoutingProvider*)routingProvider MP_DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors provideApiKey:contentKey:] and initWithMap: when setting up");
 /**
   Setup the venue map with default providers based on given solution id (only venues).
   @param solutionId The MapsPeople solution id.
  */
-- (void)setupMapWith:(NSString*)solutionId DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors provideApiKey:contentKey:] and initWithMap: when setting up");
+- (void)setupMapWith:(NSString*)solutionId MP_DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors provideApiKey:contentKey:] and initWithMap: when setting up");
 /**
   Setup the venue map with default providers based on given solution id (venues, locations and routing if accessible).
   @param solutionId The MapsPeople solution id.
   @param venueName The MapsPeople site id, used for locations and routing.
  */
-- (void)setupMapWith:(NSString*)solutionId site:(NSString*)venueName DEPRECATED_MSG_ATTRIBUTE("Use only [MapsIndoors provideApiKey:contentKey:] and initWithMap: when setting up");
+- (void)setupMapWith:(NSString*)solutionId site:(NSString*)venueName MP_DEPRECATED_MSG_ATTRIBUTE("Use only [MapsIndoors provideApiKey:contentKey:] and initWithMap: when setting up");
 /**
   Setup the venue map with default providers based on given solution id (venues, locations and routing if accessible).
   @param solutionId The MapsPeople solution id.
@@ -216,7 +217,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
                 site:(NSString*)venueName
            locations:(MPLocationsProvider*)locationsProvider
               venues:(MPVenueProvider*)venueProvider
-             routing:(MPRoutingProvider*)routingProvider DEPRECATED_MSG_ATTRIBUTE("Use only [MapsIndoors provideApiKey:contentKey:] and initWithMap: when setting up");
+             routing:(MPRoutingProvider*)routingProvider MP_DEPRECATED_MSG_ATTRIBUTE("Use only [MapsIndoors provideApiKey:contentKey:] and initWithMap: when setting up");
 
 /**
   Get the location that wraps the given marker.
@@ -239,7 +240,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
  */
 - (void)addDisplayRule:(MPLocationDisplayRule*)rule;
 - (void)addDisplayRules:(NSArray<MPLocationDisplayRule>*)rules;
-- (void)addPositionProvider:(id<MPPositionProvider>)provider DEPRECATED_MSG_ATTRIBUTE("Use MapsIndoors.positionProvider instead");
+- (void)addPositionProvider:(id<MPPositionProvider>)provider MP_DEPRECATED_MSG_ATTRIBUTE("Use MapsIndoors.positionProvider instead");
 - (void)clearTileCache;
 - (void)clearMap;
 - (void)showUserPosition:(BOOL)show;

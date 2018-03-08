@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "MPDefines.h"
 
 /**
  Callback block for getting category data or handling error in doing so.
@@ -48,11 +48,11 @@ typedef void(^mpCategoriesHandlerBlockType)(NSArray* categories, NSError* error)
  @param solutionId MapsIndoors solution id string
  @param locale Specifies which language to fetch categories in. Uses 2 character ISO 639-1 representation
  */
-- (void)getCategoriesAsync: (NSString*) solutionId locale: (NSString*) locale DEPRECATED_MSG_ATTRIBUTE("Use getCategories instead");
+- (void)getCategoriesAsync: (NSString*) solutionId locale: (NSString*) locale MP_DEPRECATED_MSG_ATTRIBUTE("Use getCategories instead");
 /**
  Get Categories from this provider and provide a callback handler.
  */
-- (void)getCategoriesAsync: (NSString*) solutionId locale: (NSString*) locale completionHandler: (mpCategoriesHandlerBlockType) completionHandler DEPRECATED_MSG_ATTRIBUTE("Use getCategoriesWithCompletion: instead");
+- (void)getCategoriesAsync: (NSString*) solutionId locale: (NSString*) locale completionHandler: (mpCategoriesHandlerBlockType) completionHandler MP_DEPRECATED_MSG_ATTRIBUTE("Use getCategoriesWithCompletion: instead");
 /**
  Get categories from the specified solution.
  

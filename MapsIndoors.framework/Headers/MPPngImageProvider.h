@@ -15,12 +15,4 @@
  */
 @interface MPPngImageProvider : NSObject<MPImageProvider>
 
-/**
- Get an image from a web url
- 
- @param url The web url as a string
- @param completionHandler Completion callback handler block that returns either an image or an error (either one will be nil)
- */
-- (void) downloadImageFromNetwork : (NSString*)url cplHandler: (void (^)(NSData* image, NSError* error)) completionHandler ;
-
 @end

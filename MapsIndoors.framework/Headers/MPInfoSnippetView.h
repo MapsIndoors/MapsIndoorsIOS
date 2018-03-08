@@ -11,12 +11,16 @@
 #define kTapPositionCENTER @"CENTER"
 
 #import <UIKit/UIKit.h>
-#import "MPLocation.h"
+#import "MPDefines.h"
+
+
+@class MPLocation;
+
 
 /**
  Info snippet view delegate
  */
-DEPRECATED_ATTRIBUTE
+MP_DEPRECATED_ATTRIBUTE
 @protocol MPInfoSnippetViewDelegate <NSObject>
 /**
  Info snippet view delegate method, fires when the info snippet view is tapped

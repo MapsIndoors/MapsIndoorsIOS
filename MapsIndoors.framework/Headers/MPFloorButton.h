@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MPDefines.h"
+
+
 /**
  Create a button with a floor index property
  */
-DEPRECATED_ATTRIBUTE
+MP_DEPRECATED_ATTRIBUTE
 @interface MPFloorButton : UIButton
 
 /**

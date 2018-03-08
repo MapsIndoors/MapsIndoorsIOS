@@ -6,14 +6,12 @@
 //  Copyright (c) 2016-2018 MapsPeople A/S. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 #import <UIKit/UIKit.h>
-#import <CoreGraphics/CoreGraphics.h>
-#import "MPImageProvider.h"
-#import "MPPositionProvider.h"
+#import "MPDefines.h"
 
 
+@protocol MPImageProvider;
+@protocol MPPositionProvider;
 @protocol MPLocationsProvider;
 
 
@@ -22,6 +20,7 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 
 #define kMPNotificationPositionProviderReassign @"POSITION_PROVIDER_REASSIGNED"
 
+
 @interface MapsIndoors : NSObject
 
 /**
@@ -29,7 +28,7 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
  @param solutionId The MapsIndoors content key
  @return YES if the Solution Id was successfully provided
  */
-+ (BOOL) provideSolutionId:(NSString*)solutionId DEPRECATED_MSG_ATTRIBUTE("Use +provideApiKey:googleAPIKey:contentKey: instead");
++ (BOOL) provideSolutionId:(NSString*)solutionId MP_DEPRECATED_MSG_ATTRIBUTE("Use +provideApiKey:googleAPIKey:contentKey: instead");
 
 /**
  Provides your API key and content key to the MapsIndoors SDK. These keys are unique for your MapsIndoors solution and are used to identify and authorise use of the data provided by MapsIndoors.
@@ -94,7 +93,7 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 
  @param completion callback
  */
-+ (void) checkOfflineDataAvailabilityAsync:(void(^)())completion;
++ (void) checkOfflineDataAvailabilityAsync:(void(^)(void))completion;
 
 /**
  The font that MapsIndoors should use when rendering labels on the map.
@@ -130,6 +129,7 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
  Set the font that MapsIndoors should use when rendering labels on the map, and enable or disable white halo for improved visibility.
  */
 + (void)setMapLabelFont:(UIFont *)mapLabelFont showHalo: (BOOL) showHalo;
+
 /**
  Returns whether halo is enabled for map labels.
  */
