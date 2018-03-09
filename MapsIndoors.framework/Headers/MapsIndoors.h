@@ -41,6 +41,7 @@
 #import <MapsIndoors/MPMapStyle.h>
 #import <MapsIndoors/MPPoint.h>
 #import <MapsIndoors/MPVector.h>
+#import <MapsIndoors/MPLocationCoordinate3D.h>
 #import <MapsIndoors/MPURITemplate.h>
 #import <MapsIndoors/MPVenue.h>
 #import <MapsIndoors/MPVenueCollection.h>
