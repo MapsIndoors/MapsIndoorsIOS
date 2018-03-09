@@ -34,7 +34,11 @@ MP_DEPRECATED_ATTRIBUTE
 /**
  Delegate object
  */
+#pragma clang diagnostics push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 @property (weak) id <MPLocationPropertyViewDelegate> delegate;
+#pragma clang diagnostics pop
+
 /**
  Parent view reference.
  */

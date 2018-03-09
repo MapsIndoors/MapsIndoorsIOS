@@ -24,7 +24,7 @@
 /**
  Creates a specialized scroll view, designed to hold a locations details
  */
-@interface MPLocationView : UIScrollView<MPLocationPropertyViewDelegate>
+@interface MPLocationView : UIScrollView
 
 /**
  Delegate protocol specification, to keep track of the tapping on a locations details.

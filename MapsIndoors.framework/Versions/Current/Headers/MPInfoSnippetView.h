@@ -37,7 +37,11 @@ MP_DEPRECATED_ATTRIBUTE
 /**
  Info snippet view delegate
  */
+#pragma clang diagnostics push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 @property (weak) id <MPInfoSnippetViewDelegate> delegate;
+#pragma clang diagnostics pop
+
 /**
  Set the height of the info snippet
  */
