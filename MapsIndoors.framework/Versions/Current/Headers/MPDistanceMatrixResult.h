@@ -6,7 +6,7 @@
 
 @property (strong) NSArray* destination_addresses;
 @property (strong) NSArray* origin_addresses;
-@property (strong) NSArray<MPDistanceMatrixRows>* rows;
+@property (strong) NSArray<MPDistanceMatrixRows*><MPDistanceMatrixRows>* rows;
 @property (strong) NSString* status;
 @property (strong) NSString<Optional>* venue;
 @property (strong) NSString<Optional>* bestOrigin;

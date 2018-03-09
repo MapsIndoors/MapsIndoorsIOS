@@ -8,11 +8,9 @@
 
 #import "MPBeacon.h"
 
-@protocol MPBeacon
-@end
 
 @interface MPBeaconCollection : MPJSONModel
 
-@property NSArray<MPBeacon>* list;
+@property NSArray<MPBeacon*><MPBeacon>* list;
 
 @end

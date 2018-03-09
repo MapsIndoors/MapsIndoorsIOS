@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MPCategories.h"
 #import "MPDefines.h"
 
 /**
@@ -15,7 +16,7 @@
  @param categories Array of categories. Will be nil if an error occurred
  @param error Error object. Will be nil if fetching was complete
  */
-typedef void(^mpCategoriesHandlerBlockType)(NSArray* categories, NSError* error);
+typedef void(^mpCategoriesHandlerBlockType)(NSArray<MPDataField*>* categories, NSError* error);
 
 
 /**

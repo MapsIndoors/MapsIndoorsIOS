@@ -14,8 +14,12 @@
 
 #import <GoogleMaps/GoogleMaps.h>
 
+@protocol MPBuilding
+@end
+
 @protocol MPFloor
 @end
+
 /**
  Delegate protocol that holds the building ready event method. Relevant when using offline mode, as it will take a while to load the database upon first app start.
  */
@@ -50,7 +54,7 @@
 
 @property NSString* buildingId;
 @property NSString* administrativeId;
-@property NSMutableDictionary<MPFloor, Optional>* floors;
+@property NSMutableDictionary<NSString*, MPFloor*><MPFloor, Optional>* floors;
 @property NSString* name;
 @property MPPoint* anchor;
 @property NSArray<NSArray*>* bounds;

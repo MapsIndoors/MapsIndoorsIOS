@@ -19,7 +19,7 @@
 //color contains the color commonly used in signage for this transit line. The color will be specified as a hex string such as: #FF0033.
 @property NSString<Optional>* color;
 //agencies contains an array of TransitAgency objects that each provide information about the operator of the line.
-@property NSArray<MPTransitAgency>* agencies;
+@property NSArray<MPTransitAgency*><MPTransitAgency>* agencies;
 //url contains the URL for this transit line as provided by the transit agency.
 @property NSString<Optional>* url;
 //icon contains the URL for the icon associated with this line.

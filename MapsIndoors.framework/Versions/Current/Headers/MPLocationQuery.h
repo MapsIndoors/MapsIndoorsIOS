@@ -69,11 +69,11 @@ typedef enum MPLocationQueryMode {
 /**
  Category filter. Supports the category keys provided from the MPCategoriesProvider. Does not support the localized names of the categories.
  */
-@property NSArray* categories;
+@property NSArray<NSString*>* categories;
 /**
  Types filter. Supports the type strings provided from the MPSolutionsProvider.
  */
-@property NSArray* types;
+@property NSArray<NSString*>* types;
 /**
  Solution id. Mandatory field.
  */

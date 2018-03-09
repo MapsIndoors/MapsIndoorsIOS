@@ -8,8 +8,10 @@
 
 #import "MPJSONModel.h"
 
+
 @protocol MPTransitAgency
 @end
+
 
 @interface MPTransitAgency : MPJSONModel
 

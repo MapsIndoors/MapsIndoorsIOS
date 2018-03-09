@@ -7,14 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MPDefines.h"
 #import "MPRouteStep.h"
 #import "MPRoute.h"
 #import "MPInfoSnippetView.h"
 
 /**
- Delegate protocol specification that specify an event method that fires when offline tile database is ready.
+ Delegate protocol
  */
-DEPRECATED_ATTRIBUTE
+MP_DEPRECATED_ATTRIBUTE
 @protocol MPRouteActionDelegate <NSObject>
 
 /**
@@ -28,7 +29,7 @@ DEPRECATED_ATTRIBUTE
 @end
 
 
-DEPRECATED_ATTRIBUTE
+MP_DEPRECATED_ATTRIBUTE
 @interface MPRoutingControl : UIView
 
 @property (weak) id <MPRouteActionDelegate> delegate;

@@ -13,6 +13,7 @@
 #import "MPRouteCoordinate.h"
 #import "MPRouteBounds.h"
 #import "MPLocation.h"
+#import "MPRouteLeg.h"
 
 struct MPRouteSegmentPath {
     NSInteger legIndex;
@@ -35,45 +36,16 @@ typedef struct MPRouteSegmentPath MPRouteSegmentPath;
 /**
  The route legs: the different route components. Typically a route from 1st floor to 2nd floor will consist of two route legs.
  */
-@property NSMutableArray<MPRouteLeg, Optional>* legs;
+@property NSMutableArray<MPRouteLeg*><MPRouteLeg,Optional>* legs;
 @property MPEncodedPolyline<Optional>* overview_polyline;
 @property NSString<Optional>* summary;
 @property NSArray<Optional>* warnings;
 @property MPRouteBounds<Optional>* bounds;
-
-//---
-//--- Extra properties; NOT part of the JSON result from the server
-//---
 @property (nonatomic) NSNumber<Optional>* distance;
 @property (nonatomic) NSNumber<Optional>* duration;
-@property NSArray<Optional>* restrictions;
-@property NSString<Optional>* venue;
+@property NSArray<NSString*><Optional>* restrictions;
 
-/**
- The route geometry as Google Maps polylines.
- */
-@property NSMutableArray<Optional>* polylines;
-/**
- The route geometry as Google Maps polylines (line stroke imitation).
- */
-@property NSMutableArray<Optional>* polylineStrokes;
-/**
- The map on which to draw the route.
- */
-@property GMSMapView<Optional>* map;
 
-/**
- Draw the route on the map.
- */
-- (void)addToMap:(GMSMapView*)map highlightFloor:(int)floorIndex;
-/**
- Clear the route on the map.
- */
-- (void)clearRouteDraw;
-/**
- Make the route fully visible on the map.
- */
-- (void)showAll;
 /**
  Find route segment path (route leg and route step) nearest to a point and floor index.
  */

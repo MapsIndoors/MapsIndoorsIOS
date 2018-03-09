@@ -154,7 +154,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 /**
  Current location search result.
  */
-@property (nonatomic) NSArray* searchResult;
+@property (nonatomic) NSArray<MPLocation*>* searchResult;
 /**
  Current language.
  */
@@ -237,7 +237,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
   Adding a rule with a name, will override a more general rule
  */
 - (void)addDisplayRule:(MPLocationDisplayRule*)rule;
-- (void)addDisplayRules:(NSArray<MPLocationDisplayRule>*)rules;
+- (void)addDisplayRules:(NSArray<MPLocationDisplayRule*>*)rules;
 - (void)addPositionProvider:(id<MPPositionProvider>)provider MP_DEPRECATED_MSG_ATTRIBUTE("Use MapsIndoors.positionProvider instead");
 - (void)clearTileCache;
 - (void)clearMap;

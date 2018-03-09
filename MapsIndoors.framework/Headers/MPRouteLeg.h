@@ -41,7 +41,7 @@ typedef NS_ENUM(NSUInteger, MPRouteLegType) {
 /**
  The array of route actions in this route leg.
  */
-@property NSMutableArray<MPRouteStep, Optional>* steps;
+@property NSMutableArray<MPRouteStep*><MPRouteStep, Optional>* steps;
 
 @property (nonatomic) MPRouteLegType        routeLegType;
 

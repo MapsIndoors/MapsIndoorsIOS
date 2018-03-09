@@ -10,6 +10,11 @@
 #import "MPPoint.h"
 #import "MPJSONModel.h"
 
+
+@protocol MPBeacon
+@end
+
+
 @interface MPBeacon : MPJSONModel
 
 @property NSString* beaconId;

@@ -11,7 +11,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "MPMapStyle.h"
 #import "MPPoint.h"
-
+#import "MPBuilding.h"
 /**
  Map style protocol specification
  */
@@ -47,7 +47,7 @@
 /**
  Array of buildings in this venue.
  */
-@property NSArray<Optional>* buildings;
+@property NSArray<MPBuilding*><MPBuilding, Optional>* buildings;
 /**
  Venue anchor point.
  */
@@ -63,7 +63,7 @@
 /**
  Array of entry points in this venue.
  */
-@property NSArray<Optional, MPPoint>* entryPoints;
+@property NSArray<MPPoint*><Optional, MPPoint>* entryPoints;
 /**
  Route network/graph identifier for the given venue.
  */
@@ -79,11 +79,11 @@
 /**
  Array of possible map styles.
  */
-@property NSArray<MPMapStyle>* styles;
+@property NSArray<MPMapStyle*><MPMapStyle>* styles;
 /**
  Get a default style. If none is set, it will be the first string value in the list of map styles
  */
-- (NSString*)getDefaultStyle;
+- (MPMapStyle*)getDefaultStyle;
 /**
  Get the geographic bounding box for the venue
  */

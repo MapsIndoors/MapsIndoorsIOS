@@ -21,14 +21,14 @@
 
 @property NSString* name;
 @property NSString* defaultLanguage;
-@property NSArray* availableLanguages;
-@property NSArray* modules;
+@property NSArray<NSString*>* availableLanguages;
+@property NSArray<NSString*>* modules;
 @property NSString<Optional>* mapClientUrl;
 
 /**
  Array of types in this solution.
  */
-@property NSArray<MPType>* types;
+@property NSArray<MPType*><MPType>* types;
 
 /**
  Get a URL for a given type.

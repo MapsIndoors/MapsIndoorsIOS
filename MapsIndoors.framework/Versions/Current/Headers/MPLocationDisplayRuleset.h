@@ -11,11 +11,6 @@
 #import "MPLocationDisplayRule.h"
 
 @class MPLocationDisplayRule;
-/**
- Empty protocol specification.
- */
-@protocol MPLocationDisplayRule
-@end
 
 /**
  This class holds a ruleset that defines how and when to show different location markers.

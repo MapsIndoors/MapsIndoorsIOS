@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "MPJSONModel.h"
 
+@protocol MPDataField
+@end
+
 @interface MPDataField : MPJSONModel
 
 @property NSString<Optional>* key;

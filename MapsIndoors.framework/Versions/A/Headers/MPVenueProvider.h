@@ -50,7 +50,7 @@ typedef void(^mpBuildingDetailsHandlerBlockType)(MPBuilding* building, NSError* 
  @param buildings Building objects. Can be nil.
  @param error Error object. Can be nil.
  */
-typedef void(^mpBuildingListHandlerBlockType)(NSArray* buildings, NSError* error);
+typedef void(^mpBuildingListHandlerBlockType)(NSArray<MPBuilding*>* buildings, NSError* error);
 
 /**
  Handler block for fetching data related to a geographic point
@@ -98,7 +98,7 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
  Building data ready event method.
  @param  buildings The buildings data object.
  */
-- (void) onBuildingsReady: (NSArray*)buildings;
+- (void) onBuildingsReady: (NSArray<MPBuilding*>*)buildings;
 @end
 
 

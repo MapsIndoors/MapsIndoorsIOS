@@ -7,12 +7,11 @@
 //
 
 #import "MPJSONModel.h"
+#import "MPBuilding.h"
 
-@protocol MPBuilding
-@end
 
 @interface MPBuildingCollection : MPJSONModel
 
-@property NSArray<MPBuilding>* buildings;
+@property NSArray<MPBuilding*><MPBuilding>* buildings;
 
 @end

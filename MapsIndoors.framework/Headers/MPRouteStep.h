@@ -49,9 +49,6 @@ enum MPRouteActionDirection {
 
 @protocol MPRouteCoordinate
 @end
-/**
- Route step empty protocol specification.
- */
 @protocol MPRouteStep
 @end
 
@@ -64,11 +61,11 @@ enum MPRouteActionDirection {
 @property NSNumber<Optional>* duration;
 @property NSString<Optional>* maneuver;
 @property MPEncodedPolyline<Optional>* polyline;
-@property NSMutableArray<MPRouteCoordinate, Optional>* geometry;
+@property NSMutableArray<MPRouteCoordinate*><MPRouteCoordinate,Optional>* geometry;
 @property NSString<Optional>* html_instructions;
 @property NSString<Optional>* highway;
 @property NSString<Optional>* routeContext;
-@property NSMutableArray<MPRouteStep, Optional>* steps;
+@property NSMutableArray<MPRouteStep*><MPRouteStep, Optional>* steps;
 @property MPTransitDetails<Optional>* transit_details;
 
 - (MPPoint*)getActionPoint;

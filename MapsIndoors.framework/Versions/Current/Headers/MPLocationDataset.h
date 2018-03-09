@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MPLocation.h"
 
+@class MPLocation;
 /**
  Empty protocol specification
  */
@@ -22,7 +23,7 @@
 /**
  Main location array in the data set.
  */
-@property (nonatomic, strong) NSArray<MPLocation> *list;
+@property (nonatomic, strong) NSArray<MPLocation*><MPLocation> *list;
 /**
  Array to hold filtered results in the data set.
  */

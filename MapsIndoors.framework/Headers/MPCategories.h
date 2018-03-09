@@ -9,11 +9,9 @@
 #import "MPJSONModel.h"
 #import "MPDataField.h"
 
-@protocol MPDataField
-@end
 
 @interface MPCategories : MPJSONModel
 
-@property (nonatomic, strong) NSArray<MPDataField>* list;
+@property (nonatomic, strong) NSArray<MPDataField*><MPDataField>* list;
 
 @end
