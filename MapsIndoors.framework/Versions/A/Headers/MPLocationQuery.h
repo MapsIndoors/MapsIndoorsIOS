@@ -16,10 +16,10 @@
 /**
  Locations query mode
  */
-typedef enum MPLocationQueryMode {
+typedef NS_ENUM(NSUInteger, MPLocationQueryMode) {
     MPLocationQueryModeAutocomplete,
     MPLocationQueryModeNormal
-} MPLocationQueryMode;
+};
 
 /**
  Locations query object used in conjunction with the MPLocationsProvider

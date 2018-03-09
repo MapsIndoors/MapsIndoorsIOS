@@ -183,6 +183,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
   @param map The map to build the map control on.
  */
 - (id)initWithMap:(GMSMapView*) map;
+
 /**
   Setup the venue map with given providers.
   @param locationsProvider The locations provider from which the MapControl is fetching its location data.
@@ -192,17 +193,20 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 - (void)setupMapWith:(MPLocationsProvider*)locationsProvider
               venues:(MPVenueProvider*)venueProvider
              routing:(MPRoutingProvider*)routingProvider MP_DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors provideApiKey:contentKey:] and initWithMap: when setting up");
+
 /**
   Setup the venue map with default providers based on given solution id (only venues).
   @param solutionId The MapsPeople solution id.
  */
 - (void)setupMapWith:(NSString*)solutionId MP_DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors provideApiKey:contentKey:] and initWithMap: when setting up");
+
 /**
   Setup the venue map with default providers based on given solution id (venues, locations and routing if accessible).
   @param solutionId The MapsPeople solution id.
   @param venueName The MapsPeople site id, used for locations and routing.
  */
 - (void)setupMapWith:(NSString*)solutionId site:(NSString*)venueName MP_DEPRECATED_MSG_ATTRIBUTE("Use only [MapsIndoors provideApiKey:contentKey:] and initWithMap: when setting up");
+
 /**
   Setup the venue map with default providers based on given solution id (venues, locations and routing if accessible).
   @param solutionId The MapsPeople solution id.
@@ -215,21 +219,30 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
                 site:(NSString*)venueName
            locations:(MPLocationsProvider*)locationsProvider
               venues:(MPVenueProvider*)venueProvider
-             routing:(MPRoutingProvider*)routingProvider MP_DEPRECATED_MSG_ATTRIBUTE("Use only [MapsIndoors provideApiKey:contentKey:] and initWithMap: when setting up");
+             routing:(MPRoutingProvider*)routingProvider MP_DEPRECATED_MSG_ATTRIBUTE("Use only [MapsIndoors provideApiKey:contentKey:] and -[initWithMap:] or -[setupMapWithVenue:] when setting up");
+
+/**
+ Setup the venue map with default providers based on MapsIndoors.solutionId.
+ @param venueName The MapsPeople site id, used for locations and routing.
+ */
+- (void) setupMapWithVenue:(NSString*)venueName;
 
 /**
   Get the location that wraps the given marker.
  */
 - (MPLocation*)getLocation:(GMSMarker*) marker;
+
 /**
   Get location by string id reference.
  */
 - (MPLocation*)getLocationById:(NSString*) idString;
+
 /**
   Show a given array of locations. The display will override any zoom level condition made from display rules. Clear the locations by calling again with 
   [showLocations:nil fitBounds:NO]
  */
 - (void)showSearchResult:(BOOL)fitBounds;
+
 /**
   Add a location display rule - you need to know the categories applied to the map locations
   The display rule name corresponds to the location category we want the rule to apply for

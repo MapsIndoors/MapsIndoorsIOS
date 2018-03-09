@@ -20,11 +20,11 @@
 - (void) floorDidChange: (NSNumber*)floor; 
 @end
 
-typedef enum MPDirectionsRenderFit {
+typedef NS_ENUM(NSUInteger, MPDirectionsRenderFit) {
     MPDirectionsRenderFitIndoorPathFirstLineUpwards,
     MPDirectionsRenderFitIndoorPathUpwards,
     MPDirectionsRenderFitNorthBound
-} MPDirectionsRenderFit;
+};
 
 @interface MPDirectionsRenderer : NSObject
 

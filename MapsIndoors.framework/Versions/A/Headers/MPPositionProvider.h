@@ -9,8 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MPPositionResult.h"
 
-
-enum MPPositionProviderType {
+typedef NS_ENUM(NSUInteger, MPPositionProviderType) {
     GPS_POSITION_PROVIDER = 0,
     MOBILE_NETWORK_POSITION_PROVIDER = 1,
     COMBINED_POSITION_PROVIDER = 2,
