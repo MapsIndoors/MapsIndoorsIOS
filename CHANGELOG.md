@@ -6,6 +6,10 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 <!---
  ## [Unreleased]
  -->
+ ## [1.12.6] - 2018-03-13
+ ### Fixed
+ - Fixed issue with disappearing building graphics if the internal urls was invalid
+ 
  ## [1.12.5] - 2018-01-15
  ### Fixed
  - Fixed issue causing blue dot to disappear in some cases
