@@ -74,7 +74,7 @@
 /**
  Get the floors as an array of MPFloor.
  */
-- (NSArray*) getFloorArray;
+- (NSArray<MPFloor*>*) getFloorArray;
 /**
  Set the current floor property (without affecting the building display).
  @param  floor The floor number to replace current floor with.

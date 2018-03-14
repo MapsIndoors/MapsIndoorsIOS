@@ -105,7 +105,7 @@ typedef NS_ENUM(NSUInteger, MPPositionProviderType) {
 /**
  Provider type stored as an integer. Currently not used by MPMapControl.
  */
-@property int providerType;
+@property MPPositionProviderType providerType;
 
 @end
 

@@ -18,7 +18,9 @@
 typedef void(^mpSyncContentHandlerBlockType)(NSError* error);
 typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 
+
 #define kMPNotificationPositionProviderReassign @"POSITION_PROVIDER_REASSIGNED"
+#define kMPNotificationApiKeyInvalid            @"MAPSINDOORS_API_KEY_INVALID"
 
 
 @interface MapsIndoors : NSObject
@@ -28,24 +30,26 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
  @param solutionId The MapsIndoors content key
  @return YES if the Solution Id was successfully provided
  */
-+ (BOOL) provideSolutionId:(NSString*)solutionId MP_DEPRECATED_MSG_ATTRIBUTE("Use +provideApiKey:googleAPIKey:contentKey: instead");
++ (BOOL) provideSolutionId:(NSString*)solutionId MP_DEPRECATED_MSG_ATTRIBUTE("Use +provideApiKey:googleAPIKey: instead");
 
 /**
  Provides your API key and content key to the MapsIndoors SDK. These keys are unique for your MapsIndoors solution and are used to identify and authorise use of the data provided by MapsIndoors.
 
  @param mapsIndoorsAPIKey The MapsIndoors API key
  @param googleAPIKey The Google API key.
- @param solutionId The MapsIndoors content key
  @return Whether the API key and content key was successfully provided
  */
-+ (BOOL) provideAPIKey:(NSString*)mapsIndoorsAPIKey googleAPIKey:(NSString*)googleAPIKey contentKey:(NSString*)solutionId;
++ (BOOL) provideAPIKey:(NSString*)mapsIndoorsAPIKey googleAPIKey:(NSString*)googleAPIKey;
 
 /**
- Gets the current MapsIndoors solution id.
- @return The solution id as a string value.
+ Gets the current MapsIndoors API key.
+ @return The MapsIndoors API key as a string value.
  */
-+ (NSString*) getSolutionId;
 + (NSString*) getMapsIndoorsAPIKey;
+/**
+ Gets the current Google API key.
+ @return The Google API key as a string value.
+ */
 + (NSString*) getGoogleAPIKey;
 
 /**
@@ -135,5 +139,10 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
  Returns whether halo is enabled for map labels.
  */
 + (BOOL)isMapLabelHaloEnabled;
+
+/**
+ Returns whether the current API key is valid or not.
+ */
++ (BOOL) isAPIKeyValid;
 
 @end

@@ -42,6 +42,8 @@
 
 #define kMPErrorCodeRouteNetworkNotFound                    101400
 
+#define kMPErrorCodeInvalidApiKey                           101500
+
 #define kMPMapsIndoorsDomain @"com.mapspeople.MapsIndoors"
 
 #define MPMakeErrorWithCode(cODE,uSRiNFOdICT)   [NSError errorWithDomain:kMPMapsIndoorsDomain code:cODE userInfo:uSRiNFOdICT]
