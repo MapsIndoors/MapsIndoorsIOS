@@ -25,7 +25,7 @@ LICENSE
 
 #s.source_files = ['Source/*/*.swift']
 
-  s.dependency 'GoogleMaps', '2.4'
+  s.dependency 'GoogleMaps', '2.6'
   #s.dependency 'Gloss', '1.1.1'
   #s.dependency 'Zip', '0.6.0'
 

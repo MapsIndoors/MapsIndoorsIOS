@@ -24,14 +24,14 @@ PODS:
   - GoogleFontsiOS/Core (0.1.1)
   - GoogleFontsiOS/Roboto (0.1.1):
     - GoogleFontsiOS/Core
-  - GoogleMaps (2.4.0):
-    - GoogleMaps/Maps (= 2.4.0)
-  - GoogleMaps/Base (2.4.0)
-  - GoogleMaps/Maps (2.4.0):
+  - GoogleMaps (2.6.0):
+    - GoogleMaps/Maps (= 2.6.0)
+  - GoogleMaps/Base (2.6.0)
+  - GoogleMaps/Maps (2.6.0):
     - GoogleMaps/Base
   - HashBuilder (1.0.1)
-  - MapsIndoors (2.0.0-alpha36):
-    - GoogleMaps (= 2.4)
+  - MapsIndoors (2.0.0-alpha89):
+    - GoogleMaps (= 2.6)
   - MaterialControls (1.2.2)
   - VCMaterialDesignIcons (2.1.1)
 
@@ -52,12 +52,12 @@ SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   EasyTableView: 06de6d8d0a3ed7ea672bc17ecccc8b8cc48a4f45
   GoogleFontsiOS: 9f4a4f886160d8cb723bd936604b3f6b975f1167
-  GoogleMaps: 8436ab5d1c25e36915b2f7416d0c8e3fa2e76c61
+  GoogleMaps: 42f91c68b7fa2f84d5c86597b18ceb99f5414c7f
   HashBuilder: d2f6cbd492c68350bbcf0fa2216aae50b60657d5
-  MapsIndoors: f38b46c0caed9f55fbd13162381e0f3e5c6f2fa8
+  MapsIndoors: 23d2c042ea5a92abd88380beb180d023e60ce255
   MaterialControls: 1c6b29e78d3a13d8dd6a67ed31b6d26eb5de8f72
   VCMaterialDesignIcons: 68a944308ab41282ba8555770cb57e3fbf2034be
 
-PODFILE CHECKSUM: 1f41e7943b635c639544931de54a8d6c04f10d2a
+PODFILE CHECKSUM: 38d33de67c984ff43d2fd20e5d747a085c48fa2a
 
 COCOAPODS: 1.4.0
