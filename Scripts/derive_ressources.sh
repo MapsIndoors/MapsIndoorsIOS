@@ -7,8 +7,7 @@ function usage()
     echo "This script downloads and bundles all needed ressources for MapsIndoors to work offline"
     echo ""
     echo "\t-h --help"
-    echo "\t--content-key=[required]  \tThe key for the MapsIndoors content (also known as solution id)"
-    echo "\t--api-key=[optional]      \tThe api key for the MapsIndoors api (needed in some implementations)"
+    echo "\t--api-key=[optional]      \tThe api key for the MapsIndoors api (previously known as solution id)"
     echo "\t--language=[optional]     \tThe ISO 639-1 language key for the MapsIndoors content (currently only one offline language is supported)"
     echo ""
 }
@@ -22,9 +21,6 @@ while [ "$1" != "" ]; do
             exit
         ;;
         --content-key)
-            SID=$VALUE
-        ;;
-        --solution-id)
             SID=$VALUE
         ;;
         --api-key)
@@ -42,7 +38,6 @@ while [ "$1" != "" ]; do
     shift
 done
 
-echo "content-key is $SID";
 echo "api-key is $KEY";
 echo "language is $LANG";
 
@@ -52,22 +47,26 @@ if [ -z ${TEMP_ROOT+x} ]; then
 fi
 
 OUTPUTPATH="${TEMP_ROOT}/res"
-rm -rf ${OUTPUTPATH}
-mkdir -p ${OUTPUTPATH}
+
+if [ -d "${OUTPUTPATH}" ]; then
+    rm -rf "${OUTPUTPATH}"
+fi
+
+mkdir -p "${OUTPUTPATH}"
 
 BASEURL="https://api.mapsindoors.com"
 
-echo "{ \"solutionId\" : \"$SID\" }" > "${OUTPUTPATH}/mi_sync_solutionid.json"
+echo "{ \"solutionId\" : \"$KEY\" }" > "${OUTPUTPATH}/mi_sync_solutionid.json"
 
 DATATIMESTAMP=$(date -j -f "%a %b %d %T %Z %Y" "`date`" "+%s")
-echo "{ \"timestamp\" : $DATATIMESTAMP }" > ${OUTPUTPATH}/mi_sync_timestamp.json
+echo "{ \"timestamp\" : $DATATIMESTAMP }" > "${OUTPUTPATH}/mi_sync_timestamp.json"
 
 for relUrl in "/sync/venues" "/sync/buildings" "/sync/appconfig" "/sync/solutions" "/sync/locations" "/sync/categories" "/sync/graph" "/sync/tiles"; do
-    url="$BASEURL$relUrl?solutionId=$SID&key=$KEY&lr=$LANG"
+    url="$BASEURL$relUrl?solutionId=$KEY&lr=$LANG"
     path="mi$(echo ${relUrl//\//_})"
     path="${OUTPUTPATH}/$path.json"
     echo "Downloading asset from $url to path $path"
-    status_code=$(curl $url -o $path --write-out %{http_code})
+    status_code=$(curl $url -o "$path" --write-out %{http_code})
     if [[ $status_code > 204 ]] ; then
         echo "Exiting because of http error"
         exit 1;
@@ -76,30 +75,42 @@ done
 
 # "${OUTPUTPATH}/mi_sync_locations.json" 
 for fileName in "${OUTPUTPATH}/mi_sync_solutions.json" "${OUTPUTPATH}/mi_sync_tiles.json" "${OUTPUTPATH}/mi_sync_appconfig.json"; do
-    grep -oE '\b(https?)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]*[-A-Za-z0-9+&@#/%=~_|]' $fileName | while read url
+    grep -oE '\b(https?)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]*[-A-Za-z0-9+&@#/%=~_|]' "$fileName" | while read url
     do
         path="$(echo $url | cut -d '/' -f4-)"
         path="mi_$(echo ${path//\//_})"
         path="${OUTPUTPATH}/$path"
-        if [ ! -f $path ]; then
+        if [ ! -f "$path" ]; then
             echo "Downloading asset from $url to path $path"
-            curl $url -o $path
+            curl $url -o "$path"
         fi
     done
 done
 
-if ls ${OUTPUTPATH}/mi_tiles*.zip 1> /dev/null 2>&1; then
-    unzip ${OUTPUTPATH}/mi_tiles*.zip -d ${OUTPUTPATH}
-    rm ${OUTPUTPATH}/mi_tiles*.zip
-fi
+unzip "${OUTPUTPATH}/mi_tiles*.zip" -d "${OUTPUTPATH}"
 
-mkdir -p "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/res"
+find "${OUTPUTPATH}/" -name '*.zip' -exec rm {} \;
 
-find -L ${OUTPUTPATH} \
--type f -not -name ".*" \
--not -name "`basename ${INFOPLIST_FILE}`" \
-| xargs -t -I {} \
-cp {} "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/res"
+destinationFolder="${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/res"
+
+mkdir -p "${destinationFolder}"
+
+#readarray FILES_TO_COPY < <(find -L "${OUTPUTPATH}" -type f -not -name ".*" -not -name "`basename ${INFOPLIST_FILE}`" -print0)
+
+echo "Copying assets from ${OUTPUTPATH} to ${destinationFolder}"
+find -L "${OUTPUTPATH}" -type f -not -name ".*" -not -name "`basename ${INFOPLIST_FILE}`" -exec cp {} "${destinationFolder}" \;
+
+#FILES_TO_COPY=$(find -L "${OUTPUTPATH}" \
+#                -type f -not -name ".*" \
+#                -not -name "`basename ${INFOPLIST_FILE}`" -print0)
+
+#for FILE_TO_COPY in $a; do
+#   echo "Copying asset from $FILE_TO_COPY to path $destinationFolder"
+
+#cp "${FILE_TO_COPY/ /\\ }" "${destinationFolder}"
+#done
 
 # Uncomment to inspect collected data when done:
-# open "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/res"
+# open "${destinationFolder}"
+
+exit 0;
