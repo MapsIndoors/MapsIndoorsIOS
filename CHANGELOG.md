@@ -23,6 +23,11 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
  - Made peripheral code private that was public before
  -->
 
+## [2.0.0-alpha93] - 2018-03-15
+### Fixed
+- Fixed an error where map graphics was not loaded properly
+- Fixed an error where updating of a display rule was persistent across initialisations of `MPMapControl`
+
 ## [2.0.0-alpha39] - 2018-01-30
 ### Changed
 - Added `MPDirectionsQuery` and new method to query routes on `MPDirectionsService`
