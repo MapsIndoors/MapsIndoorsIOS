@@ -43,6 +43,8 @@
 #define kMPErrorCodeRouteNetworkNotFound                    101400
 
 #define kMPErrorCodeInvalidApiKey                           101500
+#define kMPErrorCodeInvalidGraphId                          101510
+#define kMPErrorCodeInvalidSolutionId                       101520
 
 #define kMPMapsIndoorsDomain @"com.mapspeople.MapsIndoors"
 
