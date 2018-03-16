@@ -136,6 +136,14 @@
 		A28E10141D14042200164AF2 /* UIFont+SystemFontOverride.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E10111D14042200164AF2 /* UIFont+SystemFontOverride.m */; };
 		A2ADED891F10F59C009527AD /* MapsIndoors_UI_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ADED881F10F59C009527AD /* MapsIndoors_UI_Tests.swift */; };
 		A2ADED971F10F5B8009527AD /* MapsIndoors_Unit_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ADED961F10F5B8009527AD /* MapsIndoors_Unit_Tests.swift */; };
+		A2BD9C47205BF3E30076EE8B /* LocationDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BD9C46205BF3E30076EE8B /* LocationDetailsController.swift */; };
+		A2BD9C4A205BF3F00076EE8B /* ShowBuildingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BD9C49205BF3F00076EE8B /* ShowBuildingController.swift */; };
+		A2BD9C4E205BF3FA0076EE8B /* ShowMyLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BD9C4C205BF3FA0076EE8B /* ShowMyLocationController.swift */; };
+		A2BD9C4F205BF3FA0076EE8B /* MyPositionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BD9C4D205BF3FA0076EE8B /* MyPositionProvider.swift */; };
+		A2BD9C53205BF40F0076EE8B /* MultipleDatasetsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BD9C51205BF40F0076EE8B /* MultipleDatasetsController.swift */; };
+		A2BD9C54205BF40F0076EE8B /* DatasetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BD9C52205BF40F0076EE8B /* DatasetViewController.swift */; };
+		A2BD9C58205BF41B0076EE8B /* MySearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BD9C56205BF41B0076EE8B /* MySearchController.swift */; };
+		A2BD9C59205BF41B0076EE8B /* SearchMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BD9C57205BF41B0076EE8B /* SearchMapController.swift */; };
 		A2D03C412018841700086830 /* MPPositionCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D03C3C2018841600086830 /* MPPositionCalculator.m */; };
 		A2D03C422018841700086830 /* BeaconPositionProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D03C3D2018841600086830 /* BeaconPositionProvider.m */; };
 		A2D03C432018841700086830 /* PointXY.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D03C402018841700086830 /* PointXY.m */; };
@@ -351,6 +359,14 @@
 		A2ADED941F10F5B8009527AD /* MapsIndoors Unit Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MapsIndoors Unit Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2ADED961F10F5B8009527AD /* MapsIndoors_Unit_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsIndoors_Unit_Tests.swift; sourceTree = "<group>"; };
 		A2ADED981F10F5B8009527AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2BD9C46205BF3E30076EE8B /* LocationDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailsController.swift; sourceTree = "<group>"; };
+		A2BD9C49205BF3F00076EE8B /* ShowBuildingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowBuildingController.swift; sourceTree = "<group>"; };
+		A2BD9C4C205BF3FA0076EE8B /* ShowMyLocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMyLocationController.swift; sourceTree = "<group>"; };
+		A2BD9C4D205BF3FA0076EE8B /* MyPositionProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPositionProvider.swift; sourceTree = "<group>"; };
+		A2BD9C51205BF40F0076EE8B /* MultipleDatasetsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleDatasetsController.swift; sourceTree = "<group>"; };
+		A2BD9C52205BF40F0076EE8B /* DatasetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatasetViewController.swift; sourceTree = "<group>"; };
+		A2BD9C56205BF41B0076EE8B /* MySearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySearchController.swift; sourceTree = "<group>"; };
+		A2BD9C57205BF41B0076EE8B /* SearchMapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchMapController.swift; sourceTree = "<group>"; };
 		A2C59E3B1F123B520024FA51 /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		A2D03C3B2018841500086830 /* MPPositionCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPPositionCalculator.h; sourceTree = "<group>"; };
 		A2D03C3C2018841600086830 /* MPPositionCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPPositionCalculator.m; sourceTree = "<group>"; };
@@ -450,7 +466,7 @@
 				6003F593195388D20070C39A /* Example for MapsIndoors */,
 				A2ADED871F10F59C009527AD /* MapsIndoors UI Tests */,
 				A2ADED951F10F5B8009527AD /* MapsIndoors Unit Tests */,
-				A2D2C53C2059064800755891 /* Demos */,
+				A2D2C53C2059064800755891 /* Demo Samples */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
 				42DD076E483DE95A0C2C3C00 /* Pods */,
@@ -720,9 +736,55 @@
 			path = "MapsIndoors Unit Tests";
 			sourceTree = "<group>";
 		};
-		A2D2C53C2059064800755891 /* Demos */ = {
+		A2BD9C45205BF3E30076EE8B /* Location Details */ = {
 			isa = PBXGroup;
 			children = (
+				A2BD9C46205BF3E30076EE8B /* LocationDetailsController.swift */,
+			);
+			path = "Location Details";
+			sourceTree = "<group>";
+		};
+		A2BD9C48205BF3F00076EE8B /* Show Building */ = {
+			isa = PBXGroup;
+			children = (
+				A2BD9C49205BF3F00076EE8B /* ShowBuildingController.swift */,
+			);
+			path = "Show Building";
+			sourceTree = "<group>";
+		};
+		A2BD9C4B205BF3FA0076EE8B /* Show My Location */ = {
+			isa = PBXGroup;
+			children = (
+				A2BD9C4C205BF3FA0076EE8B /* ShowMyLocationController.swift */,
+				A2BD9C4D205BF3FA0076EE8B /* MyPositionProvider.swift */,
+			);
+			path = "Show My Location";
+			sourceTree = "<group>";
+		};
+		A2BD9C50205BF40F0076EE8B /* Multiple Datasets */ = {
+			isa = PBXGroup;
+			children = (
+				A2BD9C51205BF40F0076EE8B /* MultipleDatasetsController.swift */,
+				A2BD9C52205BF40F0076EE8B /* DatasetViewController.swift */,
+			);
+			path = "Multiple Datasets";
+			sourceTree = "<group>";
+		};
+		A2BD9C55205BF41B0076EE8B /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				A2BD9C56205BF41B0076EE8B /* MySearchController.swift */,
+				A2BD9C57205BF41B0076EE8B /* SearchMapController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		A2D2C53C2059064800755891 /* Demo Samples */ = {
+			isa = PBXGroup;
+			children = (
+				A2BD9C4B205BF3FA0076EE8B /* Show My Location */,
+				A2BD9C48205BF3F00076EE8B /* Show Building */,
+				A2BD9C45205BF3E30076EE8B /* Location Details */,
 				A2D2C55E205906AE00755891 /* BaseMapDemoController.swift */,
 				A2D2C54F205906AE00755891 /* Change Display Setting */,
 				A2D2C55C205906AE00755891 /* Custom Floor Selector */,
@@ -733,13 +795,15 @@
 				A2D2C55A205906AE00755891 /* Show Route */,
 				A2D2C54D205906AD00755891 /* Show Venue */,
 				A2D2C53D2059064800755891 /* AppDelegate.swift */,
+				A2BD9C55205BF41B0076EE8B /* Search */,
+				A2BD9C50205BF40F0076EE8B /* Multiple Datasets */,
 				A2D2C53F2059064800755891 /* ViewController.swift */,
 				A2D2C5412059064800755891 /* Main.storyboard */,
 				A2D2C5442059064800755891 /* Assets.xcassets */,
 				A2D2C5462059064800755891 /* LaunchScreen.storyboard */,
 				A2D2C5492059064800755891 /* Info.plist */,
 			);
-			path = Demos;
+			path = "Demo Samples";
 			sourceTree = "<group>";
 		};
 		A2D2C54D205906AD00755891 /* Show Venue */ = {
@@ -1410,16 +1474,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2BD9C4A205BF3F00076EE8B /* ShowBuildingController.swift in Sources */,
 				A2D2C5402059064800755891 /* ViewController.swift in Sources */,
 				A2D2C566205906AF00755891 /* ShowFloorController.swift in Sources */,
 				A2D2C563205906AF00755891 /* ChangeDisplaySettingController.swift in Sources */,
 				A2D2C56B205906AF00755891 /* BaseMapDemoController.swift in Sources */,
+				A2BD9C58205BF41B0076EE8B /* MySearchController.swift in Sources */,
 				A2D2C56A205906AF00755891 /* CustomFloorSelectorController.swift in Sources */,
+				A2BD9C59205BF41B0076EE8B /* SearchMapController.swift in Sources */,
+				A2BD9C47205BF3E30076EE8B /* LocationDetailsController.swift in Sources */,
+				A2BD9C54205BF40F0076EE8B /* DatasetViewController.swift in Sources */,
+				A2BD9C4E205BF3FA0076EE8B /* ShowMyLocationController.swift in Sources */,
+				A2BD9C53205BF40F0076EE8B /* MultipleDatasetsController.swift in Sources */,
 				A2D2C568205906AF00755891 /* DemoSelectorViewController.swift in Sources */,
 				A2D2C56C205906AF00755891 /* ShowLocationController.swift in Sources */,
 				A2D2C569205906AF00755891 /* ShowRouteController.swift in Sources */,
 				A2D2C567205906AF00755891 /* ShowMultipleLocationsController.swift in Sources */,
 				A2D2C53E2059064800755891 /* AppDelegate.swift in Sources */,
+				A2BD9C4F205BF3FA0076EE8B /* MyPositionProvider.swift in Sources */,
 				A2D2C561205906AF00755891 /* ShowVenueController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1745,7 +1817,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = Demos/Info.plist;
+				INFOPLIST_FILE = "Demo Samples/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1784,7 +1856,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = Demos/Info.plist;
+				INFOPLIST_FILE = "Demo Samples/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
