@@ -21,7 +21,7 @@ Copyright 2016-2017 by MapsPeople A/S
 LICENSE
 }
   s.author           = { "MapsPeople" => "info@mapspeople.com" }
-  s.source           = { :git => "https://github.com/MapsIndoors/MapsIndoorsIOS.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/MapsIndoors/MapsIndoorsIOS.git", :tag => s.version.to_s, :submodules => true }
 
 #s.source_files = ['Source/*/*.swift']
 
