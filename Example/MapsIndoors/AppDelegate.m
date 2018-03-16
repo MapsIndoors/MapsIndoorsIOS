@@ -27,6 +27,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [GMSServices provideAPIKey:kGoogleMapsApiKey];
+    [MapsIndoors provideAPIKey:kMapsIndoorsSolutionId googleAPIKey:kGoogleMapsApiKey];
     
     LocalizationSetLanguage(@"en");
     
