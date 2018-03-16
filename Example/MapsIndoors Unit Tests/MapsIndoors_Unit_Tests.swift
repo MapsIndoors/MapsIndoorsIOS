@@ -36,12 +36,13 @@ class MapsIndoors_Unit_Tests: XCTestCase {
         query.query = "mapspeople sales"
         query.max = 1
         locations.getLocationsUsingQueryAsync(query, language: "en", completionHandler: { (locationData, error) in
-            let l = locationData?.list.first as! NSObject
-            let name = l.value(forKey: "name") as! String
-            if (name.caseInsensitiveCompare("mapspeople sales") == .orderedSame) {
-                if hasFullfilled == false {
-                    expectation.fulfill()
-                    hasFullfilled = true
+            let names = locationData?.value(forKeyPath: "list.name") as! [String]?
+            if let name = names?.first {
+                if (name.caseInsensitiveCompare("mapspeople sales") == .orderedSame) {
+                    if hasFullfilled == false {
+                        expectation.fulfill()
+                        hasFullfilled = true
+                    }
                 }
             }
         });
@@ -107,25 +108,25 @@ class MapsIndoors_Unit_Tests: XCTestCase {
                 
                 return
                 
-                var i: Int = 0
-                for leg in route!.legs {
-                    let leg = leg as! MPRouteLeg
-                    let legStart = MPPoint(lat: leg.start_location.lat.doubleValue, lon: leg.start_location.lng.doubleValue, zValue: leg.start_location.zLevel.doubleValue)
-                    let legEnd = MPPoint(lat: leg.end_location.lat.doubleValue, lon: leg.end_location.lng.doubleValue, zValue: leg.end_location.zLevel.doubleValue)
-                    var startData: [AnyHashable: Any] = MPVenueProvider.getDataFrom(legStart, solutionId: self.solution, language: "en")
-                    var endData: [AnyHashable: Any] = MPVenueProvider.getDataFrom(legEnd, solutionId: self.solution, language: "en")
-                    let startVenue: MPVenue? = (startData["venue"] as? MPVenue)
-                    let startBuilding: MPVenue? = (startData["building"] as? MPVenue)
-                    let startFloor: MPVenue? = (startData["floor"] as? MPVenue)
-                    let endVenue: MPVenue? = (endData["venue"] as? MPVenue)
-                    let endBuilding: MPVenue? = (endData["building"] as? MPVenue)
-                    let endFloor: MPVenue? = (endData["floor"] as? MPVenue)
-                    i = i+1
-                    
-                    print("Leg \(i) Start:\nVenue: \(startVenue!.name), Building: \(startBuilding!.name), Floor: \(startFloor!.name)")
-                    print("Leg \(i) End:\nVenue: \(endVenue!.name), Building: \(endBuilding!.name), Floor: \(endFloor!.name)")
-                }
-                expectation.fulfill()
+//                var i: Int = 0
+//                for leg in route!.legs {
+//                    let leg = leg as! MPRouteLeg
+//                    let legStart = MPPoint(lat: leg.start_location.lat.doubleValue, lon: leg.start_location.lng.doubleValue, zValue: leg.start_location.zLevel.doubleValue)
+//                    let legEnd = MPPoint(lat: leg.end_location.lat.doubleValue, lon: leg.end_location.lng.doubleValue, zValue: leg.end_location.zLevel.doubleValue)
+//                    var startData: [AnyHashable: Any] = MPVenueProvider.getDataFrom(legStart, solutionId: self.solution, language: "en")
+//                    var endData: [AnyHashable: Any] = MPVenueProvider.getDataFrom(legEnd, solutionId: self.solution, language: "en")
+//                    let startVenue: MPVenue? = (startData["venue"] as? MPVenue)
+//                    let startBuilding: MPVenue? = (startData["building"] as? MPVenue)
+//                    let startFloor: MPVenue? = (startData["floor"] as? MPVenue)
+//                    let endVenue: MPVenue? = (endData["venue"] as? MPVenue)
+//                    let endBuilding: MPVenue? = (endData["building"] as? MPVenue)
+//                    let endFloor: MPVenue? = (endData["floor"] as? MPVenue)
+//                    i = i+1
+//                    
+//                    print("Leg \(i) Start:\nVenue: \(startVenue!.name), Building: \(startBuilding!.name), Floor: \(startFloor!.name)")
+//                    print("Leg \(i) End:\nVenue: \(endVenue!.name), Building: \(endBuilding!.name), Floor: \(endFloor!.name)")
+//                }
+//                expectation.fulfill()
             }
         }
         waitForExpectations(timeout: 10.0, handler: {(_ error: Error?) -> Void in
