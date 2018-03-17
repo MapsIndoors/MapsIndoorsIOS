@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "MPLocation.h"
 
-@class MPLocation;
 /**
  Empty protocol specification
  */
