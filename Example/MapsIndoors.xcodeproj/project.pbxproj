@@ -483,7 +483,7 @@
 				A2B7A8AA205DC2FC00239CB5 /* Test */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* Example for MapsIndoors */,
-				A2D2C53C2059064800755891 /* Demo Samples */,
+				A2D2C53C2059064800755891 /* DemoSamples */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
 				42DD076E483DE95A0C2C3C00 /* Pods */,
@@ -816,7 +816,7 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
-		A2D2C53C2059064800755891 /* Demo Samples */ = {
+		A2D2C53C2059064800755891 /* DemoSamples */ = {
 			isa = PBXGroup;
 			children = (
 				A2BD9C4B205BF3FA0076EE8B /* Show My Location */,
@@ -840,7 +840,7 @@
 				A2D2C5462059064800755891 /* LaunchScreen.storyboard */,
 				A2D2C5492059064800755891 /* Info.plist */,
 			);
-			path = "Demo Samples";
+			path = DemoSamples;
 			sourceTree = "<group>";
 		};
 		A2D2C54D205906AD00755891 /* Show Venue */ = {
@@ -1979,7 +1979,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Demo Samples/Info.plist";
+				INFOPLIST_FILE = DemoSamples/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -2018,7 +2018,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Demo Samples/Info.plist";
+				INFOPLIST_FILE = DemoSamples/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
