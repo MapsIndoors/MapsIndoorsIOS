@@ -9,6 +9,9 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
  - Fetching and bundling of all MapsIndoors content now possible using build run script phase
  
  ### Fixed
+ - Fixed an error where directions service would crash if no API key was properly set
+ - Fixed an error where map graphics was not loaded properly
+ - Fixed an error where updating of a display rule would unintentionally persist across initialisations of `MPMapControl`
  - Fixed an error where fetching of messages failed because of mal-formatted language
  - Fixed callback issues when calling multiple route requests simultaneously
  
@@ -22,6 +25,10 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
  - All beacon positioning related logic (moved to public app code)
  - Made peripheral code private that was public before
  -->
+
+## [2.0.0-alpha94] - 2018-03-17
+### Fixed
+- Fixed an error where directions service would crash if no API key was properly set
 
 ## [2.0.0-alpha93] - 2018-03-15
 ### Fixed
