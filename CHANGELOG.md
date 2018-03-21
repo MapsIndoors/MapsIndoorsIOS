@@ -2,16 +2,15 @@
 Changelog for MapsIndoors for iOS. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!---
- ## [Unreleased]
- ### Added
- 
- ### Fixed
- 
- ### Changed
-
- ### Removed
+## [Unreleased]
+### Added
+### Fixed
+### Changed
+### Removed
  -->
- 
+ ## [2.0.0-beta11] 2018-03-21
+ ### Fixed
+ - Less strict internal data parsing, ensuring that some location properties can be omitted
  
  ## [2.0.0-beta10] 2018-03-21
  ### Added

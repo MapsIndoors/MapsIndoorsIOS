@@ -56,7 +56,7 @@
 @property (nonatomic, strong) NSString<Optional> *roomId;
 @property (nonatomic, strong) NSString<Optional> *descr;
 @property (nonatomic, strong) NSDictionary<MPLocationField, Optional> *fields;
-@property (nonatomic, strong) NSArray<NSString*> *aliases;
+@property (nonatomic, strong) NSArray<NSString*><Optional> *aliases;
 /**
  Location name.
  */
