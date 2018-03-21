@@ -4,6 +4,17 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 <!---
  ## [Unreleased]
  ### Added
+ 
+ ### Fixed
+ 
+ ### Changed
+
+ ### Removed
+ -->
+ 
+ 
+ ## [2.0.0-beta10] 2018-03-21
+ ### Added
  - On-device route calculation optionally with routing-data embedded into the app.
  - Fetching of all MapsIndoors content now possible using `[MapsIndoors synchroniseContent:]`
  - Fetching and bundling of all MapsIndoors content now possible using build run script phase
@@ -20,11 +31,10 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
  - Added `MPDirectionsQuery` and new method to query routes on `MPDirectionsService`
  - Deprecations introduced on various methods
  - Deprecations introduced on various UI controls
-
+ 
  ### Removed
  - All beacon positioning related logic (moved to public app code)
  - Made peripheral code private that was public before
- -->
 
 ## [2.0.0-alpha94] - 2018-03-17
 ### Fixed

@@ -91,6 +91,6 @@
 /**
  Get the geographic bounds for the venue
  */
-- (GMSCoordinateBounds *)getVenueBounds DEPRECATED_MSG_ATTRIBUTE("Use either getBoundingBox");
+- (GMSCoordinateBounds *)getVenueBounds DEPRECATED_MSG_ATTRIBUTE("Use getBoundingBox");
 
 @end
