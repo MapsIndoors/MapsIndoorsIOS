@@ -67,7 +67,7 @@
 /**
  Route network/graph identifier for the given venue.
  */
-@property NSString* graphId;
+@property NSString<Optional>* graphId;
 /**
  Venue key.
  */
