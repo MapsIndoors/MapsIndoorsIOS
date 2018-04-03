@@ -9,6 +9,10 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [2.0.0-beta14] 2018-03-21
+### Fixed
+- MPDirectionsRenderer: exposed a property to indicate whether a route is rendered or not.
+
 ## [2.0.0-beta11] 2018-03-21
 ### Fixed
 - Less strict internal data parsing, ensuring that some location properties can be omitted
