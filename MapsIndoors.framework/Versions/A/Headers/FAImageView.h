@@ -28,7 +28,6 @@
 
 #import <UIKit/UIKit.h>
 #import "NSString+FontAwesome.h"
-/// :nodoc:
 DEPRECATED_ATTRIBUTE
 @interface FAImageView : UIImageView
 

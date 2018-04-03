@@ -7,33 +7,34 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Fixed
 ### Changed
 ### Removed
- -->
- ## [2.0.0-beta11] 2018-03-21
- ### Fixed
- - Less strict internal data parsing, ensuring that some location properties can be omitted
- 
- ## [2.0.0-beta10] 2018-03-21
- ### Added
- - On-device route calculation optionally with routing-data embedded into the app.
- - Fetching of all MapsIndoors content now possible using `[MapsIndoors synchroniseContent:]`
- - Fetching and bundling of all MapsIndoors content now possible using build run script phase
- 
- ### Fixed
- - Fixed an error where directions service would crash if no API key was properly set
- - Fixed an error where map graphics was not loaded properly
- - Fixed an error where updating of a display rule would unintentionally persist across initialisations of `MPMapControl`
- - Fixed an error where fetching of messages failed because of mal-formatted language
- - Fixed callback issues when calling multiple route requests simultaneously
- 
- ### Changed
- - Changed initialisation steps, see [Getting Started](https://mapsindoors.github.io/ios/v2)
- - Added `MPDirectionsQuery` and new method to query routes on `MPDirectionsService`
- - Deprecations introduced on various methods
- - Deprecations introduced on various UI controls
- 
- ### Removed
- - All beacon positioning related logic (moved to public app code)
- - Made peripheral code private that was public before
+-->
+
+## [2.0.0-beta11] 2018-03-21
+### Fixed
+- Less strict internal data parsing, ensuring that some location properties can be omitted
+
+## [2.0.0-beta10] 2018-03-21
+### Added
+- On-device route calculation optionally with routing-data embedded into the app.
+- Fetching of all MapsIndoors content now possible using `[MapsIndoors synchroniseContent:]`
+- Fetching and bundling of all MapsIndoors content now possible using build run script phase
+
+### Fixed
+- Fixed an error where directions service would crash if no API key was properly set
+- Fixed an error where map graphics was not loaded properly
+- Fixed an error where updating of a display rule would unintentionally persist across initialisations of `MPMapControl`
+- Fixed an error where fetching of messages failed because of mal-formatted language
+- Fixed callback issues when calling multiple route requests simultaneously
+
+### Changed
+- Changed initialisation steps, see [Getting Started](https://mapsindoors.github.io/ios/v2)
+- Added `MPDirectionsQuery` and new method to query routes on `MPDirectionsService`
+- Deprecations introduced on various methods
+- Deprecations introduced on various UI controls
+
+### Removed
+- All beacon positioning related logic (moved to public app code)
+- Made peripheral code private that was public before
 
 ## [2.0.0-alpha94] - 2018-03-17
 ### Fixed

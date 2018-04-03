@@ -48,6 +48,11 @@ typedef NS_ENUM(NSUInteger, MPDirectionsRenderFit) {
 @property (nonatomic) MPDirectionsRenderFit fitMode;
 @property (nonatomic) UIEdgeInsets edgeInsets;
 
+/**
+ Indicates whether the renderer is currently showing a route or not.
+ */
+@property (nonatomic, readonly) BOOL    isRenderingRoute;
+
 - (void)animate:(NSTimeInterval)duration;
 
 
