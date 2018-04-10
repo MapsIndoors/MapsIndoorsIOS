@@ -9,6 +9,11 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [2.0.0-beta16] 2018-04-10
+### Fixed
+- Performance improvements by delegating image rendering to background queue.
+- Improvements in CPU load and battery consumption.
+
 ## [2.0.0-beta14] 2018-03-21
 ### Fixed
 - MPDirectionsRenderer: exposed a property to indicate whether a route is rendered or not.
