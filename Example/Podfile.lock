@@ -30,7 +30,7 @@ PODS:
   - GoogleMaps/Maps (2.6.0):
     - GoogleMaps/Base
   - HashBuilder (1.0.1)
-  - MapsIndoors (2.0.0-beta14):
+  - MapsIndoors (2.0.0-beta15):
     - GoogleMaps (= 2.6)
   - MaterialControls (1.2.2)
   - VCMaterialDesignIcons (2.1.1)
@@ -54,7 +54,7 @@ SPEC CHECKSUMS:
   GoogleFontsiOS: 9f4a4f886160d8cb723bd936604b3f6b975f1167
   GoogleMaps: 42f91c68b7fa2f84d5c86597b18ceb99f5414c7f
   HashBuilder: d2f6cbd492c68350bbcf0fa2216aae50b60657d5
-  MapsIndoors: b5760a51fc9b39bf4b25b328cdbeaa566d48c544
+  MapsIndoors: 5fb2985af6ea8018d634596384c1a0e3073301d7
   MaterialControls: 1c6b29e78d3a13d8dd6a67ed31b6d26eb5de8f72
   VCMaterialDesignIcons: 68a944308ab41282ba8555770cb57e3fbf2034be
 

@@ -99,6 +99,7 @@
  @param  map The map that will hold the marker.
  */
 - (void)addToMap:(GMSMapView*) map;
+
 /**
  Add the location to a map with given display rules.
  @param  map The map that will hold the marker.
@@ -106,6 +107,7 @@
    @see MPLocationDisplayRuleset
  */
 - (void)addToMap:(GMSMapView*) map WithRules:(MPLocationDisplayRuleset*) displayRuleset;
+
 /**
  Add the location to a map with given display rules.
  @param  map The map that will hold the marker.
@@ -113,7 +115,9 @@
  @param  displayRuleset The display ruleset that defines the display of the marker.
    @see MPLocationDisplayRuleset
  */
-- (void)addToMap:(GMSMapView*) map floor:(int)floor WithRules:(MPLocationDisplayRuleset*) displayRuleset;/**
+- (void)addToMap:(GMSMapView*) map floor:(int)floor WithRules:(MPLocationDisplayRuleset*) displayRuleset;
+
+/**
  Update the location on a map with given display rules.
  @param  map The map that triggered the update.
  @param  displayRuleset The display ruleset that defines the display of the marker.
@@ -121,6 +125,7 @@
    @see MPLocationDisplayRuleset
  */
 - (void)updateView:(GMSMapView*) map floor:(int)floor displayRules:(MPLocationDisplayRuleset*) displayRuleset;
+
 /**
  Create a label image with a given text.
  @param  text The text to label with.

@@ -59,7 +59,7 @@ typedef void(^mpLocationListHandlerBlockType)(MPLocationDataset* locationData, N
  @param  language The language code. Must be one of the MapsIndoors solutions supported content languages.
  @param  handler The handler callback block. Contains the MPLocation object (can be nil) and an NSError object (can be nil).
  */
-- (void)getLocationsAsync: (NSString*) solutionId language: (NSString*) language completionHandler: (mpLocationListHandlerBlockType) handler MP_DEPRECATED_MSG_ATTRIBUTE("Use getLocationsCompletionHandler instead");
+- (void)getLocationsAsync: (NSString*) solutionId language: (NSString*) language completionHandler: (mpLocationListHandlerBlockType) handler MP_DEPRECATED_MSG_ATTRIBUTE("Use getLocationsWithCompletion instead");
 
 /**
  Method to initiate fetching of all locations from the provider in the current transation ([MapsIndoors getLanguage]).
