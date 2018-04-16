@@ -55,12 +55,12 @@ class DemosUITests: XCTestCase {
         app.otherElements.containing(.navigationBar, identifier:"Demos.ShowMyLocation").element.swipeUp()
         app.navigationBars["Demos.ShowMyLocation"].buttons["MapsIndoors Demos"].tap()
         
-        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts[" Search Map Demo"]/*[[".cells.staticTexts[\" Search Map Demo\"]",".staticTexts[\" Search Map Demo\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app.buttons["Search"].tap()
-        app.tables["Empty list"].children(matching: .searchField).element.tap()
-        app.searchFields.element(boundBy: 0).typeText("park")
-        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Parking 1"]/*[[".cells.staticTexts[\"Parking 1\"]",".staticTexts[\"Parking 1\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app.navigationBars["Demos.SearchMap"].buttons["MapsIndoors Demos"].tap()
+//        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts[" Search Map Demo"]/*[[".cells.staticTexts[\" Search Map Demo\"]",".staticTexts[\" Search Map Demo\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+//        app.buttons["Search"].tap()
+//        app.tables["Empty list"].children(matching: .searchField).element.tap()
+//        app.searchFields.element(boundBy: 0).typeText("park")
+//        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Parking 1"]/*[[".cells.staticTexts[\"Parking 1\"]",".staticTexts[\"Parking 1\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+//        app.navigationBars["Demos.SearchMap"].buttons["MapsIndoors Demos"].tap()
 
         tablesQuery/*@START_MENU_TOKEN@*/.staticTexts[" Multiple Datasets Demo"]/*[[".cells.staticTexts[\" Multiple Datasets Demo\"]",".staticTexts[\" Multiple Datasets Demo\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Stigsborgvej"]/*[[".cells.staticTexts[\"Stigsborgvej\"]",".staticTexts[\"Stigsborgvej\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
