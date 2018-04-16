@@ -96,9 +96,12 @@ class MapsIndoors_App_UITests: XCTestCase {
                             snapshot("6-Directions-Init\(self.solutionId!)")
                             
                             let scrollViewsQuery = app.scrollViews
+                            let sv = scrollViewsQuery.element(boundBy: 0)
+                            sv.swipeDown()
                             let elementsQuery = scrollViewsQuery.otherElements
-                            elementsQuery.buttons.element(boundBy: 0).tap()
-                            
+                            let btn = elementsQuery.buttons["chooseStartingPointButton"]
+                            btn.tap()
+
                             app.navigationBars["NoCancelButtonSearch"].searchFields["Search"].typeText((locationData?.list[1].name)!)
                             
                             snapshot("7-Choose-Origin-\(self.solutionId!)")
