@@ -1,0 +1,110 @@
+
+/*
+ Localizable.strings
+ MapsIndoorsSDK
+ 
+ Created by Daniel Nielsen on 02/08/16.
+ Copyright © 2017 MapsPeople. All rights reserved.
+ */
+"Language" = "Language";
+"Level" = "Level";
+"Level %@" = "Level %@";
+"OK" = "OK";
+"Get directions" = "Get directions";
+"Origin" = "Starting point";
+"Destination" = "Destination";
+"Choose destination" = "Choose destination";
+"Choose starting point" = "Choose starting point";
+"Map" = "Map";
+"Categories" = "Categories";
+"Search" = "Search";
+"Search %@" = "Search for %@";
+"Show on map" = "Show on map";
+"Estimated: %@" = "Estimated: %@";
+"From %@" = "from %@";
+"Next" = "Next";
+"Previous" = "Previous";
+"My position" = "My position";
+"Searching for '%@'" = "Searching for '%@'";
+"Cancel" = "Cancel";
+"Select Venue" = "Select Venue";
+"Search Result" = "Search Result";
+"Avoid stairs" = "Avoid stairs";
+"Sorry, failed to get app content..." = "Sorry, failed to get app content...";
+"Sorry, failed to get locations..." = "Sorry, failed to get locations...";
+"Sorry, failed to get location details..." = "Sorry, failed to get location details...";
+"Sorry, failed to get directions..." = "Sorry, failed to get directions...";
+"Get directions" = "Directions";
+"Zoom for more details" = "Zoom for more details";
+"RETURN TO VENUE" = "RETURN TO VENUE";
+
+"%d min" = "%d min";
+"%d h %d min" = "%d h %d min";
+"%d d %d h %d min" = "%d d %d h %d min";
+
+"walk" = "walk";
+"by car" = "by car";
+"transit" = "transit";
+"by bike" = "by bike";
+
+"Get feedback?" = "Got feedback?";
+"Send us an email" = "Send us an email";
+"Please enable WIFI" = "Please enable WIFI";
+"In order to determine your position WIFI must be enabled and the phone must be connected to the Wifi network" = "In order to determine your position WIFI must be enabled and the phone must be connected to the Wifi network";
+
+"Welcome to the map service of MapsPeople" = "Welcome to the map service of MapsPeople";
+"Buildings and rooms are being loaded" = "Buildings and rooms are being loaded";
+
+"No matches for \"%@\"" = "No matches for \"%@\"";
+"No locations to show" = "No locations to show";
+"Use the search to search across\n%@" = "Use the search to search across\n%@";
+"Search for locations indoors and outdoors" = "Search for locations indoors and outdoors";
+"No route found" = "No route found"; 
+
+// App Information screen:
+"App Information" = "App Information";
+"App Version" = "App Version";
+"Credits" = "Credits";
+"License: %@" = "License: %@";
+"App" = "App";
+"SDK" = "SDK";
+
+// Location services alerts
+"Location Services are disabled" = "Location Services are disabled";
+"Please turn on your phone's location services from privacy settings for us to determine your location." = "Please turn on your phone's location services from privacy settings for us to determine your location.";
+"Please turn on location services for %@ to determine your location." = "Please turn on location services for %@ to determine your location.";
+"Turn On" = "Turn On";
+
+//
+"  Clear Map  " = "  Clear Map  ";
+
+// Transit sources:
+"Tickets and information (%@)" = "Tickets and information (%@)";
+"Tickets and information" = "Tickets and information";
+
+// Floating action menu
+"Find" = "Find";
+
+// Offline UI
+"No internet, unable to update map" = "No internet, unable to update map";
+"OFFLINE - TRY TO RECONNECT" = "OFFLINE - TRY TO RECONNECT";
+"OFFLINE - Previously loaded content available" = "No internet - Content from last use is available";
+"OFFLINE - Failed to get app content" = "OFFLINE - Failed to get app content";
+"No Internet" = "No Internet";
+"kLangNoInternetMessage" = "Your device appears to be offline.\nPlease disable flight mode or enable WiFi\n\nMoving to an alternate location can also improve the network connectivity";
+"No Internet - not showing Google results" = "No Internet - not showing Google results";
+
+// Directions panel
+"▼ Directions" = "▼ Directions";
+"▲ Directions" = "▲ Directions";
+"Level %@ to %@" = "Level %@ to %@";
+"Enter" = "Enter";
+"Exit" = "Exit";
+"Stairs" = "Stairs";
+"Start" = "Start";
+"End" = "End";
+"Walk" = "Walk";
+"Bike" = "Bike";
+"Drive" = "Drive";
+"Transit" = "Transit";
+

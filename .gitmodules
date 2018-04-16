@@ -1,4 +1,0 @@
-[submodule "Example/DemoSamples"]
-	path = Example/DemoSamples
-url=https://github.com/MapsIndoors/MapsIndoorsIOS-Demo-Samples.git
-	branch = master

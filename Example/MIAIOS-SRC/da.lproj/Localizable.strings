@@ -1,0 +1,130 @@
+
+/*
+ Localizable.strings
+ MapsIndoorsSDK
+ 
+ Created by Daniel Nielsen on 02/08/16.
+ Copyright © 2017 MapsPeople. All rights reserved.
+ */
+"Language" = "Sprog";
+"Level" = "Etage";
+"Level %@" = "Etage %@";
+"OK" = "OK";
+"Get directions" = "Find vej";
+"Origin" = "Start";
+"Destination" = "Destination";
+"Choose destination" = "Vælg destination";
+"Choose starting point" = "Vælg udgangspunkt";
+"Map" = "Kort";
+"Categories" = "Kategorier";
+"Search" = "Søg";
+"Search %@" = "Søg efter %@";
+"Show on map" = "Vis på kort";
+"Estimated: %@" = "Estimeret: %@";
+"From %@" = "Fra %@";
+"Next" = "Næste";
+"Previous" = "Forrige";
+"My position" = "Min placering";
+"Searching for '%@'" = "Søger efter '%@'";
+"Cancel" = "Annullér";
+"Select Venue" = "Vælg sted";
+"Search Result" = "Søgeresultat";
+"Avoid stairs" = "Undgå trapper";
+"Sorry, failed to get app content..." = "Kunne ikke hente app indhold...";
+"Sorry, failed to get locations..." = "Kunne ikke hente stedet...";
+"Sorry, failed to get location details..." = "Kunne ikke hente detailjer om stedet...";
+"Sorry, failed to get directions..." = "Kunne ikke hente rute...";
+"Get directions" = "Rute";
+"Zoom for more details" = "Zoom ind for detaljer";
+"RETURN TO VENUE" = "Vend tilbage";
+
+"%d min"            = "%d min";
+"%d h"              = "%d t";
+"%d h %d min"       = "%d t %d min";
+"%d d"              = "%d d";
+"%d d %d h"         = "%d d %d t";
+"%d d %d h %d min"  = "%d d %d t %d min";
+
+"walk" = "gang";
+"by car" = "i bil";
+"transit" = "off. transport";
+"by transit" = "med off. transport";
+"by bike" = "på cykel";
+
+"Get feedback?" = "Har du feedback?";
+"Send us an email" = "Send os en email";
+"Please enable WIFI" = "Aktivér venligst WIFI";
+"In order to determine your position WIFI must be enabled and the phone must be connected to the Wifi network" = "For at afgøre din placering bør WIFI være aktiveret og enheden skal være tilsluttet det trådløse netværk";
+
+"Welcome to the map service of MapsPeople" = "Velkommen til MapsPeople's vejviser app";
+"Buildings and rooms are being loaded" = "Bygninger og rum loades og tegnes...";
+
+"No matches for \"%@\"" = "Ingen resultater for \"%@\"";
+"No locations to show" = "Ingen steder fundet";
+"Use the search to search across\n%@" = "Brug søgefeltet til at søge på\n%@";
+"Search for locations indoors and outdoors" = "Søg efter indendørs og udendørs lokationer";
+"No route found" = "Fandt ingen rute";
+
+// App Information screen:
+"App Information" = "App information";
+"App Version" = "App version";
+"Credits" = "Anerkendelser";
+"License: %@" = "Licens: %@";
+
+// Location services alerts
+"Location Services are disabled" = "Lokationstjenester er slået fra";
+"Please turn on your phone's location services from privacy settings for us to determine your location." = "Slå lokationstjenester til for at appen kan bestemme din position";
+"Please turn on location services for %@ to determine your location." = "Slå lokationstjenester til for at %@ kan bestemme din position.";
+"Turn On" = "Slå til";
+
+//
+"  Clear Map  " = "  Ryd kort  ";
+
+// Transit sources:
+"Tickets and information (%@)" = "Billetter og information (%@)";
+"Tickets and information" = "Billetter og information";
+
+// Floating action menu
+"Find" = "Find";
+
+// Offline UI
+"No internet, unable to update map" = "Intet internet, kan ikke hente kortdata";
+"OFFLINE - TRY TO RECONNECT" = "OFFLINE - FORSØG AT FORBINDE";
+"OFFLINE - Previously loaded content available" = "OFFLINE - tidligere hentet data er tilgængeligt";
+"OFFLINE - Failed to get app content" = "OFFLINE - kunne ikke hente app indhold";
+"No Internet" = "Ingen Internet forbindelse";
+"kLangNoInternetMessage" = "Din iPhone/iPad ser ud til at være offline.\nSlå fly-tilstand fra eller WiFi til\n\nFlyt evt til en anden placering for at få bedre internet-forbindelse.";
+"No Internet - not showing Google results" = "Ingen Internet forbindelse - viser ikke Google resultater";
+
+// Directions panel
+"▼ Directions" = "▼ Instrukser";
+"▲ Directions" = "▲ Instrukser";
+"Level %@ to %@" = "Etage %@ til %@";
+"Enter" = "Gå ind";
+"Exit" = "Gå ud";
+"Stairs" = "Trapper";
+"Escalator" = "Rulletrapper";
+"Start" = "Start";
+"End" = "Slut";
+"Walk" = "Gå";
+"Bike" = "Kør";
+"Drive" = "Kør";
+"Transit" = "Transit";
+"Turn left" = "Tag til venstre";
+"Turn right" = "Tag til højre";
+"Turn sharp left" = "Tag skarpt til venstre";
+"Turn sharp right" = "Tag skarpt til højre";
+"Turn slight left" = "Tag lidt til venstre";
+"Turn slight right" = "Tag lidt til højre";
+"Turn around" = "Vend om";
+"Continue straight ahead" = "Fortsæt ligeud";
+
+// Transit sources
+"Website" = "Web";
+"Phone" = "Telefon";
+"Open in Safari ?" = "Åbn i Safari ?";
+"Open" = "Åbn";
+"Phone number copied to clipboard" = "Telefonnummer kopieret til clipboard";
+
+// Directions
+"%d stops (%@)" = "%d stop (%@)";
