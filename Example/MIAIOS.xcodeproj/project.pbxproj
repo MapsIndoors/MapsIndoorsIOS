@@ -210,7 +210,6 @@
 		30300A8420739FEC00BC24BE /* ShowRouteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowRouteController.swift; sourceTree = "<group>"; };
 		30300A8520739FEC00BC24BE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30300A8620739FEC00BC24BE /* Demos-ObjCHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Demos-ObjCHeader.h"; sourceTree = "<group>"; };
-		303784912064EFD7006A910B /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
 		3042EB451F8FA3F8002D8B2C /* AppInfoAcknowledgementViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppInfoAcknowledgementViewController.h; sourceTree = "<group>"; };
 		3042EB461F8FA3F8002D8B2C /* AppInfoAcknowledgementViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppInfoAcknowledgementViewController.m; sourceTree = "<group>"; };
 		304CCE0B2010AD91000A7B9D /* MPQuickAccessPointsProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPQuickAccessPointsProvider.h; sourceTree = "<group>"; };
@@ -699,7 +698,6 @@
 				30300A5E20739FEC00BC24BE /* DemoSamples */,
 				30D17D2020765BD400A6D666 /* DemosUITests */,
 				A25BDFAD1EF3B0FD002681B9 /* Products */,
-				303784912064EFD7006A910B /* Scripts */,
 				D6F23D8AF087E5FF0CB1B030 /* Frameworks */,
 				293ADB39C7DCF3F6B86253AF /* Pods */,
 			);
@@ -1105,58 +1103,17 @@
 						DevelopmentTeam = A8V6656PYZ;
 						ProvisioningStyle = Automatic;
 					};
-					303784952064F4F8006A910B = {
-						CreatedOnToolsVersion = 9.2;
-						DevelopmentTeam = A8V6656PYZ;
-						ProvisioningStyle = Automatic;
-					};
-					30781351201F295D0081822C = {
-						DevelopmentTeam = J52ZK485XC;
-						ProvisioningStyle = Manual;
-					};
 					30D17D1E20765BD400A6D666 = {
 						CreatedOnToolsVersion = 9.2;
 						DevelopmentTeam = A8V6656PYZ;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 30300A4B20739FA800BC24BE;
 					};
-					30FB4BBF1F4C4E310004D23F = {
-						DevelopmentTeam = JM4VAH5VQN;
-					};
-					A24D39C11FB1A807005F4F7D = {
-						DevelopmentTeam = A8V6656PYZ;
-						ProvisioningStyle = Automatic;
-					};
 					A25BDFCA1EF3B0FD002681B9 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = A8V6656PYZ;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 302B0BB7206539F5009C7BF9;
-					};
-					A26895691F56B45000D27A9E = {
-						DevelopmentTeam = A8V6656PYZ;
-					};
-					A2900C331F8CBB8A0008C556 = {
-						CreatedOnToolsVersion = 9.0;
-						DevelopmentTeam = A8V6656PYZ;
-						ProvisioningStyle = Automatic;
-						TestTargetID = A25BDFAB1EF3B0FD002681B9;
-					};
-					A29684661F8E1A78008B1942 = {
-						DevelopmentTeam = A8V6656PYZ;
-						ProvisioningStyle = Automatic;
-					};
-					A29849381F14A94F000C6D22 = {
-						DevelopmentTeam = Y9ED767H7S;
-						ProvisioningStyle = Automatic;
-					};
-					A2BAE57A1F39D60000A1ECC2 = {
-						DevelopmentTeam = AYB8JQ786C;
-						ProvisioningStyle = Automatic;
-					};
-					A2EFC1371EF801BF00902AE4 = {
-						DevelopmentTeam = A8V6656PYZ;
-						ProvisioningStyle = Automatic;
 					};
 				};
 			};
