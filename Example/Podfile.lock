@@ -30,12 +30,12 @@ PODS:
   - GoogleMaps/Base (2.6.0)
   - GoogleMaps/Maps (2.6.0):
     - GoogleMaps/Base
-  - GoogleToolboxForMac/Defines (2.1.3)
-  - GoogleToolboxForMac/NSData+zlib (2.1.3):
-    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - GoogleToolboxForMac/Defines (2.1.4)
+  - GoogleToolboxForMac/NSData+zlib (2.1.4):
+    - GoogleToolboxForMac/Defines (= 2.1.4)
   - HashBuilder (1.0.1)
   - KVOController (1.2.0)
-  - MapsIndoors (2.0.1-rc3):
+  - MapsIndoors (2.0.1-rc5):
     - GoogleMaps (= 2.6)
   - MaterialControls (1.2.2)
   - nanopb (0.3.8):
@@ -87,10 +87,10 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 8d20d890d65c917f9f7d9950b6e10a760ad34321
   GoogleFontsiOS: 9f4a4f886160d8cb723bd936604b3f6b975f1167
   GoogleMaps: 42f91c68b7fa2f84d5c86597b18ceb99f5414c7f
-  GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
+  GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   HashBuilder: d2f6cbd492c68350bbcf0fa2216aae50b60657d5
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
-  MapsIndoors: a8e83f5da47ea5601a7fff1f4a97ab8c841c794b
+  MapsIndoors: c348c9cadfa19ba530dae74b80f2237960031f25
   MaterialControls: 1c6b29e78d3a13d8dd6a67ed31b6d26eb5de8f72
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd

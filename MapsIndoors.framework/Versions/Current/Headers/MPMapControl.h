@@ -250,11 +250,41 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
   Adding a rule with a name, will override a more general rule
  */
 - (void)addDisplayRule:(MPLocationDisplayRule*)rule;
+
+/**
+ Add multiple lcoation display rules.
+ @sa addDisplayRule
+
+ @param rules Array of displayrules to add.
+ */
 - (void)addDisplayRules:(NSArray<MPLocationDisplayRule*>*)rules;
+
+/**
+ Deprecated, Use MapsIndoors.positionProvider instead
+
+ @param provider
+ */
 - (void)addPositionProvider:(id<MPPositionProvider>)provider MP_DEPRECATED_MSG_ATTRIBUTE("Use MapsIndoors.positionProvider instead");
+
 - (void)clearTileCache;
+
+/**
+ Remove all markers associated with search results and selected location from the map.
+ */
 - (void)clearMap;
+
+/**
+ Show or hide the user position marker.
+
+ @param show show/hide
+ */
 - (void)showUserPosition:(BOOL)show;
+
+/**
+ Focus the map on the given location.
+
+ @param location The location to show on the map.
+ */
 - (void)goTo:(MPLocation*)location;
-- (void)updateViews:(NSNotification *)notification;
+
 @end

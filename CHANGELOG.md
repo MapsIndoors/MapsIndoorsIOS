@@ -9,9 +9,11 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [2.0.1-rc3] 2018-04-23
+## [2.0.1-rc5] 2018-04-26
 ### Added
 ### Fixed
+- POI Labels were not shown on the map.
+- Selected location not cleared after clearing map (-[MPMapControl clearMap]).
 ### Changed
 - Animation speed when showing directions is now adapting the the amount of movement and rotation needed for transitioning between steps.
 ### Removed
