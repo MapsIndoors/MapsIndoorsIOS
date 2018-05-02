@@ -9,7 +9,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [2.0.1-rc5] 2018-04-26
+## [2.0.1-rc6] 2018-05-02
 ### Added
 ### Fixed
 - POI Labels were not shown on the map.

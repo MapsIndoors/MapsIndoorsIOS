@@ -262,7 +262,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 /**
  Deprecated, Use MapsIndoors.positionProvider instead
 
- @param provider
+ @param provider positioning provider to register with MPMapControl.
  */
 - (void)addPositionProvider:(id<MPPositionProvider>)provider MP_DEPRECATED_MSG_ATTRIBUTE("Use MapsIndoors.positionProvider instead");
 
