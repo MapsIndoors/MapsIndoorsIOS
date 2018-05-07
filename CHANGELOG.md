@@ -9,6 +9,15 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [2.0.2-rc1] 2018-05-02
+### Added
+### Fixed
+- Fixed logic that selects the current building in focus
+### Changed
+- Improved map graphics used for cases when there are no bundled map graphics
+- Improved Google Maps directions integration / handover from Google Maps to MapsIndoors
+### Removed
+
 ## [2.0.1-rc6] 2018-05-02
 ### Added
 ### Fixed
