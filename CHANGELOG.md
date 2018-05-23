@@ -9,6 +9,18 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [2.0.3] 2018-05-23
+### Fixed
+- Fixed logic that selects the current building in focus
+- POI Labels were not shown on the map.
+- Selected location not cleared after clearing map `-[MPMapControl clearMap]`.
+- Fixed route animation graphics glitch
+- Fixed internal geometry calculation that could cause `MPDirectionsRenderer` to crash when rendering
+### Changed
+- Improved map graphics used for cases when there are no bundled map graphics
+- Improved Google Maps directions integration / handover from Google Maps to MapsIndoors
+- Animation speed when showing directions is now adapting the the amount of movement and rotation needed for transitioning between steps.
+
 ## [2.0.2-rc1] 2018-05-02
 ### Added
 ### Fixed
@@ -22,7 +34,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Added
 ### Fixed
 - POI Labels were not shown on the map.
-- Selected location not cleared after clearing map (-[MPMapControl clearMap]).
+- Selected location not cleared after clearing map `-[MPMapControl clearMap]`.
 ### Changed
 - Animation speed when showing directions is now adapting the the amount of movement and rotation needed for transitioning between steps.
 ### Removed
