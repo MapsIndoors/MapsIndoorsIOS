@@ -13,6 +13,4 @@
  */
 @interface MPLineGeometry : MPGeometry
 
-@property NSArray* bbox;
-
 @end

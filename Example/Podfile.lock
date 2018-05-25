@@ -6,10 +6,10 @@ PODS:
   - CocoaLumberjack/Default (3.4.2)
   - CocoaLumberjack/Extensions (3.4.2):
     - CocoaLumberjack/Default
-  - Crashlytics (3.10.1):
-    - Fabric (~> 1.7.5)
+  - Crashlytics (3.10.2):
+    - Fabric (~> 1.7.7)
   - DZNEmptyDataSet (1.8.1)
-  - Fabric (1.7.6)
+  - Fabric (1.7.7)
   - Firebase/Core (5.0.1):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 5.0.0)
@@ -37,7 +37,7 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - HashBuilder (1.0.1)
   - KVOController (1.2.0)
-  - MapsIndoors (2.0.3-rc1):
+  - MapsIndoors (2.0.3-rc2):
     - GoogleMaps (= 2.6)
   - MaterialControls (1.2.2)
   - nanopb (0.3.8):
@@ -101,9 +101,9 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
-  Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
+  Crashlytics: 0360624eea1c978a743feddb2fb1ef8b37fb7a0d
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
+  Fabric: bda89e242bce1b7b8ab264248cf3407774ce0095
   Firebase: d6861c2059d8c32d1e6dd8932e22ada346d90a3a
   FirebaseAnalytics: 19812b49fa5f283dd6b23edf8a14b5d477029ab8
   FirebaseCore: cafc814b2d84fc8733f09e653041cc2165332ad7
@@ -113,7 +113,7 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   HashBuilder: d2f6cbd492c68350bbcf0fa2216aae50b60657d5
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
-  MapsIndoors: 3bd26f757d795ad91c51e51fe54eb93a5d11640b
+  MapsIndoors: fcca01883cab7f22441f1cba77bdb61be214dcde
   MaterialControls: 1c6b29e78d3a13d8dd6a67ed31b6d26eb5de8f72
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd

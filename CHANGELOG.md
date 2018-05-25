@@ -12,9 +12,10 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ## [2.0.3] 2018-05-23
 ### Fixed
 - Fixed logic that selects the current building in focus
-- POI Labels were not shown on the map.
+- POI Labels were not shown on the map
 - Selected location not cleared after clearing map `-[MPMapControl clearMap]`.
 - Fixed route animation graphics glitch
+- Fixed casing intolerance when retrieving route networks for route calculation
 - Fixed internal geometry calculation that could cause `MPDirectionsRenderer` to crash when rendering
 ### Changed
 - Improved map graphics used for cases when there are no bundled map graphics
