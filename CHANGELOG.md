@@ -21,6 +21,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 - Improved map graphics used for cases when there are no bundled map graphics
 - Improved Google Maps directions integration / handover from Google Maps to MapsIndoors
 - Animation speed when showing directions is now adapting the the amount of movement and rotation needed for transitioning between steps.
+- Moved MapsPeople logo to the lower right side of the map.
 
 ## [2.0.2-rc1] 2018-05-02
 ### Added
