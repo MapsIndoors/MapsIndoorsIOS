@@ -9,7 +9,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [2.0.3] 2018-05-23
+## [2.0.3] 2018-06-08
 ### Fixed
 - Fixed logic that selects the current building in focus
 - POI Labels were not shown on the map
@@ -17,6 +17,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 - Fixed route animation graphics glitch
 - Fixed casing intolerance when retrieving route networks for route calculation
 - Fixed internal geometry calculation that could cause `MPDirectionsRenderer` to crash when rendering
+- Fixed inconsistent map search state caused by passing zero length array to `MPMapControl.searchResult`
 ### Changed
 - Improved map graphics used for cases when there are no bundled map graphics
 - Improved Google Maps directions integration / handover from Google Maps to MapsIndoors
