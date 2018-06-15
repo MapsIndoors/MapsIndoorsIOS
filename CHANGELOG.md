@@ -9,7 +9,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [2.0.3] 2018-06-08
+## [2.0.3] 2018-06-15
 ### Fixed
 - Fixed logic that selects the current building in focus
 - POI Labels were not shown on the map

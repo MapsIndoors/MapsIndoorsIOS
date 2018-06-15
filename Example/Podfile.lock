@@ -37,7 +37,7 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - HashBuilder (1.0.1)
   - KVOController (1.2.0)
-  - MapsIndoors (2.0.3-rc4):
+  - MapsIndoors (2.0.3):
     - GoogleMaps (= 2.6)
   - MaterialControls (1.2.2)
   - nanopb (0.3.8):
@@ -66,7 +66,7 @@ DEPENDENCIES:
   - VCMaterialDesignIcons (~> 2.1)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - AFNetworking
     - CocoaLumberjack
     - Crashlytics
@@ -113,7 +113,7 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   HashBuilder: d2f6cbd492c68350bbcf0fa2216aae50b60657d5
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
-  MapsIndoors: 4e3543603f200892f36454612d6cdba168b02f9b
+  MapsIndoors: a861ecf0231a8524ed65c318339a4480951e9057
   MaterialControls: 1c6b29e78d3a13d8dd6a67ed31b6d26eb5de8f72
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
@@ -122,4 +122,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 1dbdfcbe3381667d5a6ba54e7966f098f8087ee0
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3
