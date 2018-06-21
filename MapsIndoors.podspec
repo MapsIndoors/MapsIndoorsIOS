@@ -23,17 +23,12 @@ LICENSE
   s.author           = { "MapsPeople" => "info@mapspeople.com" }
   s.source           = { :git => "https://github.com/MapsIndoors/MapsIndoorsIOS.git", :tag => s.version.to_s, :submodules => true }
 
-#s.source_files = ['Source/*/*.swift']
-
-  s.dependency 'GoogleMaps', '2.6'
-  #s.dependency 'Gloss', '1.1.1'
-  #s.dependency 'Zip', '0.6.0'
+  s.dependency 'GoogleMaps', '2.7'
 
   s.frameworks = "UserNotifications", "GameplayKit"
 
   s.ios.deployment_target    = '9.0'
   s.ios.preserve_paths = ['MapsIndoors.framework','Scripts']
-  #s.ios.public_header_files  = 'MapsIndoors.framework/Versions/A/Headers/*.h'
   s.ios.vendored_frameworks  = 'MapsIndoors.framework'#, 'MapsIndoorsSwift.framework'
   s.resources = ['MapsIndoors.framework/Versions/A/Resources/MapsIndoors.bundle']
 
