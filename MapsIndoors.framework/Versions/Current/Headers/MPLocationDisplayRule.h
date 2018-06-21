@@ -36,10 +36,22 @@
  Label template for the resulting location marker - e.g. "{{name}}", "{{roomId}}", "Room #{{roomId}}" etc..
  */
 @property (nonatomic) NSString* label;
+
 /**
  The highlight outline color.
  */
 @property (nonatomic) UIColor<Optional>* highlightOutlineColor;
+
+/**
+ The highlight fill color.
+ */
+@property (nonatomic) UIColor<Optional>* highlightFillColor;
+
+/**
+ The highlight stroke width.
+ */
+@property (nonatomic) NSNumber<Optional>* highlightStrokeWidth;
+
 /**
  The marker icon to use on markers that apply to the display rule.
  */

@@ -36,16 +36,13 @@ FOUNDATION_EXPORT double MapsIndoorsVNum;
 //! Project version string for MapsIndoors.
 FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 
-//@protocol MPLocatorDelegate <NSObject>
-//@required
-//- (void) MPLocator: onRouteChange;
-//@end
-
 /**
   Empty protocol specification.
  */
 @protocol MPOnlineTileLayer
 @end
+
+
 /**
   Delegate protocol specification to hold the floor change event.
  */
@@ -106,6 +103,21 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
  */
 @optional
 - (BOOL) allowAutomaticSwitchToFloor:(NSNumber*)toFloor;
+
+/**
+ Called when the user taps the map.
+ 
+ If this delegate-method is *not* implemented, MPMapControl's default behaviour is used.
+ If this method is implemented, returning YES will still invoke default baheviour.
+ 
+ The default handling by MPMapControl is to select the first item in the locations-list, and add a highlight to the area of the location.
+
+ @param coordinate Tap coordinate
+ @param locations List of MPLocations at that point
+ @return YES to invoke default behaviour, NO to disable default behaviour.
+ */
+@optional
+- (BOOL) didTapAtCoordinate:(CLLocationCoordinate2D)coordinate withLocations:(NSArray<MPLocation*>*)locations;
 
 @end
 
@@ -260,6 +272,13 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 - (void)addDisplayRules:(NSArray<MPLocationDisplayRule*>*)rules;
 
 /**
+ The display rule used by MPMapControl to highlight the selected location.
+ Created and added by MPMapControl during initialization.
+ Modify this displayrule to change the visual appearance of the location highlight.
+ */
+@property (nonatomic, strong, readonly) MPLocationDisplayRule*      locationHighlightDisplayRule;
+
+/**
  Deprecated, Use MapsIndoors.positionProvider instead
 
  @param provider positioning provider to register with MPMapControl.
@@ -286,5 +305,16 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
  @param location The location to show on the map.
  */
 - (void)goTo:(MPLocation*)location;
+
+/**
+ Make sure the complete geometry of the given MPLocation is visible on the map.
+ If the location is fully visible, the visible area of the map is unchanged.
+ If the location is not fully visible, the map is centered around the location, and if needed zoomed.
+ This method does not change the shown floor.
+ The maps current bearing and vieweing angle is preserved.
+
+ @param location Location to show.
+ */
+- (void) showAreaOfLocation:(MPLocation*)location;
 
 @end

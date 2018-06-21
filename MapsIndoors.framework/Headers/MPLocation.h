@@ -80,7 +80,7 @@
 /**
  Geometry as a Lat/Long point.
  */
-@property (nonatomic) MPPoint *geometry;
+@property (nonatomic) MPPoint<Ignore> *geometry;
 /**
  Marker property used to display on map.
  */
@@ -152,5 +152,7 @@
 - (void)showTemporary:(GMSMapView*)map;
 - (void)hideTemporary;
 - (void)showDynamically;
+
+- (GMSCoordinateBounds*) getCoordinateBounds;
 
 @end

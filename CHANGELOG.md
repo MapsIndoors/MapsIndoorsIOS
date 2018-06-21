@@ -9,6 +9,11 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [2.1.0-alpha] 2018-06-21
+### Changed
+- Changed how icons and labels are shown on the map, so that no labels or icons are shown on top of each other (Icon & label collision handling)
+- Now able to show outlines of rooms and areas if the dataset is prepared for this
+
 ## [2.0.3] 2018-06-15
 ### Fixed
 - Fixed logic that selects the current building in focus
