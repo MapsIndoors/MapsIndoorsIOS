@@ -66,7 +66,6 @@
     
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     
-    Global.poiData = [[POIData alloc] init];
     Global.routingData = [RoutingData new];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLocationDetailTapped:) name:@"DetailFieldTapped" object:nil];
@@ -88,6 +87,8 @@
     self.topWindow.rootViewController = self.window.rootViewController;
     self.topWindow.windowLevel = UIWindowLevelNormal + 1;
     self.topWindow.hidden = NO;
+    
+    [MPNotificationsHelper setupNotificationsForApp:[UIApplication sharedApplication] withLocationManager:self.locationManager];
     
     return YES;
 }
@@ -145,7 +146,7 @@
     
     NSString *locationId = [self valueForKey:@"locationId" fromQueryItems:queryItems];
     if (locationId && locationId.length == 24)
-    [Global.poiData getLocationWithId:locationId];
+    [MapsIndoors.locationsProvider getLocationWithId:locationId];
     
     NSString *appColors = [self valueForKey:@"appColors" fromQueryItems:queryItems];
     if (appColors) {
@@ -157,6 +158,8 @@
         NSArray* posArr = [appColors componentsSeparatedByString:@","];
         Global.initialPosition = [[MPPoint alloc] initWithLat:[[posArr objectAtIndex:0] doubleValue] lon:[[posArr objectAtIndex:1] doubleValue]];
     }
+    
+    [MPNotificationsHelper setupNotificationsForApp:[UIApplication sharedApplication] withLocationManager:self.locationManager];
     
     return YES;
 }

@@ -11,7 +11,7 @@
 
 @interface MPCiscoPositionProvider : GPSPositionProvider
 
-- (instancetype)initWithServiceUrl: (NSString*) url;
+- (instancetype)initWithServiceUrl: (NSString*) url useBitShiftedIp: (BOOL) useBitShiftedIp;
 
 @property float interval;
 

@@ -59,7 +59,6 @@
 
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView*  spinner;
 @property (nonatomic) UIInterfaceOrientation            currentOrientation;
-@property (nonatomic, strong) MPLocationsProvider*      locations;
 @property (nonatomic, strong) MPLocation*               origin;
 @property (nonatomic, strong) MPLocation*               destination;
 
@@ -93,8 +92,6 @@
     [super viewDidLoad];
     
     _routing = Global.routingData;
-    
-    _locations = [MPLocationsProvider new];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRouteRequest) name:@"RoutingRequestStarted" object:nil];
     
@@ -325,7 +322,7 @@
             query.floor = 0;
             query.radius = [NSNumber numberWithInt:15];
             
-            [_locations getLocationsUsingQuery:query completionHandler:^(MPLocationDataset *locationData, NSError *error) {
+            [MapsIndoors.locationsProvider getLocationsUsingQuery:query completionHandler:^(MPLocationDataset *locationData, NSError *error) {
                 
                 if (locationData != nil && locationData.list.count == 1) {
                     self.origin = [locationData.list.firstObject copy];

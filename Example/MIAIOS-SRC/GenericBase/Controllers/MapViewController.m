@@ -88,7 +88,6 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     
     GMSMapView *_mapView;
     UIView* _statusBarView;
-    POIData* _locations;
     RoutingData *_routingData;
     UIView* _directionsContainer;
     UIView* _floatingActionMenuContainer;
@@ -148,7 +147,6 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     
     _currentTrackedFloor = [NSNumber numberWithInteger:-99];
     
-    _locations = Global.poiData;
     _routingData = Global.routingData;
 
     if (Global.initialPosition) {
@@ -312,7 +310,12 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     _mapView.delegate = self;
     _mapView.settings.compassButton = YES;
     
+    // Load map-styling from variant-specific plist or from standard styling (gmap_style.json):
     NSString* mapStyleString = [Global getPropertyFromPlist:@"GoogleMapsStyle"];
+    if ( mapStyleString == nil ) {
+        NSString* path = [[NSBundle mainBundle] pathForResource:@"gmap_style" ofType:@"json"];
+        mapStyleString = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
+    }
     if (mapStyleString) {
         NSError* err = nil;
         GMSMapStyle* mapStyle = [GMSMapStyle styleWithJSONString:mapStyleString error:&err];
@@ -486,12 +489,14 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     MPLocationQuery* qObj = [[MPLocationQuery alloc] init];
     qObj.categories = @[notification.object];
     qObj.venue = Global.venue.venueKey;
-    [_locations getLocationsUsingQuery:qObj];
+    [MapsIndoors.locationsProvider getLocationsUsingQuery:qObj];
 }
 
 - (void)solutionDataReady:(MPSolution *)solution {
+    MPLocationDisplayRule* rule = [[MPLocationDisplayRule alloc] initWithName:@"my-location" AndIcon: [UIImage imageNamed:@"MyLocationDirection"] AndZoomLevelOn:0 AndShowLabel:NO];
+    rule.iconSize = CGSizeMake(32, 32);
+    [self.mapControl addDisplayRule: rule];
     
-    [self.mapControl addDisplayRule: [[MPLocationDisplayRule alloc] initWithName:@"my-location" AndIcon: [UIImage imageNamed:@"MyLocationDirection"] AndZoomLevelOn:0 AndShowLabel:NO]];
     [self.mapControl showUserPosition:YES];
     
     Global.solution = solution;
@@ -507,8 +512,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 - (void)onLocationsReady:(NSNotification *)notification {
     [self closeRouting:nil];
     
-    
-    if (notification.object || Global.poiData.locationQuery.query.length > 0 || Global.poiData.locationQuery.types || Global.poiData.locationQuery.categories) {
+    if (notification.object || Global.locationQuery.query.length > 0 || Global.locationQuery.types || Global.locationQuery.categories) {
         _displayQueryCounter++;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -527,13 +531,13 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
                     self.mapControl.currentFloor = firstLoc.floor;
                     [self.mapControl showSearchResult:YES];
                 
-                    if (Global.poiData.locationQuery.categories) {
-                        NSArray<NSString*>* names = [self categoryNamesFromKeys:Global.poiData.locationQuery.categories];
+                    if (Global.locationQuery.categories) {
+                        NSArray<NSString*>* names = [self categoryNamesFromKeys:Global.locationQuery.categories];
                         self.title = [names componentsJoinedByString:@", "];
-                    } else if (Global.poiData.locationQuery.types) {
-                        self.title = [NSString stringWithFormat:kLangSearchingForVar, [[Global.poiData.locationQuery.types componentsJoinedByString:@", "] uppercaseString]];
-                    } else if (Global.poiData.locationQuery.query.length > 0) {
-                        self.title = [NSString stringWithFormat:kLangSearchingForVar, [Global.poiData.locationQuery.query uppercaseString]];
+                    } else if (Global.locationQuery.types) {
+                        self.title = [NSString stringWithFormat:kLangSearchingForVar, [[Global.locationQuery.types componentsJoinedByString:@", "] uppercaseString]];
+                    } else if (Global.locationQuery.query.length > 0) {
+                        self.title = [NSString stringWithFormat:kLangSearchingForVar, [Global.locationQuery.query uppercaseString]];
                     } else {
                         self.title = kLangSearchResult;
                     }
@@ -578,7 +582,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 }
 
 - (void)clearMap {
-    self.mapControl.currentFloor = [NSNumber numberWithInt:Global.initialPosition.zIndex];
+    self.mapControl.currentFloor = Global.initialPosition ? @(Global.initialPosition.zIndex) : Global.venue.defaultFloor;
     if ( VenueSelectorController.venueSelectorIsShown == NO ) {
         [self setupCustomFloorSelector];
     }
@@ -630,10 +634,10 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     [Tracker trackEvent:@"Map_Floor_Selector_Clicked" parameters:@{ @"floorIndex" : floor }];
 }
 
-//- (BOOL) allowAutomaticSwitchToFloor:(NSNumber *)toFloor {
-//    
-//    return NO;
-//}
+- (BOOL) allowAutomaticSwitchToFloor:(NSNumber *)toFloor {
+    
+    return (_directionsRenderer == nil) || (_directionsRenderer.route == nil);
+}
 
 - (void)renderRouteLeg:(NSNotification*)notification {
     
@@ -807,7 +811,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         }
         
         // Make the floor selector appear only when we're zoomed in to where building content is "pretty legible":
-        CGFloat     floorSelectorAlphaForCurrentZoomLevel = _mapView.camera.zoom < 18 ? 0 : 1;
+        CGFloat     floorSelectorAlphaForCurrentZoomLevel = _mapView.camera.zoom < 15 ? 0 : 1;
         if ( self.floorSelector.alpha != floorSelectorAlphaForCurrentZoomLevel ) {
             [UIView animateWithDuration:0.3 animations:^{
                 self.floorSelector.alpha = floorSelectorAlphaForCurrentZoomLevel;

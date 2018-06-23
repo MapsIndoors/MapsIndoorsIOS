@@ -16,6 +16,8 @@
 #import "LocalizationSystem.h"
 @import VCMaterialDesignIcons;
 #import "UIViewController+Custom.h"
+#import <MaterialControls/MaterialControls.h>
+#import "LocalizedStrings.h"
 
 
 
@@ -90,12 +92,21 @@
                                              forEvent:nil];
     }
     
-    [Global.poiData getLocationWithId:locationId];
+    [MapsIndoors.locationsProvider getLocationWithId:locationId completionHandler:^(MPLocation *location, NSError *error) {
+        if (location) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationDetailsReady" object:location];
+        } else if (error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                MDSnackbar* bar = [[MDSnackbar alloc] initWithText:kLangCouldNotFindLocationDetails actionTitle:@"" duration:4.0];
+                [bar show];
+            });
+        }
+    }];
 }
 
 - (void)openLocationSearch:(MPLocationQuery*)locationQuery {
     
-    [Global.poiData getLocationsUsingQuery:locationQuery];
+    [MapsIndoors.locationsProvider getLocationsUsingQuery:locationQuery];
 
     [self popToRootViewControllerAnimated:NO];
     

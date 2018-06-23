@@ -13,7 +13,6 @@
 @interface MPQuickAccessPointsProvider ()
 
 @property (nonatomic, strong) NSMutableDictionary<NSString*,MPLocationDataset*>*    quickAccessPointsForVenueCache;
-@property (nonatomic, strong) MPLocationsProvider*                                  locationsProvider;
 
 @end
 
@@ -42,14 +41,6 @@
     return self;
 }
 
-- (MPLocationsProvider*) locationsProvider {
-    
-    if ( _locationsProvider == nil ) {
-        _locationsProvider = [MPLocationsProvider new];
-    }
-    return _locationsProvider;
-}
-
 - (void) getQuickAccessPointsForVenue:(NSString*)venueKey completion:(QuickAccessPointsHandlerBlock)handler {
 
     if ( handler ) {
@@ -71,7 +62,7 @@
         }
         q.categories = @[ @"startpoint" ];      // "startpoint": magic category indicating a MPLocation is a quick access point
         
-        [self.locationsProvider getLocationsUsingQuery:q completionHandler:^(MPLocationDataset *locationData, NSError *error) {
+        [MapsIndoors.locationsProvider getLocationsUsingQuery:q completionHandler:^(MPLocationDataset *locationData, NSError *error) {
             
             if ( !error && locationData ) {
                 self.quickAccessPointsForVenueCache[ cacheKey ] = locationData;

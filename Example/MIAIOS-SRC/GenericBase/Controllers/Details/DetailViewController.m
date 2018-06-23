@@ -51,7 +51,6 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
     RoutingData* _routing;
     MDButton* _routeBtn;
     MDButton* _showMapBtn;
-    MPLocationsProvider* _locations;
     MPLocation* _from;
     MPVenueProvider* _venueProvider;
     NSArray* _buildings;
@@ -75,8 +74,6 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
         _routing.travelMode = Global.travelMode;
         
         isLocationTurnedOff = false;
-        
-        _locations = [[MPLocationsProvider alloc] init];
         
         if ( [self beginOperation:@"getBuildingsAsync"] ) {
             _venueProvider = [[MPVenueProvider alloc] init];
@@ -267,14 +264,19 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
         
         if ( [self beginOperation:@"getLocationsUsingQueryAsync"] ) {
             
-            [_locations getLocationsUsingQuery:query completionHandler:^(MPLocationDataset *locationData, NSError *error) {
+            [MapsIndoors.locationsProvider getLocationsUsingQuery:query completionHandler:^(MPLocationDataset *locationData, NSError *error) {
                 [self endOperation:@"getLocationsUsingQueryAsync"];
                 
                 if (locationData != nil && locationData.list.count == 1) {
                     _from = [locationData.list.firstObject copy];
                     _from.descr = [NSString stringWithFormat: kLangFromPosVar, _from.name];
                 }
-                else {
+                else if (error) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        MDSnackbar* bar = [[MDSnackbar alloc] initWithText:kLangCouldNotFindLocationDetails actionTitle:@"" duration:1.0];
+                        [bar show];
+                    });
+                } else {
                     _from.descr = nil;
                     [[MPReverseGeocodingService sharedGeoCoder] reverseGeocodeCoordinate:CLLocationCoordinate2DMake(query.near.lat, query.near.lng) completionHandler:^(GMSReverseGeocodeResponse * _Nullable result, NSError * _Nullable error) {
                         if (error == nil && result != nil) {
@@ -345,6 +347,8 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
             }
         } else if (venue) {
             [_fields addObject:@{@"type": @"place", @"text": venue.name, @"icon": [self materialIcon:VCMaterialDesignIconCode.md_city]}];
+            [self.tableView reloadData];
+        } else {
             [self.tableView reloadData];
         }
         

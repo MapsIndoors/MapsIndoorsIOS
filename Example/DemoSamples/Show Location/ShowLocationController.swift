@@ -26,7 +26,7 @@ class ShowLocationController: UIViewController {
         self.view = self.map
         self.map?.camera = .camera(withLatitude: 57.057964, longitude: 9.9504112, zoom: 20)
         
-        self.mapControl = MPMapControl.init(map: self.map)
+        self.mapControl = MPMapControl.init(map: self.map!)
         
         let locations = MPLocationsProvider.init()
         let queryObj = MPLocationQuery.init()
@@ -36,7 +36,7 @@ class ShowLocationController: UIViewController {
         
         locations.getLocationsUsing(queryObj) { (locationData, error) in
             if error == nil {
-                let firstLocation = locationData?.list.first
+                let firstLocation = locationData?.list?.first
                 self.mapControl?.selectedLocation = firstLocation
                 self.mapControl?.currentFloor = firstLocation?.floor         // You are not guaranteed that the visible floor contains any search results, so that is why we change floor
             }

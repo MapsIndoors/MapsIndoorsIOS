@@ -25,16 +25,18 @@
     double _mseAccuracy;
     NSDate* _latestMSEResultDate;
     NSDate* _latestGPSResultDate;
+    BOOL _useBitShiftedIp;
 }
 
 @synthesize providerType = _providerType;
 @synthesize latestPositionResult = _latestPositionResult;
 @synthesize delegate = _delegate;
 
-- (instancetype)initWithServiceUrl: (NSString*) url {
+- (instancetype)initWithServiceUrl: (NSString*) url useBitShiftedIp: (BOOL) useBitShiftedIp {
     self = [super init];
     if (self) {
         _serviceUrl = url;
+        _useBitShiftedIp = useBitShiftedIp;
     }
     return self;
 }
@@ -69,26 +71,43 @@
 - (void)queryPosition {
     
     dispatch_async(mBgQueue, ^{
-    
-        NSArray *ipExplode = [[self getIPAddress] componentsSeparatedByString:@"."];
-        if (ipExplode.count == 4) {
+        
+        
+        
+        NSString* ip = [self getIPAddress];
+        
+        if (_useBitShiftedIp) {
+        
+            NSArray *ipExplode = [[self getIPAddress] componentsSeparatedByString:@"."];
             
-            int seg1 = [ipExplode[0] intValue];
-            int seg2 = [ipExplode[1] intValue];
-            int seg3 = [ipExplode[2] intValue];
-            int seg4 = [ipExplode[3] intValue];
+            if (ipExplode.count == 4) {
+                
+                int seg1 = [ipExplode[0] intValue];
+                int seg2 = [ipExplode[1] intValue];
+                int seg3 = [ipExplode[2] intValue];
+                int seg4 = [ipExplode[3] intValue];
+                
+                uint32_t newIP = 0;
+                newIP |= (uint32_t)((seg1 & 0xFF) << 24);
+                newIP |= (uint32_t)((seg2 & 0xFF) << 16);
+                newIP |= (uint32_t)((seg3 & 0xFF) << 8);
+                newIP |= (uint32_t)((seg4 & 0xFF) << 0);
+                
+                ip = [NSString stringWithFormat:@"%@", @(newIP)];
+                
+            }
+        }
             
-            uint32_t newIP = 0;
-            newIP |= (uint32_t)((seg1 & 0xFF) << 24);
-            newIP |= (uint32_t)((seg2 & 0xFF) << 16);
-            newIP |= (uint32_t)((seg3 & 0xFF) << 8);
-            newIP |= (uint32_t)((seg4 & 0xFF) << 0);
+        NSError* err = nil;
+        
+        if (ip) {
+        
+            NSString* url = [NSString stringWithFormat:_serviceUrl, ip];
             
-            NSString* url = [NSString stringWithFormat:_serviceUrl, newIP];
+            NSString* encodedUrl = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
             
-            NSError* err = nil;
+            NSString* stringResp = [NSString stringWithContentsOfURL:[NSURL URLWithString:encodedUrl] encoding:NSUTF8StringEncoding error:&err];
             
-            NSString* stringResp = [NSString stringWithContentsOfURL:[NSURL URLWithString:url] encoding:NSUTF8StringEncoding error:&err];
             
             if (err == nil) {
                 NSError* jsonErr = nil;
@@ -139,7 +158,6 @@
                     }
                 }
             }
-            
         } else {
             if (!_wifiAlert) {
                 dispatch_async(dispatch_get_main_queue(), ^{

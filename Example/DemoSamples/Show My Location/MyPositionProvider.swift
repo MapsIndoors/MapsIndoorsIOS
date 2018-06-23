@@ -32,9 +32,9 @@ class MyPositionProvider : NSObject, MPPositionProvider {
      * `locationServicesActive`: A boolean that indicates whether Apple Location Services is currently active
      * `providerType`: A provider type enum, convenient when working with multiple positioning providers in the same application
      ***/
-    var delegate: MPPositionProviderDelegate!
+    var delegate: MPPositionProviderDelegate?
     private var running = false
-    var latestPositionResult: MPPositionResult!
+    var latestPositionResult: MPPositionResult?
     var preferAlwaysLocationPermission: Bool = false
     var locationServicesActive: Bool = false
     var providerType: MPPositionProviderType = .GPS_POSITION_PROVIDER
@@ -50,11 +50,11 @@ class MyPositionProvider : NSObject, MPPositionProvider {
     private func updatePosition() {
         if running {
             latestPositionResult = MPPositionResult.init()
-            latestPositionResult.geometry = MPPoint.init(lat: 57.057964, lon: 9.9504112)
-            latestPositionResult.provider = self
+            latestPositionResult?.geometry = MPPoint.init(lat: 57.057964, lon: 9.9504112)
+            latestPositionResult?.provider = self
             
-            if self.delegate != nil {
-                self.delegate.onPositionUpdate(self.latestPositionResult)
+            if let delegate = self.delegate, let latestPositionResult = self.latestPositionResult {
+                delegate.onPositionUpdate(latestPositionResult)
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -80,7 +80,7 @@ class MyPositionProvider : NSObject, MPPositionProvider {
     /***
      Implement the `startPositioning` method. We set the `running` boolean to true and call `updatePos`.
      ***/
-    func startPositioning(_ arg: String!) {
+    func startPositioning(_ arg: String?) {
         running = true
         updatePosition()
     }
@@ -88,14 +88,14 @@ class MyPositionProvider : NSObject, MPPositionProvider {
     /***
      Implement the `stopPositioning` method. We set the `running` boolean to false.
      ***/
-    func stopPositioning(_ arg: String!) {
+    func stopPositioning(_ arg: String?) {
         running = false
     }
     
     /***
      Implement the `startPositioningAfter` method. This is just a convenience method that should support a delayed start.
      ***/
-    func startPositioning(after millis: Int32, arg: String!) {
+    func startPositioning(after millis: Int32, arg: String?) {
         DispatchQueue.main.asyncAfter(deadline: .now() + (0.001 * Double(millis))) {
             self.startPositioning(arg)
         }

@@ -73,7 +73,7 @@ class CustomFloorSelectorController: BaseMapDemoController, MPFloorSelectorProto
     
     // MARK: MPMapControlDelegate
     
-    func floorDidChange(_ floor: NSNumber!) {
+    func floorDidChange(_ floor: NSNumber) {
         
         currentFloor = floor
         updateTitle()
@@ -82,16 +82,18 @@ class CustomFloorSelectorController: BaseMapDemoController, MPFloorSelectorProto
     
     // MARK: MPFloorSelectorProtocol
     
-    var delegate: MPFloorSelectorDelegate!
+    var delegate: MPFloorSelectorDelegate?
     private var currentBuilding : MPBuilding?
     
-    func setFloor(_ floor: NSNumber!) {
-        self.delegate.floorHasChanged(floor)
+    func setFloor(_ floor: NSNumber?) {
+        if let floor = floor, let delegate = self.delegate {
+            delegate.floorHasChanged(floor)
+        }
     }
     
-    func updateFloors(_ building: MPBuilding!) {
+    func updateFloors(_ building: MPBuilding?) {
         let currentBuildingId = currentBuilding?.buildingId
-        let newBuildingId = building != nil ? building.buildingId : nil
+        let newBuildingId = building != nil ? building?.buildingId : nil
         
         if currentBuildingId != newBuildingId {
             currentBuilding = building

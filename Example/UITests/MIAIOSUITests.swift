@@ -44,6 +44,16 @@ class MapsIndoors_App_UITests: XCTestCase {
             MPVenueProvider().getVenuesWithCompletion( { (venuesColl, vErr) in
                 
                 MPLocationsProvider().getLocationsWithCompletion( { (locationData, locError) in
+                    let venueA = (venuesColl?.venues.first as! MPVenue).venueKey!
+                    let venueB = (venuesColl?.venues.last as! MPVenue).venueKey!
+
+                    let origin:MPLocation! = locationData?.list.filter({ (loc) -> Bool in
+                        loc.venue.compare(venueA, options: .caseInsensitive, range: nil, locale: nil) == .orderedSame
+                    }).first
+                    
+                    let destination:MPLocation! = locationData?.list.filter({ (loc) -> Bool in
+                        loc.venue.compare(venueB, options: .caseInsensitive, range: nil, locale: nil) == .orderedSame
+                    }).last
                     
                     MPCategoriesProvider().getCategoriesWithCompletion( { (categories, catError) in
                     
@@ -76,8 +86,7 @@ class MapsIndoors_App_UITests: XCTestCase {
                             
                             app.searchFields.element(boundBy: 0).tap()
                             
-                            let location = locationData?.list[0]
-                            app.searchFields.element(boundBy: 0).typeText(location!.name)
+                            app.searchFields.element(boundBy: 0).typeText(destination.name!)
                             
                             snapshot("3-Search-\(self.solutionId!)")
                             
@@ -102,7 +111,7 @@ class MapsIndoors_App_UITests: XCTestCase {
                             let btn = elementsQuery.buttons["chooseStartingPointButton"]
                             btn.tap()
 
-                            app.navigationBars["NoCancelButtonSearch"].searchFields["Search"].typeText((locationData?.list[1].name)!)
+                            app.navigationBars["NoCancelButtonSearch"].searchFields["Search"].typeText(origin.name!)
                             
                             snapshot("7-Choose-Origin-\(self.solutionId!)")
                             

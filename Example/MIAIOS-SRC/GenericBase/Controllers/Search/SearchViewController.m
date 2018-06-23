@@ -11,7 +11,6 @@
 #import "Global.h"
 #import "UINavigationController+TransparentNavigationController.h"
 #import "UISearchBar+AppSearchBar.h"
-#import "POIData.h"
 @import VCMaterialDesignIcons;
 @import MaterialControls;
 #import "UIViewController+Custom.h"
@@ -41,7 +40,6 @@
 
 
 @implementation SearchViewController {
-    POIData* _locations;
     MPVenueProvider* _venueProvider;
     NSArray* _venues;
     NSArray* _buildings;
@@ -58,8 +56,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    _locations = Global.poiData;
     
     _venueProvider = [[MPVenueProvider alloc] init];
     
@@ -123,8 +119,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidAppear:) name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
     
-    if ( _locations.locationQuery.query.length ) {
-        self.searchBar.text = _locations.locationQuery.query;
+    if ( Global.locationQuery.query.length ) {
+        self.searchBar.text = Global.locationQuery.query;
     }
 
     // Remove tableheader, and transfer the searchBar to the the navBar in -[viewWillAppear:animated:]
@@ -144,14 +140,14 @@
     sb.backgroundImage = [UIImage new];
     self.navigationItem.titleView = sb;
 
-    if (_locations.locationQuery.categories && self.category) {
+    if (Global.locationQuery.categories && self.category) {
         [Tracker trackScreen:self.category.value];
     } else {
         [Tracker trackScreen:@"Search"];
     }
     
     self.searchBar.placeholder = kLangSearch;
-    if (_locations.locationQuery && _locations.locationQuery.categories)
+    if (Global.locationQuery && Global.locationQuery.categories)
         self.searchBar.placeholder = [NSString stringWithFormat:kLangSearchVar, self.category.value];
     
     _spinner.center = CGPointMake(self.view.frame.size.width*0.5, 240);
@@ -161,14 +157,16 @@
         [self.tableView reloadData];
     }
     
-    if (_locations.locationQuery.categories.count > 0 || _locations.locationQuery.query.length > 0) {
-        [_locations getLocationsUsingQuery:_locations.locationQuery completionHandler:^(MPLocationDataset *locationData, NSError *error) {
+    if (Global.locationQuery.categories.count > 0 || Global.locationQuery.query.length > 0) {
+        [MapsIndoors.locationsProvider getLocationsUsingQuery:Global.locationQuery completionHandler:^(MPLocationDataset *locationData, NSError *error) {
             if (error) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     MDSnackbar* bar = [[MDSnackbar alloc] initWithText:kLangCouldNotFindLocations actionTitle:@"" duration:1.0];
                     bar.bottomPadding = _keyboardHeight; // show above keyboard
                     [bar show];
                 });
+            } else {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationsDataReady" object: locationData.list];
             }
         }];
     } else {
@@ -216,7 +214,7 @@
     
     self.navigationItem.titleView = nil;
 
-    if ( _locations.locationQuery.categories.count > 0 ) {
+    if ( Global.locationQuery.categories.count > 0 ) {
         [self.view endEditing:YES];
         [self.searchBar resignFirstResponder];
     }
@@ -258,7 +256,17 @@
     if ([[segue identifier] isEqualToString:@"DetailSegue"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         MPLocation *object = self.objects[indexPath.row];
-        [_locations getLocationWithId: object.locationId];
+        [MapsIndoors.locationsProvider getLocationWithId: object.locationId completionHandler:^(MPLocation *location, NSError *error) {
+            if (error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    MDSnackbar* bar = [[MDSnackbar alloc] initWithText:kLangCouldNotFindLocations actionTitle:@"" duration:1.0];
+                    bar.bottomPadding = _keyboardHeight; // show above keyboard
+                    [bar show];
+                });
+            } else {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationDetailsReady" object:location];
+            }
+        }];
     }
 }
 
@@ -345,7 +353,7 @@
 #pragma mark - UISearchBarDelegate
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     
-    NSString*   queryString = self.locationQuery.query ?: _locations.locationQuery.query;
+    NSString*   queryString = self.locationQuery.query ?: Global.locationQuery.query;
     
     if ( [queryString isEqual:searchText] == NO ) {
         
@@ -357,14 +365,15 @@
                 
                 self.locationQuery = nil;
                 
-                if ( _locations.locationQuery.categories.count ) {
+                if ( Global.locationQuery.categories.count ) {
                     // Execute original query again, as we have had a 'local' override search with user-entered text.
-                    [_locations getLocationsUsingQuery:_locations.locationQuery completionHandler:^(MPLocationDataset *locationData, NSError *error) {
+                    [MapsIndoors.locationsProvider getLocationsUsingQuery:Global.locationQuery completionHandler:^(MPLocationDataset *locationData, NSError *error) {
                         if (error) {
-                            MDSnackbar* bar = [[MDSnackbar alloc] initWithText:kLangCouldNotFindLocations actionTitle:@"" duration:1.0];
-                            
-                            bar.bottomPadding = _keyboardHeight; // show above keyboard
-                            [bar show];
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                MDSnackbar* bar = [[MDSnackbar alloc] initWithText:kLangCouldNotFindLocations actionTitle:@"" duration:1.0];
+                                bar.bottomPadding = _keyboardHeight; // show above keyboard
+                                [bar show];
+                            });
                         }
                     }];
                     
@@ -378,7 +387,7 @@
             
             if ( self.locationQuery == nil ) {
                 
-                MPLocationQuery*    originalQuery = _locations.locationQuery;
+                MPLocationQuery*    originalQuery = Global.locationQuery;
                 MPLocationQuery*    q = [MPLocationQuery new];
                 
                 self.locationQuery = q;
@@ -408,12 +417,15 @@
             self.locationQuery.query = self.searchBar.text;
             
             // Execute!
-            [_locations getLocationsUsingQuery:self.locationQuery completionHandler:^(MPLocationDataset *locationData, NSError *error) {
+            [MapsIndoors.locationsProvider getLocationsUsingQuery:self.locationQuery completionHandler:^(MPLocationDataset *locationData, NSError *error) {
                 if (error) {
-                    MDSnackbar* bar = [[MDSnackbar alloc] initWithText:kLangCouldNotFindLocations actionTitle:@"" duration:1.0];
-                    
-                    bar.bottomPadding = _keyboardHeight; // show above keyboard
-                    [bar show];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        MDSnackbar* bar = [[MDSnackbar alloc] initWithText:kLangCouldNotFindLocations actionTitle:@"" duration:1.0];
+                        bar.bottomPadding = _keyboardHeight; // show above keyboard
+                        [bar show];
+                    });
+                } else {
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationsDataReady" object: locationData.list];
                 }
             }];
         }

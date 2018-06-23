@@ -38,6 +38,7 @@ class DemoSelectorViewController: UITableViewController {
         let cell = UITableViewCell.init()
         
         cell.textLabel?.text = displayNameFor( controllerClassName: String(describing: demoControllerClasses[indexPath.row]) )
+        cell.accessibilityIdentifier = cell.textLabel?.text
         
         return cell
     }
@@ -65,6 +66,6 @@ private extension DemoSelectorViewController {
             spaceSeparatedClassName.append(character)
         }
         
-        return spaceSeparatedClassName.replacingOccurrences(of: "Controller", with: "Demo")
+        return spaceSeparatedClassName.replacingOccurrences(of: "Controller", with: "Demo").trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }

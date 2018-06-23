@@ -8,7 +8,6 @@
 
 #import "UIViewController+LocationServicesAlert.h"
 @import CoreLocation;
-#import "Global.h"
 #import "LocalizedStrings.h"
 #import "Tracker.h"
 

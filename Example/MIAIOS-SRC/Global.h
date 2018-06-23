@@ -12,7 +12,6 @@
 
 #import <Foundation/Foundation.h>
 #import <MapsIndoors/MapsIndoors.h>
-#import "POIData.h"
 #import "RoutingData.h"
 #import "GPSPositionProvider.h"
 #import <UIKit/UIKit.h>
@@ -57,8 +56,8 @@ typedef NS_ENUM( NSUInteger, BuildingTransition ) {
 + (MPPoint*) initialPosition;
 + (void) setInitialPosition:(MPPoint*)value;
 
-+ (POIData*) poiData;
-+ (void) setPoiData:(POIData*)value;
++ (MPLocationQuery*) locationQuery;
++ (void) setLocationQuery:(MPLocationQuery*)value;
 
 + (RoutingData*) routingData;
 + (void) setRoutingData:(RoutingData*)value;

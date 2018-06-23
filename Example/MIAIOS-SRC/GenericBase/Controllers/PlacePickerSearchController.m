@@ -65,7 +65,6 @@ typedef NS_ENUM(NSUInteger, PPSCSection) {
 
 @implementation PlacePickerSearchController {
 
-    MPLocationsProvider* _locationsProvider;
     MPLocationQuery* _locationQuery;
     UIActivityIndicatorView *_spinner;
     UIView* _tableHeaderView;
@@ -85,7 +84,6 @@ static NSString* cellIdentifier = @"LocationCell";
     [super viewDidLoad];
     
     self.placesClient = [MPGooglePlacesClient new];
-    _locationsProvider = [[MPLocationsProvider alloc] init];
     _locationQuery = [[MPLocationQuery alloc] init];
     _venueProvider = [[MPVenueProvider alloc] init];
     self.places = [NSMutableArray array];
@@ -578,7 +576,7 @@ static NSString* cellIdentifier = @"LocationCell";
         self.locations = @[];
         [self.places removeAllObjects];
         
-        [_locationsProvider getLocationsUsingQuery:_locationQuery completionHandler:^(MPLocationDataset *locationData, NSError *error) {
+        [MapsIndoors.locationsProvider getLocationsUsingQuery:_locationQuery completionHandler:^(MPLocationDataset *locationData, NSError *error) {
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.searchingIndoorLocations = NO;

@@ -6,7 +6,6 @@
 //  Copyright (c) 2015-2018 MapsPeople A/S. All rights reserved.
 //
 
-#import "Global.h"
 #import "MasterViewController.h"
 #import "SearchViewController.h"
 #import "UINavigationController+TransparentNavigationController.h"
@@ -18,6 +17,7 @@
 #import "MPMenuItemCell.h"
 #import "UIImageView+MPCachingImageLoader.h"
 #import "Tracker.h"
+#import "Global.h"
 
 @import VCMaterialDesignIcons;
 @import MaterialControls;
@@ -203,17 +203,17 @@
             MPMenuItem *object = _objects[indexPath.row];
             SearchViewController* svc = segue.destinationViewController;
             
-            Global.poiData.locationQuery.categories = @[object.categoryKey];
-            Global.poiData.locationQuery.venue = Global.venue.venueKey;
-            Global.poiData.locationQuery.orderBy = @"name";
+            Global.locationQuery.categories = @[object.categoryKey];
+            Global.locationQuery.venue = Global.venue.venueKey;
+            Global.locationQuery.orderBy = @"name";
             
             svc.category = [self categoryForKey: object.categoryKey];
             
         } else {
             //Reset query
-            Global.poiData.locationQuery.query = @"";
-            Global.poiData.locationQuery.categories = nil;
-            Global.poiData.locationQuery.venue = nil;
+            Global.locationQuery.query = @"";
+            Global.locationQuery.categories = nil;
+            Global.locationQuery.venue = nil;
         }
     }
 }

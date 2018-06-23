@@ -24,7 +24,7 @@ class ShowRouteController: UIViewController, MPDirectionsRendererDelegate {
         self.view = self.map
         self.map?.camera = .camera(withLatitude: 57.057964, longitude: 9.9504112, zoom: 20)
         
-        self.mapControl = MPMapControl.init(map: self.map)
+        self.mapControl = MPMapControl.init(map: self.map!)
         
         let directions = MPDirectionsService.init()
         let renderer = MPDirectionsRenderer.init()
@@ -36,10 +36,20 @@ class ShowRouteController: UIViewController, MPDirectionsRendererDelegate {
         let directionsQuery = MPDirectionsQuery.init(originPoint: origin!, destination: destination!)
         
         directions.routing(with: directionsQuery) { (route, error) in
-            renderer.map = self.map
-            renderer.route = route
-            renderer.routeLegIndex = 0
-            renderer.animate(5)
+            
+            if let legs = route!.legs {
+                
+                for legIndex in 0 ..< legs.count {
+                    let deadlineTime = DispatchTime.now() + .seconds(legIndex*5)
+                    renderer.map = self.map
+                    renderer.route = route
+                    
+                    DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                        renderer.routeLegIndex = legIndex
+                        renderer.animate(5)
+                    }
+                }
+            }
         }
     }
 }

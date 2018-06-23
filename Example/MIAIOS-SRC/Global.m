@@ -175,13 +175,6 @@ static MPPoint* initialPosition;
 { @synchronized(self) { initialPosition = value; } }
 
 
-static POIData* poiData;
-+ (POIData*) poiData
-{ @synchronized(self) { return poiData; } }
-+ (void) setPoiData:(POIData*)value
-{ @synchronized(self) { poiData = value; } }
-
-
 static RoutingData* routingData;
 + (RoutingData*) routingData
 { @synchronized(self) { return routingData; } }
@@ -224,6 +217,16 @@ static NSArray* appColors;
 + (void) setAppColors:(NSArray*)value
 { @synchronized(self) { appColors = value; } }
 
+static MPLocationQuery* locationQuery;
++ (MPLocationQuery*) locationQuery
+{ @synchronized(self) {
+    if (locationQuery == nil) {
+        locationQuery = [[MPLocationQuery alloc] init];
+    }
+    return locationQuery;
+} }
++ (void) setLocationQuery:(MPLocationQuery*)value
+{ @synchronized(self) { locationQuery = value; } }
 
 + (void) setupPositioning {
     
