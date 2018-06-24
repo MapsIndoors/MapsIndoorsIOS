@@ -12,8 +12,8 @@
 @interface MPTransitStop : MPJSONModel
 
 //The name of the transit station/stop. eg. "Union Square".
-@property NSString<Optional>* name;
+@property (nonatomic, strong, nullable) NSString<Optional>* name;
 //The location of the transit station/stop, represented as a lat and lng field.
-@property MPRouteProperty<Optional>* location;
+@property (nonatomic, strong, nullable) MPRouteProperty<Optional>* location;
 
 @end

@@ -11,7 +11,7 @@
 
 @interface MPBuildingInfo : MPJSONModel
 
-@property NSString* name;
-@property NSArray<NSString*>* aliases;
+@property (nonatomic, strong, nullable) NSString* name;
+@property (nonatomic, strong, nullable) NSArray<NSString*>* aliases;
 
 @end

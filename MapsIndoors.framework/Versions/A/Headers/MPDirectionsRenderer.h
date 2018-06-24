@@ -17,7 +17,7 @@
  @param  The floor level.
  */
 @optional
-- (void) floorDidChange: (NSNumber*)floor; 
+- (void) floorDidChange: (nonnull NSNumber*)floor; 
 @end
 
 typedef NS_ENUM(NSUInteger, MPDirectionsRenderFit) {
@@ -28,22 +28,22 @@ typedef NS_ENUM(NSUInteger, MPDirectionsRenderFit) {
 
 @interface MPDirectionsRenderer : NSObject
 
-@property (weak) id <MPDirectionsRendererDelegate> delegate;
+@property (nonatomic, weak, nullable) id <MPDirectionsRendererDelegate> delegate;
 /**
  Assigns (or unassigns) a Google map object
  */
-@property (nonatomic, strong) GMSMapView* map;
+@property (nonatomic, strong, nullable) GMSMapView* map;
 /**
  Assigns (or unassigns) a route object
  */
-@property (nonatomic, strong) MPRoute* route;
-@property (nonatomic, strong) UIButton* nextRouteLegButton;
-@property (nonatomic, strong) UIButton* previousRouteLegButton;
+@property (nonatomic, strong, nullable) MPRoute* route;
+@property (nonatomic, strong, nullable) UIButton* nextRouteLegButton;
+@property (nonatomic, strong, nullable) UIButton* previousRouteLegButton;
 @property (nonatomic) NSInteger routeLegIndex;
 @property (nonatomic) NSInteger routeStepIndex;
 
-@property (nonatomic, strong) UIColor* solidColor;
-@property (nonatomic, strong) UIColor* backgroundColor;
+@property (nonatomic, strong, nullable) UIColor* solidColor;
+@property (nonatomic, strong, nullable) UIColor* backgroundColor;
 @property (nonatomic) BOOL fitBounds;
 @property (nonatomic) MPDirectionsRenderFit fitMode;
 @property (nonatomic) UIEdgeInsets edgeInsets;

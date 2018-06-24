@@ -2,7 +2,7 @@
 
 @interface NSURL (QueryParser)
 
--(NSDictionary*)queryDictionary;
+- (nonnull NSDictionary*)queryDictionary;
 
 @end
 

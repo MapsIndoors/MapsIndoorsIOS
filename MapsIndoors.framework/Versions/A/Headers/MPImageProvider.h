@@ -11,13 +11,13 @@
 
 @protocol MPImageProvider<NSObject>
 
-- (void)getImageFromUrlStringAsync: (NSString*)url imageSize: (CGSize) size completionHandler: (void (^)(UIImage* image, NSError* error)) completionHandler;
+- (void)getImageFromUrlStringAsync: (nonnull NSString*)url imageSize: (CGSize) size completionHandler: (nonnull void (^)(UIImage* _Nullable image, NSError* _Nullable error)) completionHandler;
 
 @end
 
 @interface MPImageProvider : NSObject<MPImageProvider>
 
-- (void)getImageFromUrlStringAsync: (NSString*)url imageSize: (CGSize) size completionHandler: (void (^)(UIImage* image, NSError* error)) completionHandler;
-+ (void)getImageFromUrlStringAsync: (NSString*)url completionHandler: (void (^)(UIImage* image, NSError* error)) completionHandler;
+- (void)getImageFromUrlStringAsync: (nonnull NSString*)url imageSize: (CGSize) size completionHandler: (nonnull void (^)(UIImage* _Nullable image, NSError* _Nullable error)) completionHandler;
++ (void)getImageFromUrlStringAsync: (nonnull NSString*)url completionHandler: (nonnull void (^)(UIImage* _Nullable image, NSError* _Nullable error)) completionHandler;
 
 @end

@@ -10,6 +10,4 @@
 
 @interface MPVector : MPGeometry
 
-
-
 @end

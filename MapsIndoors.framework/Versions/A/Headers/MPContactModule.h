@@ -12,9 +12,9 @@
 
 @interface MPContactModule : MPJSONModel
 
-@property MPDataField<Optional>* email;
-@property MPDataField<Optional>* phone;
-@property MPDataField<Optional>* faxNumber;
-@property MPDataField<Optional>* website;
+@property (nonatomic, strong, nullable) MPDataField<Optional>* email;
+@property (nonatomic, strong, nullable) MPDataField<Optional>* phone;
+@property (nonatomic, strong, nullable) MPDataField<Optional>* faxNumber;
+@property (nonatomic, strong, nullable) MPDataField<Optional>* website;
 
 @end

@@ -44,16 +44,16 @@ class MapsIndoors_App_UITests: XCTestCase {
             MPVenueProvider().getVenuesWithCompletion( { (venuesColl, vErr) in
                 
                 MPLocationsProvider().getLocationsWithCompletion( { (locationData, locError) in
-                    let venueA = (venuesColl?.venues.first as! MPVenue).venueKey!
-                    let venueB = (venuesColl?.venues.last as! MPVenue).venueKey!
+                    let venueA = (venuesColl!.venues!.first as! MPVenue).venueKey!
+                    let venueB = (venuesColl!.venues!.last as! MPVenue).venueKey!
 
-                    let origin:MPLocation! = locationData?.list.filter({ (loc) -> Bool in
-                        loc.venue.compare(venueA, options: .caseInsensitive, range: nil, locale: nil) == .orderedSame
-                    }).first
-                    
-                    let destination:MPLocation! = locationData?.list.filter({ (loc) -> Bool in
-                        loc.venue.compare(venueB, options: .caseInsensitive, range: nil, locale: nil) == .orderedSame
+                    let origin:MPLocation! = locationData!.list!.filter({ (loc) -> Bool in
+                        loc.venue!.compare(venueA, options: .caseInsensitive, range: nil, locale: nil) == .orderedSame
                     }).last
+                    
+                    let destination:MPLocation! = locationData!.list!.filter({ (loc) -> Bool in
+                        loc.venue!.compare(venueB, options: .caseInsensitive, range: nil, locale: nil) == .orderedSame
+                    }).first
                     
                     MPCategoriesProvider().getCategoriesWithCompletion( { (categories, catError) in
                     

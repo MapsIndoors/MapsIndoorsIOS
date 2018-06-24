@@ -19,43 +19,31 @@
 /**
  Name/identifier of the rule. Also used as the rule condition for the location types.
  */
-@property NSString<Ignore>* name;
+@property (nonatomic, strong, nullable) NSString<Ignore>* name;
 /**
  The map zoom level above which the location marker should be visible.
  */
-@property NSNumber* zOn;
+@property (nonatomic, strong, nullable) NSNumber* zOn;
 /**
  The map zoom level beneath which the location marker should be visible.
  */
-@property NSNumber* zOff;
+@property (nonatomic, strong, nullable) NSNumber* zOff;
 /**
  Relative path of the marker icon to use, without extension. Format is png.
  */
-@property (nonatomic) NSString* iconPath;
+@property (nonatomic, strong, nullable) NSString* iconPath;
 /**
  Label template for the resulting location marker - e.g. "{{name}}", "{{roomId}}", "Room #{{roomId}}" etc..
  */
-@property (nonatomic) NSString* label;
-
+@property (nonatomic, strong, nullable) NSString* label;
 /**
  The highlight outline color.
  */
-@property (nonatomic) UIColor<Optional>* highlightOutlineColor;
-
-/**
- The highlight fill color.
- */
-@property (nonatomic) UIColor<Optional>* highlightFillColor;
-
-/**
- The highlight stroke width.
- */
-@property (nonatomic) NSNumber<Optional>* highlightStrokeWidth;
-
+@property (nonatomic, strong, nullable) UIColor<Optional>* highlightOutlineColor;
 /**
  The marker icon to use on markers that apply to the display rule.
  */
-@property (nonatomic) UIImage<Ignore>* icon;
+@property (nonatomic, strong, nullable) UIImage<Ignore>* icon;
 /**
  Whether or not to show a text label. See label property
  */
@@ -71,7 +59,7 @@
 /**
  Size of the icon image
  */
-@property CGSize iconSize;
+@property (assign, nonatomic) CGSize iconSize;
 
 /**
  Processes the rule conditions at the given map zoom level.
@@ -83,18 +71,18 @@
  Get the label from the display rule, based on the location input.
    @return An string.
  */
-- (NSString*)getLabelContent:(MPLocation*)location;
+- (nullable NSString*)getLabelContent:(nonnull MPLocation*)location;
 /**
  Retrieve the icon from the ressources and store in memory.
  */
-- (void)fetchIcon: (NSString*) basePathOrBundle;
+- (void)fetchIcon: (nonnull NSString*) basePathOrBundle;
 /**
  Instantiate a display rule with parameters.
  @param  name The name and identifier of the rule.
  @param  zOn The map zoom level above which the location marker should display.
  @param  doShowLabel Whether or not to show a text label instead of the icon.
  */
-- (id)initWithName:(NSString*) name AndZoomLevelOn: (CGFloat) zOn AndShowLabel:(BOOL) doShowLabel;
+- (nullable instancetype)initWithName:(nullable NSString*) name AndZoomLevelOn: (CGFloat) zOn AndShowLabel:(BOOL) doShowLabel;
 
 /**
  Instantiate a display rule with parameters.
@@ -102,7 +90,8 @@
  @param  icon The icon used to display locations that qualify conditions of this rule.
  @param  zOn The map zoom level above which the location marker should display.
 */
-- (id)initWithName:(NSString*) name AndIcon: (UIImage*) icon AndZoomLevelOn: (CGFloat) zOn;
+- (nullable instancetype)initWithName:(nullable NSString*) name AndIcon: (nullable UIImage*) icon AndZoomLevelOn: (CGFloat) zOn;
+
 /**
  Instantiate a display rule with parameters.
  @param  name The name and identifier of the rule.
@@ -110,7 +99,7 @@
  @param  zOn The map zoom level above which the location marker should display.
  @param  doShowLabel Whether or not to show a text label instead of the icon.
  */
-- (id)initWithName:(NSString*) name AndIcon: (UIImage*) icon AndZoomLevelOn: (CGFloat) zOn AndShowLabel:(BOOL) doShowLabel;
+- (nullable instancetype)initWithName:(nullable NSString*) name AndIcon: (nullable UIImage*) icon AndZoomLevelOn: (CGFloat) zOn AndShowLabel:(BOOL) doShowLabel;
 
 /**
  Defered instantiate a display rule with parameters.
@@ -119,6 +108,6 @@
  @param  zOn The map zoom level above which the location marker should display.
  @param  doShowLabel Whether or not to show a text label instead of the icon.
  */
-- (id)initWithName:(NSString*) name AndIconURL: (NSString*) iconURL AndZoomLevelOn: (CGFloat) zOn AndShowLabel:(BOOL) doShowLabel;
+- (nullable instancetype)initWithName:(nullable NSString*) name AndIconURL: (nullable NSString*) iconURL AndZoomLevelOn: (CGFloat) zOn AndShowLabel:(BOOL) doShowLabel;
 
 @end

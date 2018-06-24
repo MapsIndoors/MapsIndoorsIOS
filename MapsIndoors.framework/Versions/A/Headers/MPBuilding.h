@@ -29,8 +29,9 @@
  @param  shortName The buildings unique shortname.
  */
 @required
-- (void) onBuildingReady: (NSString*)buildingId;
+- (void) onBuildingReady: (nonnull NSString*)buildingId;
 @end
+
 /**
  Holds relevant data for a single building, and provides a way to interact with the buildings floor levels.
  */
@@ -38,54 +39,54 @@
 /**
  Holds the current floor.
  */
-@property (nonatomic)NSNumber<Optional>* currentFloor;
+@property (nonatomic, strong, nullable) NSNumber<Optional>* currentFloor;
 /**
  Delegate that holds the building ready event method. Relevant when using offline mode, as it will take a while to load the database upon first app start.
  */
-@property (weak) id <MPBuildingDelegate, Optional> delegate;
+@property (nonatomic, weak, nullable) id <MPBuildingDelegate, Optional> delegate;
 /**
  Reference to the map. The reference is used to activate/deactivate tile layers.
  */
-@property (nonatomic)GMSMapView<Optional>* map;
+@property (nonatomic, weak, nullable) GMSMapView<Optional>* map;
 /**
  Simple counter that keeps track of how many floors and related tile layers are ready.
  */
-@property NSNumber<Optional>* floorsReady;
+@property (nonatomic, strong, nullable) NSNumber<Optional>* floorsReady;
 
-@property NSString* buildingId;
-@property NSString* administrativeId;
-@property NSMutableDictionary<NSString*, MPFloor*><MPFloor, Optional>* floors;
-@property NSString* name;
-@property MPPoint* anchor;
-@property NSArray<NSArray*>* bounds;
+@property (nonatomic, strong, nullable) NSString* buildingId;
+@property (nonatomic, strong, nullable) NSString* administrativeId;
+@property (nonatomic, strong, nullable) NSMutableDictionary<NSString*, MPFloor*><MPFloor, Optional>* floors;
+@property (nonatomic, strong, nullable) NSString* name;
+@property (nonatomic, strong, nullable) MPPoint* anchor;
+@property (nonatomic, strong, nullable) NSArray<NSArray*>* bounds;
 
 /**
  Get the current floor.
  */
-- (MPFloor*) getFloor;
+- (nullable MPFloor*) getFloor;
 /**
  Get the initial/default floor upon creation.
  */
-- (NSNumber*) getInitFloor;
+- (nullable NSNumber*) getInitFloor;
 /**
  Get the number of floors.
  */
-- (NSNumber*) getFloors;
+- (nullable NSNumber*) getFloors;
 /**
  Get the floors as an array of MPFloor.
  */
-- (NSArray<MPFloor*>*) getFloorArray;
+- (nullable NSArray<MPFloor*>*) getFloorArray;
 /**
  Set the current floor property (without affecting the building display).
  @param  floor The floor number to replace current floor with.
  */
-- (void) setFloor: (NSNumber*)floor;
+- (void) setFloor: (nullable NSNumber*)floor;
 /**
  Use this method to actually shift floor and show the building level.
  @param newFloor The floor number that represents the building level.
  @param map Affected map.
  */
-- (void) showBuilding:(NSNumber*) newFloor onMap:(GMSMapView*)map DEPRECATED_ATTRIBUTE;
+- (void) showBuilding:(nullable NSNumber*) newFloor onMap:(nullable GMSMapView*)map DEPRECATED_ATTRIBUTE;
 /**
  Updates the current floor tile layer by clearing the tile cache.
  */
@@ -97,6 +98,6 @@
 /**
  Get the geographic bounds for the building
  */
-- (GMSCoordinateBounds *)getBuildingBounds;
+- (nullable GMSCoordinateBounds *)getBuildingBounds;
 
 @end

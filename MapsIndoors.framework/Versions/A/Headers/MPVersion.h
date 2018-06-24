@@ -13,7 +13,7 @@
 
 @interface MPSDKVersion : NSObject
 
-+ (NSString*)versionString;
++ (nonnull NSString*)versionString;
 
 @end
 
