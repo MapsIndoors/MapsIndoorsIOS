@@ -23,7 +23,7 @@ LICENSE
   s.author           = { "MapsPeople" => "info@mapspeople.com" }
   s.source           = { :git => "https://github.com/MapsIndoors/MapsIndoorsIOS.git", :tag => s.version.to_s, :submodules => true }
 
-  s.dependency 'GoogleMaps', '2.7'
+  s.dependency 'GoogleMaps', '2.6'
 
   s.frameworks = "UserNotifications", "GameplayKit"
 
