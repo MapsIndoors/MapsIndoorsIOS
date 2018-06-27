@@ -9,11 +9,12 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [2.0.4] 2018-06-22
+## [2.0.4] 2018-06-27
 ### Fixed
 - Fixed a major bug that caused the generated Swift interface in XCode to expose assumed nonnull properties in various areas of the interface
+- Fixed an issue that was causing `MPDirectionsService` to return routes with duplicate legs for some routes between different venues
 ### Changed
-- A lot of properties have now become nullable
+- A lot of properties have now become nullable because of the FIX needed above
 
 ## [2.0.3] 2018-06-15
 ### Fixed
