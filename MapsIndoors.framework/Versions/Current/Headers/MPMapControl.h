@@ -112,7 +112,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 /**
  Convenience class for setting up a Google map with MapsIndoors venues, buildings, locations and other map content.
  */
-@interface MPMapControl : NSObject<GMSMapViewDelegate, MPFloorSelectorDelegate, MPBuildingDelegate, MPLocationsProviderDelegate, MPVenueProviderDelegate, MPPositionProviderDelegate>
+@interface MPMapControl : NSObject<GMSMapViewDelegate, MPFloorSelectorDelegate, MPBuildingDelegate, MPVenueProviderDelegate, MPPositionProviderDelegate>
 
 /**
   Delegate object containing data events
