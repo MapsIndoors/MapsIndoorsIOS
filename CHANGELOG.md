@@ -13,6 +13,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Fixed
 - Fixed a major bug that caused the generated Swift interface in XCode to expose assumed nonnull properties in various areas of the interface
 - Fixed an issue that was causing `MPDirectionsService` to return routes with duplicate legs for some routes between different venues
+- Fixed an issue where in rare cases one of the internal callbacks in MapControl was not called causing the map to not fire the optional `[MPMapControlDelegate mapContentReady]`
 ### Changed
 - A lot of properties have now become nullable because of the FIX needed above
 
