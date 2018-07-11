@@ -74,12 +74,21 @@ for relUrl in "/sync/venues" "/sync/buildings" "/sync/appconfig" "/sync/solution
 done
 
 # "${OUTPUTPATH}/mi_sync_locations.json" 
-for fileName in "${OUTPUTPATH}/mi_sync_solutions.json" "${OUTPUTPATH}/mi_sync_tiles.json" "${OUTPUTPATH}/mi_sync_appconfig.json"; do
-    grep -oE '\b(https?)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]*[-A-Za-z0-9+&@#/%=~_|]' "$fileName" | while read url
+for fileName in "${OUTPUTPATH}/mi_sync_solutions.json" "${OUTPUTPATH}/mi_sync_tiles.json" "${OUTPUTPATH}/mi_sync_appconfig.json" "${OUTPUTPATH}/mi_sync_locations.json"; do
+    grep -oE '\b(https?)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]*[-A-Za-z0-9+&@#/%=~_|][png|jpg|jpeg|pdf]' "$fileName" | while read url
     do
         path="$(echo $url | cut -d '/' -f4-)"
         path="mi_$(echo ${path//\//_})"
+        path="${path/\?*/}"
         path="${OUTPUTPATH}/$path"
+        scaleParam="scale=3"
+        if [[ $url = *"api.mapsindoors.com"* ]]; then
+            if [[ $url = *"?"* ]]; then
+                url="$url&$scaleParam"
+            else
+                url="$url?$scaleParam"
+            fi
+        fi
         if [ ! -f "$path" ]; then
             echo "Downloading asset from $url to path $path"
             curl $url -o "$path"
