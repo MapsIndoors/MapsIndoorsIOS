@@ -11,17 +11,17 @@
 
 @interface MPMessage : MPJSONModel
 
-@property (nonatomic, strong, nullable) NSString* messageId;
-@property (nonatomic, strong, nullable) NSString<Optional>* beaconId;
-@property (nonatomic, strong, nullable) NSString<Optional>* locationId;
-@property (nonatomic, strong, nullable) NSString<Optional>* title;
-@property (nonatomic, strong, nullable) NSString<Optional>* content;
-@property (nonatomic, strong, nullable) NSString<Optional>* imagePath;
-@property (readonly, assign, nullable) NSNumber<Optional>* maxPushTimes;
-@property (readonly, assign, nullable) NSNumber<Optional>* pushInterval;
-@property (nonatomic, strong, nullable) NSNumber<Optional>* notificationCount;
-@property (nonatomic, strong, nullable) UIImage<Ignore>* image;
-@property (nonatomic, strong, nullable) NSDictionary<Optional>* geometry;
-@property (nonatomic, strong, nullable) NSDate<Ignore>* deliveredDate;
+@property NSString* messageId;
+@property NSString<Optional>* beaconId;
+@property NSString<Optional>* locationId;
+@property NSString<Optional>* title;
+@property NSString<Optional>* content;
+@property NSString<Optional>* imagePath;
+@property (readonly, assign) NSNumber<Optional>* maxPushTimes;
+@property (readonly, assign) NSNumber<Optional>* pushInterval;
+@property NSNumber<Optional>* notificationCount;
+@property UIImage<Ignore>* image;
+@property NSDictionary<Optional>* geometry;
+@property NSDate<Ignore>* deliveredDate;
 
 @end

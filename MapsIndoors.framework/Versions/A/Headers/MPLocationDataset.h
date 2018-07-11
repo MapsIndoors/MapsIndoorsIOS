@@ -22,17 +22,17 @@
 /**
  Main location array in the data set.
  */
-@property (nonatomic, strong, nullable) NSArray<MPLocation*><MPLocation> *list;
+@property (nonatomic, strong) NSArray<MPLocation*><MPLocation> *list;
 /**
  Array to hold filtered results in the data set.
  */
-@property (nonatomic, strong, nullable) NSArray<Optional> *searchResult DEPRECATED_ATTRIBUTE;
+@property (nonatomic, strong) NSArray<Optional> *searchResult DEPRECATED_ATTRIBUTE;
 /**
  String used as text filter.
  */
-@property (nonatomic, strong, nullable) NSArray<Optional> *categories DEPRECATED_ATTRIBUTE;
+@property (nonatomic, strong) NSArray<Optional> *categories DEPRECATED_ATTRIBUTE;
 
-- (nullable NSArray*)filterByName:(nonnull NSString*)name DEPRECATED_ATTRIBUTE;
-- (nullable NSArray*)filterByName:(nonnull NSString*)name andCategories:(nonnull NSArray*)categories DEPRECATED_ATTRIBUTE;
+- (NSArray*)filterByName:(NSString*)name DEPRECATED_ATTRIBUTE;
+- (NSArray*)filterByName:(NSString*)name andCategories:(NSArray*)categories DEPRECATED_ATTRIBUTE;
 
 @end

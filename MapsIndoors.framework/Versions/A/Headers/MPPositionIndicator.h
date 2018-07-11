@@ -9,6 +9,7 @@
 #import "MPLocation.h"
 
 
+
 @interface MPPositionIndicator : MPLocation
 
 @property (nonatomic) double probability;
@@ -16,8 +17,7 @@
 @property (nonatomic) CLLocationCoordinate2D position;
 @property (nonatomic) bool showProbability;
 
-- (nullable instancetype) initWithPoint:(nullable MPPoint *)point andName:(nullable NSString *)name;
-- (void) updateView:(nonnull GMSMapView *)map floor:(int)floor displayRules:(nonnull MPLocationDisplayRuleset *)displayRuleset;
-
+- (id)initWithPoint:(MPPoint *)point andName:(NSString *)name;
+- (void)updateView:(GMSMapView *)map floor:(int)floor displayRules:(MPLocationDisplayRuleset *)displayRuleset;
 @end
 	

@@ -14,8 +14,8 @@
  */
 @interface MPType : MPJSONModel
 
-@property (nonatomic, strong, nullable) NSString* name;
-@property (nonatomic, strong, nullable) NSString* icon;
-@property (nonatomic, strong, nullable) MPLocationDisplayRule<Optional>* displayRule;
+@property NSString* name;
+@property NSString* icon;
+@property MPLocationDisplayRule<Optional>* displayRule;
 
 @end

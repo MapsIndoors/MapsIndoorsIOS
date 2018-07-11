@@ -23,10 +23,10 @@
 /**
  The array of venues in this collection.
  */
-@property (nonatomic, strong, nullable) NSArray<MPVenue>* venues;
+@property NSArray<MPVenue>* venues;
 
-- (nullable MPBuilding*) getBuilding:(nullable NSString*)buildingId;
+- (MPBuilding*) getBuilding:(NSString*)buildingId;
+- (MPVenue *)getNearestVenue:(MPPoint*)geometry withinRadius: (int)meterRadius;
 
-- (nullable MPVenue *)getNearestVenue:(nonnull MPPoint*)geometry withinRadius: (int)meterRadius;
 
 @end

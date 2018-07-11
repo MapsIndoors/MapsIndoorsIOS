@@ -23,8 +23,8 @@ MP_DEPRECATED_ATTRIBUTE
  @param  The route action.
  */
 @required
-- (void) onRouteActionPerform: (nonnull MPRouteStep*)action;
-- (void) onRouteActionDisplay: (nonnull MPRouteStep*)action;
+- (void) onRouteActionPerform: (MPRouteStep*)action;
+- (void) onRouteActionDisplay: (MPRouteStep*)action;
 - (void) onRouteEnd;
 @end
 
@@ -32,37 +32,37 @@ MP_DEPRECATED_ATTRIBUTE
 MP_DEPRECATED_ATTRIBUTE
 @interface MPRoutingControl : UIView
 
-@property (nonatomic, weak, nullable) id <MPRouteActionDelegate> delegate;
-@property (nonatomic) int currentActionIndex;
-@property (nonatomic) int currentRouteLegIndex;
-@property (nonatomic, strong, nullable) MPRoute* route;
-@property (nonatomic, strong, nullable) UIView* parent;
-@property (nonatomic, strong, nullable) UIButton* nextButton;
-@property (nonatomic, strong, nullable) UIButton* cancelButton;
-@property (nonatomic, strong, nullable) MPInfoSnippetView* infoView;
-@property (nonatomic, strong, nullable) MPLocation* destination;
-@property (nonatomic) int currentTotalDistance;
-@property (nonatomic, strong, nullable) NSMutableArray* actionLocations;
-@property (nonatomic, strong, nullable) NSMutableArray* actions;
-@property (nonatomic, strong, nullable) MPLocation* currentActionLocation;
-@property (nonatomic, strong, nullable) GMSMapView* map;
+@property (weak) id <MPRouteActionDelegate> delegate;
+@property int currentActionIndex;
+@property int currentRouteLegIndex;
+@property MPRoute* route;
+@property UIView* parent;
+@property UIButton* nextButton;
+@property UIButton* cancelButton;
+@property MPInfoSnippetView* infoView;
+@property MPLocation* destination;
+@property int currentTotalDistance;
+@property NSMutableArray* actionLocations;
+@property NSMutableArray* actions;
+@property MPLocation* currentActionLocation;
+@property GMSMapView* map;
 
-+ (nullable UIImage*) actionIcon;
-+ (void) setActionIcon:(nullable UIImage*)value;
++ (UIImage*) actionIcon;
++ (void) setActionIcon:(UIImage*)value;
 
-- (nullable instancetype) initOnMap:(nonnull GMSMapView*)map;
-- (nullable instancetype)initOnView:(nonnull UIView*)view;
+- (id)initOnMap:(GMSMapView*)map;
+- (id)initOnView:(UIView*)view;
 
-- (void)addToView:(nonnull UIView*)view;
-- (void)turnByTurn:(nonnull MPRoute*)route;
-- (void)routeOverview:(nonnull MPRoute*)route;
-- (void)routeOverview:(nonnull MPRoute*)route floor:(nullable NSNumber*)floor;
-- (void)notifyNewTurn:(nonnull id)caller;
+- (void)addToView:(UIView*)view;
+- (void)turnByTurn:(MPRoute*)route;
+- (void)routeOverview:(MPRoute*)route;
+- (void)routeOverview:(MPRoute*)route floor:(NSNumber*)floor;
+- (void)notifyNewTurn:(id)caller;
 - (void)doTurn;
 - (void)doTurn:(int)positionIndex;
-- (void)showAction:(nonnull MPRouteStep*)action;
-- (void)showActionByMarker:(nonnull GMSMarker*)marker;
+- (void)showAction:(MPRouteStep*)action;
+- (void)showActionByMarker:(GMSMarker*)marker;
 - (void)close;
-- (nullable MPRouteStep*)getAction:(int)positionIndex routeLegIndex:(int)legIndex;
+- (MPRouteStep*)getAction:(int)positionIndex routeLegIndex:(int)legIndex;
 
 @end

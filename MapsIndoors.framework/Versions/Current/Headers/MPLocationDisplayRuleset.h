@@ -20,28 +20,37 @@
 /**
  The base url to the bundle containing the icons for this ruleset. Set the value to your bundle identifier.
  */
-@property (nonatomic, strong, nullable) NSString *iconBaseUrl;
+@property NSString *iconBaseUrl;
+
 /**
  Array of display rules.
  */
-@property (nonatomic, strong, nullable) NSMutableArray *displayRules;
+@property NSMutableArray *displayRules;
+
+/**
+ Add a displayRule to the collection of display rules.
+ Prefer using this method instead of accessing the displayRules-array directly.
+
+ @param displayRule DisplayRule to add.
+ */
+- (void) addDisplayRule:(MPLocationDisplayRule*)displayRule;
 
 /**
  Method for retrieving the first occurence of a rule based on a set of rule names.
  */
-- (nullable MPLocationDisplayRule*)getRule:(nullable NSArray*) ruleNames;
+- (MPLocationDisplayRule*)getRule:(NSArray*) ruleNames;
 
 /**
  Get the first occurence of a rule based on a rule name.
  */
-- (nullable MPLocationDisplayRule*)firstOccur:(nullable NSString*) ruleName;
+- (MPLocationDisplayRule*)firstOccur:(NSString*) ruleName;
 
-- (nullable NSArray*)getListOfNamesOnZoomLevel:(float) zoom;
+- (NSArray*)getListOfNamesOnZoomLevel:(float) zoom;
 
 /**
  Method for retrieving the first occurence of a rules icon based on a set of rule names.
  */
-- (nullable UIImage *)getIcon:(nullable NSArray*) ruleNames;
+- (UIImage *)getIcon:(NSArray*) ruleNames;
 
 /**
  Fetch all the ruleset icons and store them into memory.

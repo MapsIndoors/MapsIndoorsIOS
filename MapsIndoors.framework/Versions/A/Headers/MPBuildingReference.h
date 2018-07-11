@@ -11,6 +11,6 @@
 
 @interface MPBuildingReference : MPJSONModel
 
-@property (nonatomic, strong, nullable) NSString* refId;
+@property NSString* refId;
 
 @end

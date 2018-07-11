@@ -11,6 +11,6 @@
 
 @interface MPBeaconCollection : MPJSONModel
 
-@property (nonatomic, strong, nullable) NSArray<MPBeacon*><MPBeacon>* list;
+@property NSArray<MPBeacon*><MPBeacon>* list;
 
 @end

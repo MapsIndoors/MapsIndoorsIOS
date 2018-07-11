@@ -18,7 +18,7 @@
  Delegate method that is to fire when a location property is tapped on in MPLocationView
  */
 @required
-- (void) onLocationPropertyTapped:(nullable MPLocation*)location withProperty:(nullable MPLocationProperty*)locationProperty;
+- (void) onLocationPropertyTapped:(MPLocation*)location withProperty:(MPLocationProperty*)locationProperty;
 @end
 
 /**
@@ -29,25 +29,23 @@
 /**
  Delegate protocol specification, to keep track of the tapping on a locations details.
  */
-@property (nonatomic, weak, nullable) id <MPLocationViewDelegate> mpdelegate;
+@property (weak) id <MPLocationViewDelegate> mpdelegate;
 /**
  The array of the locations properties views.
  */
-@property (nonatomic, strong, nullable) NSMutableArray* locationPropertyViews;
-
+@property NSMutableArray* locationPropertyViews;
 /**
  The location that will be displayed in the view as layouted properties.
  */
-@property (nonatomic, strong, nullable) MPLocation* location;
+@property MPLocation* location;
 
 /**
  Initialization of the view using a location.
  */
-- (nullable instancetype)initWithLocation: (nullable MPLocation*) location;
-
+- (id)initWithLocation: (MPLocation*) location;
 /**
  Add a simple text detail. This will add a location property view to this view.
  */
-- (void)addDetail: (nullable NSString*)value withType: (nullable NSString*)type andIcon: (nullable NSString*) icon useFontIcon:(BOOL)useFont;
+- (void)addDetail: (NSString*)value withType: (NSString*)type andIcon: (NSString*) icon useFontIcon:(BOOL)useFont;
 
 @end

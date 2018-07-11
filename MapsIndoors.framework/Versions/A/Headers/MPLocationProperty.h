@@ -13,12 +13,12 @@
  */
 @interface MPLocationProperty : NSObject
 
-@property (nonatomic, strong, nullable) NSString* propertyType;
-@property (nonatomic, strong, nullable) NSObject* propertyValue;
+@property NSString* propertyType;
+@property NSObject* propertyValue;
 
 /**
  Initialization that takes a type identifier and a value
  */
-- (nullable instancetype)initWithValue:(nullable NSObject*)value andType:(nullable NSString*)type;
+- (id)initWithValue:(NSObject*)value andType:(NSString*)type;
 
 @end

@@ -49,29 +49,28 @@ enum MPRouteActionDirection {
 
 @protocol MPRouteCoordinate
 @end
-
 @protocol MPRouteStep
 @end
 
 @interface MPRouteStep : MPJSONModel
 
-@property (nonatomic, strong, nullable) NSString<Optional>* travel_mode;
-@property (nonatomic, strong, nullable) MPRouteCoordinate<Optional>* end_location;
-@property (nonatomic, strong, nullable) MPRouteCoordinate<Optional>* start_location;
-@property (nonatomic, strong, nullable) NSNumber<Optional>* distance;
-@property (nonatomic, strong, nullable) NSNumber<Optional>* duration;
-@property (nonatomic, strong, nullable) NSString<Optional>* maneuver;
-@property (nonatomic, strong, nullable) MPEncodedPolyline<Optional>* polyline;
-@property (nonatomic, strong, nullable) NSMutableArray<MPRouteCoordinate*><MPRouteCoordinate,Optional>* geometry;
-@property (nonatomic, strong, nullable) NSString<Optional>* html_instructions;
-@property (nonatomic, strong, nullable) NSString<Optional>* highway;
-@property (nonatomic, strong, nullable) NSString<Optional>* routeContext;
-@property (nonatomic, strong, nullable) NSMutableArray<MPRouteStep*><MPRouteStep, Optional>* steps;
-@property (nonatomic, strong, nullable) MPTransitDetails<Optional>* transit_details;
+@property NSString<Optional>* travel_mode;
+@property MPRouteCoordinate<Optional>* end_location;
+@property MPRouteCoordinate<Optional>* start_location;
+@property NSNumber<Optional>* distance;
+@property NSNumber<Optional>* duration;
+@property NSString<Optional>* maneuver;
+@property MPEncodedPolyline<Optional>* polyline;
+@property NSMutableArray<MPRouteCoordinate*><MPRouteCoordinate,Optional>* geometry;
+@property NSString<Optional>* html_instructions;
+@property NSString<Optional>* highway;
+@property NSString<Optional>* routeContext;
+@property NSMutableArray<MPRouteStep*><MPRouteStep, Optional>* steps;
+@property MPTransitDetails<Optional>* transit_details;
 
-- (nullable MPPoint*)getActionPoint;
-- (nullable NSNumber*)getStartFloorName;
-- (nullable MPPoint *)getStartPoint;
-- (nullable MPPoint *)getEndPoint;
+- (MPPoint*)getActionPoint;
+- (NSNumber*)getStartFloorName;
+- (MPPoint *)getStartPoint;
+- (MPPoint *)getEndPoint;
 
 @end

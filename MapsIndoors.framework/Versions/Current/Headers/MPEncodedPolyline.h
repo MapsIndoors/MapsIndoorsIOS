@@ -9,6 +9,6 @@
 
 @interface MPEncodedPolyline : MPJSONModel
 
-@property (nonatomic, strong, nullable) NSString* points;
+@property NSString* points;
 
 @end

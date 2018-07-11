@@ -11,7 +11,7 @@
 #import "MPSolution.h"
 
 
-typedef void(^mpSolutionHandlerBlockType)(MPSolution* _Nullable solution, NSError* _Nullable error);
+typedef void(^mpSolutionHandlerBlockType)(MPSolution* solution, NSError* error);
 
 
 /**
@@ -24,7 +24,7 @@ typedef void(^mpSolutionHandlerBlockType)(MPSolution* _Nullable solution, NSErro
  @param  solutionCollection The solution data collection.
  */
 @required
-- (void) onSolutionsReady: (nonnull MPSolution*)solution;
+- (void) onSolutionsReady: (MPSolution*)solution;
 
 @end
 
@@ -36,16 +36,16 @@ typedef void(^mpSolutionHandlerBlockType)(MPSolution* _Nullable solution, NSErro
 /**
  Solution provider delegate.
  */
-@property (nonatomic, weak, nullable) id <MPSolutionProviderDelegate> delegate;
+@property (weak) id <MPSolutionProviderDelegate> delegate;
 
 /**
  Get solution from this provider.
  */
-- (void)getSolutionAsync: (nonnull NSString*) solutionId MP_DEPRECATED_MSG_ATTRIBUTE("Use getSolution instead");
+- (void)getSolutionAsync: (NSString*) solutionId MP_DEPRECATED_MSG_ATTRIBUTE("Use getSolution instead");
 /**
  Get solution from this provider and supply a callback handler function.
  */
-- (void)getSolutionAsync: (nonnull NSString*) solutionId completionHandler: (nullable mpSolutionHandlerBlockType)completionHandler MP_DEPRECATED_MSG_ATTRIBUTE("Use getSolutionWithCompletion: instead");
+- (void)getSolutionAsync: (NSString*) solutionId completionHandler: (mpSolutionHandlerBlockType)completionHandler MP_DEPRECATED_MSG_ATTRIBUTE("Use getSolutionWithCompletion: instead");
 /**
  Get solution from this provider.
  */
@@ -53,7 +53,7 @@ typedef void(^mpSolutionHandlerBlockType)(MPSolution* _Nullable solution, NSErro
 /**
  Get solution from this provider and supply a callback handler function.
  */
-- (void)getSolutionWithCompletion: (nullable mpSolutionHandlerBlockType)completionHandler;
+- (void)getSolutionWithCompletion: (mpSolutionHandlerBlockType)completionHandler;
 
 /**
  Determine if cached or preloaded data is available for the given solutionId.
@@ -61,5 +61,5 @@ typedef void(^mpSolutionHandlerBlockType)(MPSolution* _Nullable solution, NSErro
  @param solutionId solutionId to check for offline data availability.
  @return YES if offline or preloaded data is available, else NO,
  */
-+ (BOOL) isOfflineDataAvailableForSolutionId:(nonnull NSString*)solutionId;
++ (BOOL) isOfflineDataAvailableForSolutionId:(NSString*)solutionId;
 @end

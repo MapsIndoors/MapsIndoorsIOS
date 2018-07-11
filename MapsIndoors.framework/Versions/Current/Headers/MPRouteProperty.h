@@ -10,7 +10,7 @@
 
 @interface MPRouteProperty : MPJSONModel
 
-@property (nonatomic, strong, nullable) NSString* text;
-@property (nonatomic, strong, nullable) NSNumber* value;
+@property NSString* text;
+@property NSNumber* value;
 
 @end

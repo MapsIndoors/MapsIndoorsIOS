@@ -14,8 +14,8 @@
 
 @interface MPRouteResult : MPJSONModel
 
-@property (nonatomic, strong, nullable) NSArray<MPRoute, Optional>* routes;
-@property (nonatomic, strong, nullable) NSString<Optional>* status;
+@property NSArray<MPRoute, Optional>* routes;
+@property NSString<Optional>* status;
 
 
 @end

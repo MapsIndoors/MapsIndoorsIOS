@@ -6,7 +6,7 @@
 @end
 
 @interface MPDistanceMatrixElements : MPJSONModel
-	@property (nonatomic, strong, nullable) MPRouteProperty<Optional>* distance;
-	@property (nonatomic, strong, nullable) MPRouteProperty<Optional>* duration;
-	@property (nonatomic, strong, nullable) NSString* status; 
+	@property (strong) MPRouteProperty<Optional>* distance;
+	@property (strong) MPRouteProperty<Optional>* duration;
+	@property (strong) NSString* status; 
 @end

@@ -12,6 +12,6 @@
 
 @interface MPBuildingCollection : MPJSONModel
 
-@property (nonatomic, strong, nullable) NSArray<MPBuilding*><MPBuilding>* buildings;
+@property NSArray<MPBuilding*><MPBuilding>* buildings;
 
 @end

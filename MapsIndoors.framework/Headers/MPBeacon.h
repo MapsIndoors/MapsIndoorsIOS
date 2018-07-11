@@ -17,16 +17,16 @@
 
 @interface MPBeacon : MPJSONModel
 
-@property (nonatomic, strong, nullable) NSString* beaconId;
-@property (nonatomic, strong, nullable) NSNumber* maxTxPower;
-@property (nonatomic, strong, nullable) NSNumber* maxTxDistance;
-@property (nonatomic, strong, nullable) NSNumber* floor;
-@property (nonatomic, strong, nullable) NSString* building;
-@property (nonatomic, strong, nullable) NSString* venue;
-@property (nonatomic, strong, nullable) NSMutableArray<Optional> *RSSI;
-@property (nonatomic, strong, nullable) NSDate<Optional> *latestTimeStamp;
+@property NSString* beaconId;
+@property NSNumber* maxTxPower;
+@property NSNumber* maxTxDistance;
+@property NSNumber* floor;
+@property NSString* building;
+@property NSString* venue;
+@property NSMutableArray<Optional> *RSSI;
+@property NSDate<Optional> *latestTimeStamp;
 
-@property (nonatomic, strong, nullable) MPPoint* geometry;
+@property MPPoint* geometry;
 
 @end
 

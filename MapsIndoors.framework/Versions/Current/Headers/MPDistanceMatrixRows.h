@@ -8,5 +8,5 @@
 
 
 @interface MPDistanceMatrixRows : MPJSONModel
-	@property (nonatomic, strong, nullable) NSArray<MPDistanceMatrixElements*><MPDistanceMatrixElements>* elements;
+	@property (strong) NSArray<MPDistanceMatrixElements*><MPDistanceMatrixElements>* elements;
 @end

@@ -10,9 +10,9 @@
 
 @interface MPRouteCoordinate : MPJSONModel
 
-@property (nonatomic, strong, nullable) NSNumber<Optional>* zLevel;
-@property (nonatomic, strong, nullable) NSNumber* lat;
-@property (nonatomic, strong, nullable) NSNumber* lng;
-@property (nonatomic, strong, nullable) NSString<Optional>* floor_name;
+@property (nonatomic) NSNumber<Optional>* zLevel;
+@property NSNumber* lat;
+@property NSNumber* lng;
+@property NSString<Optional>* floor_name;
 
 @end

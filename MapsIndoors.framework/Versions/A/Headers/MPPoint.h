@@ -52,14 +52,14 @@
 /**
  Calculate the 2d geographic distance to another point.
  */
-- (double)distanceTo:(nonnull MPPoint*)point;
+- (double)distanceTo:(MPPoint*)point;
 
 /**
  Get latitude/logitude value as a string
 
  @return Latitude/logitude as comma separated string
  */
-- (nonnull NSString *)latLngString;
+- (NSString *)latLngString;
 
 /**
  Static MPPoint builder. Parses a comma separated string an returns an MPPoint instance.
@@ -67,7 +67,7 @@
  @param coordinate Latitude, longitude, floor as a comma separated string
  @return The resulting MPPoint instance
  */
-+ (nullable MPPoint*)parse: (nonnull NSString*) coordinate;
++ (MPPoint*)parse: (NSString*) coordinate;
 
 /**
  Get a CoreLocation coordinate struct representation of the MPPoint

@@ -13,40 +13,33 @@
  A basic load indicator, with the option to set a text.
  */
 @interface MPLoadIndicator : NSObject
-
 /**
  The indicator view.
  */
-@property (nonatomic, strong, nullable) UIActivityIndicatorView *indicatorView;
-
+@property UIActivityIndicatorView *indicatorView;
 /**
  View holding the load indicator.
  */
-@property (nonatomic, strong, nullable) UIView* parentView;
-
+@property UIView* parentView;
 /**
  The text view
  */
-@property (nonatomic, strong, nullable) UITextView* textView;
-
+@property UITextView* textView;
 /**
  Instantiates the indicator and places the indicator in a view.
  @param  view The view to hold the indicator.
  */
-- (nullable instancetype) initOnView:(nonnull UIView*) view;
-
+- (id)initOnView:(UIView*) view;
 /**
  Instantiates the indicator and places the indicator in a view with a given text.
  @param  view The view to hold the indicator.
  @param  text The text to display with the indicator.
  */
-- (nullable instancetype)initOnView:(nonnull UIView*) view withText:(nonnull NSString*) text;
-
+- (id)initOnView:(UIView*) view withText:(NSString*) text;
 /**
  Start and show the indicator animation
  */
 - (void) start;
-
 /**
  Stop and hide the indicator animation
  */

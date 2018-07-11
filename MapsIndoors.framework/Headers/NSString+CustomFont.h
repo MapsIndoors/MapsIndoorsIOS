@@ -25,7 +25,7 @@
 #import <Foundation/Foundation.h>
 #import "UIFont+CustomFont.h"
 
-static NSString * _Nonnull const kCustomFontFamilyName = @"icomoon";
+static NSString *const kCustomFontFamilyName = @"icomoon";
 
 /**
  @abstract CustomIcon Icons.
@@ -68,17 +68,17 @@ typedef NS_ENUM(NSInteger, CustomFontIcon) {
  @abstract Returns the correct enum for a font-awesome icon.
  @discussion The list of identifiers can be found here: http://fortawesome.github.com/Font-Awesome/#all-icons 
  */
-+ (CustomFontIcon)customEnumForIconIdentifier:(nonnull NSString*)string;
++ (CustomFontIcon)customEnumForIconIdentifier:(NSString*)string;
 
 /**
  @abstract Returns the font-awesome character associated to the icon enum passed as argument 
  */
-+ (nullable NSString*)customIconStringForEnum:(CustomFontIcon)value;
++ (NSString*)customIconStringForEnum:(CustomFontIcon)value;
 
 /* 
  @abstract Returns the font-awesome character associated to the font-awesome identifier.
  @discussion The list of identifiers can be found here: http://fortawesome.github.com/Font-Awesome/#all-icons
  */
-+ (nullable NSString*)customIconStringForIconIdentifier:(nonnull NSString*)identifier;
++ (NSString*)customIconStringForIconIdentifier:(NSString*)identifier;
 
 @end

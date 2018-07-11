@@ -16,10 +16,10 @@
 @interface MPTransitAgency : MPJSONModel
 
 //name contains the name of the transit agency.
-@property (nonatomic, strong, nullable) NSString<Optional>* name;
+@property NSString<Optional>* name;
 //url contains the URL for the transit agency.
-@property (nonatomic, strong, nullable) NSString<Optional>* url;
+@property NSString<Optional>* url;
 //phone contains the phone number of the transit agency.
-@property (nonatomic, strong, nullable) NSString<Optional>* phone;
+@property NSString<Optional>* phone;
 
 @end

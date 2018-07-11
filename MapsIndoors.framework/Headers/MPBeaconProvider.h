@@ -19,7 +19,7 @@
  @param  BeaconsCollection The Beacons data collection.
  */
 @required
-- (void) onBeaconsReady: (nonnull NSArray*)beaconData;
+- (void) onBeaconsReady: (NSArray*)beaconData;
 
 @end
 
@@ -28,16 +28,14 @@
  */
 @protocol MPBeaconProvider <NSObject>
 
-@property (nonatomic, weak, nullable) id <MPBeaconProviderDelegate> delegate;
-
+@property (weak) id <MPBeaconProviderDelegate> delegate;
 /**
  Method to initiate fetching of Beacons from the provider.
  */
 @required
-- (void)getBeacons: (nonnull NSArray*) beaconIds clientId: (nonnull NSString*) clientId;
-
+- (void)getBeacons: (NSArray*) beaconIds clientId: (NSString*) clientId;
 @required
-- (void)getBeacons: (nonnull NSString*) solutionId;
+- (void)getBeacons: (NSString*) solutionId;
 
 @end
 
@@ -48,18 +46,18 @@
 /**
  Beacons provider delegate.
  */
-@property (nonatomic, weak, nullable) id <MPBeaconProviderDelegate> delegate;
+@property (weak) id <MPBeaconProviderDelegate> delegate;
 
 /**
  Method to initiate fetching of Beacons from the provider.
  */
-- (void)getBeacons: (nonnull NSArray*) beaconIds clientId: (nonnull NSString*) clientId MP_DEPRECATED_MSG_ATTRIBUTE("Use -(void)getBeacons:(NSString*)solutionId instead");
+- (void)getBeacons: (NSArray*) beaconIds clientId: (NSString*) clientId MP_DEPRECATED_MSG_ATTRIBUTE("Use -(void)getBeacons:(NSString*)solutionId instead");
 /**
  Method to initiate fetching of Beacons from the provider.
  */
-- (void)getBeacons: (nonnull NSString*) solutionId;
+- (void)getBeacons: (NSString*) solutionId;
 
-- (nonnull instancetype)init;
+- (id)init;
 
 
 @end

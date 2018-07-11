@@ -13,9 +13,9 @@
 
 @interface MPNotificationsHelper : NSObject
 
-+ (void) setupNotificationsForApp:(nonnull UIApplication *)application withLocationManager:(nonnull CLLocationManager*)locationManager;
-+ (void) fetchMessagesForSolution: (nonnull NSString*)solutionId completionHandler: (nullable void (^)(UIBackgroundFetchResult))completionHandler messageHandler: (nullable void (^)(MPMessage* _Nonnull message))messageHandler;
-+ (void) locationManager:(nonnull CLLocationManager *)manager didEnterRegion:(nonnull CLRegion *)region;
-+ (void) monitorRegionForMessage:(nonnull MPMessage*)message withLocationManager:(nonnull CLLocationManager*)locationManager;
++ (void)setupNotificationsForApp:(UIApplication *)application withLocationManager:(CLLocationManager*)locationManager;
++ (void) fetchMessagesForSolution: (NSString*)solutionId completionHandler: (void (^)(UIBackgroundFetchResult))completionHandler messageHandler: (void (^)(MPMessage* message))messageHandler;
++ (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region;
++ (void)monitorRegionForMessage:(MPMessage*)message withLocationManager:(CLLocationManager*)locationManager;
 
 @end

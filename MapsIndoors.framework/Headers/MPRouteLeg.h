@@ -27,22 +27,21 @@ typedef NS_ENUM(NSUInteger, MPRouteLegType) {
 /**
  The routeleg distance
  */
-@property (nonatomic, strong, nullable) NSNumber<Optional>* distance;
-
+@property NSNumber<Optional>* distance;
 /**
  The routeleg duration
  */
-@property (nonatomic, strong, nullable) NSNumber<Optional>* duration;
+@property NSNumber<Optional>* duration;
 
-@property (nonatomic, strong, nullable) MPRouteCoordinate<Optional>* start_location;
-@property (nonatomic, strong, nullable) MPRouteCoordinate<Optional>* end_location;
-@property (nonatomic, strong, nullable) NSString<Optional>* start_address;
-@property (nonatomic, strong, nullable) NSString<Optional>* end_address;
+@property MPRouteCoordinate<Optional>* start_location;
+@property MPRouteCoordinate<Optional>* end_location;
+@property NSString<Optional>* start_address;
+@property NSString<Optional>* end_address;
 
 /**
  The array of route actions in this route leg.
  */
-@property (nonatomic, strong, nullable) NSMutableArray<MPRouteStep*><MPRouteStep, Optional>* steps;
+@property NSMutableArray<MPRouteStep*><MPRouteStep, Optional>* steps;
 
 @property (nonatomic) MPRouteLegType        routeLegType;
 

@@ -10,6 +10,6 @@
 
 @interface UIImage (MapsIndoorsBundle)
 
-+ (nullable UIImage*) bundleImageNamed:(nonnull NSString *)name;
++ (UIImage*) bundleImageNamed:(NSString *)name;
 
 @end

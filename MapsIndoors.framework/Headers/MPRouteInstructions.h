@@ -11,10 +11,10 @@
 __attribute__((deprecated))
 @interface MPRouteInstructions : MPJSONModel
 
-@property (nonatomic, strong, nullable) NSArray* indications;
-@property (nonatomic, strong, nullable) NSArray* descriptions;
-@property (nonatomic, strong, nullable) NSArray* distances;
+@property NSArray* indications;
+@property NSArray* descriptions;
+@property NSArray* distances;
 
-- (nullable NSArray*)getDirectionChanges;
+- (NSArray*)getDirectionChanges;
 
 @end

@@ -16,17 +16,17 @@
 /**
  Type of data (equals Geometry)
  */
-@property (nonatomic, strong, nullable) NSString<Optional>*   type;
+@property NSString<Optional>*   type;
 
 /**
  Array holding one or more coordinate sets (if so, the array will be an array of arrays)
  */
-@property (nonatomic, strong, nullable) NSArray *coordinates;
+@property NSArray *coordinates;
 
 /**
  Optional bounding box for the geometry object.
  If present, it contains two coordinates: [ longitude1, latitude1, longitude2, latitude2 ]
  */
-@property (nonatomic, strong, nullable) NSArray<Optional>*    bbox;
+@property NSArray<Optional>*    bbox;
 
 @end

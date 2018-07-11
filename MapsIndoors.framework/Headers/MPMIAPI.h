@@ -10,6 +10,6 @@
 
 @interface MPMIAPI : NSObject
 
-+ (nonnull NSString*) baseUrl;
++ (NSString*) baseUrl;
 
 @end

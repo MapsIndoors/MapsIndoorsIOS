@@ -11,9 +11,10 @@
 
 @interface MPImageRenderer : NSObject
 
-+ (nullable UIImage *) imageWithView:(nonnull UIView *)view;
-+ (nullable UIImage *) imageWithSize:(CGSize)size opaque:(BOOL)opaque fromLayer:(nonnull CALayer*)layer;     // Usable outside UI Thread
-+ (nullable UIImage *) scaledIconFromImage:(nonnull UIImage *)image;
-+ (nullable UIImage *) imageResize:(nonnull UIImage*)img andResizeTo:(CGSize)newSize;
++ (UIImage *) imageWithView:(UIView *)view;
++ (UIImage *) imageWithSize:(CGSize)size opaque:(BOOL)opaque fromLayer:(CALayer*)layer;     // Usable outside UI Thread
++ (UIImage *) scaledIconFromImage:(UIImage *)image;
++ (UIImage *) imageResize :(UIImage*)img andResizeTo:(CGSize)newSize;
+
 
 @end

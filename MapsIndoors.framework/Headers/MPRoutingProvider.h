@@ -16,32 +16,31 @@
  @param  RoutingCollection The Routing data collection.
  */
 @required
-- (void) onRouteResultReady: (nonnull MPRoute*)route;
+- (void) onRouteResultReady: (MPRoute*)route;
 @end
 
-typedef void(^mpRouteHandlerBlockType)(MPRoute* _Nullable route, NSError* _Nullable error);
-
+typedef void(^mpRouteHandlerBlockType)(MPRoute* route, NSError* error);
 
 @interface MPRoutingProvider : NSObject
 
-@property (nonatomic, weak, nullable) id <MPRoutingProviderDelegate> delegate;
-@property (nonatomic, strong, nullable) NSString* solutionId;
-@property (nonatomic, strong, nullable) NSString* googleApiKey;
-@property (nonatomic, strong, nullable) NSString* venue;
-@property (nonatomic, strong, nullable) NSString* vehicle;
-@property (nonatomic, strong, nullable) NSString* language;
+@property (weak) id <MPRoutingProviderDelegate> delegate;
+@property NSString* solutionId;
+@property NSString* googleApiKey;
+@property NSString* venue;
+@property NSString* vehicle;
+@property NSString* language;
 
 
-- (nullable instancetype) initWithArea:(nonnull NSString *)venueName;
-- (nullable instancetype) initWithMapsIndoorsSolutionId:(nonnull NSString *)solutionId googleApiKey: (nonnull NSString*) googleApiKey;
-- (void) getRoutingFrom:(nonnull MPPoint*)from to:(nonnull MPPoint*)to by:(nonnull NSString*)mode avoid:(nullable NSArray*)restrictions;
-- (void) getRoutingFrom:(nonnull MPPoint*)from to:(nonnull MPPoint*)to by:(nonnull NSString*)mode avoid:(nullable NSArray*)restrictions depart:(nullable NSDate*)departureTime arrive:(nullable NSDate*)arrivalTime;
-- (void) getGoogleRoutingFrom:(nonnull NSString*)from to:(nonnull NSString*)to by:(nonnull NSString*)mode avoid:(nullable NSArray*)restrictions;
-- (void) getGoogleRoutingFrom:(nonnull NSString*)from to:(nonnull NSString*)to by:(nonnull NSString*)mode avoid:(nullable NSArray*)restrictions depart:(nullable NSDate*)departureTime arrive:(nullable NSDate*)arrivalTime;
+- (id)initWithArea:(NSString *)venueName;
+- (id)initWithMapsIndoorsSolutionId:(NSString *)solutionId googleApiKey: (NSString*) googleApiKey;
+- (void)getRoutingFrom:(MPPoint*)from to:(MPPoint*)to by:(NSString*)mode avoid:(NSArray*)restrictions;
+- (void)getRoutingFrom:(MPPoint*)from to:(MPPoint*)to by:(NSString*)mode avoid:(NSArray*)restrictions depart:(NSDate*)departureTime arrive:(NSDate*)arrivalTime;
+- (void)getGoogleRoutingFrom:(NSString*)from to:(NSString*)to by:(NSString*)mode avoid:(NSArray*)restrictions;
+- (void)getGoogleRoutingFrom:(NSString*)from to:(NSString*)to by:(NSString*)mode avoid:(NSArray*)restrictions depart:(NSDate*)departureTime arrive:(NSDate*)arrivalTime;
 
-- (void) getRoutingFrom:(nonnull MPPoint*)from to:(nonnull MPPoint*)to by:(nonnull NSString*)mode avoid:(nullable NSArray*)restrictions completionHandler: (nullable mpRouteHandlerBlockType)handler;
-- (void) getRoutingFrom:(nonnull MPPoint*)from to:(nonnull MPPoint*)to by:(nonnull NSString*)mode avoid:(nullable NSArray*)restrictions depart:(nullable NSDate*)departureTime arrive:(nullable NSDate*)arrivalTime completionHandler: (nullable mpRouteHandlerBlockType)handler;
-- (void) getGoogleRoutingFrom:(nonnull NSString*)from to:(nonnull NSString*)to by:(nonnull NSString*)mode avoid:(nullable NSArray*)restrictions completionHandler: (nullable mpRouteHandlerBlockType)handler;
-- (void) getGoogleRoutingFrom:(nonnull NSString*)from to:(nonnull NSString*)to by:(nonnull NSString*)mode avoid:(nullable NSArray*)restrictions depart:(nullable NSDate*)departureTime arrive:(nullable NSDate*)arrivalTime completionHandler: (nullable mpRouteHandlerBlockType)handler;
+- (void)getRoutingFrom:(MPPoint*)from to:(MPPoint*)to by:(NSString*)mode avoid:(NSArray*)restrictions completionHandler: (mpRouteHandlerBlockType)handler;
+- (void)getRoutingFrom:(MPPoint*)from to:(MPPoint*)to by:(NSString*)mode avoid:(NSArray*)restrictions depart:(NSDate*)departureTime arrive:(NSDate*)arrivalTime completionHandler: (mpRouteHandlerBlockType)handler;
+- (void)getGoogleRoutingFrom:(NSString*)from to:(NSString*)to by:(NSString*)mode avoid:(NSArray*)restrictions completionHandler: (mpRouteHandlerBlockType)handler;
+- (void)getGoogleRoutingFrom:(NSString*)from to:(NSString*)to by:(NSString*)mode avoid:(NSArray*)restrictions depart:(NSDate*)departureTime arrive:(NSDate*)arrivalTime completionHandler: (mpRouteHandlerBlockType)handler;
 
 @end	

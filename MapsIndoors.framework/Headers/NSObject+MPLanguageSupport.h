@@ -9,21 +9,21 @@
 #import <Foundation/Foundation.h>
 
 
-extern NSNotificationName _Nonnull kNotificationMapsIndoorsLanguageChanged;
+extern NSNotificationName kNotificationMapsIndoorsLanguageChanged;
 
 
 @interface NSObject (MPLanguageSupport)
 
-- (void) mi_setLanguage:(nonnull NSString*)languageCode;
-- (nullable NSString*) mi_getLanguage;
+- (void) mi_setLanguage:(NSString*)languageCode;
+- (NSString*) mi_getLanguage;
 
-- (void) mi_setDefaultLanguage:(nonnull NSString*)languageCode;
-- (nullable NSString*) mi_getDefaultLanguage;
+- (void) mi_setDefaultLanguage:(NSString*)languageCode;
+- (NSString*) mi_getDefaultLanguage;
 
-- (void) mi_setAvailableLanguages:(nonnull NSArray<NSString*>*)languageCodes;
-- (nullable NSArray<NSString*>*) mi_getAvailableLanguages;
+- (void) mi_setAvailableLanguages:(NSArray<NSString*>*)languageCodes;
+- (NSArray<NSString*>*) mi_getAvailableLanguages;
 
-- (BOOL) mi_isLanguageAvailable:(nonnull NSString*)languageCode;
+- (BOOL) mi_isLanguageAvailable:(NSString*)languageCode;
 - (void) mi_switchToDefaultLanguage;
 
 @end

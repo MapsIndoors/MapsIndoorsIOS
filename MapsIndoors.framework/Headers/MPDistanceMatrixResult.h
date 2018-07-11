@@ -4,13 +4,13 @@
 
 @interface MPDistanceMatrixResult : MPJSONModel
 
-@property (nonatomic, strong, nullable) NSArray* destination_addresses;
-@property (nonatomic, strong, nullable) NSArray* origin_addresses;
-@property (nonatomic, strong, nullable) NSArray<MPDistanceMatrixRows*><MPDistanceMatrixRows>* rows;
-@property (nonatomic, strong, nullable) NSString* status;
-@property (nonatomic, strong, nullable) NSString<Optional>* venue;
-@property (nonatomic, strong, nullable) NSString<Optional>* bestOrigin;
-@property (nonatomic, strong, nullable) NSString<Optional>* bestDestination;
-@property (nonatomic, strong, nullable) NSObject<Optional>* provider;
+@property (strong) NSArray* destination_addresses;
+@property (strong) NSArray* origin_addresses;
+@property (strong) NSArray<MPDistanceMatrixRows*><MPDistanceMatrixRows>* rows;
+@property (strong) NSString* status;
+@property (strong) NSString<Optional>* venue;
+@property (strong) NSString<Optional>* bestOrigin;
+@property (strong) NSString<Optional>* bestDestination;
+@property (strong) NSObject<Optional>* provider;
 
 @end

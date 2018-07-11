@@ -13,7 +13,7 @@
  */
 @interface MPMapStyle : MPJSONModel
 
-@property (nonatomic, strong, nullable) NSString* folder;
-@property (nonatomic, strong, nullable) NSString* displayName;
+@property NSString* folder;
+@property NSString* displayName;
 
 @end
