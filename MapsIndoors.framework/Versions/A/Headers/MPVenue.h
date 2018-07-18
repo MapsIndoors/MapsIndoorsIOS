@@ -31,66 +31,66 @@
 /**
  Solution id
  */
-@property NSString<Optional>* solutionId;
+@property (nonatomic, strong, nullable) NSString<Optional>* solutionId;
 /**
  Venue id
  */
-@property NSString* venueId;
+@property (nonatomic, strong, nullable) NSString* venueId;
 /**
  Venue default floor
  */
-@property NSNumber<Optional>* defaultFloor;
+@property (nonatomic, strong, nullable) NSNumber<Optional>* defaultFloor;
 /**
  The general url template to be used when creating floor layers for this venue. If used by this framework, the url string must have format "prefix{param_1}infix{param_N}suffix", e.g.: "http://tiles.url.com/{floor}/{x}/{y}/{zoom}.png". See also MPURITemplate.
  */
-@property NSString* tilesUrl;
+@property (nonatomic, strong, nullable) NSString* tilesUrl;
 /**
  Array of buildings in this venue.
  */
-@property NSArray<MPBuilding*><MPBuilding, Optional>* buildings;
+@property (nonatomic, strong, nullable) NSArray<MPBuilding*><MPBuilding, Optional>* buildings;
 /**
  Venue anchor point.
  */
-@property MPPoint<Optional>* anchor;
+@property (nonatomic, strong, nullable) MPPoint<Optional>* anchor;
 /**
  Geographic BBox array [w,s,e,n] for this venue.
  */
-@property NSArray<Optional>* bbox;
+@property (nonatomic, strong, nullable) NSArray<Optional>* bbox;
 /**
  Geographic bounds array [[lng,lat],[lng,lat],...] for this venue.
  */
-@property NSArray<NSArray*>* bounds;
+@property (nonatomic, strong, nullable) NSArray<NSArray*>* bounds;
 /**
  Array of entry points in this venue.
  */
-@property NSArray<MPPoint*><Optional, MPPoint>* entryPoints;
+@property (nonatomic, strong, nullable) NSArray<MPPoint*><Optional, MPPoint>* entryPoints;
 /**
  Route network/graph identifier for the given venue.
  */
-@property NSString<Optional>* graphId;
+@property (nonatomic, strong, nullable) NSString<Optional>* graphId;
 /**
  Venue key.
  */
-@property (nonatomic, strong) NSString<Optional>* venueKey;
+@property (nonatomic, strong, nullable) NSString<Optional>* venueKey;
 /**
  Venue name.
  */
-@property NSString<Optional>* name;
+@property (nonatomic, strong, nullable) NSString<Optional>* name;
 /**
  Array of possible map styles.
  */
-@property NSArray<MPMapStyle*><MPMapStyle>* styles;
+@property (nonatomic, strong, nullable) NSArray<MPMapStyle*><MPMapStyle>* styles;
 /**
  Get a default style. If none is set, it will be the first string value in the list of map styles
  */
-- (MPMapStyle*)getDefaultStyle;
+- (nullable MPMapStyle*)getDefaultStyle;
 /**
  Get the geographic bounding box for the venue
  */
-- (GMSCoordinateBounds *)getBoundingBox;
+- (nullable GMSCoordinateBounds *)getBoundingBox;
 /**
  Get the geographic bounds for the venue
  */
-- (GMSCoordinateBounds *)getVenueBounds DEPRECATED_MSG_ATTRIBUTE("Use getBoundingBox");
+- (nullable GMSCoordinateBounds *)getVenueBounds DEPRECATED_MSG_ATTRIBUTE("Use getBoundingBox");
 
 @end

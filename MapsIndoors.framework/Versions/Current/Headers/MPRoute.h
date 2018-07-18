@@ -32,22 +32,22 @@ typedef struct MPRouteSegmentPath MPRouteSegmentPath;
  */
 @interface MPRoute : MPJSONModel
 
-@property NSString<Optional>* copyrights;
+@property (nonatomic, strong, nullable) NSString<Optional>* copyrights;
 /**
  The route legs: the different route components. Typically a route from 1st floor to 2nd floor will consist of two route legs.
  */
-@property NSMutableArray<MPRouteLeg*><MPRouteLeg,Optional>* legs;
-@property MPEncodedPolyline<Optional>* overview_polyline;
-@property NSString<Optional>* summary;
-@property NSArray<Optional>* warnings;
-@property MPRouteBounds<Optional>* bounds;
-@property (nonatomic) NSNumber<Optional>* distance;
-@property (nonatomic) NSNumber<Optional>* duration;
-@property NSArray<NSString*><Optional>* restrictions;
+@property (nonatomic, strong, nullable) NSMutableArray<MPRouteLeg*><MPRouteLeg,Optional>* legs;
+@property (nonatomic, strong, nullable) MPEncodedPolyline<Optional>* overview_polyline;
+@property (nonatomic, strong, nullable) NSString<Optional>* summary;
+@property (nonatomic, strong, nullable) NSArray<Optional>* warnings;
+@property (nonatomic, strong, nullable) MPRouteBounds<Optional>* bounds;
+@property (nonatomic, strong, nullable) NSNumber<Optional>* distance;
+@property (nonatomic, strong, nullable) NSNumber<Optional>* duration;
+@property (nonatomic, strong, nullable) NSArray<NSString*><Optional>* restrictions;
 
 
 /**
  Find route segment path (route leg and route step) nearest to a point and floor index.
  */
-- (MPRouteSegmentPath)findNearestRouteSegmentPathFromPoint:(MPPoint*)point floor: (NSNumber*) floorIndex;
+- (MPRouteSegmentPath)findNearestRouteSegmentPathFromPoint:(nonnull MPPoint*)point floor: (nonnull NSNumber*) floorIndex;
 @end

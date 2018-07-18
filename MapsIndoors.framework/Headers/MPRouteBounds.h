@@ -11,7 +11,7 @@
 
 @interface MPRouteBounds : MPJSONModel
 
-@property MPRouteCoordinate* northeast;
-@property MPRouteCoordinate* southwest;
+@property (nonatomic, strong, nullable) MPRouteCoordinate* northeast;
+@property (nonatomic, strong, nullable) MPRouteCoordinate* southwest;
 
 @end

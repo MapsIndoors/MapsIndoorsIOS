@@ -19,21 +19,21 @@
   Delegate object to hold the floor change event method.
  */
 @required
-@property (weak) id <MPFloorSelectorDelegate> delegate;
+@property (nonatomic, weak, nullable) id <MPFloorSelectorDelegate> delegate;
 
 /**
   Set floor level.
   @param floor The floor to switch to.
  */
 @required
-- (void)setFloor:(NSNumber*)floor;
+- (void) setFloor:(nullable NSNumber*)floor;
 
 /**
   Update the floor selector based on a building.
   @param building The building that the floor selector should reflect.
  */
 @required
-- (void)updateFloors:(MPBuilding*)building;
+- (void) updateFloors:(nullable MPBuilding*)building;
 
 /**
  *
@@ -53,7 +53,7 @@
   Floor change event method. Must be implemented by delegate object.
  */
 @required
-- (void) floorHasChanged:(NSNumber*)floorIndex;
+- (void) floorHasChanged:(nonnull NSNumber*)floorIndex;
 
 @end
 

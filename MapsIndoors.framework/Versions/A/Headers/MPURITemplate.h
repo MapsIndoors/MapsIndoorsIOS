@@ -15,25 +15,31 @@
 /**
  Initialization with template string. Must have format "prefix{param_1}infix{param_N}suffix", e.g.: "http://tiles.url.com/{floor}/{x}/{y}/{zoom}.png"
  */
-- (id)initWithTemplateString:(NSString*)url;
+- (nullable instancetype) initWithTemplateString:(nonnull NSString*)url;
+
 /**
  Template string property. Must have format "prefix{param_1}infix{param_N}suffix", e.g.: "http://tiles.url.com/{floor}/{x}/{y}/{zoom}.png"
  */
-@property NSString* templateURI;
+@property (nonatomic, strong, nullable) NSString* templateURI;
+
 /**
  Get the resulting url string
  */
-@property (readonly) NSString* resultURI;
+@property (nonatomic, strong, nullable, readonly) NSString* resultURI;
+
 /**
  Find the parameter placeholder {name} with given name and replace with given string value
  */
-- (void)addParam:(NSString*)name value:(NSString*)value;
+- (void)addParam:(nonnull NSString*)name value:(nonnull NSString*)value;
+
 /**
  Find the parameter placeholder {name} with given name and replace with given int value
  */
-- (void)addIntParam:(NSString*)name value:(int)value;
+- (void)addIntParam:(nonnull NSString*)name value:(int)value;
+
 /**
  Reset the url parameters.
  */
 - (void)resetParams;
+
 @end

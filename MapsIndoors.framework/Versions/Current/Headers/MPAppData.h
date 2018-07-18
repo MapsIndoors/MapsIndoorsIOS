@@ -18,12 +18,12 @@
 /**
  Ruleset that defines how and when to show the different map markers
  */
-@property (strong, nonatomic) MPLocationDisplayRuleset<Ignore>* displayRuleset;
-@property (strong, nonatomic) NSString<Optional>* colorPrimary;
-@property (strong, nonatomic) NSString<Optional>* colorPrimaryDark;
-@property (strong, nonatomic) NSString<Optional>* colorAccent;
-@property (strong, nonatomic) NSDictionary<NSString*, NSArray<NSDictionary*>*>* menuInfo;
-@property (strong, nonatomic) NSDictionary<NSString*, NSString*><Optional>* venueImages;
-@property (strong, nonatomic) NSDictionary<NSString*, NSString*><Optional>* appSettings;
+@property (strong, nonatomic, nullable) MPLocationDisplayRuleset<Ignore>* displayRuleset;
+@property (strong, nonatomic, nullable) NSString<Optional>* colorPrimary;
+@property (strong, nonatomic, nullable) NSString<Optional>* colorPrimaryDark;
+@property (strong, nonatomic, nullable) NSString<Optional>* colorAccent;
+@property (strong, nonatomic, nullable) NSDictionary<NSString*, NSArray<NSDictionary*>*>* menuInfo;
+@property (strong, nonatomic, nullable) NSDictionary<NSString*, NSString*><Optional>* venueImages;
+@property (strong, nonatomic, nullable) NSDictionary<NSString*, NSString*><Optional>* appSettings;
 
 @end

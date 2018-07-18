@@ -6,7 +6,7 @@ PODS:
   - CocoaLumberjack/Default (3.4.2)
   - CocoaLumberjack/Extensions (3.4.2):
     - CocoaLumberjack/Default
-  - Crashlytics (3.10.4):
+  - Crashlytics (3.10.5):
     - Fabric (~> 1.7.9)
   - DZNEmptyDataSet (1.8.1)
   - Fabric (1.7.9)
@@ -18,10 +18,10 @@ PODS:
   - FirebaseAnalytics (5.0.1):
     - FirebaseCore (~> 5.0)
     - FirebaseInstanceID (~> 3.0)
-    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
     - nanopb (~> 0.3)
   - FirebaseCore (5.0.5):
-    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
   - FirebaseInstanceID (3.1.1):
     - FirebaseCore (~> 5.0)
   - GoogleFontsiOS/Core (0.1.1)
@@ -33,11 +33,11 @@ PODS:
   - GoogleMaps/Maps (2.6.0):
     - GoogleMaps/Base
   - GoogleToolboxForMac/Defines (2.1.4)
-  - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
+  - GoogleToolboxForMac/NSData+zlib (2.1.4):
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - HashBuilder (1.0.1)
   - KVOController (1.2.0)
-  - MapsIndoors (2.1.0-beta3):
+  - MapsIndoors (2.1.0-beta4):
     - GoogleMaps (= 2.6)
   - MaterialControls (1.2.2)
   - nanopb (0.3.8):
@@ -65,30 +65,9 @@ DEPENDENCIES:
   - SVGKit (from `https://github.com/SVGKit/SVGKit.git`, branch `2.x`)
   - VCMaterialDesignIcons (~> 2.1)
 
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - AFNetworking
-    - CocoaLumberjack
-    - Crashlytics
-    - DZNEmptyDataSet
-    - Fabric
-    - Firebase
-    - FirebaseAnalytics
-    - FirebaseCore
-    - FirebaseInstanceID
-    - GoogleFontsiOS
-    - GoogleMaps
-    - GoogleToolboxForMac
-    - HashBuilder
-    - KVOController
-    - MaterialControls
-    - nanopb
-    - PureLayout
-    - VCMaterialDesignIcons
-
 EXTERNAL SOURCES:
   MapsIndoors:
-    :path: "../"
+    :path: ../
   SVGKit:
     :branch: 2.x
     :git: https://github.com/SVGKit/SVGKit.git
@@ -101,7 +80,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
-  Crashlytics: 915a7787b84f635fb2a81f92a90e265c2c413f76
+  Crashlytics: 7f2e38d302d9da96475b3d64d86fb29e31a542b7
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Fabric: a2917d3895e4c1569b9c3170de7320ea1b1e6661
   Firebase: d66f4f29c23f22d96808d9abc174d81d8eee968f
@@ -113,7 +92,7 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   HashBuilder: d2f6cbd492c68350bbcf0fa2216aae50b60657d5
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
-  MapsIndoors: 4ad8bf5025a0f87f7623994028f2dd8c7a18eb91
+  MapsIndoors: f06a409639c4e457650633042ec6c4bfef888202
   MaterialControls: 1c6b29e78d3a13d8dd6a67ed31b6d26eb5de8f72
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
@@ -122,4 +101,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 1dbdfcbe3381667d5a6ba54e7966f098f8087ee0
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.4.0

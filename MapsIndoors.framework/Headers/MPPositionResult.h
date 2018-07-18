@@ -16,66 +16,67 @@
  */
 @interface MPPositionResult : MPJSONModel
 
-
 /**
  The geographic point geometry of the position
  */
-@property MPPoint* geometry;
+@property (nonatomic, strong, nullable) MPPoint* geometry;
 
 /**
  Properties dictionary
  */
-@property NSMutableDictionary* properties;
+@property (nonatomic, strong, nullable) NSMutableDictionary* properties;
+
 /**
  Type property
  */
-@property NSString* type DEPRECATED_MSG_ATTRIBUTE("Marked as obsolete property");
+@property (nonatomic, strong, nullable) NSString* type DEPRECATED_MSG_ATTRIBUTE("Marked as obsolete property");
+
 /**
  Position provider that delivered this position
  */
-@property id<Optional> provider;
+@property (nonatomic, weak, nullable) id<Optional> provider;
 
 /**
  Get the probability of the position. This is a radius in meters. Can be used to generate an approximation circle.
 
  @return A double representing the positions accuracy in meters.
  */
-- (double)getProbability;
+- (double) getProbability;
 
 /**
  Get the roundtrip property
 
  @return The roundtrip value.
  */
-- (double)getRoundtrip DEPRECATED_MSG_ATTRIBUTE("Marked as obsolete method");
+- (double) getRoundtrip DEPRECATED_MSG_ATTRIBUTE("Marked as obsolete method");
 
 /**
  Get the heading in degrees from north
 
  @return The heading value in degrees from north as a double
  */
-- (double)getHeadingDegrees;
+- (double) getHeadingDegrees;
 
 /**
  Get the age of the this position result; the time in seconds since the position was first determined.
 
  @return The age property as a number
  */
-- (NSNumber*)getAge DEPRECATED_MSG_ATTRIBUTE("Marked as obsolete method");
+- (nullable NSNumber*) getAge DEPRECATED_MSG_ATTRIBUTE("Marked as obsolete method");
 
 /**
  Get the floor index property
 
  @return The floor index property
  */
-- (NSNumber*)getFloor;
+- (nullable NSNumber*)getFloor;
 
-- (void)setProbability:(double)probability;
+- (void) setProbability:(double)probability;
 /**
  Set the heading of the position result in degrees from north
  
  @param heading The heading value in degrees from north as a double
  */
-- (void)setHeadingDegrees:(double)heading;
+- (void) setHeadingDegrees:(double)heading;
 
 @end

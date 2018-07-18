@@ -57,43 +57,43 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
   Data fetch event method. Can be implemented by delegate object.
  */
 @optional
-- (void) appDataReady:(MPAppData*)appData MP_DEPRECATED_MSG_ATTRIBUTE("Use mapContentReady instead");
+- (void) appDataReady:(nonnull MPAppData*)appData MP_DEPRECATED_MSG_ATTRIBUTE("Use mapContentReady instead");
 
 /**
   Data fetch event method. Can be implemented by delegate object.
  */
 @optional
-- (void) locationDataReady:(MPLocationDataset*)locations MP_DEPRECATED_MSG_ATTRIBUTE("Use mapContentReady instead");
+- (void) locationDataReady:(nonnull MPLocationDataset*)locations MP_DEPRECATED_MSG_ATTRIBUTE("Use mapContentReady instead");
 
 /**
   Data fetch event method. Can be implemented by delegate object.
  */
 @optional
-- (void) solutionDataReady:(MPSolution*)solution MP_DEPRECATED_MSG_ATTRIBUTE("Use mapContentReady instead");
+- (void) solutionDataReady:(nonnull MPSolution*)solution MP_DEPRECATED_MSG_ATTRIBUTE("Use mapContentReady instead");
 
 /**
   Data fetch event method. Can be implemented by delegate object.
  */
 @optional
-- (void) venueDataReady:(MPVenueCollection*)venueCollection MP_DEPRECATED_MSG_ATTRIBUTE("Use mapContentReady instead");
+- (void) venueDataReady:(nonnull MPVenueCollection*)venueCollection MP_DEPRECATED_MSG_ATTRIBUTE("Use mapContentReady instead");
 
 /**
   Data fetch event method. Can be implemented by delegate object.
  */
 @optional
-- (void) onPositionUpdate:(MPPositionResult*)positionResult MP_DEPRECATED_MSG_ATTRIBUTE("Use MPPositionProvider instead");
+- (void) onPositionUpdate:(nonnull MPPositionResult*)positionResult MP_DEPRECATED_MSG_ATTRIBUTE("Use MPPositionProvider instead");
 
 /**
   Location info snippet tap event method. Can be implemented by delegate object.
  */
 @optional
-- (void) infoSnippetTapped:(MPLocation*)location tapPosition:(NSString*)position MP_DEPRECATED_ATTRIBUTE;
+- (void) infoSnippetTapped:(nonnull MPLocation*)location tapPosition:(nonnull NSString*)position MP_DEPRECATED_ATTRIBUTE;
 
 /**
   Location info snippet tap event method. Can be implemented by delegate object.
  */
 @optional
-- (void) floorDidChange:(NSNumber*)floor;
+- (void) floorDidChange:(nonnull NSNumber*)floor;
 
 /**
  Called when MPMapControl wants to automatically switch floor, for example when the map is panned and the visible buildings have changed.
@@ -102,7 +102,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
  @return YES if the floor change is allowed, else NO.
  */
 @optional
-- (BOOL) allowAutomaticSwitchToFloor:(NSNumber*)toFloor;
+- (BOOL) allowAutomaticSwitchToFloor:(nonnull NSNumber*)toFloor;
 
 /**
  Called when the user taps the map.
@@ -117,7 +117,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
  @return YES to invoke default behaviour, NO to disable default behaviour.
  */
 @optional
-- (BOOL) didTapAtCoordinate:(CLLocationCoordinate2D)coordinate withLocations:(NSArray<MPLocation*>*)locations;
+- (BOOL) didTapAtCoordinate:(CLLocationCoordinate2D)coordinate withLocations:(nullable NSArray<MPLocation*>*)locations;
 
 @end
 
@@ -129,13 +129,13 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 /**
   Delegate object containing data events
  */
-@property (nonatomic, weak) id<MPMapControlDelegate> delegate;
+@property (nonatomic, weak, nullable) id<MPMapControlDelegate> delegate;
 
 /**
   Custom floor selector for the map to use.
   When provided, the MapControl will not create a floor selector control autonomously.
  */
-@property (nonatomic, strong) id<MPFloorSelectorProtocol>       customFloorSelector;
+@property (nonatomic, strong, nullable) id<MPFloorSelectorProtocol>       customFloorSelector;
 
 /**
   Floor selector UI element.
@@ -147,7 +147,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
  
   May be nil if a custom floor selector has been provided.
  */
-@property (readonly) MPFloorSelectorControl* floorSelector;
+@property (readonly, nullable) MPFloorSelectorControl* floorSelector;
 
 /**
   Hide floor selector UI element.
@@ -158,23 +158,23 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 /**
  Current user location.
  */
-@property (nonatomic)MPPositionIndicator* currentPosition;
+@property (nonatomic, nullable) MPPositionIndicator* currentPosition;
 /**
  Current single location selection.
  */
-@property (nonatomic) MPLocation* selectedLocation;
+@property (nonatomic, nullable) MPLocation* selectedLocation;
 /**
  Current location search result.
  */
-@property (nonatomic) NSArray<MPLocation*>* searchResult;
+@property (nonatomic, nullable) NSArray<MPLocation*>* searchResult;
 /**
  Current language.
  */
-@property (nonatomic) NSString* language MP_DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors getLanguage]/[MapsIndoors setLanguage:] instead");
+@property (nonatomic, nullable) NSString* language MP_DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors getLanguage]/[MapsIndoors setLanguage:] instead");
 /**
  The current floor.
  */
-@property (nonatomic) NSNumber* currentFloor;
+@property (nonatomic, nullable) NSNumber* currentFloor;
 /**
  Whether or not to hide all map locations. Default is NO
  */
@@ -182,7 +182,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 /**
  The venue name, at which the map should target its view.
  */
-@property (nonatomic) NSString* venue;
+@property (nonatomic, nullable) NSString* venue;
 
 /**
  Indicates whether or not basic data for the map has been loaded.
@@ -194,7 +194,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
   Initialize a MPMapControl object with given map.
   @param map The map to build the map control on.
  */
-- (id)initWithMap:(GMSMapView*) map;
+- (nullable instancetype)initWithMap:(nonnull GMSMapView*) map;
 
 /**
   Setup the venue map with given providers.
@@ -202,22 +202,22 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
   @param venueProvider The venue provider from which the MapControl is fetching its venue data.
   @param routingProvider The routing provider to which the MapControl is performing its route requests.
  */
-- (void)setupMapWith:(MPLocationsProvider*)locationsProvider
-              venues:(MPVenueProvider*)venueProvider
-             routing:(MPRoutingProvider*)routingProvider MP_DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors provideApiKey:contentKey:] and initWithMap: when setting up");
+- (void)setupMapWith:(nonnull MPLocationsProvider*)locationsProvider
+              venues:(nonnull MPVenueProvider*)venueProvider
+             routing:(nonnull MPRoutingProvider*)routingProvider MP_DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors provideApiKey:contentKey:] and initWithMap: when setting up");
 
 /**
   Setup the venue map with default providers based on given solution id (only venues).
   @param solutionId The MapsPeople solution id.
  */
-- (void)setupMapWith:(NSString*)solutionId MP_DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors provideApiKey:contentKey:] and initWithMap: when setting up");
+- (void)setupMapWith:(nonnull NSString*)solutionId MP_DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors provideApiKey:contentKey:] and initWithMap: when setting up");
 
 /**
   Setup the venue map with default providers based on given solution id (venues, locations and routing if accessible).
   @param solutionId The MapsPeople solution id.
   @param venueName The MapsPeople site id, used for locations and routing.
  */
-- (void)setupMapWith:(NSString*)solutionId site:(NSString*)venueName MP_DEPRECATED_MSG_ATTRIBUTE("Use only [MapsIndoors provideApiKey:contentKey:] and initWithMap: when setting up");
+- (void)setupMapWith:(nonnull NSString*)solutionId site:(nullable NSString*)venueName MP_DEPRECATED_MSG_ATTRIBUTE("Use only [MapsIndoors provideApiKey:contentKey:] and initWithMap: when setting up");
 
 /**
   Setup the venue map with default providers based on given solution id (venues, locations and routing if accessible).
@@ -227,27 +227,27 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
   @param venueProvider The venue provider from which the MapControl is fetching its venue data.
   @param routingProvider The routing provider to which the MapControl is performing its route requests.
  */
-- (void)setupMapWith:(NSString*)solutionId
-                site:(NSString*)venueName
-           locations:(MPLocationsProvider*)locationsProvider
-              venues:(MPVenueProvider*)venueProvider
-             routing:(MPRoutingProvider*)routingProvider MP_DEPRECATED_MSG_ATTRIBUTE("Use only [MapsIndoors provideApiKey:contentKey:] and -[initWithMap:] or -[setupMapWithVenue:] when setting up");
+- (void)setupMapWith:(nonnull NSString*)solutionId
+                site:(nonnull NSString*)venueName
+           locations:(nonnull MPLocationsProvider*)locationsProvider
+              venues:(nonnull MPVenueProvider*)venueProvider
+             routing:(nonnull MPRoutingProvider*)routingProvider MP_DEPRECATED_MSG_ATTRIBUTE("Use only [MapsIndoors provideApiKey:contentKey:] and -[initWithMap:] or -[setupMapWithVenue:] when setting up");
 
 /**
  Setup the venue map with default providers based on MapsIndoors.solutionId.
  @param venueName The MapsPeople site id, used for locations and routing.
  */
-- (void) setupMapWithVenue:(NSString*)venueName;
+- (void) setupMapWithVenue:(nonnull NSString*)venueName;
 
 /**
   Get the location that wraps the given marker.
  */
-- (MPLocation*)getLocation:(GMSMarker*) marker;
+- (nullable MPLocation*)getLocation:(nonnull GMSMarker*) marker;
 
 /**
   Get location by string id reference.
  */
-- (MPLocation*)getLocationById:(NSString*) idString;
+- (nullable MPLocation*)getLocationById:(nonnull NSString*) idString;
 
 /**
   Show a given array of locations. The display will override any zoom level condition made from display rules. Clear the locations by calling again with 
@@ -261,7 +261,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
   Adding a rule with name nil, will apply generally to all categories
   Adding a rule with a name, will override a more general rule
  */
-- (void)addDisplayRule:(MPLocationDisplayRule*)rule;
+- (void)addDisplayRule:(nonnull MPLocationDisplayRule*)rule;
 
 /**
  Add multiple lcoation display rules.
@@ -269,21 +269,21 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 
  @param rules Array of displayrules to add.
  */
-- (void)addDisplayRules:(NSArray<MPLocationDisplayRule*>*)rules;
+- (void)addDisplayRules:(nonnull NSArray<MPLocationDisplayRule*>*)rules;
 
 /**
  The display rule used by MPMapControl to highlight the selected location.
  Created and added by MPMapControl during initialization.
  Modify this displayrule to change the visual appearance of the location highlight.
  */
-@property (nonatomic, strong, readonly) MPLocationDisplayRule*      locationHighlightDisplayRule;
+@property (nonatomic, strong, readonly) MPLocationDisplayRule* _Nullable      locationHighlightDisplayRule;
 
 /**
  Deprecated, Use MapsIndoors.positionProvider instead
 
  @param provider positioning provider to register with MPMapControl.
  */
-- (void)addPositionProvider:(id<MPPositionProvider>)provider MP_DEPRECATED_MSG_ATTRIBUTE("Use MapsIndoors.positionProvider instead");
+- (void)addPositionProvider:(nonnull id<MPPositionProvider>)provider MP_DEPRECATED_MSG_ATTRIBUTE("Use MapsIndoors.positionProvider instead");
 
 - (void)clearTileCache;
 
@@ -304,7 +304,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 
  @param location The location to show on the map.
  */
-- (void)goTo:(MPLocation*)location;
+- (void)goTo:(nonnull MPLocation*)location;
 
 /**
  Make sure the complete geometry of the given MPLocation is visible on the map.
@@ -315,6 +315,6 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 
  @param location Location to show.
  */
-- (void) showAreaOfLocation:(MPLocation*)location;
+- (void) showAreaOfLocation:(nonnull MPLocation*)location;
 
 @end

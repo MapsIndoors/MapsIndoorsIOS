@@ -12,6 +12,6 @@
 
 @interface UIColor (HexString)
 
-+ (UIColor *)colorFromHexString:(NSString *)hexString;
++ (nullable UIColor *)colorFromHexString:(nonnull NSString *)hexString;
 
 @end

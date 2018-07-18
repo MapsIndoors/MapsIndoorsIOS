@@ -23,18 +23,18 @@
  */
 @property (nonatomic, class) NSUInteger     maxElementsPerGoogleDistanceMatrixRequest;
 
-@property (weak) id <MPRoutingProviderDelegate> delegate;
-@property NSString* solutionId MP_DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors provideAPIKey:::] to apply MapsIndoors API key, content key and Google API key");
-@property NSString* googleApiKey MP_DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors provideAPIKey:::] to apply MapsIndoors API key, content key and Google API key");
-@property NSString* language MP_DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors setLanguage:] to apply language globally");
+@property (nonatomic, weak, nullable) id <MPRoutingProviderDelegate> delegate;
+@property (nonatomic, strong, nullable) NSString* solutionId MP_DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors provideAPIKey:::] to apply MapsIndoors API key, content key and Google API key");
+@property (nonatomic, strong, nullable) NSString* googleApiKey MP_DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors provideAPIKey:::] to apply MapsIndoors API key, content key and Google API key");
+@property (nonatomic, strong, nullable) NSString* language MP_DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors setLanguage:] to apply language globally");
 
-- (id)initWithMapsIndoorsSolutionId:(NSString *)solutionId googleApiKey: (NSString*) googleApiKey MP_DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors provideAPIKey:::] to apply MapsIndoors API key,  content key and Google API key");
-- (void)routingFrom:(MPLocation *)from to:(MPLocation *)to by:(NSString *)mode avoid:(NSArray *)restrictions depart:(NSDate *)departureTime arrive:(NSDate *)arrivalTime MP_DEPRECATED_MSG_ATTRIBUTE("Use routingWithQuery: instead");
-- (void)routingFrom:(MPLocation *)from to:(MPLocation *)to by:(NSString *)mode MP_DEPRECATED_MSG_ATTRIBUTE("Use routingWithQuery: instead");
+- (nullable instancetype)initWithMapsIndoorsSolutionId:(nullable NSString *)solutionId googleApiKey: (nullable NSString*) googleApiKey MP_DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors provideAPIKey:::] to apply MapsIndoors API key,  content key and Google API key");
+- (void)routingFrom:(nonnull MPLocation *)from to:(nonnull MPLocation *)to by:(nonnull NSString *)mode avoid:(nullable NSArray *)restrictions depart:(nullable NSDate *)departureTime arrive:(nullable NSDate *)arrivalTime MP_DEPRECATED_MSG_ATTRIBUTE("Use routingWithQuery: instead");
+- (void)routingFrom:(nonnull MPLocation *)from to:(nonnull MPLocation *)to by:(nonnull NSString *)mode MP_DEPRECATED_MSG_ATTRIBUTE("Use routingWithQuery: instead");
 
-- (void)routingFrom:(MPLocation *)from to:(MPLocation *)to by:(NSString *)mode avoid:(NSArray *)restrictions depart:(NSDate *)departureTime arrive:(NSDate *)arrivalTime completionHandler: (mpRouteHandlerBlockType)handler MP_DEPRECATED_MSG_ATTRIBUTE("Use routingWithQuery:completionHandler: instead");
-- (void)routingFrom:(MPLocation *)from to:(MPLocation *)to by:(NSString *)mode completionHandler: (mpRouteHandlerBlockType)handler MP_DEPRECATED_MSG_ATTRIBUTE("Use routingWithQuery:completionHandler: instead");
-- (void)routingWithQuery:(MPDirectionsQuery*)directionsQuery completionHandler: (mpRouteHandlerBlockType)handler;
-- (void)routingWithQuery:(MPDirectionsQuery*)directionsQuery;
+- (void)routingFrom:(nonnull MPLocation *)from to:(nonnull MPLocation *)to by:(nonnull NSString *)mode avoid:(nullable NSArray *)restrictions depart:(nullable NSDate *)departureTime arrive:(nullable NSDate *)arrivalTime completionHandler: (nullable mpRouteHandlerBlockType)handler MP_DEPRECATED_MSG_ATTRIBUTE("Use routingWithQuery:completionHandler: instead");
+- (void)routingFrom:(nonnull MPLocation *)from to:(nonnull MPLocation *)to by:(nonnull NSString *)mode completionHandler: (nullable mpRouteHandlerBlockType)handler MP_DEPRECATED_MSG_ATTRIBUTE("Use routingWithQuery:completionHandler: instead");
+- (void)routingWithQuery:(nonnull MPDirectionsQuery*)directionsQuery completionHandler: (nullable mpRouteHandlerBlockType)handler;
+- (void)routingWithQuery:(nonnull MPDirectionsQuery*)directionsQuery;
 
 @end

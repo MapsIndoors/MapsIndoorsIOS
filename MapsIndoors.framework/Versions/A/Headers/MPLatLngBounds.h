@@ -12,7 +12,7 @@
 
 @interface MPLatLngBounds : MPJSONModel
 
-@property MPLatLng* southWest;
-@property MPLatLng* northEast;
+@property (nonatomic, strong, nullable) MPLatLng* southWest;
+@property (nonatomic, strong, nullable) MPLatLng* northEast;
 
 @end

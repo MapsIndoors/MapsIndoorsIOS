@@ -14,7 +14,7 @@
 
 @interface MPDataField : MPJSONModel
 
-@property NSString<Optional>* key;
-@property NSString* value;
+@property (nonatomic, strong, nullable) NSString<Optional>* key;
+@property (nonatomic, strong, nullable) NSString* value;
 
 @end

@@ -9,11 +9,19 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [2.1.0-beta] 2018-07-11
+## [2.1.0-beta] 2018-07-18
 ### Changed
 - Changed how icons and labels are shown on the map, so that no labels or icons are shown on top of each other (Icon & label collision handling)
 - Now supporting different icon sizes as recieved from CMS
 - Now able to show outlines of rooms and areas if the dataset is prepared for this
+
+## [2.0.4] 2018-06-27
+### Fixed
+- Fixed a major bug that caused the generated Swift interface in XCode to expose assumed nonnull properties in various areas of the interface
+- Fixed an issue that was causing `MPDirectionsService` to return routes with duplicate legs for some routes between different venues
+- Fixed an issue where in rare cases one of the internal callbacks in MapControl was not called causing the map to not fire the optional `[MPMapControlDelegate mapContentReady]`
+### Changed
+- A lot of properties have now become nullable because of the FIX needed above
 
 ## [2.0.3] 2018-06-15
 ### Fixed

@@ -29,14 +29,14 @@ typedef NS_ENUM(NSUInteger, MPPositionProviderType) {
 
  @param positionResult The position result as estimated or calculated by a MPPositionProvider
  */
-- (void)onPositionUpdate:(MPPositionResult*)positionResult;
+- (void)onPositionUpdate:(nonnull MPPositionResult*)positionResult;
 
 /**
  Positioning fail method. Will return the reference to the actual provider
 
  @param provider A provider that failed determining user position
  */
-- (void)onPositionFailed:(id)provider;
+- (void)onPositionFailed:(nonnull id)provider;
 @end
 
 
@@ -59,31 +59,31 @@ typedef NS_ENUM(NSUInteger, MPPositionProviderType) {
  Request location services permissions
  */
 - (void) requestLocationPermissions;
+
 /**
  Update location services permission status
  */
 - (void) updateLocationPermissionStatus;
-
 
 /**
  Start the provider. The argument value is depending on the implementation.
 
  @param arg The argument value is depending on the implementation
  */
-- (void)startPositioning:(NSString*)arg;
+- (void)startPositioning:(nullable NSString*)arg;
 /**
  Stop the provider. The argument value is depending on the implementation.
  
  @param arg The argument value is depending on the implementation
  */
-- (void)stopPositioning:(NSString*)arg;
+- (void)stopPositioning:(nullable NSString*)arg;
 /**
  Start the provider after specified number of milliseconds. The argument value is depending on the implementation.
  
  @param millis The number of milliseconds before the provider will start
  @param arg The argument value is depending on the implementation
  */
-- (void)startPositioningAfter:(int)millis arg:(NSString*)arg;
+- (void)startPositioningAfter:(int)millis arg:(nullable NSString*)arg;
 
 /**
  The running state of the provider
@@ -95,17 +95,17 @@ typedef NS_ENUM(NSUInteger, MPPositionProviderType) {
 /**
  Delegate object. The receiver of user positions.
  */
-@property (weak) id<MPPositionProviderDelegate> delegate;
+@property (nonatomic, weak, nullable) id<MPPositionProviderDelegate> delegate;
 
 /**
  Latest position result if any.
  */
-@property MPPositionResult* latestPositionResult;
+@property (nonatomic, strong, nullable) MPPositionResult* latestPositionResult;
 
 /**
  Provider type stored as an integer. Currently not used by MPMapControl.
  */
-@property MPPositionProviderType providerType;
+@property (nonatomic) MPPositionProviderType providerType;
 
 @end
 

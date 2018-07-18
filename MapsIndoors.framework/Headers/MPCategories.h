@@ -12,6 +12,6 @@
 
 @interface MPCategories : MPJSONModel
 
-@property (nonatomic, strong) NSArray<MPDataField*><MPDataField>* list;
+@property (nonatomic, strong, nullable) NSArray<MPDataField*><MPDataField>* list;
 
 @end

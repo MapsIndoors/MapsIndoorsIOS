@@ -15,12 +15,8 @@
 
 @interface MPMenuItem : MPJSONModel
 
-@property (nonatomic, strong) NSString<Optional>* categoryKey;
-@property (nonatomic, strong) NSString<Optional>* menuImageUrl;
-@property (nonatomic, strong) NSString<Optional>* iconUrl;
+@property (nonatomic, strong, nullable) NSString<Optional>* categoryKey;
+@property (nonatomic, strong, nullable) NSString<Optional>* menuImageUrl;
+@property (nonatomic, strong, nullable) NSString<Optional>* iconUrl;
 
 @end
-
-
-
-

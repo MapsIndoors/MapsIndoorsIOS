@@ -14,14 +14,14 @@
 /**
  Normal is the base map layer
  */
-+ (NSString*)NORMAL;
++ (nonnull NSString*)NORMAL;
 /**
  Satellite map layer
  */
-+ (NSString*)SATELLITE;
++ (nonnull NSString*)SATELLITE;
 /**
  Hybrid is a satellite map layer with roads and tracks on top of it.
  */
-+ (NSString*)HYBRID;
++ (nonnull NSString*)HYBRID;
 
 @end

@@ -7,9 +7,11 @@
 //
 #import <Foundation/Foundation.h>
 #import <GoogleMaps/GoogleMaps.h>
+
+
 @interface MPMapExtend : NSObject
 
-- (id)initWithGMSBounds:(GMSCoordinateBounds*)bounds;
+- (nullable instancetype)initWithGMSBounds:(nullable GMSCoordinateBounds*)bounds;
 
 @property double south;
 @property double west;

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MPMarkerView : UIView
-- (void)setImageSize:(CGSize) size;
-- (void)setImage:(UIImage*) image;
-- (void)setTitle:(NSString*) title;
+- (void) setImageSize:(CGSize) size;
+- (void) setImage:(nullable UIImage*) image;
+- (void) setTitle:(nullable NSString*) title;
 @end

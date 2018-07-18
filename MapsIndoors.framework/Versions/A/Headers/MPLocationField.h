@@ -9,16 +9,16 @@
 
 @protocol MPLocationField
 
-@property NSString* type;
-@property NSString* text;
-@property NSString* value;
+@property (nonatomic, strong, nullable) NSString* type;
+@property (nonatomic, strong, nullable) NSString* text;
+@property (nonatomic, strong, nullable) NSString* value;
 
 @end
 
 @interface MPLocationField : MPJSONModel
 
-@property NSString* type;
-@property NSString* text;
-@property NSString<Optional>* value;
+@property (nonatomic, strong, nullable) NSString* type;
+@property (nonatomic, strong, nullable) NSString* text;
+@property (nonatomic, strong, nullable) NSString<Optional>* value;
 
 @end

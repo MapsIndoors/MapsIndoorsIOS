@@ -20,24 +20,27 @@
 /**
  The google GMSTileLayer object.
  */
-@property GMSTileLayer* layer;
+@property (nonatomic, strong, nullable) GMSTileLayer* layer;
+
 /**
  Layer type / identifier.
  */
-@property (nonatomic) NSString* layerType;
+@property (nonatomic, strong, nullable) NSString* layerType;
+
 /**
  Instantiate using a layer type.
  */
-- (id)initWithLayer: (NSString*)layerType;
-- (id)init;
+- (nullable instancetype)initWithLayer: (nonnull NSString*)layerType;
+
 /**
  Helper method to generate the correct url, based on level and layer type.
  */
-- (NSString*)getTileUrl: (NSUInteger)zoom x:(NSUInteger)x y:(NSUInteger)y;
+- (nullable NSString*)getTileUrl: (NSUInteger)zoom x:(NSUInteger)x y:(NSUInteger)y;
+
 /**
  Add the layer to a map.
  @param  map The Google map view.
  */
-- (void)addToMap:(GMSMapView*) map;
+- (void)addToMap:(nullable GMSMapView*) map;
 
 @end

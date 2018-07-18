@@ -26,7 +26,7 @@
  @param venue Venue object. Can be nil.
  @param error Error object. Can be nil.
  */
-typedef void(^mpVenueDetailsHandlerBlockType)(MPVenue* venue, NSError* error);
+typedef void(^mpVenueDetailsHandlerBlockType)(MPVenue* _Nullable venue, NSError* _Nullable error);
 
 /**
  Handler block for fetching venues.
@@ -34,7 +34,7 @@ typedef void(^mpVenueDetailsHandlerBlockType)(MPVenue* venue, NSError* error);
  @param venueCollection Venue collection. Can be nil.
  @param error Error object. Can be nil.
  */
-typedef void(^mpVenueListHandlerBlockType)(MPVenueCollection* venueCollection, NSError* error);
+typedef void(^mpVenueListHandlerBlockType)(MPVenueCollection* _Nullable venueCollection, NSError* _Nullable error);
 
 /**
  Handler block for fetching buildings
@@ -42,7 +42,7 @@ typedef void(^mpVenueListHandlerBlockType)(MPVenueCollection* venueCollection, N
  @param building Building object. Can be nil.
  @param error Error object. Can be nil.
  */
-typedef void(^mpBuildingDetailsHandlerBlockType)(MPBuilding* building, NSError* error);
+typedef void(^mpBuildingDetailsHandlerBlockType)(MPBuilding* _Nullable building, NSError* _Nullable error);
 
 /**
  Handler block for fetching buildings
@@ -50,7 +50,7 @@ typedef void(^mpBuildingDetailsHandlerBlockType)(MPBuilding* building, NSError* 
  @param buildings Building objects. Can be nil.
  @param error Error object. Can be nil.
  */
-typedef void(^mpBuildingListHandlerBlockType)(NSArray<MPBuilding*>* buildings, NSError* error);
+typedef void(^mpBuildingListHandlerBlockType)(NSArray<MPBuilding*>* _Nullable buildings, NSError* _Nullable error);
 
 /**
  Handler block for fetching data related to a geographic point
@@ -60,7 +60,7 @@ typedef void(^mpBuildingListHandlerBlockType)(NSArray<MPBuilding*>* buildings, N
  @param floor Building containing the geographic point. Can be nil.
  @param error Error object. Can be nil.
  */
-typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, MPFloor* floor, NSError* error);
+typedef void(^mpGeocodeHandlerBlockType)(MPVenue* _Nullable venue, MPBuilding* _Nullable building, MPFloor* _Nullable floor, NSError* _Nullable error);
 
 
 #pragma mark - MPVenueProviderDelegate
@@ -78,27 +78,27 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
  Venue data ready event method.
  @param  venueCollection The venue data collection.
  */
-- (void) onVenuesReady: (MPVenueCollection*)venueCollection;
+- (void) onVenuesReady: (nonnull MPVenueCollection*)venueCollection;
 /**
  Building data ready event method.
  @param  building The building data object.
  */
-- (void) onBuildingWithinBoundsReady: (MPBuilding*)building;
+- (void) onBuildingWithinBoundsReady: (nonnull MPBuilding*)building;
 /**
  Building data ready event method.
  @param  building The building data object.
  */
-- (void) onBuildingDetailsReady: (MPBuilding*)building;
+- (void) onBuildingDetailsReady: (nonnull MPBuilding*)building;
 /**
  Venue data ready event method.
  @param  venue The venue data object.
  */
-- (void) onVenueDetailsReady: (MPVenue*)venue;
+- (void) onVenueDetailsReady: (nonnull MPVenue*)venue;
 /**
  Building data ready event method.
  @param  buildings The buildings data object.
  */
-- (void) onBuildingsReady: (NSArray<MPBuilding*>*)buildings;
+- (void) onBuildingsReady: (nonnull NSArray<MPBuilding*>*)buildings;
 @end
 
 
@@ -111,7 +111,7 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
 /**
  Venue provider delegate.
  */
-@property (weak) id <MPVenueProviderDelegate> delegate;
+@property (nonatomic, weak, nullable) id <MPVenueProviderDelegate> delegate;
 
 /**
  Get venues from this provider
@@ -119,7 +119,7 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
  @param arg Solution id
  @param language Language specified with 2-letters (ISO 639-1)
  */
-- (void)getVenuesAsync: (NSString*) arg language: (NSString*) language MP_DEPRECATED_MSG_ATTRIBUTE("Use getVenues instead");
+- (void)getVenuesAsync: (nonnull NSString*) arg language: (nonnull NSString*) language MP_DEPRECATED_MSG_ATTRIBUTE("Use getVenues instead");
 
 /**
  Get a single building within given bounds
@@ -128,7 +128,7 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
  @param solutionId Solution id
  @param language Language specified with 2-letters (ISO 639-1)
  */
-- (void)getBuildingWithinBoundsAsync: (MPMapExtend*)mapExtend arg: (NSString*) solutionId language: (NSString*) language MP_DEPRECATED_MSG_ATTRIBUTE("Use getBuildingWithinBounds: instead");
+- (void)getBuildingWithinBoundsAsync: (nonnull MPMapExtend*)mapExtend arg: (nonnull NSString*) solutionId language: (nonnull NSString*) language MP_DEPRECATED_MSG_ATTRIBUTE("Use getBuildingWithinBounds: instead");
 
 /**
  Get buildings from this provider
@@ -137,7 +137,7 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
  @param solutionId Solution id
  @param language Language specified with 2-letters (ISO 639-1)
  */
-- (void)getBuildingsAsync: (NSString*)venue arg: (NSString*) solutionId language: (NSString*) language MP_DEPRECATED_MSG_ATTRIBUTE("Use getBuildingsAsync instead");
+- (void)getBuildingsAsync: (nonnull NSString*)venue arg: (nonnull NSString*) solutionId language: (nonnull NSString*) language MP_DEPRECATED_MSG_ATTRIBUTE("Use getBuildingsAsync instead");
 
 /**
  Get a single building detail object
@@ -146,7 +146,7 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
  @param solutionId Solution id
  @param language Language specified with 2-letters (ISO 639-1)
  */
-- (void)getBuildingDetailsAsync: (NSString*)buildingId arg: (NSString*) solutionId language: (NSString*) language MP_DEPRECATED_MSG_ATTRIBUTE("Use getBuildingWithId: instead");
+- (void)getBuildingDetailsAsync: (nonnull NSString*)buildingId arg: (nonnull NSString*) solutionId language: (nonnull NSString*) language MP_DEPRECATED_MSG_ATTRIBUTE("Use getBuildingWithId: instead");
 
 /**
  Get a single venue detail object
@@ -155,7 +155,7 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
  @param solutionId Solution id
  @param language Language specified with 2-letters (ISO 639-1)
  */
-- (void)getVenueDetailsAsync: (NSString*)venueId arg: (NSString*) solutionId language: (NSString*) language MP_DEPRECATED_MSG_ATTRIBUTE("Use getVenueWithId: instead");
+- (void)getVenueDetailsAsync: (nonnull NSString*)venueId arg: (nonnull NSString*) solutionId language: (nonnull NSString*) language MP_DEPRECATED_MSG_ATTRIBUTE("Use getVenueWithId: instead");
 
 /**
  Get all venues from this provider
@@ -164,7 +164,7 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
  @param language Language specified with 2-letters (ISO 639-1)
  @param handler Venue fetch callback block
  */
-- (void)getVenuesAsync: (NSString*) arg language: (NSString*) language completionHandler:(mpVenueListHandlerBlockType)handler MP_DEPRECATED_MSG_ATTRIBUTE("Use getVenuesWithCompletion: instead");
+- (void)getVenuesAsync: (nonnull NSString*) arg language: (nonnull NSString*) language completionHandler:(nullable mpVenueListHandlerBlockType)handler MP_DEPRECATED_MSG_ATTRIBUTE("Use getVenuesWithCompletion: instead");
 
 /**
  Get a single building within given bounds
@@ -174,7 +174,7 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
  @param language Language specified with 2-letters (ISO 639-1)
  @param handler Building fetch callback block
  */
-- (void)getBuildingWithinBoundsAsync: (MPMapExtend*)mapExtend arg: (NSString*) solutionId language: (NSString*) language completionHandler:(mpBuildingDetailsHandlerBlockType)handler MP_DEPRECATED_MSG_ATTRIBUTE("Use getBuildingWithinBounds:completionHandler: instead");
+- (void)getBuildingWithinBoundsAsync: (nonnull MPMapExtend*)mapExtend arg: (nonnull NSString*) solutionId language: (nonnull NSString*) language completionHandler:(nullable mpBuildingDetailsHandlerBlockType)handler MP_DEPRECATED_MSG_ATTRIBUTE("Use getBuildingWithinBounds:completionHandler: instead");
 /**
  Get buildings from this provider
  
@@ -183,7 +183,7 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
  @param language Language specified with 2-letters (ISO 639-1)
  @param handler Buildings fetch callback block
  */
-- (void)getBuildingsAsync: (NSString*)venue arg: (NSString*) solutionId language: (NSString*) language completionHandler:(mpBuildingListHandlerBlockType)handler MP_DEPRECATED_MSG_ATTRIBUTE("Use getBuildingsWithCompletion: instead");
+- (void)getBuildingsAsync: (nonnull NSString*)venue arg: (nonnull NSString*) solutionId language: (nonnull NSString*) language completionHandler:(nullable mpBuildingListHandlerBlockType)handler MP_DEPRECATED_MSG_ATTRIBUTE("Use getBuildingsWithCompletion: instead");
 
 /**
  Get single building detail object
@@ -193,7 +193,7 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
  @param language Language specified with 2-letters (ISO 639-1)
  @param handler Building details fetch callback block
  */
-- (void)getBuildingDetailsAsync: (NSString*)buildingId arg: (NSString*) solutionId language: (NSString*) language completionHandler:(mpBuildingDetailsHandlerBlockType)handler MP_DEPRECATED_MSG_ATTRIBUTE("Use getBuildingWithId:completionHandler: instead");
+- (void)getBuildingDetailsAsync: (nonnull NSString*)buildingId arg: (nonnull NSString*) solutionId language: (nonnull NSString*) language completionHandler:(nullable mpBuildingDetailsHandlerBlockType)handler MP_DEPRECATED_MSG_ATTRIBUTE("Use getBuildingWithId:completionHandler: instead");
 
 /**
  Get single venue details object
@@ -203,7 +203,7 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
  @param language Language specified with 2-letters (ISO 639-1)
  @param handler Venue details fetch callback block
  */
-- (void)getVenueDetailsAsync: (NSString*)venueId arg: (NSString*) solutionId language: (NSString*) language completionHandler:(mpVenueDetailsHandlerBlockType)handler MP_DEPRECATED_MSG_ATTRIBUTE("Use getVenueWithId:completionHandler: instead");
+- (void)getVenueDetailsAsync: (nonnull NSString*)venueId arg: (nonnull NSString*) solutionId language: (nonnull NSString*) language completionHandler:(nullable mpVenueDetailsHandlerBlockType)handler MP_DEPRECATED_MSG_ATTRIBUTE("Use getVenueWithId:completionHandler: instead");
 
 /**
  Get all possible data related to the provided geographical point. Callback arguments will be nullable venue, building and floor objects.
@@ -213,7 +213,7 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
  @param language Language specified with 2-letters (ISO 639-1)
  @param completionHandler Data fetch callback block. Arguments will be nullable venue, building and floor objects.
  */
-- (void)getDataFromPointAsync: (MPPoint*)point solutionId: (NSString*) solutionId language: (NSString*) language completionHandler:(mpGeocodeHandlerBlockType)completionHandler MP_DEPRECATED_MSG_ATTRIBUTE("Use getDataFromPoint:completionHandler: instead");
+- (void)getDataFromPointAsync: (nonnull MPPoint*)point solutionId: (nonnull NSString*) solutionId language: (nonnull NSString*) language completionHandler:(nullable mpGeocodeHandlerBlockType)completionHandler MP_DEPRECATED_MSG_ATTRIBUTE("Use getDataFromPoint:completionHandler: instead");
 /**
  Synchronously get all possible data related to the provided geographical point. This method will only return data if [MapsIndoors sync:] has processed with success
  
@@ -222,7 +222,7 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
  @param language Language specified with 2-letters (ISO 639-1)
  @return A dictionary of venue, building and floor objects. Can be empty.
  */
-+ (NSDictionary*)getDataFromPoint: (MPPoint*)point solutionId: (NSString*) solutionId language: (NSString*) language MP_DEPRECATED_MSG_ATTRIBUTE("Use getDataFromPoint: instead");
++ (nullable NSDictionary*)getDataFromPoint: (nonnull MPPoint*)point solutionId: (nonnull NSString*) solutionId language: (nonnull NSString*) language MP_DEPRECATED_MSG_ATTRIBUTE("Use getDataFromPoint: instead");
 
 
 
@@ -243,7 +243,7 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
  
  @param mapExtend The geographic bounds, defined by north, south, west and east
  */
-- (void)getBuildingWithinBounds: (MPMapExtend*)mapExtend;
+- (void)getBuildingWithinBounds: (nonnull MPMapExtend*)mapExtend;
 
 /**
  Get buildings from this provider
@@ -256,21 +256,21 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
  
  @param buildingId Building id
  */
-- (void)getBuildingWithId: (NSString*)buildingId;
+- (void)getBuildingWithId: (nonnull NSString*)buildingId;
 
 /**
  Get a single venue detail object
  
  @param venueId Venue id
  */
-- (void)getVenueWithId: (NSString*)venueId;
+- (void)getVenueWithId: (nonnull NSString*)venueId;
 
 /**
  Get all venues from this provider
  
  @param handler Venue fetch callback block
  */
-- (void)getVenuesWithCompletion:(mpVenueListHandlerBlockType)handler;
+- (void)getVenuesWithCompletion:(nullable mpVenueListHandlerBlockType)handler;
 
 /**
  Get a single building within given bounds
@@ -278,13 +278,13 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
  @param mapExtend The geographic bounds, defined by north, south, west and east
  @param handler Building fetch callback block
  */
-- (void)getBuildingWithinBounds: (MPMapExtend*)mapExtend completionHandler:(mpBuildingDetailsHandlerBlockType)handler;
+- (void)getBuildingWithinBounds: (nonnull MPMapExtend*)mapExtend completionHandler:(nullable mpBuildingDetailsHandlerBlockType)handler;
 /**
  Get buildings from this provider
  
  @param handler Buildings fetch callback block
  */
-- (void)getBuildingsWithCompletion:(mpBuildingListHandlerBlockType)handler;
+- (void)getBuildingsWithCompletion:(nullable mpBuildingListHandlerBlockType)handler;
 
 /**
  Get single building detail object
@@ -292,7 +292,7 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
  @param buildingId Building id
  @param handler Building details fetch callback block
  */
-- (void)getBuildingWithId: (NSString*)buildingId completionHandler:(mpBuildingDetailsHandlerBlockType)handler;
+- (void)getBuildingWithId: (nonnull NSString*)buildingId completionHandler:(nullable mpBuildingDetailsHandlerBlockType)handler;
 
 /**
  Get single venue details object
@@ -300,7 +300,7 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
  @param venueId Venue id
  @param handler Venue details fetch callback block
  */
-- (void)getVenueWithId: (NSString*)venueId completionHandler:(mpVenueDetailsHandlerBlockType)handler;
+- (void)getVenueWithId: (nonnull NSString*)venueId completionHandler:(nullable mpVenueDetailsHandlerBlockType)handler;
 
 /**
  Get all possible data related to the provided geographical point. Callback arguments will be nullable venue, building and floor objects.
@@ -308,7 +308,7 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
  @param point Geographic point
  @param completionHandler Data fetch callback block. Arguments will be nullable venue, building and floor objects.
  */
-- (void)getDataFromPoint: (MPPoint*)point completionHandler:(mpGeocodeHandlerBlockType)completionHandler;
+- (void)getDataFromPoint: (nonnull MPPoint*)point completionHandler:(nullable mpGeocodeHandlerBlockType)completionHandler;
 
 /**
  Synchronously get all possible data related to the provided geographical point.
@@ -316,7 +316,7 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
  @param point Geographic point
  @return A dictionary of venue, building and floor objects. Can be empty.
  */
-+ (NSDictionary*)getDataFromPoint: (MPPoint*)point;
++ (nullable NSDictionary*)getDataFromPoint: (nonnull MPPoint*)point;
 
 /**
  Determine if cached or preloaded data is available for the given solutionId.
@@ -325,6 +325,6 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* venue, MPBuilding* building, M
  @param language language to check for offline availability.
  @return YES if offline or preloaded data is available, else NO,
  */
-+ (BOOL) isOfflineDataAvailableForSolutionId:(NSString*)solutionId language:(NSString*)language;
++ (BOOL) isOfflineDataAvailableForSolutionId:(nonnull NSString*)solutionId language:(nonnull NSString*)language;
 
 @end

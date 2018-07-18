@@ -23,6 +23,6 @@
 /**
  Main Message array in the data set.
  */
-@property (nonatomic, strong) NSArray<MPMessage> *list;
+@property (nonatomic, strong, nullable) NSArray<MPMessage> *list;
 
 @end

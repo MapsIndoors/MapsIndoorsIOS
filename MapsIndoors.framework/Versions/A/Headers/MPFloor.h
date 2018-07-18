@@ -21,14 +21,14 @@
 /**
  The GMSTileLayer created to this floor.
  */
-@property GMSTileLayer<Optional>* tileLayer;
+@property (nonatomic, strong, nullable) GMSTileLayer<Optional>* tileLayer;
 /**
  Floor layer style, if any.
  */
-@property NSString<Optional>* style;
-@property NSNumber<Optional>* zIndex;
-@property NSString<Optional>* buildingId;
-@property NSArray<NSArray*>* bounds;
-@property NSString* name;
+@property (nonatomic, strong, nullable) NSString<Optional>* style;
+@property (nonatomic, strong, nullable) NSNumber<Optional>* zIndex;
+@property (nonatomic, strong, nullable) NSString<Optional>* buildingId;
+@property (nonatomic, strong, nullable) NSArray<NSArray*>* bounds;
+@property (nonatomic, strong, nullable) NSString* name;
 
 @end

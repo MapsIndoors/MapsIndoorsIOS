@@ -11,8 +11,8 @@
 @interface MPStringCache : NSObject
 
 //TEMP
-+(void) saveDataFor:(NSString*)key value:(NSString*)value solutionId: (NSString*) solutionId;
-+(NSString*) getDataFor:(NSString*)key solutionId: (NSString*) solutionId;
++(void) saveDataFor:(nonnull NSString*)key value:(nonnull NSString*)value solutionId: (nonnull NSString*) solutionId;
++(nullable NSString*) getDataFor:(nonnull NSString*)key solutionId: (nonnull NSString*) solutionId;
 
 
 @end

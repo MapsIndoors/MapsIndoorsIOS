@@ -19,25 +19,25 @@
  */
 @interface MPSolution : MPJSONModel
 
-@property NSString* name;
-@property NSString* defaultLanguage;
-@property NSArray<NSString*>* availableLanguages;
-@property NSArray<NSString*>* modules;
-@property NSString<Optional>* mapClientUrl;
+@property (nonatomic, strong, nullable) NSString* name;
+@property (nonatomic, strong, nullable) NSString* defaultLanguage;
+@property (nonatomic, strong, nullable) NSArray<NSString*>* availableLanguages;
+@property (nonatomic, strong, nullable) NSArray<NSString*>* modules;
+@property (nonatomic, strong, nullable) NSString<Optional>* mapClientUrl;
 
 /**
  Array of types in this solution.
  */
-@property NSArray<MPType*><MPType>* types;
+@property (nonatomic, strong, nullable) NSArray<MPType*><MPType>* types;
 
 /**
  Get a URL for a given type.
  */
-- (NSString*)getTypeUrl:(NSString *)arg;
+- (nullable NSString*)getTypeUrl:(nonnull NSString *)arg;
 
 /**
  * Get a link for a location in a specific venue, for use with the web-client.
  */
-- (NSString*) getMapClientUrlForVenueId:(NSString*)venueId locationId:(NSString*)locationId;
+- (nullable NSString*) getMapClientUrlForVenueId:(nonnull NSString*)venueId locationId:(nonnull NSString*)locationId;
 
 @end
