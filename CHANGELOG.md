@@ -9,7 +9,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [2.1.0-beta] 2018-07-18
+## [2.1.0-beta] 2018-07-19
 ### Changed
 - Changed how icons and labels are shown on the map, so that no labels or icons are shown on top of each other (Icon & label collision handling)
 - Now supporting different icon sizes as recieved from CMS
