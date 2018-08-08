@@ -317,4 +317,17 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
  */
 - (void) showAreaOfLocation:(nonnull MPLocation*)location;
 
+/**
+ The accessibility label associated with the user location marker on the map.
+ Default: "My Location"
+ */
+@property (nonatomic, strong, nullable) NSString*   userLocationAccessibilityLabel;
+
+/**
+ The accessibility label associated with the user location accuracy circle on the map.
+ Default: "My location, accuracy %@m"
+ */
+@property (nonatomic, strong, nullable) NSString*   userLocationAccuracyAccessibilityLabel;
+
+
 @end
