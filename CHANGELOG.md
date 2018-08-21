@@ -16,6 +16,8 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 - Now able to show outlines of rooms and areas if the dataset is prepared for this
 ### Added
 - Basic voiceover/accessibility support.
+### Fixed
+- Fixed MPLocationQuery.orderBy was not respected.
 
 ## [2.0.4] 2018-06-27
 ### Fixed
