@@ -22,6 +22,11 @@
 @property (nonatomic, strong, nullable) MPPoint* geometry;
 
 /**
+ The availability of the heading, returns NO if heading is not available, default is YES
+ */
+@property (nonatomic) BOOL headingAvailable;
+
+/**
  Properties dictionary
  */
 @property (nonatomic, strong, nullable) NSMutableDictionary* properties;
