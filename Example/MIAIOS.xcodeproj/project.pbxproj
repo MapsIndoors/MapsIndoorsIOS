@@ -98,7 +98,6 @@
 		302B0C16206539F5009C7BF9 /* Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2900C411F8CE3EB0008C556 /* Resources.xcassets */; };
 		302B0C17206539F5009C7BF9 /* barcelona.gpx in Resources */ = {isa = PBXBuildFile; fileRef = A25BDFE01EF3B428002681B9 /* barcelona.gpx */; };
 		302B0C1A206539F5009C7BF9 /* MPMapInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 307813DD20209C8F0081822C /* MPMapInfoView.xib */; };
-		302B0C1B206539F5009C7BF9 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A25BE0991EF3B428002681B9 /* Info.plist */; };
 		302B0C1C206539F5009C7BF9 /* London.gpx in Resources */ = {isa = PBXBuildFile; fileRef = A25BDFE31EF3B428002681B9 /* London.gpx */; };
 		302B0C1E206539F5009C7BF9 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A26AAC5D1F8EA409004A571A /* Search.storyboard */; };
 		302B0C1F206539F5009C7BF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A25BE04A1EF3B428002681B9 /* Main.storyboard */; };
@@ -1176,7 +1175,6 @@
 				302B0C17206539F5009C7BF9 /* barcelona.gpx in Resources */,
 				302B0C1A206539F5009C7BF9 /* MPMapInfoView.xib in Resources */,
 				302B0C4020653D99009C7BF9 /* Pods-MapsIndoors GitHub App-acknowledgements.plist in Resources */,
-				302B0C1B206539F5009C7BF9 /* Info.plist in Resources */,
 				302B0C1C206539F5009C7BF9 /* London.gpx in Resources */,
 				302B0C1E206539F5009C7BF9 /* Search.storyboard in Resources */,
 				302B0C1F206539F5009C7BF9 /* Main.storyboard in Resources */,
