@@ -129,7 +129,6 @@
 		30300A9C20739FEC00BC24BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30300A8020739FEC00BC24BE /* AppDelegate.swift */; };
 		30300A9D20739FEC00BC24BE /* ShowBuildingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30300A8220739FEC00BC24BE /* ShowBuildingController.swift */; };
 		30300A9E20739FEC00BC24BE /* ShowRouteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30300A8420739FEC00BC24BE /* ShowRouteController.swift */; };
-		30300A9F20739FEC00BC24BE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30300A8520739FEC00BC24BE /* Info.plist */; };
 		30D17D2220765BD400A6D666 /* DemosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D17D2120765BD400A6D666 /* DemosUITests.swift */; };
 		37B192DB99CBF59BCA579F9C /* Pods_Demos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67DC42EAF42DEBA25426C12E /* Pods_Demos.framework */; };
 		464D9C029B5E04AA8874AE3A /* Pods_MapsIndoors_GitHub_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 034018EF88748B15EAE6990D /* Pods_MapsIndoors_GitHub_App.framework */; };
@@ -1190,7 +1189,6 @@
 			files = (
 				30300A9120739FEC00BC24BE /* LaunchScreen.storyboard in Resources */,
 				300A2D862099CA0A00882D4E /* kitten2.jpg in Resources */,
-				30300A9F20739FEC00BC24BE /* Info.plist in Resources */,
 				30300A8D20739FEC00BC24BE /* Assets.xcassets in Resources */,
 				300A2D882099CA0A00882D4E /* kitten.jpg in Resources */,
 				30300A9220739FEC00BC24BE /* Main.storyboard in Resources */,
