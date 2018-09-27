@@ -22,7 +22,7 @@ PODS:
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
     - GoogleUtilities/Network (~> 5.2)
-    - "GoogleUtilities/NSData+zlib (~> 5.2)"
+    - GoogleUtilities/NSData+zlib (~> 5.2)
     - nanopb (~> 0.3)
   - FirebaseCore (5.1.4):
     - GoogleUtilities/Logger (~> 5.2)
@@ -34,7 +34,7 @@ PODS:
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
     - GoogleUtilities/Network (~> 5.2)
-    - "GoogleUtilities/NSData+zlib (~> 5.2)"
+    - GoogleUtilities/NSData+zlib (~> 5.2)
     - nanopb (~> 0.3)
   - GoogleFontsiOS/Core (0.1.1)
   - GoogleFontsiOS/Roboto (0.1.1):
@@ -55,16 +55,16 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/Network (5.3.0):
     - GoogleUtilities/Logger
-    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/NSData+zlib
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (5.3.0)"
+  - GoogleUtilities/NSData+zlib (5.3.0)
   - GoogleUtilities/Reachability (5.3.0):
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (5.3.0):
     - GoogleUtilities/Logger
   - HashBuilder (1.0.1)
   - KVOController (1.2.0)
-  - MapsIndoors (2.1.1-rc8):
+  - MapsIndoors (2.1.1):
     - GoogleMaps (= 2.6)
   - MaterialControls (1.2.2)
   - nanopb (0.3.8):
@@ -92,31 +92,9 @@ DEPENDENCIES:
   - SVGKit (from `https://github.com/SVGKit/SVGKit.git`, branch `2.x`)
   - VCMaterialDesignIcons (~> 2.1)
 
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - AFNetworking
-    - CocoaLumberjack
-    - Crashlytics
-    - DZNEmptyDataSet
-    - Fabric
-    - Firebase
-    - FirebaseAnalytics
-    - FirebaseCore
-    - FirebaseInstanceID
-    - GoogleAppMeasurement
-    - GoogleFontsiOS
-    - GoogleMaps
-    - GoogleUtilities
-    - HashBuilder
-    - KVOController
-    - MaterialControls
-    - nanopb
-    - PureLayout
-    - VCMaterialDesignIcons
-
 EXTERNAL SOURCES:
   MapsIndoors:
-    :path: "../"
+    :path: ../
   SVGKit:
     :branch: 2.x
     :git: https://github.com/SVGKit/SVGKit.git
@@ -142,7 +120,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: 760ccb53b7c7f40f9c02d8c241f76f841a7a6162
   HashBuilder: d2f6cbd492c68350bbcf0fa2216aae50b60657d5
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
-  MapsIndoors: 10bb1ab66bc5fbda34580f8cab49a5d1aecb4267
+  MapsIndoors: 3e3e7bd03d19ec131e4310aee001fdea237026f5
   MaterialControls: 1c6b29e78d3a13d8dd6a67ed31b6d26eb5de8f72
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
@@ -151,4 +129,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 1dbdfcbe3381667d5a6ba54e7966f098f8087ee0
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.4.0
