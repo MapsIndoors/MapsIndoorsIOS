@@ -1,4 +1,6 @@
-# Changelog
+---
+title: Changelog
+---
 Changelog for MapsIndoors for iOS. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!---
@@ -8,6 +10,21 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Changed
 ### Removed
 -->
+
+## [2.1.2] 2018-10-10
+### Fixed
+- Fixed a Route Rendering issue causing it not to fit path shape properly
+- Fixed bug that was causing an occasional malformatted url for the Google directions service.
+- MapsPeople logo was misplaced on recent iPhone models. Now aligned to the Google Maps logo.
+- Content type validations on some internal endpoints
+- Improved the building selection triggered on camera change
+- Fixed resetting marker map from non-ui thread that sometimes lead to a crash
+- Fixed crash that was caused by GMSProjection occasionally not being in an operational state
+### Added
+- Support for multi-polygon floor geometry
+- Respect larger (accessibility) font sizes, triggered automatically.
+- Added some more internal data validation to the MPLocation
+
 
 ## [2.1.1] 2018-09-07
 ### Fixed

@@ -19,8 +19,8 @@ typedef void(^mpSyncContentHandlerBlockType)(NSError* error);
 typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 
 
-#define kMPNotificationPositionProviderReassign @"POSITION_PROVIDER_REASSIGNED"
-#define kMPNotificationApiKeyInvalid            @"MAPSINDOORS_API_KEY_INVALID"
+#define kMPNotificationPositionProviderReassign     @"POSITION_PROVIDER_REASSIGNED"
+#define kMPNotificationApiKeyInvalid                @"MAPSINDOORS_API_KEY_INVALID"
 
 
 @interface MapsIndoors : NSObject

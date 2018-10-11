@@ -13,6 +13,7 @@
 /**
  Delegate protocol specification, to keep track of the tapping on a locations details.
  */
+DEPRECATED_ATTRIBUTE
 @protocol MPLocationViewDelegate <NSObject>
 /**
  Delegate method that is to fire when a location property is tapped on in MPLocationView
@@ -24,6 +25,7 @@
 /**
  Creates a specialized scroll view, designed to hold a locations details
  */
+DEPRECATED_ATTRIBUTE
 @interface MPLocationView : UIScrollView
 
 /**
