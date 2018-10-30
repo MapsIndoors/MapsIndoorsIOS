@@ -64,7 +64,7 @@ PODS:
     - GoogleUtilities/Logger
   - HashBuilder (1.0.1)
   - KVOController (1.2.0)
-  - MapsIndoors (2.1.3-alpha1):
+  - MapsIndoors (2.1.3-alpha2):
     - GoogleMaps (= 2.6)
   - MaterialControls (1.2.2)
   - nanopb (0.3.901):
@@ -73,8 +73,8 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - PureLayout (3.0.2)
-  - SVGKit (2.0.1):
-    - CocoaLumberjack (~> 3.x)
+  - SVGKit (2.1.0):
+    - CocoaLumberjack (~> 3.0)
   - VCMaterialDesignIcons (2.1.1)
 
 DEPENDENCIES:
@@ -101,7 +101,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   SVGKit:
-    :commit: 7f22993eb99783bfe8274c95465f72ddf0cb86e5
+    :commit: 0d4db53890c664fb8605666e6fbccd14912ff821
     :git: https://github.com/SVGKit/SVGKit.git
 
 SPEC CHECKSUMS:
@@ -120,11 +120,11 @@ SPEC CHECKSUMS:
   GoogleUtilities: abb092d2c12e817fa3e0e7b274987dd72fb86ec3
   HashBuilder: d2f6cbd492c68350bbcf0fa2216aae50b60657d5
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
-  MapsIndoors: 46c135ea5771ecc948673c10bcd0c17311390a43
+  MapsIndoors: 977c871474b13c12516809d502110d3940684da9
   MaterialControls: 1c6b29e78d3a13d8dd6a67ed31b6d26eb5de8f72
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
-  SVGKit: 79244ce687db9e272cf25a90254abeef954475d5
+  SVGKit: 8a2fc74258bdb2abb54d3b65f3dd68b0277a9c4d
   VCMaterialDesignIcons: 68a944308ab41282ba8555770cb57e3fbf2034be
 
 PODFILE CHECKSUM: 1dbdfcbe3381667d5a6ba54e7966f098f8087ee0
