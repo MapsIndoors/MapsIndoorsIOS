@@ -11,9 +11,8 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [2.1.3] 2018-10-26
-### Fixed
-- Issues related to POI presentation.
+## [2.1.3] 2018-10-31
+Bugfixes.
 
 ## [2.1.2] 2018-10-10
 ### Fixed
