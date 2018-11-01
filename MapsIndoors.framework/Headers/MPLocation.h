@@ -164,4 +164,6 @@
 
 - (nullable GMSCoordinateBounds*) getCoordinateBounds;
 
+- (BOOL) shouldShowAtZoomLevel:(CGFloat)zLevel usingDisplayRules:(MPLocationDisplayRuleset *_Nullable)displayRules;
+
 @end
