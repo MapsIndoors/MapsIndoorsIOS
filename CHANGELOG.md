@@ -11,6 +11,10 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [2.1.5] 2018-11-06
+### Fixed
+- Support for multi-polygon floor geometry
+
 ## [2.1.4] 2018-11-01
 ### Fixed
 - Issues related to POI presentation.
