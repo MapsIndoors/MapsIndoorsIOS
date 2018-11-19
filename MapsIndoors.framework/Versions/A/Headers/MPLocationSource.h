@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MPLocation.h"
-#import "MILocationSourceStatus.h"
+#import "MPLocationSourceStatus.h"
 #import "MPLocationsObserver.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return The status of the location source
  */
-- (MILocationSourceStatus)sourceStatus;
+- (MPLocationSourceStatus)sourceStatus;
 
 @end
 
