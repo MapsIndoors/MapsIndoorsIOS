@@ -86,6 +86,9 @@
 #import <MapsIndoors/MPNotificationsHelper.h>
 #import <MapsIndoors/MPMapsIndoors.h>
 
+#import <MapsIndoors/MPLocationsObserver.h>
+#import <MapsIndoors/MPLocationSource.h>
+
 #import <MapsIndoors/MPDirectionsRenderer.h>
 #import <MapsIndoors/MPDirectionsService.h>
 #import <MapsIndoors/MPDirectionsQuery.h>
@@ -119,4 +122,8 @@
 #import <MapsIndoors/MPJSONModelClassProperty.h>
 #import <MapsIndoors/MPJSONModelError.h>
 #import <MapsIndoors/MPJSONValueTransformer.h>
+
+#import <MapsIndoors/MPLocationService.h>
+#import <MapsIndoors/MPQuery.h>
+#import <MapsIndoors/MPFilter.h>
 

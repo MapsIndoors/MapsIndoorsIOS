@@ -13,13 +13,14 @@
 @protocol MPImageProvider;
 @protocol MPPositionProvider;
 @protocol MPLocationsProvider;
+@protocol MPLocationSource;
 
 
 typedef void(^mpSyncContentHandlerBlockType)(NSError* error);
 typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 
 
-#define kMPNotificationPositionProviderReassign     @"POSITION_PROVIDER_REASSIGNED"
+#define kMPNotificationPositionProviderReassign     @"MP_POSITION_PROVIDER_REASSIGNED"
 #define kMPNotificationApiKeyInvalid                @"MAPSINDOORS_API_KEY_INVALID"
 
 
@@ -76,6 +77,12 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 + (void)synchronizeContent: (mpSyncContentHandlerBlockType) completionHandler;
 
 /**
+ Register Location data sources
+ @param  sources The sources of Location data to use in the current session.
+ */
++ (void)registerLocationSources: (NSArray<id<MPLocationSource>>*) sources;
+
+/**
  Sets the offline mode for the content provided by MapsIndoors. NB: This forces the implementation to be offline, even if there is no data available offline.
  @param offlineMode The offline mode. Can be true/offline false/online.
  */
@@ -129,6 +136,11 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
  The location provider that MapsIndoors should use.
  */
 @property (class) id<MPLocationsProvider> locationsProvider;
+
+/**
+ The currently registered location sources.
+*/
+@property (class, readonly) NSArray<id<MPLocationSource>>* sources;
 
 /**
  Set the font that MapsIndoors should use when rendering labels on the map, and enable or disable white halo for improved visibility.
