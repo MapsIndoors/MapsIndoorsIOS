@@ -21,7 +21,7 @@ Copyright 2016-2017 by MapsPeople A/S
 LICENSE
 }
   s.author           = { "MapsPeople" => "info@mapspeople.com" }
-  s.source           = { :git => "https://gitlab.com/MapsIndoors/mapsindoorsios.git", :tag => s.version.to_s, :submodules => true }
+  s.source           = { :git => "https://github.com/MapsIndoors/MapsIndoorsIOS.git", :tag => s.version.to_s, :submodules => true }
 
   s.dependency 'GoogleMaps', '2.6'
 
