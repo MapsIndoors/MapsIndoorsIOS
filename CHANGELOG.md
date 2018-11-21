@@ -12,7 +12,11 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 -->
 
 ## [2.1.5] 2018-11-06
-### Fixed
+### Added
+- Support for extra time penalties in the directions service
+
+## [2.1.5] 2018-11-06
+### Added
 - Support for multi-polygon floor geometry
 
 ## [2.1.4] 2018-11-01
