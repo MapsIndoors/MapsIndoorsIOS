@@ -48,7 +48,7 @@ class DemosUITests: XCTestCase {
         
         tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Custom Floor Selector Demo"]/*[[".cells.staticTexts[\" Custom Floor Selector Demo\"]",".staticTexts[\" Custom Floor Selector Demo\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         app.navigationBars["Stigsborgvej - Floor 0"].buttons["Floor"].tap()
-        app.alerts["Select Floor"].buttons["Floor 1 "].tap()
+        app.alerts.firstMatch.buttons["Floor 1 "].tap()
         app.navigationBars["Stigsborgvej - Floor 1"].buttons["MapsIndoors Demos"].tap()
 
         app.tables/*@START_MENU_TOKEN@*/.staticTexts["Show My Location Demo"]/*[[".cells.staticTexts[\" Show My Location Demo\"]",".staticTexts[\" Show My Location Demo\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
