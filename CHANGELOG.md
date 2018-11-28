@@ -11,9 +11,12 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [2.1.5] 2018-11-06
+## [2.1.6] 2018-11-27
 ### Added
 - Support for extra time penalties in the directions service
+### Fixed
+- When in flightmode, the routenetwork service would make two callbacks to the app: first callback with cached data and second callback with an error.
+The second callback would result in no route being produced
 
 ## [2.1.5] 2018-11-06
 ### Added
