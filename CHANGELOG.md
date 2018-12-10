@@ -11,6 +11,10 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [2.1.7] 2018-12-10
+### Fixed
+- In some cases the "next"-button on `MPDirectionsRenderer` would display "Level (null)".
+
 ## [2.1.6] 2018-11-27
 ### Added
 - Support for extra time penalties in the directions service
