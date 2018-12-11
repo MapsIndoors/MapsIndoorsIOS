@@ -22,36 +22,28 @@
  */
 
 #import "SVGElement.h"
+
 #import "SVGRect.h"
 #import "SVGGradientStop.h"
 #import "SVGTransformable.h"
-#import "SVGPreserveAspectRatio.h"
-#import "SVGUnitTypes.h"
+#import "SVGGradientLayer.h"
 
-typedef NS_ENUM(NSUInteger, SVGSpreadMethod) {
-    SVGSpreadMethodUnkown = 0,
-    SVGSpreadMethodPad = 1,
-    SVGSpreadMethodReflect = 2,
-    SVGSpreadMethodRepeat = 3
-};
-
-@class SVGGradientLayer;
 @interface SVGGradientElement : SVGElement <SVGTransformable> /* NB: does NOT implemente "SVGLayeredElement" because spec says that these specifically NEVER appear in the output */
+{
+    @public
+    BOOL radial; /* FIXME: not in SVG Spec */
+    
+}
 
 @property (readonly, strong) NSArray *stops; /* FIXME: not in SVG Spec */
 @property (readonly, strong) NSArray *locations; /* FIXME: not in SVG Spec */
 @property (readonly, strong) NSArray *colors; /* FIXME: not in SVG Spec */
 
-@property (readonly, assign) SVG_UNIT_TYPE gradientUnits;
-@property (readonly, assign) SVGSpreadMethod spreadMethod; /* FIXME: currently only support `pad`. other methods are not supported */
-
-
 -(void)addStop:(SVGGradientStop *)gradientStop; /* FIXME: not in SVG Spec */
 
--(NSString*) getAttributeInheritedIfNil:(NSString*)attrName;
--(SVGGradientLayer *)newGradientLayerForObjectRect:(CGRect)objectRect
-                                      viewportRect:(SVGRect)viewportRect
-                                         transform:(CGAffineTransform)transform;
+
+-(SVGGradientLayer *)newGradientLayerForObjectRect:(CGRect) objectRect viewportRect:(SVGRect) viewportRect
+										 transform:(CGAffineTransform)transform;
 
 - (void)synthesizeProperties; // resolve any xlink:hrefs to other gradients
 @end

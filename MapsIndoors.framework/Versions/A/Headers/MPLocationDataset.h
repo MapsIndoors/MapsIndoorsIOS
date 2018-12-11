@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "MPLocation.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  Empty protocol specification
  */
@@ -19,20 +21,14 @@
  Dataset that holds locations, searched results and a filter.
  */
 @interface MPLocationDataset : MPJSONModel
+
+- (instancetype)initWithLocations:(NSArray<MPLocation*>*) locations;
+
 /**
  Main location array in the data set.
  */
-@property (nonatomic, strong, nullable) NSArray<MPLocation*><MPLocation> *list;
-/**
- Array to hold filtered results in the data set.
- */
-@property (nonatomic, strong, nullable) NSArray<Optional> *searchResult DEPRECATED_ATTRIBUTE;
-/**
- String used as text filter.
- */
-@property (nonatomic, strong, nullable) NSArray<Optional> *categories DEPRECATED_ATTRIBUTE;
-
-- (nullable NSArray*)filterByName:(nonnull NSString*)name DEPRECATED_ATTRIBUTE;
-- (nullable NSArray*)filterByName:(nonnull NSString*)name andCategories:(nonnull NSArray*)categories DEPRECATED_ATTRIBUTE;
+@property (nonatomic, strong, nullable, readonly) NSArray<MPLocation*><MPLocation> *list;
 
 @end
+
+NS_ASSUME_NONNULL_END

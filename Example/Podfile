@@ -17,7 +17,7 @@ def miaios_deps
     pod 'KVOController', '~> 1.2.0'
     pod 'DZNEmptyDataSet', '~> 1.8.1'
     pod 'MaterialControls'
-    pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '2.x'
+    pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :commit => '0799e49c6ccd387888c5a6592b93f8b42e41bfeb'
 
 end
 

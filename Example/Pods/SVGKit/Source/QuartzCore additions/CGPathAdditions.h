@@ -5,7 +5,11 @@
 //  Copyright Matt Rajca 2011. All rights reserved.
 //
 
-#import <CoreGraphics/CoreGraphics.h>
+#if TARGET_OS_IPHONE
+
+#import <UIKit/UIKit.h>
+
+#endif
 
 /*! From original SVGKit, but it seems to be "the opposite of translation" */
 CGPathRef CGPathCreateByOffsettingPath (CGPathRef aPath, CGFloat x, CGFloat y);

@@ -1,3 +1,5 @@
+#import <UIKit/UIKit.h>
+
 #import "SVGKImageView.h"
 #import "SVGKit.h"
 
@@ -17,9 +19,6 @@
  - to access the underlying layers, typecast the .layer property:
    - SVGKLayeredImageView *skv = [[SVGKLayeredImageView alloc] initWithSVGKImage: [SVGKImage imageNamed:@"image.svg"]];
    - SVGKLayer* layer = (SVGKLayer*) skv.layer;
- 
- For Mac user:
-    `SVGKLayeredImageView` is a layer-hosting view. It uses the `SVGKLayer` layer class for rendering.
  
  */
 

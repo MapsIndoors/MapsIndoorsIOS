@@ -19,11 +19,8 @@
 #import "SVGKSourceNSData.h" // for convenience constructors that load from raw incoming NSData
 
 #import "CALayer+RecursiveClone.h"
-#if SVGKIT_MAC
-#import "SVGKExporterNSImage.h" // needed for .NSImage property
-#else
+
 #import "SVGKExporterUIImage.h" // needed for .UIImage property
-#endif
 
 #if ENABLE_GLOBAL_IMAGE_CACHE_FOR_SVGKIMAGE_IMAGE_NAMED
 @interface SVGKImageCacheLine : NSObject
@@ -74,10 +71,8 @@ static NSMutableDictionary* globalSVGKImageCache;
 {
 	if( self == [SVGKImage class]) // Have to protect against subclasses ADDITIONALLY calling this, as a "[super initialize] line
 	{
-#if SVGKIT_UIKIT
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveMemoryWarningOrBackgroundNotification:) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveMemoryWarningOrBackgroundNotification:) name:UIApplicationDidEnterBackgroundNotification object:nil];
-#endif
 	}
 }
 
@@ -478,11 +473,7 @@ static NSMutableDictionary* globalSVGKImageCache;
 
 -(UIImage *)UIImage
 {
-#if SVGKIT_MAC
-	return [SVGKExporterNSImage exportAsNSImage:self antiAliased:TRUE curveFlatnessFactor:1.0f interpolationQuality:kCGInterpolationDefault]; // Apple defaults
-#else
-    return [SVGKExporterUIImage exportAsUIImage:self antiAliased:TRUE curveFlatnessFactor:1.0f interpolationQuality:kCGInterpolationDefault]; // Apple defaults
-#endif
+	return [SVGKExporterUIImage exportAsUIImage:self antiAliased:TRUE curveFlatnessFactor:1.0f interpolationQuality:kCGInterpolationDefault]; // Apple defaults
 }
 
 // the these draw the image 'right side up' in the usual coordinate system with 'point' being the top-left.
@@ -512,7 +503,7 @@ static NSMutableDictionary* globalSVGKImageCache;
 	NSAssert( FALSE, @"Method unsupported / not yet implemented by SVGKit" );
 }
 
-#if SVGKIT_UIKIT
+#if TARGET_OS_IPHONE
 + (UIImage *)animatedImageNamed:(NSString *)name duration:(NSTimeInterval)duration  // read sequnce of files with suffix starting at 0 or 1
 {
 	NSAssert( FALSE, @"Method unsupported / not yet implemented by SVGKit" );

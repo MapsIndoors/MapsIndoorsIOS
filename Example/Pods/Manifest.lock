@@ -64,7 +64,7 @@ PODS:
     - GoogleUtilities/Logger
   - HashBuilder (1.0.1)
   - KVOController (1.2.0)
-  - MapsIndoors (3.0.0-alpha10):
+  - MapsIndoors (3.0.0-alpha15):
     - GoogleMaps (= 2.6)
   - MaterialControls (1.2.2)
   - nanopb (0.3.901):
@@ -73,8 +73,8 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - PureLayout (3.0.2)
-  - SVGKit (2.1.0):
-    - CocoaLumberjack (~> 3.0)
+  - SVGKit (2.0.1):
+    - CocoaLumberjack (~> 3.x)
   - VCMaterialDesignIcons (2.1.1)
 
 DEPENDENCIES:
@@ -89,7 +89,7 @@ DEPENDENCIES:
   - MapsIndoors (from `../`)
   - MaterialControls
   - PureLayout (~> 3.0.2)
-  - SVGKit (from `https://github.com/SVGKit/SVGKit.git`, branch `2.x`)
+  - SVGKit (from `https://github.com/SVGKit/SVGKit.git`, commit `0799e49c6ccd387888c5a6592b93f8b42e41bfeb`)
   - VCMaterialDesignIcons (~> 2.1)
 
 SPEC REPOS:
@@ -118,12 +118,12 @@ EXTERNAL SOURCES:
   MapsIndoors:
     :path: "../"
   SVGKit:
-    :branch: 2.x
+    :commit: 0799e49c6ccd387888c5a6592b93f8b42e41bfeb
     :git: https://github.com/SVGKit/SVGKit.git
 
 CHECKOUT OPTIONS:
   SVGKit:
-    :commit: bfe62f6d45f55c9fe39619d9e91fed1844c59da6
+    :commit: 0799e49c6ccd387888c5a6592b93f8b42e41bfeb
     :git: https://github.com/SVGKit/SVGKit.git
 
 SPEC CHECKSUMS:
@@ -142,13 +142,13 @@ SPEC CHECKSUMS:
   GoogleUtilities: abb092d2c12e817fa3e0e7b274987dd72fb86ec3
   HashBuilder: d2f6cbd492c68350bbcf0fa2216aae50b60657d5
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
-  MapsIndoors: 80e9e7b3b2fa4819b23b8de4a161e432136998d2
+  MapsIndoors: 510cae1f8ee7e7cbc48aba2ebd5a99a574373eca
   MaterialControls: 1c6b29e78d3a13d8dd6a67ed31b6d26eb5de8f72
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
-  SVGKit: 8a2fc74258bdb2abb54d3b65f3dd68b0277a9c4d
+  SVGKit: 4055d9e809b5db8633755979cfb3b02dc5a8c20d
   VCMaterialDesignIcons: 68a944308ab41282ba8555770cb57e3fbf2034be
 
-PODFILE CHECKSUM: 1dbdfcbe3381667d5a6ba54e7966f098f8087ee0
+PODFILE CHECKSUM: 0ed80dc66a15280a20a302d1f041fd572598bd2f
 
 COCOAPODS: 1.5.3

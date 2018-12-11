@@ -31,7 +31,7 @@
 typedef NS_ENUM(NSUInteger, DetailSection) {
     DetailSection_OfflineMessage,
     DetailSection_LocationDetails,
-    
+
     DetailSection_Count
 };
 
@@ -46,7 +46,7 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
 
 
 @implementation DetailViewController {
-    
+
     NSMutableArray* _fields;
     RoutingData* _routing;
     MDButton* _routeBtn;
@@ -56,7 +56,7 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
     NSArray* _buildings;
     NSArray* _venues;
     AFNetworkReachabilityManager *manager;
-    
+
     BOOL isLocationTurnedOff;
     BOOL isConnected;
 }
@@ -65,16 +65,16 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
+
     if ( self.operationsInProgress == nil ) {
-        
+
         self.operationsInProgress = [NSMutableSet set];
-        
+
         _routing = Global.routingData;
         _routing.travelMode = Global.travelMode;
-        
+
         isLocationTurnedOff = false;
-        
+
         if ( [self beginOperation:@"getBuildingsAsync"] ) {
             _venueProvider = [[MPVenueProvider alloc] init];
             [_venueProvider getBuildingsWithCompletion:^(NSArray *buildings, NSError *error) {
@@ -84,7 +84,7 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
                 [self endOperation:@"getBuildingsAsync"];
             }];
         }
-        
+
         if ( [self beginOperation:@"getVenuesAsync"] ) {
             [_venueProvider getVenuesWithCompletion:^(MPVenueCollection *venueCollection, NSError *error) {
                 if (error == nil) {
@@ -93,11 +93,11 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
                 [self endOperation:@"getVenuesAsync"];
             }];
         }
-        
+
         if ( [self beginOperation:@"getCategoriesWithCompletion"] ) {
             MPCategoriesProvider*   categoriesProvider = [MPCategoriesProvider new];
             [categoriesProvider getCategoriesWithCompletion:^(NSArray<MPDataField *> *categories, NSError *error) {
-                
+
                 NSMutableDictionary*    categoriesMap = [NSMutableDictionary dictionary];
                 for ( MPDataField* df in categories ) {
                     NSString*   key = df.key.length ? df.key : df.value;
@@ -106,13 +106,13 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
                     }
                 }
                 self.categoriesMap = [categoriesMap copy];
-                
+
                 [self endOperation:@"getCategoriesWithCompletion"];
 
                 [self reloadLocationData];
             }];
         }
-        
+
         [[NSNotificationCenter defaultCenter] removeObserver:self];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLocationsRequestStarted:) name:@"LocationsRequestStarted" object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLocationDetailsReady:) name:@"LocationDetailsReady" object:nil];
@@ -122,30 +122,30 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+
     [Tracker trackScreen:@"Details"];
-    
+
     isConnected = [AFNetworkReachabilityManager sharedManager].reachable;
-    
+
     [self presentCustomBackButton];
-    
+
     [self setupShareButtonForCurrentLocation];
-    
+
     [self.navigationController presentTransparentNavigationBar];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    
+
     [super viewDidDisappear:animated];
-    
+
     // Stop updating route data when we disappear the first time (Else going to "Get Directions" will trigger a (partial) update of the displayed data, resulting in inconsistent data being displayed).
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"RoutingDataReady" object:nil];
 }
 
 - (void) setupShareButtonForCurrentLocation {
-    
+
     if ( [Global.solution getMapClientUrlForVenueId:Global.venue.venueId locationId:_location.locationId].length > 0 ) {
-        
+
         UIImage* shareImg = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_share fontSize:28.0f].image;
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:shareImg style:UIBarButtonItemStylePlain target:self action:@selector(shareLocation)];
 
@@ -159,32 +159,32 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
 }
 
 - (void) onLocationsRequestStarted:(NSNotification*)notification {
-    
+
     [self showSpinnerIfNeeded];
 }
 
 - (void) onLocationDetailsReady:(NSNotification*)notification {
-    
+
     if (_location != notification.object) {
         _fields = [NSMutableArray arrayWithCapacity:0];
-        
+
         self.location = notification.object;
         [self setupShareButtonForCurrentLocation];
-        
+
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLocationOnMap" object:_location];
     }
 }
 
 - (BOOL) shouldShowSpinner {
-    
+
     return self.operationsInProgress.count > 0;
 }
 
 - (void) showSpinnerIfNeeded {
-    
+
     if ( [NSThread isMainThread] ) {
         [self _showSpinnerIfNeeded];
-        
+
     } else {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self _showSpinnerIfNeeded];
@@ -195,18 +195,18 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
 - (void) _showSpinnerIfNeeded {
 
     if ( self.tableView ) {
-        
+
         if ( [self shouldShowSpinner] ) {
-            
+
             if ( (self.tableView.tableFooterView == nil) && [self mp_isNetworkReachable] ) {
                 UIActivityIndicatorView* spinner = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
                 spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
                 [spinner startAnimating];
                 self.tableView.tableFooterView = spinner;
             }
-            
+
         } else {
-            
+
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 if ( self.operationsInProgress.count == 0 ) {
                     self.tableView.tableFooterView = nil;
@@ -217,8 +217,8 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
     }
 }
 
-- (void)shareLocation { 
-    
+- (void)shareLocation {
+
     NSString*   sUrl = [Global.solution getMapClientUrlForVenueId:Global.venue.venueId locationId:self.location.locationId];
     NSURL* url = [NSURL URLWithString:sUrl];
     UIActivityViewController* shareCtrl = [[UIActivityViewController alloc] initWithActivityItems:@[url] applicationActivities:nil];
@@ -227,7 +227,7 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
         shareCtrl.popoverPresentationController.barButtonItem = self.navigationItem.rightBarButtonItem;
     }
     [app.window.rootViewController presentViewController:shareCtrl animated:YES completion:nil];
-    
+
     [Tracker trackEvent:@"Location_Share" parameters:nil];
 }
 
@@ -238,10 +238,10 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
 }
 
 - (void)setLocation:(MPLocation *)location {
-        
+
     _location = location;
     if (_location) {
-        
+
         if (_location.categories.allKeys.count > 0 || _location.roomId) {
             NSString*   categoryKey = _location.categories.allKeys.firstObject;
             NSString* category = self.categoriesMap[categoryKey];
@@ -250,26 +250,26 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
             if (_location.roomId) infoText = [infoText stringByAppendingString:_location.roomId];
             [_fields addObject:@{@"text": infoText, @"icon": [self materialIcon:VCMaterialDesignIconCode.md_info]}];
         }
-        
+
         if (_location.descr != nil && _location.descr.length > 0) {
-            
+
             [_fields addObject:@{@"text": _location.descr, @"icon": [self materialIcon:VCMaterialDesignIconCode.md_file_text]}];
         }
-        
+
         _from = [[MPLocation alloc] initWithPoint:MapsIndoors.positionProvider.latestPositionResult.geometry andName:kLangMyPosition];
         MPLocationQuery* query = [[MPLocationQuery alloc] init];
         query.near = MapsIndoors.positionProvider.latestPositionResult.geometry;
         query.max = 1;
         query.radius = [NSNumber numberWithInt:15];
-        
+
         if ( [self beginOperation:@"getLocationsUsingQueryAsync"] ) {
-            
+
             [MapsIndoors.locationsProvider getLocationsUsingQuery:query completionHandler:^(MPLocationDataset *locationData, NSError *error) {
                 [self endOperation:@"getLocationsUsingQueryAsync"];
-                
+
                 if (locationData != nil && locationData.list.count == 1) {
                     _from = [locationData.list.firstObject copy];
-                    _from.descr = [NSString stringWithFormat: kLangFromPosVar, _from.name];
+                    // _from.descr = [NSString stringWithFormat: kLangFromPosVar, _from.name];
                 }
                 else if (error) {
                     dispatch_async(dispatch_get_main_queue(), ^{
@@ -277,24 +277,24 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
                         [bar show];
                     });
                 } else {
-                    _from.descr = nil;
+                    // _from.descr = nil;
                     [[MPReverseGeocodingService sharedGeoCoder] reverseGeocodeCoordinate:CLLocationCoordinate2DMake(query.near.lat, query.near.lng) completionHandler:^(GMSReverseGeocodeResponse * _Nullable result, NSError * _Nullable error) {
                         if (error == nil && result != nil) {
                             NSString*   s = [result.firstResult.lines componentsJoinedByString:@", "];
-                            _from.descr = [NSString stringWithFormat: kLangFromPosVar, s];
+                            // _from.descr = [NSString stringWithFormat: kLangFromPosVar, s];
                             [self.tableView reloadData];
                         }
                     }];
                 }
             }];
         }
-        
+
         if ( _from && _location && _from.geometry && _location.geometry ) {
             [self beginOperation:@"routingFrom"];
-            
+
             NSArray*    avoids = Global.avoidStairs ? @[@"stairs"] : nil;
             [_routing routingFrom: _from to: _location by:_routing.travelMode avoid:avoids depart:nil arrive:nil];
-        
+
         } else {
             _routing.origin = _from;
             _routing.destination = _location;
@@ -302,7 +302,7 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
             _routing.latestRoute = nil;
             _routing.latestModelArray = nil;
         }
-        
+
         self.titleLabel.text = _location.name;
         self.titleLabel.font = [UIFont boldSystemFontOfSize:18];
 
@@ -325,23 +325,23 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
                 }
             }
         }
-        
+
         NSPredicate *bPredicate = [NSPredicate predicateWithFormat:@"administrativeId LIKE[c] %@", _location.building];
         MPBuilding* building = [[_buildings filteredArrayUsingPredicate:bPredicate] firstObject];
-        
+
         NSPredicate *vPredicate = [NSPredicate predicateWithFormat:@"venueKey LIKE[c] %@", _location.venue];
         MPVenue* venue = [[_venues filteredArrayUsingPredicate:vPredicate] firstObject];
         if (building) {
-            
+
             if ( [self beginOperation:@"getBuildingDetailsAsync"] ) {
                 [_venueProvider getBuildingWithId:building.buildingId completionHandler:^(MPBuilding *building, NSError *error) {
                     [self endOperation:@"getBuildingDetailsAsync"];
-                    
+
                     if(error == nil) {
                         MPFloor* floor = [building.floors objectForKey:[_location.floor stringValue]];
                         [_fields addObject:@{@"type": @"place", @"text": [NSString stringWithFormat:@"%@ %@\n%@\n%@", kLangLevel, floor.name, building.name, venue.name], @"icon": [self materialIcon:VCMaterialDesignIconCode.md_city]}];
                     }
-                    
+
                     [self.tableView reloadData];
                 }];
             }
@@ -351,7 +351,7 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
         } else {
             [self.tableView reloadData];
         }
-        
+
         if (headerImageUrl && headerImageUrl.length > 7) {
             [self.headerImageView mp_setImageWithURL:headerImageUrl placeholderImageName:@"placeholder"];
         }
@@ -360,27 +360,27 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 88;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
+
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = CGRectMake(0, 0, 600, 184);
     gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.6f] CGColor], nil];
     gradient.startPoint = CGPointMake(0, .5f);
     gradient.endPoint = CGPointMake(0, 1.0f);
-    
+
     CAGradientLayer *gradientTop = [CAGradientLayer layer];
     gradientTop.frame = CGRectMake(0, 0, 600, 184);
     gradientTop.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.6f] CGColor], nil];
     gradientTop.startPoint = CGPointMake(0, 0.4f);      // Elsewhere we use (0.2f, 0.4f)... using (0, 0.4f) here is intentional, allowing the right barbutton item to be seen on all backgrounds.
     gradientTop.endPoint = CGPointMake(0, 0);
-    
+
     [self.headerImageView.layer insertSublayer:gradient atIndex:0];
     [self.headerImageView.layer insertSublayer:gradientTop atIndex:1];
-    
+
     [self reloadLocationData];
     [self showSpinnerIfNeeded];
 
@@ -396,17 +396,17 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
+
     if (_showMapBtn == nil) {
         _showMapBtn = [UIButton appRectButtonWithTitle:kLangShowOnMap target:self selector:@selector(showMapController:)];
         [_showMapBtn setTitleColor:[UIColor appSecondaryTextColor] forState:UIControlStateNormal];
         _showMapBtn.backgroundColor = [UIColor appTextAndIconColor];
-        
+
         _routeBtn = [UIButton appRectButtonWithTitle:kLangGetDirections target:self selector:@selector(showDirectionsController:)];
-        
+
         [self.tableFooter addSubview:_showMapBtn];
         [self.tableFooter addSubview:_routeBtn];
-        
+
         [_showMapBtn configureForAutoLayout];
         [_showMapBtn autoPinEdgeToSuperviewEdge:ALEdgeLeft];
         [_showMapBtn autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
@@ -419,30 +419,30 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
 }
 
 - (void) showMapController:(id)sender {
-    
+
     [[NSNotificationCenter defaultCenter] postNotificationName:@"CloseRouting" object:nil];
-    
+
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLocationOnMap" object:_location];
-    
+
     BOOL    isIPad = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
     if ( isIPad == NO ) {
-        
+
         UIBarButtonItem* btn = self.splitViewController.displayModeButtonItem;
         [[UIApplication sharedApplication] sendAction:btn.action
                                                    to:btn.target
                                                  from:nil
                                              forEvent:nil];
     }
-    
+
     [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:NO];
 }
 
 - (void) showDirectionsController:(id)sender {
-    
+
     if ([self shouldPerformSegueWithIdentifier:@"DirectionsSegue" sender:self]) {
         [self performSegueWithIdentifier:@"DirectionsSegue" sender:self];
     }
-    
+
     [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:NO];
 }
 
@@ -450,33 +450,33 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
+
     return DetailSection_Count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     return (section == DetailSection_LocationDetails) ? _fields.count :
-             self.mp_isNetworkReachable || self.route ? 0
-                                                      : 1;
+    self.mp_isNetworkReachable || self.route ? 0
+    : 1;
 }
 
 - (UIImage*) materialIcon:(NSString*)iconCode {
     // create icon with Material Design code and font size
     // font size is the basis for icon size
     VCMaterialDesignIcons *icon = [VCMaterialDesignIcons iconWithCode:iconCode fontSize:36.f];
-    
+
     // add attribute to icon
     [icon addAttribute:NSForegroundColorAttributeName value:[UIColor appPrimaryColor]];
-    
+
     // the icon will be drawn to UIImage in a given size
     return [icon image];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+
     UITableViewCell*    cell;
-    
+
     switch ( (DetailSection)indexPath.section ) {
 
         case DetailSection_LocationDetails: {
@@ -485,27 +485,27 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
             UIImage*                img = [dict objectForKey:@"icon"];
             id                      title = [dict objectForKey:@"text"];
             NSString*               subTitle;
-            
+
             if ([[dict objectForKey:@"type"] isEqualToString:@"directions"]) {
                 subTitle = _from.descr;
             }
-            
+
             [detailsCell configureWithTitle:title subTitle:subTitle image:img];
-            
+
             cell = detailsCell;
-            
+
             break;
         }
-            
+
         case DetailSection_OfflineMessage: {
             DetailsTableViewCell*   detailsCell = [tableView dequeueReusableCellWithIdentifier:@"DetailCell" forIndexPath:indexPath];
             UIImage*                img = [self materialIcon:VCMaterialDesignIconCode.md_cloud_off];
             NSString*               title = kLangOfflineTryToReconnect;
-            
+
             [detailsCell configureWithTitle:title titleColor:[UIColor appTertiaryHighlightColor] image:img imageTintColor:[UIColor lightGrayColor]];
             detailsCell.showSeparator = YES;
             detailsCell.showActivityIndicator = [self shouldShowSpinner];
-            
+
             cell = detailsCell;
             break;
         }
@@ -518,60 +518,60 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+
     switch ( (DetailSection)indexPath.section ) {
-            
+
         case DetailSection_LocationDetails: {
             NSDictionary* dict = [_fields objectAtIndex:indexPath.row];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"DetailFieldTapped" object:dict];
             break;
         }
-            
+
         case DetailSection_OfflineMessage: {
             DetailsTableViewCell*   cell = [tableView cellForRowAtIndexPath:indexPath];
             cell.showActivityIndicator = YES;
             [self reloadLocationData];
             break;
         }
-            
+
         case DetailSection_Count:
             break;
     }
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    
+
     NSIndexPath*    indexPathForSelectedRow = self.tableView.indexPathForSelectedRow;
-    
+
     if ( indexPathForSelectedRow ) {
-        
+
         if ( indexPathForSelectedRow.section == DetailSection_LocationDetails ) {
             NSDictionary* dict = [_fields objectAtIndex:indexPathForSelectedRow.row];
-            
+
             if (![[dict objectForKey:@"type"] isEqualToString:@"directions"]) {
-                
+
                 return NO;
             }
-            
+
         } else if ( indexPathForSelectedRow.section == DetailSection_OfflineMessage ) {
             return NO;
         }
     }
-    
+
     return YES;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     DirectionsController *directions = [segue destinationViewController];
-    
+
     if ([segue.identifier isEqualToString:@"DirectionsSegue"]) {
-        
+
         // Checking location services status for Directions Controller.
         directions.isLocationServicesOn = [MapsIndoors.positionProvider isRunning];
-        #if defined(MI_SDK_VERSION_MAJOR) && (MI_SDK_VERSION_MAJOR >= 2)
-            directions.isLocationServicesOn = MapsIndoors.positionProvider.locationServicesActive;
-        #endif
+#if defined(MI_SDK_VERSION_MAJOR) && (MI_SDK_VERSION_MAJOR >= 2)
+        directions.isLocationServicesOn = MapsIndoors.positionProvider.locationServicesActive;
+#endif
     }
 }
 
@@ -579,26 +579,27 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
 
     self.route = notification.object;
     if ( self.route ) {
-        
+
         NSAttributedString* directionsInfo = [Global isUnlikelyDuration:self.route.duration.doubleValue]
-                                           ? [[NSAttributedString alloc] initWithString: @"Duration estimate not available"]
-                                           : [Global localizedStringForDuration: [self.route.duration floatValue] travelMode:_routing.travelMode];
-        
+        ? [[NSAttributedString alloc] initWithString: @"Duration estimate not available"]
+        : [Global localizedStringForDuration: [self.route.duration floatValue] travelMode:_routing.travelMode];
+
         if (_from) {
-            _from.name = directionsInfo.string;
+            //TODO set name with builder instead
+            //_from.name = directionsInfo.string;
         }
         NSDictionary* directionsItem = @{@"type": @"directions", @"text": directionsInfo, @"icon": [self materialIcon:VCMaterialDesignIconCode.md_walk]};
-        
+
         NSPredicate* findDirectionsItem = [NSPredicate predicateWithFormat:@"type == 'directions'"];
         NSArray* foundDirectionsItems = [_fields filteredArrayUsingPredicate:findDirectionsItem];
         if (foundDirectionsItems.count > 0) {
             [_fields removeObject:foundDirectionsItems.firstObject];
         }
         [_fields insertObject:directionsItem atIndex:0];
-        
+
         [self.tableView reloadData];
     }
-    
+
     [self endOperation:@"routingFrom"];
 }
 
@@ -606,7 +607,7 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
 #pragma mark - Async operation management
 
 - (BOOL) beginOperation:(NSString*)opName {
-    
+
     if ( [self.operationsInProgress containsObject:opName] == NO ) {
         [self.operationsInProgress addObject:opName];
         [self showSpinnerIfNeeded];
@@ -616,7 +617,7 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
 }
 
 - (void) endOperation:(NSString*)opName {
-    
+
     [self.operationsInProgress removeObject:opName];
     [self showSpinnerIfNeeded];
 }

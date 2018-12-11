@@ -23,7 +23,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "UIFont+CustomFont.h"
 
 static NSString * _Nonnull const kCustomFontFamilyName = @"icomoon";
 

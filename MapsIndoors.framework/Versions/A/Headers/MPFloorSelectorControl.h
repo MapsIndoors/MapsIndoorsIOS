@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
-#import "MPFloorButton.h"
 #import "MPFloorSelectorProtocol.h"
 
 
@@ -93,12 +92,10 @@
   The size of a single floor button (buttonSize x buttonSize).
  */
 @property (nonatomic, strong, nullable) NSNumber* buttonSize;
-
 /**
-  Array of the floor selector buttons.
+ Array of the floor selector buttons.
  */
-@property (nonatomic, strong, nullable) NSMutableArray* buttons;
-
+@property (nonatomic, strong, nullable) NSArray* buttons;
 /**
   The top icon image.
  */

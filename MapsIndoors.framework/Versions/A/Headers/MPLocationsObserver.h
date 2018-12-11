@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol MPLocationsObserver<NSObject>
 
-- (void)onLocationsUpdate:(NSArray<MPLocation *> *)locations source:(id<MPLocationSource>)source;
+- (void)onLocationsUpdate:(NSArray<MPLocation *> *)locationUpdates source:(id<MPLocationSource>)source;
 
 - (void)onLocationsDelete:(NSArray<NSString *> *)locations source:(id<MPLocationSource>)source;
 

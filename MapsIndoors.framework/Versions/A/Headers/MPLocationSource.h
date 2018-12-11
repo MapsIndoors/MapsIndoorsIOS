@@ -47,6 +47,10 @@ NS_ASSUME_NONNULL_BEGIN
  @return The status of the location source
  */
 - (MPLocationSourceStatus)sourceStatus;
+/**
+ Get the id of the location source
+ */
+- (int)sourceIdentifier;
 
 @end
 

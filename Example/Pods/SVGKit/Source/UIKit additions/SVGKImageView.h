@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 
+#import <UIKit/UIKit.h>
 #import "SVGKImage.h" // cannot import "SVGKit.h" because that would cause ciruclar imports
 
 /**
@@ -17,7 +18,7 @@
 @interface SVGKImageView : UIView
 
 @property(nonatomic,strong) SVGKImage* image;
-@property(nonatomic) BOOL showBorder; /**< mostly for debugging - adds a coloured 1-pixel border around the image */
+@property(nonatomic) BOOL showBorder; /*< mostly for debugging - adds a coloured 1-pixel border around the image */
 
 @property(nonatomic,readonly) NSTimeInterval timeIntervalForLastReRenderOfSVGFromMemory;
 

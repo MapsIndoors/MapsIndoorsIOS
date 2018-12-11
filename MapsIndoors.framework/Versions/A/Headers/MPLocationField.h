@@ -7,6 +7,15 @@
 //
 #import "MPJSONModel.h"
 
+#define MPLocationFieldName @"name"
+#define MPLocationFieldDescription @"description"
+#define MPLocationFieldAlias @"alias"
+#define MPLocationFieldPhone @"phone"
+#define MPLocationFieldEmail @"email"
+#define MPLocationFieldImageUrl @"imageUrl"
+#define MPLocationFieldWebsite @"website"
+
+
 @protocol MPLocationField
 
 @property (nonatomic, strong, nullable) NSString* type;

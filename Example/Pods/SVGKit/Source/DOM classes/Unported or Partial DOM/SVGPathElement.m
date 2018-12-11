@@ -31,7 +31,8 @@
 {
 	CGMutablePathRef path = CGPathCreateMutable();
     NSScanner* dataScanner = [NSScanner scannerWithString:data];
-    SVGCurve lastCurve = [SVGKPointsAndPathsParser startingCurve];
+    CGPoint lastCoordinate = CGPointZero;
+    SVGCurve lastCurve = SVGCurveZero;
     BOOL foundCmd;
     
     NSCharacterSet *knownCommands = [NSCharacterSet characterSetWithCharactersInString:@"MmLlCcVvHhAaSsQqTtZz"];
@@ -51,9 +52,9 @@
         
         if (foundCmd) {
             if ([@"z" isEqualToString:command] || [@"Z" isEqualToString:command]) {
-                lastCurve = [SVGKPointsAndPathsParser readCloseCommand:[NSScanner scannerWithString:command]
-                                                                  path:path
-                                                            relativeTo:lastCurve.p];
+                lastCoordinate = [SVGKPointsAndPathsParser readCloseCommand:[NSScanner scannerWithString:command]
+                                                   path:path
+                                             relativeTo:lastCoordinate];
             } else {
                 NSString* cmdArgs = nil;
                 BOOL foundParameters = [dataScanner scanUpToCharactersFromSet:knownCommands
@@ -64,94 +65,114 @@
                     NSScanner* commandScanner = [NSScanner scannerWithString:commandWithParameters];
                     
                     if ([@"m" isEqualToString:command]) {
-                        lastCurve = [SVGKPointsAndPathsParser readMovetoDrawtoCommandGroups:commandScanner
-                                                                                       path:path
-                                                                                 relativeTo:lastCurve.p
-                                                                                 isRelative:TRUE];
+                        lastCoordinate = [SVGKPointsAndPathsParser readMovetoDrawtoCommandGroups:commandScanner
+                                                                        path:path
+                                                                  relativeTo:lastCoordinate
+										  isRelative:TRUE];
+                        lastCurve = SVGCurveZero;
                     } else if ([@"M" isEqualToString:command]) {
-                        lastCurve = [SVGKPointsAndPathsParser readMovetoDrawtoCommandGroups:commandScanner
-                                                                                       path:path
-                                                                                 relativeTo:CGPointZero
-                                                                                 isRelative:FALSE];
+                        lastCoordinate = [SVGKPointsAndPathsParser readMovetoDrawtoCommandGroups:commandScanner
+                                                                        path:path
+                                                                  relativeTo:CGPointZero
+										  isRelative:FALSE];
+                        lastCurve = SVGCurveZero;
                     } else if ([@"l" isEqualToString:command]) {
-                        lastCurve = [SVGKPointsAndPathsParser readLinetoCommand:commandScanner
-                                                                           path:path
-                                                                     relativeTo:lastCurve.p
-                                                                     isRelative:TRUE];
+                        lastCoordinate = [SVGKPointsAndPathsParser readLinetoCommand:commandScanner
+                                                            path:path
+                                                      relativeTo:lastCoordinate
+										  isRelative:TRUE];
+                        lastCurve = SVGCurveZero;
                     } else if ([@"L" isEqualToString:command]) {
-                        lastCurve = [SVGKPointsAndPathsParser readLinetoCommand:commandScanner
-                                                                           path:path
-                                                                     relativeTo:CGPointZero
-                                                                     isRelative:FALSE];
+                        lastCoordinate = [SVGKPointsAndPathsParser readLinetoCommand:commandScanner
+                                                            path:path
+                                                      relativeTo:CGPointZero
+										  isRelative:FALSE];
+                        lastCurve = SVGCurveZero;
                     } else if ([@"v" isEqualToString:command]) {
-                        lastCurve = [SVGKPointsAndPathsParser readVerticalLinetoCommand:commandScanner
-                                                                                   path:path
-                                                                             relativeTo:lastCurve.p];
+                        lastCoordinate = [SVGKPointsAndPathsParser readVerticalLinetoCommand:commandScanner
+                                                                    path:path
+                                                              relativeTo:lastCoordinate];
+                        lastCurve = SVGCurveZero;
                     } else if ([@"V" isEqualToString:command]) {
-                        lastCurve = [SVGKPointsAndPathsParser readVerticalLinetoCommand:commandScanner
-                                                                                   path:path
-                                                                             relativeTo:CGPointZero];
+                        lastCoordinate = [SVGKPointsAndPathsParser readVerticalLinetoCommand:commandScanner
+                                                                    path:path
+                                                      relativeTo:CGPointZero];
+                        lastCurve = SVGCurveZero;
                     } else if ([@"h" isEqualToString:command]) {
-                        lastCurve = [SVGKPointsAndPathsParser readHorizontalLinetoCommand:commandScanner
-                                                                                     path:path
-                                                                               relativeTo:lastCurve.p];
+                        lastCoordinate = [SVGKPointsAndPathsParser readHorizontalLinetoCommand:commandScanner
+                                                                      path:path
+                                                                relativeTo:lastCoordinate];
+                        lastCurve = SVGCurveZero;
                     } else if ([@"H" isEqualToString:command]) {
-                        lastCurve = [SVGKPointsAndPathsParser readHorizontalLinetoCommand:commandScanner
-                                                                                     path:path
-                                                                               relativeTo:CGPointZero];
+                        lastCoordinate = [SVGKPointsAndPathsParser readHorizontalLinetoCommand:commandScanner
+                                                                      path:path
+                                                                relativeTo:CGPointZero];
+                        lastCurve = SVGCurveZero;
                     } else if ([@"c" isEqualToString:command]) {
                         lastCurve = [SVGKPointsAndPathsParser readCurvetoCommand:commandScanner
-                                                                            path:path
-                                                                      relativeTo:lastCurve.p
-                                                                      isRelative:TRUE];
+                                                        path:path
+                                                  relativeTo:lastCoordinate
+												  isRelative:TRUE];
+                        lastCoordinate = lastCurve.p;
                     } else if ([@"C" isEqualToString:command]) {
                         lastCurve = [SVGKPointsAndPathsParser readCurvetoCommand:commandScanner
+                                                        path:path
+                                                  relativeTo:CGPointZero
+									 isRelative:FALSE];
+                        lastCoordinate = lastCurve.p;
+                    } else if ([@"s" isEqualToString:command]) {
+                        lastCurve = [SVGKPointsAndPathsParser readSmoothCurvetoCommand:commandScanner
+                                                              path:path
+                                                        relativeTo:lastCoordinate
+                                                     withPrevCurve:lastCurve
+                                                        isRelative:TRUE];
+                        lastCoordinate = lastCurve.p;
+                    } else if ([@"S" isEqualToString:command]) {
+                        lastCurve = [SVGKPointsAndPathsParser readSmoothCurvetoCommand:commandScanner
+                                                              path:path
+                                                        relativeTo:CGPointZero
+                                                     withPrevCurve:lastCurve
+                                                        isRelative:FALSE];
+                        lastCoordinate = lastCurve.p;
+                    } else if ([@"q" isEqualToString:command]) {
+                        lastCurve = [SVGKPointsAndPathsParser readQuadraticCurvetoCommand:commandScanner
+                                                                            path:path
+                                                                      relativeTo:lastCoordinate
+                                                                      isRelative:TRUE];
+                        lastCoordinate = lastCurve.p;
+                    } else if ([@"Q" isEqualToString:command]) {
+                        lastCurve = [SVGKPointsAndPathsParser readQuadraticCurvetoCommand:commandScanner
                                                                             path:path
                                                                       relativeTo:CGPointZero
                                                                       isRelative:FALSE];
-                    } else if ([@"s" isEqualToString:command]) {
-                        lastCurve = [SVGKPointsAndPathsParser readSmoothCurvetoCommand:commandScanner
-                                                                                  path:path
-                                                                            relativeTo:lastCurve.p
-                                                                         withPrevCurve:lastCurve
-                                                                            isRelative:TRUE];
-                    } else if ([@"S" isEqualToString:command]) {
-                        lastCurve = [SVGKPointsAndPathsParser readSmoothCurvetoCommand:commandScanner
-                                                                                  path:path
-                                                                            relativeTo:CGPointZero
-                                                                         withPrevCurve:lastCurve
-                                                                            isRelative:FALSE];
-                    } else if ([@"q" isEqualToString:command]) {
-                        lastCurve = [SVGKPointsAndPathsParser readQuadraticCurvetoCommand:commandScanner
-                                                                                     path:path
-                                                                               relativeTo:lastCurve.p
+                        lastCoordinate = lastCurve.p;
+					} else if ([@"t" isEqualToString:command]) {
+                        lastCurve = [SVGKPointsAndPathsParser readSmoothQuadraticCurvetoCommand:commandScanner
+																				  path:path
+																			relativeTo:lastCoordinate
+																		 withPrevCurve:lastCurve];
+                        lastCoordinate = lastCurve.p;
+                    } else if ([@"T" isEqualToString:command]) {
+                        lastCurve = [SVGKPointsAndPathsParser readSmoothQuadraticCurvetoCommand:commandScanner
+																				  path:path
+																			relativeTo:CGPointZero
+																		 withPrevCurve:lastCurve];
+                        lastCoordinate = lastCurve.p;
+					} else if ([@"a" isEqualToString:command]) {
+						lastCoordinate = [SVGKPointsAndPathsParser readEllipticalArcArguments:commandScanner
+																					 path:path
+                                                                               relativeTo:lastCoordinate
                                                                                isRelative:TRUE];
-                    } else if ([@"Q" isEqualToString:command]) {
-                        lastCurve = [SVGKPointsAndPathsParser readQuadraticCurvetoCommand:commandScanner
+						
+						lastCurve = SVGCurveZero;
+						
+					}  else if ([@"A" isEqualToString:command]) {
+						lastCoordinate = [SVGKPointsAndPathsParser readEllipticalArcArguments:commandScanner
                                                                                      path:path
                                                                                relativeTo:CGPointZero
                                                                                isRelative:FALSE];
-                    } else if ([@"t" isEqualToString:command]) {
-                        lastCurve = [SVGKPointsAndPathsParser readSmoothQuadraticCurvetoCommand:commandScanner
-                                                                                           path:path
-                                                                                     relativeTo:lastCurve.p
-                                                                                  withPrevCurve:lastCurve];
-                    } else if ([@"T" isEqualToString:command]) {
-                        lastCurve = [SVGKPointsAndPathsParser readSmoothQuadraticCurvetoCommand:commandScanner
-                                                                                           path:path
-                                                                                     relativeTo:CGPointZero
-                                                                                  withPrevCurve:lastCurve];
-                    } else if ([@"a" isEqualToString:command]) {
-                        lastCurve = [SVGKPointsAndPathsParser readEllipticalArcArguments:commandScanner
-                                                                                    path:path
-                                                                              relativeTo:lastCurve.p
-                                                                              isRelative:TRUE];
-                    }  else if ([@"A" isEqualToString:command]) {
-                        lastCurve = [SVGKPointsAndPathsParser readEllipticalArcArguments:commandScanner
-                                                                                    path:path
-                                                                              relativeTo:CGPointZero
-                                                                              isRelative:FALSE];
-                    } else  {
+                        lastCurve = SVGCurveZero;
+					} else  {
                         SVGKitLogWarn(@"unsupported command %@", command);
                     }
                 }

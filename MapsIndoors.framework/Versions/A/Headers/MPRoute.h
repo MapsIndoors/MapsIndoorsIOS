@@ -12,7 +12,7 @@
 #import "MPRouteProperty.h"
 #import "MPRouteCoordinate.h"
 #import "MPRouteBounds.h"
-#import "MPLocation.h"
+#import "MPPoint.h"
 #import "MPRouteLeg.h"
 
 struct MPRouteSegmentPath {

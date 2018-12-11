@@ -1,5 +1,5 @@
 framework module SVGKit {
-  umbrella header "SVGKit.h"
+  umbrella header "SVGKit-umbrella.h"
 
   export *
   module * { export * }
