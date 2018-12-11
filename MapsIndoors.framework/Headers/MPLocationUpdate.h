@@ -11,6 +11,8 @@
 #import "MPLocationField.h"
 #import "MPLocationSource.h"
 
+@class MPLocationDisplayRule;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MPLocationUpdate : NSObject
@@ -22,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void) setFloor: (NSInteger) floorIndex;
 - (void) setPosition: (CLLocationCoordinate2D) position;
 - (void) addCategory: (NSString*) categoryKey;
+- (void) setDisplayRule:(MPLocationDisplayRule*)displayRule;
+
 - (MPLocation*) location;
 
 @end
