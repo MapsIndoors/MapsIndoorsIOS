@@ -89,6 +89,9 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 @optional
 - (CGSize) getImageSizeForPoiGroupWithCount:(NSUInteger)count;
 
+@optional
+- (nullable UIImage*) getImageForPoiGroup:(NSArray<MPLocation*>* _Nonnull)poiGroup imageSize:(CGSize)imageSize clusterId:(NSString* _Nonnull)clusterId;
+
 @end
 
 
