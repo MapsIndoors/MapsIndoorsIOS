@@ -103,6 +103,10 @@
  */
 @property (nonatomic, strong, nullable, readonly) NSNumber<Optional>* sourceId;
 
+@property (nonatomic, strong, nullable, readonly) UIImage<Optional>*    markerImage;
+@property (nonatomic, strong, nullable, readonly) NSURL<Optional>*      markerImageURL;
+
+
 /**
  Add the location to a map
  @param  map The map that will hold the marker.
