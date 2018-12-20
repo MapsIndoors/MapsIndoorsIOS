@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MPFilter : NSObject
 
-@property NSArray<NSString*>* groups;
+@property NSArray<NSString*>* categories;
 
 @property MPMapExtend* bounds;
 

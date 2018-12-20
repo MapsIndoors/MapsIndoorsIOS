@@ -11,7 +11,6 @@
 
 #import "MPLocationSource.h"
 
-@class MPLocationDataset;
 @class MPQuery;
 @class MPFilter;
 @class MPLocation;
@@ -21,12 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^mpLocationsHandlerBlockType)(NSArray<MPLocation*>* _Nullable locations, NSError* _Nullable error);
 
-@interface MPLocationService : NSObject<MPLocationSource, MPLocationsObserver>
+@interface MPLocationService : NSObject
 
 + (instancetype) sharedInstance;
-
-- (void)registerLocationSources:(NSArray<id<MPLocationSource>>*) sources;
-
 - (void)getLocationsUsingQuery:(nonnull MPQuery*)query filter:(nonnull MPFilter*)filter completionHandler:(nullable mpLocationsHandlerBlockType)handler;
 
 @end

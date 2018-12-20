@@ -33,6 +33,9 @@ FOUNDATION_EXPORT double MapsIndoorsVNum;
 //! Project version string for MapsIndoors.
 FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 
+typedef void(^mpImageCompletionHandlerBlock)(UIImage* _Nullable image);
+
+
 /**
   Empty protocol specification.
  */
@@ -84,6 +87,9 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 - (BOOL) didTapAtCoordinate:(CLLocationCoordinate2D)coordinate withLocations:(nullable NSArray<MPLocation*>*)locations;
 
 @optional
+- (BOOL) didTapMarker:(GMSMarker*_Nonnull)marker forPoiGroup:(nullable NSArray<MPLocation*>*)locations;
+
+@optional
 - (nullable UIView*) infoWindowForPoiGroup:(NSArray<MPLocation*>* _Nonnull)poiGroup;
 
 @optional
@@ -91,6 +97,9 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 
 @optional
 - (nullable UIImage*) getImageForPoiGroup:(NSArray<MPLocation*>* _Nonnull)poiGroup imageSize:(CGSize)imageSize clusterId:(NSString* _Nonnull)clusterId;
+
+@optional
+- (BOOL) getImageForPoiGroup:(NSArray<MPLocation*>* _Nonnull)poiGroup imageSize:(CGSize)imageSize clusterId:(NSString* _Nonnull)clusterId completion:(mpImageCompletionHandlerBlock _Nonnull)completion;
 
 @end
 
