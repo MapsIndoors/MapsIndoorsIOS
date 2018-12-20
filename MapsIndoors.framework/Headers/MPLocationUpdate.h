@@ -11,6 +11,7 @@
 #import "MPLocationField.h"
 #import "MPLocationSource.h"
 
+@class MPLocationDisplayRule;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void) setFloor: (NSInteger) floorIndex;
 - (void) setPosition: (CLLocationCoordinate2D) position;
 - (void) addCategory: (NSString*) categoryKey;
+- (void) setDisplayRule:(MPLocationDisplayRule*)displayRule;
 - (void) setMarkerImage:(UIImage*)markerImage;
 - (void) setMarkerImageUrl:(NSURL*)markerImageUrl;
 
