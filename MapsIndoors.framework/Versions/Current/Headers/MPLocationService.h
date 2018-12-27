@@ -22,6 +22,7 @@ typedef void(^mpLocationsHandlerBlockType)(NSArray<MPLocation*>* _Nullable locat
 
 @interface MPLocationService : NSObject
 
+- (instancetype)init NS_UNAVAILABLE;
 + (instancetype) sharedInstance;
 - (void)getLocationsUsingQuery:(nonnull MPQuery*)query filter:(nonnull MPFilter*)filter completionHandler:(nullable mpLocationsHandlerBlockType)handler;
 

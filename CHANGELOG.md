@@ -16,7 +16,6 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 - Support for external location data sources using `[MapsIndoors registerLocationSources:sources]`
 - New location service `MPLocationService` to replace `MPLocationsProvider`
 - Added building and venues to the search experience
-- 
 
 ### Changed
 - MPLocation properties are now read only
