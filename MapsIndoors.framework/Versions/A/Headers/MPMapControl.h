@@ -93,7 +93,7 @@ typedef void(^mpImageCompletionHandlerBlock)(UIImage* _Nullable image);
 - (nullable UIView*) infoWindowForPoiGroup:(NSArray<MPLocation*>* _Nonnull)poiGroup;
 
 @optional
-- (CGSize) getImageSizeForPoiGroupWithCount:(NSUInteger)count;
+- (CGSize) getImageSizeForPoiGroupWithCount:(NSUInteger)count clusterId:(NSString* _Nonnull)clusterId;
 
 @optional
 - (nullable UIImage*) getImageForPoiGroup:(NSArray<MPLocation*>* _Nonnull)poiGroup imageSize:(CGSize)imageSize clusterId:(NSString* _Nonnull)clusterId;
