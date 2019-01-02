@@ -21,21 +21,21 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return The list of locations
  */
-- (nonnull NSArray<MPLocation *> *)getAllLocations;
+- (nonnull NSArray<MPLocation *> *)getLocations;
 
 /**
  Add an observer that gets callbacks about updates, additions and deletions to locations in this location source
 
  @param observer The observer object
  */
-- (void)addLocationObserver:(id<MPLocationsObserver>)observer;
+- (void)addLocationsObserver:(id<MPLocationsObserver>)observer;
 
 /**
  Remove an observer that gets callbacks about updates, additions and deletions to locations in this location source
 
  @param observer The observer object to remove
  */
-- (void)removeLocationObserver:(id<MPLocationsObserver>)observer;
+- (void)removeLocationsObserver:(id<MPLocationsObserver>)observer;
 
 /**
  Get the status of the location source:
@@ -46,11 +46,11 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return The status of the location source
  */
-- (MPLocationSourceStatus)sourceStatus;
+- (MPLocationSourceStatus)status;
 /**
  Get the id of the location source
  */
-- (int)sourceIdentifier;
+- (int)sourceId;
 
 @end
 

@@ -17,7 +17,6 @@
 @property (nonatomic) bool showProbability;
 
 - (nullable instancetype) initWithPoint:(nullable MPPoint *)point andName:(nullable NSString *)name;
-- (void) updateView:(nonnull GMSMapView *)map floor:(int)floor displayRules:(nonnull MPLocationDisplayRuleset *)displayRuleset;
 
 @end
 	

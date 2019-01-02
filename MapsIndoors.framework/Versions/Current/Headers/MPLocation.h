@@ -108,54 +108,6 @@
 
 
 /**
- Add the location to a map
- @param  map The map that will hold the marker.
- */
-- (void)addToMap:(nonnull GMSMapView*) map DEPRECATED_MSG_ATTRIBUTE("Adding a location to the Google Map directly is not supported any more, use [MapsIndoors registerLocationSources:] instead.");
-
-/**
- Add the location to a map with given display rules.
- @param  map The map that will hold the marker.
- @param  displayRuleset The display ruleset that defines the display of the marker.
-   @see MPLocationDisplayRuleset
- */
-- (void)addToMap:(nonnull GMSMapView*) map WithRules:(nonnull MPLocationDisplayRuleset*) displayRuleset DEPRECATED_MSG_ATTRIBUTE("Adding a location to a Google Map directly is not supported any more, use [MapsIndoors registerLocationSources:] instead.");
-
-/**
- Add the location to a map with given display rules.
- @param  map The map that will hold the marker.
- @param  floor Floor level.
- @param  displayRuleset The display ruleset that defines the display of the marker.
-   @see MPLocationDisplayRuleset
- */
-- (void)addToMap:(nonnull GMSMapView*) map floor:(int)floor WithRules:(nonnull MPLocationDisplayRuleset*) displayRuleset DEPRECATED_MSG_ATTRIBUTE("Adding a location to a Google Map directly is not supported any more, use [MapsIndoors registerLocationSources:] instead.");
-
-/**
- Update the location on a map with given display rules.
- @param  map The map that triggered the update.
- @param  displayRuleset The display ruleset that defines the display of the marker.
- @param  floor Floor level.
-   @see MPLocationDisplayRuleset
- */
-- (void)updateView:(nonnull GMSMapView*) map floor:(int)floor displayRules:(nonnull MPLocationDisplayRuleset*) displayRuleset DEPRECATED_MSG_ATTRIBUTE("Updating a location on a Google Map directly is not supported any more, use [MapsIndoors registerLocationSources:] instead.");
-- (void)updateView:(nonnull GMSMapView*) map floor:(int)floor displayRules:(nonnull MPLocationDisplayRuleset*) displayRuleset showAsSearchResult:(BOOL)showAsSearchResult DEPRECATED_MSG_ATTRIBUTE("Updating a location on a Google Map directly is not supported any more, use [MapsIndoors registerLocationSources:] instead.");
-
-/**
- Create a label image with a given text.
- @param  text The text to label with.
- */
-- (nullable UIImage*) drawLabel:(nullable NSString*) text DEPRECATED_ATTRIBUTE;
-
-- (void)removeFromMap DEPRECATED_MSG_ATTRIBUTE("Removing a location from a Google Map directly is not supported any more, use [MapsIndoors registerLocationSources:] instead.");
-/**
- Set the location image based on information in:
- *
-   [self.properties objectForKey:@"image"];
- *
- */
-- (void)setImage DEPRECATED_ATTRIBUTE;
-
-/**
  Get the point holding coordinates for the location object
  *
  */
@@ -166,12 +118,8 @@
  *
  */
 - (nullable MPLocationProperty*)getProperty:(nullable NSString*)propertyType DEPRECATED_MSG_ATTRIBUTE("Use -getFields instead.");
-- (void)showTemporary:(nullable GMSMapView*)map DEPRECATED_ATTRIBUTE;
-- (void)hideTemporary DEPRECATED_ATTRIBUTE;
-- (void)showDynamically DEPRECATED_ATTRIBUTE;
 
 - (nullable GMSCoordinateBounds*) getCoordinateBounds;
 
-- (BOOL) shouldShowAtZoomLevel:(CGFloat)zLevel usingDisplayRules:(MPLocationDisplayRuleset *_Nullable)displayRules;
 
 @end

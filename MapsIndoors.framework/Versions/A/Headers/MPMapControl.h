@@ -87,7 +87,7 @@ typedef void(^mpImageCompletionHandlerBlock)(UIImage* _Nullable image);
 - (BOOL) didTapAtCoordinate:(CLLocationCoordinate2D)coordinate withLocations:(nullable NSArray<MPLocation*>*)locations;
 
 @optional
-- (BOOL) didTapMarker:(GMSMarker*_Nonnull)marker forPoiGroup:(nullable NSArray<MPLocation*>*)locations;
+- (BOOL) didTapMarker:(GMSMarker*_Nonnull)marker forPoiGroup:(nullable NSArray<MPLocation*>*)locations moreZoomPossible:(BOOL)moreZoomPossible;
 
 @optional
 - (nullable UIView*) infoWindowForPoiGroup:(NSArray<MPLocation*>* _Nonnull)poiGroup;
