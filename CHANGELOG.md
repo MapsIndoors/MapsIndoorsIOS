@@ -11,6 +11,11 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [2.1.8] 2019-01-03
+### Fixed
+- The last segment of a route object returned from a directions request sometimes had an unexpected - and wrong - end location.
+- Search engine sometimes returned some unexpected results.
+
 ## [2.1.7] 2018-12-10
 ### Fixed
 - In some cases the "next"-button on `MPDirectionsRenderer` would display "Level (null)".
