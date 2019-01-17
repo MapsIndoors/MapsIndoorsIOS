@@ -11,6 +11,10 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [2.1.9] 2019-01-17
+### Fixed
+- Fixed an occasional crash in MPVenueProvider, reported in [github](https://github.com/MapsIndoors/MapsIndoorsIOS/issues/5).
+
 ## [2.1.8] 2019-01-03
 ### Fixed
 - The last segment of a route object returned from a directions request sometimes had an unexpected - and wrong - end location.
