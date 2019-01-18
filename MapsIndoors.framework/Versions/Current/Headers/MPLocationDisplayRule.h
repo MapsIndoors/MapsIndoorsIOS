@@ -16,12 +16,6 @@
 
 
 /**
- *  The default clusteringId for MPLocationDisplayRule objects.
- */
-extern NSString* _Nonnull const kMPClusteringIdForGroupingWithAnyType;
-
-
-/**
  This class serves as a display rule for locations.
  */
 @interface MPLocationDisplayRule : MPJSONModel
@@ -149,7 +143,7 @@ extern NSString* _Nonnull const kMPClusteringIdForGroupingWithAnyType;
 /**
  The grouping or clustering id of this displayrule.
  MPLocations sharing the same clusteringId may be grouped on the map if necessary.
- Default value is kMPClusteringIdForGroupingWithAnyType
+ Default value is nil
  */
 @property (nonatomic, strong, nullable) NSString<Optional>*   clusteringId;
 

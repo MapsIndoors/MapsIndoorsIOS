@@ -44,27 +44,27 @@ PODS:
   - GoogleMaps/Base (2.6.0)
   - GoogleMaps/Maps (2.6.0):
     - GoogleMaps/Base
-  - GoogleUtilities/AppDelegateSwizzler (5.3.6):
+  - GoogleUtilities/AppDelegateSwizzler (5.3.7):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (5.3.6)
-  - GoogleUtilities/Logger (5.3.6):
+  - GoogleUtilities/Environment (5.3.7)
+  - GoogleUtilities/Logger (5.3.7):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (5.3.6):
+  - GoogleUtilities/MethodSwizzler (5.3.7):
     - GoogleUtilities/Logger
-  - GoogleUtilities/Network (5.3.6):
+  - GoogleUtilities/Network (5.3.7):
     - GoogleUtilities/Logger
     - GoogleUtilities/NSData+zlib
     - GoogleUtilities/Reachability
-  - GoogleUtilities/NSData+zlib (5.3.6)
-  - GoogleUtilities/Reachability (5.3.6):
+  - GoogleUtilities/NSData+zlib (5.3.7)
+  - GoogleUtilities/Reachability (5.3.7):
     - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (5.3.6):
+  - GoogleUtilities/UserDefaults (5.3.7):
     - GoogleUtilities/Logger
   - HashBuilder (1.0.1)
   - KVOController (1.2.0)
-  - MapsIndoors (3.0.0-alpha40):
+  - MapsIndoors (3.0.0-alpha41):
     - GoogleMaps (= 2.6)
   - MaterialControls (1.2.2)
   - nanopb (0.3.901):
@@ -117,10 +117,10 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 98b71f5e04142793729a5ef23e5b96651ff4b70f
   GoogleFontsiOS: 9f4a4f886160d8cb723bd936604b3f6b975f1167
   GoogleMaps: 42f91c68b7fa2f84d5c86597b18ceb99f5414c7f
-  GoogleUtilities: 95996bea7c7d9b8fb811b7507669a4a8762f80c7
+  GoogleUtilities: 111a012f4c3a29c9e7c954c082fafd6ee3c999c0
   HashBuilder: d2f6cbd492c68350bbcf0fa2216aae50b60657d5
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
-  MapsIndoors: ec98235e6dd79701176c5d35b0fdb6c311525dc2
+  MapsIndoors: de1367913ac0acf76c4ac7beeca98583ebc56a63
   MaterialControls: 1c6b29e78d3a13d8dd6a67ed31b6d26eb5de8f72
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd

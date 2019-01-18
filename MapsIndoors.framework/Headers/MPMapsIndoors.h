@@ -22,6 +22,9 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 
 #define kMPNotificationPositionProviderReassign     @"MP_POSITION_PROVIDER_REASSIGNED"
 #define kMPNotificationApiKeyInvalid                @"MAPSINDOORS_API_KEY_INVALID"
+#define kMPNotificationAppDataReady                 @"MP_APP_DATA_READY"
+#define kMPNotificationAppDataValueKey              @"kMPNotificationAppDataValueKey"
+#define kMPNotificationAppDataErrorKey              @"kMPNotificationAppDataErrorKey"
 
 
 @interface MapsIndoors : NSObject
@@ -156,5 +159,19 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
  Returns whether the current API key is valid or not.
  */
 + (BOOL) isAPIKeyValid;
+
+/**
+ Controls whether overlapping map markers can be resolved by hiding some of the overlapping items.
+ Default value is YES;
+ */
+@property(class) BOOL   enablePoiOverlapResolutionByHiding;
+
+/**
+ Controls whether overlapping map markers can be resolved by grouping some of the overlapping items.
+ Default value is NO;
+ When set to YES, the default behavior is to group MPLocation's of the same type.
+ */
+@property(class) BOOL   enablePoiOverlapResolutionByGrouping;
+
 
 @end
