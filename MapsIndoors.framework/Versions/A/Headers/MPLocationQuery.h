@@ -76,10 +76,12 @@ typedef NS_ENUM(NSUInteger, MPLocationQueryMode) {
 @property (nonatomic, strong, nullable) NSArray<NSString*>* types;
 /**
  Solution id. Mandatory field.
+ @deprecated
  */
 @property (nonatomic, strong, nullable) NSString* solutionId MP_DEPRECATED_MSG_ATTRIBUTE("solutionId is now called contentKey and can only be provided through [MapsIndoors provideAPIKey:apiKey:contentKey]");
 /**
  Previously used for solution id. Now using solutionId as Solution Id
+ @deprecated
  */
 @property (nonatomic, strong, nullable) NSString* arg MP_DEPRECATED_MSG_ATTRIBUTE("arg is now called contentKey and can only be provided through [MapsIndoors provideAPIKey:apiKey:contentKey]");
 /**

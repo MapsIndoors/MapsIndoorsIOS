@@ -71,6 +71,7 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 /**
  Fetch all neccesary content to be able to run MapsIndoors in offline environments
  @param  completionHandler Callback function that fires when content has been fetched or if this process resolves in an error. Note: Does not automtically retry fetch.
+ @deprecated
  */
 + (void)fetchDataForOfflineUse: (mpOfflineDataHandlerBlockType) completionHandler DEPRECATED_MSG_ATTRIBUTE("Use the +synchronizeContent method instead");
 /**
@@ -80,7 +81,8 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 + (void)synchronizeContent: (mpSyncContentHandlerBlockType) completionHandler;
 
 /**
- Register Location data sources
+ Register Location data sources.
+ All registered location sources must have a unique sourceId.
  @param  sources The sources of Location data to use in the current session.
  */
 + (void)registerLocationSources: (NSArray<id<MPLocationSource>>*) sources;
@@ -97,7 +99,7 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 + (BOOL) getOfflineMode;
 
 /**
- Determine if enough data is available for a good user experience in iffline mode.
+ Determine if enough data is available for a good user experience in offline mode.
 
  @return YES if offline data is available, else NO.
  */
@@ -164,14 +166,14 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
  Controls whether overlapping map markers can be resolved by hiding some of the overlapping items.
  Default value is YES;
  */
-@property(class) BOOL   enablePoiOverlapResolutionByHiding;
+@property(class) BOOL   enableMarkerOverlapResolutionByHiding;
 
 /**
  Controls whether overlapping map markers can be resolved by grouping some of the overlapping items.
  Default value is NO;
  When set to YES, the default behavior is to group MPLocation's of the same type.
  */
-@property(class) BOOL   enablePoiOverlapResolutionByGrouping;
+@property(class) BOOL   enableMarkerOverlapResolutionByGrouping;
 
 
 @end

@@ -10,23 +10,49 @@
 #import "MPTransitAgency.h"
 #import "MPTransitVehicle.h"
 
+/**
+ Transit line information.
+ */
 @interface MPTransitLine : MPJSONModel
 
-//name contains the full name of this transit line. eg. "7 Avenue Express".
+/**
+ Name contains the full name of this transit line. eg. "7 Avenue Express".
+ */
 @property (nonatomic, strong, nullable) NSString<Optional>* name;
-//short_name contains the short name of this transit line. This will normally be a line number, such as "M7" or "355".
+
+/**
+ short_name contains the short name of this transit line. This will normally be a line number, such as "M7" or "355".
+ */
 @property (nonatomic, strong, nullable) NSString<Optional>* short_name;
-//color contains the color commonly used in signage for this transit line. The color will be specified as a hex string such as: #FF0033.
+
+/**
+ The color commonly used in signage for this transit line. The color will be specified as a hex string such as: #FF0033.
+ */
 @property (nonatomic, strong, nullable) NSString<Optional>* color;
-//agencies contains an array of TransitAgency objects that each provide information about the operator of the line.
+
+/**
+ An array of TransitAgency objects that each provide information about the operator of the line.
+ */
 @property (nonatomic, strong, nullable) NSArray<MPTransitAgency*><MPTransitAgency>* agencies;
-//url contains the URL for this transit line as provided by the transit agency.
+
+/**
+ URL for this transit line as provided by the transit agency.
+ */
 @property (nonatomic, strong, nullable) NSString<Optional>* url;
-//icon contains the URL for the icon associated with this line.
+
+/**
+ URL for the icon associated with this line.
+ */
 @property (nonatomic, strong, nullable) NSString<Optional>* icon;
-//text_color contains the color of text commonly used for signage of this line. The color will be specified as a hex string.
+
+/**
+ Color of text commonly used for signage of this line. The color will be specified as a hex string.
+ */
 @property (nonatomic, strong, nullable) NSString<Optional>* text_color;
-//vehicle contains the type of vehicle used on this line. This may include the following properties:
+
+/**
+ Type of vehicle used on this line. This may include the following properties:
+ */
 @property (nonatomic, strong, nullable) MPTransitVehicle<Optional>* vehicle;
 
 @end

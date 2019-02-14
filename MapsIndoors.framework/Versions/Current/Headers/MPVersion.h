@@ -14,6 +14,7 @@
 @interface MPSDKVersion : NSObject
 
 + (nonnull NSString*)versionString;
++ (BOOL)versionWasChanged;
 
 @end
 

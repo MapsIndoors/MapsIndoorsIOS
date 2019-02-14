@@ -22,7 +22,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MPPoint.h"
-#import "MPLocationDisplayRuleset.h"
 #import "MPLocationProperty.h"
 #import "NSDictionary+MPLocationPropertiesDictionary.h"
 #import "MPLocationField.h"
@@ -89,10 +88,6 @@
  Location image. 
  */
 @property (nonatomic, strong, nullable, readonly) UIImage<Optional> *image DEPRECATED_MSG_ATTRIBUTE("Use -fields to get properties like image, description etc.");
-/**
- Location display rule.
- */
-@property (nonatomic, strong, nullable, readonly) MPLocationDisplayRule<Optional> *displayRule DEPRECATED_MSG_ATTRIBUTE("Set display settings on MPMapControl instead.");
 
 /**
  URL for image associated with this MPLocation.
@@ -103,8 +98,15 @@
  */
 @property (nonatomic, strong, nullable, readonly) NSNumber<Optional>* sourceId;
 
-@property (nonatomic, strong, nullable, readonly) UIImage<Optional>*    markerImage;
-@property (nonatomic, strong, nullable, readonly) NSURL<Optional>*      markerImageURL;
+/**
+ Location icon. If not set, the location will either get an icon from the settings configured for the type of location or a default appearance that is configurable through `MPMapControl`.
+ */
+@property (nonatomic, strong, nullable, readonly) UIImage<Optional>*    icon;
+
+/**
+ Location icon as a URL. If icon is originally set as a UIImage, this property will be ignored.
+ */
+@property (nonatomic, strong, nullable, readonly) NSURL<Optional>*      iconUrl;
 
 
 /**

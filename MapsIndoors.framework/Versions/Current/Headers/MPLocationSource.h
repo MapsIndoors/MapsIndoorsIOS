@@ -13,14 +13,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
 @protocol MPLocationsObserver;
 
+/**
+ Location source protocol.
+ */
 @protocol MPLocationSource<NSObject>
 /**
  Get the locations available from the location source at this point in time
  
  @return The list of locations
  */
+@required
 - (nonnull NSArray<MPLocation *> *)getLocations;
 
 /**
@@ -28,6 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param observer The observer object
  */
+@required
 - (void)addLocationsObserver:(id<MPLocationsObserver>)observer;
 
 /**
@@ -35,6 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param observer The observer object to remove
  */
+@required
 - (void)removeLocationsObserver:(id<MPLocationsObserver>)observer;
 
 /**
@@ -46,10 +53,12 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return The status of the location source
  */
+@required
 - (MPLocationSourceStatus)status;
 /**
  Get the id of the location source
  */
+@required
 - (int)sourceId;
 
 @end
@@ -57,6 +66,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MPMapsIndoorsLocationSource : NSObject<MPLocationSource>
 
 + (BOOL) isOfflineDataAvailableForSolutionId:(NSString*)solutionId language:(NSString*)language;
++ (int) mpMapsIndoorsSourceId;
 
 @end
 

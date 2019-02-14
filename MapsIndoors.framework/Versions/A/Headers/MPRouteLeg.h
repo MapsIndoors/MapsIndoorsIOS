@@ -25,25 +25,37 @@ typedef NS_ENUM(NSUInteger, MPRouteLegType) {
 @interface MPRouteLeg : MPJSONModel
 
 /**
- The routeleg distance
+ The route leg distance in meters
  */
 @property (nonatomic, strong, nullable) NSNumber<Optional>* distance;
 
 /**
- The routeleg duration
+ The route leg duration in seconds
  */
 @property (nonatomic, strong, nullable) NSNumber<Optional>* duration;
-
-@property (nonatomic, strong, nullable) MPRouteCoordinate<Optional>* start_location;
-@property (nonatomic, strong, nullable) MPRouteCoordinate<Optional>* end_location;
-@property (nonatomic, strong, nullable) NSString<Optional>* start_address;
-@property (nonatomic, strong, nullable) NSString<Optional>* end_address;
-
 /**
- The array of route actions in this route leg.
+ The route leg start position
+ */
+@property (nonatomic, strong, nullable) MPRouteCoordinate<Optional>* start_location;
+/**
+ The route leg end position
+ */
+@property (nonatomic, strong, nullable) MPRouteCoordinate<Optional>* end_location;
+/**
+ The route leg start address. If the position is outdoors, the address may be a postal address. If the position is indoors, the address may be a textual description of the indoor location, like "Lower Ground Floor, Building X".
+ */
+@property (nonatomic, strong, nullable) NSString<Optional>* start_address;
+/**
+ The route leg end address. If the position is outdoors, the address may be a postal address. If the position is indoors, the address may be a textual description of the indoor location, like "Lower Ground Floor, Building X".
+ */
+@property (nonatomic, strong, nullable) NSString<Optional>* end_address;
+/**
+ Collection of steps for the route leg.
  */
 @property (nonatomic, strong, nullable) NSMutableArray<MPRouteStep*><MPRouteStep, Optional>* steps;
-
+/**
+ The type of leg, determined by the source service, Google or MapsIndoors.
+ */
 @property (nonatomic) MPRouteLegType        routeLegType;
 
 @end

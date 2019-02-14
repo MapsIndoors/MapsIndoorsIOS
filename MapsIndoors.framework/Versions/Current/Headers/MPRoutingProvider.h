@@ -10,6 +10,9 @@
 #import "MPPoint.h"
 #import "MPRoute.h"
 
+/**
+ Directions service delegate
+ */
 @protocol MPRoutingProviderDelegate <NSObject>
 /**
  Routing result ready event method.
@@ -19,6 +22,12 @@
 - (void) onRouteResultReady: (nonnull MPRoute*)route;
 @end
 
+/**
+ Callback handler for route result
+
+ @param route Route object.
+ @param error Error object.
+ */
 typedef void(^mpRouteHandlerBlockType)(MPRoute* _Nullable route, NSError* _Nullable error);
 
 

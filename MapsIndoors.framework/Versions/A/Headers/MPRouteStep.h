@@ -53,20 +53,73 @@ enum MPRouteActionDirection {
 @protocol MPRouteStep
 @end
 
+
+/**
+ Route step model. A step is segment on a `MPRouteLeg` (`MPRouteLeg` is a segment on a `MPRoute`). The step contains start and end locations, distance and duration information, as well as navigational instructions.
+ */
 @interface MPRouteStep : MPJSONModel
 
+
+/**
+ Travel mode key. Can be walking, bicycling, driving and transit.
+ */
 @property (nonatomic, strong, nullable) NSString<Optional>* travel_mode;
+/**
+ End location coordinate and floor index
+ */
 @property (nonatomic, strong, nullable) MPRouteCoordinate<Optional>* end_location;
+/**
+ Start location coordinate and floor index
+ */
 @property (nonatomic, strong, nullable) MPRouteCoordinate<Optional>* start_location;
+/**
+ Distance of the step in meters.
+ */
 @property (nonatomic, strong, nullable) NSNumber<Optional>* distance;
+/**
+ Duration of the step in seconds, with specified travel mode `step.travel_mode`
+ */
 @property (nonatomic, strong, nullable) NSNumber<Optional>* duration;
+/**
+ Maneuver value for the step. Possible values are:
+     straight,
+     turn-left,
+     turn-right,
+     turn-sharp-left,
+     turn-sharp-right,
+     turn-slight-left,
+     turn-slight-right,
+     uturn-left,
+     uturn-right
+ */
 @property (nonatomic, strong, nullable) NSString<Optional>* maneuver;
+/**
+ Encoded polyline for the step. Can de decoded with `[GMSPath pathFromEncodedPath:]`. Only long polylines may be encoded.
+ */
 @property (nonatomic, strong, nullable) MPEncodedPolyline<Optional>* polyline;
+/**
+ Polyline geometry for the step.
+*/
 @property (nonatomic, strong, nullable) NSMutableArray<MPRouteCoordinate*><MPRouteCoordinate,Optional>* geometry;
+/**
+ Textual instructions for the step. May not be specified.
+ */
 @property (nonatomic, strong, nullable) NSString<Optional>* html_instructions;
+/**
+ Way type for this step (part of the route). E.g. footway, steps, elevator, residential etc.
+ */
 @property (nonatomic, strong, nullable) NSString<Optional>* highway;
+/**
+ Context of the step. May be `InsideBuilding`, `OutsideOnVenue` or a custom context e.g. `Security`
+ */
 @property (nonatomic, strong, nullable) NSString<Optional>* routeContext;
+/**
+ Substeps for the step. May be empty/nil.
+ */
 @property (nonatomic, strong, nullable) NSMutableArray<MPRouteStep*><MPRouteStep, Optional>* steps;
+/**
+ Transit details. May apply for travel mode `transit`.
+ */
 @property (nonatomic, strong, nullable) MPTransitDetails<Optional>* transit_details;
 
 - (nullable MPPoint*)getActionPoint;

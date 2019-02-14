@@ -29,7 +29,6 @@
 #import <MapsIndoors/MPLocationUpdate.h>
 #import <MapsIndoors/MPLocationDataset.h>
 #import <MapsIndoors/MPLocationDisplayRule.h>
-#import <MapsIndoors/MPLocationDisplayRuleset.h>
 #import <MapsIndoors/MPLocationProperty.h>
 #import <MapsIndoors/MPLocationsProvider.h>
 #import <MapsIndoors/MPMapControl.h>
@@ -66,7 +65,6 @@
 #import <MapsIndoors/MPMessage.h>
 #import <MapsIndoors/MPMessageDataset.h>
 #import <MapsIndoors/MPMessageProvider.h>
-#import <MapsIndoors/MPStringCache.h>
 #import <MapsIndoors/MPAppDataProvider.h>
 #import <MapsIndoors/MPMenuItem.h>
 #import <MapsIndoors/MPMIAPI.h>

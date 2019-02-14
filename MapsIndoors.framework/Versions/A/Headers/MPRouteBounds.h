@@ -9,9 +9,18 @@
 #import "MPJSONModel.h"
 #import "MPRouteCoordinate.h"
 
+/**
+ Route bounds model
+ */
 @interface MPRouteBounds : MPJSONModel
 
+/**
+ North east corner coordinate.
+ */
 @property (nonatomic, strong, nullable) MPRouteCoordinate* northeast;
+/**
+ South west corner coordinate.
+ */
 @property (nonatomic, strong, nullable) MPRouteCoordinate* southwest;
 
 @end

@@ -86,18 +86,61 @@ typedef void(^mpImageCompletionHandlerBlock)(UIImage* _Nullable image);
 @optional
 - (BOOL) didTapAtCoordinate:(CLLocationCoordinate2D)coordinate withLocations:(nullable NSArray<MPLocation*>*)locations;
 
+/**
+ Callback for the app to know and determine what should happen when a POI group/cluster marker is tapped.
+
+ @param marker The poigroup marker that was tapped
+ @param locations The MPlocations that was grouped.
+ @param moreZoomPossible YES if the map is able to zoom more in, else NO.
+ @return YES to enable the default behaviour, which is to zoom to the area of the POI group if possible, else show an info window for the POI group.
+ @return NO if no further handling of the maker-tap should occur.
+ */
 @optional
 - (BOOL) didTapMarker:(GMSMarker*_Nonnull)marker forPoiGroup:(nullable NSArray<MPLocation*>*)locations moreZoomPossible:(BOOL)moreZoomPossible;
 
+/**
+ Called to get an infoWindow for a map-marker representing a poi-group.
+
+ @param poiGroup The MPLocations in the group.
+ @return nil to use default info window.
+ @return UIView* to use a specific, application-created, infoWindow.
+ */
 @optional
 - (nullable UIView*) infoWindowForPoiGroup:(NSArray<MPLocation*>* _Nonnull)poiGroup;
 
+/**
+ Callback for the application to determine the size of the grouping/clustering image representing a poi group.
+
+ @param count The number of POIs grouped into a cluster.
+ @param clusterId The clusterId that size is requested for.
+ @return size.
+ */
 @optional
 - (CGSize) getImageSizeForPoiGroupWithCount:(NSUInteger)count clusterId:(NSString* _Nonnull)clusterId;
 
+/**
+ Callback for synchronously providing an image for a POI group (aka POI cluster).
+ If both the async and sync variants of this method is implemented, the asynchronous variant is used.
+
+ @param poiGroup List of grouped POIs
+ @param imageSize The image size to return.
+ @param clusterId clusterId of the poi group.
+ @return YES if the image request is accepted, essentially promising to call the completion block at some point in the future.
+ @return NO if the image request will not be fulfilled by the completion handler. Returning NO make the map show the default grouping image.
+ */
 @optional
 - (nullable UIImage*) getImageForPoiGroup:(NSArray<MPLocation*>* _Nonnull)poiGroup imageSize:(CGSize)imageSize clusterId:(NSString* _Nonnull)clusterId;
 
+/**
+ Callback for asynchronously providing an image for a POI group (aka POI cluster).
+
+ @param poiGroup List of grouped POIs
+ @param imageSize The image size to return.
+ @param clusterId clusterId of the poi group.
+ @param completion completion handler to deliver the image.
+ @return YES if the image request is accepted, essentially promising to call the completion block at some point in the future.
+ @return NO if the image request will not be fulfilled by the completion handler. Returning NO make the map show the default grouping image.
+ */
 @optional
 - (BOOL) getImageForPoiGroup:(NSArray<MPLocation*>* _Nonnull)poiGroup imageSize:(CGSize)imageSize clusterId:(NSString* _Nonnull)clusterId completion:(mpImageCompletionHandlerBlock _Nonnull)completion;
 
@@ -222,6 +265,13 @@ typedef void(^mpImageCompletionHandlerBlock)(UIImage* _Nullable image);
  Modify this displayrule to change the visual appearance of the location highlight.
  */
 @property (nonatomic, strong, readonly) MPLocationDisplayRule* _Nullable      locationHighlightDisplayRule;
+
+/**
+ The default display settings used by MPMapControl to display a location.
+ Modify this object to change the default visual appearance of a location.
+ The default appearance only applies for locations that has no other references to a display rule.
+ */
+@property (nonatomic, strong, readonly) MPLocationDisplayRule* _Nullable      defaultDisplayRule;
 
 - (void)clearTileCache;
 

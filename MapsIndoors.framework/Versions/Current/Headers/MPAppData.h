@@ -7,7 +7,6 @@
 //
 
 #import "MPJSONModel.h"
-#import "MPLocationDisplayRuleset.h"
 #import "MPMenuItem.h"
 
 
@@ -18,7 +17,6 @@
 /**
  Ruleset that defines how and when to show the different map markers
  */
-@property (strong, nonatomic, nullable) MPLocationDisplayRuleset<Ignore>* displayRuleset;
 @property (strong, nonatomic, nullable) NSString<Optional>* colorPrimary;
 @property (strong, nonatomic, nullable) NSString<Optional>* colorPrimaryDark;
 @property (strong, nonatomic, nullable) NSString<Optional>* colorAccent;
