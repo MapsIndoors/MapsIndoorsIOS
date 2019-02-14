@@ -273,8 +273,7 @@ static MPLocationQuery* locationQuery;
 }
 
 + (NSString*) getAddressForLocation: (MPLocation*) location {
-    MPLocationDisplayRule* displayRule = location.displayRule;
-    if (displayRule == nil) displayRule = [Global getDisplayRuleForType:location.type];
+    MPLocationDisplayRule* displayRule = [Global getDisplayRuleForType:location.type];
     NSString* addr = [NSString stringWithString: location.name? : @""];
     if (displayRule) {
         addr = [displayRule getLabelContent:location];

@@ -307,7 +307,6 @@
     } else {
 
         self.myLocation = [[MPLocation alloc] initWithPoint:MapsIndoors.positionProvider.latestPositionResult.geometry andName:kLangMyPosition];
-        self.myLocation.displayRule.icon = [UIImage imageNamed:@"Mylocation"];
 
         self.destination = _routing.destination;
 
@@ -326,7 +325,7 @@
 
                 if (locationData != nil && locationData.list.count == 1) {
                     self.origin = [locationData.list.firstObject copy];
-                    self.origin.displayRule.icon = [UIImage imageNamed:@"Mylocation"];
+
                 } else {
                     //TODO set description with builder instead
                     //                    self.origin.descr = nil;
@@ -754,7 +753,6 @@
                 if ( (myLocation.latitude != currLocation.latitude) || (myLocation.longitude != currLocation.longitude) ) {
 
                     self.myLocation = [[MPLocation alloc] initWithPoint:MapsIndoors.positionProvider.latestPositionResult.geometry andName:kLangMyPosition];
-                    self.myLocation.displayRule.icon = [UIImage imageNamed:@"Mylocation"];
 
                     if ( originIsMyPosition ) {
                         self.origin = self.myLocation;

@@ -304,10 +304,10 @@
         
         cell.subTextLabel.lineBreakMode = NSLineBreakByTruncatingTail;
         
-        if (object.displayRule.icon) {
-            cell.imageView.image = object.displayRule.icon;
-        } else if (object.displayRule.iconPath) {
-            [cell.imageView mp_setImageWithURL:object.displayRule.iconPath placeholderImage:[UIImage imageNamed:@"placeholder"]];
+        if (object.icon) {
+            cell.imageView.image = object.icon;
+        } else if (object.iconUrl) {
+            [cell.imageView mp_setImageWithURL:object.iconUrl.absoluteString placeholderImage:[UIImage imageNamed:@"placeholder"]];
         } else {
             [cell.imageView mp_setImageWithURL:[Global getIconUrlForType:object.type] placeholderImage:[UIImage imageNamed:@"placeholder"]];
         }

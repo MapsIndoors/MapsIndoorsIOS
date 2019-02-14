@@ -474,13 +474,13 @@ static NSString* cellIdentifier = @"LocationCell";
 
     cell.subTextLabel.lineBreakMode = NSLineBreakByTruncatingTail;
 
-    if (object.displayRule.icon) {
+    if (object.icon) {
 
-        cell.imageView.image = object.displayRule.icon;
+        cell.imageView.image = object.icon;
 
-    } else if (object.displayRule.iconPath) {
+    } else if (object.iconUrl) {
 
-        [cell.imageView mp_setImageWithURL: object.displayRule.iconPath placeholderImageName:@"placeholder"];
+        [cell.imageView mp_setImageWithURL: object.iconUrl.absoluteString placeholderImageName:@"placeholder"];
 
     } else if ([object.type isEqualToString:@"google-place"]) {
 
