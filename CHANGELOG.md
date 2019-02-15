@@ -11,9 +11,16 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [2.1.9] 2019-01-17
+## [2.1.9] 2019-02-15
 ### Fixed
 - Fixed an occasional crash in MPVenueProvider, reported in [github](https://github.com/MapsIndoors/MapsIndoorsIOS/issues/5).
+- Fixed an issue causing infowindow to pop up every time map is panned around with searchResult of 1 location
+- Fixed a data synchronisation issue that could occur with two datasets that has offline capabilities
+- Fixed MapsPeople logo so it respects MapView padding
+- Fixed occasional crashes when running simulator builds
+
+### Added
+- Added some classes that were not present in reference guide
 
 ## [2.1.8] 2019-01-03
 ### Fixed
