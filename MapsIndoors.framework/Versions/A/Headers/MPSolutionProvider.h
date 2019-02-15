@@ -42,12 +42,12 @@ typedef void(^mpSolutionHandlerBlockType)(MPSolution* _Nullable solution, NSErro
  Get solution from this provider.
  @deprecated
  */
-- (void)getSolutionAsync: (nonnull NSString*) solutionId MP_DEPRECATED_MSG_ATTRIBUTE("Use getSolution instead");
+- (void)getSolutionAsync: (nonnull NSString*) solutionId DEPRECATED_MSG_ATTRIBUTE("Use getSolution instead");
 /**
  Get solution from this provider and supply a callback handler function.
  @deprecated
  */
-- (void)getSolutionAsync: (nonnull NSString*) solutionId completionHandler: (nullable mpSolutionHandlerBlockType)completionHandler MP_DEPRECATED_MSG_ATTRIBUTE("Use getSolutionWithCompletion: instead");
+- (void)getSolutionAsync: (nonnull NSString*) solutionId completionHandler: (nullable mpSolutionHandlerBlockType)completionHandler DEPRECATED_MSG_ATTRIBUTE("Use getSolutionWithCompletion: instead");
 /**
  Get solution from this provider.
  */

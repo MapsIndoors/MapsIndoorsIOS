@@ -11,7 +11,11 @@
 #import "MPLocationField.h"
 #import "MPLocationSource.h"
 
+
 @class MPLocationDisplayRule;
+
+extern const NSInteger MPLocationUpdateFloorInvalid;
+
 
 NS_ASSUME_NONNULL_BEGIN
 

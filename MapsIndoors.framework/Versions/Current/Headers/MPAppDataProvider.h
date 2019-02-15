@@ -53,14 +53,14 @@ typedef void(^mpAppDataHandlerBlockType)(MPAppData* _Nullable appData, NSError* 
  @param language Specifies which language to fetch. Only supports the available languages in the specified solution.
  @param handler Data fetch and error callback handler block
  */
-- (void)getAppDataAsync:(nonnull NSString *)solutionId language: (nonnull NSString*) language completionHandler:(nullable mpAppDataHandlerBlockType)handler MP_DEPRECATED_MSG_ATTRIBUTE("Use getAppDataWithCompletion: instead");
+- (void)getAppDataAsync:(nonnull NSString *)solutionId language: (nonnull NSString*) language completionHandler:(nullable mpAppDataHandlerBlockType)handler DEPRECATED_MSG_ATTRIBUTE("Use getAppDataWithCompletion: instead");
 /**
  Get app metadata. Assign a delegate object to this instance in order to handle the data fetch.
  @deprecated
  @param solutionId The solution to get app metadata for
  @param language Specifies which language to fetch content for. Uses 2 character ISO 639-1 representation. Only supports the available languages in the specified solution.
  */
-- (void)getAppDataAsync:(nonnull NSString *)solutionId language: (nonnull NSString*) language MP_DEPRECATED_MSG_ATTRIBUTE("Use getAppData instead");
+- (void)getAppDataAsync:(nonnull NSString *)solutionId language: (nonnull NSString*) language DEPRECATED_MSG_ATTRIBUTE("Use getAppData instead");
 /**
  Get app metadata and handle the data with a callback block
  @param handler Data fetch and error callback handler block

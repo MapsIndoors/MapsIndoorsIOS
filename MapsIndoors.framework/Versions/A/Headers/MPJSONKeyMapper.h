@@ -53,11 +53,11 @@ typedef NSString *(^MPJSONModelKeyMapBlock)(NSString *keyName);
 @interface MPJSONKeyMapper : NSObject
 
 // deprecated
-@property (readonly, nonatomic) MPJSONModelKeyMapBlock JSONToModelKeyBlock MP_DEPRECATED_ATTRIBUTE;
-- (NSString *)convertValue:(NSString *)value isImportingToModel:(BOOL)importing MP_DEPRECATED_MSG_ATTRIBUTE("use convertValue:");
-- (instancetype)initWithDictionary:(NSDictionary *)map MP_DEPRECATED_MSG_ATTRIBUTE("use initWithModelToJSONDictionary:");
-- (instancetype)initWithJSONToModelBlock:(MPJSONModelKeyMapBlock)toModel modelToJSONBlock:(MPJSONModelKeyMapBlock)toJSON MP_DEPRECATED_MSG_ATTRIBUTE("use initWithModelToJSONBlock:");
-+ (instancetype)mapper:(MPJSONKeyMapper *)baseKeyMapper withExceptions:(NSDictionary *)exceptions MP_DEPRECATED_MSG_ATTRIBUTE("use baseMapper:withModelToJSONExceptions:");
+@property (readonly, nonatomic) MPJSONModelKeyMapBlock JSONToModelKeyBlock DEPRECATED_ATTRIBUTE;
+- (NSString *)convertValue:(NSString *)value isImportingToModel:(BOOL)importing DEPRECATED_MSG_ATTRIBUTE("use convertValue:");
+- (instancetype)initWithDictionary:(NSDictionary *)map DEPRECATED_MSG_ATTRIBUTE("use initWithModelToJSONDictionary:");
+- (instancetype)initWithJSONToModelBlock:(MPJSONModelKeyMapBlock)toModel modelToJSONBlock:(MPJSONModelKeyMapBlock)toJSON DEPRECATED_MSG_ATTRIBUTE("use initWithModelToJSONBlock:");
++ (instancetype)mapper:(MPJSONKeyMapper *)baseKeyMapper withExceptions:(NSDictionary *)exceptions DEPRECATED_MSG_ATTRIBUTE("use baseMapper:withModelToJSONExceptions:");
 
 /** @name Name converters */
 /** Block, which takes in a property name and converts it to the corresponding JSON key name */

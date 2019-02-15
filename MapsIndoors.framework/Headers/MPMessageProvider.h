@@ -43,7 +43,7 @@ typedef void(^mpMessageListHandlerBlockType)(NSArray<MPMessage>* _Nullable messa
  @param  handler The handler callback block. Contains the MPMessage object (can be nil) and an NSError object (can be nil).
  @deprecated
  */
-- (void)getMessagesAsync: (nonnull NSString*) solutionId language: (nonnull NSString*) language completionHandler: (nullable mpMessageListHandlerBlockType) handler MP_DEPRECATED_MSG_ATTRIBUTE("Use getMessagesWithCompletion: instead");
+- (void)getMessagesAsync: (nonnull NSString*) solutionId language: (nonnull NSString*) language completionHandler: (nullable mpMessageListHandlerBlockType) handler DEPRECATED_MSG_ATTRIBUTE("Use getMessagesWithCompletion: instead");
 /**
  Method to query a unique Message from the provider based on an id.
  @param  solutionId The MapsIndoors solution ID.
@@ -52,7 +52,7 @@ typedef void(^mpMessageListHandlerBlockType)(NSArray<MPMessage>* _Nullable messa
  @param  handler The handler callback block. Contains the MPMessage object (can be nil) and an NSError object (can be nil).
  @deprecated
  */
-- (void)getMessageDetailsAsync: (nonnull NSString*) solutionId withId:(nonnull NSString*)messageId language: (nonnull NSString*) language completionHandler: (nullable mpMessageDetailsHandlerBlockType) handler MP_DEPRECATED_MSG_ATTRIBUTE("Use getMessageWithId:: instead");
+- (void)getMessageDetailsAsync: (nonnull NSString*) solutionId withId:(nonnull NSString*)messageId language: (nonnull NSString*) language completionHandler: (nullable mpMessageDetailsHandlerBlockType) handler DEPRECATED_MSG_ATTRIBUTE("Use getMessageWithId:: instead");
 /**
  Method to initiate fetching of all Messages from the provider.
  @param  handler The handler callback block. Contains the MPMessage object (can be nil) and an NSError object (can be nil).

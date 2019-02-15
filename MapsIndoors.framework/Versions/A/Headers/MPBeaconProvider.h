@@ -54,7 +54,7 @@
  Method to initiate fetching of Beacons from the provider.
  @deprecated
  */
-- (void)getBeacons: (nonnull NSArray*) beaconIds clientId: (nonnull NSString*) clientId MP_DEPRECATED_MSG_ATTRIBUTE("Use -(void)getBeacons:(NSString*)solutionId instead");
+- (void)getBeacons: (nonnull NSArray*) beaconIds clientId: (nonnull NSString*) clientId DEPRECATED_MSG_ATTRIBUTE("Use -(void)getBeacons:(NSString*)solutionId instead");
 /**
  Method to initiate fetching of Beacons from the provider.
  */
