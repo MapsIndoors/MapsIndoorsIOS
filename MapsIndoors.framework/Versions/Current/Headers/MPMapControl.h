@@ -54,31 +54,36 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 - (void) mapContentReady;
 
 /**
-  Data fetch event method. Can be implemented by delegate object.
+ Data fetch event method. Can be implemented by delegate object.
+ @deprecated
  */
 @optional
 - (void) appDataReady:(nonnull MPAppData*)appData MP_DEPRECATED_MSG_ATTRIBUTE("Use mapContentReady instead");
 
 /**
   Data fetch event method. Can be implemented by delegate object.
+ @deprecated
  */
 @optional
 - (void) locationDataReady:(nonnull MPLocationDataset*)locations MP_DEPRECATED_MSG_ATTRIBUTE("Use mapContentReady instead");
 
 /**
   Data fetch event method. Can be implemented by delegate object.
+ @deprecated
  */
 @optional
 - (void) solutionDataReady:(nonnull MPSolution*)solution MP_DEPRECATED_MSG_ATTRIBUTE("Use mapContentReady instead");
 
 /**
   Data fetch event method. Can be implemented by delegate object.
+ @deprecated
  */
 @optional
 - (void) venueDataReady:(nonnull MPVenueCollection*)venueCollection MP_DEPRECATED_MSG_ATTRIBUTE("Use mapContentReady instead");
 
 /**
   Data fetch event method. Can be implemented by delegate object.
+ @deprecated
  */
 @optional
 - (void) onPositionUpdate:(nonnull MPPositionResult*)positionResult MP_DEPRECATED_MSG_ATTRIBUTE("Use MPPositionProvider instead");
@@ -169,6 +174,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 @property (nonatomic, nullable) NSArray<MPLocation*>* searchResult;
 /**
  Current language.
+ @deprecated
  */
 @property (nonatomic, nullable) NSString* language MP_DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors getLanguage]/[MapsIndoors setLanguage:] instead");
 /**
@@ -201,6 +207,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
   @param locationsProvider The locations provider from which the MapControl is fetching its location data.
   @param venueProvider The venue provider from which the MapControl is fetching its venue data.
   @param routingProvider The routing provider to which the MapControl is performing its route requests.
+ @deprecated
  */
 - (void)setupMapWith:(nonnull MPLocationsProvider*)locationsProvider
               venues:(nonnull MPVenueProvider*)venueProvider
@@ -209,6 +216,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 /**
   Setup the venue map with default providers based on given solution id (only venues).
   @param solutionId The MapsPeople solution id.
+ @deprecated
  */
 - (void)setupMapWith:(nonnull NSString*)solutionId MP_DEPRECATED_MSG_ATTRIBUTE("Use [MapsIndoors provideApiKey:contentKey:] and initWithMap: when setting up");
 
@@ -216,6 +224,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
   Setup the venue map with default providers based on given solution id (venues, locations and routing if accessible).
   @param solutionId The MapsPeople solution id.
   @param venueName The MapsPeople site id, used for locations and routing.
+ @deprecated
  */
 - (void)setupMapWith:(nonnull NSString*)solutionId site:(nullable NSString*)venueName MP_DEPRECATED_MSG_ATTRIBUTE("Use only [MapsIndoors provideApiKey:contentKey:] and initWithMap: when setting up");
 
@@ -226,6 +235,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
   @param locationsProvider The locations provider from which the MapControl is fetching its location data.
   @param venueProvider The venue provider from which the MapControl is fetching its venue data.
   @param routingProvider The routing provider to which the MapControl is performing its route requests.
+ @deprecated
  */
 - (void)setupMapWith:(nonnull NSString*)solutionId
                 site:(nonnull NSString*)venueName
@@ -282,6 +292,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
  Deprecated, Use MapsIndoors.positionProvider instead
 
  @param provider positioning provider to register with MPMapControl.
+ @deprecated
  */
 - (void)addPositionProvider:(nonnull id<MPPositionProvider>)provider MP_DEPRECATED_MSG_ATTRIBUTE("Use MapsIndoors.positionProvider instead");
 

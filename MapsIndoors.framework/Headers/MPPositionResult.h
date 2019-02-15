@@ -33,6 +33,7 @@
 
 /**
  Type property
+ @deprecated
  */
 @property (nonatomic, strong, nullable) NSString* type DEPRECATED_MSG_ATTRIBUTE("Marked as obsolete property");
 
@@ -52,6 +53,7 @@
  Get the roundtrip property
 
  @return The roundtrip value.
+ @deprecated
  */
 - (double) getRoundtrip DEPRECATED_MSG_ATTRIBUTE("Marked as obsolete method");
 
@@ -66,6 +68,7 @@
  Get the age of the this position result; the time in seconds since the position was first determined.
 
  @return The age property as a number
+ @deprecated
  */
 - (nullable NSNumber*) getAge DEPRECATED_MSG_ATTRIBUTE("Marked as obsolete method");
 

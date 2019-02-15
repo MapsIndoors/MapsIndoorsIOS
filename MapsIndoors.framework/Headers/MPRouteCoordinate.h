@@ -8,11 +8,26 @@
 
 #import "MPJSONModel.h"
 
+/**
+ Route coordinate model
+ */
 @interface MPRouteCoordinate : MPJSONModel
 
+/**
+ Floor level index
+ */
 @property (nonatomic, strong, nullable) NSNumber<Optional>* zLevel;
+/**
+ Latitude angle
+ */
 @property (nonatomic, strong, nullable) NSNumber* lat;
+/**
+ Longitude angle
+ */
 @property (nonatomic, strong, nullable) NSNumber* lng;
+/**
+ Floor name for this coordinate
+ */
 @property (nonatomic, strong, nullable) NSString<Optional>* floor_name;
 
 @end

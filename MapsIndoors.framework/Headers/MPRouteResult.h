@@ -12,9 +12,18 @@
 @protocol MPRoute
 @end
 
+/**
+ Route result model
+ */
 @interface MPRouteResult : MPJSONModel
 
+/**
+ Routes in the result.
+ */
 @property (nonatomic, strong, nullable) NSArray<MPRoute, Optional>* routes;
+/**
+ Status code from the directions service. "OK" means that a route was successfully returned.
+ */
 @property (nonatomic, strong, nullable) NSString<Optional>* status;
 
 

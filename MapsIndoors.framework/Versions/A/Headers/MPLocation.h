@@ -43,7 +43,10 @@
  @param  name The name of the location.
  */
 - (nullable instancetype) initWithPoint:(nullable MPPoint*)point andName:(nullable NSString*)name;
-- (nullable instancetype) initWithLocation:(nullable MPLocation*)location;
+/**
+ @deprecated
+ */
+- (nullable instancetype) initWithLocation:(nullable MPLocation*)location DEPRECATED_MSG_ATTRIBUTE("Use [MPLocation copy] instead.");
 /**
  Location ID string.
  */
@@ -71,6 +74,7 @@
 @property (nonatomic, strong, nullable) NSMutableDictionary<Optional> *categories;
 /**
  Dictionary of location properties. The keys 'image' and 'description' will always be present, and possibly others, such as 'address', 'contact', 'openinghours' and '_tags' or your own data structure.
+ @deprecated
  */
 @property (nonatomic, strong, nullable) NSMutableDictionary *properties DEPRECATED_MSG_ATTRIBUTE("Use fields dictionary instead");
 /**

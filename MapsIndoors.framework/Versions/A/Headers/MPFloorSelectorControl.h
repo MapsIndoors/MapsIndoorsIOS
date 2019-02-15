@@ -118,12 +118,14 @@
 /**
   Add the floor selector to a map.
   @param map The map that should hold the floor selector.
+ @deprecated
  */
 - (void) addToMap:(nonnull GMSMapView*)map DEPRECATED_MSG_ATTRIBUTE("Please use addSubview on containing view instead");
 
 /**
   Add the floor selector to a view.
   @param view The view that should hold the floor selector.
+ @deprecated
  */
 - (void) addToView:(nonnull UIView*)view DEPRECATED_MSG_ATTRIBUTE("Please use addSubview on containing view instead");
 

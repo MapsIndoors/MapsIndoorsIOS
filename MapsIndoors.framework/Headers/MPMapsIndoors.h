@@ -15,7 +15,18 @@
 @protocol MPLocationsProvider;
 
 
+/**
+ Content synchronisation callback handler block
+
+ @param error Error object.
+ */
 typedef void(^mpSyncContentHandlerBlockType)(NSError* error);
+
+/**
+ Offline content availability callback handler block
+
+ @param error Error object.
+ */
 typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 
 
@@ -23,12 +34,16 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 #define kMPNotificationApiKeyInvalid                @"MAPSINDOORS_API_KEY_INVALID"
 
 
+/**
+ Main class for initialisation, configuration and content synchronisation.
+ */
 @interface MapsIndoors : NSObject
 
 /**
  Provides your Solution Id to the MapsIndoors SDK for iOS. This key is generated for your solution.
  @param solutionId The MapsIndoors content key
  @return YES if the Solution Id was successfully provided
+ @deprecated
  */
 + (BOOL) provideSolutionId:(NSString*)solutionId MP_DEPRECATED_MSG_ATTRIBUTE("Use +provideApiKey:googleAPIKey: instead");
 
@@ -67,6 +82,7 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 /**
  Fetch all neccesary content to be able to run MapsIndoors in offline environments
  @param  completionHandler Callback function that fires when content has been fetched or if this process resolves in an error. Note: Does not automtically retry fetch.
+ @deprecated
  */
 + (void)fetchDataForOfflineUse: (mpOfflineDataHandlerBlockType) completionHandler DEPRECATED_MSG_ATTRIBUTE("Use the +synchronizeContent method instead");
 /**
@@ -87,7 +103,7 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 + (BOOL) getOfflineMode;
 
 /**
- Determine if enough data is available for a good user experience in iffline mode.
+ Determine if enough data is available for a good user experience in offline mode.
 
  @return YES if offline data is available, else NO.
  */
