@@ -45,18 +45,6 @@ typedef void(^mpCategoriesHandlerBlockType)( NSArray<MPDataField*>* _Nullable ca
 
 /**
  Get categories from the specified solution.
- @deprecated
- @param solutionId MapsIndoors solution id string
- @param locale Specifies which language to fetch categories in. Uses 2 character ISO 639-1 representation
- */
-- (void)getCategoriesAsync: (nonnull NSString*) solutionId locale: (nonnull NSString*) locale DEPRECATED_MSG_ATTRIBUTE("Use getCategories instead");
-/**
- Get Categories from this provider and provide a callback handler.
- @deprecated
- */
-- (void)getCategoriesAsync: (nonnull NSString*) solutionId locale: (nonnull NSString*) locale completionHandler: (nullable mpCategoriesHandlerBlockType) completionHandler DEPRECATED_MSG_ATTRIBUTE("Use getCategoriesWithCompletion: instead");
-/**
- Get categories from the specified solution.
  
  */
 - (void)getCategories;
