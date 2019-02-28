@@ -15,8 +15,18 @@
 #import "MPPoint.h"
 #import "MPRouteLeg.h"
 
+
+/**
+ Route segment path model
+ */
 struct MPRouteSegmentPath {
+    /**
+     Leg index
+     */
     NSInteger legIndex;
+    /**
+     Step index
+     */
     NSInteger stepIndex;
 };
 typedef struct MPRouteSegmentPath MPRouteSegmentPath;

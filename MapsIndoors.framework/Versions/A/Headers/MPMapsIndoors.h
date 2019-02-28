@@ -16,17 +16,31 @@
 @protocol MPLocationSource;
 
 
+/**
+ Content synchronisation callback handler block
+
+ @param error Error object.
+ */
 typedef void(^mpSyncContentHandlerBlockType)(NSError* error);
+
+/**
+ Offline content availability callback handler block
+
+ @param error Error object.
+ */
 typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 
 
-#define kMPNotificationPositionProviderReassign     @"MP_POSITION_PROVIDER_REASSIGNED"
-#define kMPNotificationApiKeyInvalid                @"MAPSINDOORS_API_KEY_INVALID"
-#define kMPNotificationAppDataReady                 @"MP_APP_DATA_READY"
-#define kMPNotificationAppDataValueKey              @"kMPNotificationAppDataValueKey"
-#define kMPNotificationAppDataErrorKey              @"kMPNotificationAppDataErrorKey"
+#define kMPNotificationPositionProviderReassign         @"MP_POSITION_PROVIDER_REASSIGNED"
+#define kMPNotificationApiKeyInvalid                    @"MAPSINDOORS_API_KEY_INVALID"
+#define kMPNotificationMarkerOverlapResolutionUpdate    @"MP_MARKER_OVERLAP_RESOLUTION_UPDATE"
+#define kMPNotificationAppDataValueKey                  @"kMPNotificationAppDataValueKey"
+#define kMPNotificationAppDataErrorKey                  @"kMPNotificationAppDataErrorKey"
 
 
+/**
+ Main class for initialisation, configuration and content synchronisation.
+ */
 @interface MapsIndoors : NSObject
 
 /**
@@ -64,6 +78,7 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 /**
  Fetch all neccesary content to be able to run MapsIndoors in offline environments
  @param  completionHandler Callback function that fires when content has been fetched or if this process resolves in an error. Note: Does not automtically retry fetch.
+ @deprecated
  */
 + (void)synchronizeContent: (mpSyncContentHandlerBlockType) completionHandler;
 
@@ -150,17 +165,11 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 + (BOOL) isAPIKeyValid;
 
 /**
- Controls whether overlapping map markers can be resolved by hiding some of the overlapping items.
- Default value is YES;
- */
-@property(class) BOOL   enableMarkerOverlapResolutionByHiding;
-
-/**
  Controls whether overlapping map markers can be resolved by grouping some of the overlapping items.
  Default value is NO;
  When set to YES, the default behavior is to group MPLocation's of the same type.
  */
-@property(class) BOOL   enableMarkerOverlapResolutionByGrouping;
+@property(class) BOOL   locationClusteringEnabled;
 
 
 @end

@@ -15,13 +15,40 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Added
 - Support for external location data sources using `[MapsIndoors registerLocationSources:sources]`
 - New location service `MPLocationService` to replace `MPLocationsProvider`
-- Added building and venues to the search experience
+- Added building, venues and floors to the search experience
 
 ### Changed
 - MPLocation properties are now read only
 
-## [2.1.5] 2018-11-06
+## [2.1.9] 2019-02-15
 ### Fixed
+- Fixed an occasional crash in MPVenueProvider, reported in [github](https://github.com/MapsIndoors/MapsIndoorsIOS/issues/5).
+- Fixed an issue causing infowindow to pop up every time map is panned around with searchResult of 1 location
+- Fixed a data synchronisation issue that could occur with two datasets that has offline capabilities
+- Fixed MapsPeople logo so it respects MapView padding
+- Fixed occasional crashes when running simulator builds
+
+### Added
+- Added some classes that were not present in reference guide
+
+## [2.1.8] 2019-01-03
+### Fixed
+- The last segment of a route object returned from a directions request sometimes had an unexpected - and wrong - end location.
+- Search engine sometimes returned some unexpected results.
+
+## [2.1.7] 2018-12-10
+### Fixed
+- In some cases the "next"-button on `MPDirectionsRenderer` would display "Level (null)".
+
+## [2.1.6] 2018-11-27
+### Added
+- Support for extra time penalties in the directions service
+### Fixed
+- When in flightmode, the routenetwork service would make two callbacks to the app: first callback with cached data and second callback with an error.
+The second callback would result in no route being produced
+
+## [2.1.5] 2018-11-06
+### Added
 - Support for multi-polygon floor geometry
 
 ## [2.1.4] 2018-11-01

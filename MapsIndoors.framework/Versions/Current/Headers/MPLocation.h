@@ -70,6 +70,7 @@
 @property (nonatomic, strong, nullable, readonly) NSMutableDictionary<Optional> *categories;
 /**
  Dictionary of location properties. The keys 'image' and 'description' will always be present, and possibly others, such as 'address', 'contact', 'openinghours' and '_tags' or your own data structure.
+ @deprecated
  */
 @property (nonatomic, strong, nullable, readonly) NSMutableDictionary *properties DEPRECATED_MSG_ATTRIBUTE("Use fields dictionary instead");
 /**
