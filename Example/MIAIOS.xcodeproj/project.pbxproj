@@ -441,7 +441,6 @@
 		A2D03C462018854500086830 /* MPPositionCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPPositionCalculator.h; sourceTree = "<group>"; };
 		A2D03C4F2018874200086830 /* MPPointXY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPPointXY.h; sourceTree = "<group>"; };
 		A2D03C502018874200086830 /* MPPointXY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPPointXY.m; sourceTree = "<group>"; };
-		A2FCD92C21BFF2F500E135F1 /* .gitlab-ci.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".gitlab-ci.yml"; sourceTree = "<group>"; };
 		A33B5D652DA35507C13B7F6E /* Pods-DemosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemosUITests/Pods-DemosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A98BAED43E1BF05B30AF201F /* Pods_MIAIOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MIAIOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD48E1F61BFFB74DDF9E60EC /* Pods-Demos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Demos/Pods-Demos.debug.xcconfig"; sourceTree = "<group>"; };
@@ -750,7 +749,6 @@
 		A25BDFA31EF3B0FD002681B9 = {
 			isa = PBXGroup;
 			children = (
-				A2FCD92C21BFF2F500E135F1 /* .gitlab-ci.yml */,
 				30D17D2920779DF300A6D666 /* CHANGELOG.md */,
 				A2768C1D1EF40D05005C0C20 /* Solutions */,
 				A25BDFDD1EF3B428002681B9 /* MIAIOS-SRC */,
@@ -1189,69 +1187,16 @@
 						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 					};
-					303784952064F4F8006A910B = {
-						CreatedOnToolsVersion = 9.2;
-						DevelopmentTeam = A8V6656PYZ;
-						ProvisioningStyle = Automatic;
-					};
-					3049CB892100CA8500DCC1E4 = {
-						DevelopmentTeam = PN55M74J22;
-					};
-					306C5E7E220AF06600267918 = {
-						DevelopmentTeam = A8V6656PYZ;
-						ProvisioningStyle = Automatic;
-					};
-					30781351201F295D0081822C = {
-						DevelopmentTeam = J52ZK485XC;
-						ProvisioningStyle = Manual;
-					};
 					30D17D1E20765BD400A6D666 = {
 						CreatedOnToolsVersion = 9.2;
 						DevelopmentTeam = A8V6656PYZ;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 30300A4B20739FA800BC24BE;
 					};
-					30FB4BBF1F4C4E310004D23F = {
-						DevelopmentTeam = JM4VAH5VQN;
-					};
-					A2191F302201A7390055B4D1 = {
-						DevelopmentTeam = A8V6656PYZ;
-						ProvisioningStyle = Automatic;
-					};
-					A24D39C11FB1A807005F4F7D = {
-						DevelopmentTeam = A8V6656PYZ;
-						ProvisioningStyle = Automatic;
-					};
 					A25BDFCA1EF3B0FD002681B9 = {
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 302B0BB7206539F5009C7BF9;
-					};
-					A25F6B2220C16F280075C841 = {
-						DevelopmentTeam = A8V6656PYZ;
-						ProvisioningStyle = Automatic;
-					};
-					A2900C331F8CBB8A0008C556 = {
-						CreatedOnToolsVersion = 9.0;
-						DevelopmentTeam = A8V6656PYZ;
-						ProvisioningStyle = Automatic;
-						TestTargetID = A25BDFAB1EF3B0FD002681B9;
-					};
-					A29684661F8E1A78008B1942 = {
-						DevelopmentTeam = A8V6656PYZ;
-						ProvisioningStyle = Automatic;
-					};
-					A29849381F14A94F000C6D22 = {
-						DevelopmentTeam = Y9ED767H7S;
-						ProvisioningStyle = Automatic;
-					};
-					A2BAE57A1F39D60000A1ECC2 = {
-						DevelopmentTeam = AYB8JQ786C;
-						ProvisioningStyle = Automatic;
-					};
-					A2EFC1371EF801BF00902AE4 = {
-						DevelopmentTeam = A8V6656PYZ;
-						ProvisioningStyle = Automatic;
 					};
 				};
 			};
