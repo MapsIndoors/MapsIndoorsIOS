@@ -11,9 +11,9 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import <MapsIndoors/MapsIndoors.h>
 #import "HorizontalRoutingController.h"
-#import "MaterialControls.h"
+#import <MaterialControls/MaterialControls.h>
 #import "UIColor+AppColor.h"
-#import "VCMaterialDesignIcons.h"
+#import <VCMaterialDesignIcons/VCMaterialDesignIcons.h>
 #import "FloatingActionMenuController.h"
 #import "SectionModel.h"
 #import "BeaconPositionProvider.h"
@@ -30,6 +30,7 @@
 #import "MPToastView.h"
 #import "NSObject+MPNetworkReachability.h"
 #import "MPMapInfoView.h"
+#import "MPAccessibilityHelper.h"
 
 
 #define kRouteFromHere @"Route from here"
@@ -73,8 +74,6 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 
 @property (nonatomic) BOOL                                          mapDidInitialize;
 
-@property (nonatomic, strong) MPMapControl*                         mapControl;
-
 @property (nonatomic, weak) UIImageView*                            customCompass;
 @property (nonatomic) CLLocationDegrees                             customCompassBearing;
 
@@ -86,7 +85,6 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 
 @implementation MapViewController {
     
-    GMSMapView *_mapView;
     UIView* _statusBarView;
     RoutingData *_routingData;
     UIView* _directionsContainer;
@@ -105,7 +103,6 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     NSNumber* _currentTrackedFloor;
     UIButton* _zoomHintBtn;
     UIButton* _zoomToVenueBtn;
-
 }
 
 - (void)viewDidLoad {
@@ -162,14 +159,9 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     self.mapControl = [[MPMapControl alloc] initWithMap:_mapView];
     self.mapControl.currentFloor = [NSNumber numberWithInt:Global.initialPosition.zIndex];
     self.mapControl.delegate = self;
+    self.mapControl.userLocationAccessibilityLabel = kLangUserLocationMarkerAccLabel;
+    self.mapControl.userLocationAccuracyAccessibilityLabel = kLangUserLocationAccuracyAccLabel;
 
-    #if defined(MI_SDK_VERSION_MAJOR) && (MI_SDK_VERSION_MAJOR >= 2)
-        MPLocationDisplayRule* bRule = [[MPLocationDisplayRule alloc] initWithName:@"building" AndIcon:[UIImage new] AndZoomLevelOn:16];
-        bRule.showOutline = YES;
-        bRule.highlightOutlineColor = [UIColor appTertiaryHighlightColor];
-        [self.mapControl addDisplayRule:bRule];
-    #endif
-    
     if (_floatingActionMenuContainer == nil) {
         
         [self setupFAB];
@@ -264,7 +256,16 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     
     [_directionsRenderer.nextRouteLegButton addTarget:self action:@selector(showNextRouteLeg) forControlEvents:UIControlEventTouchUpInside];
     [_directionsRenderer.previousRouteLegButton addTarget:self action:@selector(showPreviousRouteLeg) forControlEvents:UIControlEventTouchUpInside];
-    _directionsRenderer.edgeInsets = UIEdgeInsetsMake(40, 20, 40, 60);
+    _directionsRenderer.edgeInsets = UIEdgeInsetsMake(40, 30, 40, 30);
+}
+
+- (float)getBottomOffset {
+    float bottomOffset = 0;
+    UIWindow* window = UIApplication.sharedApplication.keyWindow;
+    if (@available(iOS 11.0, *)) {
+        bottomOffset = window.safeAreaInsets.bottom;
+    }
+    return bottomOffset;
 }
 
 - (void)setupFAB {
@@ -275,7 +276,9 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     [self addChildViewController:_floatingActionMenuController];
     [self.view addSubview:_floatingActionMenuContainer];
     
-    [_floatingActionMenuContainer autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:_mapView withOffset:-32];
+    float bottomOffset = [self getBottomOffset];
+    
+    [_floatingActionMenuContainer autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:_mapView withOffset:-32 - bottomOffset];
     [_floatingActionMenuContainer autoPinEdge:ALEdgeRight  toEdge:ALEdgeRight  ofView:_mapView withOffset:-8];
 }
 
@@ -303,6 +306,8 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     }
     
     [self.stackView addArrangedSubview:_mapView];
+    
+    _mapView.accessibilityElementsHidden = NO;
     
     _mapView.padding = UIEdgeInsetsMake(80, 0, 0, 0);
     _mapView.buildingsEnabled = NO;
@@ -351,7 +356,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     if (venueId.length) {
         [_venueProvider getVenueWithId:venueId completionHandler:^(MPVenue *venue, NSError *error) {
             
-            if ( venue && ([venue.name.lowercaseString isEqualToString:self.mapControl.venue.lowercaseString] == NO) ) {
+            if ( venue && ([venue.venueKey.lowercaseString isEqualToString:self.mapControl.venue.lowercaseString] == NO) ) {
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"VenueChanged" object:venue];
             }
         }];
@@ -419,8 +424,19 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         
         _trackingState = [self.myLocationBtn toggleState];
         
-        if (_trackingState == MPMyLocationStateTrackingLocationAndHeading || _trackingState == MPMyLocationStateTrackingLocation) {
-            _directionsRenderer.fitBounds = NO;
+        switch ( _trackingState ) {
+            case MPMyLocationStateTrackingLocationAndHeading:
+            case MPMyLocationStateTrackingLocation:
+                _directionsRenderer.fitBounds = NO;
+                break;
+
+            case MPMyLocationStateEnabled:
+            case MPMyLocationStateDisabled:
+                _directionsRenderer.fitBounds = YES;
+                break;
+                
+            default:
+                break;
         }
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopTrackingUserLocation) name:MPWindowActiveNotification object:nil];
@@ -489,13 +505,23 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     MPLocationQuery* qObj = [[MPLocationQuery alloc] init];
     qObj.categories = @[notification.object];
     qObj.venue = Global.venue.venueKey;
-    [MapsIndoors.locationsProvider getLocationsUsingQuery:qObj];
+    [MapsIndoors.locationsProvider getLocationsUsingQuery:qObj completionHandler:^(MPLocationDataset * _Nullable locationData, NSError * _Nullable error) {
+        if ( !error ) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationsDataReady" object: locationData.list];
+        }
+    }];
+}
+
+- (void)refreshMyLocationGraphic {
+    NSString* myLocationImageName = MapsIndoors.positionProvider.latestPositionResult.headingAvailable ? @"MyLocationDirection" : @"MyLocation";
+    MPLocationDisplayRule* rule = [[MPLocationDisplayRule alloc] initWithName:@"my-location" AndIcon: [UIImage imageNamed:myLocationImageName] AndZoomLevelOn:0 AndShowLabel:NO];
+    rule.iconSize = CGSizeMake(32, 32);
+    [self.mapControl addDisplayRule: rule];
 }
 
 - (void)solutionDataReady:(MPSolution *)solution {
-    MPLocationDisplayRule* rule = [[MPLocationDisplayRule alloc] initWithName:@"my-location" AndIcon: [UIImage imageNamed:@"MyLocationDirection"] AndZoomLevelOn:0 AndShowLabel:NO];
-    rule.iconSize = CGSizeMake(32, 32);
-    [self.mapControl addDisplayRule: rule];
+    
+    [self refreshMyLocationGraphic];
     
     [self.mapControl showUserPosition:YES];
     
@@ -505,6 +531,13 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 }
 
 - (void) mapContentReady {
+
+    MPSolutionProvider* solutionProvider = [MPSolutionProvider new];
+    [solutionProvider getSolutionWithCompletion:^(MPSolution * _Nullable solution, NSError * _Nullable error) {
+        if ( solution ) {
+            [self solutionDataReady:solution];
+        }
+    }];
 
     self.mapDidInitialize = YES;
 }
@@ -564,6 +597,10 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     button.titleLabel.font = [UIFont systemFontOfSize:12];
     button.layer.backgroundColor = [UIColor appLightPrimaryColor].CGColor;
     button.layer.cornerRadius = 8;
+
+    if ( [UIDevice currentDevice].systemVersion.floatValue < 11 ) {
+        [button sizeToFit];     // Without this bar button items do not appear on iOS 10 (and it is not necessary on iOS11+)
+    }
     
     [button addTarget:self action:@selector(clearMap) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem*    clearMapButton = [[UIBarButtonItem alloc] initWithCustomView:button];
@@ -572,6 +609,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     UIBarButtonItem* spacer = [UIBarButtonItem new];
     spacer.style = UIBarButtonSystemItemFixedSpace;
     spacer.width = 1;
+    spacer.isAccessibilityElement = NO;     // Dont alert voiceover user to item as it only exists to make a *visual* spacing
     
     self.navigationItem.rightBarButtonItems = @[ clearMapButton, spacer ];
 }
@@ -607,9 +645,9 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 - (void)showLocationOnMap:(NSNotification *)notification {
     [self closeRouting:nil];
     _destination = notification.object;
-    self.mapControl.selectedLocation = notification.object;
-    self.mapControl.currentFloor = _destination.floor;
     self.mapControl.searchResult = nil;
+    self.mapControl.currentFloor = _destination.floor;
+    self.mapControl.selectedLocation = notification.object;
     self.title = self.mapControl.selectedLocation.name;
     [self setupClearMapButton];
     if (!_keepMapCameraOnce) {
@@ -622,15 +660,10 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 }
 
 - (void)floorDidChange:(NSNumber *)floor {
-//    if ([Global.positionProvider class] == [MFPPositionProvider class]) {
-//        ((MFPPositionProvider*)Global.positionProvider).floor = floor;
-//        self.mapControl.currentFloor = floor;
-//    }
     if ([MapsIndoors.positionProvider class] == [BeaconPositionProvider class]) {
         ((BeaconPositionProvider*)MapsIndoors.positionProvider).floor = floor;
-        self.mapControl.currentFloor = floor;
     }
-    
+    self.mapControl.currentFloor = floor;
     [Tracker trackEvent:@"Map_Floor_Selector_Clicked" parameters:@{ @"floorIndex" : floor }];
 }
 
@@ -645,14 +678,19 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         
         NSInteger legIndex = [[notification.userInfo objectForKey:kLegIndex] integerValue];
         NSInteger stepIndex = [[notification.userInfo objectForKey:kStepIndex] integerValue];
+        NSString* accessibilityLabel = notification.userInfo[kRouteSectionAccessibilityLabel];
         
         if (notification.object) {
-
+            
             self.mapControl.searchResult = nil;
             [self.floorSelector removeFromSuperview];
             self.title = kLangGetDirections;
+            if ( notification.userInfo[kRouteSectionImages] ) {
+                _directionsRenderer.actionPointImages = notification.userInfo[kRouteSectionImages];
+            }
             _directionsRenderer.routeLegIndex = legIndex;
             _directionsRenderer.routeStepIndex = stepIndex;
+            _directionsRenderer.accessibilityLabel = accessibilityLabel;
             [_directionsRenderer animate:4];
 
             [self setupClearMapButton];
@@ -663,8 +701,8 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
             }
             
             if ( _directionsRenderer.routeLegIndex != -1 ) {
-                MPRouteLeg* leg = [_directionsRenderer.route.legs objectAtIndex:_directionsRenderer.routeLegIndex];
-                self.mapControl.currentFloor = ((MPRouteStep*)leg.steps.firstObject).end_location.zLevel;
+//                MPRouteLeg* leg = [_directionsRenderer.route.legs objectAtIndex:_directionsRenderer.routeLegIndex];
+                //self.mapControl.currentFloor = ((MPRouteStep*)leg.steps.firstObject).end_location.zLevel;
             }
             
             [UIView animateWithDuration:.3 animations:^{
@@ -746,17 +784,35 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 }
 
 
-#pragma mark - GMSMapViewDelegate
+#pragma mark - GMSMapViewDelegate, MPMapControlDelegate
 
 - (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker {
 
     UIView*     infoView;
-    MPLocation* model = [_mapControl getLocation:marker] ?: marker.userData;
-    if ( model ) {
+    id          thing = [_mapControl getLocation:marker] ?: marker.userData;
+
+    if ( [thing isKindOfClass:[MPLocation class]] ) {
+        MPLocation* model = thing;
         infoView = [MPMapInfoView createMapInfoWindowForLocation:model];
         [infoView autoSetDimension:ALDimensionWidth toSize:mapView.bounds.size.width * 0.66 relation:NSLayoutRelationLessThanOrEqual];
     }
     
+    return infoView;
+}
+
+- (UIView*) infoWindowForLocationCluster:(NSArray<MPLocation *> *)locations {
+
+    NSString*   firstName = locations.firstObject.name;
+    if ( firstName.length >= 15 ) {
+        firstName = [NSString stringWithFormat:@"%@...", [firstName substringToIndex:15]];
+    }
+    NSString*           info = [NSString stringWithFormat:@"%@ +%@", firstName, @(locations.count -1)];
+    MPLocation*         fakeLocation = [[MPLocation alloc] initWithPoint:nil andName:info];
+
+    UIView*     infoView;
+    infoView = [MPMapInfoView createMapInfoWindowForLocation:fakeLocation];
+    [infoView autoSetDimension:ALDimensionWidth toSize:self.mapView.bounds.size.width * 0.66 relation:NSLayoutRelationLessThanOrEqual];
+
     return infoView;
 }
 
@@ -778,9 +834,25 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     if (loc) {
         self.mapControl.selectedLocation = loc;
         [Tracker trackEvent:kMPEventNameTappedLocationOnMap parameters:@{ @"Location": loc.name, @"Zoom_Level" : @(_mapView.camera.zoom)}];
+        
+        // If voiceover mode, go directly to full info (as it seems impossible to make the infowindow accessible):
+        if ( UIAccessibilityIsVoiceOverRunning() ) {
+            [self mapView:mapView didTapInfoWindowOfMarker:marker];
+        }
     }
     //Avoid default behavior
-    return YES;
+    return loc != nil; //YES;
+}
+
+- (BOOL) didTapAtCoordinate:(CLLocationCoordinate2D)coordinate withLocations:(NSArray<MPLocation *> *)locations {
+    
+    MPLocation* selectedLocation = locations.firstObject;
+    
+    if ( selectedLocation ) {
+        [Tracker trackEvent:kMPEventNameTappedLocationOnMap parameters:@{ @"Location": selectedLocation.name, @"Zoom_Level" : @(_mapView.camera.zoom)}];
+    }
+    
+    return YES;     // YES: Enable default selection and highlight provided by MPMapControl.
 }
 
 - (void)mapView:(GMSMapView *)mapView idleAtCameraPosition:(GMSCameraPosition *)position {
@@ -979,6 +1051,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
                                                                             target:self.splitViewController.displayModeButtonItem.target
                                                                             action:self.splitViewController.displayModeButtonItem.action
                                              ];
+    self.navigationItem.leftBarButtonItem.accessibilityLabel = menuIsOpen ? kLangHideSidebarAccLabel : kLangShowSidebarAccLabel;;
 }
 
 #pragma mark - Custom floor selector support
@@ -1003,6 +1076,8 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
             floorSel.topIcon = [UIImage imageNamed:@"floorSelectorGray"];
             floorSel.translatesAutoresizingMaskIntoConstraints = NO;
             floorSel.disableAutomaticLayoutManagement = YES;
+            
+            [self monitorFloorSelectorChangesForAccessibility:floorSel];
         }
         
         if ( floorSel.superview == nil ) {
@@ -1017,6 +1092,23 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         
         self.mapControl.customFloorSelector = floorSel;
     }
+}
+
+- (void) monitorFloorSelectorChangesForAccessibility:(MPFloorSelectorControl*)floorSelector {
+    
+    [self.KVOController observe:floorSelector keyPath:@"nFloors" options:NSKeyValueObservingOptionNew block:^(MapViewController* _Nullable observer, MPFloorSelectorControl* _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
+        
+        // When nFloors change, the floor-buttons have not yet been added to the buttons array.
+        // So post an update for the *next* run of the main queue/thread.
+        // This is kind of fragile, and we should make an explicit way for the app code to know when the floor buttons have been properly configured.
+        // (Possibly by adding a new, optional, method to the MPFloorSelectorDelegate protocol)
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            for ( UIButton* b in observer.floorSelector.buttons ) {
+                b.accessibilityLabel = [NSString stringWithFormat:kLangSelectFloorNAccLabel, b.titleLabel.text];
+            }
+        });
+    }];
 }
 
 
@@ -1066,33 +1158,37 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 
     if ( self.myLocationBtn.superview == nil ) {
         
-        [_mapView addSubview: self.myLocationBtn];
+        [self.view addSubview: self.myLocationBtn];
         
-        [self.myLocationBtn autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:_mapView withOffset:-32];
-        [self.myLocationBtn autoPinEdge:ALEdgeLeft   toEdge:ALEdgeLeft   ofView:_mapView withOffset:  8];
+        UIView* referenceView = _mapView;
+        
+        
+        float bottomOffset = [self getBottomOffset];
+        [self.myLocationBtn autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:referenceView withOffset:-32 - bottomOffset];
+        [self.myLocationBtn autoPinEdge:ALEdgeLeft   toEdge:ALEdgeLeft   ofView:referenceView withOffset:  8];
         [self.myLocationBtn autoSetDimensionsToSize:CGSizeMake(40, 40)];
     }
 }
 
 - (void)onPositionUpdate:(MPPositionResult *)positionResult {
-
     [self onPositionUpdateImpl:positionResult];
+    [self refreshMyLocationGraphic];
 }
 
 - (void)onPositionUpdateImpl:(MPPositionResult *)positionResult {
 
     if (_trackingState == MPMyLocationStateTrackingLocation || _trackingState == MPMyLocationStateTrackingLocationAndHeading) {
         
-        if (self.mapControl.currentPosition.marker.position.latitude != 0.0f) {
-            
+        CLLocationCoordinate2D coord = [positionResult.geometry getCoordinate];
+
+        if ( CLLocationCoordinate2DIsValid(coord) && (coord.latitude != 0.0f) ) {
+
             NSNumber* newTrackedFloor = [positionResult getFloor];
             if (newTrackedFloor == nil || _currentTrackedFloor == nil || ![newTrackedFloor isEqualToNumber:_currentTrackedFloor]) {
                 self.mapControl.currentFloor = newTrackedFloor;
                 _currentTrackedFloor = newTrackedFloor;
                 [self.mapControl showUserPosition:YES];
             }
-            
-            CLLocationCoordinate2D coord = [positionResult.geometry getCoordinate];
             
             if (_trackingState == MPMyLocationStateTrackingLocation) {
                 [_mapView animateToCameraPosition:[GMSCameraPosition cameraWithTarget:coord zoom:21 bearing: 0 viewingAngle:0]];
@@ -1333,5 +1429,26 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         self.customCompass.alpha = 0;
     }];
 }
+
+
+//- (CGSize) getImageSizeForLocationClusterWithCount:(NSUInteger)count clusterId:(NSString* _Nonnull)clusterId {
+//
+//    return CGSizeMake(44, 44);
+//}
+//
+//- (BOOL) getImageForLocationCluster:(NSArray<MPLocation *> *)locationCluster imageSize:(CGSize)imageSize clusterId:(NSString *)clusterId completion:(void (^ _Nonnull)(UIImage * _Nullable))completion {
+//
+//    NSString*   imageName = (locationCluster.count > 9) ? @"group9plus" : [NSString stringWithFormat:@"group%@", @(locationCluster.count)];
+//
+//#if 0   // Async image delivery
+//    dispatch_async( dispatch_get_main_queue(), ^{
+//        completion( [UIImage imageNamed:imageName] );
+//    });
+//#else   // Sync image delivery: Call completion before returning from this method
+//    completion( [UIImage imageNamed:imageName] );
+//#endif
+//
+//    return YES;
+//}
 
 @end

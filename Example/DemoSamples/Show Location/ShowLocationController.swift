@@ -31,14 +31,14 @@ class ShowLocationController: UIViewController {
         let locations = MPLocationsProvider.init()
         let queryObj = MPLocationQuery.init()
         
-        queryObj.query = "info"
+        queryObj.query = "Paris"
         queryObj.max = 1
         
         locations.getLocationsUsing(queryObj) { (locationData, error) in
             if error == nil {
                 let firstLocation = locationData?.list?.first
                 self.mapControl?.selectedLocation = firstLocation
-                self.mapControl?.currentFloor = firstLocation?.floor         // You are not guaranteed that the visible floor contains any search results, so that is why we change floor
+                self.mapControl?.currentFloor = firstLocation?.floor
             }
         }
     }

@@ -99,16 +99,23 @@
 }
 
 + (NSString *) getDistanceString:(double)distanceValue {
-    
-    int meters = distanceValue;
-    if ( meters % 100 ) {
-        meters += 100 - (meters % 100);
+
+    NSString*   s;
+
+    if ( distanceValue < 1000 ) {
+        NSLengthFormatter*  formatter = [NSLengthFormatter new];
+        formatter.numberFormatter.maximumFractionDigits = 0;
+
+        s = [formatter stringFromMeters:distanceValue];
+
+    } else {
+        MKDistanceFormatter*    formatter = [MKDistanceFormatter new];
+        formatter.unitStyle = MKDistanceFormatterUnitStyleAbbreviated;
+
+        s = [formatter stringFromDistance:distanceValue];
     }
 
-    MKDistanceFormatter*    formatter = [MKDistanceFormatter new];
-    formatter.unitStyle = MKDistanceFormatterUnitStyleAbbreviated;
-    
-    return [formatter stringFromDistance:meters];
+    return s;
 }
 
 + (BOOL) isUnlikelyDuration:(NSTimeInterval)duration {

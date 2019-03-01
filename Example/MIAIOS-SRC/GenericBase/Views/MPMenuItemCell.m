@@ -7,6 +7,9 @@
 //
 
 #import "MPMenuItemCell.h"
+#import "NSObject+ContentSizeChange.h"
+#import "AppFonts.h"
+
 
 @interface MPMenuItemCell ()
 
@@ -19,6 +22,17 @@
 
 @synthesize imageView = _imageView;
 @synthesize textLabel = _textLabel;
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+
+    self.textLabel.font = AppFonts.sharedInstance.listItemFont;
+
+    __weak typeof(self)weakSelf = self;
+    [self mp_onContentSizeChange:^(DynamicTextSize dynamicTextSize) {
+        weakSelf.textLabel.font = AppFonts.sharedInstance.listItemFont;
+    }];
+}
 
 - (void) prepareForReuse {
 

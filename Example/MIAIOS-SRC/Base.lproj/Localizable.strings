@@ -59,6 +59,7 @@
 "No matches for \"%@\"" = "No matches for \"%@\"";
 "No locations to show" = "No locations to show";
 "Use the search to search across\n%@" = "Use the search to search across\n%@";
+"Use the searchfield at the top to search across\n%@" = "Use the searchfield at the top to search across\n%@";
 "Search for locations indoors and outdoors" = "Search for locations indoors and outdoors";
 "No route found" = "No route found"; 
 
@@ -75,6 +76,8 @@
 "Please turn on your phone's location services from privacy settings for us to determine your location." = "Please turn on your phone's location services from privacy settings for us to determine your location.";
 "Please turn on location services for %@ to determine your location." = "Please turn on location services for %@ to determine your location.";
 "Turn On" = "Turn On";
+"Turn on location services to get your estimated position" = "Turn on location services to get your estimated position";
+"Turn on location services" = "Turn on location services";
 
 //
 "  Clear Map  " = "  Clear Map  ";
@@ -93,7 +96,7 @@
 "OFFLINE - Failed to get app content" = "OFFLINE - Failed to get app content";
 "No Internet" = "No Internet";
 "kLangNoInternetMessage" = "Your device appears to be offline.\nPlease disable flight mode or enable WiFi\n\nMoving to an alternate location can also improve the network connectivity";
-"No Internet - not showing Google results" = "No Internet - not showing Google results";
+"No Internet - No Google results" = "No Internet - not showing Google results";
 
 // Directions panel
 "▼ Directions" = "▼ Directions";
@@ -126,3 +129,42 @@
 
 // Directions
 "%d stops (%@)" = "%d stops (%@)";
+"Duration estimate not available" = "Duration estimate not available";
+"Please choose starting point" = "Please choose starting point";
+"Please choose destination"    = "Please choose destination";
+
+// Accessibility strings
+"Exit venue selector" = "Exit venue selector";
+"Current Venue" = "Current Venue";
+"Show Category" = "Show Category";
+"%@ Results available" = "%@ Results available";
+"Back" = "Back";
+"Select route origin" =      "Select route origin";
+"Select route destination" = "Select route destination";
+"Swap route start and destination" = "Swap route start and destination";
+"Avoid Stairs On, double tap to change."  = "Avoid Stairs On, double tap to change.";
+"Avoid Stairs Off, double tap to change." = "Avoid Stairs Off, double tap to change.";
+"Route available : %@" = "Route available : %@";
+"Finding Route" = "Finding Route";
+"Show Side Bar Menu" = "Show Side Bar Menu";
+"Hide Side Bar Menu" = "Hide Side Bar Menu";
+"Select Floor %@" = "Select Floor %@";
+"Find nearest shortcut menu" = "Find nearest shortcut menu";
+"Show Category: %@" = "Show Category: %@";
+"Tracking disabled"        = "Tracking disabled"       ;
+"Tracking Off"             = "Tracking Off"            ;
+"Tracking On"              = "Tracking On"             ;
+"Tracking On With Heading" = "Tracking On With Heading";
+"Change tracking options"  = "Change tracking options";
+"Show App Information" = "Show App Information";
+"Drive %@ stops with public transport, %@ %@"   = "Drive %@ stops with public transport, %@ %@";
+"Walk"                                          = "Walk"                                       ;
+"Bike"                                          = "Bike"                                       ;
+"Drive"                                         = "Drive"                                      ;
+"Start Route from %@, "                         = "Start Route from %@, "                      ;
+"Continue Route from %@, "                      = "Continue Route from %@, "                   ;
+"towards %@, "                                  = "towards %@, "                               ;
+"towards destination %@, "                      = "towards destination %@, "                   ;
+"Route instructions %@ to %@ of %@"             = "Route instructions %@ to %@ of %@";
+"My Location"                                   = "My Location";
+"My location, accuracy %@m"                     = "My location, accuracy %@m";

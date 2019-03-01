@@ -60,4 +60,16 @@
 - (UIColor*) statusBarColor         { return [UIColor colorFromRGBA: self.dict[ @"StatusBarColor"         ] ]; }
 - (UIColor*) tertiaryHighlightColor { return [UIColor colorFromRGBA: self.dict[ @"TertiaryHighlightColor" ] ]; }
 
+- (BOOL) shouldPreloadRouteOriginWithCurrentLocation {
+
+    BOOL    shouldPreloadRouteOrigin = YES;
+    id      shouldPreloadRouteOriginSetting = self.dict[ @"shouldPreloadRouteOriginWithCurrentLocation" ];
+
+    if ( shouldPreloadRouteOriginSetting ) {
+        shouldPreloadRouteOrigin = [shouldPreloadRouteOriginSetting boolValue];
+    }
+
+    return shouldPreloadRouteOrigin;
+}
+
 @end

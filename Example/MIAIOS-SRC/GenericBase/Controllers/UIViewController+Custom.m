@@ -11,6 +11,7 @@
 #import "Global.h"
 @import VCMaterialDesignIcons;
 #import "MasterViewController.h"
+#import "LocalizedStrings.h"
 
 
 @implementation UIViewController (Custom)
@@ -62,7 +63,7 @@
     
     UIImage* backImg = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_arrow_left fontSize:28.0f].image;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:backImg style:UIBarButtonItemStylePlain target:self action:@selector(pop)];
-    
+    self.navigationItem.leftBarButtonItem.accessibilityHint = kLangBackAccHint;
 }
 
 - (void) pop {
@@ -75,8 +76,6 @@
                                                to:btn.target
                                              from:nil
                                          forEvent:nil];
-    
 }
-
 
 @end

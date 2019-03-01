@@ -9,6 +9,7 @@
 #import "MPDirectionsStepView.h"
 #import "MPDirectionsStepViewModel.h"
 @import PureLayout;
+#import "AppFonts.h"
 
 
 @interface MPDirectionsStepView ()
@@ -57,7 +58,7 @@
     lbl.textAlignment = NSTextAlignmentLeft;
     lbl.numberOfLines = 3;
     lbl.lineBreakMode = NSLineBreakByTruncatingMiddle;
-    lbl.font = [UIFont systemFontOfSize:13];
+    lbl.font = [AppFonts sharedInstance].directionsFontSmall;
     lbl.textColor = [UIColor darkGrayColor];
     
     [self addSubview:img];
@@ -91,8 +92,9 @@
         imageName = @"RouteStepStairs";
     }
     self.manueverImageView.image = [UIImage imageNamed:imageName];
-    
-    self.textLabel.attributedText = [self attributedStringForStep:desc fontSize:13 distanceText:detail distanceFontSize:13];
+
+    CGFloat     fontSize = [[AppFonts sharedInstance] scaledFontSizeForFontSize:12];
+    self.textLabel.attributedText = [self attributedStringForStep:desc fontSize:fontSize distanceText:detail distanceFontSize:fontSize];
 }
 
 #pragma mark - String helpers

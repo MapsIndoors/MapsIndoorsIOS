@@ -8,10 +8,6 @@
 
 #import "CALayerWithClipRender.h"
 
-#if TARGET_OS_IPHONE
-#import <UIKit/UIKit.h>
-#endif
-
 @implementation CALayerWithClipRender
 
 - (void)renderInContext:(CGContextRef)ctx {
@@ -43,7 +39,9 @@
     } else {
         // otherwise, create an offscreen bitmap at screen resolution,
         CGFloat scale = MAX(layer.contentsScale, layer.mask.contentsScale);
-#if TARGET_OS_IPHONE
+#if SVGKIT_MAC
+        scale = MAX(scale, [[NSScreen mainScreen] backingScaleFactor]);
+#else
         scale = MAX(scale, [[UIScreen mainScreen] scale]);
 #endif
         CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray();

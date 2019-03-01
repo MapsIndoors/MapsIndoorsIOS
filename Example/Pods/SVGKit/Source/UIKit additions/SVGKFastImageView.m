@@ -1,14 +1,8 @@
 #import "SVGKFastImageView.h"
 
-#define TEMPORARY_WARNING_FOR_APPLES_BROKEN_RENDERINCONTEXT_METHOD 1 // ONLY needed as temporary workaround for Apple's renderInContext bug breaking various bits of rendering: Gradients, Scaling, etc
-
-#if TEMPORARY_WARNING_FOR_APPLES_BROKEN_RENDERINCONTEXT_METHOD
-#import "SVGGradientElement.h" 
-#endif
-
 @interface SVGKFastImageView ()
 @property(nonatomic,readwrite) NSTimeInterval timeIntervalForLastReRenderOfSVGFromMemory;
-@property (nonatomic, strong) NSDate* startRenderTime, * endRenderTime; /*< for debugging, lets you know how long it took to add/generate the CALayer (may have been cached! Only SVGKImage knows true times) */
+@property (nonatomic, strong) NSDate* startRenderTime, * endRenderTime; /**< for debugging, lets you know how long it took to add/generate the CALayer (may have been cached! Only SVGKImage knows true times) */
 @property (nonatomic) BOOL didRegisterObservers, didRegisterInternalRedrawObservers;
 
 @end
@@ -22,35 +16,6 @@
 @synthesize tileRatio = _tileRatio;
 @synthesize disableAutoRedrawAtHighestResolution = _disableAutoRedrawAtHighestResolution;
 @synthesize timeIntervalForLastReRenderOfSVGFromMemory = _timeIntervalForLastReRenderOfSVGFromMemory;
-
-#if TEMPORARY_WARNING_FOR_APPLES_BROKEN_RENDERINCONTEXT_METHOD
-+(BOOL) svgImageHasNoGradients:(SVGKImage*) image
-{
-	return [self svgElementAndDescendentsHaveNoGradients:image.DOMTree];
-}
-
-+(BOOL) svgElementAndDescendentsHaveNoGradients:(SVGElement*) element
-{
-	if( [element isKindOfClass:[SVGGradientElement class]])
-		return FALSE;
-	else
-	{
-		for( Node* n in element.childNodes )
-		{
-			if( [n isKindOfClass:[SVGElement class]])
-			{
-				if( [self svgElementAndDescendentsHaveNoGradients:(SVGElement*)n])
-					;
-				else
-					return FALSE;
-			}
-				
-		}
-	}
-	
-	return TRUE;
-}
-#endif
 
 - (id)init
 {
@@ -74,7 +39,7 @@
 	self = [super initWithFrame:frame];
 	if( self )
 	{
-		self.backgroundColor = [UIColor clearColor];
+        [self populateFromImage:nil];
 	}
 	return self;
 }
@@ -91,6 +56,10 @@
 
 - (void)populateFromImage:(SVGKImage*) im
 {
+#if SVGKIT_MAC && USE_SUBLAYERS_INSTEAD_OF_BLIT
+    // setup layer-backed view
+    self.wantsLayer = YES;
+#endif
 	if( im == nil )
 	{
 		SVGKitLogWarn(@"[%@] WARNING: you have initialized an SVGKImageView with a blank image (nil). Possibly because you're using Storyboards or NIBs which Apple won't allow us to decorate. Make sure you assign an SVGKImage to the .image property!", [self class]);
@@ -99,19 +68,14 @@
     self.image = im;
     self.frame = CGRectMake( 0,0, im.size.width, im.size.height ); // NB: this uses the default SVG Viewport; an ImageView can theoretically calc a new viewport (but its hard to get right!)
     self.tileRatio = CGSizeZero;
+#if SVGKIT_UIKIT
     self.backgroundColor = [UIColor clearColor];
+#else
+    self.layer.backgroundColor = [NSColor clearColor].CGColor;
+#endif
 }
 
 - (void)setImage:(SVGKImage *)image {
-	
-#if TEMPORARY_WARNING_FOR_APPLES_BROKEN_RENDERINCONTEXT_METHOD
-	BOOL imageIsGradientFree = [SVGKFastImageView svgImageHasNoGradients:image];
-	if( !imageIsGradientFree )
-		NSLog(@"[%@] WARNING: Apple's rendering DOES NOT ALLOW US to render this image correctly using SVGKFastImageView, because Apple's renderInContext method - according to Apple's docs - ignores Apple's own masking layers. Until Apple fixes this bug, you should use SVGKLayeredImageView for this particular SVG file (or avoid using gradients)", [self class]);
-	
-	if( image.scale != 0.0f )
-		NSLog(@"[%@] WARNING: Apple's rendering DOES NOT ALLOW US to render this image correctly using SVGKFastImageView, because Apple's renderInContext method - according to Apple's docs - ignores Apple's own transforms. Until Apple fixes this bug, you should use SVGKLayeredImageView for this particular SVG file (or avoid using scale: you SHOULD INSTEAD be scaling by setting .size on the image, and ensuring that the incoming SVG has either a viewbox or an explicit svg width or svg height)", [self class]);
-#endif
     
     if( !internalContextPointerBecauseApplesDemandsIt ) {
         internalContextPointerBecauseApplesDemandsIt = @"Apple wrote the addObserver / KVO notification API wrong in the first place and now requires developers to pass around pointers to fake objects to make up for the API deficicineces. You have to have one of these pointers per object, and they have to be internal and private. They serve no real value.";
@@ -199,7 +163,11 @@
 		/*SVGKitLogVerbose(@"transform changed. Setting layer scale: %2.2f --> %2.2f", self.layer.contentsScale, self.transform.a);
 		 self.layer.contentsScale = self.transform.a;*/
 		[self.image.CALayerTree removeFromSuperlayer]; // force apple to redraw?
+#if SVGKIT_UIKIT
 		[self setNeedsDisplay];
+#else
+        [self setNeedsDisplay:YES];
+#endif
 	}
 	else
 	{
@@ -208,7 +176,11 @@
 			;
 		else
 		{
+#if SVGKIT_UIKIT
 			[self setNeedsDisplay];
+#else
+            [self setNeedsDisplay:YES];
+#endif
 		}
 	}
 }
@@ -277,7 +249,11 @@
 	
 	//DEBUG: SVGKitLogVerbose(@"cols, rows: %i, %i ... scaleConvert: %@ ... tilesize: %@", cols, rows, NSStringFromCGSize(scaleConvertImageToView), NSStringFromCGSize(tileSize) );
 	/** To support tiling, and to allow internal shrinking, we use renderInContext */
-	CGContextRef context = UIGraphicsGetCurrentContext();
+#if SVGKIT_UIKIT
+    CGContextRef context = UIGraphicsGetCurrentContext();
+#else
+    CGContextRef context = SVGKGraphicsGetCurrentContext();
+#endif
 	for( int k=0; k<rows; k++ )
 		for( int i=0; i<cols; i++ )
 		{
@@ -286,7 +262,7 @@
 			CGContextTranslateCTM(context, i * tileSize.width, k * tileSize.height );
 			CGContextScaleCTM( context, scaleConvertImageToView.width, scaleConvertImageToView.height );
 			
-			[self.image.CALayerTree renderInContext:context];
+            [self.image renderInContext:context];
 			
 			CGContextRestoreGState(context);
 		}
@@ -301,5 +277,19 @@
 	self.endRenderTime = [NSDate date];
 	self.timeIntervalForLastReRenderOfSVGFromMemory = [self.endRenderTime timeIntervalSinceDate:self.startRenderTime];
 }
+
+#if SVGKIT_MAC
+static CGContextRef SVGKGraphicsGetCurrentContext(void) {
+    NSGraphicsContext *context = NSGraphicsContext.currentContext;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunguarded-availability"
+    if ([context respondsToSelector:@selector(CGContext)]) {
+        return context.CGContext;
+    } else {
+        return context.graphicsPort;
+    }
+#pragma clang diagnostic pop
+}
+#endif
 
 @end

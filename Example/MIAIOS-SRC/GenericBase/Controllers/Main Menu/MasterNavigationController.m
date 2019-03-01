@@ -18,7 +18,7 @@
 #import "UIViewController+Custom.h"
 #import <MaterialControls/MaterialControls.h>
 #import "LocalizedStrings.h"
-
+#import "TCFKA_MDSnackbar.h"
 
 
 @interface MasterNavigationController () <UINavigationControllerDelegate>
@@ -97,7 +97,7 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationDetailsReady" object:location];
         } else if (error) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                MDSnackbar* bar = [[MDSnackbar alloc] initWithText:kLangCouldNotFindLocationDetails actionTitle:@"" duration:4.0];
+                TCFKA_MDSnackbar* bar = [[TCFKA_MDSnackbar alloc] initWithText:kLangCouldNotFindLocationDetails actionTitle:@"" duration:4.0];
                 [bar show];
             });
         }

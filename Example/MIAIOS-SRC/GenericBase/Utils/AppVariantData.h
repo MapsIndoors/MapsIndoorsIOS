@@ -12,6 +12,7 @@
 
 @property (nonatomic, readonly, strong) NSDictionary*   dict;       // Raw dict when direct access is needed (none of the readymade accessors below will do).
 
+// Base data:
 @property (nonatomic, readonly, strong) NSString*       googleAPIKey;
 @property (nonatomic, readonly, strong) NSString*       mapsIndoorsAPIKey;
 @property (nonatomic, readonly, strong) NSString*       appProviderName;
@@ -21,6 +22,7 @@
 @property (nonatomic, readonly, strong) NSString*       googleMapsStyle;
 @property (nonatomic, readonly, strong) NSString*       welcomeMessage;
 
+// Theming:
 @property (nonatomic, readonly, strong) UIColor*        primaryColor;
 @property (nonatomic, readonly, strong) UIColor*        darkPrimaryColor;
 @property (nonatomic, readonly, strong) UIColor*        lightPrimaryColor;
@@ -29,6 +31,10 @@
 @property (nonatomic, readonly, strong) UIColor*        statusBarColor;
 @property (nonatomic, readonly, strong) UIColor*        tertiaryHighlightColor;
 
+// Behaviours:
+@property (nonatomic, readonly) BOOL                    shouldPreloadRouteOriginWithCurrentLocation;
+
+// Methods:
 + (instancetype) sharedAppVariantData;
 
 @end

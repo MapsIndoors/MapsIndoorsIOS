@@ -62,6 +62,8 @@
 "No matches for \"%@\"" = "Ingen resultater for \"%@\"";
 "No locations to show" = "Ingen steder fundet";
 "Use the search to search across\n%@" = "Brug søgefeltet til at søge på\n%@";
+"Use the searchfield at the top to search across\n%@" = "Brug søgefeltet i toppen til at søge på\n%@";
+
 "Search for locations indoors and outdoors" = "Søg efter indendørs og udendørs lokationer";
 "No route found" = "Fandt ingen rute";
 
@@ -76,6 +78,8 @@
 "Please turn on your phone's location services from privacy settings for us to determine your location." = "Slå lokationstjenester til for at appen kan bestemme din position";
 "Please turn on location services for %@ to determine your location." = "Slå lokationstjenester til for at %@ kan bestemme din position.";
 "Turn On" = "Slå til";
+"Turn on location services to get your estimated position" = "Slå lokationstjenester til for at bruge din position";
+"Turn on location services" = "Slå lokationstjenester til";
 
 //
 "  Clear Map  " = "  Ryd kort  ";
@@ -89,12 +93,12 @@
 
 // Offline UI
 "No internet, unable to update map" = "Intet internet, kan ikke hente kortdata";
-"OFFLINE - TRY TO RECONNECT" = "OFFLINE - FORSØG AT FORBINDE";
-"OFFLINE - Previously loaded content available" = "OFFLINE - tidligere hentet data er tilgængeligt";
-"OFFLINE - Failed to get app content" = "OFFLINE - kunne ikke hente app indhold";
+"NO INTERNET - TRY TO RECONNECT" = "OFFLINE - FORSØG AT FORBINDE";
+"No Internet - Previously loaded content available" = "OFFLINE - tidligere hentet data er tilgængeligt";
+"No Internet - Failed to get app content" = "OFFLINE - kunne ikke hente app indhold";
 "No Internet" = "Ingen Internet forbindelse";
 "kLangNoInternetMessage" = "Din iPhone/iPad ser ud til at være offline.\nSlå fly-tilstand fra eller WiFi til\n\nFlyt evt til en anden placering for at få bedre internet-forbindelse.";
-"No Internet - not showing Google results" = "Ingen Internet forbindelse - viser ikke Google resultater";
+"No Internet - No Google results" = "Ingen Internet forbindelse - viser ikke Google resultater";
 
 // Directions panel
 "▼ Directions" = "▼ Instrukser";
@@ -128,3 +132,42 @@
 
 // Directions
 "%d stops (%@)" = "%d stop (%@)";
+"Duration estimate not available" = "Duration estimate not available";
+"Please choose starting point" = "Vælg rute start";
+"Please choose destination"    = "Vælg rute destination";
+
+// Accessibility strings
+"Exit venue selector" = "Afslut vælg sted";
+"Current Venue" = "Valgt sted";
+"Show Category" = "Vis kategori";
+"%@ Results available" = "%@ søgeresultater";
+"Back" = "Tilbage";
+"Select route origin" =      "Vælg rute start";
+"Select route destination" = "Vælg rute destination";
+"Swap route start and destination" = "Byt rute start og destination";
+"Avoid Stairs On, double tap to change."  = "Undgå trapper til, dobbelt-tap for at ændre";
+"Avoid Stairs Off, double tap to change." = "Undgå trapper fra, dobbelt-tap for at ændre";
+"Route available : %@" = "Rute klar : %@";
+"Finding Route" = "Finder rute";
+"Show Side Bar Menu" = "Vis side menu";
+"Hide Side Bar Menu" = "Skjul side menu";
+"Select Floor %@" = "Vælg etage %@";
+"Find nearest shortcut menu" = "Find nærmeste genvejs menu";
+"Show Category: %@" = "Vis kategori: %@";
+"Tracking disabled"        = "Sporing deaktiveret";
+"Tracking Off"             = "Sporing fra"            ;
+"Tracking On"              = "Sporing til"             ;
+"Tracking On With Heading" = "Sporing til med retning";
+"Change tracking options"  = "Ændre sporingsvalg";
+"Show App Information" = "Vis app information";
+"Drive %@ stops with public transport, %@ %@"   = "Kør %@ stop med offentlig transport, %@ %@";
+"Walk"                                          = "Gå";
+"Bike"                                          = "Cykel";
+"Drive"                                         = "Kør";
+"Start Route from %@, "                         = "Start rute fra %@, ";
+"Continue Route from %@, "                      = "Fortsæt rute fra %@, ";
+"towards %@, "                                  = "imod %@, ";
+"towards destination %@, "                      = "imod destinationen %@, ";
+"Route instructions %@ to %@ of %@"             = "Rute instruktioner %@ til %@ af %@";
+"My Location"                                   = "Nuværende lokation";
+"My location, accuracy %@m"                     = "Nuværende lokation, præcision %@m";

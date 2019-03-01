@@ -18,6 +18,9 @@
 #import "UIImageView+MPCachingImageLoader.h"
 #import "Tracker.h"
 #import "Global.h"
+#import "NSObject+ContentSizeChange.h"
+#import "AppFonts.h"
+#import "TCFKA_MDSnackbar.h"
 
 @import VCMaterialDesignIcons;
 @import MaterialControls;
@@ -39,12 +42,7 @@
     NSMutableArray* _objects;
     UIActivityIndicatorView* _spinner;
     
-    MPMenuItem *menuItems;
-    MDSnackbar* _bar;
-    
-    UIImage *venueBtnIcon;
-    
-    int _initXPos;
+    TCFKA_MDSnackbar* _bar;
 }
 
 - (void)viewDidLoad {
@@ -91,8 +89,8 @@
     [self.headerImageView.layer insertSublayer:gradient atIndex:0];
     [self.headerImageView.layer insertSublayer:gradientTop atIndex:1];
     
-    self.venueLabel.font = [UIFont boldSystemFontOfSize:18];
-    
+    self.venueLabel.font = AppFonts.sharedInstance.headerTitleFont;
+
     self.venueButtonItem.target = self;
     self.venueButtonItem.action = @selector(openVenueSelector);
     
@@ -111,7 +109,7 @@
         
         if (error && !_bar.isShowing) {
             
-            _bar = [[MDSnackbar alloc] initWithText:kLangCouldNotFindContent actionTitle:nil duration:4.0];
+            _bar = [[TCFKA_MDSnackbar alloc] initWithText:kLangCouldNotFindContent actionTitle:nil duration:4.0];
             [_bar show];
         }
         else if (appData) {
@@ -148,6 +146,19 @@
     _spinner.frame = CGRectMake(16, 240, _spinner.frame.size.width, _spinner.frame.size.height);
     
     [self.tableView addSubview:_spinner];
+    
+    self.navigationItem.leftBarButtonItem.accessibilityHint = kLangSelectVenueAccHint;
+    self.venueLabel.accessibilityHint = kLangCurrentVenueAccHint;
+    
+    self.navigationItem.rightBarButtonItem.accessibilityLabel = kLangShowAppInfo;
+
+    self.navigationItem.rightBarButtonItem.image = [self.navigationItem.rightBarButtonItem.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.navigationItem.leftBarButtonItem.image = [self.navigationItem.leftBarButtonItem.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+
+    __weak typeof(self)weakSelf = self;
+    [self mp_onContentSizeChange:^(DynamicTextSize dynamicTextSize) {
+        weakSelf.venueLabel.font = AppFonts.sharedInstance.headerTitleFont;
+    }];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -246,11 +257,10 @@
     MPMenuItem *object = _objects[indexPath.row];
     
     cell.textLabel.text = [self categoryForKey:object.categoryKey].value;
-    
     cell.textLabel.textColor = [UIColor appPrimaryTextColor];
-    
     [cell.imageView mp_setImageWithURL: object.iconUrl placeholderImageName:@"placeholder"];
-    
+
+    cell.accessibilityHint = kLangShowCategoryAccHint;
     
     return cell;
 }

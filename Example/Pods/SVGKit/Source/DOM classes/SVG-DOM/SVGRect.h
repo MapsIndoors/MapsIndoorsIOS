@@ -27,7 +27,8 @@ typedef struct
  
  Unfortunately, the SVG Spec authors defined "uninitialized" and "values of zero" to mean differnet things, so we MUST preserve
  that difference! */
-SVGRect SVGRectUninitialized();
+SVGRect SVGRectUninitialized(void);
+
 /** c.f. note about SVGRectUninitialized() -- this method checks if a Rect is identical to the output of that method */
 BOOL SVGRectIsInitialized( SVGRect rect );
 
@@ -38,3 +39,5 @@ CGRect CGRectFromSVGRect( SVGRect rect );
 
 /** Convenience method to convert to ObjectiveC's kind of size - ONLY the width and height of this rect */
 CGSize CGSizeFromSVGRect( SVGRect rect );
+
+NSString * _Nonnull NSStringFromSVGRect( SVGRect rect );

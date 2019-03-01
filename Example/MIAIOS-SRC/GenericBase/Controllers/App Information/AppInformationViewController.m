@@ -15,6 +15,7 @@
 #import "AppInfoTextTableViewCell.h"
 #import <MapsIndoors/MPVersion.h>
 #import "AppInfoAcknowledgementViewController.h"
+#import <sys/utsname.h>
 
 
 typedef NS_ENUM(NSUInteger, AppInfoSection) {
@@ -110,8 +111,40 @@ typedef NS_ENUM(NSUInteger, AppInfoVersion) {
 #pragma mark - Actions
 
 - (IBAction) onFeedbackButtonTapped:(id)sender {
+
+    NSString*   feedbackUrl = self.feedbackUrl;
     
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.feedbackUrl] options:@{} completionHandler:nil];
+#if DEBUG
+    if ( [self.feedbackUrl hasPrefix:@"mailto:"] ) {
+        NSURL*                      url = [NSURL URLWithString:feedbackUrl];
+        NSURLComponents*            urlComponents = [NSURLComponents componentsWithURL:url resolvingAgainstBaseURL:NO];
+        NSArray<NSURLQueryItem*>*   mailBody = [urlComponents.queryItems filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSURLQueryItem* _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+            return [evaluatedObject.name isEqualToString:@"body"];
+        }]];
+        if ( mailBody.count < 1 ) {
+            NSString*   version = [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
+            NSString*   buildNumber = [NSBundle mainBundle].infoDictionary[@"CFBundleVersion"];
+            NSString*   presentedVersion = [NSString stringWithFormat:@"%@ (%@)", version, buildNumber];
+
+            struct utsname systemInfo;
+            uname(&systemInfo);
+            
+            NSString*   deviceType = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+
+            NSMutableString*    info = [@"\n\n\n==== App info ====\n" mutableCopy];
+            [info appendFormat:@"App Version: %@\n", presentedVersion];
+            [info appendFormat:@"%@ %@\n", [UIDevice currentDevice].systemName, [UIDevice currentDevice].systemVersion];
+            [info appendFormat:@"Screensize: %@x%@ @%@x\n", @([UIScreen mainScreen].bounds.size.width), @([UIScreen mainScreen].bounds.size.height), @((int)[UIScreen mainScreen].scale)];
+            [info appendFormat:@"Device: %@", deviceType];
+
+            urlComponents.queryItems = [urlComponents.queryItems arrayByAddingObject:[NSURLQueryItem queryItemWithName:@"body" value:info]];
+            
+            feedbackUrl = urlComponents.URL.absoluteString;
+        }
+    }
+#endif
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:feedbackUrl] options:@{} completionHandler:nil];
 }
 
 - (void) onAppProviderNameTapped {

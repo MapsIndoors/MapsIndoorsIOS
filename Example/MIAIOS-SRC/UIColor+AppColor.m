@@ -79,7 +79,7 @@
 }
 
 + (UIColor *)appTextAndIconColor {
-    return [UIColor colorFromRGBA:@"#efefef"];
+    return [UIColor colorFromRGBA:@"#d1d1d1"];
 }
 
 + (UIColor *)appPrimaryTextColor {

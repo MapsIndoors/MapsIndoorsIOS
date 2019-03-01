@@ -32,20 +32,25 @@ class MySearchController: UIViewController, UISearchBarDelegate, UITableViewDele
     /***
      Setup member variables for `MySearchController`:
      
-     * An instance of type `MPLocationsProvider` (the service)
-     * An instance of type `MPLocationQuery`
+     * An instance of type `MPLocationService`
+     * An instance of type `MPQuery`
      * An array of `MPLocation` to hold your list of results
      * Your delegate object
      * A search bar view
      * A table view
      ***/
-    let locationsProvider = MPLocationsProvider.init()
-    let query = MPLocationQuery.init()
+    let locationService = MPLocationService.sharedInstance()
+    let query = MPQuery.init()
     var locations:[MPLocation] = []
     var delegate:MySearchControllerDelegate? = nil
     let tableView = UITableView.init()
     let searchBar = UISearchBar.init()
     //
+    
+    convenience init(near:MPPoint) {
+        self.init()
+        self.query.near = near;
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,10 +98,10 @@ class MySearchController: UIViewController, UISearchBarDelegate, UITableViewDele
      ***/
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         query.query = searchText
-        query.queryMode = .autocomplete
-        locationsProvider.getLocationsUsing(query) { (locationData, error) in
+        //query.queryMode = .autocomplete
+        locationService.getLocationsUsing(query, filter: MPFilter()) { (locations, error) in
             if error == nil {
-                self.locations = locationData!.list!
+                self.locations = locations!
                 self.tableView.reloadData()
             }
         }
@@ -108,6 +113,8 @@ class MySearchController: UIViewController, UISearchBarDelegate, UITableViewDele
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         cell.textLabel?.text = locations[indexPath.row].name
+        let defaultValue = ""
+        cell.textLabel?.text?.append(", \(locations[indexPath.row].roomId ?? defaultValue), \(locations[indexPath.row].building ?? defaultValue), \(locations[indexPath.row].venue ?? defaultValue)")
         return cell
     }
 
@@ -120,7 +127,7 @@ class MySearchController: UIViewController, UISearchBarDelegate, UITableViewDele
         self.dismiss(animated: true, completion: nil)
     }
     
-    /*** In [Part 2](searchsearchmapcontroller) we will create the map view controller that displays the blue dot. ***/
+    /*** In [Part 2](../searchsearchmapcontroller) we will create the map view controller that displays the search selection. ***/
     //
 
 }

@@ -14,7 +14,10 @@
 
 @interface MapViewController : UIViewController<MPMapControlDelegate, GMSMapViewDelegate, MPDirectionsRendererDelegate>
 
-@property (strong, nonatomic) id detailLocation;
+@property (strong, nonatomic) id            detailLocation;
+@property (strong, nonatomic) GMSMapView*   mapView;
+@property (nonatomic, strong) MPMapControl* mapControl;
+
 
 @end
 

@@ -16,7 +16,10 @@
 
 #ifdef __OBJC__
 #import <Foundation/Foundation.h>
-@import CocoaLumberjack;
+#import <CocoaLumberjack/CocoaLumberjack.h>
+#import "SVGKDefine.h"
+
+// These macro is only used inside framework project, does not expose to public header and effect user's define
 
 #define SVGKIT_LOG_CONTEXT 556
 
@@ -30,5 +33,11 @@
 static const int ddLogLevel = DDLogLevelVerbose;
 #else
 static const int ddLogLevel = DDLogLevelWarning;
+#endif
+
+#if SVGKIT_MAC
+#define NSStringFromCGRect(rect) NSStringFromRect(rect)
+#define NSStringFromCGSize(size) NSStringFromSize(size)
+#define NSStringFromCGPoint(point) NSStringFromPoint(point)
 #endif
 #endif

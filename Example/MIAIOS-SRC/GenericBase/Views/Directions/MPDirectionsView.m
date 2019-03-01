@@ -17,16 +17,17 @@
 #import "SectionModel.h"
 #import "Global.h"
 #import "NSString+MD5.h"
+#import "MPAccessibilityHelper.h"
+#import "LocalizedStrings.h"
+#import "AppFonts.h"
 
 
-@interface MPDirectionsView ()
+@interface MPDirectionsView () <UIScrollViewDelegate>
 
 @property (nonatomic, strong) MPDirectionsViewModel*        viewModel;
 @property (nonatomic, strong) MPRoute*                      currentRoute;
 @property (nonatomic, strong) RoutingData*                  routingData;
 @property (nonatomic, strong) NSArray<SectionModel*>*       modelArray;
-@property (nonatomic, strong) NSString*                     originType;
-@property (nonatomic, strong) NSString*                     destinationType;
 
 @property (nonatomic, weak, readwrite) UIScrollView*        scrollView;
 @property (nonatomic, weak) UIView*                         dimmingView;
@@ -52,6 +53,13 @@
 @property (nonatomic) BOOL                                  enableAutoCenterOnFocusedRouteSegment;
 
 @property (nonatomic, strong) UIButton*                     transitSourcesButton;
+
+@property (nonatomic, strong) NSArray*                      accessibilityElementsForRoute;
+
+@property (nonatomic) CGFloat                               actionPointLabelHeight;         // min actionPointSize.height, but may be larger due to dynamic text
+@property (nonatomic) CGFloat                               actionPointLabelExtraHeight;    // >= 0, the extra size added to action point labels due to large dynamic text sizes.
+@property (nonatomic) int                                   effectiveVerticalLegHeight;     // verticalLegHeight scaled to account for dynamic text size
+@property (nonatomic) int                                   effectiveHorizontalLegWidth;    // horizontalLegWidth scaled to account for dynamic text size
 
 @end
 
@@ -100,6 +108,7 @@
     
     UIScrollView*   scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
     self.scrollView = scrollView;
+    self.scrollView.delegate = self;
     [self addSubview:scrollView];
     
     if ( @available(iOS 11.0, *) ) {
@@ -111,18 +120,14 @@
 
 - (void) loadRoute:(MPRoute*)route
         withModels:(NSArray<SectionModel*>*)models
-        originType:(NSString*)originType
-   destinationType:(NSString*)destinationType
        routingData:(RoutingData*)routingData {
     
     if ( route != self.currentRoute ) {
         
-        self.viewModel = [MPDirectionsViewModel newWithRoute:route routingData:routingData models:models originType:originType destinationType:destinationType];
+        self.viewModel = [MPDirectionsViewModel newWithRoute:route routingData:routingData models:models];
         self.currentRoute = route;
         self.routingData = routingData;
         self.modelArray = models;
-        self.originType = originType;
-        self.destinationType = destinationType;
         
         _focusedRouteSegment = NSNotFound;
         [self configureForRoute];
@@ -141,10 +146,45 @@
     }
 }
 
+- (void) onDynamicContentSizeChanged {
+
+    self.actionPointSize = self.actionPointSize;
+    self.verticalLegHeight = self.verticalLegHeight;
+    self.horizontalLegWidth = self.horizontalLegWidth;
+}
+
 - (NSUInteger)numberOfRouteSegments {
     return self.modelArray.count;
 }
 
+- (void) setActionPointSize:(CGSize)actionPointSize {
+
+    _actionPointSize = actionPointSize;
+    self.actionPointLabelHeight = MAX( [[AppFonts sharedInstance] scaledFontSizeForFontSize:actionPointSize.height], actionPointSize.height );
+    self.actionPointLabelExtraHeight = self.actionPointLabelHeight - actionPointSize.height;
+}
+
+- (void) setVerticalLegHeight:(int)verticalLegHeight {
+
+    _verticalLegHeight = verticalLegHeight;
+
+    CGFloat     maxLegHeight = verticalLegHeight * 1.5;
+    self.effectiveVerticalLegHeight = [[AppFonts sharedInstance] scaledFontSizeForFontSize:verticalLegHeight];
+    if ( self.effectiveVerticalLegHeight > maxLegHeight ) {
+        self.effectiveVerticalLegHeight = maxLegHeight;
+    }
+}
+
+- (void) setHorizontalLegWidth:(int)horizontalLegWidth {
+
+    _horizontalLegWidth = horizontalLegWidth;
+
+    CGFloat     maxLegWidth = horizontalLegWidth * 1.33;
+    self.effectiveHorizontalLegWidth = [[AppFonts sharedInstance] scaledFontSizeForFontSize:horizontalLegWidth];
+    if ( self.effectiveHorizontalLegWidth > maxLegWidth ) {
+        self.effectiveHorizontalLegWidth = maxLegWidth;
+    }
+}
 
 #pragma mark - Widget creation
 
@@ -222,7 +262,7 @@
 }
 
 - (UILabel*) createActionPointLabel {
-    
+
     UILabel*    l = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.actionPointSize.width, self.actionPointSize.height)];
     
     l.textAlignment = NSTextAlignmentCenter;
@@ -230,7 +270,7 @@
     l.numberOfLines = 0;
     l.font = [UIFont systemFontOfSize:9];
     l.textColor = [UIColor blackColor];
-    
+
     [self.actionPointLabels addObject:l];
     
     return l;
@@ -242,6 +282,8 @@
     [self.routeSections addObject:v];
     
     MPDirectionsHeadlineView* headlineView = [[MPDirectionsHeadlineView alloc] initWithFrame:CGRectZero];
+    headlineView.fontForVerticalLayout  = [[AppFonts sharedInstance] scaledFontForSize:13];
+    headlineView.fontForHorizonalLayout = [[AppFonts sharedInstance] scaledFontForSize:11];
     [self.routeSectionHeadlines addObject:headlineView];
 }
 
@@ -253,17 +295,26 @@
     if ( self.transitSourcesButton == nil ) {
         
         UIButton*   b = [UIButton buttonWithType:UIButtonTypeCustom];
-        b.titleLabel.font = [UIFont systemFontOfSize:14];
         [b setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [b addTarget:self action:@selector(sourcesButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         
         b.frame = CGRectMake( 0, 0, 96, 24 );
+        b.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        b.titleLabel.numberOfLines = 0;
+
+        b.isAccessibilityElement = YES;
         
         self.transitSourcesButton = b;
     }
 
+    self.transitSourcesButton.titleLabel.font = [AppFonts sharedInstance].directionsFont;
     [self.transitSourcesButton setTitle:title forState:UIControlStateNormal];
-    [self.transitSourcesButton sizeToFit];
+
+    CGRect  frame = self.transitSourcesButton.frame;
+    CGFloat maxWidth = self.bounds.size.width - 2*24;     // 2*24 == Margins left/right
+    CGSize  size = [self.transitSourcesButton.titleLabel sizeThatFits:CGSizeMake(maxWidth,FLT_MAX)];
+    frame.size = size;
+    self.transitSourcesButton.frame = frame;
     
     return self.transitSourcesButton;
 }
@@ -384,6 +435,9 @@
 - (NSAttributedString*) attributedStringForActionPoint:(NSString*)actionPointText fontSize:(CGFloat)fontSize prefixText:(NSString*)prefixText prefixFontSize:(CGFloat)prefixFontSize {
 
     NSMutableAttributedString*  text = [NSMutableAttributedString new];
+
+    fontSize = [[AppFonts sharedInstance] scaledFontSizeForFontSize:fontSize];
+    prefixFontSize = [[AppFonts sharedInstance] scaledFontSizeForFontSize:prefixFontSize];
     
     if ( prefixText.length ) {
         NSDictionary*   prefixAttrs = @{NSFontAttributeName : [UIFont systemFontOfSize:prefixFontSize], NSForegroundColorAttributeName : [UIColor lightGrayColor] };
@@ -449,6 +503,11 @@
         NSMutableArray<UIView*>*    removedViews = [self.scrollView.subviews mutableCopy];
         [removedViews removeObject:self.headerViewInVerticalMode];
         [removedViews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+
+        [self.actionPoints removeAllObjects];
+        [self.actionPointLabels removeAllObjects];
+        [self.routeSections removeAllObjects];
+        [self.routeSectionHeadlines removeAllObjects];
     }
 }
 
@@ -501,7 +560,8 @@
                 self.actionPointLabels[i].attributedText = [self attributedStringForActionPoint:actionPointText fontSize:15 prefixText:prefixText prefixFontSize:12];
             } else {
                 self.actionPointLabels[i].text = actionPointText;
-                self.actionPointLabels[i].font = [UIFont systemFontOfSize:9];
+                CGFloat fontSize = MIN( [[AppFonts sharedInstance] scaledFontSizeForFontSize:9], 16 );
+                self.actionPointLabels[i].font = [UIFont systemFontOfSize:fontSize];
             }
         }
     }
@@ -625,7 +685,8 @@
     } else {
         [self calculateHorizontalLayout];
     }
-    
+
+    [self buildAccessibilityElementsForRoute];
 //    NSLog( @"%@", self.debugDescription );
 }
 
@@ -647,8 +708,8 @@
         
     } else {
         
-        CGFloat x = self.horizontalLegWidth / 2 - self.actionPointSize.width / 2;
-        CGFloat w = self.horizontalLegWidth + self.actionPointSize.width / 2;
+        CGFloat x = self.effectiveHorizontalLegWidth / 2 - self.actionPointSize.width / 2 + routeSectionIndex * self.effectiveHorizontalLegWidth;
+        CGFloat w = self.effectiveHorizontalLegWidth + self.actionPointSize.width;
         
         r = CGRectMake( x, 0, w, self.bounds.size.height );
     }
@@ -664,18 +725,18 @@
         unsigned long   numberOfActionPoints = self.modelArray.count;
         
         calcSize.height = self.heightInHorizontalMode ?: self.bounds.size.height;
-        calcSize.width  = (numberOfActionPoints + 1) * self.horizontalLegWidth;
+        calcSize.width  = (numberOfActionPoints + 1) * self.effectiveHorizontalLegWidth;
         
-        CGFloat x = self.horizontalLegWidth / 2;
+        CGFloat x = self.effectiveHorizontalLegWidth / 2;
         CGFloat y = (self.bounds.size.height - self.actionPointSize.width) / 2;
         
-        self.routeSectionSize = CGSizeMake(self.horizontalLegWidth, self.actionPointSize.height);
+        self.routeSectionSize = CGSizeMake(self.effectiveHorizontalLegWidth, self.actionPointSize.height);
         
         for ( int i=0; i < self.routeSections.count; i++ ) {
             
             // Route section "body" view:
             UIImageView* bodyView = self.routeSections[i];
-            CGRect       r = CGRectMake(x,y, self.horizontalLegWidth, self.actionPointSize.height);
+            CGRect       r = CGRectMake(x,y, self.effectiveHorizontalLegWidth, self.actionPointSize.height);
             
             if ( (CGRectEqualToRect(r, bodyView.frame) == NO) || (bodyView.superview == nil) ) {
                 bodyView.frame = r;
@@ -698,10 +759,10 @@
                 [headlineView removeFromSuperview];
             }
             
-            x += self.horizontalLegWidth;
+            x += self.effectiveHorizontalLegWidth;
         }
         
-        x = (self.horizontalLegWidth - self.actionPointSize.width) / 2;
+        x = (self.effectiveHorizontalLegWidth - self.actionPointSize.width) / 2;
         for ( int i=0; i < self.actionPoints.count; i++ ) {
             UIImageView* v = self.actionPoints[i];
             CGRect  r = CGRectMake(x,y, self.actionPointSize.height, self.actionPointSize.height);
@@ -711,11 +772,12 @@
                 [self.scrollView addSubview:v];
             }
             
-            x += self.horizontalLegWidth;
+            x += self.effectiveHorizontalLegWidth;
         }
 
-        CGSize  sizeForActionPointLabels = CGSizeMake( self.horizontalLegWidth *0.8, 30 );
-        x = ((self.horizontalLegWidth - sizeForActionPointLabels.width) / 2) ;
+        CGFloat heightForActionPointLabels = MIN( MAX( [[AppFonts sharedInstance] scaledFontSizeForFontSize:30], 30 ), 40 );
+        CGSize  sizeForActionPointLabels = CGSizeMake( self.effectiveHorizontalLegWidth *0.85, heightForActionPointLabels );
+        x = ((self.effectiveHorizontalLegWidth - sizeForActionPointLabels.width) / 2) ;
         y += self.actionPointSize.height;
         CGRect rLabel = CGRectMake( x, y, sizeForActionPointLabels.width, sizeForActionPointLabels.height  );
         for ( int i=0; i < self.actionPoints.count; i++ ) {
@@ -727,7 +789,7 @@
                 [self.scrollView addSubview:v];
             }
             
-            rLabel.origin.x += self.horizontalLegWidth;
+            rLabel.origin.x += self.effectiveHorizontalLegWidth;
         }
     }
     
@@ -751,7 +813,8 @@
         headerHeight = self.headerViewInVerticalMode.bounds.size.height;
     }
     
-    self.routeStartYOffset = headerHeight ? headerHeight + (self.actionPointSize.height / 2) : self.verticalLegHeight / 2;
+    self.routeStartYOffset = headerHeight ? headerHeight + ((self.actionPointSize.height + self.actionPointLabelExtraHeight) / 2)
+                                          : self.effectiveVerticalLegHeight / 2;
     
     if ( self.numberOfRouteSegments == 0 ) {
         
@@ -767,7 +830,7 @@
         for ( int i=0; i < self.numberOfRouteSegments; ++i ) {
             [sectionIndexToVerticalOffset addObject:@(y)];
             
-            y += self.verticalLegHeight;
+            y += self.effectiveVerticalLegHeight;
             if ( i == self.viewModel.routeSegmentIndexShowingDirections ) {
                 UIView* directionsView = [self supplementaryViewForRouteSegment:i];
                 y += [directionsView intrinsicContentSize].height;
@@ -777,12 +840,12 @@
         [sectionIndexToVerticalOffset addObject:@(y)];
         self.sectionIndexToVerticalOffset = [sectionIndexToVerticalOffset copy];
         
-        calcSize.height = y + (self.verticalLegHeight / 2);
+        calcSize.height = y + self.effectiveVerticalLegHeight * 0.4;
         calcSize.width  = self.widthInVerticalMode ?: self.bounds.size.width;
         
         y = self.routeStartYOffset;
         
-        self.routeSectionSize = CGSizeMake(self.actionPointSize.width, self.verticalLegHeight);
+        self.routeSectionSize = CGSizeMake(self.actionPointSize.width, self.effectiveVerticalLegHeight);
         
         for ( int i=0; i < self.routeSections.count; ++i ) {
             
@@ -804,8 +867,8 @@
             MPDirectionsHeadlineView* headlineView = self.routeSectionHeadlines[i];
             if ( [self.viewModel headlineModelForSectionAtIndex:i] ) {
                 r.origin.x += self.actionPointSize.width *1.5;
-                r.origin.y = y + self.actionPointSize.height / 2;
-                r.size.height = self.verticalLegHeight - self.actionPointSize.height;
+                r.origin.y = y + (self.actionPointSize.height + self.actionPointLabelExtraHeight) / 2;
+                r.size.height = self.effectiveVerticalLegHeight - self.actionPointSize.height - self.actionPointLabelExtraHeight;
                 r.size.width = bodyWidth;
                 if ( (CGRectEqualToRect(r, headlineView.frame) == NO) || (headlineView.superview == nil) ) {
                     headlineView.frame = r;
@@ -849,12 +912,12 @@
                 [self.scrollView addSubview:v];
             }
         }
-        
-        CGSize  sizeForActionPointLabels = CGSizeMake( bodyWidth, self.actionPointSize.height );
+
+        CGSize  sizeForActionPointLabels = CGSizeMake( bodyWidth, self.actionPointLabelHeight );
         x += self.actionPointSize.width * 1.5;
         for ( int i=0; i < self.actionPoints.count; ++i ) {
             
-            y = [self.sectionIndexToVerticalOffset[i] floatValue] - (self.actionPointSize.height / 2);
+            y = [self.sectionIndexToVerticalOffset[i] floatValue] - (sizeForActionPointLabels.height / 2);
             CGRect rLabel = CGRectMake( x, y, sizeForActionPointLabels.width, sizeForActionPointLabels.height  );
             
             UILabel* v = self.actionPointLabels[i];
@@ -870,13 +933,13 @@
         
         NSArray<MPTransitAgency*>*  sources = [self.viewModel transitAgenciesContributingToRoute];
         if ( sources.count ) {
-            calcSize.height += 44;
-            
             UIButton*   b = [self getTransitSourcesButtonWithCount:sources.count];
             CGRect r = b.frame;
-            r.origin = CGPointMake( 24, calcSize.height - 48 );
+            r.origin = CGPointMake( 24, calcSize.height -8 );
             b.frame = r;
-            
+
+            calcSize.height += r.size.height;
+
             [self.scrollView addSubview:b];
             
         } else if ( self.transitSourcesButton ) {
@@ -904,7 +967,7 @@
                 
                 CGFloat y = point.y + self.scrollView.contentOffset.y;
                 if ( y >= self.routeStartYOffset ) {
-                    NSUInteger indexOfTappedView = (y - self.routeStartYOffset) / self.verticalLegHeight;
+                    NSUInteger indexOfTappedView = (y - self.routeStartYOffset) / self.effectiveVerticalLegHeight;
                     
                     for ( indexOfTappedView=0; indexOfTappedView < (self.sectionIndexToVerticalOffset.count -1); ++indexOfTappedView ) {
                         CGFloat ySectionTop    = [self.sectionIndexToVerticalOffset[indexOfTappedView] floatValue];
@@ -940,8 +1003,8 @@
             } else {
                 
                 CGFloat x = point.x + self.scrollView.contentOffset.x;
-                if ( x >= (self.horizontalLegWidth / 2) ) {
-                    NSUInteger indexOfTappedView = (x - (self.horizontalLegWidth / 2)) / self.horizontalLegWidth;
+                if ( x >= (self.effectiveHorizontalLegWidth / 2) ) {
+                    NSUInteger indexOfTappedView = (x - (self.effectiveHorizontalLegWidth / 2)) / self.effectiveHorizontalLegWidth;
                     
                     if ( indexOfTappedView < self.routeSections.count ) {
                         [self.delegate directionsView:self didSelectRouteSegmentAtIndex:indexOfTappedView sectionModel:self.modelArray[indexOfTappedView]];
@@ -967,6 +1030,8 @@
     } else {
         [self centerRouteSegmentAtIndex:focusedRouteSegment];
     }
+    
+    self.accessibilityLabelForFocusedRouteSegment = [self.viewModel accessibilityDescriptionForRouteSectionAtIndex:_focusedRouteSegment];
 }
 
 - (BOOL) canFocusNextRouteSegment {
@@ -1022,7 +1087,7 @@
                     
                     CGRect r = [self rectForSectionAtIndex:index];
                     r.origin.y -= 4;
-                    r.size.height += 8;
+                    r.size.height += 8 + self.actionPointLabelExtraHeight / 3;      // div 3: looks better than div 2 ;-)
                     
                     self.highlighView.frame = r;
                 }
@@ -1178,7 +1243,14 @@
         
         MPDirectionsStepSequenceView*       stepSequenceView = [[MPDirectionsStepSequenceView alloc] initWithFrame: stepSequenceRect ];
         stepSequenceView.viewModel = stepSequenceViewModel;
-        
+
+        CGFloat     defaultStepHeight = stepSequenceView.stepHeight;
+        CGFloat     maxStepHeight = defaultStepHeight * 1.8;
+        stepSequenceView.stepHeight = [[AppFonts sharedInstance] scaledFontSizeForFontSize:defaultStepHeight];
+        if ( stepSequenceView.stepHeight > maxStepHeight ) {
+            stepSequenceView.stepHeight = maxStepHeight;
+        }
+
         [self.scrollView insertSubview:stepSequenceView belowSubview:headlineView];
         
         directionsView = stepSequenceView;
@@ -1261,5 +1333,174 @@
         [self.delegate directionsView:self didRequestDisplayTransitSources:[self.viewModel transitAgenciesContributingToRoute]];
     }
 }
+
+
+#pragma mark -
+- (NSArray<NSNumber *> *) travelModes {
+    
+    return [self.viewModel travelModes];
+}
+
+- (NSArray<UIImage*>*) imagesForActionPoints {
+
+    return [self.actionPoints valueForKeyPath:@"image"];
+}
+
+
+#pragma mark - UIAccessibilityContainer implementation
+
+- (NSInteger) accessibilityElementCount {
+
+    return self.accessibilityElements.count;
+}
+
+- (NSInteger) indexOfAccessibilityElement:(id)element {
+
+    return [self.accessibilityElements indexOfObject:element];
+}
+
+- (id) accessibilityElementAtIndex:(NSInteger)index {
+
+    return self.accessibilityElements[index];
+}
+
+- (BOOL)isAccessibilityElement {
+    
+    return NO;
+}
+
+- (void) buildAccessibilityElementsForRoute {
+    
+    NSMutableArray*     elements = [NSMutableArray array];
+    NSMutableArray*     accessibilityElementsForRoute = [NSMutableArray array];
+    
+    if ( self.verticalLayout ) {
+        [elements addObjectsFromArray:self.headerAccessibilityElementsInVerticalMode];
+    }
+    
+    unsigned long   numberOfRouteSections = [self numberOfRouteSegments];
+    
+    for ( int i=0; i < numberOfRouteSections; ++i ) {
+        
+        UIAccessibilityElement* element = [[UIAccessibilityElement alloc] initWithAccessibilityContainer:self.scrollView];
+        element.accessibilityLabel = [self.viewModel accessibilityDescriptionForRouteSectionAtIndex:i];
+        element.accessibilityTraits = UIAccessibilityTraitButton;
+        
+        [elements addObject:element];
+        [accessibilityElementsForRoute addObject:element];
+    }
+    
+    if ( self.transitSourcesButton.superview ) {
+        [elements addObject:self.transitSourcesButton];
+    }
+    
+    self.accessibilityElements = [elements copy];
+    self.accessibilityElementsForRoute = [accessibilityElementsForRoute copy];
+    
+    [self updateRouteAccessibilityElements];
+    
+    [[MPAccessibilityHelper sharedInstance] layoutChanged];
+}
+
+- (void) updateRouteAccessibilityElements {
+    
+    unsigned long   numberOfRouteSections = [self numberOfRouteSegments];
+
+    if ( numberOfRouteSections <= self.accessibilityElementsForRoute.count ) {
+
+        for ( int i=0; i < numberOfRouteSections; ++i ) {
+
+            UIAccessibilityElement* element = self.accessibilityElementsForRoute[i];
+
+            CGRect  sectionRect = [self rectForSectionAtIndex:i];                   // View coordinates
+            sectionRect = CGRectOffset( sectionRect,  - self.scrollView.contentOffset.x, - self.scrollView.contentOffset.y );
+
+            element.accessibilityFrameInContainerSpace = sectionRect;
+        }
+    }
+}
+
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView {
+
+    [self updateRouteAccessibilityElements];
+}
+
+- (NSIndexSet*) indexesOfRouteSectionsOverlappingRect:(CGRect)r {
+
+    NSMutableIndexSet*  overlappingSectionIndexes = [NSMutableIndexSet indexSet];
+    for ( NSUInteger i=0; i < self.numberOfRouteSegments; ++i ) {
+        
+        CGRect  sectionRect = [self rectForSectionAtIndex:i];
+        if ( CGRectIntersectsRect(r, sectionRect) ) {
+            [overlappingSectionIndexes addIndex:i];
+        }
+    }
+    
+    return [overlappingSectionIndexes copy];
+}
+
+- (BOOL) accessibilityScroll:(UIAccessibilityScrollDirection)direction {
+
+    // Sadly the easy way doesnt work, seemingly due to the scrollview being embedded inside our custom view, and therefore apparently is not taking part of the accessibility hierarchy:
+    // [self.scrollView accessibilityScroll:direction];
+    
+    // Accessibility scrolling:
+    CGRect visibleRect;
+    visibleRect.origin = self.scrollView.contentOffset;
+    visibleRect.size = self.scrollView.bounds.size;
+    
+    CGRect  targetRect = visibleRect;
+    
+    switch ( direction ) {
+        case UIAccessibilityScrollDirectionDown:
+            targetRect = CGRectOffset( visibleRect, 0, + visibleRect.size.height );
+            break;
+        case UIAccessibilityScrollDirectionUp:
+            targetRect = CGRectOffset( visibleRect, 0, - visibleRect.size.height );
+            break;
+            
+        case UIAccessibilityScrollDirectionLeft:
+        case UIAccessibilityScrollDirectionRight:
+        case UIAccessibilityScrollDirectionNext:
+        case UIAccessibilityScrollDirectionPrevious:
+            // N/A.
+            break;
+    }
+    
+    if ( CGRectEqualToRect(targetRect, visibleRect) == NO ) {
+        
+        if ( targetRect.origin.y < 0 ) {
+            targetRect = CGRectOffset( targetRect, 0, - targetRect.origin.y );
+        } else if ( CGRectGetMaxY(targetRect) > self.scrollView.contentSize.height ) {
+            targetRect = CGRectOffset( targetRect, 0, (self.scrollView.contentSize.height - CGRectGetMaxY(targetRect)) );
+        }
+        
+        NSIndexSet* targetSectionIndexes = [self indexesOfRouteSectionsOverlappingRect:targetRect];
+        
+        if ( targetRect.origin.y != visibleRect.origin.y ) {
+            CGFloat dy = targetRect.origin.y - visibleRect.origin.y;
+            
+            self.scrollView.contentOffset = CGPointMake( self.scrollView.contentOffset.x, self.scrollView.contentOffset.y +dy );
+            
+            [self updateRouteAccessibilityElements];
+            
+            // Announce where we are accessibility-wise (TableViews do something similar to this):
+            NSUInteger  firstShowing = targetSectionIndexes.firstIndex +1;
+            NSUInteger  lastShowing = targetSectionIndexes.lastIndex +1;
+
+            NSString*   announcement = [NSString stringWithFormat:kLangRouteDirectionsPagingAccAnnouncement, @(firstShowing), @(lastShowing), @([self numberOfRouteSegments])];
+            [[MPAccessibilityHelper sharedInstance] announceWithCompletion:announcement completion:nil];
+        }
+    }
+
+    return NO;
+}
+
+- (NSString*) accessibilityLabelForRouteSegmentAtIndex:(NSUInteger)routeSegementIndex {
+    
+    return [self.viewModel accessibilityDescriptionForRouteSectionAtIndex:routeSegementIndex];
+}
+
+
 
 @end

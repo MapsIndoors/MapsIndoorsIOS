@@ -63,7 +63,11 @@
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     
     [MapsIndoors provideAPIKey:[AppVariantData sharedAppVariantData].mapsIndoorsAPIKey googleAPIKey:[AppVariantData sharedAppVariantData].googleAPIKey];
-    
+
+//    #ifdef BUILDING_SDK_APP
+//        [MapsIndoors registerLocationSources:@[ [MPMapsIndoorsLocationSource new], [SimulatedPeopleLocationSource new]]];
+//    #endif
+
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     
     Global.routingData = [RoutingData new];
@@ -196,10 +200,15 @@
             [MPNotificationsHelper fetchMessagesForSolution:[MapsIndoors getMapsIndoorsAPIKey] completionHandler:nil messageHandler:^(MPMessage * message) {
                 [MPNotificationsHelper monitorRegionForMessage:message withLocationManager:self.locationManager];
             }];
+            NSLog( @"[I] 'Always' location permission granted" );
             break;
         }
         case kCLAuthorizationStatusAuthorizedWhenInUse:
-            NSLog( @"[W] User allowed only 'WhenInUse' location permission - Beacon monitoring and messages are not available" );
+            if ( [Global.solution.modules containsObject:@"messages"] ) {
+                NSLog( @"[W] User allowed only 'WhenInUse' location permission - Beacon monitoring and messages are not available" );
+            } else {
+                NSLog( @"[I] 'WhenInUse' location permission granted" );
+            }
             break;
         case kCLAuthorizationStatusDenied:
             NSLog( @"[W] User denied location permission - Beacon monitoring and messages are not available" );

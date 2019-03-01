@@ -17,6 +17,7 @@
 #import "Global.h"
 #import "UINavigationController+TransparentNavigationController.h"
 #import "Tracker.h"
+#import "MPAccessibilityHelper.h"
 
 
 static NSString* cellIdentifier = @"VenueSelectorCell_Id";
@@ -58,25 +59,36 @@ static BOOL _venueSelectorIsShown = NO;
     
     self.title = [NSString stringWithFormat:@"%@", kLangSelectVenue];
     
-    UIImage* backImg = [UIImage imageNamed:@"ic_location_city_white"];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:backImg style:UIBarButtonItemStylePlain target:nil action:nil];
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
-    
     UINib*  nib = [UINib nibWithNibName:@"VenueSelectorCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
+    
+    [self configureBackButton];
+    
+    NSString* venueId = [[NSUserDefaults standardUserDefaults] objectForKey:@"venue"];
+    if ( venueId && (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ) {
+        [self performSegueWithIdentifier:@"showMasterControllerNonAnimated" sender:self];
+    }
+}
+
+- (void) configureBackButton {
     
     NSString* venueId = [[NSUserDefaults standardUserDefaults] objectForKey:@"venue"];
     
     if ( venueId ) {
         VCMaterialDesignIcons* icon = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_arrow_left fontSize:28];
-        self.navigationItem.leftBarButtonItem.image = icon.image;
-        self.navigationItem.leftBarButtonItem.target = self;
-        self.navigationItem.leftBarButtonItem.action = @selector(exit:);
         
-        if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ) {
-            [self performSegueWithIdentifier:@"showMasterControllerNonAnimated" sender:self];
-        }
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:icon.image style:UIBarButtonItemStylePlain target:self action:@selector(exit:)];
+        self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+        
+    } else {
+        
+        UIImage* backImg = [UIImage imageNamed:@"ic_location_city_white"];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:backImg style:UIBarButtonItemStylePlain target:nil action:nil];
+        self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
     }
+    
+    self.navigationItem.leftBarButtonItem.enabled = (venueId != nil);
+    self.navigationItem.leftBarButtonItem.accessibilityHint = kLangExitVenueSelectorAccHint;
 }
 
 - (void)exit:(id)sender {
@@ -113,6 +125,8 @@ static BOOL _venueSelectorIsShown = NO;
                 }
                 [self performSegueWithIdentifier:@"showMasterController" sender:self];
             }
+            
+            [self configureBackButton];
         }
     }];
     

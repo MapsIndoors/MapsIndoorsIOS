@@ -21,6 +21,10 @@
 #import "UIColor+AppColor.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import "AppVariantData.h"
+#import "MPAccessibilityHelper.h"
+#import "AppFonts.h"
+#import "BuildingInfoCache.h"
+#import "TCFKA_MDSnackbar.h"
 
 #define kSearchTextMinLength        2           // Only search when the length of the search text is >= than this constant.
 
@@ -29,7 +33,7 @@
 
 @property (nonatomic, strong) NSArray*          objects;
 @property (nonatomic, strong) MPLocationQuery*  locationQuery;
-@property (nonatomic, strong) MDSnackbar*       snackBar;
+@property (nonatomic, strong) TCFKA_MDSnackbar* snackBar;
 @property (nonatomic, strong) NSTimer*          snackBarTimer;
 @property (weak, nonatomic) IBOutlet UIView*    headerView;
 @property (nonatomic) CGFloat                   normalTableHeaderHeight;
@@ -42,7 +46,6 @@
 @implementation SearchViewController {
     MPVenueProvider* _venueProvider;
     NSArray* _venues;
-    NSArray* _buildings;
     UIActivityIndicatorView *_spinner;
     int _keyboardHeight;
 }
@@ -56,19 +59,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     _venueProvider = [[MPVenueProvider alloc] init];
     
     [_venueProvider getVenuesWithCompletion:^(MPVenueCollection *venueCollection, NSError *error) {
         if (error == nil) {
             _venues = venueCollection.venues;
-            [self.tableView reloadData];
-        }
-    }];
-    
-    [_venueProvider getBuildingsWithCompletion:^(NSArray *buildings, NSError *error) {
-        if (error == nil) {
-            _buildings = buildings;
             [self.tableView reloadData];
         }
     }];
@@ -87,6 +83,7 @@
     self.backButton.backgroundColor = [UIColor appPrimaryColor];
     self.backButton.tintColor = [UIColor whiteColor];
     [self.backButton addTarget:self action:@selector(pop) forControlEvents:UIControlEventTouchUpInside];
+    self.backButton.accessibilityHint = kLangBackAccHint;   // TODO Figure out why this does *not* get read in voice over; possibly todo with being embedded in a tableview-header...
     
     self.searchBar.delegate = self;
     [self.searchBar setCustomStyle];
@@ -161,7 +158,7 @@
         [MapsIndoors.locationsProvider getLocationsUsingQuery:Global.locationQuery completionHandler:^(MPLocationDataset *locationData, NSError *error) {
             if (error) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    MDSnackbar* bar = [[MDSnackbar alloc] initWithText:kLangCouldNotFindLocations actionTitle:@"" duration:1.0];
+                    TCFKA_MDSnackbar* bar = [[TCFKA_MDSnackbar alloc] initWithText:kLangCouldNotFindLocations actionTitle:@"" duration:1.0];
                     bar.bottomPadding = _keyboardHeight; // show above keyboard
                     [bar show];
                 });
@@ -171,6 +168,11 @@
         }];
     } else {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationsDataReady" object: self.objects];
+    }
+    
+    //If there was an old search, perform it again
+    if (self.searchBar.text.length >= 2) {
+        [self searchBar:self.searchBar textDidChange:self.searchBar.text];
     }
 }
     
@@ -182,6 +184,8 @@
     self.menuIsOpen = YES;      // Assume open until notified otherwise
     
     [self performSelector:@selector(focusSearchBar:) withObject:nil afterDelay:0.05];
+    
+    
 }
 
 - (void) viewDidDisappear:(BOOL)animated {
@@ -259,7 +263,7 @@
         [MapsIndoors.locationsProvider getLocationWithId: object.locationId completionHandler:^(MPLocation *location, NSError *error) {
             if (error) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    MDSnackbar* bar = [[MDSnackbar alloc] initWithText:kLangCouldNotFindLocations actionTitle:@"" duration:1.0];
+                    TCFKA_MDSnackbar* bar = [[TCFKA_MDSnackbar alloc] initWithText:kLangCouldNotFindLocations actionTitle:@"" duration:1.0];
                     bar.bottomPadding = _keyboardHeight; // show above keyboard
                     [bar show];
                 });
@@ -284,24 +288,22 @@
         
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"venueKey LIKE[c] %@", object.venue];
         MPVenue* venue = [[_venues filteredArrayUsingPredicate:predicate] firstObject];
-        
-        NSPredicate *bPredicate = [NSPredicate predicateWithFormat:@"administrativeId LIKE[c] %@", object.building];
-        MPBuilding* building = [[_buildings filteredArrayUsingPredicate:bPredicate] firstObject];
-        if (building != nil) {
-            NSString* buildingLabel = building.name;
-            NSString* venueLabel = [building.name isEqualToString:venue.name] ? @"" : [NSString stringWithFormat:@", %@", venue.name];
-            
-            [_venueProvider getBuildingWithId:building.buildingId completionHandler:^(MPBuilding *building, NSError *error) {
-                if(error == nil) {
-                    MPFloor* floor = [building.floors objectForKey:[object.floor stringValue]];
-                    cell.subTextLabel.text = [NSString stringWithFormat:@"Level %@, %@%@", floor.name, buildingLabel, venueLabel];
-                }
-            }];
-            
-        } else {
-            cell.subTextLabel.text = venue.name;
+
+        NSString*   buildingId = object.building;
+        NSString*   floorId = [object.floor stringValue];
+        MPBuilding* building = [[BuildingInfoCache sharedInstance] buildingFromAdministrativeId:buildingId];
+        NSString*   subText = venue.name;
+
+        if ( building && floorId ) {
+            MPFloor* floor = building.floors[floorId];
+            if ( floor ) {
+                NSString* buildingLabel = building.name;
+                NSString* venueLabel = [building.name isEqualToString:venue.name] ? @"" : [NSString stringWithFormat:@", %@", venue.name];
+                subText = [NSString stringWithFormat:@"Level %@, %@%@", floor.name, buildingLabel, venueLabel];
+            }
         }
-        
+
+        cell.subTextLabel.text = subText;
         cell.subTextLabel.lineBreakMode = NSLineBreakByTruncatingTail;
         
         if (object.icon) {
@@ -312,7 +314,7 @@
             [cell.imageView mp_setImageWithURL:[Global getIconUrlForType:object.type] placeholderImage:[UIImage imageNamed:@"placeholder"]];
         }
     }
-    
+
     return cell;
 }
 
@@ -353,82 +355,84 @@
 #pragma mark - UISearchBarDelegate
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     
-    NSString*   queryString = self.locationQuery.query ?: Global.locationQuery.query;
+   // NSString*   queryString = self.locationQuery.query ?: Global.locationQuery.query;
     
-    if ( [queryString isEqual:searchText] == NO ) {
+    NSUInteger  textLength = searchText.length;
+    
+    if ( textLength < kSearchTextMinLength ) {
         
-        NSUInteger  textLength = searchText.length;
-        
-        if ( textLength < kSearchTextMinLength ) {
+        if ( self.locationQuery ) {
+            // Only search when we have a 'local' query, meaning the user has entered text we searched for.
+            self.locationQuery = nil;
             
-            if ( self.locationQuery ) {     // Only search when we have a 'local' query, meaning the user has entered text we searched for.
+            if ( Global.locationQuery.categories.count ) {
+                // Execute original query again, as we have had a 'local' override search with user-entered text.
+                [MapsIndoors.locationsProvider getLocationsUsingQuery:Global.locationQuery completionHandler:^(MPLocationDataset *locationData, NSError *error) {
+                    if (error) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            TCFKA_MDSnackbar* bar = [[TCFKA_MDSnackbar alloc] initWithText:kLangCouldNotFindLocations actionTitle:@"" duration:1.0];
+                            bar.bottomPadding = _keyboardHeight; // show above keyboard
+                            [bar show];
+                        });
+                    } else {
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationsDataReady" object: locationData.list];
+                    }
+                }];
                 
-                self.locationQuery = nil;
-                
-                if ( Global.locationQuery.categories.count ) {
-                    // Execute original query again, as we have had a 'local' override search with user-entered text.
-                    [MapsIndoors.locationsProvider getLocationsUsingQuery:Global.locationQuery completionHandler:^(MPLocationDataset *locationData, NSError *error) {
-                        if (error) {
-                            dispatch_async(dispatch_get_main_queue(), ^{
-                                MDSnackbar* bar = [[MDSnackbar alloc] initWithText:kLangCouldNotFindLocations actionTitle:@"" duration:1.0];
-                                bar.bottomPadding = _keyboardHeight; // show above keyboard
-                                [bar show];
-                            });
-                        }
-                    }];
-                    
-                } else {
-                    self.objects = nil;
-                    [self.tableView reloadData];
-                }
+            } else {
+                self.objects = nil;
+                [self.tableView reloadData];
             }
-            
-        } else {
-            
-            if ( self.locationQuery == nil ) {
-                
-                MPLocationQuery*    originalQuery = Global.locationQuery;
-                MPLocationQuery*    q = [MPLocationQuery new];
-                
-                self.locationQuery = q;
-                
-                // Clone original query:
-                q.query = [originalQuery.query copy];
-                q.venue = [originalQuery.venue copy];
-                q.building = [originalQuery.building copy];
-                q.orderBy = [originalQuery.orderBy copy];
-                q.sortOrder = [originalQuery.sortOrder copy];
-                q.near = [originalQuery.near copy];
-                q.radius = [originalQuery.radius copy];
-                q.zoomLevel = [originalQuery.zoomLevel copy];
-                q.floor = [originalQuery.floor copy];
-                q.mapExtend = [originalQuery.mapExtend copy];
-                q.categories = [originalQuery.categories copy];
-                q.types = [originalQuery.types copy];
-                q.max = originalQuery.max;
-                
-                // ... and override a few things:
-                q.near = Global.venue.anchor;
-                q.orderBy = @"relevance";
-                q.venue = nil;
-                q.queryMode = MPLocationQueryModeAutocomplete;      // We are only interested in results from the last query performed.
-            }
-            
-            self.locationQuery.query = self.searchBar.text;
-            
-            // Execute!
-            [MapsIndoors.locationsProvider getLocationsUsingQuery:self.locationQuery completionHandler:^(MPLocationDataset *locationData, NSError *error) {
-                if (error) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        MDSnackbar* bar = [[MDSnackbar alloc] initWithText:kLangCouldNotFindLocations actionTitle:@"" duration:1.0];
-                        bar.bottomPadding = _keyboardHeight; // show above keyboard
-                        [bar show];
-                    });
-                } else {
-                    [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationsDataReady" object: locationData.list];
-                }
-            }];
         }
+        
+    } else {
+        
+        if ( self.locationQuery == nil ) {
+            
+            MPLocationQuery*    originalQuery = Global.locationQuery;
+            MPLocationQuery*    q = [MPLocationQuery new];
+            
+            self.locationQuery = q;
+            
+            // Clone original query:
+            q.query = [originalQuery.query copy];
+            q.venue = [originalQuery.venue copy];
+            q.building = [originalQuery.building copy];
+            q.orderBy = [originalQuery.orderBy copy];
+            q.sortOrder = [originalQuery.sortOrder copy];
+            q.near = [originalQuery.near copy];
+            q.radius = [originalQuery.radius copy];
+            q.zoomLevel = [originalQuery.zoomLevel copy];
+            q.floor = [originalQuery.floor copy];
+            q.mapExtend = [originalQuery.mapExtend copy];
+            q.categories = [originalQuery.categories copy];
+            q.types = [originalQuery.types copy];
+            q.max = originalQuery.max;
+            
+            // ... and override a few things:
+            q.near = MapsIndoors.positionProvider.latestPositionResult.geometry ?: Global.venue.anchor;
+            q.orderBy = @"relevance";
+            q.venue = nil;
+            q.queryMode = MPLocationQueryModeAutocomplete;      // We are only interested in results from the last query performed.
+        }
+        
+        self.locationQuery.query = self.searchBar.text;
+        
+        // Execute!
+        [MapsIndoors.locationsProvider getLocationsUsingQuery:self.locationQuery completionHandler:^(MPLocationDataset *locationData, NSError *error) {
+            if (error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    TCFKA_MDSnackbar* bar = [[TCFKA_MDSnackbar alloc] initWithText:kLangCouldNotFindLocations actionTitle:@"" duration:1.0];
+                    bar.bottomPadding = _keyboardHeight; // show above keyboard
+                    [bar show];
+                });
+            } else {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationsDataReady" object: locationData.list];
+            }
+            
+            NSString* announcement = [NSString stringWithFormat:kLangNumResultsAvailableAccHint, @(locationData.list.count)];
+            [[MPAccessibilityHelper sharedInstance] announceWithCompletion:announcement completion:nil];
+        }];
     }
 }
 
@@ -461,7 +465,7 @@
 
     if ( (self.snackBar.isShowing == NO) || ([self.snackBar.text isEqualToString:msg] == NO) ) {
         
-        self.snackBar = [[MDSnackbar alloc] initWithText:msg actionTitle:@"" duration:0];   // 0 duration: snackbar is visible until manually dismissed.
+        self.snackBar = [[TCFKA_MDSnackbar alloc] initWithText:msg actionTitle:@"" duration:0];   // 0 duration: snackbar is visible until manually dismissed.
         self.snackBar.bottomPadding = _keyboardHeight; // show above keyboard
         [self.snackBar show];
     }
@@ -496,7 +500,8 @@
     if ( self.objects.count == 0 ) {
         
         NSString*   noMatchFormat = kLangSearchNoMatch;
-        NSString*   noLocations = [NSString stringWithFormat: kLangUseSearchToSearchFormat, [AppVariantData sharedAppVariantData].appProviderName ];
+        NSString*   fmt = [MPAccessibilityHelper sharedInstance].voiceOverEnabled ? kLangUseSearchToSearchFormatAccess : kLangUseSearchToSearchFormat;
+        NSString*   noLocations = [NSString stringWithFormat: fmt, [AppVariantData sharedAppVariantData].appProviderName ];
         NSString*   matchToken = self.searchBar.text;
         if (matchToken.length == 0 && _category != nil) {
             matchToken = _category.value;
@@ -505,7 +510,7 @@
                          ? [NSString stringWithFormat:noMatchFormat, matchToken]
                          : noLocations;
         
-        NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f],
+        NSDictionary *attributes = @{NSFontAttributeName: [AppFonts sharedInstance].emptyStateMessageFont,
                                      NSForegroundColorAttributeName: [UIColor lightGrayColor]};
         
         return [[NSAttributedString alloc] initWithString:text attributes:attributes];

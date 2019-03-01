@@ -109,7 +109,7 @@ class MyPositionProvider : NSObject, MPPositionProvider {
     }
     
     /***
-     In [Part 2](showmylocationshowmylocationcontroller) we will create the map view controller that displays the blue dot.
+     In [Part 2](../showmylocationshowmylocationcontroller) we will create the map view controller that displays the blue dot.
      ***/
     //
 }

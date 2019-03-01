@@ -13,6 +13,8 @@
 @import MaterialControls;
 #import "NSString+TRAVEL_MODE.h"
 #import <MapsIndoors/MapsIndoors.h>
+#import "TCFKA_MDSnackbar.h"
+
 
 #if DEBUG && 0
     #define DEBUGLOG(fMT,...)  NSLog( @"[D] RoutingData.m(%d): "fMT,  __LINE__, __VA_ARGS__ )
@@ -24,7 +26,7 @@
 @interface RoutingData ()
 
 @property (nonatomic, strong) MPDirectionsService*  service;
-@property (nonatomic, strong) MDSnackbar*           bar;
+@property (nonatomic, strong) TCFKA_MDSnackbar*     bar;
 @property (nonatomic, strong) MPVenueProvider*      venueProvider;
     
 @end
@@ -73,7 +75,7 @@
                 dispatch_async(dispatch_get_main_queue(), ^(void) {
                     if (error) {
                         if ( !_bar.isShowing ) {
-                            _bar = [[MDSnackbar alloc] initWithText:kLangCouldNotFindDirections actionTitle:@"" duration:2.0];
+                            _bar = [[TCFKA_MDSnackbar alloc] initWithText:kLangCouldNotFindDirections actionTitle:@"" duration:2.0];
                             [_bar show];
                         }
                         self.latestRoutingRequestHash = 0;

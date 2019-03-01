@@ -14,7 +14,9 @@
 @import VCMaterialDesignIcons;
 #import "UIImageView+MPCachingImageLoader.h"
 @import PureLayout;
-
+#import "NSObject+ContentSizeChange.h"
+#import "AppFonts.h"
+#import "TCFKA_MDSnackbar.h"
 
 #define MENU_OPENED_HEIGHT             240
 #define MENU_CLOSED_HEIGHT              60
@@ -41,7 +43,7 @@
 @implementation FloatingActionMenuController {
     
     MPAppDataProvider* _appDataProvider;
-    MDSnackbar* _bar;
+    TCFKA_MDSnackbar* _bar;
     
     NSMutableArray* _menuItemModels;
     NSArray* _menuItemsTop;
@@ -79,7 +81,7 @@
     _appDataProvider = [[MPAppDataProvider alloc] init];
     [_appDataProvider getAppDataWithCompletion:^(MPAppData *appData, NSError *error) {
         if (error && !_bar.isShowing) {
-            _bar = [[MDSnackbar alloc] initWithText:kLangCouldNotFindContent actionTitle:@"" duration:4.0];
+            _bar = [[TCFKA_MDSnackbar alloc] initWithText:kLangCouldNotFindContent actionTitle:@"" duration:4.0];
             [_bar show];
         }
         else {
@@ -104,6 +106,12 @@
             }
         }
     }];
+
+    __weak typeof(self)weakSelf = self;
+    [self mp_onContentSizeChange:^(DynamicTextSize dynamicTextSize) {
+        [weakSelf closeFloatingActionMenu];
+        [weakSelf createInfoLabels];
+    }];
 }
 
 - (void) setupFloatingActionBtn {
@@ -118,6 +126,7 @@
         [nearestBtn autoPinEdgeToSuperviewEdge:ALEdgeRight];
         [nearestBtn autoPinEdgeToSuperviewEdge:ALEdgeBottom];
         self.fabButton = nearestBtn;
+        self.fabButton.accessibilityLabel = kLangFindNearestAccLabel;
         
         CGFloat     btnClosedInset = - [self.menuItemBottomInsets[0] doubleValue];
         
@@ -201,6 +210,15 @@
         self.actionButtons = @[ btn1, btn2, btn3 ];
         [self createInfoLabels];
 
+        // Finish off with some accessibility tweaking:
+        for ( int i=0; i < self.actionButtons.count; ++i ) {
+            MDButton*   button = self.actionButtons[i];
+            NSString*   title = [self titleForCategoryKey:[_menuItemModels[i] categoryKey]];
+            
+            button.hidden = YES;
+            button.accessibilityLabel = [NSString stringWithFormat:kLangShowCategoryButtonAccLabel, title];
+        }
+
     } else {
     }
     
@@ -208,6 +226,9 @@
 }
 
 - (void) createInfoLabels {
+
+    [self.infoLabels makeObjectsPerformSelector:@selector(removeFromSuperview) withObject:nil];
+    self.infoLabels = nil;
 
     if ( (self.actionButtons.count > 0) && (self.infoLabels.count == 0) ) {
 
@@ -258,10 +279,12 @@
     infoLabel.textColor = [UIColor appSecondaryTextColor];
     infoLabel.textAlignment = NSTextAlignmentCenter;
     infoLabel.backgroundColor = [UIColor whiteColor];
+    infoLabel.font = [AppFonts sharedInstance].buttonFont;
     [infoLabel sizeToFit];
     infoLabel.layer.cornerRadius = 8;
     infoLabel.layer.masksToBounds = YES;
     infoLabel.tag = tag;
+    infoLabel.isAccessibilityElement = NO;
 
     // Add to view hierarchy and do autolayout
     [containerView configureForAutoLayout];
@@ -317,11 +340,22 @@
             }
             [[NSNotificationCenter defaultCenter] postNotificationName:@"FABWillClose" object:nil];
         }
-        
+
+        BOOL    shouldHideButtons = infoLabelAlpha < 1;
+        if ( shouldHideButtons == NO ) {
+            for ( UIView* c in self.actionButtons ) {
+                c.hidden = NO;
+            }
+        }
+
         [UIView animateWithDuration:.3 animations:^{
             [self.view layoutIfNeeded];
             for ( UIView* c in self.infoLabelContainers ) {
                 c.alpha = infoLabelAlpha;
+            }
+        } completion:^(BOOL finished) {
+            for ( UIView* c in self.actionButtons ) {
+                c.hidden = shouldHideButtons;
             }
         }];
         

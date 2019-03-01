@@ -8,8 +8,7 @@
 
 #import "MyLocationButton.h"
 #import "UIColor+AppColor.h"
-
-static void *kMPStateObservingContext = &kMPStateObservingContext;
+#import "LocalizedStrings.h"
 
 
 @implementation MyLocationButton {
@@ -45,8 +44,10 @@ static void *kMPStateObservingContext = &kMPStateObservingContext;
         self.layer.shadowOpacity = 0.25;
         
         self.controlState = MPMyLocationStateEnabled;
-        toggleStates = @[@(MPMyLocationStateTrackingLocation), @(MPMyLocationStateTrackingLocationAndHeading)];
+        toggleStates = @[ @(MPMyLocationStateTrackingLocation), @(MPMyLocationStateTrackingLocationAndHeading), @(MPMyLocationStateEnabled) ];
         toggleStateIndex = -1;
+        
+        self.isAccessibilityElement = YES;
     }
     
     return self;
@@ -57,33 +58,17 @@ static void *kMPStateObservingContext = &kMPStateObservingContext;
     [colorsForControlState setObject:color forKey:@(state)];
 }
 
-- (void)didMoveToSuperview {
-    
-    [self addObserver:self forKeyPath:@"controlState" options:NSKeyValueObservingOptionOld context:kMPStateObservingContext];
-}
-
 - (UIControlState)state {
     NSInteger returnState = [super state];
     return ( returnState | self.controlState );
 }
 
-- (void)dealloc {
-    [self removeObserver:self forKeyPath:@"controlState"];
-}
+- (void) setControlState:(NSInteger)controlState {
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if ( context == kMPStateObservingContext ) {
-        NSInteger oldState = [[change objectForKey:NSKeyValueChangeOldKey] integerValue];
-        if ( oldState != self.controlState ) {
-            [self layoutSubviews];
-//            toggleStateIndex = [toggleStates indexOfObject:@(self.controlState)];
-//            if (toggleStateIndex == NSNotFound) {
-//                toggleStateIndex = -1;
-//            }
-        }
-    }
-    else {
-        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    if ( _controlState != controlState ) {
+        _controlState = controlState;
+        [self setNeedsLayout];
+        [self setAccessibilityLabelForCurrentControlState];
     }
 }
 
@@ -93,8 +78,36 @@ static void *kMPStateObservingContext = &kMPStateObservingContext;
     }
     NSNumber* newState = [toggleStates objectAtIndex:toggleStateIndex];
     self.controlState = newState.unsignedIntegerValue;
+    
     return self.controlState;
 }
 
+- (void) setAccessibilityLabelForCurrentControlState {
+
+    NSString*   s;
+    
+    switch ( self.controlState ) {
+        case MPMyLocationStateDisabled:
+            s = kLangTrackingDisabled;
+            break;
+        case MPMyLocationStateEnabled:
+            s = kLangTrackingOff;
+            break;
+        case MPMyLocationStateTrackingLocation:
+            s = kLangTrackingOn;
+            break;
+        case MPMyLocationStateTrackingLocationAndHeading:
+            s = kLangTrackingOnWithHeading;
+            break;
+
+        default:
+            break;
+    }
+    
+    if ( s ) {
+        self.accessibilityLabel = s;
+        self.accessibilityHint = kLangChangeTrackingState;
+    }
+}
 
 @end

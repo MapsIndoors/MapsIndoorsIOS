@@ -62,6 +62,8 @@
 	<string>This app monitors beacons in order to determine your indoor position</string>
 	<key>NSCameraUsageDescription</key>
 	<string>A coding framework used in this app appears to be accessing the camera. You do not have to allow this in order to use the app.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>This application monitors your location in order to provide wayfinding to the indoor facilities.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>This application monitors your location in order to provide wayfinding to the indoor facilities.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

@@ -46,7 +46,7 @@
 	self = [super initWithFrame:frame];
 	if( self )
 	{
-		self.backgroundColor = [UIColor clearColor];
+        [self populateFromImage:nil];
 	}
 	return self;
 }
@@ -71,12 +71,20 @@
 
 - (void)populateFromImage:(SVGKImage*) im
 {
+#if SVGKIT_MAC
+    // setup layer-hosting view
+    self.layer = [[SVGKLayer alloc] init];
+    self.wantsLayer = YES;
+#endif
 	if( im == nil )
 	{
 #ifndef SVGK_DONT_USE_EMPTY_IMAGE_PLACEHOLDER
         SVGKitLogWarn(@"[%@] WARNING: you have initialized an [%@] with a blank image (nil). Possibly because you're using Storyboards or NIBs which Apple won't allow us to decorate. Make sure you assign an SVGKImage to the .image property!", [self class], [self class]);
-		
+#if SVGKIT_UIKIT
 		self.backgroundColor = [UIColor clearColor];
+#else
+        self.layer.backgroundColor = [NSColor clearColor].CGColor;
+#endif
         
         NSString* svgStringDefaultContents = @"\
         <svg width=\"100\" height=\"100\" viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"> \
@@ -89,14 +97,16 @@
 		
 		SVGKImage* defaultBlankImage = [SVGKImage imageWithSource:[SVGKSourceString sourceFromContentsOfString:svgStringDefaultContents]];
 		
-		self.backgroundColor = [UIColor cyanColor];
-		
 		((SVGKLayer*) self.layer).SVGImage = defaultBlankImage;
 #endif
 	}
 	else
 	{
+#if SVGKIT_UIKIT
 		self.backgroundColor = [UIColor clearColor];
+#else
+        self.layer.backgroundColor = [NSColor clearColor].CGColor;
+#endif
 		
 		((SVGKLayer*) self.layer).SVGImage = im;
 	}
@@ -128,6 +138,5 @@
 {
 	return[((SVGKLayer*)self.layer).endRenderTime timeIntervalSinceDate:((SVGKLayer*)self.layer).startRenderTime];
 }
-
 
 @end

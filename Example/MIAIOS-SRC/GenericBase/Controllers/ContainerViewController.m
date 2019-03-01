@@ -17,6 +17,9 @@
 #import <PureLayout/PureLayout.h>
 #import <MapsIndoors/MapsIndoors.h>
 #import "AppVariantData.h"
+#import "NSObject+ContentSizeChange.h"
+#import "AppFonts.h"
+#import "BuildingInfoCache.h"
 
 
 @interface ContainerViewController () <UISplitViewControllerDelegate>
@@ -48,14 +51,17 @@
     CGFloat h, s, b, a;
     self.view.backgroundColor = [UIColor appLaunchScreenColor];
     [self.view.backgroundColor getHue:&h saturation:&s brightness:&b alpha:&a];
-    if (b + a > 1.5f) {
+    if (b + a > 1.7f) {
         self.welcomeLabel.textColor = [UIColor appPrimaryTextColor];
         self.loadingLabel.textColor = [UIColor appPrimaryTextColor];
         self.loadingIndicator.color = [UIColor appPrimaryTextColor];
     }
     
     self.navigationController.navigationBar.backgroundColor = [UIColor appPrimaryColor];
-    
+
+    self.welcomeLabel.font = [AppFonts sharedInstance].launscreenWelcomeMessageFont;
+    self.loadingLabel.font = [AppFonts sharedInstance].launscreenLoadingMessageFont;
+
     self.welcomeLabel.text = [AppVariantData sharedAppVariantData].welcomeMessage ?: kLangSplashWelcome;
     self.loadingLabel.text = kLangSplashLoading;
     
@@ -98,6 +104,11 @@
     }];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onInvalidApiKeyNotification:) name:kMPNotificationApiKeyInvalid object:nil];
+
+    [self mp_onContentSizeChange:^(DynamicTextSize dynamicTextSize) {
+        weakSelf.welcomeLabel.font = [AppFonts sharedInstance].launscreenWelcomeMessageFont;
+        weakSelf.loadingLabel.font = [AppFonts sharedInstance].launscreenLoadingMessageFont;
+    }];
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -213,7 +224,13 @@
         if ( [AppVariantData sharedAppVariantData].googleAPIKey.length > 0 ) {
             [Global setupPositioning];
         }
+        // Hide a few things, since they are visible to the iOS accessibility system even when covered by the "main UI":
+        self.welcomeLabel.hidden = YES;
+        self.loadingLabel.hidden = YES;
+        self.loadingIndicator.hidden = YES;
     }];
+
+    [BuildingInfoCache sharedInstance]; // Preheat the building info cache.
 }
 
 - (void) splitViewController:(UISplitViewController *)svc willChangeToDisplayMode:(UISplitViewControllerDisplayMode)displayMode {

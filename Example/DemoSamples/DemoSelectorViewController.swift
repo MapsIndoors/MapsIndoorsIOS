@@ -18,10 +18,13 @@ class DemoSelectorViewController: UITableViewController {
                                                           ShowBuildingController.self,
                                                           ShowFloorController.self,
                                                           ChangeDisplaySettingController.self,
+                                                          DynamicIconsController.self,
                                                           CustomFloorSelectorController.self,
                                                           ShowMyLocationController.self,
                                                           MultipleDatasetsController.self,
-                                                          SearchMapController.self
+                                                          SearchMapController.self,
+                                                          LocationDataSourcesController.self,
+                                                          ClusteringController.self
                                                         ]
     
     // MARK: Tableview delegate and datasource

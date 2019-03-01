@@ -19,13 +19,14 @@ import MapsIndoors
  
  Create a view controller class that inherits from `UIViewController` and conforms to the `MySearchControllerDelegate` protocol
  **/
-class SearchMapController: UIViewController, MySearchControllerDelegate {
+class SearchMapController: UIViewController, MySearchControllerDelegate, GMSMapViewDelegate {
     
     /***
      Add a `GMSMapView` and a `MPMapControl` to the class
      ***/
     var map: GMSMapView? = nil
     var mapControl: MPMapControl? = nil
+    var center: MPPoint = MPPoint.init(lat: 0, lon: 0)
     //
     
     override func viewDidLoad() {
@@ -36,9 +37,9 @@ class SearchMapController: UIViewController, MySearchControllerDelegate {
          Setup map so that it shows the demo venue and initialise mapControl
          ***/
         self.map = GMSMapView.init(frame: CGRect.zero)
+        self.map?.delegate = self
         self.map?.camera = .camera(withLatitude: 57.057964, longitude: 9.9504112, zoom: 20)
         self.mapControl = MPMapControl.init(map: self.map!)
-        
         /***
          Setup a button that targets a method (`openSearch`) in your class
          ***/
@@ -64,7 +65,7 @@ class SearchMapController: UIViewController, MySearchControllerDelegate {
      * Present the new view controller
      ***/
     @objc func openSearch() {
-        let searchController = MySearchController.init()
+        let searchController = MySearchController.init(near:self.center)
         searchController.delegate = self
         self.present(searchController, animated: true, completion: nil)
     }
@@ -76,4 +77,8 @@ class SearchMapController: UIViewController, MySearchControllerDelegate {
         mapControl?.go(to: location)    
     }
     //
+    
+    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+        self.center = MPPoint.init(lat: position.target.latitude, lon: position.target.longitude)
+    }
 }
