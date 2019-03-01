@@ -33,7 +33,7 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 
 #define kMPNotificationPositionProviderReassign         @"MP_POSITION_PROVIDER_REASSIGNED"
 #define kMPNotificationApiKeyInvalid                    @"MAPSINDOORS_API_KEY_INVALID"
-#define kMPNotificationMarkerOverlapResolutionUpdate    @"MP_MARKER_OVERLAP_RESOLUTION_UPDATE"
+#define kMPNotificationAppDataUpdate                    @"MP_APP_DATA_UPDATE"
 #define kMPNotificationAppDataValueKey                  @"kMPNotificationAppDataValueKey"
 #define kMPNotificationAppDataErrorKey                  @"kMPNotificationAppDataErrorKey"
 
@@ -78,7 +78,6 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 /**
  Fetch all neccesary content to be able to run MapsIndoors in offline environments
  @param  completionHandler Callback function that fires when content has been fetched or if this process resolves in an error. Note: Does not automtically retry fetch.
- @deprecated
  */
 + (void)synchronizeContent: (mpSyncContentHandlerBlockType) completionHandler;
 
@@ -114,25 +113,11 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
  */
 + (void) checkOfflineDataAvailabilityAsync:(void(^)(void))completion;
 
-/**
- The font that MapsIndoors should use when rendering labels on the map.
- */
-@property (class) UIFont* mapLabelFont;
-
-/**
- The color that MapsIndoors should use when rendering labels on the map.
- */
-@property (class) UIColor* mapLabelColor;
 
 /**
  The position provider that MapsIndoors should use when user location services are needed.
  */
 @property (class) id<MPPositionProvider> positionProvider;
-
-/**
- Default map icon size
- */
-@property(class) CGSize mapIconSize;
 
 /**
  The image provider that MapsIndoors should use when image ressources are needed. MapsIndoors will provide a default if this property is nil.
@@ -149,27 +134,12 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 */
 @property (class, readonly) NSArray<id<MPLocationSource>>* sources;
 
-/**
- Set the font that MapsIndoors should use when rendering labels on the map, and enable or disable white halo for improved visibility.
- */
-+ (void)setMapLabelFont:(UIFont *)mapLabelFont showHalo: (BOOL) showHalo;
-
-/**
- Returns whether halo is enabled for map labels.
- */
-+ (BOOL)isMapLabelHaloEnabled;
 
 /**
  Returns whether the current API key is valid or not.
  */
 + (BOOL) isAPIKeyValid;
 
-/**
- Controls whether overlapping map markers can be resolved by grouping some of the overlapping items.
- Default value is NO;
- When set to YES, the default behavior is to group MPLocation's of the same type.
- */
-@property(class) BOOL   locationClusteringEnabled;
 
 
 @end

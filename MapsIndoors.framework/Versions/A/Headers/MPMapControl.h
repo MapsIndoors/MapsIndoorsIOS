@@ -214,6 +214,38 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 @property (nonatomic, readonly) BOOL    mapContentReady;
 
 /**
+ The font that MapsIndoors should use when rendering labels on the map.
+ */
+@property (class, nullable) UIFont* mapLabelFont;
+
+/**
+ The color that MapsIndoors should use when rendering labels on the map.
+ */
+@property (class, nullable) UIColor* mapLabelColor;
+
+/**
+ Default map icon size
+ */
+@property(class) CGSize mapIconSize;
+
+/**
+ Returns whether halo is enabled for map labels.
+ */
++ (BOOL)isMapLabelHaloEnabled;
+
+/**
+ Set the font that MapsIndoors should use when rendering labels on the map, and enable or disable white halo for improved visibility.
+ */
++ (void)setMapLabelFont:(UIFont * _Nullable)mapLabelFont showHalo: (BOOL) showHalo;
+
+/**
+ Controls whether overlapping map markers can be resolved by grouping some of the overlapping items.
+ Default value is NO;
+ When set to YES, the default behavior is to group MPLocation's of the same type.
+ */
+@property(class) BOOL   locationClusteringEnabled;
+
+/**
   Initialize a MPMapControl object with given map.
   @param map The map to build the map control on.
  */
