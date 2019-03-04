@@ -490,8 +490,10 @@ static NSString* cellIdentifier = @"LocationCell";
     } else if ([object.type isEqualToString:@"google-place"]) {
         
         cell.imageView.image = _placesIcon;
-        if ( object.venue.length ) {
-            cell.subTextLabel.text = object.venue;
+
+        NSString*   subText = object.fields[@"placesSecondaryText"].value;
+        if ( subText.length ) {
+            cell.subTextLabel.text = subText;
         } else {
             [cell centerTextLabelVertically];
         }
@@ -525,12 +527,19 @@ static NSString* cellIdentifier = @"LocationCell";
     }
     
     if ([self.selectedLocation.type isEqualToString:@"google-place"]) {
-        
-        [self.placesClient placeDetailsFromPlaceId:self.selectedLocation.locationId callback:^(MPGooglePlacesClient *placesClient, MPGooglePlacesResult result, NSDictionary *placeDict, NSError *error) {
+
+        NSString*   placesId = self.selectedLocation.fields[@"placeID"].value;
+
+        [self.placesClient placeDetailsFromPlaceId:placesId callback:^(MPGooglePlacesClient *placesClient, MPGooglePlacesResult result, NSDictionary *placeDict, NSError *error) {
             
             if ( error == nil ) {
                 MPGooglePlaceDetails*   placeDetails = [MPGooglePlaceDetails newWithDict:placeDict];
-                self.selectedLocation = [[MPLocation alloc] initWithPoint:[[MPPoint alloc] initWithLat:placeDetails.location.latitude lon:placeDetails.location.longitude] andName:self.selectedLocation.name];
+
+                MPLocationUpdate*   locationBuilder = [MPLocationUpdate updateWithLocation:self.selectedLocation];
+                locationBuilder.name = self.selectedLocation.name;
+                locationBuilder.position = placeDetails.location;
+                self.selectedLocation = locationBuilder.location;
+
                 if (self.placePickerDelegate) {
                     [self.placePickerDelegate onLocationSelected:self.selectedLocation];
                 }
@@ -615,15 +624,15 @@ static NSString* cellIdentifier = @"LocationCell";
                 
                 for (NSDictionary* placeDict in placesPredictions) {
                     MPGooglePlacesAutoCompletePrediction*   placeDetails = [MPGooglePlacesAutoCompletePrediction newWithDict:placeDict];
-                    MPLocation*             loc = [MPLocation new];
-                    //TODO use new builder
-//                    loc.name = [placeDetails.attributedPrimaryText string];
-//                    loc.floor = 0;
-//                    loc.building = @"";
-//                    loc.type = @"google-place";
-//                    loc.locationId = placeDetails.placeID;
-//                    loc.venue = [placeDetails.attributedSecondaryText string];
-                    [_places addObject:loc];
+                    MPLocationUpdate*       locationBuilder = [MPLocationUpdate new];
+                    locationBuilder.name = [placeDetails.attributedPrimaryText string];
+                    locationBuilder.floor = 0;
+                    locationBuilder.type = @"google-place";
+                    [locationBuilder addPropertyValue:placeDetails.placeID forKey:@"placeID"];
+                    [locationBuilder addPropertyValue:[placeDetails.attributedSecondaryText string] forKey:@"placesSecondaryText"];
+
+                    MPLocation* googleLoc = locationBuilder.location;
+                    [_places addObject:googleLoc];
                 }
             }
             

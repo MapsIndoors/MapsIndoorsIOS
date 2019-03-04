@@ -42,6 +42,7 @@ class DemosUITests: XCTestCase {
         tablesQuery.staticTexts["Show leg 0, all steps"].tap()
         wait(app)
         app.navigationBars.buttons.firstMatch.tap()
+        wait(app)
         app.navigationBars.buttons.firstMatch.tap()
         
         tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Show Venue Demo"]/*[[".cells.staticTexts[\" Show Venue Demo\"]",".staticTexts[\" Show Venue Demo\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
