@@ -42,14 +42,14 @@ class MapsIndoors_App_UITests: XCTestCase {
         let indexOfSolutionIdKey = app.launchArguments.index(of: "-solutionId")
         if indexOfSolutionIdKey != nil {
             self.solutionId = app.launchArguments[indexOfSolutionIdKey!+1]
-            MapsIndoors.provideSolutionId(self.solutionId!)
+            MapsIndoors.provideAPIKey(self.solutionId, googleAPIKey: nil)
         } else {
             let bundle = Bundle.init(for: MapsIndoors_App_UITests.self)
             if let fileUrl = bundle.url(forResource: "mapsindoors", withExtension: "plist"),
                 let data = try? Data(contentsOf: fileUrl) {
                 if let result = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [String: Any] { // [String: Any] which ever it is
                     self.solutionId = result!["MapsIndoorsAPIKey"] as? String
-                    MapsIndoors.provideSolutionId(self.solutionId!)
+                    MapsIndoors.provideAPIKey(self.solutionId, googleAPIKey: nil)
                 }
             }
         }
@@ -57,8 +57,7 @@ class MapsIndoors_App_UITests: XCTestCase {
         let exp = expectation(description: "Expect test complete")
         
         
-        
-        MapsIndoors.fetchData { (error) in
+        MapsIndoors.synchronizeContent { (error) in
             
             MPVenueProvider.init().getVenuesWithCompletion({ (venuesColl, vErr) in
                 
