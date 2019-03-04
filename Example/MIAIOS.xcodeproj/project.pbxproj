@@ -147,7 +147,6 @@
 		30E26F4D212C127200596D86 /* DynamicIconsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E26F43212C127200596D86 /* DynamicIconsController.swift */; };
 		30F625012178C4EF00811C63 /* BuildingInfoCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 30F624F72178C4EF00811C63 /* BuildingInfoCache.m */; };
 		A25BDFD01EF3B0FD002681B9 /* MIAIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25BDFCF1EF3B0FD002681B9 /* MIAIOSUITests.swift */; };
-		A25BE14F1EF3DA00002681B9 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25BE14E1EF3DA00002681B9 /* SnapshotHelper.swift */; };
 		A2FC5D96222D507000617468 /* LocationDataSourcesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FC5D8F222D507000617468 /* LocationDataSourcesController.swift */; };
 		A2FC5D97222D507000617468 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = A2FC5D90222D507000617468 /* user.png */; };
 		A2FC5D98222D507000617468 /* man2.png in Resources */ = {isa = PBXBuildFile; fileRef = A2FC5D91222D507000617468 /* man2.png */; };
@@ -415,7 +414,6 @@
 		A25BE0AA1EF3B428002681B9 /* UIColor+AppColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AppColor.m"; sourceTree = "<group>"; };
 		A25BE0AB1EF3B428002681B9 /* UIFont+SystemFontOverride.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+SystemFontOverride.h"; sourceTree = "<group>"; };
 		A25BE0AC1EF3B428002681B9 /* UIFont+SystemFontOverride.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+SystemFontOverride.m"; sourceTree = "<group>"; };
-		A25BE14E1EF3DA00002681B9 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = ../fastlane/SnapshotHelper.swift; sourceTree = "<group>"; };
 		A25F6BBF20C182D80075C841 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		A25F6BC120C182E10075C841 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A25F6BC320C182E90075C841 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -806,7 +804,6 @@
 			isa = PBXGroup;
 			children = (
 				A25BDFCF1EF3B0FD002681B9 /* MIAIOSUITests.swift */,
-				A25BE14E1EF3DA00002681B9 /* SnapshotHelper.swift */,
 				A25BDFD11EF3B0FD002681B9 /* Info.plist */,
 			);
 			path = UITests;
@@ -1221,69 +1218,16 @@
 						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 					};
-					303784952064F4F8006A910B = {
-						CreatedOnToolsVersion = 9.2;
-						DevelopmentTeam = A8V6656PYZ;
-						ProvisioningStyle = Automatic;
-					};
-					3049CB892100CA8500DCC1E4 = {
-						DevelopmentTeam = PN55M74J22;
-					};
-					306C5E7E220AF06600267918 = {
-						DevelopmentTeam = A8V6656PYZ;
-						ProvisioningStyle = Automatic;
-					};
-					30781351201F295D0081822C = {
-						DevelopmentTeam = J52ZK485XC;
-						ProvisioningStyle = Manual;
-					};
 					30D17D1E20765BD400A6D666 = {
 						CreatedOnToolsVersion = 9.2;
 						DevelopmentTeam = A8V6656PYZ;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 30300A4B20739FA800BC24BE;
 					};
-					30FB4BBF1F4C4E310004D23F = {
-						DevelopmentTeam = JM4VAH5VQN;
-					};
-					A2191F302201A7390055B4D1 = {
-						DevelopmentTeam = A8V6656PYZ;
-						ProvisioningStyle = Automatic;
-					};
-					A24D39C11FB1A807005F4F7D = {
-						DevelopmentTeam = A8V6656PYZ;
-						ProvisioningStyle = Automatic;
-					};
 					A25BDFCA1EF3B0FD002681B9 = {
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 302B0BB7206539F5009C7BF9;
-					};
-					A25F6B2220C16F280075C841 = {
-						DevelopmentTeam = A8V6656PYZ;
-						ProvisioningStyle = Automatic;
-					};
-					A2900C331F8CBB8A0008C556 = {
-						CreatedOnToolsVersion = 9.0;
-						DevelopmentTeam = A8V6656PYZ;
-						ProvisioningStyle = Automatic;
-						TestTargetID = A25BDFAB1EF3B0FD002681B9;
-					};
-					A29684661F8E1A78008B1942 = {
-						DevelopmentTeam = A8V6656PYZ;
-						ProvisioningStyle = Automatic;
-					};
-					A29849381F14A94F000C6D22 = {
-						DevelopmentTeam = Y9ED767H7S;
-						ProvisioningStyle = Automatic;
-					};
-					A2BAE57A1F39D60000A1ECC2 = {
-						DevelopmentTeam = AYB8JQ786C;
-						ProvisioningStyle = Automatic;
-					};
-					A2EFC1371EF801BF00902AE4 = {
-						DevelopmentTeam = A8V6656PYZ;
-						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -1930,7 +1874,6 @@
 				A25BDFD01EF3B0FD002681B9 /* MIAIOSUITests.swift in Sources */,
 				30E26F3C212C119900596D86 /* ShowRouteOnMapController.swift in Sources */,
 				30E26F48212C127200596D86 /* DynamicIcon.swift in Sources */,
-				A25BE14F1EF3DA00002681B9 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
