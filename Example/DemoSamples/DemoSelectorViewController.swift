@@ -21,7 +21,8 @@ class DemoSelectorViewController: UITableViewController {
                                                           CustomFloorSelectorController.self,
                                                           ShowMyLocationController.self,
                                                           MultipleDatasetsController.self,
-                                                          SearchMapController.self
+                                                          SearchMapController.self,
+                                                          OfflineController.self
                                                         ]
     
     // MARK: Tableview delegate and datasource

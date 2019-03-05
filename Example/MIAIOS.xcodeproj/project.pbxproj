@@ -137,6 +137,7 @@
 		A25BE14C1EF3D48A002681B9 /* solution.txt in Resources */ = {isa = PBXBuildFile; fileRef = A25BE14A1EF3D48A002681B9 /* solution.txt */; };
 		A25BE14D1EF3D48A002681B9 /* solutions.txt in Resources */ = {isa = PBXBuildFile; fileRef = A25BE14B1EF3D48A002681B9 /* solutions.txt */; };
 		A25BE14F1EF3DA00002681B9 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25BE14E1EF3DA00002681B9 /* SnapshotHelper.swift */; };
+		A2BBBAA9222EAA6100C863DA /* OfflineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BBBAA8222EAA6100C863DA /* OfflineController.swift */; };
 		D51E42A4118804592EC54A5A /* Pods_MIAIOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B9DC35C6B7137D7621BDEB /* Pods_MIAIOSUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -403,6 +404,7 @@
 		A29849DE1F14C2BD000C6D22 /* MPAssertionHandlerLogAll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPAssertionHandlerLogAll.h; sourceTree = "<group>"; };
 		A29849DF1F14C2BD000C6D22 /* MPAssertionHandlerLogAll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPAssertionHandlerLogAll.m; sourceTree = "<group>"; };
 		A2A67B471F8E3BA900915083 /* MainMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
+		A2BBBAA8222EAA6100C863DA /* OfflineController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineController.swift; sourceTree = "<group>"; };
 		A2D03C452018854500086830 /* MPPositionCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPPositionCalculator.m; sourceTree = "<group>"; };
 		A2D03C462018854500086830 /* MPPositionCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPPositionCalculator.h; sourceTree = "<group>"; };
 		A2D03C4F2018874200086830 /* MPPointXY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPPointXY.h; sourceTree = "<group>"; };
@@ -489,6 +491,7 @@
 		30300A5E20739FEC00BC24BE /* DemoSamples */ = {
 			isa = PBXGroup;
 			children = (
+				A2BBBAA7222EAA6100C863DA /* Offline */,
 				30300A8020739FEC00BC24BE /* AppDelegate.swift */,
 				30300A7D20739FEC00BC24BE /* DemoSelectorViewController.swift */,
 				30300A6820739FEC00BC24BE /* Assets.xcassets */,
@@ -987,6 +990,14 @@
 				A2A67B471F8E3BA900915083 /* MainMenu.storyboard */,
 			);
 			path = "Main Menu";
+			sourceTree = "<group>";
+		};
+		A2BBBAA7222EAA6100C863DA /* Offline */ = {
+			isa = PBXGroup;
+			children = (
+				A2BBBAA8222EAA6100C863DA /* OfflineController.swift */,
+			);
+			path = Offline;
 			sourceTree = "<group>";
 		};
 		D6F23D8AF087E5FF0CB1B030 /* Frameworks */ = {
@@ -1679,6 +1690,7 @@
 				30300A9E20739FEC00BC24BE /* ShowRouteController.swift in Sources */,
 				30300A9320739FEC00BC24BE /* LocationDetailsController.swift in Sources */,
 				30300A9620739FEC00BC24BE /* MultipleDatasetsController.swift in Sources */,
+				A2BBBAA9222EAA6100C863DA /* OfflineController.swift in Sources */,
 				30300A9920739FEC00BC24BE /* ShowMultipleLocationsController.swift in Sources */,
 				30300A8B20739FEC00BC24BE /* ShowMyLocationController.swift in Sources */,
 				30300A9D20739FEC00BC24BE /* ShowBuildingController.swift in Sources */,
