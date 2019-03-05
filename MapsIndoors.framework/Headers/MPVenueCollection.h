@@ -23,7 +23,7 @@
 /**
  The array of venues in this collection.
  */
-@property (nonatomic, strong, nullable) NSArray<MPVenue>* venues;
+@property (nonatomic, strong, nullable) NSArray<MPVenue*><MPVenue>* venues;
 
 - (nullable MPBuilding*) getBuilding:(nullable NSString*)buildingId;
 
