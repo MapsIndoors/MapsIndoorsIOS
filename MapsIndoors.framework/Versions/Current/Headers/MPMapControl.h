@@ -182,6 +182,10 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
  */
 @property (nonatomic, nullable) NSNumber* currentFloor;
 /**
+ The map style.
+ */
+@property (nonatomic, nullable) MPMapStyle* mapStyle;
+/**
  Whether or not to hide all map locations. Default is NO
  */
 @property (nonatomic) BOOL mapLocationsHidden;
