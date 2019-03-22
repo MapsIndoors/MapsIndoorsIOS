@@ -7,15 +7,8 @@
 //
 
 #import "MPLocationCell.h"
-#import "UIColor+AppColor.h"
-@import VCMaterialDesignIcons;
-
-
-@interface MPLocationCell ()
-
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textLabelVerticalOffsetConstraint;
-
-@end
+#import "NSObject+ContentSizeChange.h"
+#import "AppFonts.h"
 
 
 @implementation MPLocationCell
@@ -24,20 +17,27 @@
 @synthesize textLabel = _textLabel;
 @synthesize subTextLabel = _subTextLabel;
 
-- (void)didMoveToSuperview {
-    _subTextLabel.font = [UIFont systemFontOfSize:14];
+- (void) awakeFromNib {
+
+    [super awakeFromNib];
+
+    self.textLabel.font = [AppFonts sharedInstance].listItemFont;
+    self.subTextLabel.font = [AppFonts sharedInstance].listItemSubTextFont;
+
+    [self mp_onContentSizeChange:^(DynamicTextSize dynamicTextSize) {
+        self.textLabel.font = [AppFonts sharedInstance].listItemFont;
+        self.subTextLabel.font = [AppFonts sharedInstance].listItemSubTextFont;
+    }];
 }
 
 - (void) prepareForReuse {
     
     [super prepareForReuse];
-    self.textLabelVerticalOffsetConstraint.constant = -8;
     self.subTextLabel.hidden = NO;
 }
 
 - (void) centerTextLabelVertically {
     
-    self.textLabelVerticalOffsetConstraint.constant = 0;
     self.subTextLabel.hidden = YES;
 }
 

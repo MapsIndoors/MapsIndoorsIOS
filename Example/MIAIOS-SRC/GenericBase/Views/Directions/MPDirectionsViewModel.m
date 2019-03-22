@@ -22,8 +22,6 @@
 @property (nonatomic, strong) MPRoute*                      route;
 @property (nonatomic, strong) RoutingData*                  routingData;
 @property (nonatomic, strong) NSArray<SectionModel*>*       models;
-@property (nonatomic, strong) NSString*                     originType;
-@property (nonatomic, strong) NSString*                     destinationType;
 
 @property (nonatomic) NSUInteger                            numberOfActionPoints;
 
@@ -37,25 +35,19 @@
 + (instancetype) newWithRoute:(MPRoute*)route
                   routingData:(RoutingData*)routingData
                        models:(NSArray<SectionModel*>*)models
-                   originType:(NSString*)originType
-              destinationType:(NSString*)destinationType
 {
-    return [[MPDirectionsViewModel alloc] initWithRoute:route routingData:routingData models:models originType:originType destinationType:destinationType];
+    return [[MPDirectionsViewModel alloc] initWithRoute:route routingData:routingData models:models];
 }
 
 - (instancetype) initWithRoute:(MPRoute*)route
                    routingData:(RoutingData*)routingData
                         models:(NSArray<SectionModel*>*)models
-                    originType:(NSString*)originType
-               destinationType:(NSString*)destinationType
 {
     self = [super init];
     if ( self ) {
         _route = route;
         _routingData = routingData;
         _models = models;
-        _originType = originType;
-        _destinationType = destinationType;
         _numberOfActionPoints = models.count + 1;
         _routeSegmentIndexShowingDirections = NSNotFound;
         
@@ -495,6 +487,117 @@
     }];
     
     return result;
+}
+
+#pragma mark - Overall route info
+
+- (NSArray<NSNumber*>*) travelModes {
+    
+    NSMutableSet*   modes = [NSMutableSet set];
+
+    for ( int ix=0; ix < self.models.count; ++ix ) {
+        
+        SectionModel*       section     = self.models[ix];
+        MPRouteLeg*         currentLeg  = section.leg;
+        MPRouteStep*        currentStep = section.step;
+        TRAVEL_MODE         effectiveTravelMode = currentStep ? [currentStep.travel_mode as_TRAVEL_MODE] : section.travelMode;
+
+        if ( (section.legType == MPRouteLegTypeMapsIndoors) && ([@"OutsideOnVenue" isEqualToString:currentStep.routeContext] == NO) ) {
+            currentStep = currentLeg.steps.firstObject;
+            effectiveTravelMode = [currentStep.travel_mode as_TRAVEL_MODE];
+        }
+        
+        [modes addObject:@(effectiveTravelMode)];
+
+    }
+    return [modes allObjects];
+}
+
+
+#pragma mark - Accessibility
+
+- (NSString*) accessibilityDescriptionForTravelModeAtRouteSectionIndex:(NSUInteger)index {
+    
+    NSString*  s;
+    
+    if ( index < self.models.count ) {
+        
+        SectionModel*   sectionModel = self.models[index];
+        MPRouteLeg*     currentLeg = sectionModel.leg;
+        MPRouteStep*    currentStep = sectionModel.step;
+        TRAVEL_MODE     effectiveTravelMode = currentStep ? [currentStep.travel_mode as_TRAVEL_MODE] : sectionModel.travelMode;
+        NSString*       travelModeString;
+        
+        if ( (sectionModel.legType == MPRouteLegTypeMapsIndoors) && ([@"OutsideOnVenue" isEqualToString:currentStep.routeContext] == NO) ) {
+            currentStep = currentLeg.steps.firstObject;
+            effectiveTravelMode = [currentStep.travel_mode as_TRAVEL_MODE];
+        }
+
+        switch ( effectiveTravelMode ) {
+            case TRANSIT:
+                s = [NSString stringWithFormat: kLangRouteSectionDescrPublicTransportAccLabel
+                                              , currentStep.transit_details.num_stops
+                                              , currentStep.transit_details.headsign
+                                              , currentStep.transit_details.line.short_name
+                                              ];
+                break;
+
+            case WALK:
+                travelModeString = kLangRouteSectionDescrWalkAccLabel;
+                break;
+
+            case BIKE:
+                travelModeString = kLangRouteSectionDescrCycleccLabel;
+                break;
+
+            case DRIVE:
+                travelModeString = kLangRouteSectionDescrDriveAccLabel;
+                break;
+        }
+        
+        if ( [currentStep.travel_mode as_TRAVEL_MODE] != TRANSIT ) {
+            
+            double  distance, duration;
+            
+            if ( sectionModel.legType == MPRouteLegTypeMapsIndoors ) {
+                distance = [currentLeg.distance doubleValue];
+                duration = [currentLeg.duration doubleValue];
+            } else {
+                distance = sectionModel.travelMode != TRANSIT ? [currentLeg.distance doubleValue] : [currentStep.distance doubleValue];
+                duration = sectionModel.travelMode != TRANSIT ? [currentLeg.duration doubleValue] : [currentStep.duration doubleValue];
+            }
+            
+            s = [NSString stringWithFormat:@"%@ %@", travelModeString, [Global getDistanceString:distance]];
+        }
+    }
+    
+    return [s copy];
+}
+
+- (NSString*) accessibilityDescriptionForRouteSectionAtIndex:(NSUInteger)index {
+    
+    NSMutableString*    s = [NSMutableString string];
+    NSString*           actionPointText = [self textForActionPointAtIndex:index];
+    NSString*           nextActionPointText = ((index+1) < self.numberOfActionPoints) ? [self textForActionPointAtIndex:index+1] : nil;
+
+    if ( index == 0 ) {
+        [s appendFormat:kLangStartRouteFromAccLabel, actionPointText];
+    } else {
+        [s appendFormat:kLangContinueRouteFromAccLabel, actionPointText];
+    }
+    
+    if ( index < (self.models.count -1) ) {
+        [s appendFormat:kLangContinueRouteAgainstAccLabel, nextActionPointText];
+    } else {
+        [s appendFormat:kLangContinueRouteAgainstDestAccLabel, nextActionPointText];
+    }
+    
+    NSString*   travelDescr = [self accessibilityDescriptionForTravelModeAtRouteSectionIndex:index];
+    if ( travelDescr.length) {
+        [s appendFormat:@"%@, ", travelDescr];
+    }
+    
+    return [s copy];
 }
 
 @end

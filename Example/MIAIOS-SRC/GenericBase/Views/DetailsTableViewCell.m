@@ -8,6 +8,8 @@
 
 #import "DetailsTableViewCell.h"
 #import "UIColor+AppColor.h"
+#import "AppFonts.h"
+#import "NSObject+ContentSizeChange.h"
 
 
 @interface DetailsTableViewCell ()
@@ -22,6 +24,13 @@
 
 
 @implementation DetailsTableViewCell
+
+- (void)awakeFromNib {
+
+    [super awakeFromNib];
+
+    self.detailLabel.textColor = [UIColor appPrimaryTextColor];
+}
 
 - (void) prepareForReuse {
     [super prepareForReuse];
@@ -40,7 +49,12 @@
     self.detailImageView.image = image;
     self.detailImageView.contentMode = UIViewContentModeCenter;
     self.detailImageViewWidthConstraint.constant = image ? 54 : 0;
-    
+    self.detailLabel.font = [AppFonts sharedInstance].listItemFont;
+
+    if ( [title isKindOfClass:[NSAttributedString class]] ) {
+        title = [(NSAttributedString*)title string];
+    }
+
     NSMutableAttributedString* s = [NSMutableAttributedString new];
     
     if ( [title isKindOfClass:[NSAttributedString class]] ) {
@@ -53,7 +67,7 @@
         
         subTitle = [NSString stringWithFormat:@"\n%@", subTitle];
         
-        NSDictionary*   attrs = @{ NSFontAttributeName:[UIFont boldSystemFontOfSize:13], NSForegroundColorAttributeName:[UIColor grayColor] };
+        NSDictionary*   attrs = @{ NSFontAttributeName:[AppFonts sharedInstance].listItemSubTextFont, NSForegroundColorAttributeName:[UIColor appSecondaryTextColor] };
         
         NSMutableAttributedString*  attributedSubTitle = [[NSMutableAttributedString alloc] initWithString:subTitle];
         [attributedSubTitle setAttributes:attrs range:NSMakeRange(0, subTitle.length)];
@@ -83,7 +97,7 @@
         [s appendAttributedString:[[NSAttributedString alloc] initWithString:title]];
     }
 
-    self.detailLabel.font = [UIFont boldSystemFontOfSize:16];
+    self.detailLabel.font = [AppFonts sharedInstance].listItemFont;
     self.detailLabel.textColor = titleColor;
     self.detailLabel.attributedText = [s copy];
 }

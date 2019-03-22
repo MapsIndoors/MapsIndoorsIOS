@@ -3,7 +3,7 @@
 //  MapsIndoors App UITests
 //
 //  Created by Daniel Nielsen on 23/05/2017.
-//  Copyright © 2017-2018 MapsPeople A/S. All rights reserved.
+//  Copyright © 2017 MapsPeople A/S. All rights reserved.
 //
 
 import XCTest
@@ -20,141 +20,126 @@ class MapsIndoors_App_UITests: XCTestCase {
         
         setupSnapshot(app)
         
-        do {
-            let bundle = Bundle.init(for: MapsIndoors_App_UITests.self)
-            self.solutionId = try String(contentsOfFile: bundle.path(forResource: "solution", ofType: "txt")!).replacingOccurrences(of: "\n", with: "")
-            app.launchEnvironment = ["MI_SOLUTION_ID": self.solutionId!]
-            MapsIndoors.provideAPIKey(self.solutionId!, googleAPIKey: "")
-        } catch {
-        }
-        
         continueAfterFailure = false
-        
+       
         app.launch()
+        
+        
     }
     
-    func testApp() {
+    override func tearDown() {
+        super.tearDown()
+    }
+    
+    func testSolution() {
+        let app = XCUIApplication()
+        
+        _ = addUIInterruptionMonitor(withDescription: "Any Dialog") { (alert) -> Bool in
+            alert.buttons.element(boundBy: alert.buttons.count-1).tap()
+            return true
+        }
+        
+        let indexOfSolutionIdKey = app.launchArguments.index(of: "-solutionId")
+        if indexOfSolutionIdKey != nil {
+            self.solutionId = app.launchArguments[indexOfSolutionIdKey!+1]
+            MapsIndoors.provideSolutionId(self.solutionId!)
+        } else {
+            let bundle = Bundle.init(for: MapsIndoors_App_UITests.self)
+            if let fileUrl = bundle.url(forResource: "mapsindoors", withExtension: "plist"),
+                let data = try? Data(contentsOf: fileUrl) {
+                if let result = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [String: Any] { // [String: Any] which ever it is
+                    self.solutionId = result!["MapsIndoorsAPIKey"] as? String
+                    MapsIndoors.provideSolutionId(self.solutionId!)
+                }
+            }
+        }
         
         let exp = expectation(description: "Expect test complete")
         
-        var ensuredSingleRun = false;
         
-        MapsIndoors.synchronizeContent( { (offlineErr) in
+        
+        MapsIndoors.fetchData { (error) in
             
-            MPVenueProvider().getVenuesWithCompletion( { (venuesColl, vErr) in
+            MPVenueProvider.init().getVenuesWithCompletion({ (venuesColl, vErr) in
                 
-                MPLocationsProvider().getLocationsWithCompletion( { (locationData, locError) in
-                    let venueA = (venuesColl!.venues!.first as! MPVenue).venueKey!
-                    let venueB = (venuesColl!.venues!.last as! MPVenue).venueKey!
-
-                    let origin:MPLocation! = locationData!.list!.filter({ (loc) -> Bool in
-                        loc.venue!.compare(venueA, options: .caseInsensitive, range: nil, locale: nil) == .orderedSame
-                    }).last
+                assert(venuesColl!.venues!.count > 0 && vErr == nil)
+                
+                MPLocationsProvider.init().getLocationsWithCompletion({ (locations, locError) in
                     
-                    let destination:MPLocation! = locationData!.list!.filter({ (loc) -> Bool in
-                        loc.venue!.compare(venueB, options: .caseInsensitive, range: nil, locale: nil) == .orderedSame
+                    assert((locations!.list?.count)! > 0 && locError == nil)
+                    
+                    let venues:[MPVenue] = venuesColl!.venues as! [MPVenue]
+                    
+                    let from:MPLocation? = locations?.list?.filter({ (loc) -> Bool in
+                        venues.first!.venueKey?.compare(loc.venue!.lowercased()) == .orderedSame
                     }).first
                     
-                    MPCategoriesProvider().getCategoriesWithCompletion( { (categories, catError) in
+                    let to:MPLocation? = locations?.list?.filter({ (loc) -> Bool in
+                        venues.last!.venueKey?.compare(loc.venue!.lowercased()) == .orderedSame
+                    }).last
                     
-                        if (ensuredSingleRun) {
-                            return;
-                        } else {
-                            ensuredSingleRun = true;
+                    DispatchQueue.main.async {
+                        
+                        snapshot("0-Start-\(self.solutionId!)")
+                        
+                        if (app.tables.count == 0) {
+                            app.navigationBars.element(boundBy: 0).buttons.element(boundBy: 0).tap()
+                        }
+                        if (app.searchFields.count == 0) {
+                            app.tables.cells.element(boundBy: 0).tap()
                         }
                         
-                        DispatchQueue.main.async {
-                            
-                            let app = XCUIApplication()
-                            
-                            snapshot("0-Start-\(self.solutionId!)")
-                            
-                            print( "app.tables.count = \(app.tables.count)" )
-                            if app.tables.count == 0 {
-                                app.navigationBars.element(boundBy: 0).children(matching: .button).element.tap()
-                            } else {
-                                app.tables.cells.element(boundBy: 0).tap()
-                            }
-                            
-                            app/*@START_MENU_TOKEN@*/.navigationBars["Select Venue"]/*[[".otherElements[\"dismiss popup\"].navigationBars[\"Select Venue\"]",".otherElements[\"PopoverDismissRegion\"].navigationBars[\"Select Venue\"]",".navigationBars[\"Select Venue\"]"],[[[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.buttons["venue_button_id"].tap()
-                            
-                            snapshot("1-Venue-Selection-\(self.solutionId!)")
-                            
-                            app.tables.cells.element(boundBy: 0).tap()
-                            
-                            snapshot("2-Menu-\(self.solutionId!)")
-                            
-                            app.searchFields.element(boundBy: 0).tap()
-                            
-                            app.searchFields.element(boundBy: 0).typeText(destination.name!)
-                            
-                            snapshot("3-Search-\(self.solutionId!)")
-                            
-                            app.tables.cells.element(boundBy: 0).tap()
-                            
-                            snapshot("4-Details-\(self.solutionId!)")
-                            
+                        snapshot("1-Menu-\(self.solutionId!)")
+                        
+                        app.searchFields.element(boundBy: 0).tap()
+                        app.searchFields.element(boundBy: 0).typeText(from!.name!)
+                        
+                        snapshot("2-Search-\(self.solutionId!)")
+                        
+                        app.tables.cells.element(boundBy: 0).tap()
+                        
+                        snapshot("3-Details-\(self.solutionId!)")
+                        
+                        app.buttons["Directions"].tap()
+                        
+                        snapshot("4-Directions-Init\(self.solutionId!)")
+                        
+                        let scrollViewsQuery = app.scrollViews
+                        app/*@START_MENU_TOKEN@*/.buttons["chooseStartingPointButton"]/*[[".otherElements[\"dismiss popup\"]",".buttons[\"Choose starting point\"]",".buttons[\"chooseStartingPointButton\"]",".otherElements[\"PopoverDismissRegion\"]"],[[[-1,2],[-1,1],[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
+                        
+                        app.searchFields.element(boundBy: 0).typeText(to!.name!)
+                        
+                        snapshot("5-Choose-Origin-\(self.solutionId!)")
+                        
+                        app.tables.cells.element(boundBy: 0).tap()
+                        
+                        snapshot("6-Directions-Route-\(self.solutionId!)")
+                        
+                        //scrollViewsQuery.otherElements.containing(.image, identifier:"empty_icon.png").children(matching: .button).element(boundBy: 1).tap()
+                        app/*@START_MENU_TOKEN@*/.buttons["switchDirButton"]/*[[".otherElements[\"dismiss popup\"].buttons[\"switchDirButton\"]",".otherElements[\"PopoverDismissRegion\"].buttons[\"switchDirButton\"]",".buttons[\"switchDirButton\"]"],[[[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+                        
+                        snapshot("7-Directions-Inverted-\(self.solutionId!)")
+                        
+                        ///Start horizontal directions
+                        if (app.buttons["Show on map"].exists) {
                             app.buttons["Show on map"].tap()
-                            
-                            snapshot("5-Show-On-Map-\(self.solutionId!)")
-                            
-                            app.navigationBars.element(boundBy: 0).children(matching: .button).element(boundBy: 0).tap()
-                            
-                            app.buttons["Directions"].tap()
-                            
-                            snapshot("6-Directions-Init\(self.solutionId!)")
-                            
-                            let scrollViewsQuery = app.scrollViews
-                            let sv = scrollViewsQuery.element(boundBy: 0)
-                            sv.swipeDown()
-                            let elementsQuery = scrollViewsQuery.otherElements
-                            let btn = elementsQuery.buttons["chooseStartingPointButton"]
-                            btn.tap()
-
-                            app.navigationBars["NoCancelButtonSearch"].searchFields["Search"].typeText(origin.name!)
-                            
-                            snapshot("7-Choose-Origin-\(self.solutionId!)")
-                            
-                            app.tables.cells.element(boundBy: 0).tap()
-                            
-                            snapshot("8-Directions-Route-\(self.solutionId!)")
-                            
-                            scrollViewsQuery.otherElements.containing(.image, identifier:"empty_icon.png").children(matching: .button).element(boundBy: 1).tap()
-                            
-                            snapshot("9-Directions-Inverted-\(self.solutionId!)")
-                            
-                            if (app.otherElements.staticTexts["▼ Directions"].exists) {
-                                app.otherElements.staticTexts["▼ Directions"].tap()
-                            }
-                            
-                            app.buttons["Show on map"].tap()
-                            
-                            snapshot("10-Directions-On-Map\(self.solutionId!)")
-                            
-                            let icChevronRightButton = app.buttons["ic chevron right"]
-                            icChevronRightButton.tap()
-                            icChevronRightButton.tap()
-                            icChevronRightButton.tap()
-                            
-                            exp.fulfill()
+                            snapshot("8-Directions-On-Map-\(self.solutionId!)")
                         }
-                    })
+                        
+                        let icChevronRightButton = app.buttons["Next"]
+                        if (icChevronRightButton.exists) {
+                            icChevronRightButton.tap()
+                            icChevronRightButton.tap()
+                            icChevronRightButton.tap()
+                            snapshot("9-Directions-On-Map-\(self.solutionId!)")
+                        }
+                        
+                        exp.fulfill()
+                    }
                 })
             })
-        })
-        
-        waitForExpectations(timeout: 3000, handler: nil)
-    }
-    
-    func wait(for duration: TimeInterval) {
-        let waitExpectation = expectation(description: "Waiting")
-        
-        let when = DispatchTime.now() + duration
-        DispatchQueue.main.asyncAfter(deadline: when) {
-            waitExpectation.fulfill()
         }
         
-        // We use a buffer here to avoid flakiness with Timer on CI
-        waitForExpectations(timeout: duration + 0.5)
+        waitForExpectations(timeout: 300, handler: nil)
     }
 }

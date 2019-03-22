@@ -22,6 +22,13 @@
 #import "DetailsTableViewCell.h"
 #import "NSObject+MPNetworkReachability.h"
 #import "MPReverseGeocodingService.h"
+#import "NSString+TRAVEL_MODE.h"
+#import "SectionModel.h"
+#import "MPRoute+SectionModel.h"
+#import "MPDirectionsViewModel.h"
+#import "NSObject+ContentSizeChange.h"
+#import "AppFonts.h"
+#import "TCFKA_MDSnackbar.h"
 
 @import VCMaterialDesignIcons;
 @import MaterialControls;
@@ -139,7 +146,9 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
     [super viewDidDisappear:animated];
     
     // Stop updating route data when we disappear the first time (Else going to "Get Directions" will trigger a (partial) update of the displayed data, resulting in inconsistent data being displayed).
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"RoutingDataReady" object:nil];
+    if ( self.route ) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:@"RoutingDataReady" object:nil];
+    }
 }
 
 - (void) setupShareButtonForCurrentLocation {
@@ -245,9 +254,10 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
         if (_location.categories.allKeys.count > 0 || _location.roomId) {
             NSString*   categoryKey = _location.categories.allKeys.firstObject;
             NSString* category = self.categoriesMap[categoryKey];
-            NSString* infoText = @"";
-            if (category) infoText = [category stringByAppendingString:@"\n"];
-            if (_location.roomId) infoText = [infoText stringByAppendingString:_location.roomId];
+            NSString* infoText = category ?: @"";
+            if (_location.roomId) {
+                infoText = infoText.length ? [infoText stringByAppendingFormat:@"\n%@", _location.roomId] : _location.roomId;
+            }
             [_fields addObject:@{@"text": infoText, @"icon": [self materialIcon:VCMaterialDesignIconCode.md_info]}];
         }
         
@@ -273,7 +283,7 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
                 }
                 else if (error) {
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        MDSnackbar* bar = [[MDSnackbar alloc] initWithText:kLangCouldNotFindLocationDetails actionTitle:@"" duration:1.0];
+                        TCFKA_MDSnackbar* bar = [[TCFKA_MDSnackbar alloc] initWithText:kLangCouldNotFindLocationDetails actionTitle:@"" duration:1.0];
                         [bar show];
                     });
                 } else {
@@ -304,10 +314,15 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
         }
         
         self.titleLabel.text = _location.name;
-        self.titleLabel.font = [UIFont boldSystemFontOfSize:18];
+        self.titleLabel.font = [AppFonts sharedInstance].headerTitleFont;
 
-        NSString* headerImageUrl = [Global.appData.venueImages objectForKey:Global.venue.venueKey];
-
+        #if defined(MI_SDK_VERSION_MAJOR) && ((MI_SDK_VERSION_MAJOR > 2) || ((MI_SDK_VERSION_MAJOR == 2) && (MI_SDK_VERSION_MINOR > 0)))
+            // MPLocation.imageURL available from SDK 2.1
+            NSString* headerImageUrl = _location.imageURL ?: [Global.appData.venueImages objectForKey:Global.venue.venueKey];
+        #else
+            NSString* headerImageUrl = [Global.appData.venueImages objectForKey:Global.venue.venueKey];
+        #endif
+        
         if (_location.fields) {
             for (NSString* key in _location.fields.keyEnumerator) {
                 MPLocationField* field = [_location.fields objectForKey:key];
@@ -356,6 +371,11 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
             [self.headerImageView mp_setImageWithURL:headerImageUrl placeholderImageName:@"placeholder"];
         }
     }
+
+    [self mp_onContentSizeChange:^(DynamicTextSize dynamicTextSize) {
+        self.titleLabel.font = [AppFonts sharedInstance].headerTitleFont;
+        _routeBtn.titleLabel.font = [AppFonts sharedInstance].buttonFont;
+    }];
 }
 
 - (void)viewDidLoad {
@@ -386,8 +406,10 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
 
     __weak typeof(self)weakSelf = self;
     [self mp_onReachabilityChange:^(BOOL isNetworkReachable) {
-        if ( isNetworkReachable && (weakSelf.route == nil) ) {
-            [weakSelf reloadLocationData];
+        if ( isNetworkReachable ) {
+            if ( weakSelf.route == nil ) {
+                [weakSelf reloadLocationData];
+            }
         } else {
             [weakSelf.tableView reloadSections:[NSIndexSet indexSetWithIndex:DetailSection_OfflineMessage] withRowAnimation:UITableViewRowAnimationAutomatic];
         }
@@ -399,8 +421,9 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
     
     if (_showMapBtn == nil) {
         _showMapBtn = [UIButton appRectButtonWithTitle:kLangShowOnMap target:self selector:@selector(showMapController:)];
-        [_showMapBtn setTitleColor:[UIColor appSecondaryTextColor] forState:UIControlStateNormal];
+        [_showMapBtn setTitleColor:[UIColor appPrimaryTextColor] forState:UIControlStateNormal];
         _showMapBtn.backgroundColor = [UIColor appTextAndIconColor];
+        _showMapBtn.titleLabel.lineBreakMode = NSLineBreakByTruncatingMiddle;
         
         _routeBtn = [UIButton appRectButtonWithTitle:kLangGetDirections target:self selector:@selector(showDirectionsController:)];
         
@@ -410,11 +433,14 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
         [_showMapBtn configureForAutoLayout];
         [_showMapBtn autoPinEdgeToSuperviewEdge:ALEdgeLeft];
         [_showMapBtn autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
-        [_showMapBtn autoSetDimensionsToSize:CGSizeMake(106, 40)];
+        [_showMapBtn autoSetDimension:ALDimensionHeight toSize:40];
+        [_showMapBtn autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.tableFooter withMultiplier:0.5];
+
         [_routeBtn configureForAutoLayout];
         [_routeBtn autoPinEdgeToSuperviewEdge:ALEdgeRight];
         [_routeBtn autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
-        [_routeBtn autoSetDimensionsToSize:CGSizeMake(106, 40)];
+        [_routeBtn autoSetDimension:ALDimensionHeight toSize:40];
+        [_routeBtn autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.tableFooter withMultiplier:0.45];
     }
 }
 
@@ -580,9 +606,18 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
     self.route = notification.object;
     if ( self.route ) {
         
+        NSArray<SectionModel*>* routeSections = [self.route sectionModelsForRequestTravelMode:[_routing.travelMode as_TRAVEL_MODE]];
+        MPDirectionsViewModel*  directionsViewModel = [MPDirectionsViewModel newWithRoute:self.route routingData:_routing models:routeSections];
+        NSString*               overallTravelMode = _routing.travelMode;
+        NSArray<NSNumber*>* travelModes = directionsViewModel.travelModes;
+        if ( travelModes.count == 1 ) {
+            TRAVEL_MODE     usedTravelMode = (TRAVEL_MODE)[travelModes.firstObject unsignedIntegerValue];
+            overallTravelMode = [NSString stringFromTravelMode:usedTravelMode];
+        }
+
         NSAttributedString* directionsInfo = [Global isUnlikelyDuration:self.route.duration.doubleValue]
                                            ? [[NSAttributedString alloc] initWithString: @"Duration estimate not available"]
-                                           : [Global localizedStringForDuration: [self.route.duration floatValue] travelMode:_routing.travelMode];
+                                           : [Global localizedStringForDuration: [self.route.duration floatValue] travelMode:overallTravelMode];
         
         if (_from) {
             _from.name = directionsInfo.string;

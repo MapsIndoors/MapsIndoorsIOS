@@ -12,6 +12,7 @@
 #import "Tracker.h"
 #import "UIColor+AppColor.h"
 #import "LocalizedStrings.h"
+#import "TCFKA_MDSnackbar.h"
 
 
 @implementation TransitSourcesTableViewController
@@ -29,8 +30,6 @@
     [Tracker trackScreen:@"TransitSources"];
     
     [self presentCustomBackButton];
-    [self.view setNeedsLayout];
-    [self.view layoutIfNeeded];
 }
 
 
@@ -66,11 +65,6 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
 
     return section < self.transitSources.count ? self.transitSources[section].name : nil;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-
-    return 44;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -110,6 +104,9 @@
 
     cell.textLabel.text = title;
     cell.detailTextLabel.text = subTitle;
+
+    cell.textLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    cell.detailTextLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
 
     return cell;
 }
@@ -154,7 +151,7 @@
         } else {
             [UIPasteboard generalPasteboard].string = agency.phone;
             
-            MDSnackbar* s = [[MDSnackbar alloc] initWithText:kLangPhoneNumberCopiedToClipboard actionTitle:@"" duration:1];
+            TCFKA_MDSnackbar* s = [[TCFKA_MDSnackbar alloc] initWithText:kLangPhoneNumberCopiedToClipboard actionTitle:@"" duration:1];
             [s show];
         }
     }

@@ -73,7 +73,8 @@ class SearchMapController: UIViewController, MySearchControllerDelegate {
      Implement the method `didSelectLocation` required from `MySearchControllerDelegate` delegate. In this example we will just go to the selected location in the map.
      ***/
     func didSelectLocation(location: MPLocation) {
-        mapControl?.go(to: location)    
+        mapControl?.go(to: location)
+        mapControl?.selectedLocation = location
     }
     //
 }

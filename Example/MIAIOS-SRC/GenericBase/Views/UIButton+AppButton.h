@@ -1,5 +1,5 @@
 //
-//  AppColor.h
+//  UIButton+AppButton.h
 //  MIAIOS
 //
 //  Created by Daniel Nielsen on 26/08/15.

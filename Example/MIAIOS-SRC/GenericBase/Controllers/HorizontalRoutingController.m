@@ -13,6 +13,10 @@
 #import "MPDirectionsView.h"
 #import "SectionModel.h"
 #import "Tracker.h"
+#import "LocalizedStrings.h"
+#import "NSObject+ContentSizeChange.h"
+#import "AppFonts.h"
+
 
 #define kDirectionsContainerHeight 180
 
@@ -54,6 +58,17 @@
     
     self.directionsView.delegate = self;
     self.directionsView.shouldHighlightFocusedRouteSegment = NO;
+    
+    self.leftButton.accessibilityLabel = kLangPrev;
+    self.rightButton.accessibilityLabel = kLangNext;
+    self.backButton.accessibilityLabel = kLangBackAccHint;
+
+    [self mp_onContentSizeChange:^(DynamicTextSize dynamicTextSize) {
+
+        [self.directionsView loadRoute:nil withModels:nil routingData:_routing];
+        [self.directionsView onDynamicContentSizeChanged];
+        [self.directionsView loadRoute:self.currentRoute withModels:self.modelArray routingData:self.routing];
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -76,7 +91,7 @@
     self.originType = notification.userInfo[@"origin"];
     self.destinationType = notification.userInfo[@"destination"];
     
-    [self.directionsView loadRoute:self.currentRoute withModels:self.modelArray originType:self.originType destinationType:self.destinationType routingData:_routing];
+    [self.directionsView loadRoute:self.currentRoute withModels:self.modelArray routingData:_routing];
     [self updateUI];
 }
 
@@ -133,8 +148,6 @@
 - (IBAction)backButtonTapped:(id)sender {
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenDirectionsSettings" object:nil];
-    self.currentRoute = nil;
-    self.selectedIndex = 0;
     [self updateUI];
 }
 
@@ -143,7 +156,11 @@
         self.selectedIndex--;
         SectionModel *currentModel = [self.modelArray objectAtIndex:_selectedIndex];
 
-        [self postDrawRouteLegNotificationWithLegIndex:currentModel.legIndex currentModel:currentModel withStepIndex:currentModel.stepIndex];
+        [self postDrawRouteLegNotificationWithLegIndex:currentModel.legIndex
+                                          currentModel:currentModel
+                                         withStepIndex:currentModel.stepIndex
+                                    accessibilityLabel:[self.directionsView accessibilityLabelForRouteSegmentAtIndex:_selectedIndex]
+        ];
 
         [self.directionsView focusPrevRouteSegment];
         [self updateUI];
@@ -159,7 +176,9 @@
         SectionModel *currentModel = [self.modelArray objectAtIndex:_selectedIndex];
         [self postDrawRouteLegNotificationWithLegIndex:currentModel.legIndex
                                           currentModel:currentModel
-                                         withStepIndex:currentModel.stepIndex];
+                                         withStepIndex:currentModel.stepIndex
+                                    accessibilityLabel:[self.directionsView accessibilityLabelForRouteSegmentAtIndex:_selectedIndex]
+        ];
 
         [self.directionsView focusNextRouteSegment];
         [self updateUI];
@@ -172,12 +191,16 @@
 
 - (void)postDrawRouteLegNotificationWithLegIndex:(NSInteger)legIndex
                                     currentModel:(SectionModel *)model
-                                   withStepIndex:(NSInteger )stepIndex {
+                                   withStepIndex:(NSInteger )stepIndex
+                              accessibilityLabel:(NSString*)accessibilityLabel
+{
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationRouteLegSelected
                                                         object:model
-                                                      userInfo:@{kLegIndex: @(legIndex),
-                                                                 kStepIndex: @(stepIndex)}];
+                                                      userInfo:@{ kLegIndex: @(legIndex)
+                                                                , kStepIndex: @(stepIndex)
+                                                                , kRouteSectionAccessibilityLabel: accessibilityLabel
+                                                                }];
 
 }
 
@@ -195,7 +218,11 @@
 - (void)directionsView:(MPDirectionsView *)directionsView didSelectRouteSegmentAtIndex:(NSUInteger)index sectionModel:(SectionModel *)sectionModel {
     NSLog( @"MPDirectionsView:didSelectRouteSegmentAtIndex:%@", @(index) );
     
-    [self postDrawRouteLegNotificationWithLegIndex:sectionModel.legIndex currentModel:sectionModel withStepIndex:sectionModel.stepIndex];
+    [self postDrawRouteLegNotificationWithLegIndex:sectionModel.legIndex
+                                      currentModel:sectionModel
+                                     withStepIndex:sectionModel.stepIndex
+                                accessibilityLabel:[self.directionsView accessibilityLabelForRouteSegmentAtIndex:index]
+    ];
     directionsView.focusedRouteSegment = index;
     
     [self notifySelectedRouteSegment];

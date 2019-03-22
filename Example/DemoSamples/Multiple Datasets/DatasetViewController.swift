@@ -15,11 +15,15 @@ class DatasetViewController: UIViewController, MPMapControlDelegate {
     var map: GMSMapView? = nil
     var mapControl: MPMapControl? = nil
     var venueKey = ""
+    var searchKey = ""
+    var position = CLLocationCoordinate2DMake(0, 0)
     
-    convenience init(_ apiKey:String, _ venueKey:String) {
+    convenience init(_ apiKey:String, _ venueKey:String, _ searchKey:String, _ position:CLLocationCoordinate2D) {
         self.init(nibName:nil, bundle:nil)
         MapsIndoors.provideAPIKey(apiKey, googleAPIKey: AppDelegate.gApiKey)
         self.venueKey = venueKey
+        self.position = position
+        self.searchKey = searchKey
     }
     
     override func viewDidLoad() {
@@ -30,16 +34,23 @@ class DatasetViewController: UIViewController, MPMapControlDelegate {
         
         self.view = self.map
         
-        self.map?.camera = .camera(withLatitude: 57.057964, longitude: 9.9504112, zoom: 20)
+        self.map?.camera = .camera(withLatitude: self.position.latitude, longitude: self.position.longitude, zoom: 17)
         
         self.mapControl = MPMapControl.init(map: self.map!)
         
         self.mapControl?.delegate = self
+        let q = MPLocationQuery.init()
+        q.query = searchKey
+        q.venue = self.venueKey
+        MPLocationsProvider.init().getLocationsUsing(q) { (data, err) in
+            self.mapControl?.searchResult = data?.list
+            self.mapControl?.currentFloor = data?.list?.first?.floor
+        }
         
         
     }
     
     func mapContentReady() {
-        self.mapControl?.venue = venueKey
+        //self.mapControl?.venue = venueKey
     }
 }

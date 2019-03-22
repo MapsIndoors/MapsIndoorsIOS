@@ -35,6 +35,12 @@
 #import "LocalizedStrings.h"
 #import "NSObject+MPNetworkReachability.h"
 #import "MPReverseGeocodingService.h"
+#import "MPRoute+SectionModel.h"
+#import "MPAccessibilityHelper.h"
+#import "AppVariantData.h"
+#import "NSObject+ContentSizeChange.h"
+#import "AppFonts.h"
+#import "TCFKA_MDSnackbar.h"
 
 
 @interface DirectionsController () < MPDirectionsViewDelegate >
@@ -124,14 +130,11 @@
     self.destinationButton.contentEdgeInsets = UIEdgeInsetsMake(6, 6, 6, 6);
     self.originButton.hitTestEdgeInsets = UIEdgeInsetsMake(-10, -50, -10, -10);
     self.destinationButton.hitTestEdgeInsets = UIEdgeInsetsMake(-10, -50, -10, -10);
-    
+
     self.line.thickness = 4.0f;
     self.line.color = [UIColor appLightPrimaryColor];
     self.line.dashedGap = 4.0f;
     self.line.dashedLength = 4.0f;
-    
-    self.offlineMsg.font = [self.offlineMsg.font fontWithSize:11.0];
-    self.offlineMsgDetail.font = [self.offlineMsgDetail.font fontWithSize:10.0];
     
     self.locationServicesBtn.layer.borderWidth = 1.0;
     self.locationServicesBtn.layer.borderColor = [UIColor appSecondaryTextColor].CGColor;
@@ -149,15 +152,19 @@
     
     UIImage* carImg = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_car fontSize:22.0f].image;
     _car = [[UIBarButtonItem alloc] initWithImage:carImg style:UIBarButtonItemStylePlain target:self action:@selector(transitMode:)];
+    _car.accessibilityHint = kLangByCar;
     
     UIImage* bikeImg = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_bike fontSize:22.0f].image;
     _bike = [[UIBarButtonItem alloc] initWithImage:bikeImg style:UIBarButtonItemStylePlain target:self action:@selector(transitMode:)];
+    _bike.accessibilityHint = kLangByCycling;
     
     UIImage* trainImg = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_bus fontSize:22.0f].image;
     _train = [[UIBarButtonItem alloc] initWithImage:trainImg style:UIBarButtonItemStylePlain target:self action:@selector(transitMode:)];
+    _train.accessibilityHint = kLangByTransit;
     
     UIImage* walkImg = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_walk fontSize:22.0f].image;
     _walk = [[UIBarButtonItem alloc] initWithImage:walkImg style:UIBarButtonItemStylePlain target:self action:@selector(transitMode:)];
+    _walk.accessibilityHint = kLangByWalk;
     
     self.navigationItem.rightBarButtonItems = @[_car, _train, _bike, _walk];
     
@@ -166,13 +173,16 @@
     _car.tintColor = [UIColor colorWithWhite: 1.0f alpha:0.5f];
     _bike.tintColor = [UIColor colorWithWhite: 1.0f alpha:0.5f];
     
-    
     [self.avoidStairsSwitch addTarget:self action:@selector(avoidStairs) forControlEvents:UIControlEventValueChanged];
     self.avoidStairsSwitch.thumbOn = [UIColor whiteColor];
     self.avoidStairsSwitch.trackOn = [UIColor appLightPrimaryColor];
     self.avoidStairsSwitch.thumbOff = [UIColor whiteColor];
     self.avoidStairsSwitch.trackOff = [UIColor appDarkPrimaryColor];
     self.avoidStairsSwitch.on = Global.avoidStairs;
+    self.avoidStairsSwitch.accessibilityLabel = kLangAvoidStairs;
+    self.avoidStairsSwitch.accessibilityHint = Global.avoidStairs ? kLangAvoidStairsOnAccHint : kLangAvoidStairsOffAccHint;
+    self.avoidStairsSwitch.isAccessibilityElement = YES;
+    self.avoidStairsSwitch.accessibilityTraits = UIAccessibilityTraitButton;
     
     UITapGestureRecognizer* helperForTheLittleMDSwitchThatCouldntDetectTapsProperly = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avoidStairsWasTapped:)];
     [self.avoidStairsSwitch addGestureRecognizer:helperForTheLittleMDSwitchThatCouldntDetectTapsProperly];
@@ -192,6 +202,12 @@
     self.directionsHeaderView.frame = r;
     
     self.directionsView.headerViewInVerticalMode = self.directionsHeaderView;
+    self.directionsView.headerAccessibilityElementsInVerticalMode = @[ self.originButton
+                                                                     , self.destinationButton
+                                                                     , self.switchDirIconButton
+                                                                     , self.avoidStairsSwitch
+                                                                     , self.durationEstimate
+                                                                     ];
     
     BOOL locationServicesActive = [MapsIndoors.positionProvider isRunning];
 #if defined(MI_SDK_VERSION_MAJOR) && (MI_SDK_VERSION_MAJOR >= 2)
@@ -221,11 +237,46 @@
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"EnableHorizontalDirections" object:nil];
 
+    self.originButton.accessibilityHint      = kLangSelectRouteOriginAccHint;
+    self.destinationButton.accessibilityHint = kLangSelectRouteDestinationAccHint;
+    self.switchDirIconButton.accessibilityHint = kLangSwapRouteStartAndDestinationAccHint;
+
+    self.originButton.titleLabel.font = [AppFonts sharedInstance].buttonFont;
+    self.destinationButton.titleLabel.font = [AppFonts sharedInstance].buttonFont;
+    self.avoidStairsLabel.font = [AppFonts sharedInstance].buttonFont;
+    self.durationEstimate.font = [AppFonts sharedInstance].directionsFont;
+    self.offlineMsg.font = [AppFonts sharedInstance].directionsFontSmall;
+    self.offlineMsgDetail.font = [AppFonts sharedInstance].directionsFontSmall;
+    self.noRouteMessageLabel.font = [AppFonts sharedInstance].directionsFontSmall;
+    [self configureLocationServiceOffMessage];
+    self.reachabilityWarningLabel.font = [[AppFonts sharedInstance] scaledFontForSize:11];
+
+    [self mp_onContentSizeChange:^(DynamicTextSize dynamicTextSize) {
+        
+        self.originButton.titleLabel.font = [AppFonts sharedInstance].buttonFont;
+        self.destinationButton.titleLabel.font = [AppFonts sharedInstance].buttonFont;
+        self.avoidStairsLabel.font = [AppFonts sharedInstance].buttonFont;
+        self.durationEstimate.font = [AppFonts sharedInstance].directionsFont;
+        self.offlineMsg.font = [AppFonts sharedInstance].directionsFontSmall;
+        self.offlineMsgDetail.font = [AppFonts sharedInstance].directionsFontSmall;
+        self.noRouteMessageLabel.font = [AppFonts sharedInstance].directionsFontSmall;
+        [self configureLocationServiceOffMessage];
+        self.reachabilityWarningLabel.font = [[AppFonts sharedInstance] scaledFontForSize:11];
+        [self.directionsView loadRoute:nil withModels:nil routingData:_routing];
+        [self.directionsView onDynamicContentSizeChanged];
+        [self.directionsView loadRoute:self.currentRoute withModels:self.sectionModelArray routingData:_routing];
+    }];
+}
+
+- (void) configureLocationServiceOffMessage {
+
+    self.offlineMsgDetail.text = ([AppFonts sharedInstance].configuredTextSize < DynamicTextSize_XL) ? kLangTurOnLocationInDirections : kLangTurOnLocationInDirectionsAbbr;
 }
 
 - (void) avoidStairsWasTapped:(UITapGestureRecognizer*)tapGesture {
     self.avoidStairsSwitch.on = !self.avoidStairsSwitch.on;
     Global.avoidStairs = self.avoidStairsSwitch.on;
+    self.avoidStairsSwitch.accessibilityHint = Global.avoidStairs ? kLangAvoidStairsOnAccHint : kLangAvoidStairsOffAccHint;
 }
 
 - (void) onRouteRequest {
@@ -297,6 +348,12 @@
     
     self.directionsHeaderView.backgroundColor = [UIColor yellowColor];
     [self setupWhenAppeared];
+
+    if ( self.currentRoute ) {
+        [[MPAccessibilityHelper sharedInstance] setAccessibilityFocus:self.durationEstimate];
+    } else {
+        [[MPAccessibilityHelper sharedInstance] setAccessibilityFocus:self.originButton];
+    }
 }
 
 - (void) setupWhenAppeared {
@@ -312,7 +369,8 @@
         self.destination = _routing.destination;
         
         //Using my position (guessing a room)
-        if (self.origin == nil && MapsIndoors.positionProvider.latestPositionResult.geometry != nil) {
+        BOOL    shouldPreloadOrigin = [AppVariantData sharedAppVariantData].shouldPreloadRouteOriginWithCurrentLocation;
+        if ( shouldPreloadOrigin && (self.origin == nil) && (MapsIndoors.positionProvider.latestPositionResult.geometry != nil) ) {
             
             self.origin = self.myLocation;       // Un-comment to auto-select users location as starting point for route calc.
            
@@ -409,11 +467,15 @@
             [_nextBtn autoPinEdgeToSuperviewEdge:ALEdgeRight];
             [_nextBtn autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
             [_nextBtn autoSetDimensionsToSize:CGSizeMake(106, 40)];
+            [_nextBtn autoSetDimension:ALDimensionHeight toSize:40];
+            [_nextBtn autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.tableFooter withMultiplier:0.45];
+
             [_prevBtn configureForAutoLayout];
             [_prevBtn autoPinEdgeToSuperviewEdge:ALEdgeLeft];
             [_prevBtn autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
-            [_prevBtn autoSetDimensionsToSize:CGSizeMake(106, 40)];
-            
+            [_prevBtn autoSetDimension:ALDimensionHeight toSize:40];
+            [_prevBtn autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.tableFooter withMultiplier:0.45];
+
         } else {
             
             _showBtn = [UIButton appRectButtonWithTitle:kLangShowOnMap target:self selector:@selector(reloadDirectionsOnMap)];
@@ -422,7 +484,9 @@
             [_showBtn configureForAutoLayout];
             [_showBtn autoPinEdgeToSuperviewEdge:ALEdgeRight];
             [_showBtn autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
-            [_showBtn autoSetDimensionsToSize:CGSizeMake(106, 40)];
+            [_showBtn autoSetDimension:ALDimensionHeight toSize:40];
+            [_showBtn autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.tableFooter withMultiplier:0.8 relation:NSLayoutRelationLessThanOrEqual];
+            [_showBtn autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.tableFooter withMultiplier:0.6 relation:NSLayoutRelationGreaterThanOrEqual];
         }
         
         [self updateUI];
@@ -436,8 +500,10 @@
         SectionModel* sm = [self.sectionModelArray objectAtIndex: self.directionsView.focusedRouteSegment ];
         [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationRouteLegSelected
                                                             object:sm
-                                                          userInfo:@{kLegIndex: @(sm.legIndex),
-                                                                     kStepIndex: @(sm.stepIndex)}];
+                                                          userInfo:@{ kLegIndex: @(sm.legIndex)
+                                                                    , kStepIndex: @(sm.stepIndex)
+                                                                    , kRouteSectionAccessibilityLabel: self.directionsView.accessibilityLabelForFocusedRouteSegment ?: @""
+                                                                    }];
         [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationShowSelectedLegInList object:sm userInfo:@{ kRouteSectionIndex: @(self.directionsView.focusedRouteSegment), kNotificationSender: self}];
     }
 }
@@ -449,8 +515,10 @@
         SectionModel* sm = [self.sectionModelArray objectAtIndex: self.directionsView.focusedRouteSegment ];
         [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationRouteLegSelected
                                                             object:sm
-                                                          userInfo:@{kLegIndex: @(sm.legIndex),
-                                                                     kStepIndex: @(sm.stepIndex)}];
+                                                          userInfo:@{ kLegIndex: @(sm.legIndex)
+                                                                    , kStepIndex: @(sm.stepIndex)
+                                                                    , kRouteSectionAccessibilityLabel: self.directionsView.accessibilityLabelForFocusedRouteSegment ?: @""
+                                                                    }];
         [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationShowSelectedLegInList object:sm userInfo:@{ kRouteSectionIndex: @(self.directionsView.focusedRouteSegment), kNotificationSender: self}];
     }
 }
@@ -531,10 +599,14 @@
         self.currentRoute = notification.object;
         
         [Tracker trackEvent:kMPEventNameRouteCalculated parameters:@{ @"Origin"      : self.origin.name,
-                                                              @"Destination" : self.destination.name,
-                                                              @"Distance"    : self.currentRoute.distance ?: @(-1)}];
+                                                                      @"Destination" : self.destination.name,
+                                                                      @"Distance"    : self.currentRoute.distance ?: @(-1)}];
         
         [self config];
+        
+        [self configureReachabilityWarning: self.mp_isNetworkReachable ];
+        [self.directionsView loadRoute:self.currentRoute withModels:self.sectionModelArray routingData:_routing];
+
         [self.spinner stopAnimating];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.reachabilitySpinner stopAnimating];
@@ -549,18 +621,23 @@
             
         } else if ( [Global isUnlikelyDistance:self.currentRoute.distance.doubleValue] || [Global isUnlikelyDuration:self.currentRoute.duration.doubleValue] ) {
             
-            self.durationEstimate.text = @"Duration estimate not available";
+            self.durationEstimate.text = kLangDurationEstimateNotAvailable;
             
         } else {
             
-            NSAttributedString*   durationEstimate = [Global localizedStringForDuration: self.currentRoute.duration.floatValue travelMode:_routing.travelMode];
+            NSString*           overallTravelMode = _routing.travelMode;
+            NSArray<NSNumber*>* travelModes = self.directionsView.travelModes;
+            if ( travelModes.count == 1 ) {
+                TRAVEL_MODE     usedTravelMode = (TRAVEL_MODE)[travelModes.firstObject unsignedIntegerValue];
+                overallTravelMode = [NSString stringFromTravelMode:usedTravelMode];
+            }
+            
+            NSAttributedString*   durationEstimate = [Global localizedStringForDuration: self.currentRoute.duration.floatValue travelMode:overallTravelMode];
             self.durationEstimate.text = [NSString stringWithFormat:@"%@ (%@)", [durationEstimate string], [Global getDistanceString:self.currentRoute.distance.floatValue]];
+            
+            self.durationEstimate.accessibilityLabel = [NSString stringWithFormat: kLangRouteAvailableAccHint, self.durationEstimate.text];
+            [[MPAccessibilityHelper sharedInstance] setAccessibilityFocus:self.durationEstimate];
         }
-        
-        NSLog(@"Duration estimate is %@", self.durationEstimate.text);
-        
-        [self configureReachabilityWarning: self.mp_isNetworkReachable ];
-        [self.directionsView loadRoute:self.currentRoute withModels:self.sectionModelArray originType:self.origin.type destinationType:self.destination.type routingData:_routing];
     }
 }
 
@@ -580,14 +657,14 @@
             [self toggleSidebar];
 
         } else if ( self.origin == nil ) {
-            snackbarMsg = @"Please choose starting point";
+            snackbarMsg = kLangPleaseChooseStartingPoint;
             
         } else if ( self.destination == nil ) {
-            snackbarMsg = @"Please choose destination";
+            snackbarMsg = kLangPleaseChooseDestination;
         }
         
         if ( snackbarMsg.length ) {
-            MDSnackbar* s = [[MDSnackbar alloc] initWithText:snackbarMsg actionTitle:@"" duration:2];
+            TCFKA_MDSnackbar* s = [[TCFKA_MDSnackbar alloc] initWithText:snackbarMsg actionTitle:@"" duration:2];
             [s show];
         }
     }
@@ -602,8 +679,10 @@
     if (model) {
         [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationRouteLegSelected
                                                             object:model
-                                                          userInfo:@{kLegIndex: @(model.legIndex),
-                                                                     kStepIndex: @(model.stepIndex)}];
+                                                          userInfo:@{ kLegIndex: @(model.legIndex)
+                                                                    , kStepIndex: @(model.stepIndex)
+                                                                    , kRouteSectionAccessibilityLabel: self.directionsView.accessibilityLabelForFocusedRouteSegment ?: @""
+                                                                    }];
     }
 }
 
@@ -773,6 +852,9 @@
         }
         
         [_routing routingFrom: self.origin to: self.destination by:_routing.travelMode avoid:_avoids depart:nil arrive:nil];
+        
+        self.durationEstimate.accessibilityHint = kLangFindingRouteAccHint;
+        [[MPAccessibilityHelper sharedInstance] setAccessibilityFocus:self.durationEstimate];
     }
 }
 
@@ -786,59 +868,7 @@
 
 - (void)config {
     
-    NSMutableArray* modelArray;
-    
-    if ( self.currentRoute ) {
-        
-        TRAVEL_MODE requestTravelMode = [_routing.travelMode as_TRAVEL_MODE];
-        
-        modelArray = [NSMutableArray array];
-        
-        for (int j = 0; j < self.currentRoute.legs.count; j++)
-        {
-            MPRouteLeg*     leg = [self.currentRoute.legs objectAtIndex:j]; //Map route legs
-            MPRouteLegType  legType = leg.routeLegType;
-            
-            NSMutableArray* substeps = leg.steps;
-            
-            for (int i = 0; i < leg.steps.count; i++) {
-                
-                MPRouteStep *step = [leg.steps objectAtIndex:i];
-                
-                BOOL isOutside = step.routeContext == nil || [step.routeContext isEqual:@"OutsideOnVenue"];
-                BOOL useSubsteps = YES;
-                
-                if ( !isOutside || (isOutside && (requestTravelMode != TRANSIT) && (legType != MPRouteLegTypeMapsIndoors)) ) {
-                    useSubsteps = NO;
-                    substeps = nil;
-                }
-                
-                MPRouteStep* stepToUse = step;
-                if ( (isOutside == NO) || ((requestTravelMode != TRANSIT) && (legType != MPRouteLegTypeMapsIndoors)) || (isOutside  && (legType == MPRouteLegTypeMapsIndoors))) {
-                    stepToUse = nil;
-                }
-                
-                SectionModel *model = [[SectionModel alloc] initWithCurrentLeg:leg
-                                                                  withLegIndex:j
-                                                                      withStep:stepToUse
-                                                                 withStepIndex:stepToUse ? i : -1
-                                                             withOptionVisible:@(NO)
-                                                                     withItems:substeps
-                                                                   withDetails:nil
-                                                                withTravelMode:requestTravelMode
-                                                                   withLegType:legType
-                                                                     isOutside:isOutside];
-                
-                [modelArray addObject:model];
-                
-                if ( !useSubsteps || (legType == MPRouteLegTypeMapsIndoors) ) {
-                    break;
-                }
-            }
-        }
-    }
-    
-    self.sectionModelArray = [modelArray copy];
+    self.sectionModelArray = [self.currentRoute sectionModelsForRequestTravelMode:[_routing.travelMode as_TRAVEL_MODE]];
 
     _routing.latestModelArray = self.sectionModelArray;
     
@@ -871,12 +901,18 @@
 - (void)directionsView:(MPDirectionsView *)directionsView didSelectRouteSegmentAtIndex:(NSUInteger)index sectionModel:(SectionModel *)sectionModel openOnMap:(BOOL)openOnMap {
 
     directionsView.focusedRouteSegment = index;
-    
+
     [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationRouteLegSelected
                                                         object:sectionModel
-                                                      userInfo:@{kLegIndex: @(sectionModel.legIndex),
-                                                                 kStepIndex: @(sectionModel.stepIndex)}];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationShowSelectedLegInList object:sectionModel userInfo:@{ kRouteSectionIndex: @(self.directionsView.focusedRouteSegment), kNotificationSender: self}];
+                                                      userInfo:@{ kLegIndex: @(sectionModel.legIndex)
+                                                                , kStepIndex: @(sectionModel.stepIndex)
+                                                                , kRouteSectionImages: [directionsView imagesForActionPoints]
+                                                                , kRouteSectionAccessibilityLabel: self.directionsView.accessibilityLabelForFocusedRouteSegment ?: @""
+                                                                }];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationShowSelectedLegInList object:sectionModel userInfo:@{ kRouteSectionIndex: @(self.directionsView.focusedRouteSegment)
+                                                                                                                                , kNotificationSender: self
+                                                                                                                                , kRouteSectionImages: [directionsView imagesForActionPoints]
+                                                                                                                                }];
     if ( openOnMap ) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"openDirectionsOnMap" object:nil];
     }
@@ -896,9 +932,15 @@
         
         [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationRouteLegSelected
                                                             object:sectionModel
-                                                          userInfo:@{kLegIndex: @(sectionModel.legIndex),
-                                                                     kStepIndex: @(sectionModel.stepIndex)}];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationShowSelectedLegInList object:sectionModel userInfo:@{ kRouteSectionIndex: @(self.directionsView.focusedRouteSegment), kNotificationSender: self}];
+                                                          userInfo:@{ kLegIndex: @(sectionModel.legIndex)
+                                                                    , kStepIndex: @(sectionModel.stepIndex)
+                                                                    , kRouteSectionImages: [directionsView imagesForActionPoints]
+                                                                    , kRouteSectionAccessibilityLabel: self.directionsView.accessibilityLabelForFocusedRouteSegment ?: @""
+                                                                    }];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationShowSelectedLegInList object:sectionModel userInfo:@{ kRouteSectionIndex: @(self.directionsView.focusedRouteSegment)
+                                                                                                                                    , kNotificationSender: self
+                                                                                                                                    , kRouteSectionImages: [directionsView imagesForActionPoints]
+                                                                                                                                    }];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"openDirectionsOnMap" object:nil];
     }
 }
@@ -963,6 +1005,7 @@
             UIImage*    img = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_cloud_off fontSize:36.f].image;
             self.reachabilityWarningImageView.image = [img imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             self.reachabilityWarningLabel.text = kLangOfflineTryToReconnect;
+            self.reachabilityWarningLabel.font = [[AppFonts sharedInstance] scaledFontForSize:11];
             self.reachabilityWarningLabel.textColor = [UIColor appTertiaryHighlightColor];
             
             if ( self.reachabilityWarningView.userInteractionEnabled == NO ) {

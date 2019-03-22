@@ -160,6 +160,9 @@
     }
     if ( textSize.width ) {
         x += 4;
+        if ( textSize.width < (textSize.height +4) ) {  // Since we round the corners, we need to make sure we have enough space to complete the arc.  +4 is so we get a (little) horinzontal stretch.
+            textSize.width = textSize.height +4;
+        }
         directionsLabelRect = CGRectMake(x +4, (self.bounds.size.height - textSize.height) / 2, textSize.width -8, textSize.height);
         directionsLabelBackgroundRect = CGRectMake(x, (self.bounds.size.height - textSize.height) / 2, textSize.width, textSize.height);
     } else {

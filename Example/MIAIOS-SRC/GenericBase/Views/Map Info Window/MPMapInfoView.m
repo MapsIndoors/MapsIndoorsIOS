@@ -10,6 +10,7 @@
 #import "UIColor+AppColor.h"
 #import <MapsIndoors/MPLocation.h>
 #import <PureLayout/PureLayout.h>
+#import "AppFonts.h"
 
 
 @interface MPMapInfoView ()
@@ -48,7 +49,9 @@
     drop.transform = CATransform3DMakeRotation(M_PI*0.25, 0, 0.0, 1.0);
     self.infoLabel.text = model.name;
     self.infoLabel.textColor = [UIColor appTertiaryHighlightColor];
+    self.infoLabel.font = [AppFonts sharedInstance].infoWindowFont;
     [self.infoLabel sizeToFit];
+    [self.infoLabel autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(4, 8, 4, 8)];
     
     CGSize labelContentSize = self.infoLabel.intrinsicContentSize;
     
@@ -57,7 +60,9 @@
     self.layer.shadowRadius = 4;
     self.layer.shadowOffset = CGSizeMake(2, 2);
 
-    self.heightConstraint = [self autoSetDimension:ALDimensionHeight toSize:self.bounds.size.height];
+    CGFloat hScale =  [AppFonts sharedInstance].fontSizeScaleFactor > 1.2 ? 1.2 : 1;
+    CGFloat h = self.bounds.size.height * hScale;
+    self.heightConstraint = [self autoSetDimension:ALDimensionHeight toSize:h];
     self.widthConstraint = [self autoSetDimension:ALDimensionWidth toSize:labelContentSize.width+2*8 relation:NSLayoutRelationLessThanOrEqual];
     
     [self layoutIfNeeded];

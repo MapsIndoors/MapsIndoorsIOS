@@ -8,6 +8,8 @@
 
 #import "VenueSelectorCell.h"
 #import "UIImageView+MPCachingImageLoader.h"
+#import "AppFonts.h"
+#import "NSObject+ContentSizeChange.h"
 
 
 @interface VenueSelectorCell ()
@@ -24,7 +26,7 @@
 
 @implementation VenueSelectorCell
 
-- (void)configureWithVenue:(MPVenue *)venue imageUrl:(NSString *)imageUrl {
+- (void) configureWithVenue:(MPVenue *)venue imageUrl:(NSString *)imageUrl {
     
     self.venue = venue;
     self.imageUrl = imageUrl;
@@ -33,10 +35,14 @@
     
     [self.venueImageView mp_setImageWithURL:imageUrl placeholderImageName:imageName];
     self.venueNameLabel.text = self.venue.name;
-    self.venueNameLabel.font = [UIFont boldSystemFontOfSize:18];
+    self.venueNameLabel.font = AppFonts.sharedInstance.headerTitleFont;
+
+    [self mp_onContentSizeChange:^(DynamicTextSize dynamicTextSize) {
+        self.venueNameLabel.font = AppFonts.sharedInstance.headerTitleFont;
+    }];
 }
 
-- (void)prepareForReuse {
+- (void) prepareForReuse {
     
     [super prepareForReuse];
     

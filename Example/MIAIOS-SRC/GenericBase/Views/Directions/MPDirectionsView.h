@@ -21,6 +21,7 @@
 @property (nonatomic, weak) id<MPDirectionsViewDelegate>    delegate;
 
 @property (nonatomic, strong) UIView*                       headerViewInVerticalMode;     // "table" header (used in vertical mode only)
+@property (nonatomic, strong) NSArray<UIAccessibilityElement*>*             headerAccessibilityElementsInVerticalMode;
 
 @property (nonatomic) BOOL                                  verticalLayout;
 @property (nonatomic, weak, readonly) UIScrollView*         scrollView;
@@ -40,11 +41,11 @@
 @property (nonatomic) BOOL                                  shouldDimNonFocusedRouteSegments;
 @property (nonatomic) BOOL                                  shouldHighlightFocusedRouteSegment;
 @property (nonatomic) NSUInteger                            numberOfRouteSegments;
+@property (nonatomic, strong) NSString*                     accessibilityLabelForFocusedRouteSegment;
+- (NSString*) accessibilityLabelForRouteSegmentAtIndex:(NSUInteger)routeSegementIndex;
 
 - (void) loadRoute:(MPRoute*)route
         withModels:(NSArray<SectionModel*>*)models
-        originType:(NSString*)originType
-   destinationType:(NSString*)destinationType
        routingData:(RoutingData*)routingData;
 
 - (void) routeUpdated:(MPRoute*)route;
@@ -54,6 +55,12 @@
 
 - (void) toggleDirectionsDisplayForRouteSegment:(NSUInteger)routeSegmentIndex;
 - (void) collapseDirectionsDisplayIfShowing;
+
+- (NSArray<UIImage*>*) imagesForActionPoints;
+
+- (NSArray<NSNumber*>*) travelModes;    // Really NSArray<TRAVEL_MODE>
+
+- (void) onDynamicContentSizeChanged;
 
 @end
 

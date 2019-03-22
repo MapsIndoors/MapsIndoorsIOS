@@ -16,6 +16,8 @@
 #define kStepIndex   @"stepIndex"
 #define kRouteSectionIndex   @"routeSectionIndex"
 #define kNotificationSender  @"NotificationSender"
+#define kRouteSectionImages  @"routeSectionImages"
+#define kRouteSectionAccessibilityLabel  @"routeSectionAccessibilityLabel"
 
 
 // Notifications

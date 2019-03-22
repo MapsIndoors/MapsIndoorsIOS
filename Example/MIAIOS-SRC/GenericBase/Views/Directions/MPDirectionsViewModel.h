@@ -31,15 +31,11 @@ typedef NS_ENUM(NSUInteger, RouteSectionType) {
 
 + (instancetype) newWithRoute:(MPRoute*)route
                   routingData:(RoutingData*)routingData
-                       models:(NSArray<SectionModel*>*)models
-                   originType:(NSString*)originType
-              destinationType:(NSString*)destinationType;
+                       models:(NSArray<SectionModel*>*)models;
 
 - (instancetype) initWithRoute:(MPRoute*)route
                    routingData:(RoutingData*)routingData
-                        models:(NSArray<SectionModel*>*)models
-                    originType:(NSString*)originType
-               destinationType:(NSString*)destinationType;
+                        models:(NSArray<SectionModel*>*)models;
 
 - (instancetype) init NS_UNAVAILABLE;
 
@@ -69,6 +65,16 @@ typedef NS_ENUM(NSUInteger, RouteSectionType) {
 #pragma mark - Transit agency information
 
 - (NSArray<MPTransitAgency*>*) transitAgenciesContributingToRoute;
+
+
+#pragma mark - Overall route info
+
+- (NSArray<NSNumber*>*) travelModes;    // Really NSArray<TRAVEL_MODE>
+
+
+#pragma mark - Accessibility
+
+- (NSString*) accessibilityDescriptionForRouteSectionAtIndex:(NSUInteger)index;
 
 @end
 

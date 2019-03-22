@@ -9,8 +9,27 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [2.1.0] 2018-09-07
+
+### Fixed
+- Fixed issue causing "Clear Map" button not to appear on iOS < 11
+- Increased shading behind venue select icon and app info icon
+- Improved contrast on "show on map" button
+- Fixed cases where distance rounding gave wrong and inconsistent results
+- Fixed that category search results where not cleared after deleting letters in the search input field
+- Fixed some issues in third party libraries that caused the app to crash under certain circumstances
+
+### Changed
+- Disable venueselector button when no venue has been selected
+- Relevance-based sorting of POI-lists are now based on distance to user location
+### Added
+- A lot of accessibility improvements
+- Updated MI SDK to 2.1.1
+
 ## [2.0.2] 2018-06-23
 
+### Fixed
+- Fixed an issue that was causing duplicate segments for some routes between different venues
 ### Changed
 - Updated to latest MapsIndoors SDK
 ### Removed
@@ -26,7 +45,6 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 - Fixed performance issue: blocking UI thread when adding markers to map.
 - Fixed excessive CPU, GPU and battery load
 - Fixed poor map startup performance (UI thread blocking) when loading a big map
-
 ### Changed
 - Animation speed when showing directions is now adapting the the amount of movement and rotation needed for transitioning between steps.
 - Better default resolution in map graphics for online use.

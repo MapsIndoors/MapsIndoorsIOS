@@ -24,11 +24,7 @@
                                              preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction*  turnOnBtn = [UIAlertAction actionWithTitle:kLangSettings style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-            if ( [[UIDevice currentDevice].systemVersion intValue] >= 10 ) {
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"App-Prefs:root=Privacy&path=LOCATION"] options:@{} completionHandler:nil];
-            } else {
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs:root=LOCATION_SERVICES"] options:@{} completionHandler:nil];
-            }
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
         }];
         [turnOnBtn setValue:[UIColor redColor] forKey:@"titleTextColor"];
         

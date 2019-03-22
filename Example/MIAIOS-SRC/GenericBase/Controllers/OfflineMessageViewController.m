@@ -60,50 +60,6 @@
     }];
 }
 
-- (void) viewDidAppear:(BOOL)animated {
-    
-    [super viewDidAppear:animated];
-
-    [self showOfflineToast];
-}
-
-
-#pragma mark - Offline handling
-
-- (void) showOfflineToast {
-    
-    if ( self.offlineMessage == nil ) {
-        
-        NSString*       infoText = kLangInitOfflineDataUnavailable;
-        MPToastView*    t = [[MPToastView newWithMessage:infoText] configureForAutoLayout];
-        CGFloat         height = 44 + self.bottomLayoutGuide.length;
-        CGRect  r = CGRectMake(0, self.view.bounds.size.height -height, self.view.bounds.size.width, height);
-        t.frame = r;
-        t.alpha = 0;
-        [self.view addSubview:t];
-        [t autoSetDimension:ALDimensionHeight toSize:height];
-        [t autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0) excludingEdge:ALEdgeTop];
-        [t layoutIfNeeded];     // Without this, the label animates into position in a weird way ;-)
-        self.offlineMessage = t;
-        
-        [UIView animateWithDuration:0.3 animations:^{
-            t.alpha = 1;
-        }];
-    }
-}
-
-- (void) hideOfflineToast {
-    
-    if ( self.offlineMessage ) {
-        
-        [UIView animateWithDuration:0.3 animations:^{
-            self.offlineMessage.alpha = 0;
-        } completion:^(BOOL finished) {
-            [self.offlineMessage removeFromSuperview];
-        }];
-    }
-}
-
 - (IBAction)launchAppSettings:(id)sender {
 
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];

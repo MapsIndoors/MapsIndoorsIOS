@@ -120,7 +120,7 @@ class MySearchController: UIViewController, UISearchBarDelegate, UITableViewDele
         self.dismiss(animated: true, completion: nil)
     }
     
-    /*** In [Part 2](searchsearchmapcontroller) we will create the map view controller that displays the blue dot. ***/
+    /*** In [Part 2](searchsearchmapcontroller) we will create the map view controller that displays the search selection. ***/
     //
 
 }

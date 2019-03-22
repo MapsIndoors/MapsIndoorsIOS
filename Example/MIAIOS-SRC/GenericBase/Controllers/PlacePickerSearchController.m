@@ -29,7 +29,8 @@
 #import "MPQuickAccessPointsProvider.h"
 #import "UIViewController+Custom.h"
 #import "NoCancelButtonSearchController.h"
-
+#import "AppFonts.h"
+#import "TCFKA_MDSnackbar.h"
 
 typedef NS_ENUM(NSUInteger, PPSCSection) {
     PPSCSection_MyLocation,
@@ -47,7 +48,7 @@ typedef NS_ENUM(NSUInteger, PPSCSection) {
 
     @property NSArray*                                      locations;
     @property NSMutableArray*                               places;
-    @property (nonatomic, strong) MDSnackbar*               snackBar;
+    @property (nonatomic, strong) TCFKA_MDSnackbar*         snackBar;
     @property (nonatomic, strong) NSTimer*                  snackBarTimer;
     @property (nonatomic) BOOL                              searchingIndoorLocations;
     @property (nonatomic) BOOL                              searchingPlacesLocations;
@@ -82,7 +83,9 @@ static NSString* cellIdentifier = @"LocationCell";
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
+
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+
     self.placesClient = [MPGooglePlacesClient new];
     _locationQuery = [[MPLocationQuery alloc] init];
     _venueProvider = [[MPVenueProvider alloc] init];
@@ -271,7 +274,8 @@ static NSString* cellIdentifier = @"LocationCell";
         UILabel*    label = [[UILabel alloc] initForAutoLayout];
         label.text = kLangOfflineTryToReconnect;
         label.textColor = [UIColor appTertiaryHighlightColor];
-        [label autoSetDimension:ALDimensionHeight toSize:16];
+        label.font = [AppFonts sharedInstance].infoMessageFont;
+        [label autoSetDimension:ALDimensionHeight toSize: [[AppFonts sharedInstance] scaledFontSizeForFontSize: 16]];
         [_offlineTableFooterView addSubview:label];
         [label autoAlignAxis:ALAxisHorizontal toSameAxisOfView:imageView];
         [label autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:imageView withOffset:16];
@@ -306,6 +310,7 @@ static NSString* cellIdentifier = @"LocationCell";
     label.text = s;
     label.textColor = [UIColor lightGrayColor];
     label.textAlignment = NSTextAlignmentCenter;
+    label.font = [AppFonts sharedInstance].infoMessageFont;
     
     return label;
 }
@@ -494,22 +499,17 @@ static NSString* cellIdentifier = @"LocationCell";
     } else if ([@[@"my position", @"min placering"] containsObject: [object.name lowercaseString]]) {
         
         if ( object.descr.length ) {
-            cell.textLabel.text = [NSString stringWithFormat:@"%@ (%@)", kLangMyPosition, object.descr];
+            cell.textLabel.text = kLangMyPosition;
+            cell.subTextLabel.text = object.descr;
         }
             
         [cell.imageView setImage:[UIImage imageNamed:@"MyLocation"]];
-        [cell centerTextLabelVertically];
-        
+
     } else {
         [cell.imageView mp_setImageWithURL:[Global getIconUrlForType:object.type] placeholderImage:[UIImage imageNamed:@"placeholder"]];
     }
     
     return cell;
-}
-
-- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    return 60;
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -624,10 +624,10 @@ static NSString* cellIdentifier = @"LocationCell";
                     loc.venue = [placeDetails.attributedSecondaryText string];
                     [_places addObject:loc];
                 }
-                
-                [self.tableView reloadData];
             }
             
+            [self.tableView reloadData];
+
             [self trackAnalyticsForPlacesResult:result];
         }];
     }
@@ -711,7 +711,7 @@ static NSString* cellIdentifier = @"LocationCell";
     
     if ( (self.snackBar.isShowing == NO) || ([self.snackBar.text isEqualToString:msg] == NO) ) {
         
-        self.snackBar = [[MDSnackbar alloc] initWithText:msg actionTitle:@"" duration:0];   // 0 duration: snackbar is visible until manually dismissed.
+        self.snackBar = [[TCFKA_MDSnackbar alloc] initWithText:msg actionTitle:@"" duration:0];   // 0 duration: snackbar is visible until manually dismissed.
         self.snackBar.bottomPadding = _keyboardHeight; // show above keyboard
         [self.snackBar show];
     }
@@ -745,7 +745,7 @@ static NSString* cellIdentifier = @"LocationCell";
 {
     if ( (self.locations || self.places) && ((self.locations.count + self.places.count) == 0) ) {
         
-        NSDictionary*   attributes = @{ NSFontAttributeName            : [UIFont boldSystemFontOfSize:18.0f],
+        NSDictionary*   attributes = @{ NSFontAttributeName            : [AppFonts sharedInstance].emptyStateMessageFont,
                                         NSForegroundColorAttributeName : [UIColor lightGrayColor]
                                         };
         NSString*   noMatchFormat = kLangSearchNoMatch;

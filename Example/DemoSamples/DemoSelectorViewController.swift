@@ -18,6 +18,8 @@ class DemoSelectorViewController: UITableViewController {
                                                           ShowBuildingController.self,
                                                           ShowFloorController.self,
                                                           ChangeDisplaySettingController.self,
+                                                          DynamicIconsController.self,
+                                                          MapStyleController.self,
                                                           CustomFloorSelectorController.self,
                                                           ShowMyLocationController.self,
                                                           MultipleDatasetsController.self,
