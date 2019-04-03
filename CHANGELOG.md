@@ -11,6 +11,15 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.0.x] 2019-MM-DD
+### Added
+- MPMapControlDelegate now has a new method for notifying about which building is focused on the map  `- [MPMapControlDelegate focusedBuildingDidChange:(nullable MPLocation*)building]`
+- MPMapControlDelegate now has a new method for notifying position updates  `- [MPMapControlDelegate onPositionUpdate:(nonnull MPPositionResult*)positionResult]`
+### Changed
+- MPMapControl.currentPosition has been deprecated; use MapsIndoors.positionProvider.latestPositionResult to know current position.
+### Fixed
+Fixed an issue related to MPLocations using the default displayrule as well as their own icon.
+
 ## [3.0.0] 2019-03-04
 ### Added
 - Support for external location data sources using `[MapsIndoors registerLocationSources:sources]`

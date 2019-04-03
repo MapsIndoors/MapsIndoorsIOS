@@ -9,11 +9,25 @@
 #import "MPJSONModel.h"
 
 /**
- Map style (used by MapsPeoples services)
+ Map style used by MapsPeoples services. The map style refers to a graphical layout of the building floor plans.
  */
 @interface MPMapStyle : MPJSONModel
 
-@property (nonatomic, strong, nullable) NSString* folder;
-@property (nonatomic, strong, nullable) NSString* displayName;
+
+/**
+ Initialise a map style with a string, corresponding to the folder identifier.
+
+ @param string The map style identifier (folder)
+ @return The map style instance
+ */
+- (instancetype _Nullable )initWithString: (NSString*_Nullable)string;
+/**
+ Folder identifier of the map style
+ */
+@property (nonatomic, strong, nonnull, readonly) NSString* folder;
+/**
+ Display name of the map style
+ */
+@property (nonatomic, strong, nullable, readonly) NSString* displayName;
 
 @end

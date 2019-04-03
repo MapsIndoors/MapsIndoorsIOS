@@ -55,10 +55,17 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 - (void) mapContentReady;
 
 /**
-  Location info snippet tap event method. Can be implemented by delegate object.
+  Show flooar changed event method. Can be implemented by delegate object.
  */
 @optional
 - (void) floorDidChange:(nonnull NSNumber*)floor;
+
+/**
+ Focused building changed event method.
+ @param building The focused building on the map, may be nil.
+ */
+@optional
+- (void) focusedBuildingDidChange:(nullable MPLocation*)building;
 
 /**
  Called when MPMapControl wants to automatically switch floor, for example when the map is panned and the visible buildings have changed.
@@ -142,6 +149,14 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 @optional
 - (BOOL) getImageForLocationCluster:(NSArray<MPLocation*>* _Nonnull)locationCluster imageSize:(CGSize)imageSize clusterId:(NSString* _Nonnull)clusterId completion:(void(^_Nonnull)(UIImage* _Nullable image))completion;
 
+/**
+ Called when MPMapControl receives a new position update.
+
+ @param positionResult The position result as estimated or calculated by a @sa MPPositionProvider
+ */
+@optional
+- (void) onPositionUpdate:(nonnull MPPositionResult*)positionResult;
+
 @end
 
 
@@ -184,8 +199,9 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 
 /**
  Current user location.
+ @deprecated Use MapsIndoors.positionProvider.latestPositionResult if you need to know the current position.
  */
-@property (nonatomic, nullable, readonly) MPPositionIndicator* currentPosition;
+@property (nonatomic, nullable, readonly) MPPositionIndicator* currentPosition  DEPRECATED_ATTRIBUTE;
 /**
  Current single location selection.
  */
@@ -198,6 +214,10 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
  The current floor.
  */
 @property (nonatomic, nullable) NSNumber* currentFloor;
+/**
+ The map style.
+ */
+@property (nonatomic, nullable) MPMapStyle* mapStyle;
 /**
  Whether or not to hide all map locations. Default is NO
  */

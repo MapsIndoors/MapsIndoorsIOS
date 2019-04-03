@@ -9,6 +9,7 @@
 #import "MPLocation.h"
 
 
+DEPRECATED_ATTRIBUTE
 @interface MPPositionIndicator : MPLocation
 
 @property (nonatomic) double probability;

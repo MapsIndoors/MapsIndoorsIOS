@@ -19,6 +19,9 @@ extern const NSInteger MPLocationUpdateFloorInvalid;
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ Location Update / Builder class
+ */
 @interface MPLocationUpdate : NSObject
 
 
