@@ -11,7 +11,11 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [3.0.x] 2019-MM-DD
+## [3.0.2] 2019-04-08
+### Fixed
+Fixed an issue where MPMapControl would not update it's current location.
+
+## [3.0.1] 2019-03-xx
 ### Added
 - MPMapControlDelegate now has a new method for notifying about which building is focused on the map  `- [MPMapControlDelegate focusedBuildingDidChange:(nullable MPLocation*)building]`
 - MPMapControlDelegate now has a new method for notifying position updates  `- [MPMapControlDelegate onPositionUpdate:(nonnull MPPositionResult*)positionResult]`
