@@ -11,6 +11,10 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.0.3] 2019-04-11
+### Fixed
+Fixed an issue changing MapsIndoors.positionProvider during the runtime of the app.
+
 ## [3.0.2] 2019-04-08
 ### Fixed
 Fixed an issue where MPMapControl would not update it's current location.
