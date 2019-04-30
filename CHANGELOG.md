@@ -11,10 +11,11 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [3.0.4] 2019-04-26
+## [3.0.4] 2019-04-29
 ### Fixed
 - Fixed an issue with directions only returning routes on ground floor.
-- Fixed issue with the directions service not resorting to offline even in case of cached route-networks. 
+- Fixed issue with the directions service not resorting to offline even in case of cached route-networks.
+- Fixed an issue where would return more than expected results when perfect match(es) was found.
 
 ## [3.0.3] 2019-04-11
 ### Fixed
