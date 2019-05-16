@@ -12,6 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SimulatedPeopleLocationSource : NSObject <MPLocationSource>
+
 @property (class, nonatomic, readonly) MPLocationDisplayRule*    peopleDisplayRule;
 @property (class, nonatomic, readonly) MPLocationDisplayRule*    currentUserDisplayRule;
 

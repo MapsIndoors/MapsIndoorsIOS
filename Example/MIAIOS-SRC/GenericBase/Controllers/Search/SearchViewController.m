@@ -39,6 +39,7 @@
 @property (nonatomic) CGFloat                   normalTableHeaderHeight;
 @property (nonatomic) BOOL                      didSelectPOI;
 @property (nonatomic) BOOL                      menuIsOpen;
+@property (nonatomic) BOOL                      awaitingInitialResult;
 
 @end
 
@@ -155,7 +156,10 @@
     }
     
     if (Global.locationQuery.categories.count > 0 || Global.locationQuery.query.length > 0) {
+
+        self.awaitingInitialResult = YES;
         [MapsIndoors.locationsProvider getLocationsUsingQuery:Global.locationQuery completionHandler:^(MPLocationDataset *locationData, NSError *error) {
+            self.awaitingInitialResult = NO;
             if (error) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     TCFKA_MDSnackbar* bar = [[TCFKA_MDSnackbar alloc] initWithText:kLangCouldNotFindLocations actionTitle:@"" duration:1.0];
@@ -285,25 +289,37 @@
     if (indexPath.row < self.objects.count) {
         MPLocation *object = self.objects[indexPath.row];
         cell.textLabel.text = [object name];
-        
+
+        NSMutableArray<NSString*>*  details = [NSMutableArray array];
+
+        if ( object.roomId.length && ![object.name isEqualToString:object.roomId] ) {
+            [details addObject:object.roomId];
+        } 
+
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"venueKey LIKE[c] %@", object.venue];
         MPVenue* venue = [[_venues filteredArrayUsingPredicate:predicate] firstObject];
 
         NSString*   buildingId = object.building;
         NSString*   floorId = [object.floor stringValue];
         MPBuilding* building = [[BuildingInfoCache sharedInstance] buildingFromAdministrativeId:buildingId];
-        NSString*   subText = venue.name;
+        MPFloor*    floor = building.floors[floorId];
+        NSString*   buildingName = building.name;
+        NSString*   venueName = venue.name;
 
-        if ( building && floorId ) {
-            MPFloor* floor = building.floors[floorId];
-            if ( floor ) {
-                NSString* buildingLabel = building.name;
-                NSString* venueLabel = [building.name isEqualToString:venue.name] ? @"" : [NSString stringWithFormat:@", %@", venue.name];
-                subText = [NSString stringWithFormat:@"Level %@, %@%@", floor.name, buildingLabel, venueLabel];
+        if ( floor.name.length ) {
+            [details addObject: [NSString stringWithFormat:kLangLevelVar,floor.name]];
+
+            if ( ([BuildingInfoCache sharedInstance].buildings.count > 1) || (_venues.count > 1) ) {
+                [details addObject: buildingName];
+                if ( [buildingName isEqualToString:venueName] == NO ) {
+                    [details addObject: venueName];
+                }
             }
+        } else if ( (_venues.count > 1) && venueName.length ) {
+            [details addObject: venueName];
         }
 
-        cell.subTextLabel.text = subText;
+        cell.subTextLabel.text = [details componentsJoinedByString:@", "];
         cell.subTextLabel.lineBreakMode = NSLineBreakByTruncatingTail;
         
         if (object.icon) {
@@ -497,7 +513,7 @@
 
 - (NSAttributedString*) titleForEmptyDataSet:(UIScrollView *)scrollView
 {
-    if ( self.objects.count == 0 ) {
+    if ( (self.objects.count == 0) && !self.awaitingInitialResult ) {
         
         NSString*   noMatchFormat = kLangSearchNoMatch;
         NSString*   fmt = [MPAccessibilityHelper sharedInstance].voiceOverEnabled ? kLangUseSearchToSearchFormatAccess : kLangUseSearchToSearchFormat;

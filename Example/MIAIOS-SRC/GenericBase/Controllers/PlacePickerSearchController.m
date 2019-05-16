@@ -457,28 +457,39 @@ static NSString* cellIdentifier = @"LocationCell";
     
     cell.textLabel.text = [object name];
     
+    NSMutableArray<NSString*>*  details = [NSMutableArray array];
+
+    if ( object.roomId.length && ![object.name isEqualToString:object.roomId] ) {
+        [details addObject:object.roomId];
+    }
+
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"venueKey LIKE[c] %@", object.venue];
     MPVenue* venue = [[_venues filteredArrayUsingPredicate:predicate] firstObject];
-    
-    NSPredicate *bPredicate = [NSPredicate predicateWithFormat:@"administrativeId LIKE[c] %@", object.building];
+
+    NSString*   buildingId = object.building;
+    NSString*   floorId = [object.floor stringValue];
+    NSPredicate *bPredicate = [NSPredicate predicateWithFormat:@"administrativeId LIKE[c] %@", buildingId];
     MPBuilding* building = [[_buildings filteredArrayUsingPredicate:bPredicate] firstObject];
-    if (building != nil) {
-        NSString* buildingLabel = building.name;
-        NSString* venueLabel = [building.name isEqualToString:venue.name] ? @"" : [NSString stringWithFormat:@", %@", venue.name];
-        
-        [_venueProvider getBuildingWithId:building.buildingId completionHandler:^(MPBuilding *building, NSError *error) {
-            if(error == nil) {
-                MPFloor* floor = [building.floors objectForKey:[object.floor stringValue]];
-                cell.subTextLabel.text = [NSString stringWithFormat:@"Level %@, %@%@", floor.name, buildingLabel, venueLabel];
+    MPFloor*    floor = building.floors[floorId];
+    NSString*   buildingName = building.name;
+    NSString*   venueName = venue.name;
+
+    if ( floor.name.length ) {
+        [details addObject: [NSString stringWithFormat:kLangLevelVar,floor.name]];
+
+        if ( (_buildings.count > 1) || (_venues.count > 1) ) {
+            [details addObject: buildingName];
+            if ( [buildingName isEqualToString:venueName] == NO ) {
+                [details addObject: venueName];
             }
-        }];
-        
-    } else {
-        cell.subTextLabel.text = venue.name;
+        }
+    } else if ( venueName.length && (_venues.count > 1) ) {    // Google results have no venuename
+        [details addObject: venueName];
     }
-    
+
+    cell.subTextLabel.text = [details componentsJoinedByString:@", "];
     cell.subTextLabel.lineBreakMode = NSLineBreakByTruncatingTail;
-    
+
     if (object.icon) {
         
         cell.imageView.image = object.icon;

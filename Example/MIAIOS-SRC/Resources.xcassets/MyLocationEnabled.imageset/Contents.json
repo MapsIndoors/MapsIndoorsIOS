@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "tracking@1x.png",
+      "filename" : "MyLocationInactive@1x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "tracking@2x.png",
+      "filename" : "MyLocationInactive@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "tracking@3x.png",
+      "filename" : "MyLocationInactive@3x.png",
       "scale" : "3x"
     }
   ],

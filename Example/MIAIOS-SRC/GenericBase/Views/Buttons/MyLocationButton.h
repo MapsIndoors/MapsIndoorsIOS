@@ -9,17 +9,17 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-enum {
-    MPMyLocationStateDisabled = 0,
-    MPMyLocationStateEnabled = 1 << 0,
-    MPMyLocationStateTrackingLocation = 1 << 1,
-    MPMyLocationStateTrackingLocationAndHeading = 1 << 2,
+
+typedef NS_ENUM( NSUInteger, TrackingButtonState ) {
+    TrackingButtonState_Disabled,
+    TrackingButtonState_Enabled,
+    TrackingButtonState_TrackingLocation,
+    TrackingButtonState_TrackingLocationAndHeading,
+    TrackingButtonState_TrackingLocationAndHeadingSuspended,
 };
 
 @interface MyLocationButton : UIButton
 
-@property (nonatomic,assign) NSInteger controlState;
-
-- (UIControlState) toggleState;
+@property (nonatomic, assign) TrackingButtonState   trackingButtonState;
 
 @end

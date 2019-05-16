@@ -108,6 +108,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationDidChange:) name:@"UIDeviceOrientationDidChangeNotification" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadMapData:) name:kNotificationLocationServicesActivated object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveToCurrentLeg:) name:kNotificationShowSelectedLegInList object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationTrackingOccured:) name:kNotificationLocationTrackingOccurred object:nil];
     
     [self.directionsHeaderView removeFromSuperview];
 
@@ -252,19 +253,21 @@
     self.reachabilityWarningLabel.font = [[AppFonts sharedInstance] scaledFontForSize:11];
 
     [self mp_onContentSizeChange:^(DynamicTextSize dynamicTextSize) {
-        
-        weakSelf.originButton.titleLabel.font = [AppFonts sharedInstance].buttonFont;
-        weakSelf.destinationButton.titleLabel.font = [AppFonts sharedInstance].buttonFont;
-        weakSelf.avoidStairsLabel.font = [AppFonts sharedInstance].buttonFont;
-        weakSelf.durationEstimate.font = [AppFonts sharedInstance].directionsFont;
-        weakSelf.offlineMsg.font = [AppFonts sharedInstance].directionsFontSmall;
-        weakSelf.offlineMsgDetail.font = [AppFonts sharedInstance].directionsFontSmall;
-        weakSelf.noRouteMessageLabel.font = [AppFonts sharedInstance].directionsFontSmall;
-        [weakSelf configureLocationServiceOffMessage];
-        weakSelf.reachabilityWarningLabel.font = [[AppFonts sharedInstance] scaledFontForSize:11];
-        [weakSelf.directionsView loadRoute:nil withModels:nil routingData:_routing];
-        [weakSelf.directionsView onDynamicContentSizeChanged];
-        [weakSelf.directionsView loadRoute:self.currentRoute withModels:self.sectionModelArray routingData:_routing];
+
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+
+        strongSelf.originButton.titleLabel.font = [AppFonts sharedInstance].buttonFont;
+        strongSelf.destinationButton.titleLabel.font = [AppFonts sharedInstance].buttonFont;
+        strongSelf.avoidStairsLabel.font = [AppFonts sharedInstance].buttonFont;
+        strongSelf.durationEstimate.font = [AppFonts sharedInstance].directionsFont;
+        strongSelf.offlineMsg.font = [AppFonts sharedInstance].directionsFontSmall;
+        strongSelf.offlineMsgDetail.font = [AppFonts sharedInstance].directionsFontSmall;
+        strongSelf.noRouteMessageLabel.font = [AppFonts sharedInstance].directionsFontSmall;
+        [strongSelf configureLocationServiceOffMessage];
+        strongSelf.reachabilityWarningLabel.font = [[AppFonts sharedInstance] scaledFontForSize:11];
+        [strongSelf.directionsView loadRoute:nil withModels:nil routingData:strongSelf->_routing];
+        [strongSelf.directionsView onDynamicContentSizeChanged];
+        [strongSelf.directionsView loadRoute:strongSelf.currentRoute withModels:strongSelf.sectionModelArray routingData:strongSelf->_routing];
     }];
 }
 
@@ -710,11 +713,12 @@
     if (!([self.origin.name containsString:@"position"] || [self.origin.name containsString:@"Estimated"])) {
         ppsc.selectedLocation = self.origin;
     }
+    __weak typeof(self)weakSelf = self;
     [ppsc placePickerSelectCallback:^(MPLocation *location) {
         
         if ( location ) {
-            self.origin = location;
-            [self updateRouting];
+            weakSelf.origin = location;
+            [weakSelf updateRouting];
         }
         
         [nav dismissViewControllerAnimated:YES completion:nil];
@@ -737,11 +741,12 @@
     if (!([self.destination.name containsString:@"position"] || [self.destination.name containsString:@"Estimated"])) {
         ppsc.selectedLocation = self.destination;
     }
+    __weak typeof(self)weakSelf = self;
     [ppsc placePickerSelectCallback:^(MPLocation *location) {
         
         if ( location ) {
-            self.destination = location;
-            [self updateRouting];
+            weakSelf.destination = location;
+            [weakSelf updateRouting];
         }
 
         [nav dismissViewControllerAnimated:YES completion:nil];
@@ -1056,6 +1061,21 @@
         NSInteger index = [notification.userInfo[kRouteSectionIndex] integerValue];
         
         self.directionsView.focusedRouteSegment = index;
+    }
+}
+
+
+#pragma mark - Location tracking
+
+- (void)locationTrackingOccured:(NSNotification *)notification {
+    NSInteger legIndex = [notification.userInfo[kLegIndex] integerValue];
+    NSInteger stepIndex = [notification.userInfo[kStepIndex] integerValue];
+    for (NSInteger i = 0; i < self.sectionModelArray.count; i++) {
+        SectionModel* model = self.sectionModelArray[i];
+        if (model.legIndex == legIndex && (model.stepIndex == stepIndex || model.stepIndex == -1)) {
+            self.directionsView.focusedRouteSegment = i;
+            break;
+        }
     }
 }
 

@@ -15,7 +15,7 @@ import MapsIndoors
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     static let mApiKey = "57e4e4992e74800ef8b69718" //MapsIndoors Test API Key
-    static let gApiKey = "ADD_YOUR_OWN_GOOGLE_MAPS_IOS_API_KEY"
+    static let gApiKey = "AIzaSyBzX2eRNamzCfKcFbPbnqJ6JjpBMHOfVMA"
     
     var window: UIWindow?
     

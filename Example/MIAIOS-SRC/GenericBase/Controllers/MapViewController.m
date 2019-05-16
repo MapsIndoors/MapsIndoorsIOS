@@ -25,16 +25,20 @@
 #import "Tracker.h"
 #import "UIViewController+LocationServicesAlert.h"
 #import "MyLocationButton.h"
-#import "MPWindow.h"
 #import "MPMapButton.h"
 #import "MPToastView.h"
 #import "NSObject+MPNetworkReachability.h"
 #import "MPMapInfoView.h"
 #import "MPAccessibilityHelper.h"
+#import "MPMapRouteTrackingModel.h"
+//#import "SimulatedPeopleLocationSource.h"
 
 
 #define kRouteFromHere @"Route from here"
 #define kRouteToHere @"Route to here"
+
+#define kViewingAngleObservePath        @"camera.viewingAngle"
+#define kMaxViewingAngleForTurnByTurn   45
 
 #define kZoomObservePath @"camera.zoom"
 #define kHasAppliedZoomHint @"MI_HAS_APPLIED_HINT"
@@ -47,7 +51,9 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     StackLayoutIndex_Toast,
 };
 
-@interface MapViewController () <MPCategoriesProviderDelegate>
+@interface MapViewController () < MPCategoriesProviderDelegate
+                                , MPMapRouteTrackingModelDelegate
+                                >
 
 @property (nonatomic, weak) NSLayoutConstraint*                     horizontalDirectionsHeightConstraint;
 @property (nonatomic, strong) HorizontalRoutingController*          horizontalRoutingController;
@@ -80,6 +86,9 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 @property int                                                       displayQueryCounter;
 @property int                                                       displayQueryValidationCount;
 
+@property (nonatomic, strong) MPMapRouteTrackingModel*              mapRouteTrackingModel;
+@property (nonatomic) BOOL                                          enterTurnByTurnModeOnNextRouteRendering;
+
 @end
 
 
@@ -99,8 +108,6 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     BOOL _keepMapCameraOnce;
     MPVenueProvider* _venueProvider;
     UIView *_shadeView;
-    UIControlState _trackingState;
-    NSNumber* _currentTrackedFloor;
     UIButton* _zoomHintBtn;
     UIButton* _zoomToVenueBtn;
 }
@@ -142,8 +149,6 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     MPFloorSelectorControl.selectedFloorButtonTitleColor = [UIColor darkGrayColor];
     MPFloorSelectorControl.userFloorColor = [UIColor appTertiaryHighlightColor];
     
-    _currentTrackedFloor = [NSNumber numberWithInteger:-99];
-    
     _routingData = Global.routingData;
 
     if (Global.initialPosition) {
@@ -161,6 +166,9 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     self.mapControl.delegate = self;
     self.mapControl.userLocationAccessibilityLabel = kLangUserLocationMarkerAccLabel;
     self.mapControl.userLocationAccuracyAccessibilityLabel = kLangUserLocationAccuracyAccLabel;
+
+//    [self.mapControl addDisplayRule:SimulatedPeopleLocationSource.peopleDisplayRule];
+//    [self.mapControl addDisplayRule:SimulatedPeopleLocationSource.currentUserDisplayRule];
 
     if (_floatingActionMenuContainer == nil) {
         
@@ -309,7 +317,6 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     
     _mapView.accessibilityElementsHidden = NO;
     
-    _mapView.padding = UIEdgeInsetsMake(80, 0, 0, 0);
     _mapView.buildingsEnabled = NO;
     
     _mapView.delegate = self;
@@ -344,6 +351,8 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         [_mapView addSubview:_zoomHintBtn];
         [_mapView addObserver:self forKeyPath:kZoomObservePath options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
     }
+
+    [_mapView addObserver:self forKeyPath:kViewingAngleObservePath options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void) setupOnAppearance {
@@ -420,38 +429,99 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 
 - (void)toggleLocationTracking: (id) sender {
     
-    if ( self.myLocationBtn.controlState != MPMyLocationStateDisabled ) {
-        
-        _trackingState = [self.myLocationBtn toggleState];
-        
-        switch ( _trackingState ) {
-            case MPMyLocationStateTrackingLocationAndHeading:
-            case MPMyLocationStateTrackingLocation:
+    if ( self.myLocationBtn.trackingButtonState != TrackingButtonState_Disabled ) {
+
+        [self.mapRouteTrackingModel toggleTrackingMode];
+
+        [self updateMapTrackingUI:NO];
+    }
+    
+    if ( MapsIndoors.positionProvider.locationServicesActive == NO ) {
+        [self locationServicesCheck];
+    }
+
+    [Tracker trackEvent:@"Map_Blue_Dot" parameters:nil];
+}
+
+- (void) updateMapTrackingUI:(BOOL)userGestureTrigger {
+
+    TrackingButtonState newTrackingButtonState = self.myLocationBtn.trackingButtonState;
+
+    switch ( self.mapRouteTrackingModel.trackingState ) {
+        case MPMapTrackingState_Suspended:
+            newTrackingButtonState = self.mapRouteTrackingModel.trackingMode == MPMapTrackingMode_FollowWithHeading
+                                   ? TrackingButtonState_TrackingLocationAndHeadingSuspended
+                                   : TrackingButtonState_Enabled;
+            break;
+        case MPMapTrackingState_NotTracking:
+            newTrackingButtonState = TrackingButtonState_Enabled;
+            break;
+        case MPMapTrackingState_Following:
+            newTrackingButtonState = TrackingButtonState_TrackingLocation;
+            break;
+        case MPMapTrackingState_FollowingWithHeading:
+            newTrackingButtonState = TrackingButtonState_TrackingLocationAndHeading;
+            break;
+    }
+
+    BOOL    didChangeState = newTrackingButtonState != self.myLocationBtn.trackingButtonState;
+
+    if ( didChangeState ) {
+
+        self.myLocationBtn.trackingButtonState = newTrackingButtonState;
+
+        switch ( newTrackingButtonState ) {
+            case TrackingButtonState_TrackingLocationAndHeading:
+            case TrackingButtonState_TrackingLocation:
                 _directionsRenderer.fitBounds = NO;
                 break;
 
-            case MPMyLocationStateEnabled:
-            case MPMyLocationStateDisabled:
-                _directionsRenderer.fitBounds = YES;
-                break;
-                
-            default:
+            case TrackingButtonState_Enabled:
+            case TrackingButtonState_Disabled:
+            case TrackingButtonState_TrackingLocationAndHeadingSuspended:
+                if ( userGestureTrigger == NO ) {           // When triggered ny a user gesture on the map, we do not force fit the current route leg
+                    _directionsRenderer.fitBounds = YES;
+                }
                 break;
         }
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopTrackingUserLocation) name:MPWindowActiveNotification object:nil];
     }
-    
-    //Update position if neccessary
-#if defined(MI_SDK_VERSION_MAJOR) && (MI_SDK_VERSION_MAJOR >= 2)
-    if ( MapsIndoors.positionProvider.locationServicesActive == NO ) {
-        [self locationServicesCheck];
+
+    [self updateCompass];
+
+    UIEdgeInsets    targetPadding;
+    if ( self.mapRouteTrackingModel.isTracking && self.mapRouteTrackingModel.turnByTurnMode ) {
+        CGFloat topPadding = _mapView.bounds.size.height * 0.5;
+        targetPadding = UIEdgeInsetsMake( topPadding, 0, 0, 0 );
     } else {
-        [self onPositionUpdateImpl: MapsIndoors.positionProvider.latestPositionResult];
+        targetPadding = UIEdgeInsetsMake(0, 0, 0, 0);
     }
-#endif
-    
-    [Tracker trackEvent:@"Map_Blue_Dot" parameters:nil];
+    UIEdgeInsets    currentPadding = _mapView.padding;
+    if ( UIEdgeInsetsEqualToEdgeInsets( targetPadding, currentPadding) == NO ) {
+        _mapView.padding = targetPadding;
+    }
+
+    [self updateScreenSleepConfig];
+}
+
+- (void) updateScreenSleepConfig {
+
+    BOOL    disableScreenSleep = [UIApplication sharedApplication].isIdleTimerDisabled;
+
+    switch ( self.mapRouteTrackingModel.trackingState ) {
+        case MPMapTrackingState_Suspended:
+        case MPMapTrackingState_NotTracking:
+            disableScreenSleep = NO;
+            break;
+        case MPMapTrackingState_Following:
+        case MPMapTrackingState_FollowingWithHeading:
+            disableScreenSleep = self.mapRouteTrackingModel.turnByTurnMode;
+            break;
+    }
+
+    if ( disableScreenSleep != [UIApplication sharedApplication].isIdleTimerDisabled ) {
+        NSLog( @"[I] %@ screen sleep", disableScreenSleep ? @"Disabling" : @"Enabling" );
+        [UIApplication sharedApplication].idleTimerDisabled = disableScreenSleep;
+    }
 }
 
 - (void) enableHorizontalDirections {
@@ -502,6 +572,9 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 
 - (void) showOnMap:(NSNotification*)notification {
     [Tracker trackScreen:@"Show Search on Map"];
+
+    [self.mapRouteTrackingModel suspendTracking];
+
     MPLocationQuery* qObj = [[MPLocationQuery alloc] init];
     qObj.categories = @[notification.object];
     qObj.venue = Global.venue.venueKey;
@@ -543,6 +616,8 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 }
 
 - (void)onLocationsReady:(NSNotification *)notification {
+
+    [self.mapRouteTrackingModel suspendTracking];
     [self closeRouting:nil];
     
     if (notification.object || Global.locationQuery.query.length > 0 || Global.locationQuery.types || Global.locationQuery.categories) {
@@ -584,6 +659,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         self.title = Global.venue.name;
         [self.mapControl clearMap];
         _directionsRenderer.route = nil;
+        self.mapRouteTrackingModel.route = nil;
         [self removeClearMapButton];
     }
     
@@ -592,11 +668,10 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 
 - (void) setupClearMapButton {
     
-    UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setTitle:kLangClearMap forState:UIControlStateNormal];
-    button.titleLabel.font = [UIFont systemFontOfSize:12];
-    button.layer.backgroundColor = [UIColor appLightPrimaryColor].CGColor;
-    button.layer.cornerRadius = 8;
+    UIImage*    clearImage = [UIImage imageNamed:@"CloseSmall"];
+    UIButton*   button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.bounds = CGRectMake( 0, 0, 22, 22 );
+    [button setImage:clearImage forState:UIControlStateNormal];
 
     if ( [UIDevice currentDevice].systemVersion.floatValue < 11 ) {
         [button sizeToFit];     // Without this bar button items do not appear on iOS 10 (and it is not necessary on iOS11+)
@@ -620,19 +695,21 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 }
 
 - (void)clearMap {
-    self.mapControl.currentFloor = Global.initialPosition ? @(Global.initialPosition.zIndex) : Global.venue.defaultFloor;
+//    self.mapControl.currentFloor = Global.initialPosition ? @(Global.initialPosition.zIndex) : Global.venue.defaultFloor;
     if ( VenueSelectorController.venueSelectorIsShown == NO ) {
         [self setupCustomFloorSelector];
     }
     [self.mapControl clearMap];
+    _mapView.selectedMarker = nil;
     _directionsRenderer.route = nil;
+    self.mapRouteTrackingModel.route = nil;
     [self removeClearMapButton];
     [self closeRouting:nil];
-    if (Global.venue) {
-        [self zoomToVenue:Global.venue];
-    } else {
-        [_mapView animateToCameraPosition:_camera];
-    }
+//    if (Global.venue) {
+//        [self zoomToVenue:Global.venue];
+//    } else {
+//        [_mapView animateToCameraPosition:_camera];
+//    }
     self.title = Global.venue.name;
     [self closeFloatingActionMenu];
     UIViewController *currentSidebarVC = self.splitViewController.viewControllers.firstObject.childViewControllers.lastObject;
@@ -640,16 +717,18 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     [currentSidebarVC.navigationController.topViewController popToMasterViewControllerAnimated:YES];
     self.venueSelectorIsShowing = VenueSelectorController.venueSelectorIsShown;
     [self updateCompass];
+    [self updateMapTrackingUI:NO];
 }
 
 - (void)showLocationOnMap:(NSNotification *)notification {
+    [self.mapRouteTrackingModel suspendTracking];
     [self closeRouting:nil];
+    [self setupClearMapButton];
     _destination = notification.object;
     self.mapControl.searchResult = nil;
     self.mapControl.currentFloor = _destination.floor;
     self.mapControl.selectedLocation = notification.object;
     self.title = self.mapControl.selectedLocation.name;
-    [self setupClearMapButton];
     if (!_keepMapCameraOnce) {
         GMSCameraPosition* pos = [GMSCameraPosition cameraWithTarget:CLLocationCoordinate2DMake(_destination.geometry.lat, _destination.geometry.lng) zoom:19];
         _mapView.camera = pos;
@@ -664,6 +743,11 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         ((BeaconPositionProvider*)MapsIndoors.positionProvider).floor = floor;
     }
     self.mapControl.currentFloor = floor;
+
+    if ( [floor isEqualToNumber:@( (int)MapsIndoors.positionProvider.latestPositionResult.geometry.z)] == NO ) {
+        [self.mapRouteTrackingModel suspendTracking];
+    }
+
     [Tracker trackEvent:@"Map_Floor_Selector_Clicked" parameters:@{ @"floorIndex" : floor }];
 }
 
@@ -681,7 +765,19 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         NSString* accessibilityLabel = notification.userInfo[kRouteSectionAccessibilityLabel];
         
         if (notification.object) {
-            
+
+            if ( self.enterTurnByTurnModeOnNextRouteRendering ) {
+                self.mapRouteTrackingModel.turnByTurnMode = YES;
+                self.enterTurnByTurnModeOnNextRouteRendering = NO;
+                
+            } else {
+
+                [self.mapRouteTrackingModel suspendTracking];
+                if ( _directionsRenderer.fitBounds == NO ) {
+                    _directionsRenderer.fitBounds = YES;
+                }
+            }
+
             self.mapControl.searchResult = nil;
             [self.floorSelector removeFromSuperview];
             self.title = kLangGetDirections;
@@ -694,15 +790,16 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
             [_directionsRenderer animate:4];
 
             [self setupClearMapButton];
-            if (_directionsRenderer.route.legs.count > _directionsRenderer.routeLegIndex + 1) {
+
+            MPRouteLeg* leg = [_directionsRenderer.route.legs objectAtIndex:_directionsRenderer.routeLegIndex];
+            NSNumber*   legFloor = ((MPRouteStep*)leg.steps.firstObject).end_location.zLevel;
+            NSNumber*   destinationFloor = _destination.floor;
+
+            if (  (_directionsRenderer.route.legs.count > _directionsRenderer.routeLegIndex + 1)
+               || ([destinationFloor compare:legFloor] != NSOrderedSame) ) {
                 self.mapControl.selectedLocation = nil;
             } else {
                 self.mapControl.selectedLocation = _destination;
-            }
-            
-            if ( _directionsRenderer.routeLegIndex != -1 ) {
-//                MPRouteLeg* leg = [_directionsRenderer.route.legs objectAtIndex:_directionsRenderer.routeLegIndex];
-                //self.mapControl.currentFloor = ((MPRouteStep*)leg.steps.firstObject).end_location.zLevel;
             }
             
             [UIView animateWithDuration:.3 animations:^{
@@ -752,6 +849,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         [self setupCustomFloorSelector];
     }
     _directionsRenderer.route = nil;
+    self.mapRouteTrackingModel.route = nil;
     if (self.horizontalRoutingController)
     {
         [self.horizontalRoutingController clearData];
@@ -830,6 +928,9 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 }
 
 - (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker {
+
+    [self.mapRouteTrackingModel suspendTracking];
+
     MPLocation* loc = [self.mapControl getLocation:marker];
     if (loc) {
         self.mapControl.selectedLocation = loc;
@@ -856,32 +957,11 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 }
 
 - (void)mapView:(GMSMapView *)mapView idleAtCameraPosition:(GMSCameraPosition *)position {
+
+    [self.mapRouteTrackingModel mapView:mapView idleAtCameraPosition:position];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
     
-        // Show "Return" button if map is far away from venue:
-        CGFloat zoomToVenueBtnAlpha = 0;
-        if ( Global.venue && (_directionsRenderer.isRenderingRoute == NO) ) {
-            MPPoint* p = Global.venue.anchor;
-            CLLocationCoordinate2D venueCenter = [p getCoordinate];
-            zoomToVenueBtnAlpha = (GMSGeometryDistance(mapView.camera.target, venueCenter) > 500) ? 1 : 0;
-        }
-        
-        if ( _zoomToVenueBtn.alpha != zoomToVenueBtnAlpha ) {
-            if ( zoomToVenueBtnAlpha > 0 ) {
-                [_mapView addSubview: _zoomToVenueBtn];
-                [UIView animateWithDuration:0.5 animations:^{
-                    _zoomToVenueBtn.alpha = zoomToVenueBtnAlpha;
-                }];
-            } else {
-                [UIView animateWithDuration:0.5 animations:^{
-                    _zoomToVenueBtn.alpha = zoomToVenueBtnAlpha;
-                } completion:^(BOOL finished) {
-                    [_zoomToVenueBtn removeFromSuperview];
-                }];
-            }
-        }
-        
         // Make the floor selector appear only when we're zoomed in to where building content is "pretty legible":
         CGFloat     floorSelectorAlphaForCurrentZoomLevel = _mapView.camera.zoom < 15 ? 0 : 1;
         if ( self.floorSelector.alpha != floorSelectorAlphaForCurrentZoomLevel ) {
@@ -892,19 +972,51 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     });
 }
 
-- (void)mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position {
+- (void) mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position {
     
     self.customCompassBearing = _mapView.camera.bearing;
 }
+
+- (void) mapView:(GMSMapView*)mapView willMove:(BOOL)gesture {
+
+    [self.mapRouteTrackingModel mapView:mapView willMove:gesture];
+}
+
+- (void) focusedBuildingDidChange:(MPLocation *)building {
+
+    // Show "Return" button if the map is not showing any buildings (i.e. not showing anything from the venue):
+    CGFloat zoomToVenueBtnAlpha = _directionsRenderer.isRenderingRoute || building ? 0 : 1;
+
+    if ( _zoomToVenueBtn.alpha != zoomToVenueBtnAlpha ) {
+        if ( zoomToVenueBtnAlpha > 0 ) {
+            [_mapView addSubview: _zoomToVenueBtn];
+            [UIView animateWithDuration:0.5 animations:^{
+                _zoomToVenueBtn.alpha = zoomToVenueBtnAlpha;
+            }];
+        } else {
+            [UIView animateWithDuration:0.5 animations:^{
+                _zoomToVenueBtn.alpha = zoomToVenueBtnAlpha;
+            } completion:^(BOOL finished) {
+                [_zoomToVenueBtn removeFromSuperview];
+            }];
+        }
+    }
+}
+
 
 #pragma mark - Notifications
 
 - (void)onRouteResultReady:(NSNotification*) notification {
     _directionsRenderer.route = notification.object;
     self.venueSelectorIsShowing = VenueSelectorController.venueSelectorIsShown;
+    self.mapRouteTrackingModel.route = _directionsRenderer.route;
+    self.enterTurnByTurnModeOnNextRouteRendering = YES;
 }
 
 - (void)onVenueChanged:(NSNotification*) notification {
+
+    [self.mapRouteTrackingModel suspendTracking];
+
     Global.venue = notification.object;
     self.mapControl.venue = Global.venue.venueKey;
     self.mapControl.currentFloor = Global.venue.defaultFloor ?: @(0);
@@ -1126,12 +1238,9 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         [self presentViewController:alert animated:YES completion:nil];
         self.locationServicesAlert = alert;
     }
-    BOOL locationServicesActive = [MapsIndoors.positionProvider isRunning];
-#if defined(MI_SDK_VERSION_MAJOR) && (MI_SDK_VERSION_MAJOR >= 2)
-    locationServicesActive = MapsIndoors.positionProvider.locationServicesActive;
-#endif
+    BOOL locationServicesActive = MapsIndoors.positionProvider.locationServicesActive;
     [self.mapControl showUserPosition: locationServicesActive];
-    self.myLocationBtn.controlState = locationServicesActive ? MPMyLocationStateEnabled : MPMyLocationStateDisabled;
+    self.myLocationBtn.trackingButtonState = locationServicesActive ? TrackingButtonState_Enabled : TrackingButtonState_Disabled;
 }
 
 - (void) connectPositionProviderToMapControl {
@@ -1162,10 +1271,12 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         
         UIView* referenceView = _mapView;
         
-        
-        float bottomOffset = [self getBottomOffset];
-        [self.myLocationBtn autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:referenceView withOffset:-32 - bottomOffset];
-        [self.myLocationBtn autoPinEdge:ALEdgeLeft   toEdge:ALEdgeLeft   ofView:referenceView withOffset:  8];
+        NSLayoutYAxisAnchor*    bottomAnchor = referenceView.layoutMarginsGuide.bottomAnchor;
+        if (@available(iOS 11.0, *)) {
+            bottomAnchor = referenceView.safeAreaLayoutGuide.bottomAnchor;
+        }
+        [self.myLocationBtn.bottomAnchor constraintEqualToAnchor:bottomAnchor constant:-32 -self.mapView.padding.bottom].active = YES;
+        [self.myLocationBtn autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:referenceView withOffset:8];
         [self.myLocationBtn autoSetDimensionsToSize:CGSizeMake(40, 40)];
     }
 }
@@ -1177,33 +1288,12 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 
 - (void)onPositionUpdateImpl:(MPPositionResult *)positionResult {
 
-    if (_trackingState == MPMyLocationStateTrackingLocation || _trackingState == MPMyLocationStateTrackingLocationAndHeading) {
-        
+    if ( self.mapRouteTrackingModel.isTracking ) {
+
         CLLocationCoordinate2D coord = [positionResult.geometry getCoordinate];
 
         if ( CLLocationCoordinate2DIsValid(coord) && (coord.latitude != 0.0f) ) {
-
-            NSNumber* newTrackedFloor = [positionResult getFloor];
-            if (newTrackedFloor == nil || _currentTrackedFloor == nil || ![newTrackedFloor isEqualToNumber:_currentTrackedFloor]) {
-                self.mapControl.currentFloor = newTrackedFloor;
-                _currentTrackedFloor = newTrackedFloor;
-                [self.mapControl showUserPosition:YES];
-            }
-            
-            if (_trackingState == MPMyLocationStateTrackingLocation) {
-                [_mapView animateToCameraPosition:[GMSCameraPosition cameraWithTarget:coord zoom:21 bearing: 0 viewingAngle:0]];
-            }
-            else {
-                [_mapView animateToCameraPosition:[GMSCameraPosition cameraWithTarget:coord zoom:21 bearing: [positionResult getHeadingDegrees] viewingAngle:45]];
-            }
-            
-            if (_directionsRenderer.isRenderingRoute) {
-                MPRouteSegmentPath path = [_directionsRenderer.route findNearestRouteSegmentPathFromPoint:positionResult.geometry floor:[positionResult getFloor]];
-                [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationLocationTrackingOccurred object:nil userInfo:@{kLegIndex:@(path.legIndex), kStepIndex:@(path.stepIndex)}];
-                _directionsRenderer.routeLegIndex = path.legIndex;
-                //TODO: Make step rendering work if relevant
-                //_directionsRenderer.routeStepIndex = path.stepIndex;
-            }
+            [self.mapRouteTrackingModel onPositionUpdate:positionResult];
         }
     }
 }
@@ -1269,11 +1359,11 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 }
 
 - (void) stopTrackingUserLocation {
-    _trackingState = MPMyLocationStateEnabled;
-    self.myLocationBtn.controlState = _trackingState;
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:MPWindowActiveNotification object:nil];
+    self.mapRouteTrackingModel.trackingMode = MPMapTrackingMode_DoNotTrack;
+
+    self.myLocationBtn.trackingButtonState = TrackingButtonState_Enabled;
+
     _directionsRenderer.fitBounds = YES;
-    _currentTrackedFloor = [NSNumber numberWithInteger:-99];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
@@ -1288,6 +1378,21 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
             } completion:^(BOOL finished) {
                 [_zoomHintBtn removeFromSuperview];
             }];
+        }
+
+    }
+    else if ( [kViewingAngleObservePath isEqualToString:keyPath] ) {
+
+        // Limit max viewingAngle when in turn by turn mode because of Google Maps using up all memory when:
+        //      camera target has been offset to the bottom of the screen
+        //      AND
+        //      the viewing angle is too large (presumably showing too much in th edistance).
+        //
+        if ( self.mapRouteTrackingModel.isTracking && self.mapRouteTrackingModel.turnByTurnMode ) {
+            GMSCameraPosition*   c = _mapView.camera;
+            if ( c.viewingAngle > kMaxViewingAngleForTurnByTurn ) {
+                _mapView.camera = [GMSCameraPosition cameraWithTarget:c.target zoom:c.zoom bearing:c.bearing viewingAngle:kMaxViewingAngleForTurnByTurn];
+            }
         }
     }
 }
@@ -1389,11 +1494,20 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 - (void) onCompassTapped:(UITapGestureRecognizer*)tapGesture {
 
     [_mapView animateToBearing: 0 ];
+
+    if ( self.mapRouteTrackingModel.trackingMode == MPMapTrackingMode_FollowWithHeading ) {
+        self.mapRouteTrackingModel.trackingMode = MPMapTrackingMode_Follow;
+    }
+
     [Tracker trackEvent:@"Map_Compass_Clicked" parameters:nil];
 }
 
 - (void) setCustomCompassBearing:(CLLocationDegrees)customCompassBearing {
-    
+
+    if ( fabs(customCompassBearing) < 1 ) {     // Snap to north
+        customCompassBearing = 0;
+    }
+
     CLLocationDegrees   delta = fabs( _customCompassBearing - customCompassBearing );
     
     if ( delta >= 1 ) {
@@ -1450,5 +1564,59 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 //
 //    return YES;
 //}
+
+
+#pragma mark - Map tracking, MPMapRouteTrackingModelDelegate
+
+- (MPMapRouteTrackingModel*) mapRouteTrackingModel {
+
+    if ( (_mapRouteTrackingModel == nil) && MapsIndoors.positionProvider ) {
+        _mapRouteTrackingModel = [MPMapRouteTrackingModel newWithMap:_mapView delegate:self];
+        _mapRouteTrackingModel.positionAgeLimit = 30;
+        if ( MapsIndoors.positionProvider.latestPositionResult ) {
+            [_mapRouteTrackingModel onPositionUpdate: MapsIndoors.positionProvider.latestPositionResult];
+        }
+    }
+    return _mapRouteTrackingModel;
+}
+
+- (void) mapRouteTrackingModel:(MPMapRouteTrackingModel *)tracker didSwitchFloor:(NSNumber *)floor {
+
+    if ( tracker.isTracking ) {
+        self.mapControl.currentFloor = floor;
+        [self.mapControl showUserPosition:YES];
+    }
+}
+
+- (void) mapRouteTrackingModel:(MPMapRouteTrackingModel *)tracker didDetermineMapCenter:(CLLocationCoordinate2D)mapCenter zoom:(double)zoom bearing:(double)bearing viewingAngle:(double)viewingAngle floor:(NSNumber *)floor {
+
+    if ( tracker.isTracking ) {
+
+        if ( [floor isEqualToNumber:self.mapControl.currentFloor] == NO ) {
+            self.mapControl.currentFloor = floor;
+        }
+
+        [_mapView animateToCameraPosition:[GMSCameraPosition cameraWithTarget:mapCenter zoom:zoom bearing:bearing viewingAngle:viewingAngle]];
+    }
+}
+
+- (void) mapRouteTrackingModel:(MPMapRouteTrackingModel *)tracker didMoveToRouteLegIndex:(NSInteger)legIndex stepIndex:(NSInteger)stepIndex onRoute:(MPRoute *)route {
+
+    if (_directionsRenderer.isRenderingRoute) {
+
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationLocationTrackingOccurred object:nil userInfo:@{kLegIndex:@(legIndex), kStepIndex:@(stepIndex)}];
+
+        if ( _directionsRenderer.routeLegIndex != legIndex ) {
+            _directionsRenderer.routeLegIndex = legIndex;
+            //TODO: Make step rendering work if relevant
+            //_directionsRenderer.routeStepIndex = stepIndex;
+        }
+    }
+}
+
+- (void) mapRouteTrackingModel:(MPMapRouteTrackingModel *)tracker didChangeTrackingState:(MPMapTrackingState)state userGesture:(BOOL)userGesture {
+
+    [self updateMapTrackingUI:userGesture];
+}
 
 @end

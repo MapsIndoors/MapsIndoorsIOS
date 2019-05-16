@@ -51,7 +51,7 @@
     CGFloat h, s, b, a;
     self.view.backgroundColor = [UIColor appLaunchScreenColor];
     [self.view.backgroundColor getHue:&h saturation:&s brightness:&b alpha:&a];
-    if (b + a > 1.7f) {
+    if (b + a > 1.72f) {
         self.welcomeLabel.textColor = [UIColor appPrimaryTextColor];
         self.loadingLabel.textColor = [UIColor appPrimaryTextColor];
         self.loadingIndicator.color = [UIColor appPrimaryTextColor];
