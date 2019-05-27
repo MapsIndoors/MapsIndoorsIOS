@@ -27,6 +27,6 @@
  Optional bounding box for the geometry object.
  If present, it contains two coordinates: [ longitude1, latitude1, longitude2, latitude2 ]
  */
-@property (nonatomic, strong, nullable) NSArray<Optional>*    bbox;
+@property (nonatomic, strong, nullable) NSArray<NSNumber*><Optional>*    bbox;
 
 @end

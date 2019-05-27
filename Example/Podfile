@@ -17,12 +17,12 @@ def miaios_deps
     pod 'KVOController', '~> 1.2.0'
     pod 'DZNEmptyDataSet', '~> 1.8.1'
     pod 'MaterialControls'
-    pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '2.x'
+    #pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :tag => '2.0.0'
 
 end
 
 target 'MapsIndoors GitHub App' do
-    miaios_deps
+    pod 'MapsIndoors', :path => '../'
 end
 
 target 'Demos' do

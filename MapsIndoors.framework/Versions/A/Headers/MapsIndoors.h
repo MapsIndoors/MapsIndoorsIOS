@@ -113,3 +113,8 @@
 #import <MapsIndoors/MPQuery.h>
 #import <MapsIndoors/MPFilter.h>
 
+
+#import <MapsIndoors/MPGeometryQueryProtocol.h>
+#import <MapsIndoors/MPPolygonGeometry.h>
+#import <MapsIndoors/MPGeometryHelper.h>
+#import <MapsIndoors/MPGeometryContainmentMetadata.h>
