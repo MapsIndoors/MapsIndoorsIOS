@@ -11,28 +11,17 @@
 #import "LocalizedStrings.h"
 
 
-@implementation MyLocationButton {
-    NSArray* toggleStates;
-    NSUInteger toggleStateIndex;
-    NSMutableDictionary* colorsForControlState;
-}
+@implementation MyLocationButton
 
 - (instancetype)initWithFrame:(CGRect)frame {
     
     self = [super initWithFrame:frame];
     
     if (self) {
-        colorsForControlState = [NSMutableDictionary dictionary];
-        [self setTitleColor:[UIColor appPrimaryTextColor] forState:MPMyLocationStateDisabled];
-        [self setTitleColor:[UIColor appPrimaryTextColor] forState:MPMyLocationStateEnabled];
-        [self setTitleColor:[UIColor appPrimaryTextColor] forState:MPMyLocationStateTrackingLocation];
-        [self setTitleColor:[UIColor appPrimaryTextColor] forState:MPMyLocationStateTrackingLocationAndHeading];
-        
-        [self setImage:[UIImage imageNamed:@"MyLocationDisabled"] forState:MPMyLocationStateDisabled];
-        [self setImage:[UIImage imageNamed:@"MyLocationEnabled"] forState:MPMyLocationStateEnabled];
-        [self setImage:[UIImage imageNamed:@"MyLocationTracking"] forState:MPMyLocationStateTrackingLocation];
-        [self setImage:[UIImage imageNamed:@"MyLocationTrackingHeading"] forState:MPMyLocationStateTrackingLocationAndHeading];
-        
+        [self setTitleColor:[UIColor appPrimaryTextColor] forState:UIControlStateNormal];
+
+        self.trackingButtonState = TrackingButtonState_Enabled;
+
         [self sizeToFit];
         
         self.contentEdgeInsets = UIEdgeInsetsMake(8.0f, 8.0f, 8.0f, 8.0f);
@@ -42,65 +31,56 @@
         self.layer.shadowRadius = 8;
         self.layer.shadowColor = [UIColor blackColor].CGColor;
         self.layer.shadowOpacity = 0.25;
-        
-        self.controlState = MPMyLocationStateEnabled;
-        toggleStates = @[ @(MPMyLocationStateTrackingLocation), @(MPMyLocationStateTrackingLocationAndHeading), @(MPMyLocationStateEnabled) ];
-        toggleStateIndex = -1;
-        
+
         self.isAccessibilityElement = YES;
     }
     
     return self;
 }
 
-- (void)setTitleColor:(UIColor *)color forState:(UIControlState)state {
-    [super setTitleColor:color forState:state];
-    [colorsForControlState setObject:color forKey:@(state)];
-}
+- (void) setTrackingButtonState:(TrackingButtonState)trackingButtonState {
 
-- (UIControlState)state {
-    NSInteger returnState = [super state];
-    return ( returnState | self.controlState );
-}
+    if ( _trackingButtonState != trackingButtonState ) {
 
-- (void) setControlState:(NSInteger)controlState {
+        _trackingButtonState = trackingButtonState;
 
-    if ( _controlState != controlState ) {
-        _controlState = controlState;
+        NSString*   imgName;
+
+        switch ( _trackingButtonState ) {
+            case TrackingButtonState_Disabled:                              imgName = @"MyLocationDisabled";  break;
+            case TrackingButtonState_Enabled:                               imgName = @"MyLocationEnabled";   break;
+            case TrackingButtonState_TrackingLocation:                      imgName = @"MyLocationTracking";  break;
+            case TrackingButtonState_TrackingLocationAndHeading:            imgName = @"MyLocationTrackingHeading";   break;
+            case TrackingButtonState_TrackingLocationAndHeadingSuspended:   imgName = @"MyLocationTrackingHeadingSuspended";  break;
+        }
+
+        if ( imgName ) {
+            UIImage*    img = [UIImage imageNamed:imgName];
+            [self setImage:img forState:UIControlStateNormal];
+        }
+
         [self setNeedsLayout];
         [self setAccessibilityLabelForCurrentControlState];
     }
-}
-
-- (UIControlState) toggleState {
-    if (++toggleStateIndex >= toggleStates.count) {
-        toggleStateIndex = 0;
-    }
-    NSNumber* newState = [toggleStates objectAtIndex:toggleStateIndex];
-    self.controlState = newState.unsignedIntegerValue;
-    
-    return self.controlState;
 }
 
 - (void) setAccessibilityLabelForCurrentControlState {
 
     NSString*   s;
     
-    switch ( self.controlState ) {
-        case MPMyLocationStateDisabled:
+    switch ( self.trackingButtonState ) {
+        case TrackingButtonState_Disabled:
             s = kLangTrackingDisabled;
             break;
-        case MPMyLocationStateEnabled:
+        case TrackingButtonState_Enabled:
+        case TrackingButtonState_TrackingLocationAndHeadingSuspended:
             s = kLangTrackingOff;
             break;
-        case MPMyLocationStateTrackingLocation:
+        case TrackingButtonState_TrackingLocation:
             s = kLangTrackingOn;
             break;
-        case MPMyLocationStateTrackingLocationAndHeading:
+        case TrackingButtonState_TrackingLocationAndHeading:
             s = kLangTrackingOnWithHeading;
-            break;
-
-        default:
             break;
     }
     

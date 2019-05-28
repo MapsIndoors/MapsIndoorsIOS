@@ -59,7 +59,7 @@ PODS:
     - GoogleUtilities/Logger
   - HashBuilder (1.0.1)
   - KVOController (1.2.0)
-  - MapsIndoors (3.1.0-alpha0):
+  - MapsIndoors (3.1.0-alpha5):
     - GoogleMaps (= 3.1.0)
   - MaterialControls (1.2.2)
   - nanopb (0.3.901):
@@ -77,6 +77,7 @@ DEPENDENCIES:
   - Fabric
   - Firebase/Core
   - GoogleFontsiOS/Roboto
+  - GoogleMaps
   - HashBuilder (~> 1.0)
   - KVOController (~> 1.2.0)
   - MapsIndoors (from `../`)
@@ -124,12 +125,12 @@ SPEC CHECKSUMS:
   GoogleUtilities: 84df567c76ca84f67b7bb40e769fdd4acc746a10
   HashBuilder: d2f6cbd492c68350bbcf0fa2216aae50b60657d5
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
-  MapsIndoors: fda71f1e06e2f14839389ca055fa86cf4392dab8
+  MapsIndoors: 7f72d9e7b76c66ff0431f179485a97221f55cb32
   MaterialControls: 1c6b29e78d3a13d8dd6a67ed31b6d26eb5de8f72
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   VCMaterialDesignIcons: 68a944308ab41282ba8555770cb57e3fbf2034be
 
-PODFILE CHECKSUM: d46e7dc0247d6cccf91137e015ee83b334259aa3
+PODFILE CHECKSUM: d2a5c80f1a6f407378115a8d285d0723ecfd926f
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.0

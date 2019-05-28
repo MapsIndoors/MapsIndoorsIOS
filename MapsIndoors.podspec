@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = "MapsIndoors"
-  s.version          = "3.1.0-alpha0"
-  s.summary          = "Library for making the MapsIndoors experience available to your iOS users."
+  s.version          = "3.1.0-alpha5"
+  s.summary          = "Library making the MapsIndoors experience available to your iOS users."
   s.description      = <<-DESC
 The MapsIndoors SDK is the idea of integrating everything on your venue, like people, goods, offices, shops, rooms and buildings with the mapping, positioning and wayfinding technologies provided in the MapsIndoors platform. We make the MapsIndoors platform available to interested businesses and/or partners. So if you think you should be one of them, please call us or send us an email. Mean while, you are most welcome to check out the demo project using 'pod try MapsIndoors'.
                        DESC
@@ -29,7 +29,7 @@ LICENSE
 
   s.ios.deployment_target    = '9.0'
   s.ios.preserve_paths = ['MapsIndoors.framework','Scripts']
-  s.ios.vendored_frameworks  = 'MapsIndoors.framework'#, 'MapsIndoorsSwift.framework'
+  s.ios.vendored_frameworks  = 'MapsIndoors.framework'
   s.resources = ['MapsIndoors.framework/Versions/A/Resources/MapsIndoors.bundle']
 
 end

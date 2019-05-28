@@ -47,9 +47,11 @@ class MySearchController: UIViewController, UISearchBarDelegate, UITableViewDele
     let searchBar = UISearchBar.init()
     //
     
-    convenience init(near:MPPoint) {
+    convenience init(near:MPPoint?) {
         self.init()
-        self.query.near = near;
+        if let near = near {
+            self.query.near = near
+        }
     }
     
     override func viewDidLoad() {
@@ -70,10 +72,27 @@ class MySearchController: UIViewController, UISearchBarDelegate, UITableViewDele
         /***
          Arrange the search bar and the table view in a stack view.
          ***/
-        let stackView = UIStackView.init(arrangedSubviews: [searchBar, tableView])
+        let topFiller = UIView.init()
+        let stackView = UIStackView.init(arrangedSubviews: [topFiller, searchBar, tableView])
         stackView.axis = .vertical
         view = stackView
+        let kw = UIApplication.shared.keyWindow
+        topFiller.heightAnchor.constraint(equalToConstant:kw?.safeAreaInsets.top ?? 0).isActive = true
+        topFiller.backgroundColor = .blue
+        searchBar.barTintColor = .blue
+        searchBar.tintColor = .white
+        searchBar.showsCancelButton = true
+        searchBar.becomeFirstResponder()
         //
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        searchBar.becomeFirstResponder()
+    }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        searchBar.resignFirstResponder()
     }
 
     /***
@@ -97,14 +116,27 @@ class MySearchController: UIViewController, UISearchBarDelegate, UITableViewDele
      * Reload table view
      ***/
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        query.query = searchText
-        //query.queryMode = .autocomplete
-        locationService.getLocationsUsing(query, filter: MPFilter()) { (locations, error) in
-            if error == nil {
-                self.locations = locations!
-                self.tableView.reloadData()
+        if searchText.count > 0 {
+            query.query = searchText
+            let filter = MPFilter()
+            filter.take = 10
+            locationService.getLocationsUsing(query, filter: filter) { (locations, error) in
+                if error == nil {
+                    self.locations = locations!
+                    self.tableView.reloadData()
+                }
             }
+        } else {
+            self.locations = []
+            self.tableView.reloadData()
         }
+    }
+    
+    /***
+     Implement the `searchBarCancelButtonClicked` method, with dismissal of the view controller.
+     ***/
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.dismiss(animated: true, completion: nil)
     }
 
     /***
