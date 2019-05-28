@@ -27,10 +27,13 @@ class ShowVenueController: UIViewController, MPMapControlDelegate {
         
         self.mapControl = MPMapControl.init(map: self.map!)
         
-        self.mapControl?.delegate = self
-    }
-    
-    func mapContentReady() {
-        self.mapControl?.venue = "rtx"
+        let venueProvider = MPVenueProvider.init()
+
+        venueProvider.getVenuesWithCompletion { (venueColl, error) in
+            if error == nil {
+                let bounds = (venueColl!.venues!.first as! MPVenue).getBoundingBox()
+                self.map?.animate(with: GMSCameraUpdate.fit(bounds!))
+            }
+        }
     }
 }

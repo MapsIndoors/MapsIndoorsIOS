@@ -51,6 +51,7 @@
         self.locationManager.delegate = self;
         self.locationManager.distanceFilter = 7;
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        self.locationManager.headingFilter = 5;
         
         self.latestPositionResult = [MPPositionResult new];
         

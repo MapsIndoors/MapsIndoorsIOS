@@ -22,15 +22,15 @@
 #import "MPGooglePlacesClient.h"
 #import "MPSVGImageProvider.h"
 #import "NSObject+CustomIntegrations.h"
-#import "MPWindow.h"
 #import "AppVariantData.h"
+//#import "SimulatedPeopleLocationSource.h"
 
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
 @property (nonatomic, strong) CLLocationManager*    locationManager;
-@property (nonatomic, strong) MPWindow* topWindow;
 @property BOOL isPositionProviderStoppedWhenInBackground;
+
 @end
 
 
@@ -77,20 +77,13 @@
     [[UILabel appearance] setFont:[UIFont systemFontOfSize:15]];
     
     //Fetches data if needed
-    #if defined(MI_SDK_VERSION_MAJOR) && (MI_SDK_VERSION_MAJOR >= 2)
     [MapsIndoors synchronizeContent:^(NSError *error) {
         if (error) NSLog(@"Failed fetching MapsIndoors data (locations and venue metadata): %@", error);
         else NSLog(@"Done fetching MapsIndoors data (locations and venue metadata)");
     }];
-    #endif
-    
+
     self.locationManager = [CLLocationManager new];
     self.locationManager.delegate = self;
-    
-    self.topWindow = [[MPWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    self.topWindow.rootViewController = self.window.rootViewController;
-    self.topWindow.windowLevel = UIWindowLevelNormal + 1;
-    self.topWindow.hidden = NO;
     
     [MPNotificationsHelper setupNotificationsForApp:[UIApplication sharedApplication] withLocationManager:self.locationManager];
     
@@ -98,9 +91,9 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-#if defined(MI_SDK_VERSION_MAJOR) && (MI_SDK_VERSION_MAJOR >= 2)
+
     [MapsIndoors.positionProvider updateLocationPermissionStatus];
-#endif
+
     if (self.isPositionProviderStoppedWhenInBackground) {
         [MapsIndoors.positionProvider startPositioning:nil];
     }

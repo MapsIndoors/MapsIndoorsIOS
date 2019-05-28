@@ -14,16 +14,18 @@ class DemoSelectorViewController: UITableViewController {
                                                           LocationDetailsController.self,
                                                           ShowMultipleLocationsController.self,
                                                           ShowRouteController.self,
+                                                          AdvancedDirectionsController.self,
                                                           ShowVenueController.self,
                                                           ShowBuildingController.self,
                                                           ShowFloorController.self,
                                                           ChangeDisplaySettingController.self,
-                                                          DynamicIconsController.self,
+                                                          MapStyleController.self,
                                                           CustomFloorSelectorController.self,
                                                           ShowMyLocationController.self,
                                                           MultipleDatasetsController.self,
                                                           SearchMapController.self,
-                                                          LocationDataSourcesController.self,
+                                                          OfflineController.self,
+                                                          LocationSourcesMapController.self,
                                                           ClusteringController.self
                                                         ]
     

@@ -122,7 +122,7 @@ static MPLocationDisplayRule*    _currentUserDisplayRule;
 }
 
 - (int)sourceId {
-    return (int)&self;
+    return (int)self;
 }
 
 #pragma mark - Helpers
@@ -241,6 +241,7 @@ static MPLocationDisplayRule*    _currentUserDisplayRule;
         _peopleDisplayRule.label = @"{{name}}";
         _peopleDisplayRule.showLabel = NO;
         _peopleDisplayRule.name = _poiType;
+        _peopleDisplayRule.displayRank = 1000;
     }
     return _peopleDisplayRule;
 }
@@ -258,6 +259,7 @@ static MPLocationDisplayRule*    _currentUserDisplayRule;
         _currentUserDisplayRule.label = @"{{name}}";
         _currentUserDisplayRule.showLabel = NO;
         _currentUserDisplayRule.name = _currentUserType;
+        _peopleDisplayRule.displayRank = 9999;
     }
     return _currentUserDisplayRule;
 }
