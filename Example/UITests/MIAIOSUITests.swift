@@ -48,7 +48,7 @@ class MapsIndoors_App_UITests: XCTestCase {
             if let fileUrl = bundle.url(forResource: "mapsindoors", withExtension: "plist"),
                 let data = try? Data(contentsOf: fileUrl) {
                 if let result = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [String: Any] { // [String: Any] which ever it is
-                    self.solutionId = result!["MapsIndoorsAPIKey"] as? String
+                    self.solutionId = result["MapsIndoorsAPIKey"] as? String
                     MapsIndoors.provideAPIKey(self.solutionId, googleAPIKey: nil)
                 }
             }

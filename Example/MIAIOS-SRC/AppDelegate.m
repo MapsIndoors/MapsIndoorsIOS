@@ -20,7 +20,7 @@
 #import <AFNetworking/AFNetworkReachabilityManager.h>
 #import "Tracker.h"
 #import "MPGooglePlacesClient.h"
-#import "MPSVGImageProvider.h"
+//#import "MPSVGImageProvider.h"
 #import "NSObject+CustomIntegrations.h"
 #import "AppVariantData.h"
 //#import "SimulatedPeopleLocationSource.h"
@@ -40,7 +40,7 @@
     
     self.isPositionProviderStoppedWhenInBackground = NO;
     
-    MapsIndoors.imageProvider =  [MPSVGImageProvider new];
+    //MapsIndoors.imageProvider =  [MPSVGImageProvider new];
     
     [self applyCustomIntegrations];
     
