@@ -68,11 +68,11 @@ class DemosUITests: XCTestCase {
         app.alerts["Select Floor"].buttons["Floor 1 "].tap()
         wait(app)
         app.navigationBars.buttons.firstMatch.tap()
-
+        wait(app)
         app.tables/*@START_MENU_TOKEN@*/.staticTexts["Show My Location Demo"]/*[[".cells.staticTexts[\" Show My Location Demo\"]",".staticTexts[\" Show My Location Demo\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         wait(app)
         app.navigationBars.buttons.firstMatch.tap()
-        
+        wait(app)
         tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Search Map Demo"]/*[[".cells.staticTexts[\" Search Map Demo\"]",".staticTexts[\" Search Map Demo\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         wait(app)
         app.buttons["Search"].tap()
@@ -83,14 +83,16 @@ class DemosUITests: XCTestCase {
         tablesQuery.staticTexts["Parking 1, , , Stigsborgvej"].tap()
         wait(app)
         app.navigationBars.buttons.firstMatch.tap()
-
+        wait(app)
         tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Multiple Datasets Demo"]/*[[".cells.staticTexts[\" Multiple Datasets Demo\"]",".staticTexts[\" Multiple Datasets Demo\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        wait(app)
         tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Stigsborgvej"]/*[[".cells.staticTexts[\"Stigsborgvej\"]",".staticTexts[\"Stigsborgvej\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        
-        let backButton = app.navigationBars["Demos.DatasetView"].buttons["Back"]
-        backButton.tap()
+        wait(app)
+        app.navigationBars.buttons.firstMatch.tap()
+        wait(app)
         tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Aalborg City"]/*[[".cells.staticTexts[\"Aalborg City\"]",".staticTexts[\"Aalborg City\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        backButton.tap()
+        wait(app)
+        app.navigationBars.buttons.firstMatch.tap()
         wait(app)
         app.navigationBars.buttons.firstMatch.tap()
     }
