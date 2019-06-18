@@ -18,5 +18,7 @@
     #define MP_DEPRECATED_ATTRIBUTE                 DEPRECATED_ATTRIBUTE
 #endif
 
+#define kMPUIApplicationDidReceiveMemoryWarningNotification @"UIApplicationDidReceiveMemoryWarningNotification"
+#define kMPRequestClearCacheMemoryNotification @"MPRequestClearCacheMemoryNotification"
 
 #endif /* MPDefines_h */
