@@ -11,11 +11,13 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [3.1.1] 2019-06-17
+## [3.1.1] 2019-06-19
 ### Fixed
 - Fixed `MPMapControl.go(to:MPLocation)` so that the map now properly fits locations with polygons.
 - Fixed dataset switching sometimes not working due to re-initialisation not properly executed behind the scenes.
+- Fixed memory issues related to entering and leaving a MapsIndoors map multiple times in the same session.
 - Adding custom `MPLocationDisplayRule` not affecting size and rank changes due to a race condition.
+- Fixed a problem with transitioning from a Google route to a MapsIndoors route.
 
 ## [3.1.0] 2019-06-04
 ### Added
