@@ -11,7 +11,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [3.1.1] 2019-06-19
+## [3.1.1] 2019-06-21
 ### Fixed
 - Fixed `MPMapControl.go(to:MPLocation)` so that the map now properly fits locations with polygons.
 - Fixed dataset switching sometimes not working due to re-initialisation not properly executed behind the scenes.
