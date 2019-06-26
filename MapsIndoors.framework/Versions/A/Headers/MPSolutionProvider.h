@@ -11,7 +11,11 @@
 #import "MPSolution.h"
 
 
+@class MPUserRole;
+
+
 typedef void(^mpSolutionHandlerBlockType)(MPSolution* _Nullable solution, NSError* _Nullable error);
+typedef void(^mpUserRoleCompletion)( NSArray<MPUserRole*>* _Nullable userRoles, NSError* _Nullable error );
 
 
 /**
@@ -54,4 +58,12 @@ typedef void(^mpSolutionHandlerBlockType)(MPSolution* _Nullable solution, NSErro
  @return YES if offline or preloaded data is available, else NO,
  */
 + (BOOL) isOfflineDataAvailableForSolutionId:(nonnull NSString*)solutionId;
+
+/**
+ Get user roles associated with the solution
+
+ @param completionHandler called when user roles or error has been found
+ */
+- (void) getUserRolesWithCompletion:(nonnull mpUserRoleCompletion)completionHandler;
+
 @end

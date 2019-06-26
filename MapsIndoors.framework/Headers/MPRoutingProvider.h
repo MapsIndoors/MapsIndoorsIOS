@@ -10,6 +10,10 @@
 #import "MPPoint.h"
 #import "MPRoute.h"
 
+
+@class MPUserRole;
+
+
 /**
  Directions service delegate
  */
@@ -41,16 +45,22 @@ typedef void(^mpRouteHandlerBlockType)(MPRoute* _Nullable route, NSError* _Nulla
 @property (nonatomic, strong, nullable) NSString* language;
 
 
+#pragma mark - Initializers
 - (nullable instancetype) initWithArea:(nonnull NSString *)venueName;
 - (nullable instancetype) initWithMapsIndoorsSolutionId:(nonnull NSString *)solutionId googleApiKey: (nonnull NSString*) googleApiKey;
+
+#pragma mark - Delegate-based routing methods
 - (void) getRoutingFrom:(nonnull MPPoint*)from to:(nonnull MPPoint*)to by:(nonnull NSString*)mode avoid:(nullable NSArray*)restrictions;
 - (void) getRoutingFrom:(nonnull MPPoint*)from to:(nonnull MPPoint*)to by:(nonnull NSString*)mode avoid:(nullable NSArray*)restrictions depart:(nullable NSDate*)departureTime arrive:(nullable NSDate*)arrivalTime;
+- (void) getRoutingFrom:(nonnull MPPoint*)from to:(nonnull MPPoint*)to by:(nonnull NSString*)mode avoid:(nullable NSArray*)restrictions depart:(nullable NSDate*)departureTime arrive:(nullable NSDate*)arrivalTime userRoles:(nullable NSArray<MPUserRole*>*)userRoles;
 - (void) getGoogleRoutingFrom:(nonnull NSString*)from to:(nonnull NSString*)to by:(nonnull NSString*)mode avoid:(nullable NSArray*)restrictions;
 - (void) getGoogleRoutingFrom:(nonnull NSString*)from to:(nonnull NSString*)to by:(nonnull NSString*)mode avoid:(nullable NSArray*)restrictions depart:(nullable NSDate*)departureTime arrive:(nullable NSDate*)arrivalTime;
 
-- (void) getRoutingFrom:(nonnull MPPoint*)from to:(nonnull MPPoint*)to by:(nonnull NSString*)mode avoid:(nullable NSArray*)restrictions completionHandler: (nullable mpRouteHandlerBlockType)handler;
-- (void) getRoutingFrom:(nonnull MPPoint*)from to:(nonnull MPPoint*)to by:(nonnull NSString*)mode avoid:(nullable NSArray*)restrictions depart:(nullable NSDate*)departureTime arrive:(nullable NSDate*)arrivalTime completionHandler: (nullable mpRouteHandlerBlockType)handler;
-- (void) getGoogleRoutingFrom:(nonnull NSString*)from to:(nonnull NSString*)to by:(nonnull NSString*)mode avoid:(nullable NSArray*)restrictions completionHandler: (nullable mpRouteHandlerBlockType)handler;
-- (void) getGoogleRoutingFrom:(nonnull NSString*)from to:(nonnull NSString*)to by:(nonnull NSString*)mode avoid:(nullable NSArray*)restrictions depart:(nullable NSDate*)departureTime arrive:(nullable NSDate*)arrivalTime completionHandler: (nullable mpRouteHandlerBlockType)handler;
+#pragma mark - completion handler based routing methods
+- (void) getRoutingFrom:(nonnull MPPoint*)from to:(nonnull MPPoint*)to by:(nonnull NSString*)mode avoid:(nullable NSArray*)restrictions completionHandler:(nullable mpRouteHandlerBlockType)handler;
+- (void) getRoutingFrom:(nonnull MPPoint*)from to:(nonnull MPPoint*)to by:(nonnull NSString*)mode avoid:(nullable NSArray*)restrictions depart:(nullable NSDate*)departureTime arrive:(nullable NSDate*)arrivalTime completionHandler:(nullable mpRouteHandlerBlockType)handler;
+- (void) getRoutingFrom:(nonnull MPPoint*)from to:(nonnull MPPoint*)to by:(nonnull NSString*)mode avoid:(nullable NSArray*)restrictions depart:(nullable NSDate*)departureTime arrive:(nullable NSDate*)arrivalTime userRoles:(nullable NSArray<MPUserRole*>*)userRoles completionHandler:(nullable mpRouteHandlerBlockType)handler;
+- (void) getGoogleRoutingFrom:(nonnull NSString*)from to:(nonnull NSString*)to by:(nonnull NSString*)mode avoid:(nullable NSArray*)restrictions completionHandler:(nullable mpRouteHandlerBlockType)handler;
+- (void) getGoogleRoutingFrom:(nonnull NSString*)from to:(nonnull NSString*)to by:(nonnull NSString*)mode avoid:(nullable NSArray*)restrictions depart:(nullable NSDate*)departureTime arrive:(nullable NSDate*)arrivalTime completionHandler:(nullable mpRouteHandlerBlockType)handler;
 
 @end	

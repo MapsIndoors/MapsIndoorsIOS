@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "MPLocation.h"
 
+
+@class MPUserRole;
+
+
 typedef NS_ENUM(NSUInteger, MPTravelMode) {
     MPTravelModeUnknown,
     MPTravelModeWalking,
@@ -66,6 +70,11 @@ typedef NS_ENUM(NSUInteger, MPTravelMode) {
  Set travel mode. Default is walking.
  */
 @property (nonatomic) MPTravelMode travelMode;
+
+/**
+ The user roles that the route should match.
+ */
+@property (nonatomic, strong, nullable) NSArray<MPUserRole*>*       userRoles;
 
 @end
 

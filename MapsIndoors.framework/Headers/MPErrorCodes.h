@@ -29,6 +29,7 @@
 
 #define kMPErrorCodeCategoriesNotFound                      100710
 #define kMPErrorCodeAppDataNotFound                         100810
+#define kMPErrorCodeUserRolesNotFound                       100910
 
 #define kMPErrorCodeOfflineContentNotFound                  101010
 
@@ -45,6 +46,10 @@
 #define kMPErrorCodeInvalidApiKey                           101500
 #define kMPErrorCodeInvalidGraphId                          101510
 #define kMPErrorCodeInvalidSolutionId                       101520
+
+#define kMPErrorCodeSynchronizeContentCancelled             101600
+#define kMPErrorCodeSynchronizeContentDataLoadingError      101610
+#define kMPErrorCodeSynchronizeContentDataLoadingErrorKey   @"syncContent::underlyingError"
 
 #define kMPMapsIndoorsDomain @"com.mapspeople.MapsIndoors"
 

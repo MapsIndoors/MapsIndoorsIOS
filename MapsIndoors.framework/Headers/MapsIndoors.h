@@ -118,3 +118,5 @@
 #import <MapsIndoors/MPPolygonGeometry.h>
 #import <MapsIndoors/MPGeometryHelper.h>
 #import <MapsIndoors/MPGeometryContainmentMetadata.h>
+
+#import <MapsIndoors/MPUserRole.h>

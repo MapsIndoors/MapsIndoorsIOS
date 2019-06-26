@@ -9,7 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "MPDistanceMatrixResult.h"
 
+
+@class MPUserRole;
 typedef void(^mpMatrixHandlerBlockType)(MPDistanceMatrixResult* _Nullable matrixResult, NSError* _Nullable error);
+
 
 @protocol MPDistanceMatrixProviderDelegate <NSObject>
 /**
@@ -20,6 +23,7 @@ typedef void(^mpMatrixHandlerBlockType)(MPDistanceMatrixResult* _Nullable matrix
 - (void) onDistanceMatrixResultReady: (nonnull MPDistanceMatrixResult*)distanceMatrixResult;
 @end
 
+
 @interface MPDistanceMatrixProvider : NSObject
 
 @property (nonatomic, weak, nullable) id <MPDistanceMatrixProviderDelegate> delegate;
@@ -28,12 +32,41 @@ typedef void(^mpMatrixHandlerBlockType)(MPDistanceMatrixResult* _Nullable matrix
 @property (nonatomic, strong, nullable) NSString* graphId;
 @property (nonatomic, strong, nullable) NSString* vehicle;
 
-- (void)getDistanceMatrixWithOrigins:(nonnull NSArray*) origins destinations:(nonnull NSArray*)destinations travelMode: (nonnull NSString*)travelMode avoid:(nullable NSArray*)restrictions depart:(nullable NSDate*)departureTime arrive:(nullable NSDate*)arrivalTime completionHandler: (nullable mpMatrixHandlerBlockType)handler;
+#pragma mark - MapsIndoors distance matrix
 
-- (void)getDistanceMatrixWithOrigins:(nonnull NSArray*) origins destinations:(nonnull NSArray*)destinations travelMode: (nonnull NSString*)travelMode;
+- (void) getDistanceMatrixWithOrigins:(nonnull NSArray*)origins
+                         destinations:(nonnull NSArray*)destinations
+                           travelMode:(nonnull NSString*)travelMode
+                                avoid:(nullable NSArray*)restrictions
+                               depart:(nullable NSDate*)departureTime
+                               arrive:(nullable NSDate*)arrivalTime
+                            userRoles:(nullable NSArray<MPUserRole*>*)userRoles
+                    completionHandler:(nullable mpMatrixHandlerBlockType)handler;
 
-- (void)getGoogleDistanceMatrixWithOrigins:(nonnull NSArray*) origins destinations:(nonnull NSArray*)destinations travelMode: (nonnull NSString*)travelMode avoid:(nullable NSArray*)restrictions depart:(nullable NSDate*)departureTime arrive:(nullable NSDate*)arrivalTime completionHandler: (nullable mpMatrixHandlerBlockType)handler;
+- (void) getDistanceMatrixWithOrigins:(nonnull NSArray*)origins
+                         destinations:(nonnull NSArray*)destinations
+                           travelMode:(nonnull NSString*)travelMode
+                                avoid:(nullable NSArray*)restrictions
+                               depart:(nullable NSDate*)departureTime
+                               arrive:(nullable NSDate*)arrivalTime
+                    completionHandler:(nullable mpMatrixHandlerBlockType)handler;
 
-- (void)getGoogleDistanceMatrixWithOrigins:(nonnull NSArray*) origins destinations:(nonnull NSArray*)destinations travelMode: (nonnull NSString*)travelMode;
+- (void) getDistanceMatrixWithOrigins:(nonnull NSArray*)origins
+                         destinations:(nonnull NSArray*)destinations
+                           travelMode:(nonnull NSString*)travelMode;
+
+
+#pragma mark - Google distance matrix
+- (void) getGoogleDistanceMatrixWithOrigins:(nonnull NSArray*)origins
+                               destinations:(nonnull NSArray*)destinations
+                                 travelMode:(nonnull NSString*)travelMode
+                                      avoid:(nullable NSArray*)restrictions
+                                     depart:(nullable NSDate*)departureTime
+                                     arrive:(nullable NSDate*)arrivalTime
+                          completionHandler:(nullable mpMatrixHandlerBlockType)handler;
+
+- (void) getGoogleDistanceMatrixWithOrigins:(nonnull NSArray*)origins
+                               destinations:(nonnull NSArray*)destinations
+                                 travelMode:(nonnull NSString*)travelMode;
 
 @end
