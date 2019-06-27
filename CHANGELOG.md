@@ -11,9 +11,11 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [3.1.2] 2019-06-26
+## [3.1.2] 2019-06-27
 ### Fixed
 - Fixed memory issue related to adding observers to `MPMapsIndoorsLocationSource`  in relation to entering and leaving a MapsIndoors map multiple times in the same session.
+- Fixed occasional orphaned/ghost polyline from the `MPDirectionsRenderer`.
+- Fixed wrong floor tiles showing in route step in some cases.
 
 ## [3.1.1] 2019-06-21
 ### Fixed
