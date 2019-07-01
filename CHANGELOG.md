@@ -17,6 +17,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 - Fixed occasional orphaned/ghost polyline from the `MPDirectionsRenderer`.
 - Fixed wrong floor tiles showing in route step in some cases.
 - Fixed an issue with route rendering.
+- Fixed info window not appearing for selectedLocation after several api key switches.
 
 ## [3.1.1] 2019-06-21
 ### Fixed
