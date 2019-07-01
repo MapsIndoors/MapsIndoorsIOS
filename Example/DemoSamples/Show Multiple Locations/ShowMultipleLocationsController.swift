@@ -34,7 +34,7 @@ class ShowMultipleLocationsController: UIViewController {
         let queryObj = MPLocationQuery.init()
         
         queryObj.categories = ["Toilet"]
-        queryObj.max = 50
+        queryObj.max = Int32.max
         
         locations.getLocationsUsing(queryObj) { (locationData, error) in
             if error == nil {

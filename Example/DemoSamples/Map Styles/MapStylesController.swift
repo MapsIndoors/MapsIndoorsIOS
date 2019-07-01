@@ -1,9 +1,9 @@
 //
-//  CustomFloorSelectorController.swift
+//  MapStyleController.swift
 //  Demos
 //
-//  Created by Michael Bech Hansen on 12/03/2018.
-//  Copyright © 2018 MapsPeople A/S. All rights reserved.
+//  Created by Daniel Nielsen on 12/03/2019.
+//  Copyright © 2019 MapsPeople A/S. All rights reserved.
 //
 
 import UIKit

@@ -40,7 +40,14 @@ class ShowMyLocationController: UIViewController {
         self.mapControl = MPMapControl.init(map: self.map!)
         
         /***
-         Inside `viewDidLoad`
+         Inside `viewDidLoad`, optionally add a special icon for the user location
+         ***/
+        let myLocationRule = MPLocationDisplayRule.init(name: "my-location", andIcon: UIImage.init(named: "MyLocationDirection"), andZoomLevelOn: 0)
+        myLocationRule?.iconSize = CGSize(width: 30, height: 30)
+        self.mapControl?.add(myLocationRule!)
+        
+        /***
+         Inside `viewDidLoad`, finally
          
          * Tell mapControl to show the users location
          * Assign your position provider `MyPositionProvider` to `MapsIndoors.positionProvider`

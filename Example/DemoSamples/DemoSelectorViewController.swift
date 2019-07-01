@@ -10,6 +10,10 @@ import UIKit
 
 class DemoSelectorViewController: UITableViewController {
 
+    override func viewDidLoad() {
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "DemoTableViewCell")
+    }
+    
     let demoControllerClasses:[UIViewController.Type] = [ ShowLocationController.self,
                                                           LocationDetailsController.self,
                                                           ShowMultipleLocationsController.self,
@@ -25,8 +29,9 @@ class DemoSelectorViewController: UITableViewController {
                                                           MultipleDatasetsController.self,
                                                           SearchMapController.self,
                                                           OfflineController.self,
-                                                          LocationSourcesMapController.self,
-                                                          ClusteringController.self
+                                                          LocationSourcesController.self,
+                                                          ClusteringController.self,
+                                                          CustomInfoWindowController.self
                                                         ]
     
     // MARK: Tableview delegate and datasource
@@ -40,12 +45,14 @@ class DemoSelectorViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell.init()
-        
-        cell.textLabel?.text = displayNameFor( controllerClassName: String(describing: demoControllerClasses[indexPath.row]) )
-        cell.accessibilityIdentifier = cell.textLabel?.text
-        
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "DemoTableViewCell") {
+
+            cell.textLabel?.text = displayNameFor( controllerClassName: String(describing: demoControllerClasses[indexPath.row]) )
+            cell.accessibilityIdentifier = cell.textLabel?.text
+            
+            return cell
+        }
+        return UITableViewCell.init()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

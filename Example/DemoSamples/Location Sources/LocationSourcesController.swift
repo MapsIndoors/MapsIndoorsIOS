@@ -1,5 +1,5 @@
 //
-//  ChangeDisplaySettingController.swift
+//  LocationSourcesController.swift
 //  SimpleMapSwift
 //
 //  Created by Daniel Nielsen on 25/01/2018.
@@ -17,11 +17,11 @@ import MapsIndoors
  
  This is part 3 of the tutorial of building custom Location Sources. In [Part 1](locationsourcespeoplelocationsource) and [2 we created the Location Sources](roomavailabilitysource). Now we will create a view controller displaying a map that shows the mocked people locations and the mocked room availability on top of a MapsIndoors map.
  
- Create a class `LocationSourcesMapController` that inherits from `UIViewController`.
+ Create a class `LocationSourcesController` that inherits from `UIViewController`.
  ***/
 
 
-class LocationSourcesMapController: UIViewController {
+class LocationSourcesController: UIViewController {
     
     /***
      Add a `GMSMapView` and a `MPMapControl` to the class

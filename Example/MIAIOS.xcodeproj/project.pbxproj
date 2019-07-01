@@ -137,7 +137,6 @@
 		4081252DE0DC726298060B17 /* Pods_MapsIndoors_GitHub_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE20AC563FFB2DFB9FE1F260 /* Pods_MapsIndoors_GitHub_App.framework */; };
 		85CD406ADDBE7A671ED0C33D /* Pods_MIAIOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58754105743A7A40B5454CDB /* Pods_MIAIOSUITests.framework */; };
 		9C930C527ADEE27DCD586CAB /* Pods_Demos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B9AA93ED6FFF2670E9FE57E /* Pods_Demos.framework */; };
-		A23D0419228D74A00099F246 /* LocationSourcesMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23D0413228D74A00099F246 /* LocationSourcesMapController.swift */; };
 		A23D041A228D74A00099F246 /* closed.png in Resources */ = {isa = PBXBuildFile; fileRef = A23D0414228D74A00099F246 /* closed.png */; };
 		A23D041B228D74A00099F246 /* RoomAvailabilitySource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23D0415228D74A00099F246 /* RoomAvailabilitySource.swift */; };
 		A23D041C228D74A00099F246 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = A23D0416228D74A00099F246 /* user.png */; };
@@ -148,6 +147,8 @@
 		A23D0429228D74FD0099F246 /* RouteSegmentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23D0426228D74FD0099F246 /* RouteSegmentsController.swift */; };
 		A23D042A228D74FD0099F246 /* RouteSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23D0427228D74FD0099F246 /* RouteSegmentView.swift */; };
 		A23D042B228D74FD0099F246 /* AdvancedDirectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23D0428228D74FD0099F246 /* AdvancedDirectionsController.swift */; };
+		A259675422CA0F9F000A6983 /* LocationSourcesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A259675322CA0F9F000A6983 /* LocationSourcesController.swift */; };
+		A259675722CA0FE0000A6983 /* CustomInfoWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A259675622CA0FE0000A6983 /* CustomInfoWindowController.swift */; };
 		A25BDFD01EF3B0FD002681B9 /* MIAIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25BDFCF1EF3B0FD002681B9 /* MIAIOSUITests.swift */; };
 		A25BE14F1EF3DA00002681B9 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25BE14E1EF3DA00002681B9 /* SnapshotHelper.swift */; };
 		A2ABD3D622739E5F00D472ED /* MPRouteTrackingSample.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ABD3CB22739E5E00D472ED /* MPRouteTrackingSample.m */; };
@@ -287,7 +288,6 @@
 		A20CBD711F4C598D0077D96E /* MPCiscoPositionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCiscoPositionResponse.h; sourceTree = "<group>"; };
 		A20CBD721F4C598D0077D96E /* MPCiscoPositionResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCiscoPositionResponse.m; sourceTree = "<group>"; };
 		A20DB5E21FB4949300E76E0A /* gmap_style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gmap_style.json; sourceTree = "<group>"; };
-		A23D0413228D74A00099F246 /* LocationSourcesMapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSourcesMapController.swift; sourceTree = "<group>"; };
 		A23D0414228D74A00099F246 /* closed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closed.png; sourceTree = "<group>"; };
 		A23D0415228D74A00099F246 /* RoomAvailabilitySource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomAvailabilitySource.swift; sourceTree = "<group>"; };
 		A23D0416228D74A00099F246 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
@@ -300,6 +300,8 @@
 		A23D0428228D74FD0099F246 /* AdvancedDirectionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedDirectionsController.swift; sourceTree = "<group>"; };
 		A247014D1FBAC1B300495F70 /* MyLocationButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyLocationButton.h; sourceTree = "<group>"; };
 		A247014E1FBAC1B300495F70 /* MyLocationButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyLocationButton.m; sourceTree = "<group>"; };
+		A259675322CA0F9F000A6983 /* LocationSourcesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSourcesController.swift; sourceTree = "<group>"; };
+		A259675622CA0FE0000A6983 /* CustomInfoWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfoWindowController.swift; sourceTree = "<group>"; };
 		A25BDFCB1EF3B0FD002681B9 /* MIAIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MIAIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A25BDFCF1EF3B0FD002681B9 /* MIAIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAIOSUITests.swift; sourceTree = "<group>"; };
 		A25BDFD11EF3B0FD002681B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -507,7 +509,6 @@
 				8BD126F01D3573A0C61EDD3A /* Pods-MapsIndoors GitHub App.debug.xcconfig */,
 				E1DB53F99D14A3FA506E0426 /* Pods-MapsIndoors GitHub App.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -556,6 +557,7 @@
 		30300A5E20739FEC00BC24BE /* DemoSamples */ = {
 			isa = PBXGroup;
 			children = (
+				A259675522CA0FE0000A6983 /* Custom Info Window */,
 				A23D0425228D74FD0099F246 /* Advanced Directions */,
 				A23D0422228D74E90099F246 /* Offline */,
 				A23D041F228D74DE0099F246 /* Map Styles */,
@@ -757,8 +759,8 @@
 		A23D0412228D74A00099F246 /* Location Sources */ = {
 			isa = PBXGroup;
 			children = (
-				A23D0413228D74A00099F246 /* LocationSourcesMapController.swift */,
 				A23D0414228D74A00099F246 /* closed.png */,
+				A259675322CA0F9F000A6983 /* LocationSourcesController.swift */,
 				A23D0415228D74A00099F246 /* RoomAvailabilitySource.swift */,
 				A23D0416228D74A00099F246 /* user.png */,
 				A23D0417228D74A00099F246 /* user2.png */,
@@ -802,6 +804,14 @@
 				A27C41581FBDBD9400C1DA49 /* MPMapButton.m */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		A259675522CA0FE0000A6983 /* Custom Info Window */ = {
+			isa = PBXGroup;
+			children = (
+				A259675622CA0FE0000A6983 /* CustomInfoWindowController.swift */,
+			);
+			path = "Custom Info Window";
 			sourceTree = "<group>";
 		};
 		A25BDFA31EF3B0FD002681B9 = {
@@ -1701,6 +1711,7 @@
 				30300A9B20739FEC00BC24BE /* CustomFloorSelectorController.swift in Sources */,
 				30E26F3D212C119900596D86 /* ShowRouteOnMapController.swift in Sources */,
 				30300A8A20739FEC00BC24BE /* BaseMapDemoController.swift in Sources */,
+				A259675422CA0F9F000A6983 /* LocationSourcesController.swift in Sources */,
 				30300A8C20739FEC00BC24BE /* MyPositionProvider.swift in Sources */,
 				30300A9E20739FEC00BC24BE /* ShowRouteController.swift in Sources */,
 				30300A9320739FEC00BC24BE /* LocationDetailsController.swift in Sources */,
@@ -1709,6 +1720,7 @@
 				A23D041B228D74A00099F246 /* RoomAvailabilitySource.swift in Sources */,
 				A23D0424228D74EA0099F246 /* OfflineController.swift in Sources */,
 				30300A9920739FEC00BC24BE /* ShowMultipleLocationsController.swift in Sources */,
+				A259675722CA0FE0000A6983 /* CustomInfoWindowController.swift in Sources */,
 				A2FC5D9B222D507000617468 /* ClusteringController.swift in Sources */,
 				30300A8B20739FEC00BC24BE /* ShowMyLocationController.swift in Sources */,
 				A23D041E228D74A00099F246 /* PeopleLocationSource.swift in Sources */,
@@ -1719,7 +1731,6 @@
 				A23D0429228D74FD0099F246 /* RouteSegmentsController.swift in Sources */,
 				30300A8720739FEC00BC24BE /* ShowFloorController.swift in Sources */,
 				30300A9020739FEC00BC24BE /* ShowLocationController.swift in Sources */,
-				A23D0419228D74A00099F246 /* LocationSourcesMapController.swift in Sources */,
 				A23D0421228D74DE0099F246 /* MapStylesController.swift in Sources */,
 				30300A9420739FEC00BC24BE /* MySearchController.swift in Sources */,
 				30300A8920739FEC00BC24BE /* ShowVenueController.swift in Sources */,

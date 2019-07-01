@@ -100,10 +100,10 @@ class RoomAvailabilitySource : NSObject, MPLocationSource, MPLocationsObserver {
     
     
     /***
-     Implement the MPLocationSource method `sourceStatus`.
+     Implement the MPLocationSource method `sourceStatus`. Because we are relying on MapsIndoors content it is recommended to relay the status from `MPMapsIndoorsLocationSource`.
      ***/
     func status() -> MPLocationSourceStatus {
-        return .available
+        return miMapsIndoorsSource.status()
     }
     
     
@@ -146,5 +146,5 @@ class RoomAvailabilitySource : NSObject, MPLocationSource, MPLocationsObserver {
 }
 
 /***
- In [Part 3](../locationsourceslocationsourcesmapcontroller) we will create a view controller that shows the people and room locations on top of a MapsIndoors map.
+ In [Part 3](../locationsourceslocationsourcescontroller) we will create a view controller that shows the people and room locations on top of a MapsIndoors map.
  ***/

@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  SimpleMapSwift
+//  ClusteringController.swift
+//  Demos
 //
 //  Created by Daniel Nielsen on 25/01/2018.
 //  Copyright © 2018 MapsPeople A/S. All rights reserved.

@@ -1,5 +1,5 @@
 //
-//  PeopleLocationsDataSource.swift
+//  PeopleLocationSource.swift
 //  Demos
 //
 //  Created by Daniel Nielsen on 29/10/2018.
@@ -99,8 +99,9 @@ class PeopleLocationSource : NSObject, MPLocationSource {
         for observer in observers {
             observer.onLocationsUpdate(updatedLocations, source: self)
         }
+        weak var _self = self
         queue.asyncAfter(deadline: .now() + 0.5) {
-            self.updatePositions()
+            _self?.updatePositions()
         }
     }
     
@@ -109,8 +110,9 @@ class PeopleLocationSource : NSObject, MPLocationSource {
      Create a method called `startMockingPositions` that simply just calls `updatePositions` in the future.
      ***/
     func startMockingPositions() {
+        weak var _self = self
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.updatePositions()
+            _self?.updatePositions()
         }
     }
     
@@ -149,7 +151,7 @@ class PeopleLocationSource : NSObject, MPLocationSource {
      ***/
     func remove(_ observer: MPLocationsObserver) {
         observers = observers.filter({ (obsvr) -> Bool in
-            return obsvr === observer
+            return obsvr !== observer
         })
     }
     
