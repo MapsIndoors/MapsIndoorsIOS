@@ -54,6 +54,8 @@ class MapsIndoors_App_UITests: XCTestCase {
             }
         }
         
+        MapsIndoors.setLanguage("en")
+        
         let exp = expectation(description: "Expect test complete")
         
         
