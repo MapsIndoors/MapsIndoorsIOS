@@ -11,6 +11,16 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.2.0-rc1] NOT RELEASED
+### Fixed
+- Fixed an issue with loading solution-data from the MapsIndoors backend.
+- Fixed an issue with searching for location aliases.
+### Added
+- Support for building default floors.
+- Support for profile-based routing.
+- Support for travelmode specific venue entrypoints, so f.ex. driving routes can go via parking lots (require data configuration).
+
+
 ## [3.1.2] 2019-06-27
 ### Fixed
 - Fixed memory issue related to adding observers to `MPMapsIndoorsLocationSource`  in relation to entering and leaving a MapsIndoors map multiple times in the same session.

@@ -61,6 +61,11 @@
 @property (nonatomic, strong, nullable) NSArray<NSArray*>* bounds;
 
 /**
+ Get the buildings default floor. Is used by MPMapControl to determine which floor to show if a user have not already selected a floor.
+ */
+@property (nonatomic, strong, nullable, readonly) NSNumber<Optional>* defaultFloor;
+
+/**
  Get the current floor.
  */
 - (nullable MPFloor*) getFloor;

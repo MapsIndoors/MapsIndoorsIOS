@@ -29,5 +29,9 @@
  Floor name for this coordinate
  */
 @property (nonatomic, strong, nullable) NSString<Optional>* floor_name;
+/**
+ Label for displaying contextual information about this coordinate
+ */
+@property (nonatomic, strong, nullable) NSString<Optional>* label;
 
 @end
