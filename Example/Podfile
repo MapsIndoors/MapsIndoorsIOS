@@ -4,6 +4,8 @@ inhibit_all_warnings!
 
 def miaios_deps
     
+    pod 'MapsIndoors', :path => '../'
+    
     pod 'Firebase/Core'
     pod 'AFNetworking/Reachability', '~> 2.6'
     pod 'VCMaterialDesignIcons', '~> 2.1'
@@ -15,29 +17,24 @@ def miaios_deps
     pod 'KVOController', '~> 1.2.0'
     pod 'DZNEmptyDataSet', '~> 1.8.1'
     pod 'MaterialControls'
-    #pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :tag => '2.0.0'
+    pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '2.x'
 
 end
 
 target 'MapsIndoors GitHub App' do
     miaios_deps
-    pod 'GoogleMaps'
-    pod 'MapsIndoors', :path => '../'
 end
 
 target 'Demos' do
-    pod 'GoogleMaps'
-    pod 'MapsIndoors', :path => '../'
+    miaios_deps
 end
 
 target 'DemosUITests' do
-    pod 'GoogleMaps'
-    pod 'MapsIndoors', :path => '../'
+    miaios_deps
 end
 
 target 'MIAIOSUITests' do
-    pod 'GoogleMaps'
-    pod 'MapsIndoors', :path => '../'
+    miaios_deps
 end
 
 

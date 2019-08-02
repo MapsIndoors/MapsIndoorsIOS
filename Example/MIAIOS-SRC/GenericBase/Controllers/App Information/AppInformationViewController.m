@@ -42,6 +42,8 @@ typedef NS_ENUM(NSUInteger, AppInfoVersion) {
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint*    feedbackDistanceFromBottomConstraint;
 @property (weak, nonatomic) IBOutlet UIButton*              feedbackButton;
 @property (weak, nonatomic) IBOutlet UIImageView*           feedbackImageView;
+@property (weak, nonatomic) IBOutlet UIButton*              logoutButton;
+
 
 @property (nonatomic, strong) NSString*                     feedbackUrl;
 @property (nonatomic, strong) NSString*                     providerHomepageUrl;
@@ -327,6 +329,5 @@ typedef NS_ENUM(NSUInteger, AppInfoVersion) {
     
     return cell;
 }
-
 
 @end

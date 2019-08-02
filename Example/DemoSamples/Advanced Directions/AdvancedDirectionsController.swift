@@ -110,9 +110,9 @@ class AdvancedDirectionsController: UIViewController {
      ***/
     fileprivate func setupRouteNav() {
         routeVC = RouteSegmentsController.init()
-        self.addChild(routeVC!)
+        self.addChildViewController(routeVC!)
         view.addSubview(routeVC.view)
-        routeVC.didMove(toParent: self)
+        routeVC.didMove(toParentViewController: self)
         routeVC.delegate = self as RouteSegmentsControllerDelegate
     }
     

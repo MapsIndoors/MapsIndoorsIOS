@@ -8,6 +8,8 @@
 
 #import "AppInfoHeaderTableViewCell.h"
 #import "UIColor+AppColor.h"
+#import "AppVariantData.h"
+#import "LocalizedStrings.h"
 
 
 @interface AppInfoHeaderTableViewCell ()
@@ -15,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView*   appBrandImageView;
 @property (weak, nonatomic) IBOutlet UILabel*       appNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel*       appProviderNameLabel;
+@property (weak, nonatomic) IBOutlet UIButton*      logoutButton;
 
 @property (nonatomic, copy) void(^providerNameTapAction)(void);
 
@@ -29,6 +32,7 @@
 
     UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(appProviderNameTapped:)];
     [self.appProviderNameLabel addGestureRecognizer:tapGesture];
+    [self configureLogOutButton];
 }
 
 - (void) configureWithAppName:(NSString*)appName providerName:(NSString*)providerName  providerNameTapAction:(void(^)(void))providerNameTapAction {
@@ -50,6 +54,36 @@
     if ( self.providerNameTapAction ) {
         self.providerNameTapAction();
     }
+}
+
+#pragma mark - Log out button
+
+- (void) configureLogOutButton {
+
+    BOOL    haveLogout = [AppVariantData sharedAppVariantData].logoutNotificationName != nil;
+
+    self.logoutButton.hidden = haveLogout == NO;
+    if ( haveLogout ) {
+        [self.logoutButton setTitle:kLangLogOut forState:UIControlStateNormal];
+        [self.logoutButton setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
+        self.logoutButton.backgroundColor = [UIColor colorFromRGBA:@"#FFD300"];
+
+        //        self.loginBackgroundView.layer.cornerRadius = 8;
+        //        self.loginBackgroundView.layer.masksToBounds = NO;
+        self.logoutButton.layer.shadowOffset = CGSizeMake( 0, 3 );
+        self.logoutButton.layer.shadowRadius = 8;
+        self.logoutButton.layer.shadowOpacity = 0.08;
+        self.logoutButton.layer.shadowColor = UIColor.blackColor.CGColor;
+
+        self.logoutButton.layer.cornerRadius = 4;
+
+        [self.logoutButton addTarget:self action:@selector(onLogoutTapped:) forControlEvents:UIControlEventTouchUpInside];
+    }
+}
+
+- (void) onLogoutTapped:(id)sender {
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:[AppVariantData sharedAppVariantData].logoutNotificationName object:self];
 }
 
 @end

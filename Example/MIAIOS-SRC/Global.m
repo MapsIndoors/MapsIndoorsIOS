@@ -14,6 +14,7 @@
 #import "AppVariantData.h"
 #import <MapKit/MapKit.h>
 #import "NSString+TRAVEL_MODE.h"
+#import "MPUserRoleManager.h"
 
 
 #define METERS_TO_FEET  3.2808399
@@ -162,78 +163,111 @@
 
 
 static MPSolution* solution;
-+ (MPSolution*) solution
-{ @synchronized(self) { return solution; } }
-+ (void) setSolution:(MPSolution*)value
-{ @synchronized(self) { solution = value; } }
++ (MPSolution*) solution {
+    @synchronized(self) {
+        return solution;
+    }
+}
+
++ (void) setSolution:(MPSolution*)value {
+    @synchronized(self) {
+        solution = value;
+    }
+    [self setUserRoleManager:[MPUserRoleManager new]];
+}
 
 
 static MPVenue* venue;
-+ (MPVenue*) venue
-{ @synchronized(self) { return venue; } }
-+ (void) setVenue:(MPVenue*)value
-{ @synchronized(self) { venue = value; } }
++ (MPVenue*) venue {
+    @synchronized(self) {
+        return venue;
+    }
+}
+
++ (void) setVenue:(MPVenue*)value {
+    @synchronized(self) {
+        venue = value;
+    }
+}
 
 
 static MPPoint* initialPosition;
-+ (MPPoint*) initialPosition
-{ @synchronized(self) { return initialPosition; } }
-+ (void) setInitialPosition:(MPPoint*)value
-{ @synchronized(self) { initialPosition = value; } }
++ (MPPoint*) initialPosition {
+    @synchronized(self) {
+        return initialPosition;
+    }
+}
+
++ (void) setInitialPosition:(MPPoint*)value {
+    @synchronized(self) {
+        initialPosition = value;
+    }
+}
 
 
 static RoutingData* routingData;
-+ (RoutingData*) routingData
-{ @synchronized(self) { return routingData; } }
-+ (void) setRoutingData:(RoutingData*)value
-{ @synchronized(self) { routingData = value; } }
++ (RoutingData*) routingData {
+    @synchronized(self) {
+        return routingData;
+    }
+}
+
++ (void) setRoutingData:(RoutingData*)value {
+    @synchronized(self) {
+        routingData = value;
+    }
+}
 
 
-+ (NSString*) travelMode
-{
++ (NSString*) travelMode {
     NSString* travelMode = [[NSUserDefaults standardUserDefaults] objectForKey:@"travelMode"];
     return travelMode ?: @"walking";
 }
-+ (void) setTravelMode:(NSString*)travelMode
-{
+
++ (void) setTravelMode:(NSString*)travelMode {
     NSString*   validatedTravelMode = [NSString stringFromTravelMode: [travelMode as_TRAVEL_MODE] ];
     [[NSUserDefaults standardUserDefaults] setObject:validatedTravelMode forKey:@"travelMode"];
 }
 
 
-+ (BOOL) avoidStairs
-{
++ (BOOL) avoidStairs {
     return [[NSUserDefaults standardUserDefaults] boolForKey:@"avoidStairs"];
 }
-+ (void) setAvoidStairs:(BOOL)avoidStairs
-{
+
++ (void) setAvoidStairs:(BOOL)avoidStairs {
     [[NSUserDefaults standardUserDefaults] setBool:avoidStairs forKey:@"avoidStairs"];
 }
 
 
 static MPAppData* appData;
-+ (MPAppData*) appData
-{ @synchronized(self) { return appData; } }
-+ (void) setAppData:(MPAppData*)value
-{ @synchronized(self) { appData = value; } }
++ (MPAppData*) appData {
+    @synchronized(self) {
+        return appData;
+    }
+}
 
++ (void) setAppData:(MPAppData*)value {
+    @synchronized(self) {
+        appData = value;
+    }
+}
 
-static NSArray* appColors;
-+ (NSArray*) appColors
-{ @synchronized(self) { return appColors; } }
-+ (void) setAppColors:(NSArray*)value
-{ @synchronized(self) { appColors = value; } }
 
 static MPLocationQuery* locationQuery;
-+ (MPLocationQuery*) locationQuery
-{ @synchronized(self) {
-    if (locationQuery == nil) {
-        locationQuery = [[MPLocationQuery alloc] init];
++ (MPLocationQuery*) locationQuery {
+    @synchronized(self) {
+        if (locationQuery == nil) {
+            locationQuery = [[MPLocationQuery alloc] init];
+        }
+        return locationQuery;
     }
-    return locationQuery;
-} }
-+ (void) setLocationQuery:(MPLocationQuery*)value
-{ @synchronized(self) { locationQuery = value; } }
+}
+
++ (void) setLocationQuery:(MPLocationQuery*)value {
+    @synchronized(self) {
+        locationQuery = value;
+    }
+}
 
 + (void) setupPositioning {
     
@@ -307,5 +341,24 @@ static MPLocationQuery* locationQuery;
     NSString* value = [[AppVariantData sharedAppVariantData].dict objectForKey:key];
     return value;
 }
+
+
+#pragma mark - User roles
+static MPUserRoleManager*       g_userRoleManager;
+
++ (MPUserRoleManager*) userRoleManager {
+
+    @synchronized(self) {
+        return g_userRoleManager;
+    }
+}
+
++ (void) setUserRoleManager:(MPUserRoleManager*)userRoleManager {
+
+    @synchronized(self) {
+        g_userRoleManager = userRoleManager;
+    }
+}
+
 
 @end

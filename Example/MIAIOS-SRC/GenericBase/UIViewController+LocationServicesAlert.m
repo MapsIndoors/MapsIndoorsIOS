@@ -28,9 +28,7 @@
         }];
         [turnOnBtn setValue:[UIColor redColor] forKey:@"titleTextColor"];
         
-        UIAlertAction*  CancelBtn = [UIAlertAction actionWithTitle:kLangCancel style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }];
+        UIAlertAction*  CancelBtn = [UIAlertAction actionWithTitle:kLangCancel style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
         
         [alert addAction:turnOnBtn];
         [alert addAction:CancelBtn];
@@ -62,9 +60,7 @@
                 }];
                 [turnOnBtn setValue:[UIColor redColor] forKey:@"titleTextColor"];
                 
-                UIAlertAction*  CancelBtn = [UIAlertAction actionWithTitle:kLangCancel style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-                    [self dismissViewControllerAnimated:YES completion:nil];
-                }];
+                UIAlertAction*  CancelBtn = [UIAlertAction actionWithTitle:kLangCancel style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
                 
                 [alert addAction:turnOnBtn];
                 [alert addAction:CancelBtn];

@@ -72,4 +72,6 @@
     return shouldPreloadRouteOrigin;
 }
 
+- (NSNotificationName) logoutNotificationName   { return self.dict[ @"logoutNotificationName" ]; }
+
 @end

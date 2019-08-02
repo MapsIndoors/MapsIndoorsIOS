@@ -33,6 +33,7 @@
 
 // Behaviours:
 @property (nonatomic, readonly) BOOL                    shouldPreloadRouteOriginWithCurrentLocation;
+@property (nonatomic, readonly) NSNotificationName      logoutNotificationName;
 
 // Methods:
 + (instancetype) sharedAppVariantData;

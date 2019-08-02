@@ -65,8 +65,17 @@ static BOOL _venueSelectorIsShown = NO;
     [self configureBackButton];
     
     NSString* venueId = [[NSUserDefaults standardUserDefaults] objectForKey:@"venue"];
-    if ( venueId && (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ) {
-        [self performSegueWithIdentifier:@"showMasterControllerNonAnimated" sender:self];
+    if ( venueId ) {
+
+        MPVenueProvider*    vp = [MPVenueProvider new];
+        [vp getVenueWithId:venueId completionHandler:^(MPVenue *venue, NSError *error) {
+
+            if ( venue ) {
+                Global.venue = venue;
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"VenueChanged" object:venue];
+                [self performSegueWithIdentifier:@"showMasterControllerNonAnimated" sender:self];
+            }
+        }];
     }
 }
 

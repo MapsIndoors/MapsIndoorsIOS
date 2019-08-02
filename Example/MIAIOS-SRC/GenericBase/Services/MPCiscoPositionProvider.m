@@ -179,7 +179,12 @@
         }
         
         if ([self isRunning]) {
-            [self performSelector:@selector(queryPosition) withObject:nil afterDelay:self.interval];
+            // Schedule next periodic update of position:
+            // NOTE When -[NSObject performSelector:withObject:afterDelay:] is called on a threads that have a runloop, it fails silently!
+            // So perform the update on the mainqueue/thread, so we are sure to have a runloop.
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self performSelector:@selector(queryPosition) withObject:nil afterDelay:self.interval];
+            });
         }
     });
 }

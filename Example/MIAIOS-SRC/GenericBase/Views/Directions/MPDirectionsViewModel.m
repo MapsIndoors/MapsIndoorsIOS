@@ -17,6 +17,7 @@
 #import "MPLocation+ReverseGeocoding.h"
 
 
+
 @interface MPDirectionsViewModel ()
 
 @property (nonatomic, strong) MPRoute*                      route;
@@ -100,7 +101,7 @@
             }
         }
         
-    } else if ( index > 0 ) {
+    } else if ( (index > 0) && (index < self.models.count) ) {
         
         SectionModel*   sectionModel = self.models[index];
         MPRouteLeg*     currentLeg = sectionModel.leg;
@@ -128,7 +129,11 @@
             }
 
             if ( text.length == 0 ) {
-                if ( [@[@"steps", @"elevator"] indexOfObject: currentStep.highway] != NSNotFound ) {
+                
+                if (sectionModel.travelMode == WALK && (prevSectionModel.travelMode == DRIVE || prevSectionModel.travelMode == BIKE)) {
+                    text = sectionModel.leg.start_location.label;
+                }
+                else if ( [@[@"steps", @"elevator"] indexOfObject: currentStep.highway] != NSNotFound ) {
                     NSString*   fmt = NSLocalizedString(@"Level %@ to %@",);
                     text = [NSString stringWithFormat:fmt, currentStep.start_location.floor_name, currentStep.end_location.floor_name];
                 }
@@ -177,7 +182,12 @@
             }
             
             if ( text.length == 0 ) {
-                if ( currentStep.highway.length ) {
+                
+                //Park
+                if (sectionModel.travelMode == WALK && (prevSectionModel.travelMode == DRIVE || prevSectionModel.travelMode == BIKE)) {
+                    text = NSLocalizedString(@"Park",);
+                }
+                else if ( currentStep.highway.length ) {
                     if ( [currentStep.highway isEqualToString:@"steps"] ) {
                         text = NSLocalizedString(@"Stairs",);
                     } else {    // "elevator", ...
@@ -202,9 +212,10 @@
         // No image for destination action point
         
     } else {
-        
-        MPRouteLeg*     currentLeg  = self.models[index].leg;
-        MPRouteLeg*     previousLeg = self.models[index-1].leg;
+        SectionModel*    currentSectionModel = self.models[index];
+        SectionModel*    previousSectionModel = self.models[index-1];
+        MPRouteLeg*     currentLeg  = currentSectionModel.leg;
+        MPRouteLeg*     previousLeg = previousSectionModel.leg;
         
         if ( previousLeg ) {
             
@@ -218,6 +229,15 @@
                 case BuildingTransition_None:
                     break;
             }
+            
+            if (imageName == nil) {
+                
+                if (currentSectionModel.travelMode == WALK && (previousSectionModel.travelMode == DRIVE || previousSectionModel.travelMode == BIKE)) {
+                    imageName = @"Parking";
+                }
+                
+            }
+            
         }
         
         if ( !imageName ) {

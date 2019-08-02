@@ -14,6 +14,7 @@
 #import "NSString+TRAVEL_MODE.h"
 #import <MapsIndoors/MapsIndoors.h>
 #import "TCFKA_MDSnackbar.h"
+#import "MPUserRoleManager.h"
 
 
 #if DEBUG && 0
@@ -49,6 +50,9 @@
     for ( NSString* s in restrictions ) {
         [builder contributeObject:s];
     }
+    for (MPUserRole* userRole in Global.userRoleManager.activeUserRoles ) {
+        [builder contributeObject:userRole.userRoleId];
+    }
     
     if ( builder.builtHash != self.latestRoutingRequestHash ) {
         
@@ -61,6 +65,10 @@
         q.departure = departureTime;
         q.arrival = arrivalTime;
         q.travelMode = [mode as_MPTravelMode];
+
+        if ( Global.userRoleManager.activeUserRoles.count ) {
+            q.userRoles = Global.userRoleManager.activeUserRoles;
+        }
 
         [s routingWithQuery:q completionHandler:^(MPRoute *route, NSError *error) {
 

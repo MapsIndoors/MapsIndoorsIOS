@@ -20,7 +20,7 @@
 #import <AFNetworking/AFNetworkReachabilityManager.h>
 #import "Tracker.h"
 #import "MPGooglePlacesClient.h"
-//#import "MPSVGImageProvider.h"
+#import "MPSVGImageProvider.h"
 #import "NSObject+CustomIntegrations.h"
 #import "AppVariantData.h"
 //#import "SimulatedPeopleLocationSource.h"
@@ -40,7 +40,7 @@
     
     self.isPositionProviderStoppedWhenInBackground = NO;
     
-    //MapsIndoors.imageProvider =  [MPSVGImageProvider new];
+    MapsIndoors.imageProvider =  [MPSVGImageProvider new];
     
     [self applyCustomIntegrations];
     
@@ -121,44 +121,48 @@
     }
 }
 
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
-    NSURLComponents *urlComponents = [NSURLComponents componentsWithURL:url
-                                                resolvingAgainstBaseURL:NO];
-    
-    NSArray *queryItems = urlComponents.queryItems;
-    NSString *venue = [self valueForKey:@"venueId" fromQueryItems:queryItems];
-    if (venue) {
-        MPVenueProvider* venues = [[MPVenueProvider alloc] init];
-        [venues getVenueWithId:venue completionHandler:^(MPVenue *venue, NSError *error) {
-            if (error == nil) {
-                Global.venue = venue;
-            }
-        }];
+- (BOOL) application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
+
+    BOOL    result = YES;
+
+    if ( self.openUrlHook ) {
+
+        result = self.openUrlHook( app, url, options );
+
+    } else {
+
+        NSURLComponents *urlComponents = [NSURLComponents componentsWithURL:url resolvingAgainstBaseURL:NO];
+
+        NSArray *queryItems = urlComponents.queryItems;
+        NSString *venue = [self valueForKey:@"venueId" fromQueryItems:queryItems];
+        if (venue) {
+            MPVenueProvider* venues = [[MPVenueProvider alloc] init];
+            [venues getVenueWithId:venue completionHandler:^(MPVenue *venue, NSError *error) {
+                if (error == nil) {
+                    Global.venue = venue;
+                }
+            }];
+        }
+
+        MPLocationQuery* lq = [MPLocationQuery queryWithUrl:url];
+        if (lq) {
+            [self performSelector:@selector(openLocationSearch:) withObject:lq afterDelay:1.0];
+        }
+
+        NSString *locationId = [self valueForKey:@"locationId" fromQueryItems:queryItems];
+        if (locationId && locationId.length == 24)
+            [MapsIndoors.locationsProvider getLocationWithId:locationId];
+
+        NSString *initialPos = [self valueForKey:@"center" fromQueryItems:queryItems];
+        if (initialPos) {
+            NSArray* posArr = [initialPos componentsSeparatedByString:@","];
+            Global.initialPosition = [[MPPoint alloc] initWithLat:[[posArr objectAtIndex:0] doubleValue] lon:[[posArr objectAtIndex:1] doubleValue]];
+        }
+
+        [MPNotificationsHelper setupNotificationsForApp:[UIApplication sharedApplication] withLocationManager:self.locationManager];
     }
-    
-    MPLocationQuery* lq = [MPLocationQuery queryWithUrl:url];
-    if (lq) {
-        [self performSelector:@selector(openLocationSearch:) withObject:lq afterDelay:1.0];
-    }
-    
-    NSString *locationId = [self valueForKey:@"locationId" fromQueryItems:queryItems];
-    if (locationId && locationId.length == 24)
-    [MapsIndoors.locationsProvider getLocationWithId:locationId];
-    
-    NSString *appColors = [self valueForKey:@"appColors" fromQueryItems:queryItems];
-    if (appColors) {
-        Global.appColors = [appColors componentsSeparatedByString:@"|"];
-    }
-    
-    NSString *initialPos = [self valueForKey:@"center" fromQueryItems:queryItems];
-    if (initialPos) {
-        NSArray* posArr = [appColors componentsSeparatedByString:@","];
-        Global.initialPosition = [[MPPoint alloc] initWithLat:[[posArr objectAtIndex:0] doubleValue] lon:[[posArr objectAtIndex:1] doubleValue]];
-    }
-    
-    [MPNotificationsHelper setupNotificationsForApp:[UIApplication sharedApplication] withLocationManager:self.locationManager];
-    
-    return YES;
+
+    return result;
 }
 
 - (NSString *)valueForKey:(NSString *)key

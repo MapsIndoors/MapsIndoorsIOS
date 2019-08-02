@@ -16,7 +16,7 @@ class MultipleDatasetsController: UITableViewController {
     
     //This cleanup is only needed in this demo
     override func viewWillDisappear(_ animated: Bool) {
-        if self.isMovingFromParent {
+        if self.isMovingFromParentViewController {
             MapsIndoors.provideAPIKey(AppDelegate.mApiKey, googleAPIKey: AppDelegate.gApiKey)
         }
     }

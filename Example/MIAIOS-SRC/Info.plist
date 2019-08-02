@@ -36,10 +36,6 @@
 	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>MI_GOOGLE_API_KEY</key>
-	<string>AIzaSyBzX2eRNamzCfKcFbPbnqJ6JjpBMHOfVMA</string>
-	<key>MI_SOLUTION_ID</key>
-	<string>55cdde212a91e0049824fe86</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

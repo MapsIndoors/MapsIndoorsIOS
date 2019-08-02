@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -332,11 +331,12 @@
                         <outlet property="switchDirIconButton" destination="LqS-4Y-pfm" id="3sU-pR-Soo"/>
                         <outlet property="tableFooter" destination="KSL-lx-GKd" id="hU2-TW-tHG"/>
                         <segue destination="RSQ-1R-iRq" kind="show" identifier="showTransitSourcesSegue" id="Hup-Us-jvy"/>
+                        <segue destination="npd-9L-Dkk" kind="show" identifier="routeSettingsSegue" id="hq2-7L-CBR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L1S-aR-TfV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4251" y="-1017"/>
+            <point key="canvasLocation" x="4193" y="-1018"/>
         </scene>
         <!--UITableViewController-3Cg-R5-hs4-->
         <scene sceneID="DwR-lq-PN9">
@@ -345,6 +345,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ej9-mL-2Yf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5174" y="-1018"/>
+        </scene>
+        <!--Route Settings View Controller-->
+        <scene sceneID="Ph4-Zo-lpT">
+            <objects>
+                <viewController id="npd-9L-Dkk" customClass="MPRouteSettingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3By-w1-eP1"/>
+                        <viewControllerLayoutGuide type="bottom" id="tSF-IK-EsQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lho-SL-c8b">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="c0Q-S6-I83">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="routeSettingsCell" id="AOk-9t-JqU">
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AOk-9t-JqU" id="LqO-Dy-RRQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="npd-9L-Dkk" id="4eG-Vx-R66"/>
+                                    <outlet property="delegate" destination="npd-9L-Dkk" id="lAN-2k-yvb"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="c0Q-S6-I83" firstAttribute="width" secondItem="lho-SL-c8b" secondAttribute="width" id="ABc-gT-oyn"/>
+                            <constraint firstItem="c0Q-S6-I83" firstAttribute="centerX" secondItem="lho-SL-c8b" secondAttribute="centerX" id="EXM-GM-Rru"/>
+                            <constraint firstItem="c0Q-S6-I83" firstAttribute="height" secondItem="lho-SL-c8b" secondAttribute="height" id="Hcy-Zc-GW8"/>
+                            <constraint firstItem="c0Q-S6-I83" firstAttribute="centerY" secondItem="lho-SL-c8b" secondAttribute="centerY" id="e0Y-r9-cRo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="c0Q-S6-I83" id="rEQ-zH-hwR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sdx-iA-8da" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5148" y="-503"/>
         </scene>
     </scenes>
     <resources>

@@ -171,3 +171,13 @@
 "Route instructions %@ to %@ of %@"             = "Rute instruktioner %@ til %@ af %@";
 "My Location"                                   = "Nuværende lokation";
 "My location, accuracy %@m"                     = "Nuværende lokation, præcision %@m";
+
+"Go" = "Go";
+"Enter solution-Id or API-key" = "Indtast solution-Id eller API-nøgle";
+"Oops. Please try again." = "Ups. Prøv igen.";
+"Log out" = "Log ud";
+
+// App User Roles
+"Choose the App User Roles you are part of. This only affacts the directions you get, not the locations you see on the map" = "Vælg de app bruger roller du tilhører. Dette påvirker kun ruter, notikke de lokationer du ser på kortet";
+"Route Settings" = "Rute Indstillinger";
+"App User Roles" = "App bruger roller";

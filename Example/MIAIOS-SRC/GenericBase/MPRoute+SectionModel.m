@@ -47,7 +47,7 @@
                                                          withOptionVisible:@(NO)
                                                                  withItems:substeps
                                                                withDetails:nil
-                                                            withTravelMode:requestTravelMode
+                                                            withTravelMode:step.travel_mode.as_TRAVEL_MODE
                                                                withLegType:legType
                                                                  isOutside:isOutside];
             

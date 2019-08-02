@@ -89,13 +89,14 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 @property (nonatomic, strong) MPMapRouteTrackingModel*              mapRouteTrackingModel;
 @property (nonatomic) BOOL                                          enterTurnByTurnModeOnNextRouteRendering;
 
+@property (nonatomic, strong) MPLocationQuery*                      localLocationQuery;
+
 @end
 
 
 @implementation MapViewController {
     
     UIView* _statusBarView;
-    RoutingData *_routingData;
     UIView* _directionsContainer;
     UIView* _floatingActionMenuContainer;
     FloatingActionMenuController* _floatingActionMenuController;
@@ -134,23 +135,20 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enableHorizontalDirections) name:@"EnableHorizontalDirections" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(disableHorizontalDirections) name:@"DisableHorizontalDirections" object:nil];
     
-    
     _closeImg = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_close fontSize:24].image;
     
-    [self.KVOController observe:self keyPath:@"horizontalRoutingController.verticalMode" options:NSKeyValueObservingOptionNew block:^(MapViewController* _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
-        if (_routingData.latestRoute) {
+    [self.KVOController observe:self.horizontalRoutingController keyPath:@"verticalMode" options:NSKeyValueObservingOptionNew block:^(MapViewController* _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
+        if (Global.routingData.latestRoute) {
             [observer showHorizontalDirections:nil];
         }
     }];
-    
+
     _shadeView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     MPFloorSelectorControl.selectedColor = [UIColor colorFromHexString:@"#CFCFCF"];
     MPFloorSelectorControl.selectedFloorButtonTitleColor = [UIColor darkGrayColor];
     MPFloorSelectorControl.userFloorColor = [UIColor appTertiaryHighlightColor];
     
-    _routingData = Global.routingData;
-
     if (Global.initialPosition) {
         _camera = [GMSCameraPosition cameraWithLatitude:Global.initialPosition.lat
                                                             longitude:Global.initialPosition.lng
@@ -307,7 +305,8 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 - (void)setupMapView {
     if (_mapView == nil) {
         @try {
-            _mapView = [GMSMapView mapWithFrame:self.view.bounds camera:_camera];
+            GMSCameraPosition*  cam = _camera ?: [[GMSCameraPosition alloc] initWithTarget: CLLocationCoordinate2DMake(0, 0) zoom:8];       // Get or create cameraposition; -[GMSMapView mapWithFrame:camera:] requires a nonnull camera as of v3.x
+            _mapView = [GMSMapView mapWithFrame:self.view.bounds camera:cam];
         } @catch (NSException *exception) {
             return;
         }
@@ -360,7 +359,8 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     if ( _mapView == nil ) {
         return;
     }
-    
+
+    // Restore selected venue from last session if available:
     NSString* venueId = [[NSUserDefaults standardUserDefaults] objectForKey:@"venue"];
     if (venueId.length) {
         [_venueProvider getVenueWithId:venueId completionHandler:^(MPVenue *venue, NSError *error) {
@@ -370,21 +370,35 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
             }
         }];
     }
-    
+
+    // No previously selected venue, select either solution default venue or the first venue in the venue list as fallback:
     if (venueId.length == 0 && self.mapControl.venue == nil) {
-        [[[MPAppDataProvider alloc] init] getAppDataWithCompletion:^(MPAppData *appData, NSError *error) {
-            
-            NSString* defaultVenue = [appData.appSettings objectForKey:@"defaultVenue"];
-            if (defaultVenue.length) {
-                [_venueProvider getVenueWithId:defaultVenue completionHandler:^(MPVenue *venue, NSError *error) {
-                    if (venue) {
-                        self.mapControl.venue = venue.venueKey;
-                        [self zoomToVenue:venue];
+
+        [_venueProvider getVenuesWithCompletion:^(MPVenueCollection * _Nullable venueCollection, NSError * _Nullable error) {
+
+            NSArray<MPVenue>*   venues = venueCollection.venues;
+            __block MPVenue*    initialVenue = venueCollection.venues.firstObject;
+
+            [[MPAppDataProvider new] getAppDataWithCompletion:^(MPAppData *appData, NSError *error) {
+
+                NSString* defaultVenue = [appData.appSettings objectForKey:@"defaultVenue"];
+                if ( defaultVenue.length ) {
+                    for ( MPVenue* v in venues ) {
+                        if ( [v.venueId isEqualToString:defaultVenue] ) {
+                            initialVenue = v;
+                            break;
+                        }
                     }
-                }];
-            }
+                }
+
+                if ( initialVenue ) {
+                    self.mapControl.venue = initialVenue.venueKey;
+                    [self zoomToVenue:initialVenue];
+                }
+            }];
         }];
     }
+
     self.venueSelectorIsShowing = VenueSelectorController.venueSelectorIsShown;
     
     [self setupCustomMapCompass];   // Uses safeAreaInsets, so has to be done when view is in view-hierarchy.
@@ -580,6 +594,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     qObj.venue = Global.venue.venueKey;
     [MapsIndoors.locationsProvider getLocationsUsingQuery:qObj completionHandler:^(MPLocationDataset * _Nullable locationData, NSError * _Nullable error) {
         if ( !error ) {
+            self.localLocationQuery = qObj;
             [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationsDataReady" object: locationData.list];
         }
     }];
@@ -638,17 +653,21 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
                     MPLocation* firstLoc = self.mapControl.searchResult.firstObject;
                     self.mapControl.currentFloor = firstLoc.floor;
                     [self.mapControl showSearchResult:YES];
-                
-                    if (Global.locationQuery.categories) {
-                        NSArray<NSString*>* names = [self categoryNamesFromKeys:Global.locationQuery.categories];
+
+                    MPLocationQuery*    activeQuery = self.localLocationQuery ?: Global.locationQuery;
+
+                    if (activeQuery.categories) {
+                        NSArray<NSString*>* names = [self categoryNamesFromKeys:activeQuery.categories];
                         self.title = [names componentsJoinedByString:@", "];
-                    } else if (Global.locationQuery.types) {
-                        self.title = [NSString stringWithFormat:kLangSearchingForVar, [[Global.locationQuery.types componentsJoinedByString:@", "] uppercaseString]];
-                    } else if (Global.locationQuery.query.length > 0) {
-                        self.title = [NSString stringWithFormat:kLangSearchingForVar, [Global.locationQuery.query uppercaseString]];
+                    } else if (activeQuery.types) {
+                        self.title = [NSString stringWithFormat:kLangSearchingForVar, [[activeQuery.types componentsJoinedByString:@", "] uppercaseString]];
+                    } else if (activeQuery.query.length > 0) {
+                        self.title = [NSString stringWithFormat:kLangSearchingForVar, [activeQuery.query uppercaseString]];
                     } else {
                         self.title = kLangSearchResult;
                     }
+
+                    self.localLocationQuery = nil;
                     
                     [self setupClearMapButton];
                 }
@@ -922,7 +941,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         MPLocation* loc = [self.mapControl getLocation:marker];
         if (loc) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"MapLocationTapped" object:loc];
-            _keepMapCameraOnce = YES;
+//            _keepMapCameraOnce = YES;
         }
     }
 }
@@ -1310,6 +1329,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 }
 
 - (void) zoomToVenue {
+    [self.mapRouteTrackingModel suspendTracking];
     [self zoomToVenue: Global.venue];
 }
 

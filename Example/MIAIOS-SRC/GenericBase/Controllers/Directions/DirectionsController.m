@@ -23,9 +23,6 @@
 #import "NSString+TRAVEL_MODE.h"
 #import "DottedLine.h"
 #import "Tracker.h"
-#ifdef BUILDING_SDK_APP
-#import "MPRoutingProvider+Private.h"
-#endif
 
 @import MaterialControls;
 @import VCMaterialDesignIcons;
@@ -41,6 +38,8 @@
 #import "NSObject+ContentSizeChange.h"
 #import "AppFonts.h"
 #import "TCFKA_MDSnackbar.h"
+#import "MPRouteSettingsViewController.h"
+#import "MPUserRoleManager.h"
 
 
 @interface DirectionsController () < MPDirectionsViewDelegate >
@@ -58,6 +57,10 @@
 @property (nonatomic, strong) UIBarButtonItem*          bike;
 @property (nonatomic, strong) UIBarButtonItem*          train;
 @property (nonatomic, strong) UIBarButtonItem*          walk;
+
+@property (nonatomic, strong) UIBarButtonItem*          routeSettings;
+@property (nonatomic) BOOL                              showRouteSettings;
+
 
 @property (nonatomic, strong) NSArray*                  avoids;
 
@@ -166,9 +169,22 @@
     UIImage* walkImg = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_walk fontSize:22.0f].image;
     _walk = [[UIBarButtonItem alloc] initWithImage:walkImg style:UIBarButtonItemStylePlain target:self action:@selector(transitMode:)];
     _walk.accessibilityHint = kLangByWalk;
-    
-    self.navigationItem.rightBarButtonItems = @[_car, _train, _bike, _walk];
-    
+
+    UIImage* routeSettingsImg = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_tune fontSize:22.0f].image;
+    self.routeSettings = [[UIBarButtonItem alloc] initWithImage:routeSettingsImg style:UIBarButtonItemStylePlain target:self action:@selector(onRouteSettingsTapped:)];
+    self.routeSettings.accessibilityHint = NSLocalizedString(@"Route Settings", );
+
+    self.showRouteSettings = Global.userRoleManager.availableUserRoles.count > 0;
+#if BUILDING_SDK_APP
+    self.showRouteSettings = YES;
+#endif
+
+    if ( self.showRouteSettings ) {
+        self.navigationItem.rightBarButtonItems = @[self.routeSettings, _car, _train, _bike, _walk];
+    } else {
+        self.navigationItem.rightBarButtonItems = @[_car, _train, _bike, _walk];
+    }
+
     _walk.tintColor = [UIColor colorWithWhite: 1.0f alpha:0.5f];
     _train.tintColor = [UIColor colorWithWhite: 1.0f alpha:0.5f];
     _car.tintColor = [UIColor colorWithWhite: 1.0f alpha:0.5f];
@@ -231,11 +247,7 @@
             [weakSelf updateRouting];
         }
     }];
-    
-#ifdef BUILDING_SDK_APP
-    [self onRoutingDebugButtonTapped];
-#endif
-    
+
     [[NSNotificationCenter defaultCenter] postNotificationName:@"EnableHorizontalDirections" object:nil];
 
     self.originButton.accessibilityHint      = kLangSelectRouteOriginAccHint;
@@ -537,6 +549,17 @@
         vc.transitSources = self.transitSources;
         self.transitSources = nil;
         self.disableAppearanceSetup = YES;
+
+    } else if ( [segue.destinationViewController isKindOfClass:[MPRouteSettingsViewController class]] ) {
+        MPRouteSettingsViewController*  vc = segue.destinationViewController;
+
+        vc.userRoleManager = Global.userRoleManager;
+
+        __weak typeof(self)weakSelf = self;
+        vc.onRouteSettingsChanged = ^{
+            Global.routingData.latestRoutingRequestHash = 42;
+            [weakSelf updateRouting];
+        };
     }
 }
 
@@ -964,43 +987,6 @@
 }
 
 
-#pragma mark - Routing debug
-
-#ifdef BUILDING_SDK_APP
-
-- (void) setupRoutingdebugButton {
-    
-    NSString* s;
-    switch ( MPRoutingProvider.globalRoutingServiceSelectionStrategy ) {
-        case RoutingServiceSelection_Auto:
-            s = @"Auto";
-            break;
-        case RoutingServiceSelection_ForceOnlineRouting:
-            s = @"Online";
-            break;
-        case RoutingServiceSelection_ForceOfflineRouting:
-            s = @"Offline";
-            break;
-    }
-    UIBarButtonItem*    bb = [[UIBarButtonItem alloc] initWithTitle:s style:UIBarButtonItemStylePlain target:self action:@selector(onRoutingDebugButtonTapped)];
-
-    self.navigationItem.rightBarButtonItems = @[bb, _car, _train, _bike, _walk];
-
-    Global.routingData.latestRoutingRequestHash = 42;
-    [self updateRouting];
-}
-
-- (void) onRoutingDebugButtonTapped {
-
-    NSLog( @"%s", __PRETTY_FUNCTION__ );
-    
-    MPRoutingProvider.globalRoutingServiceSelectionStrategy = (MPRoutingProvider.globalRoutingServiceSelectionStrategy == RoutingServiceSelection_ForceOnlineRouting) ? RoutingServiceSelection_ForceOfflineRouting : RoutingServiceSelection_ForceOnlineRouting;
-    [self setupRoutingdebugButton];
-}
-                              
-#endif  // BUILDING_SDK_APP
-
-
 #pragma mark - Reachability warning
 
 - (void) configureReachabilityWarning:(BOOL)isNetworkReachable {
@@ -1077,6 +1063,14 @@
             break;
         }
     }
+}
+
+
+#pragma mark - Route settings
+
+- (void) onRouteSettingsTapped:(id)sender {
+
+    [self performSegueWithIdentifier:@"routeSettingsSegue" sender:self];
 }
 
 @end

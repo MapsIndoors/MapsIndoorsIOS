@@ -131,3 +131,8 @@
 #define kLangRouteDirectionsPagingAccAnnouncement       MPLocalizedString( @"Route instructions %@ to %@ of %@", @"" )
 #define kLangUserLocationMarkerAccLabel                 MPLocalizedString( @"My Location", @"" )
 #define kLangUserLocationAccuracyAccLabel               MPLocalizedString( @"My location, accuracy %@m", @"" )
+
+#define kLangLoginGo                                    MPLocalizedString( @"Go", @"" )
+#define kLangLoginEnterSolutionId                       MPLocalizedString( @"Indtast solution-Id eller API-nøgle", @"" )
+#define kLangLoginTryAGain                              MPLocalizedString( @"Ups. Prøv igen.", @"" )
+#define kLangLogOut                                     MPLocalizedString( @"Log ud", @"" )

@@ -19,6 +19,9 @@
 #import "NSString+Category.h"
 
 
+@class MPUserRoleManager;
+
+
 typedef enum {
     WALK = 0,
     BIKE,
@@ -71,9 +74,6 @@ typedef NS_ENUM( NSUInteger, BuildingTransition ) {
 + (MPAppData*) appData;
 + (void) setAppData:(MPAppData*)value;
 
-+ (NSArray*) appColors;
-+ (void) setAppColors:(NSArray*)value;
-
 + (void) setupPositioning;
 
 + (NSString*)getIconUrlForType: (NSString*)typeName;
@@ -87,5 +87,8 @@ typedef NS_ENUM( NSUInteger, BuildingTransition ) {
 + (CLLocationDirection)getHeadingBetweenTwoLocation:(CLLocationCoordinate2D)from to:(CLLocationCoordinate2D)to;
 + (CLLocationDistance)getDistanceFromCoordinate:(CLLocationCoordinate2D)coordinate1 toCoordinate:(CLLocationCoordinate2D)coordinate2;
 + (NSString*) getPropertyFromPlist:(NSString*)key;
+
+#pragma mark - User roles
++ (MPUserRoleManager*) userRoleManager;
 
 @end
