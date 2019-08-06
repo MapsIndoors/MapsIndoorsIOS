@@ -11,14 +11,16 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [3.2.0-rc1] NOT RELEASED
-### Fixed
-- Fixed an issue with loading solution-data from the MapsIndoors backend.
-- Fixed an issue with searching for location aliases.
+## [3.2.0-rc3] NOT RELEASED
+### Changed
+- Updated Google Maps SDK tfrom 3.1.0 to 3.3.0 (see https://developers.google.com/maps/documentation/ios-sdk/releases for details)
 ### Added
 - Support for building default floors.
 - Support for profile-based routing.
 - Support for travelmode specific venue entrypoints, so f.ex. driving routes can go via parking lots (require data configuration).
+### Fixed
+- Fixed an issue with loading solution-data from the MapsIndoors backend.
+- Fixed an issue with searching for location aliases.
 
 
 ## [3.1.2] 2019-06-27
