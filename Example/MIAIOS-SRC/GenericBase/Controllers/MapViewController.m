@@ -110,7 +110,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     MPVenueProvider* _venueProvider;
     UIView *_shadeView;
     UIButton* _zoomHintBtn;
-    UIButton* _zoomToVenueBtn;
+    UIButton* _returnToVenueOrLocationBtn;
 }
 
 - (void)viewDidLoad {
@@ -197,6 +197,10 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     
     _displayQueryCounter = 0;
     _displayQueryValidationCount = 0;
+
+    [self.KVOController observe:self.mapControl keyPath:@"selectedLocation" options:NSKeyValueObservingOptionNew block:^(MapViewController* _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
+        [observer updateReturnToVenueOrLocationBtnText];
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -337,12 +341,11 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 }
 
 - (void)setupZoomButtons {
-    _zoomToVenueBtn = [MPMapButton buttonWithType:UIButtonTypeSystem];
-    [_zoomToVenueBtn setTitle:kLangReturnToVenue forState:UIControlStateNormal];
-    [_zoomToVenueBtn addTarget:self action:@selector(zoomToVenue) forControlEvents:UIControlEventTouchUpInside];
-    _zoomToVenueBtn.alpha = 0;
-    
-    
+    _returnToVenueOrLocationBtn = [MPMapButton buttonWithType:UIButtonTypeSystem];
+    [_returnToVenueOrLocationBtn setTitle:kLangReturnToVenue forState:UIControlStateNormal];
+    [_returnToVenueOrLocationBtn addTarget:self action:@selector(returnToVenueOrLocation) forControlEvents:UIControlEventTouchUpInside];
+    _returnToVenueOrLocationBtn.alpha = 0;
+
     if ([[NSUserDefaults standardUserDefaults] objectForKey:kHasAppliedZoomHint] == nil) {
         _zoomHintBtn = [MPMapButton buttonWithType:UIButtonTypeSystem];
         [_zoomHintBtn setTitle:kLangZoomForMoreDetails forState:UIControlStateNormal];
@@ -690,6 +693,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     UIImage*    clearImage = [UIImage imageNamed:@"CloseSmall"];
     UIButton*   button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.bounds = CGRectMake( 0, 0, 22, 22 );
+    button.accessibilityLabel = kLangClearMap;
     [button setImage:clearImage forState:UIControlStateNormal];
 
     if ( [UIDevice currentDevice].systemVersion.floatValue < 11 ) {
@@ -714,7 +718,6 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 }
 
 - (void)clearMap {
-//    self.mapControl.currentFloor = Global.initialPosition ? @(Global.initialPosition.zIndex) : Global.venue.defaultFloor;
     if ( VenueSelectorController.venueSelectorIsShown == NO ) {
         [self setupCustomFloorSelector];
     }
@@ -724,19 +727,14 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     self.mapRouteTrackingModel.route = nil;
     [self removeClearMapButton];
     [self closeRouting:nil];
-//    if (Global.venue) {
-//        [self zoomToVenue:Global.venue];
-//    } else {
-//        [_mapView animateToCameraPosition:_camera];
-//    }
     self.title = Global.venue.name;
     [self closeFloatingActionMenu];
     UIViewController *currentSidebarVC = self.splitViewController.viewControllers.firstObject.childViewControllers.lastObject;
-    //[currentSidebarVC.navigationController popToRootViewControllerAnimated:YES];
     [currentSidebarVC.navigationController.topViewController popToMasterViewControllerAnimated:YES];
     self.venueSelectorIsShowing = VenueSelectorController.venueSelectorIsShown;
     [self updateCompass];
     [self updateMapTrackingUI:NO];
+    [self updateReturnToVenueOrLocationBtnText];    // In case the return button shows "Return to POI", we revert to "Return to Venue".
 }
 
 - (void)showLocationOnMap:(NSNotification *)notification {
@@ -923,8 +921,10 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     if ( firstName.length >= 15 ) {
         firstName = [NSString stringWithFormat:@"%@...", [firstName substringToIndex:15]];
     }
-    NSString*           info = [NSString stringWithFormat:@"%@ +%@", firstName, @(locations.count -1)];
-    MPLocation*         fakeLocation = [[MPLocation alloc] initWithPoint:nil andName:info];
+    NSString* info = [NSString stringWithFormat:@"%@ +%@", firstName, @(locations.count -1)];
+    MPLocationUpdate* locUpdate = [MPLocationUpdate updateWithLocation:locations.firstObject];
+    locUpdate.name = info;
+    MPLocation* fakeLocation = locUpdate.location;
 
     UIView*     infoView;
     infoView = [MPMapInfoView createMapInfoWindowForLocation:fakeLocation];
@@ -1006,20 +1006,22 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     // Show "Return" button if the map is not showing any buildings (i.e. not showing anything from the venue):
     CGFloat zoomToVenueBtnAlpha = _directionsRenderer.isRenderingRoute || building ? 0 : 1;
 
-    if ( _zoomToVenueBtn.alpha != zoomToVenueBtnAlpha ) {
+    if ( _returnToVenueOrLocationBtn.alpha != zoomToVenueBtnAlpha ) {
         if ( zoomToVenueBtnAlpha > 0 ) {
-            [_mapView addSubview: _zoomToVenueBtn];
+            [_mapView addSubview: _returnToVenueOrLocationBtn];
             [UIView animateWithDuration:0.5 animations:^{
-                _zoomToVenueBtn.alpha = zoomToVenueBtnAlpha;
+                _returnToVenueOrLocationBtn.alpha = zoomToVenueBtnAlpha;
             }];
         } else {
             [UIView animateWithDuration:0.5 animations:^{
-                _zoomToVenueBtn.alpha = zoomToVenueBtnAlpha;
+                _returnToVenueOrLocationBtn.alpha = zoomToVenueBtnAlpha;
             } completion:^(BOOL finished) {
-                [_zoomToVenueBtn removeFromSuperview];
+                [_returnToVenueOrLocationBtn removeFromSuperview];
             }];
         }
     }
+
+    [self updateReturnToVenueOrLocationBtnText];
 }
 
 
@@ -1029,7 +1031,9 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     _directionsRenderer.route = notification.object;
     self.venueSelectorIsShowing = VenueSelectorController.venueSelectorIsShown;
     self.mapRouteTrackingModel.route = _directionsRenderer.route;
-    self.enterTurnByTurnModeOnNextRouteRendering = YES;
+    if (self.mapRouteTrackingModel.isTurnByTurnApplicable) {
+        self.enterTurnByTurnModeOnNextRouteRendering = YES;
+    }
 }
 
 - (void)onVenueChanged:(NSNotification*) notification {
@@ -1637,6 +1641,45 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 - (void) mapRouteTrackingModel:(MPMapRouteTrackingModel *)tracker didChangeTrackingState:(MPMapTrackingState)state userGesture:(BOOL)userGesture {
 
     [self updateMapTrackingUI:userGesture];
+}
+
+
+#pragma mark - Return to "venue"
+
+- (void) centerMapOnPosition:(CLLocationCoordinate2D)centerCoordinate {
+
+    GMSMutableCameraPosition*   newCamera = [[GMSCameraPosition cameraWithTarget:centerCoordinate zoom:self.mapView.camera.zoom] mutableCopy];
+    newCamera.viewingAngle = self.mapView.camera.viewingAngle;
+    newCamera.bearing = self.mapView.camera.bearing;
+
+    [self.mapView animateToCameraPosition: newCamera ];
+}
+
+- (void) returnToVenueOrLocation {
+
+    [self.mapRouteTrackingModel suspendTracking];
+
+    if ( self.mapControl.selectedLocation ) {
+        [self centerMapOnPosition:self.mapControl.selectedLocation.geometry.getCoordinate];
+
+    } else if ( self.mapControl.venue ) {
+        [self zoomToVenue: Global.venue];
+    }
+}
+
+- (void) updateReturnToVenueOrLocationBtnText {
+
+    NSString*   targetName;
+
+    if ( self.mapControl.selectedLocation ) {
+        targetName = self.mapControl.selectedLocation.name;
+    } else if ( Global.venue ) {
+        targetName = Global.venue.name;
+    }
+
+    NSString*   s = [NSString stringWithFormat:@"%@ %@", kLangReturnTo, targetName];
+
+    [_returnToVenueOrLocationBtn setTitle:s.uppercaseString forState:UIControlStateNormal];
 }
 
 @end

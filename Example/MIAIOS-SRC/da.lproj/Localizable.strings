@@ -37,6 +37,7 @@
 "Get directions" = "Rute";
 "Zoom for more details" = "Zoom ind for detaljer";
 "RETURN TO VENUE" = "Vend tilbage";
+"Return to" = "Vend tilbage til";
 
 "%d min"            = "%d min";
 "%d h"              = "%d t";
@@ -82,7 +83,7 @@
 "Turn on location services" = "Slå lokationstjenester til";
 
 //
-"  Clear Map  " = "  X  ";
+"Clear Map" = "Ryd Kort";
 
 // Transit sources:
 "Tickets and information (%@)" = "Billetter og information (%@)";

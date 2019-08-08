@@ -43,6 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL                                      turnByTurnMode;
 @property (nonatomic, readonly) BOOL                            isTracking;
 
+
 // Outputs / calculated values:
 @property (nonatomic, readonly, strong, nullable) NSNumber*     floor;
 @property (nonatomic, readonly) double                          zoom;
@@ -50,6 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) double                          bearing;
 @property (nonatomic, readonly) CLLocationCoordinate2D          mapCenter;
 @property (nonatomic, readonly) struct MPRouteSegmentPath       closestPointOnRoute;
+@property (nonatomic, readonly) BOOL                            isTurnByTurnApplicable;
 
 
 /**

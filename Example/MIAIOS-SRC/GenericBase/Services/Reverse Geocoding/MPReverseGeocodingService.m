@@ -70,7 +70,7 @@
     
     if ( location.mp_reverseGeocodingResponse == nil ) {
         
-        CLLocationCoordinate2D  coordinate = [[location getPoint] getCoordinate];
+        CLLocationCoordinate2D  coordinate = [location.geometry getCoordinate];
         GMSReverseGeocodeResponse*  reverseGeocodeResponse = [self cachedReverseGeocodeResponseForCoordinate:coordinate];
         
         location.mp_reverseGeocodingResponse = reverseGeocodeResponse;
@@ -124,7 +124,7 @@
         
     } else {
         
-        CLLocationCoordinate2D  coordinate = [[location getPoint] getCoordinate];
+        CLLocationCoordinate2D  coordinate = [location.geometry getCoordinate];
         [self reverseGeocodeCoordinate:coordinate completionHandler:^(GMSReverseGeocodeResponse * _Nullable response, NSError * _Nullable error) {
             
             if ( response && !error ) {

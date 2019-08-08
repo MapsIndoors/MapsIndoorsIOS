@@ -4,8 +4,8 @@ inhibit_all_warnings!
 
 def miaios_deps
     
-    pod 'MapsIndoors', :path => '../'
     
+    pod 'MapsIndoors', :path => '../'
     pod 'Firebase/Core'
     pod 'AFNetworking/Reachability', '~> 2.6'
     pod 'VCMaterialDesignIcons', '~> 2.1'

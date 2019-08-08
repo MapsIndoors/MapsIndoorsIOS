@@ -43,8 +43,8 @@
     self.destination = to;
     
     HashBuilder *builder = [HashBuilder builder];
-    [builder contributeObject:[[from getPoint] description]];
-    [builder contributeObject:[[to getPoint] description]];
+    [builder contributeObject:[from.geometry description]];
+    [builder contributeObject:[to.geometry description]];
     [builder contributeObject:mode];
     [builder contributeObject:[restrictions componentsJoinedByString:@","]];
     for ( NSString* s in restrictions ) {

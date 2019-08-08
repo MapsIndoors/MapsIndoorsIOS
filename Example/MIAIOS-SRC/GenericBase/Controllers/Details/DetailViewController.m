@@ -267,7 +267,12 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
             [_fields addObject:@{@"text": _location.descr, @"icon": [self materialIcon:VCMaterialDesignIconCode.md_file_text]}];
         }
         
-        _from = [[MPLocation alloc] initWithPoint:MapsIndoors.positionProvider.latestPositionResult.geometry andName:kLangMyPosition];
+        MPLocationUpdate* originLocationUpdate = [MPLocationUpdate new];
+        originLocationUpdate.position = [MapsIndoors.positionProvider.latestPositionResult.geometry getCoordinate];
+        originLocationUpdate.floor = [MapsIndoors.positionProvider.latestPositionResult getFloor].integerValue;
+        originLocationUpdate.name = kLangMyPosition;
+        _from = originLocationUpdate.location;
+        
         MPLocationQuery* query = [[MPLocationQuery alloc] init];
         query.near = MapsIndoors.positionProvider.latestPositionResult.geometry;
         query.max = 1;
@@ -317,12 +322,7 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
         self.titleLabel.text = _location.name;
         self.titleLabel.font = [AppFonts sharedInstance].headerTitleFont;
 
-        #if defined(MI_SDK_VERSION_MAJOR) && ((MI_SDK_VERSION_MAJOR > 2) || ((MI_SDK_VERSION_MAJOR == 2) && (MI_SDK_VERSION_MINOR > 0)))
-            // MPLocation.imageURL available from SDK 2.1
-            NSString* headerImageUrl = _location.imageURL ?: [Global.appData.venueImages objectForKey:Global.venue.venueKey];
-        #else
-            NSString* headerImageUrl = [Global.appData.venueImages objectForKey:Global.venue.venueKey];
-        #endif
+        NSString* headerImageUrl = [Global.appData.venueImages objectForKey:Global.venue.venueKey];
         
         if (_location.fields) {
             for (NSString* key in _location.fields.keyEnumerator) {

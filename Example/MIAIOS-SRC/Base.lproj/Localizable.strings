@@ -37,6 +37,7 @@
 "Get directions" = "Directions";
 "Zoom for more details" = "Zoom for more details";
 "RETURN TO VENUE" = "RETURN TO VENUE";
+"Return to" = "Return to";
 
 "%d min" = "%d min";
 "%d h %d min" = "%d h %d min";
@@ -80,7 +81,7 @@
 "Turn on location services" = "Turn on location services";
 
 //
-"  Clear Map  " = "  X  ";
+"Clear Map" = "Clear Map";
 
 // Transit sources:
 "Tickets and information (%@)" = "Tickets and information (%@)";

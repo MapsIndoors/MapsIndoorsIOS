@@ -412,7 +412,9 @@
             self.trackingMode = MPMapTrackingMode_Follow;
             break;
         case MPMapTrackingState_Following:
-            self.trackingMode = MPMapTrackingMode_FollowWithHeading;
+            if (self.isTurnByTurnApplicable) {
+                self.trackingMode = MPMapTrackingMode_FollowWithHeading;
+            }
             break;
         case MPMapTrackingState_FollowingWithHeading:
             self.trackingMode = MPMapTrackingMode_Follow;
@@ -484,6 +486,10 @@
             [self updateSuggestedMapPresentation];
         }
     }
+}
+
+- (BOOL) isTurnByTurnApplicable {
+    return MapsIndoors.positionProvider.class != GPSPositionProvider.class;
 }
 
 

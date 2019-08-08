@@ -378,8 +378,12 @@
 
     } else {
         
+        MPLocationUpdate* myLocationUpdate = [MPLocationUpdate new];
+        myLocationUpdate.name = kLangMyPosition;
+        myLocationUpdate.position = [MapsIndoors.positionProvider.latestPositionResult.geometry getCoordinate];
+        myLocationUpdate.floor = [MapsIndoors.positionProvider.latestPositionResult getFloor].integerValue;
         
-        self.myLocation = [[MPLocation alloc] initWithPoint:MapsIndoors.positionProvider.latestPositionResult.geometry andName:kLangMyPosition];
+        self.myLocation = myLocationUpdate.location;
         
         self.destination = _routing.destination;
         
@@ -860,7 +864,12 @@
                 
                 if ( (myLocation.latitude != currLocation.latitude) || (myLocation.longitude != currLocation.longitude) ) {
                     
-                    self.myLocation = [[MPLocation alloc] initWithPoint:MapsIndoors.positionProvider.latestPositionResult.geometry andName:kLangMyPosition];
+                    MPLocationUpdate* myLocationUpdate = [MPLocationUpdate new];
+                    myLocationUpdate.name = kLangMyPosition;
+                    myLocationUpdate.position = [MapsIndoors.positionProvider.latestPositionResult.geometry getCoordinate];
+                    myLocationUpdate.floor = [MapsIndoors.positionProvider.latestPositionResult getFloor].integerValue;
+                    
+                    self.myLocation = myLocationUpdate.location;
                     
                     if ( originIsMyPosition ) {
                         self.origin = self.myLocation;

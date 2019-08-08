@@ -58,6 +58,7 @@
 #define kLangCancel                         MPLocalizedString(@"Cancel",@"")
 
 #define kLangReturnToVenue                  MPLocalizedString(@"RETURN TO VENUE",@"")
+#define kLangReturnTo                       MPLocalizedString(@"Return to",@"")
 #define kLangZoomForMoreDetails             MPLocalizedString(@"Zoom for more details",@"")
 
 // Location services alerts
@@ -69,7 +70,7 @@
 #define kLangTurOnLocationInDirections      MPLocalizedString( @"Turn on location services to get your estimated position", @"")
 #define kLangTurOnLocationInDirectionsAbbr  MPLocalizedString( @"Turn on location services", @"")
 
-#define kLangClearMap                       MPLocalizedString(@"  Clear Map  ", @"")
+#define kLangClearMap                       MPLocalizedString(@"Clear Map", @"")
 
 #define kLangFind                           MPLocalizedString(@"Find", @"")
 

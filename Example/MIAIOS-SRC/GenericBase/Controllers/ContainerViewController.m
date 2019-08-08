@@ -29,7 +29,7 @@
 @property (weak, nonatomic) IBOutlet UILabel*                   welcomeLabel;
 @property (weak, nonatomic) IBOutlet UILabel*                   loadingLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView*   loadingIndicator;
-@property (weak, nonatomic)          UISplitViewController*     splitViewController;
+@property (strong, nonatomic)        UISplitViewController*     splitViewController;
 @property (weak, nonatomic) IBOutlet UIView*                    dummyStatusBar;
 @property (weak, nonatomic) IBOutlet UIView*                    dummyNavBar;
 @property (weak, nonatomic) IBOutlet MPToastView*               offlineMessage;

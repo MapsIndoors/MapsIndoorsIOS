@@ -9,6 +9,50 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [2.2.0] 2019-08-08
+
+### Added
+- Map rendering now respects default floor per building configured in the MapsIndoors CMS
+- Map rendering can perform clustering of location icons if enabled through the MapsIndoors CMS
+- The map can now track user position and render relevant route part if indoor positioning is applicable
+- Navigation can now find a nearest Parking lot when requesting directions by car
+- Navigation now respects profile settings configured in the MapsIndoors CMS
+- Navigation now respects locked doors configured in the MapsIndoors CMS
+- Navigation now respects wait times configured in the MapsIndoors CMS
+- Optimised directions requests in general
+- The app is now WCAG "AA" compliant
+
+### Changed
+- Floor Selector now remains hidden until User interacts with Map (applies to Application Start and when selecting Venues) 
+- Updated the Clear Map appearance and behaviour to become more intuitive and helpful
+- The application now clears memory caches on low-memory warnings
+- Implemented data integrity checks in to avoid corrupted data in the application cache
+
+### Fixed
+- Fixed a number of memory issues
+- Various performance improvements throughout the entire application
+- Improved offline search engine to give more meaningful results
+- Improved List rendering
+- Travel mode restrictions was sometimes not set correctly
+- Some display settings performed in the MapsIndoors CMS was not affecting the intended change
+- Infowindow popped up every time map was panned around with searchResult of 1 element
+- Locations types with Visibility disabled was sometimes still displayed and clickable
+- Advanced Icons was sometimes rendered twice upon clicking on a Room with a hidden Icon
+- Some instructions in map labels for a requested route was incorrect
+- Outlining the building in focus was sometimes inaccurate
+- Sometimes the selected location failed to appear momentarily, as well as search results
+- After browsing a category, free text search was unintentionally cleared when going back from details view
+- Building Highlights/Outlines was difficult to discern even when zooming in
+- Return to Venue was displayed when panning/moving away from a selected location
+- Disabling Location Service blocked User from using Application
+- Title of category was not updated when selecting category through quick access / floating menu
+- Tapping on Information Window did not center view based on selected location
+- "No Matches for..." warning was unintentionally displayed before populating the list with locations
+- Advanced Icon tied to Destination retained on Map upon clearing Route
+- Icon was not de-selected when selecting another Floor
+- Google Maps logo was covered by my location and MapsPeople logo was misplaced on iPhone XR
+- Fixed weird "jump" on the map when selecting route part
+
 ## [2.1.0] 2018-09-07
 
 ### Fixed

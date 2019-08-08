@@ -47,7 +47,7 @@
   }
 
   self.title = NSLocalizedString(@"Maps SDK Demos", @"Maps SDK Demos");
-  self.title = [NSString stringWithFormat:@"%@: %@", self.title, [GMSServices SDKVersion]];
+  self.title = [NSString stringWithFormat:@"%@: %@", self.title, [GMSServices SDKLongVersion]];
 
   self.tableView.autoresizingMask =
       UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
