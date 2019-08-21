@@ -179,6 +179,10 @@
 "Log out" = "Log ud";
 
 // App User Roles
-"Choose the App User Roles you are part of. This only affacts the directions you get, not the locations you see on the map" = "Vælg de app bruger roller du tilhører. Dette påvirker kun ruter, notikke de lokationer du ser på kortet";
+"Choose the App User Roles you are part of. This only affacts the directions you get, not the locations you see on the map" = "Vælg de app bruger roller du tilhører. Dette påvirker kun ruter, ikke de lokationer du ser på kortet";
 "Route Settings" = "Rute Indstillinger";
 "App User Roles" = "App bruger roller";
+
+//App Info
+"impressum" = "Impressum";
+"privacy" = "Databeskyttelse";

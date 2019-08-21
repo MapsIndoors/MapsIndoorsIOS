@@ -15,11 +15,13 @@
 #import "AppInfoTextTableViewCell.h"
 #import <MapsIndoors/MPVersion.h>
 #import "AppInfoAcknowledgementViewController.h"
+#import "AppInfoOtherInfoViewController.h"
 #import <sys/utsname.h>
 
 
 typedef NS_ENUM(NSUInteger, AppInfoSection) {
     AppInfoSection_BaseInfo,
+    AppInfoSection_OtherInfo,
     AppInfoSection_AppVersions,
     AppInfoSection_Supplier,
     AppInfoSection_Credits,
@@ -50,6 +52,7 @@ typedef NS_ENUM(NSUInteger, AppInfoVersion) {
 @property (nonatomic, strong) NSString*                     supplierHomepageUrl;
 
 @property (nonatomic, strong) NSArray<NSDictionary*>*       licenses;
+@property (nonatomic, strong) NSMutableDictionary*          otherInfo;
 
 @end
 
@@ -100,6 +103,12 @@ typedef NS_ENUM(NSUInteger, AppInfoVersion) {
     self.licenses = [ackDict[@"PreferenceSpecifiers"] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSDictionary* _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
         return evaluatedObject[@"License"] != nil;
     }]];
+    
+    self.otherInfo = [NSMutableDictionary dictionary];
+    
+    [self addOtherInfo:@"privacy"];
+    [self addOtherInfo:@"impressum"];
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -109,6 +118,14 @@ typedef NS_ENUM(NSUInteger, AppInfoVersion) {
     [self.navigationController resetNavigationBar];
 }
 
+- (void)addOtherInfo:(NSString *)otherResource {
+    NSBundle* b = [NSBundle mainBundle];
+    NSURL* url = [b URLForResource:otherResource withExtension:@"txt"];
+    
+    if (url) {
+        self.otherInfo[otherResource] = url;
+    }
+}
 
 #pragma mark - Actions
 
@@ -171,6 +188,9 @@ typedef NS_ENUM(NSUInteger, AppInfoVersion) {
         case AppInfoSection_Supplier:
             numberOfRows = 1;
             break;
+        case AppInfoSection_OtherInfo:
+            numberOfRows = self.otherInfo.count;
+            break;
         case AppInfoSection_AppVersions:
             numberOfRows = AppInfoVersion_Count;
             break;
@@ -195,6 +215,7 @@ typedef NS_ENUM(NSUInteger, AppInfoVersion) {
     
     switch ( (AppInfoSection)section ) {
         case AppInfoSection_BaseInfo:
+        case AppInfoSection_OtherInfo:
             break;
         case AppInfoSection_AppVersions:
             title = NSLocalizedString(@"App Version",);
@@ -219,6 +240,9 @@ typedef NS_ENUM(NSUInteger, AppInfoVersion) {
     switch ( (AppInfoSection)indexPath.section ) {
         case AppInfoSection_BaseInfo:
             cell = [self createHeaderCellForTableView:tableView];
+            break;
+        case AppInfoSection_OtherInfo:
+            cell = [self createInfoCellForTableView:tableView indexPath:indexPath];
             break;
         case AppInfoSection_AppVersions:
             switch ( (AppInfoVersion)indexPath.row ) {
@@ -249,7 +273,16 @@ typedef NS_ENUM(NSUInteger, AppInfoVersion) {
     
     if ( indexPath.section == AppInfoSection_Supplier ) {
         [self onAppSupplierNameTapped];
-    
+    } else if ( indexPath.section == AppInfoSection_OtherInfo ) {
+        NSUInteger      index = indexPath.row;
+        NSURL*   file;
+        if ( index < self.otherInfo.count ) {
+            NSString* key = self.otherInfo.allKeys[index];
+            file = self.otherInfo[key];
+            NSString* title = NSLocalizedString(key,);
+            AppInfoOtherInfoViewController *vc = [[AppInfoOtherInfoViewController alloc] initWithTitle:(NSString*)title textFile:file];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     } else if ( indexPath.section == AppInfoSection_Credits ) {
         NSUInteger      index = indexPath.row;
         NSDictionary*   licenseDict;
@@ -325,6 +358,15 @@ typedef NS_ENUM(NSUInteger, AppInfoVersion) {
     
     AppInfoTextTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"appInfoTextCell"];
     [cell configureWithText:licenseName detail:@"" selectable:NO];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    return cell;
+}
+
+- (UITableViewCell*) createInfoCellForTableView:(UITableView*)tableView indexPath:(NSIndexPath*)indexPath {
+    NSString* infoKey = self.otherInfo.allKeys[indexPath.row];
+    AppInfoTextTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"appInfoTextCell"];
+    [cell configureWithText:NSLocalizedString(infoKey,) detail:@"" selectable:NO];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;

@@ -32,6 +32,7 @@
 #import "MPAccessibilityHelper.h"
 #import "MPMapRouteTrackingModel.h"
 //#import "SimulatedPeopleLocationSource.h"
+#import "BuildingInfoCache.h"
 
 
 #define kRouteFromHere @"Route from here"
@@ -90,6 +91,9 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 @property (nonatomic) BOOL                                          enterTurnByTurnModeOnNextRouteRendering;
 
 @property (nonatomic, strong) MPLocationQuery*                      localLocationQuery;
+
+@property (nonatomic) BOOL                                          selectedLocationIsVisible;
+@property (nonatomic, weak) MPLocation*                             focusedBuilding;
 
 @end
 
@@ -199,7 +203,9 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     _displayQueryValidationCount = 0;
 
     [self.KVOController observe:self.mapControl keyPath:@"selectedLocation" options:NSKeyValueObservingOptionNew block:^(MapViewController* _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
+        [observer updateSelectedLocationVisibilityStatus];
         [observer updateReturnToVenueOrLocationBtnText];
+        [observer updateReturnToVenueOrLocationBtnVisibility];
     }];
 }
 
@@ -989,6 +995,11 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
             }];
         }
     });
+
+    if ( self.mapControl.selectedLocation ) {
+        [self updateSelectedLocationVisibilityStatus];
+        [self updateReturnToVenueOrLocationBtnVisibility];
+    }
 }
 
 - (void) mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position {
@@ -1003,25 +1014,8 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 
 - (void) focusedBuildingDidChange:(MPLocation *)building {
 
-    // Show "Return" button if the map is not showing any buildings (i.e. not showing anything from the venue):
-    CGFloat zoomToVenueBtnAlpha = _directionsRenderer.isRenderingRoute || building ? 0 : 1;
-
-    if ( _returnToVenueOrLocationBtn.alpha != zoomToVenueBtnAlpha ) {
-        if ( zoomToVenueBtnAlpha > 0 ) {
-            [_mapView addSubview: _returnToVenueOrLocationBtn];
-            [UIView animateWithDuration:0.5 animations:^{
-                _returnToVenueOrLocationBtn.alpha = zoomToVenueBtnAlpha;
-            }];
-        } else {
-            [UIView animateWithDuration:0.5 animations:^{
-                _returnToVenueOrLocationBtn.alpha = zoomToVenueBtnAlpha;
-            } completion:^(BOOL finished) {
-                [_returnToVenueOrLocationBtn removeFromSuperview];
-            }];
-        }
-    }
-
-    [self updateReturnToVenueOrLocationBtnText];
+    self.focusedBuilding = building;
+    [self updateReturnToVenueOrLocationBtnVisibility];
 }
 
 
@@ -1043,11 +1037,13 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     Global.venue = notification.object;
     self.mapControl.venue = Global.venue.venueKey;
     self.mapControl.currentFloor = Global.venue.defaultFloor ?: @(0);
-    
+
     [self zoomToVenue:Global.venue];
     self.title = Global.venue.name;
     
     self.venueSelectorIsShowing = VenueSelectorController.venueSelectorIsShown;
+
+    _returnToVenueOrLocationBtn.alpha = 0;
 }
 
 - (void) fabOpening:(NSNotification*) notification {
@@ -1659,7 +1655,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 
     [self.mapRouteTrackingModel suspendTracking];
 
-    if ( self.mapControl.selectedLocation ) {
+    if ( self.mapControl.selectedLocation && (self.selectedLocationIsVisible == NO)  ) {
         [self centerMapOnPosition:self.mapControl.selectedLocation.geometry.getCoordinate];
 
     } else if ( self.mapControl.venue ) {
@@ -1671,15 +1667,79 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 
     NSString*   targetName;
 
-    if ( self.mapControl.selectedLocation ) {
+    if ( self.mapControl.selectedLocation && (self.selectedLocationIsVisible == NO) ) {
         targetName = self.mapControl.selectedLocation.name;
     } else if ( Global.venue ) {
         targetName = Global.venue.name;
     }
 
-    NSString*   s = [NSString stringWithFormat:@"%@ %@", kLangReturnTo, targetName];
-
-    [_returnToVenueOrLocationBtn setTitle:s.uppercaseString forState:UIControlStateNormal];
+    if ( targetName.length ) {
+        NSString*   s = [NSString stringWithFormat:@"%@ %@", kLangReturnTo, targetName];
+        [_returnToVenueOrLocationBtn setTitle:s.uppercaseString forState:UIControlStateNormal];
+    }
 }
+
+- (BOOL) isCoordinateVisibleOnMap:(CLLocationCoordinate2D)coo {
+
+    GMSVisibleRegion        visibleRegion = self.mapView.projection.visibleRegion;
+    GMSMutablePath*         displayedArea = [GMSMutablePath new];
+
+    [displayedArea addCoordinate:visibleRegion.nearLeft];
+    [displayedArea addCoordinate:visibleRegion.farLeft];
+    [displayedArea addCoordinate:visibleRegion.farRight];
+    [displayedArea addCoordinate:visibleRegion.nearRight];
+
+    return GMSGeometryContainsLocation( coo, displayedArea, YES );
+}
+
+- (void) updateSelectedLocationVisibilityStatus {
+
+    BOOL            bVisible = NO;
+    MPLocation*     loc = self.mapControl.selectedLocation;
+
+    if ( loc ) {
+        bVisible = [self isCoordinateVisibleOnMap: [loc.geometry getCoordinate] ];
+    }
+
+    if ( self.selectedLocationIsVisible != bVisible ) {
+        self.selectedLocationIsVisible = bVisible;
+    }
+}
+
+- (void) updateReturnToVenueOrLocationBtnVisibility {
+
+    [self updateReturnToVenueOrLocationBtnText];
+
+    // Show "Return" button if the map is not showing any buildings (i.e. not showing anything from the venue):
+    MPLocation* building = self.focusedBuilding;
+    MPBuilding* mpBuilding = [[BuildingInfoCache sharedInstance] buildingFromAdministrativeId:building.roomId];
+    CGFloat zoomToVenueBtnAlpha = _directionsRenderer.isRenderingRoute || (building && [mpBuilding.venueId isEqualToString:Global.venue.venueId]) ? 0 : 1;
+
+    if ( zoomToVenueBtnAlpha && [self isCoordinateVisibleOnMap:Global.venue.anchor.getCoordinate] ) {
+        zoomToVenueBtnAlpha = 0;
+    }
+    if ( !_directionsRenderer.isRenderingRoute && self.mapControl.selectedLocation && !self.selectedLocationIsVisible && (zoomToVenueBtnAlpha < 1) ) {
+        zoomToVenueBtnAlpha = 1;
+    }
+    if ( [_returnToVenueOrLocationBtn titleForState:UIControlStateNormal].length == 0 ) {
+        zoomToVenueBtnAlpha = 0;
+    }
+
+    if ( _returnToVenueOrLocationBtn.alpha != zoomToVenueBtnAlpha ) {
+        if ( zoomToVenueBtnAlpha > 0 ) {
+            [_mapView addSubview: _returnToVenueOrLocationBtn];
+            [UIView animateWithDuration:0.5 animations:^{
+                _returnToVenueOrLocationBtn.alpha = zoomToVenueBtnAlpha;
+            }];
+        } else {
+            [UIView animateWithDuration:0.5 animations:^{
+                _returnToVenueOrLocationBtn.alpha = zoomToVenueBtnAlpha;
+            } completion:^(BOOL finished) {
+                [_returnToVenueOrLocationBtn removeFromSuperview];
+            }];
+        }
+    }
+}
+
 
 @end

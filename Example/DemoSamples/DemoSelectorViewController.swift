@@ -9,7 +9,7 @@
 import UIKit
 
 class DemoSelectorViewController: UITableViewController {
-    
+
     override func viewDidLoad() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "DemoTableViewCell")
     }
@@ -46,7 +46,7 @@ class DemoSelectorViewController: UITableViewController {
                                                           LocationSourcesController.self,
                                                           ClusteringController.self,
                                                           CustomInfoWindowController.self
-    ]
+                                                        ]
     
     // MARK: Tableview delegate and datasource
     
@@ -60,7 +60,7 @@ class DemoSelectorViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "DemoTableViewCell") {
-            
+
             cell.textLabel?.text = displayNameFor( controllerClassName: String(describing: demoControllerClasses[indexPath.row]) )
             cell.accessibilityIdentifier = cell.textLabel?.text
             
@@ -77,7 +77,7 @@ class DemoSelectorViewController: UITableViewController {
 
 
 private extension DemoSelectorViewController {
-    
+
     func displayNameFor(controllerClassName : String ) -> String {
         
         // Camel case to space separated string:

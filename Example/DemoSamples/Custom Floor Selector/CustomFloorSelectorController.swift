@@ -24,6 +24,11 @@ class CustomFloorSelectorController: BaseMapDemoController, MPFloorSelectorProto
         
         updateTitle()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.mapControl?.customFloorSelector = nil
+    }
 
     @objc
     func activateFloorSelector(sender: UIBarButtonItem) {

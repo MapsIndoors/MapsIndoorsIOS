@@ -64,6 +64,7 @@
     CGFloat h = self.bounds.size.height * hScale;
     self.heightConstraint = [self autoSetDimension:ALDimensionHeight toSize:h];
     self.widthConstraint = [self autoSetDimension:ALDimensionWidth toSize:labelContentSize.width+2*8 relation:NSLayoutRelationLessThanOrEqual];
+    self.widthConstraint.priority = UILayoutPriorityDefaultHigh;
     
     [self layoutIfNeeded];
 }

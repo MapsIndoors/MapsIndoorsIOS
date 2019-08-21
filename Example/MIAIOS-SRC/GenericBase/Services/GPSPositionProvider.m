@@ -38,6 +38,7 @@
         _locationServicesActive = NO;       // Pending status from CLLocationManager
         _authorizationStatus = -1;          // Invalid CLAuthorizationStatus value
         _permissionsChangeCount = 0;
+        _providerType = GPS_POSITION_PROVIDER;
     }
     return self;
 }

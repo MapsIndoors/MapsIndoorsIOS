@@ -11,6 +11,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import <MapsIndoors/MapsIndoors.h>
 #import "NSString+TRAVEL_MODE.h"
+#import "GPSPositionProvider.h"
 
 
 #if DEBUG && 1
