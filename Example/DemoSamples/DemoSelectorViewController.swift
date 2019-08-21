@@ -9,10 +9,24 @@
 import UIKit
 
 class DemoSelectorViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "DemoTableViewCell")
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let window = UIApplication.shared.keyWindow
+        window?.addSubview(memoryLabel)
+        memoryLabel.accessibilityIdentifier = "MemoryFootprint"
+        reportMemoryUsage()
+    }
+    
+    @objc func reportMemoryUsage() -> Void {
+        memoryLabel.text = Memory.formattedMemoryFootprint()
+        self.perform(#selector(reportMemoryUsage), with: nil, afterDelay: 1)
+    }
+    
+    let memoryLabel = UILabel(frame: CGRect(x:0,y:0,width:120,height:40))
     
     let demoControllerClasses:[UIViewController.Type] = [ ShowLocationController.self,
                                                           LocationDetailsController.self,
@@ -32,7 +46,7 @@ class DemoSelectorViewController: UITableViewController {
                                                           LocationSourcesController.self,
                                                           ClusteringController.self,
                                                           CustomInfoWindowController.self
-                                                        ]
+    ]
     
     // MARK: Tableview delegate and datasource
     
@@ -46,7 +60,7 @@ class DemoSelectorViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "DemoTableViewCell") {
-
+            
             cell.textLabel?.text = displayNameFor( controllerClassName: String(describing: demoControllerClasses[indexPath.row]) )
             cell.accessibilityIdentifier = cell.textLabel?.text
             
@@ -63,7 +77,7 @@ class DemoSelectorViewController: UITableViewController {
 
 
 private extension DemoSelectorViewController {
-
+    
     func displayNameFor(controllerClassName : String ) -> String {
         
         // Camel case to space separated string:
