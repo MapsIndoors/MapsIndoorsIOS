@@ -11,6 +11,10 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.3.0] 2019-08-26
+### Added
+- Support for custom fields on venues, buildings, categories and types authored in the CMS
+
 ## [3.2.0] 2019-08-20
 ### Changed
 - Updated Google Maps SDK from 3.1.0 to 3.3.0 (see https://developers.google.com/maps/documentation/ios-sdk/releases for details)

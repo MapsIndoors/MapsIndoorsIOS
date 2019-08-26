@@ -11,6 +11,7 @@
 #import "MPGeometry.h"
 #import "MPPoint.h"
 #import "MPBuildingInfo.h"
+#import "MPLocationField.h"
 
 #import <GoogleMaps/GoogleMaps.h>
 
@@ -69,6 +70,10 @@
  Get the buildings default floor. Is used by MPMapControl to determine which floor to show if a user have not already selected a floor.
  */
 @property (nonatomic, strong, nullable, readonly) NSNumber<Optional>* defaultFloor;
+/**
+ Dictionary of custom fields
+ */
+@property (nonatomic, strong, nullable, readonly) NSDictionary<NSString*, MPLocationField*><Optional, MPLocationField> *fields;
 
 /**
  Get the current floor.

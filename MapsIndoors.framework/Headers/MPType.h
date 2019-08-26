@@ -8,6 +8,7 @@
 
 #import "MPJSONModel.h"
 #import "MPLocationDisplayRule.h"
+#import "MPLocationField.h"
 
 /**
  POI types (used by MapsPeoples services)
@@ -17,5 +18,9 @@
 @property (nonatomic, strong, nullable) NSString* name;
 @property (nonatomic, strong, nullable) NSString* icon;
 @property (nonatomic, strong, nullable) MPLocationDisplayRule<Optional>* displayRule;
+/**
+ Dictionary of custom fields
+ */
+@property (nonatomic, strong, nullable, readonly) NSDictionary<NSString*, MPLocationField*><Optional, MPLocationField> *fields;
 
 @end

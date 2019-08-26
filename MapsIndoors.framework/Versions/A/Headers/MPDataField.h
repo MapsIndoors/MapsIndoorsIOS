@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MPJSONModel.h"
+#import "MPLocationField.h"
 
 @protocol MPDataField
 @end
@@ -16,5 +17,9 @@
 
 @property (nonatomic, strong, nullable) NSString<Optional>* key;
 @property (nonatomic, strong, nullable) NSString* value;
+/**
+ Dictionary of custom fields
+ */
+@property (nonatomic, strong, nullable, readonly) NSDictionary<NSString*, MPLocationField*><Optional, MPLocationField> *fields;
 
 @end

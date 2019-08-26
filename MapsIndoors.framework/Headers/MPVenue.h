@@ -12,6 +12,7 @@
 #import "MPMapStyle.h"
 #import "MPPoint.h"
 #import "MPBuilding.h"
+#import "MPLocationField.h"
 /**
  Map style protocol specification
  */
@@ -80,6 +81,10 @@
  Array of possible map styles.
  */
 @property (nonatomic, strong, nullable) NSArray<MPMapStyle*><MPMapStyle>* styles;
+/**
+ Dictionary of custom fields
+ */
+@property (nonatomic, strong, nullable, readonly) NSDictionary<NSString*, MPLocationField*><Optional, MPLocationField> *fields;
 /**
  Get a default style. If none is set, it will be the first string value in the list of map styles
  */
