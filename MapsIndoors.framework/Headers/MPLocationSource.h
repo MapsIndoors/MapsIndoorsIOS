@@ -68,6 +68,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (BOOL) isOfflineDataAvailableForSolutionId:(NSString*)solutionId language:(NSString*)language;
 + (int) mpMapsIndoorsSourceId;
 
+- (void) synchronizeContentWithCompletion:(void(^_Nullable)(NSError*))completion;
+
 @end
 
 NS_ASSUME_NONNULL_END

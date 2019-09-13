@@ -26,6 +26,7 @@
 #import "NSDictionary+MPLocationPropertiesDictionary.h"
 #import "MPLocationField.h"
 #import "MPJSONModel.h"
+#import "MPLocationBaseType.h"
 #import <GoogleMaps/GoogleMaps.h>
 @class MPLocationDisplayRuleset;
 @class MPLocationDisplayRule;
@@ -108,6 +109,10 @@
  Location icon as a URL. If icon is originally set as a UIImage, this property will be ignored.
  */
 @property (nonatomic, strong, nullable, readonly) NSURL<Optional>*      iconUrl;
+/**
+ Location base type.
+ */
+@property (nonatomic, readonly) MPLocationBaseType                      baseType;
 
 
 /**

@@ -26,6 +26,7 @@
 #import <MapsIndoors/MPLineGeometry.h>
 #import <MapsIndoors/MPLoadIndicator.h>
 #import <MapsIndoors/MPLocation.h>
+#import <MapsIndoors/MPLocationBaseType.h>
 #import <MapsIndoors/MPLocationUpdate.h>
 #import <MapsIndoors/MPLocationDataset.h>
 #import <MapsIndoors/MPLocationDisplayRule.h>

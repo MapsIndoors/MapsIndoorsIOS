@@ -76,7 +76,8 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 + (NSString*) getLanguage;
 
 /**
- Fetch all neccesary content to be able to run MapsIndoors in offline environments
+ Fetch all neccesary content to be able to run MapsIndoors in offline environments.
+ If you have registered custom location sources, they are not synchronized by this method - it is the responsibility of the provider of the custom location source to synchronize as appropriate.
  @param  completionHandler Callback function that fires when content has been fetched or if this process resolves in an error. Note: Does not automtically retry fetch.
  */
 + (void)synchronizeContent: (mpSyncContentHandlerBlockType) completionHandler;
@@ -89,13 +90,13 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 + (void)registerLocationSources: (NSArray<id<MPLocationSource>>*) sources;
 
 /**
- Sets the offline mode for the content provided by MapsIndoors. NB: This forces the implementation to be offline, even if there is no data available offline.
+ Sets the offline mode for the content provided by MapsIndoors. True means that the SDK is not allowed to use network traffic. NB: This forces the implementation to be offline, even if there is no data available offline.
  @param offlineMode The offline mode. Can be true/offline false/online.
  */
 + (void) setOfflineMode:(BOOL)offlineMode;
 
 /**
- Gets the current offline mode.
+ Gets the current offline mode. True means that the SDK is not allowed to use network traffic.
  */
 + (BOOL) getOfflineMode;
 

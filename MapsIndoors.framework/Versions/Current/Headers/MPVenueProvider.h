@@ -140,7 +140,7 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* _Nullable venue, MPBuilding* _
 - (void)getBuildingWithId: (nonnull NSString*)buildingId;
 
 /**
- Get a single venue detail object
+ Get a single venue object
  
  @param venueId Venue id
  */
