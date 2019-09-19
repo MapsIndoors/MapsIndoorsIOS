@@ -71,6 +71,11 @@
 @property (assign, nonatomic) BOOL showLabel;
 
 /**
+ Whether or not to show an icon.
+ */
+@property (assign, nonatomic) BOOL showIcon;
+
+/**
  Whether or not to show an outline.
  */
 @property (assign, nonatomic) BOOL showOutline;
