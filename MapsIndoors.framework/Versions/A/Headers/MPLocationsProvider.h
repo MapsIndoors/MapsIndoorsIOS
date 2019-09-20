@@ -22,6 +22,7 @@ typedef void(^mpLocationListHandlerBlockType)(MPLocationDataset* _Nullable locat
  Locations provider delegate.
  */
 @protocol MPLocationsProviderDelegate <NSObject>
+
 /**
  Locations data ready event method.
  @param locationData The Locations data collection.
@@ -154,5 +155,10 @@ typedef void(^mpLocationListHandlerBlockType)(MPLocationDataset* _Nullable locat
  Locations provider that defines a delegate and a method to initiate fetching of locations from the provider.
  */
 @interface MPLocationsProvider : NSObject<MPLocationsProvider>
+
+/**
+ Method to clear memoty cache used by the locations provider.
+ */
++ (BOOL)clearMemoryCache;
 
 @end

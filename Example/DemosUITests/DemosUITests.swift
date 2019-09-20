@@ -79,7 +79,8 @@ class DemosUITests: XCTestCase {
         app.searchFields.firstMatch.tap()
         wait(app)
         app.searchFields.firstMatch.typeText("park")
-        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Parking 1"]/*[[".cells.staticTexts[\"Parking 1\"]",".staticTexts[\"Parking 1\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        wait(app)
+        tablesQuery.staticTexts["Parking"].firstMatch.tap()
         wait(app)
         app.navigationBars.buttons.firstMatch.tap()
 
