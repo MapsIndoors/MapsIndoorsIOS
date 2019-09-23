@@ -11,26 +11,28 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [3.4.0-beta2] 2019-09-19
+## [3.5.0] 2019-09-20
 ### Added
 - Added `depth` property to `MPFilter`, used with the `parents` property, making it possible to e.g. get all buildings and floors within a venue (depth 2) or get only floors within a building (depth 1).
+- Added the ability to control the visibility of map icons and map labels independently, through `MPLocationDisplayRule.showIcon` and  `MPLocationDisplayRule.showLabel`.
+- Added property `locationBaseType` on `MPLocation`, making it possible to dstinguish buildings from venues, floors from rooms, areas from POIs etc.
 ### Fixed
-- Fixed some internal concurrency issues.
+- Fixed issue with info window disappearing after location selection when search result is currently rendered.
 
-## [3.3.1-rc1] 2019-09-17
+## [3.3.1] 2019-09-15
 ### Changed
 - InfoWindows presented on the map is now made fully visible if needed - this changes the presented map area.
 ### Fixed
-- Fixed location data was only synced once per session, regardless of explicit calls to `MapsIndoors.synchronizeContent()`.
+- Fixed location data was only synced once per session, regardless of explicit calls to +[MapsIndoors sunchronizeContent:].
 
-## [3.3.0] 2019-08-30
+## [3.3.0] 2019-08-26
 ### Added
-- Support for custom fields on venues, buildings and categories (writable from the MapsIndoors Data API).
+- Added `fields` dictionary to enable reading of custom properties on `MPBuilding`, `MPVenue` and `MPDataField` (categories).
 
 ## [3.2.0] 2019-08-20
 ### Changed
-- Updated Google Maps SDK from 3.1.0 to 3.3.0 (see https://developers.google.com/maps/documentation/ios-sdk/releases for details).
-- Default Google Maps styling is now applied to the map, so that we hide Google Maps icons that usually compete with, confuse or disturb the appearance of MapsIndoors location icons.
+- Updated Google Maps SDK from 3.1.0 to 3.3.0 (see https://developers.google.com/maps/documentation/ios-sdk/releases for details)
+- Default Google Maps styling is now applied to the map, so that we hide Google Maps icons that usually compete with, confuse or disturb the appearance of MapsIndoors location icons
 ### Added
 - Support for building default floors.
 - Support for profile-based routing.
@@ -60,9 +62,9 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 ## [3.1.0] 2019-06-04
 ### Added
-- Added a `MPGeometryHelper` class.
-- Added a way to get polygons for locations using `MPGeometryHelper.polygonsForLocation(location:MPLocation)`.
-- Updated Google Maps dependency to version 3.1.0.
+- Added a `MPGeometryHelper` class
+- Added a way to get polygons for locations using `MPGeometryHelper.polygonsForLocation(location:MPLocation)`
+- Updated Google Maps dependency to version 3.1.0
 - Optimizing outdoor/indoor directions. Filters entry points by new travel mode flag in SDK before doing calculations.
 - Now possible to set map style (layout) using `MPMapControl.mapStyle = MPMapStyle(string:"my-style")`. Only applies for data sets that has multiple defined styles.
 ### Fixed

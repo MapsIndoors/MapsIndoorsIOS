@@ -16,13 +16,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Categories filter. List of category keys as in `MPLocation.categories.allKeys`. If multiple categories are supplied the filter will OR'ed, meaning if a location belongs to at least one of the categories it will be considered as a match.
  */
-@property (nonatomic, strong) NSArray<NSString*>* categories;
+@property NSArray<NSString*>* categories;
 
 
 /**
  Rectangular geographical bounds filter.
  */
-@property (nonatomic, strong) MPMapExtend* bounds;
+@property MPMapExtend* bounds;
 
 /**
  List of location ids that is hierarchially considered as a parent of other locations.
@@ -30,16 +30,16 @@ NS_ASSUME_NONNULL_BEGIN
  Buildings are parents of Floors.
  Floors are parents of Rooms and other Locations.
  */
-@property (nonatomic, strong) NSArray<NSString*>* parents;
+@property NSArray<NSString*>* parents;
 /**
  Limit number of locations in the result.
  */
-@property (nonatomic) NSUInteger take;
+@property NSUInteger take;
 
 /**
  Skip locations in the result, e.g. for pagination.
  */
-@property (nonatomic) NSUInteger skip;
+@property NSUInteger skip;
 
 /**
  * The depth property makes it possible to get the n'th descendant of a parent location. ;
@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Filter by floor index. Note that there is a difference between the displayed floor name (e.g. "LG") and the index (e.g. -1).
  */
-@property  (nonatomic, strong, nullable) NSNumber* floor;
+@property (nullable) NSNumber* floor;
 
 @end
 
