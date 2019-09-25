@@ -103,7 +103,8 @@ class DemosUITests: XCTestCase {
         app.searchFields.firstMatch.tap()
         assertMemoryUsageTimespan(app)
         app.searchFields.firstMatch.typeText("park")
-        tablesQuery.staticTexts["Guest Parking, , , Stigsborgvej"].tap()
+        assertMemoryUsageTimespan(app)
+        tablesQuery.cells.firstMatch.tap()
         assertMemoryUsageTimespan(app)
         app.navigationBars.buttons.firstMatch.tap()
         
