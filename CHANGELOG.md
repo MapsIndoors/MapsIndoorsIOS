@@ -23,7 +23,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Changed
 - InfoWindows presented on the map is now made fully visible if needed - this changes the presented map area.
 ### Fixed
-- Fixed location data was only synced once per session, regardless of explicit calls to +[MapsIndoors sunchronizeContent:].
+- Fixed location data was only synced once per session, regardless of explicit calls to +[MapsIndoors synchronizeContent:].
 
 ## [3.3.0] 2019-08-26
 ### Added
