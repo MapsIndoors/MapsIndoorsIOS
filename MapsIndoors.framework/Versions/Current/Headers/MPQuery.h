@@ -11,6 +11,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+Query object used when making a request to `MPLocationService`.
+*/
 @interface MPQuery : NSObject
 
 

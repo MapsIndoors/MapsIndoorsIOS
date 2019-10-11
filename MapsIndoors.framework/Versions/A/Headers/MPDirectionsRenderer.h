@@ -10,6 +10,8 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "MPRoute.h"
 
+#define kMPNotificationDirectionsRenderingStarted @"MP_DIRECTIONS_RENDERING_STARTED"
+#define kMPNotificationDirectionsRenderingStopped @"MP_DIRECTIONS_RENDERING_STOPPED"
 
 /**
  Directions Renderer delegate protocol
