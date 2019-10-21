@@ -11,6 +11,14 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [2.2.2] 2019-10-21
+### Fixed
+- Calling `MapsIndoors.synchroniseContent()` after an application was back from idling would not update the collection of locations in memory for a given session, but require a re-start of the app-session. This has now been fixed.
+
+## [2.2.1] 2019-09-20
+### Fixed
+- Calling `MapsIndoors.synchroniseContent()` would not update the collection of locations in memory for a given session, but still require a re-start of the app-session. This has now been fixed by clearing an internal cache on every call to `MapsIndoors.synchroniseContent()`.
+
 ## [2.2.0] 2019-03-22
 ### Added
 - Now possible to set map style (layout) using `MPMapControl.mapStyle = MPMapStyle(string:"my-style")`. Only applies for data sets that has multiple defined styles.
