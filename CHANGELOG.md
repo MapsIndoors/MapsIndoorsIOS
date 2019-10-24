@@ -1,6 +1,10 @@
 ---
 title: Changelog
+layout: default
+published: true
+nav_weight: 1000
 ---
+
 Changelog for MapsIndoors for iOS. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!---
@@ -11,10 +15,12 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+> Known Issue: If you are compiling with Xcode 11 with bitcode ON, you should either switch OFF bitcode or update to version 3.6.0. With bitcode ON, previous versions of the SDK could crash. We are in dialog with Apple regarding the bitcode issue.
+{: .mi-careful}
+
 ## [3.6.0] 2019-10-10
-### IMPORTANT
-- If you are compiling with Xcode 11 with bitcode ON, you should either switch OFF bitcode or update to this version.  With bitcode ON, previous versions of the SDK could crash.
 ### Fixed
+- Important: If you are compiling with Xcode 11 with bitcode ON, you should either switch OFF bitcode or update to this version. With bitcode ON, previous versions of the SDK could crash.
 - `MPDirectionsQuery.init(originPoint:MPPoint, destPoint:MPPoint)` could produce origins and destinations on level 0, resulting in incorrect route results.
 ### Changed
 - Compiled with Xcode 11 for iOS 13
