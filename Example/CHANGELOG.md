@@ -9,7 +9,11 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [2.2.1] 2019-09-20
+## [2.2.3] 2019-10-30
+### Fixed
+- Fixed synchronisation issue, that sometimes caused map graphics to disappear, if the app was killed in the middle of a synchronisation.
+
+## [2.2.1] 2019-09-21
 ### Fixed
 - Calling `MapsIndoors.synchroniseContent()` would not update the collection of locations in memory for a given session, but still require a re-start of the app-session. This has now been fixed by clearing an internal cache on every call to `MapsIndoors.synchroniseContent()`.
 
