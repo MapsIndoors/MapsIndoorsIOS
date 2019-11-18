@@ -266,6 +266,12 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 @property(class) BOOL   locationClusteringEnabled;
 
 /**
+ Controls whether overlapping map markers can be resolved by hiding some of the overlapping items.
+ Default value is YES;
+ */
+@property(class) BOOL   locationHideOnIconOverlapEnabled;
+
+/**
   Initialize a MPMapControl object with given map.
   @param map The map to build the map control on.
  */
