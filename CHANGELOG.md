@@ -26,6 +26,8 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 - Fixed a memory leak happening when switching solution / api-key.
 - Fixed `MPMapControl` is now more resilient against `GMSMapView.delegate` being changed.
 - [This issue](https://forums.developer.apple.com/thread/123003) made our SDK crash if built with XCode 10 and below. We have implemented a workaround in this version. 
+- Fixed Restored previous behaviour where the map settles on a building and showing the floor selector initially.
+- Fixed Improved switching between different solutions / api keys.
 
 ## [3.6.1] 2019-11-05
 ### Fixed
