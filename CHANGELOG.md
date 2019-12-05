@@ -21,6 +21,12 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 2. [This issue](https://forums.developer.apple.com/thread/123003) makes our SDK crash if built with XCode 10 and below. We implement a workaround in 3.6.2. An immediate workaround for you is to build with XCode 11. 
 {: .mi-careful}
 
+## [3.7.0] 2019-12-04
+### Added
+- Added `MPMapControl` now has new functionality for temporarily changing the `MPDisplayRule` for individual `MPLocations`.  See `-[MPMapControl setDisplayRule:forLocation:]`, `-[MPMapControl resetDisplayRuleForLocation:]` and similar methods.  
+### Changed
+- Multiple improvements to the search engine has been implemented. 
+
 ## [3.6.2] 2019-11-18
 ### Fixed
 - Fixed a memory leak happening when switching solution / api-key.

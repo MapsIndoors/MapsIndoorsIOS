@@ -300,20 +300,88 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 - (void)showSearchResult:(BOOL)fitBounds;
 
 /**
-  Add a location display rule - you need to know the categories applied to the map locations
-  The display rule name corresponds to the location category we want the rule to apply for
-  Adding a rule with name nil, will apply generally to all categories
+  Add a location display rule for a specific location type.
+  You need to know the types applied to the map locations.
+  The display rule name corresponds to the location type we want the rule to apply for.
+  Adding a rule with name nil, will apply generally to all types
   Adding a rule with a name, will override a more general rule
+  @param rule displayrule to add.
+  @since 3.7.0
  */
-- (void)addDisplayRule:(nonnull MPLocationDisplayRule*)rule;
+- (void) setDisplayRule:(nonnull MPLocationDisplayRule*)rule;
 
 /**
- Add multiple lcoation display rules.
- @sa addDisplayRule
+ Add multiple location display rules.
+ @sa setDisplayRule
 
  @param rules Array of displayrules to add.
+ @since 3.7.0
  */
-- (void)addDisplayRules:(nonnull NSArray<MPLocationDisplayRule*>*)rules;
+- (void) setDisplayRules:(nonnull NSArray<MPLocationDisplayRule*>*)rules;
+
+/**
+ Add a location display rule for a single MPLocation.
+ This display rule takes precedence over more general displayrules like the type-display-rule and default display rule.
+ @param rule Display rule to use for the given MPLocation.
+ @param location MPLocation that the displayrule should apply to.
+ @since 3.7.0
+ */
+- (void) setDisplayRule:(nonnull MPLocationDisplayRule*)rule forLocation:(nonnull MPLocation*)location;
+
+/**
+ Add a location display rule for multiple MPLocations.
+ This display rule takes precedence over more general displayrules like the type-display-rule and default display rule.
+ @param rule Display rule to use for the given MPlocations.
+ @param locations MPLocation's that the displayrule should apply to.
+ @since 3.7.0
+ */
+- (void) setDisplayRule:(nonnull MPLocationDisplayRule*)rule forLocations:(nonnull NSArray<MPLocation*>*)locations;
+
+/**
+ Apply a named displayRule to the given MPLocation.
+ If MPMapControl does not have a displayRule with the given name, no changes is applied.
+ @param ruleName Name of displayRule to apply to location
+ @param location MPLocation to apply displayRule to
+ @since 3.7.0
+ */
+- (void) setDisplayRuleNamed:(nonnull NSString*)ruleName forLocation:(nonnull MPLocation*)location;
+
+/**
+ Get a type-displayRule by name.
+ @param ruleName Name of type-displayRule to retrieve.
+ @return nil or MPLocationDisplayRule
+ @since 3.7.0
+ */
+- (MPLocationDisplayRule* _Nullable) getDisplayRuleForTypeNamed:(nonnull NSString*)ruleName;
+
+/**
+ Get the currently used displayRule for the given MPLocation.
+ Note that the returned displayRule may be, in priority-order, one of:
+    - a custom, override displayRule registered with this instance of MPMapControl
+    - a custom displayRule assigned to the MPLocation object
+    - a shared displayRule for the 'MPLocation type'
+    - the shared , default display rule
+ @param location The MPLocation to retrieve the currently active displayRule for.
+ @return MPLocationDisplayRule*
+ @since 3.7.0
+ */
+- (MPLocationDisplayRule* _Nullable) getEffectiveDisplayRuleForLocation:(nonnull MPLocation*)location;
+
+/**
+ Remove any specific displayrule that has been added to the given MPLocation.
+ Once the location-specific display rule is removed, the MPLocation will be displayed on map according to it's type-displayrule.
+ @param location MPLocation that should have it's specific displayrule removed.
+ @since 3.7.0
+ */
+- (void) resetDisplayRuleForLocation:(nonnull MPLocation*)location;
+
+/**
+Remove any specific displayrule that has been added to the given MPLocations.
+Once the location-specific display rules are removed, the MPLocations will be displayed on map according to their type-displayrule.
+@param locations MPLocations that should have their specific displayrule removed.
+@since 3.7.0
+*/
+- (void) resetDisplayRulesForLocations:(nonnull NSArray<MPLocation*>*)locations;
 
 /**
  The display rule used by MPMapControl to highlight the selected location.
@@ -373,5 +441,19 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
  */
 @property (nonatomic, strong, nullable) NSString*   userLocationAccuracyAccessibilityLabel;
 
+
+
+#pragma mark - Deprecations
+/**
+ @sa setDisplayRule
+ @deprecated Replaced by -[setDisplayRule:] in version 3.7.0
+ */
+- (void) addDisplayRule:(nonnull MPLocationDisplayRule*)rule DEPRECATED_ATTRIBUTE;
+
+/**
+ @sa setDisplayRules
+ @deprecated Replaced by -[setDisplayRules:] in version 3.7.0
+ */
+- (void) addDisplayRules:(nonnull NSArray<MPLocationDisplayRule*>*)rules DEPRECATED_ATTRIBUTE;
 
 @end
