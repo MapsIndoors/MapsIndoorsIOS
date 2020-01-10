@@ -16,16 +16,15 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-> Known Issues:
-1. If you are compiling with Xcode 11 with bitcode ON, you should either switch OFF bitcode or update to version 3.6.0 or later. With bitcode ON, previous versions of the SDK could crash. We are in dialog with Apple regarding the bitcode issue.
-2. [This issue](https://forums.developer.apple.com/thread/123003) makes our SDK crash if built with XCode 10 and below. We implement a workaround in 3.6.2. An immediate workaround for you is to build with XCode 11. 
-{: .mi-careful}
+## [3.7.2] 2019-01-09
+### Fixed
+- Applying  `MPMapControl.setDisplayRule(:forLocation:)` for one or more locations that was already hidden by default would not change the locations visibility. This is now fixed.
 
 ## [3.7.1] 2019-12-05
 ### Added
-- Added `MPMapControl` now has new functionality for temporarily changing the `MPDisplayRule` for individual `MPLocations`.  See `-[MPMapControl setDisplayRule:forLocation:]`, `-[MPMapControl resetDisplayRuleForLocation:]` and similar methods.  
+- Added `MPMapControl` now has new functionality for temporarily changing the `MPDisplayRule` for individual `MPLocations`.  See `MPMapControl.setDisplayRule(:forLocation:)`, `MPMapControl.resetDisplayRuleForLocation()` and similar methods.
 ### Changed
-- Multiple improvements to the search engine has been implemented. 
+- Multiple improvements to the search engine has been implemented.
 
 ## [3.6.2] 2019-11-18
 ### Fixed
@@ -130,8 +129,8 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 ## [3.0.1] 2019-04-03
 ### Added
-- MPMapControlDelegate now has a new method for notifying about which building is focused on the map  `- [MPMapControlDelegate focusedBuildingDidChange:(nullable MPLocation*)building]`
-- MPMapControlDelegate now has a new method for notifying position updates  `- [MPMapControlDelegate onPositionUpdate:(nonnull MPPositionResult*)positionResult]`
+- MPMapControlDelegate now has a new method for notifying about which building is focused on the map  `MPMapControlDelegate.focusedBuildingDidChange()`
+- MPMapControlDelegate now has a new method for notifying position updates  `MPMapControlDelegate.onPositionUpdate()`
 ### Changed
 - MPMapControl.currentPosition has been deprecated; use MapsIndoors.positionProvider.latestPositionResult to know current position.
 ### Fixed
@@ -140,7 +139,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 ## [3.0.0] 2019-03-04
 ### Added
-- Support for external location data sources using `[MapsIndoors registerLocationSources:sources]`
+- Support for external location data sources using `MapsIndoors.registerLocationSources()`
 - New location service `MPLocationService` to replace `MPLocationsProvider`
 - Location clustering support using `MPMapControl.locationClusteringEnabled`
 - Added building and venues to the search experience
