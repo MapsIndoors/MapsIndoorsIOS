@@ -16,6 +16,10 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.8.0] 2020-01-24
+### Changed
+- Improved route generation; improved detection of start and end rooms for indoor route, and improved rendering of route start and endpoints.
+
 ## [3.7.2] 2019-01-09
 ### Fixed
 - Applying  `MPMapControl.setDisplayRule(:forLocation:)` for one or more locations that was already hidden by default would not change the locations visibility. This is now fixed.
