@@ -25,6 +25,7 @@
 #import "AppFonts.h"
 #import "BuildingInfoCache.h"
 #import "TCFKA_MDSnackbar.h"
+#import "UIViewController+Custom.h"
 
 #define kSearchTextMinLength        2           // Only search when the length of the search text is >= than this constant.
 
@@ -56,6 +57,7 @@
     
     self.tableView.emptyDataSetSource = nil;
     self.tableView.emptyDataSetDelegate = nil;
+    [self unsubscribeFromMenuOpenCloseNotification];
 }
 
 - (void)viewDidLoad {
@@ -65,7 +67,7 @@
     
     [_venueProvider getVenuesWithCompletion:^(MPVenueCollection *venueCollection, NSError *error) {
         if (error == nil) {
-            _venues = venueCollection.venues;
+            self->_venues = venueCollection.venues;
             [self.tableView reloadData];
         }
     }];
@@ -75,7 +77,10 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:_spinner selector:@selector(startAnimating) name:@"LocationsRequestStarted" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLocationsReady:) name:@"LocationsDataReady" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLocationsDataForExternalAppSchemeReady:) name:@"LocationsDataForExternalAppSchemeReady" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:@"Reload" object:nil];
+    
+    [self subscribeToMenuOpenCloseNotification];
 
     self.headerView.backgroundColor = [UIColor appDarkPrimaryColor];
     
@@ -88,10 +93,6 @@
     
     self.searchBar.delegate = self;
     [self.searchBar setCustomStyle];
-    
-    if ([UITextField instancesRespondToSelector:@selector(appearanceWhenContainedInInstancesOfClasses:)]) {
-        [[UITextField appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setDefaultTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
-    }
     
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = CGRectMake(0, 0, 600, 184);
@@ -123,10 +124,15 @@
 
     // Remove tableheader, and transfer the searchBar to the the navBar in -[viewWillAppear:animated:]
     self.tableView.tableHeaderView = nil;
+    
+    self.menuIsOpen = YES;      // Assume open until notified otherwise
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    self.didSelectPOI = NO;
     
     // Configure navBar; transfer searchbar to navBar titleView:
     [self.navigationController resetNavigationBar];
@@ -145,7 +151,7 @@
     }
     
     self.searchBar.placeholder = kLangSearch;
-    if (Global.locationQuery && Global.locationQuery.categories)
+    if (Global.locationQuery && self.category.value)
         self.searchBar.placeholder = [NSString stringWithFormat:kLangSearchVar, self.category.value];
     
     _spinner.center = CGPointMake(self.view.frame.size.width*0.5, 240);
@@ -163,51 +169,56 @@
             if (error) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     TCFKA_MDSnackbar* bar = [[TCFKA_MDSnackbar alloc] initWithText:kLangCouldNotFindLocations actionTitle:@"" duration:1.0];
-                    bar.bottomPadding = _keyboardHeight; // show above keyboard
+                    bar.bottomPadding = self->_keyboardHeight; // show above keyboard
                     [bar show];
                 });
             } else {
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationsDataReady" object: locationData.list];
+                if (!self.didSelectPOI) {
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationsDataReady" object: locationData.list];
+                }
             }
         }];
     } else {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationsDataReady" object: self.objects];
+        if (!self.didSelectPOI) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationsDataReady" object: self.objects];
+        }
     }
     
     //If there was an old search, perform it again
-    if (self.searchBar.text.length >= 2) {
-        [self searchBar:self.searchBar textDidChange:self.searchBar.text];
-    }
+//    if (self.searchBar.text.length >= kSearchTextMinLength) {
+//        [self searchBar:self.searchBar textDidChange:self.searchBar.text];
+//    }
 }
     
 - (void) viewDidAppear:(BOOL)animated {
     
     [super viewDidAppear:animated];
 
-    [self subscribeToMenuOpenCloseNotification];
-    self.menuIsOpen = YES;      // Assume open until notified otherwise
     
     [self performSelector:@selector(focusSearchBar:) withObject:nil afterDelay:0.05];
-    
-    
 }
 
 - (void) viewDidDisappear:(BOOL)animated {
     
     [super viewDidDisappear:animated];
-    [self unsubscribeFromMenuOpenCloseNotification];
+    //[self unsubscribeFromMenuOpenCloseNotification];
 }
 
 - (void)viewDidLayoutSubviews {
     
     // Workaround a searchbar textfield which is wider than the tableview.
-    UITextField*    tf = [self.searchBar valueForKey:@"_searchField"];
-    if ( tf.bounds.size.width > self.tableView.bounds.size.width ) {
-        CGRect r = tf.frame;
-        r.size.width = self.tableView.bounds.size.width - r.origin.x * 2;
-        [UIView animateWithDuration:0.2 animations:^{
-            tf.frame = r;
-        }];
+    if (@available(iOS 13.0, *)) {
+
+    } else {
+
+        UITextField*    tf = [self.searchBar valueForKey:@"_searchField"];
+        if ( tf.bounds.size.width > self.tableView.bounds.size.width ) {
+            CGRect r = tf.frame;
+            r.size.width = self.tableView.bounds.size.width - r.origin.x * 2;
+            [UIView animateWithDuration:0.2 animations:^{
+                tf.frame = r;
+            }];
+        }
     }
 }
 
@@ -264,17 +275,7 @@
     if ([[segue identifier] isEqualToString:@"DetailSegue"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         MPLocation *object = self.objects[indexPath.row];
-        [MapsIndoors.locationsProvider getLocationWithId: object.locationId completionHandler:^(MPLocation *location, NSError *error) {
-            if (error) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    TCFKA_MDSnackbar* bar = [[TCFKA_MDSnackbar alloc] initWithText:kLangCouldNotFindLocations actionTitle:@"" duration:1.0];
-                    bar.bottomPadding = _keyboardHeight; // show above keyboard
-                    [bar show];
-                });
-            } else {
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationDetailsReady" object:location];
-            }
-        }];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationDetailsReady" object:object];
     }
 }
 
@@ -309,9 +310,9 @@
         if ( floor.name.length ) {
             [details addObject: [NSString stringWithFormat:kLangLevelVar,floor.name]];
 
-            if ( ([BuildingInfoCache sharedInstance].buildings.count > 1) || (_venues.count > 1) ) {
+            if ( buildingName.length && ([BuildingInfoCache sharedInstance].buildings.count > 1 || _venues.count > 1) ) {
                 [details addObject: buildingName];
-                if ( [buildingName isEqualToString:venueName] == NO ) {
+                if ( venueName.length && [buildingName isEqualToString:venueName] == NO ) {
                     [details addObject: venueName];
                 }
             }
@@ -334,13 +335,26 @@
     return cell;
 }
 
-- (void)onLocationsReady:(NSNotification *)notification {
 
+- (void)onLocationsDataForExternalAppSchemeReady:(NSNotification *)notification {
     self.objects = [NSArray arrayWithArray: notification.object ];
     [self.tableView reloadData];
+    if (!self.menuIsOpen) {
+        [self toggleSidebar];
+    }
+}
+
+- (void)onLocationsReady:(NSNotification *)notification {
+
+    if (Global.locationQuery.categories.count > 0 || self.searchBar.text.length >= kSearchTextMinLength) {
     
-    if (self.objects.count > 0) {
-        [self dismissSnackBar];     // We have results - remove any message snackbars
+        self.objects = [NSArray arrayWithArray: notification.object ];
+        [self.tableView reloadData];
+        
+        if (self.objects.count > 0) {
+            [self dismissSnackBar];     // We have results - remove any message snackbars
+        }
+        
     }
     
     [_spinner stopAnimating];
@@ -387,10 +401,10 @@
                     if (error) {
                         dispatch_async(dispatch_get_main_queue(), ^{
                             TCFKA_MDSnackbar* bar = [[TCFKA_MDSnackbar alloc] initWithText:kLangCouldNotFindLocations actionTitle:@"" duration:1.0];
-                            bar.bottomPadding = _keyboardHeight; // show above keyboard
+                            bar.bottomPadding = self->_keyboardHeight; // show above keyboard
                             [bar show];
                         });
-                    } else {
+                    } else if (!self.didSelectPOI) {
                         [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationsDataReady" object: locationData.list];
                     }
                 }];
@@ -439,17 +453,26 @@
             if (error) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     TCFKA_MDSnackbar* bar = [[TCFKA_MDSnackbar alloc] initWithText:kLangCouldNotFindLocations actionTitle:@"" duration:1.0];
-                    bar.bottomPadding = _keyboardHeight; // show above keyboard
+                    bar.bottomPadding = self->_keyboardHeight; // show above keyboard
                     [bar show];
                 });
-            } else {
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationsDataReady" object: locationData.list];
+            } else if (!self.didSelectPOI) {
+                if ( textLength >= kSearchTextMinLength ) {
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationsDataReady" object: locationData.list];
+                } else {
+                    self.objects = nil;
+                    [self.tableView reloadData];
+                }
             }
             
             NSString* announcement = [NSString stringWithFormat:kLangNumResultsAvailableAccHint, @(locationData.list.count)];
             [[MPAccessibilityHelper sharedInstance] announceWithCompletion:announcement completion:nil];
         }];
     }
+}
+
+- (void)setDidSelectPOI:(BOOL)didSelectPOI {
+    _didSelectPOI = didSelectPOI;
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
@@ -468,10 +491,6 @@
     [self.navigationController popViewControllerAnimated:YES];
     
     [Tracker trackEvent:kMPEventNameSearchDismissed parameters: @{@"Query":searchBar.text, @"Result_Count":@(_objects.count)}];
-}
-
-- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
-    self.didSelectPOI = NO;
 }
 
 

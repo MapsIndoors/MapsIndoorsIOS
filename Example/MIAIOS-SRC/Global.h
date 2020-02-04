@@ -62,6 +62,9 @@ typedef NS_ENUM( NSUInteger, BuildingTransition ) {
 + (MPLocationQuery*) locationQuery;
 + (void) setLocationQuery:(MPLocationQuery*)value;
 
++ (MPLocationQuery*) appSchemeLocationQuery;
++ (void) setAppSchemeLocationQuery:(MPLocationQuery*)value;
+
 + (RoutingData*) routingData;
 + (void) setRoutingData:(RoutingData*)value;
 

@@ -13,9 +13,9 @@
 
 @interface NSString (TRAVEL_MODE)
 
-- (TRAVEL_MODE) as_TRAVEL_MODE;
+- (TRAVEL_MODE) convertTo_TRAVEL_MODE;
 + (NSString*) stringFromTravelMode:(TRAVEL_MODE)travelMode;
 
-- (MPTravelMode) as_MPTravelMode;
+- (MPTravelMode) convertTo_MPTravelMode;
 
 @end

@@ -18,6 +18,7 @@
 #import "UINavigationController+TransparentNavigationController.h"
 #import "Tracker.h"
 #import "MPAccessibilityHelper.h"
+#import "SearchViewController.h"
 
 
 static NSString* cellIdentifier = @"VenueSelectorCell_Id";
@@ -46,16 +47,10 @@ static BOOL _venueSelectorIsShown = NO;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    UIRefreshControl *refreshControl = [UIRefreshControl new];
-    refreshControl.tintColor = [UIColor clearColor];
-    refreshControl.backgroundColor = [UIColor clearColor];
-    [refreshControl addTarget:self action:@selector(backPressed) forControlEvents:UIControlEventValueChanged];
-    
-    [self.tableView addSubview:refreshControl];
-    
+        
     self.navigationController.navigationBar.barStyle  = UIBarStyleBlackOpaque;
     self.navigationController.navigationBar.barTintColor =[UIColor appPrimaryColor];
+    
     
     self.title = [NSString stringWithFormat:@"%@", kLangSelectVenue];
     
@@ -73,11 +68,26 @@ static BOOL _venueSelectorIsShown = NO;
             if ( venue ) {
                 Global.venue = venue;
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"VenueChanged" object:venue];
-                [self performSegueWithIdentifier:@"showMasterControllerNonAnimated" sender:self];
+                if (!Global.appSchemeLocationQuery) {
+                    [self performSegueWithIdentifier:@"showMasterControllerNonAnimated" sender:self];
+                }
             }
         }];
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openLocationSearchNotif:) name:@"OpenLocationSearch" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willEnterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
+    if (Global.appSchemeLocationQuery) {
+        [self performSelector:@selector(openLocationSearch:) withObject:Global.appSchemeLocationQuery afterDelay:1.0];
+    }
 }
+
+- (void) willEnterForeground {
+    if (Global.appSchemeLocationQuery) {
+        [self performSelector:@selector(openLocationSearch:) withObject:Global.appSchemeLocationQuery afterDelay:1.0];
+    }
+}
+
 
 - (void) configureBackButton {
     
@@ -122,17 +132,19 @@ static BOOL _venueSelectorIsShown = NO;
         
         if ( venueCollection ) {
             
-            _venues = venueCollection.venues;
+            self->_venues = venueCollection.venues;
             
             [self.tableView reloadData];
             
-            if (_venues.count == 1) {
-                MPVenue*   venue = [_venues objectAtIndex:0];
+            if (self->_venues.count == 1) {
+                MPVenue*   venue = [self->_venues objectAtIndex:0];
                 if (venue) {
                     [[NSUserDefaults standardUserDefaults] setObject: venue.venueId forKey:@"venue"];
                     [[NSNotificationCenter defaultCenter] postNotificationName:@"VenueChanged" object:venue];
                 }
-                [self performSegueWithIdentifier:@"showMasterController" sender:self];
+                if (!Global.appSchemeLocationQuery) {
+                    [self performSegueWithIdentifier:@"showMasterController" sender:self];
+                }
             }
             
             [self configureBackButton];
@@ -241,6 +253,37 @@ static BOOL _venueSelectorIsShown = NO;
     }
     if (_venueSelectCallback) {
         _venueSelectCallback(nil);
+    }
+}
+
+- (void)openLocationSearchNotif:(NSNotification*)notification {
+    [self openLocationSearch:notification.object];
+}
+
+- (void)openLocationSearch:(MPLocationQuery*)locationQuery {
+    
+    if (![self.navigationController.viewControllers.lastObject isKindOfClass: [SearchViewController class]]) {
+    
+        [self.navigationController popToViewController:self animated:NO];
+        [self performSegueWithIdentifier:@"SearchSegue" sender:self];
+    
+    }
+    
+    [self openSidebar];
+    
+    [MapsIndoors.locationsProvider getLocationsUsingQuery:locationQuery completionHandler:^(MPLocationDataset * _Nullable locationData, NSError * _Nullable error) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationsDataForExternalAppSchemeReady" object:locationData.list];
+    }];
+
+}
+
+- (void)openSidebar {
+    if ( !self.navigationController.visibleViewController && self.splitViewController.displayMode != UISplitViewControllerDisplayModeAllVisible ) {
+        UIBarButtonItem* btn = self.splitViewController.displayModeButtonItem;
+        [[UIApplication sharedApplication] sendAction:btn.action
+                                                   to:btn.target
+                                                 from:nil
+                                             forEvent:nil];
     }
 }
 

@@ -18,6 +18,10 @@ class DemoSelectorViewController: UITableViewController {
         let window = UIApplication.shared.keyWindow
         window?.addSubview(memoryLabel)
         memoryLabel.accessibilityIdentifier = "MemoryFootprint"
+        memoryLabel.font = UIFont.boldSystemFont(ofSize: 10)
+        memoryLabel.translatesAutoresizingMaskIntoConstraints = false
+        memoryLabel.centerXAnchor.constraint(equalTo: window!.centerXAnchor).isActive = true
+        memoryLabel.topAnchor.constraint(equalTo: window!.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
         reportMemoryUsage()
     }
     
@@ -26,7 +30,7 @@ class DemoSelectorViewController: UITableViewController {
         self.perform(#selector(reportMemoryUsage), with: nil, afterDelay: 1)
     }
     
-    let memoryLabel = UILabel(frame: CGRect(x:0,y:0,width:120,height:40))
+    let memoryLabel = UILabel()
     
     let demoControllerClasses:[UIViewController.Type] = [ ShowLocationController.self,
                                                           LocationDetailsController.self,
@@ -45,7 +49,8 @@ class DemoSelectorViewController: UITableViewController {
                                                           OfflineController.self,
                                                           LocationSourcesController.self,
                                                           ClusteringController.self,
-                                                          CustomInfoWindowController.self
+                                                          CustomInfoWindowController.self,
+                                                          AppUserRolesController.self
                                                         ]
     
     // MARK: Tableview delegate and datasource

@@ -50,7 +50,10 @@
         if (@available(iOS 11.0, *)) {
             voiceOverNotification = UIAccessibilityVoiceOverStatusDidChangeNotification;
         } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
             voiceOverNotification = UIAccessibilityVoiceOverStatusChanged;
+#pragma clang diagnostic pop
         }
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAccessibilityVoiceOverStatusDidChangeNotification:) name:voiceOverNotification object:nil];

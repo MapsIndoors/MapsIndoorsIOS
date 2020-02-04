@@ -63,8 +63,10 @@ class MyPositionProvider : NSObject, MPPositionProvider {
                 delegate.onPositionUpdate(latestPositionResult)
             }
             
+            weak var _self = self
+            
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.updatePosition()
+                _self?.updatePosition()
             }
         }
     }

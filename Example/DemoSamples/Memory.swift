@@ -15,7 +15,7 @@ class Memory: NSObject {
     // From Quinn the Eskimo at Apple.
     // https://forums.developer.apple.com/thread/105088#357415
     
-    class func memoryFootprint() -> Float? {
+    class func memoryFootprint() -> Int64 {
         // The `TASK_VM_INFO_COUNT` and `TASK_VM_INFO_REV1_COUNT` macros are too
         // complex for the Swift C importer, so we have to define them ourselves.
         let TASK_VM_INFO_COUNT = mach_msg_type_number_t(MemoryLayout<task_vm_info_data_t>.size / MemoryLayout<integer_t>.size)
@@ -30,17 +30,18 @@ class Memory: NSObject {
         guard
             kr == KERN_SUCCESS,
             count >= TASK_VM_INFO_REV1_COUNT
-            else { return nil }
-        
-        let usedBytes = Float(info.phys_footprint)
-        return usedBytes
+            else { return -1 }
+
+        return Int64(info.phys_footprint)
+//        let usedBytes = Float(info.phys_footprint)
+//        return usedBytes
     }
     
-    class func formattedMemoryFootprint() -> String
-    {
-        let usedBytes = UInt64(self.memoryFootprint() ?? 0)
-        let usedMB = Double(usedBytes) / 1024 / 1024
-        let usedMBAsString: String = "\(usedMB)MB"
-        return usedMBAsString
+    class func formattedMemoryFootprint() -> String {
+        return ByteCountFormatter.string(fromByteCount: self.memoryFootprint(), countStyle: .memory)
+//        let usedBytes = UInt64(self.memoryFootprint() ?? 0)
+//        let usedMB = Double(usedBytes) / 1024 / 1024
+//        let usedMBAsString: String = "\(usedMB)MB"
+//        return usedMBAsString
     }
 }

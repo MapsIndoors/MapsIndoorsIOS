@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xbT-Lc-bPg">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xbT-Lc-bPg">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,7 +11,7 @@
             <objects>
                 <navigationController id="ZO7-n5-fBr" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yqp-tz-gfT">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -34,30 +31,30 @@
                         <viewControllerLayoutGuide type="bottom" id="T3i-MT-ceb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xzV-Na-8nE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loong message about stuff..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMA-KG-dIu">
-                                <rect key="frame" x="32" y="274" width="256" height="20.5"/>
+                                <rect key="frame" x="32" y="264" width="256" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LsP-7O-o0f">
-                                <rect key="frame" x="124" y="344.5" width="72" height="30"/>
+                                <rect key="frame" x="124" y="334.5" width="72" height="30"/>
                                 <state key="normal" title="SETTINGS"/>
                                 <connections>
                                     <action selector="launchAppSettings:" destination="6GV-ZX-9R1" eventType="touchUpInside" id="eCv-ER-P2j"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Internet" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQE-dy-2hr">
-                                <rect key="frame" x="150" y="189" width="97" height="24"/>
+                                <rect key="frame" x="150" y="179" width="97" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WYH-Ph-vok">
-                                <rect key="frame" x="56" y="163" width="76" height="76"/>
+                                <rect key="frame" x="56" y="153" width="76" height="76"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="WYH-Ph-vok" secondAttribute="height" multiplier="1:1" id="63P-Ss-KwX"/>
                                     <constraint firstAttribute="height" constant="76" id="LmJ-pS-I2J"/>
@@ -96,7 +93,7 @@
             <objects>
                 <navigationController title="Menu" id="RMx-3f-FxP" customClass="MasterNavigationController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="Pmd-2v-anx">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="TPM-Wk-Eol">
@@ -105,7 +102,6 @@
                     <connections>
                         <segue destination="Q8i-Ja-Mfz" kind="show" identifier="DetailSegue" animates="NO" id="bmp-ev-gUP"/>
                         <segue destination="U8i-5L-Aem" kind="relationship" relationship="rootViewController" id="2ht-Ik-blS"/>
-                        <segue destination="zco-S9-q0E" kind="show" identifier="SearchSegue" id="ISQ-4f-w1B"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8fS-aE-onr" sceneMemberID="firstResponder"/>
@@ -184,11 +180,11 @@ MapsPeople</string>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hVc-qd-aJ2">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <color key="backgroundColor" red="0.38155224919319153" green="0.69611179828643799" blue="0.35741859674453735" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffj-3P-qOB">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
                                 <color key="backgroundColor" red="0.22879627346992493" green="0.57843953371047974" blue="0.20283332467079163" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" image="BrandIcon" translatesAutoresizingMaskIntoConstraints="NO" id="wrw-hQ-WE0">
@@ -278,6 +274,7 @@ MapsPeople</string>
                     <connections>
                         <segue destination="pWl-Zm-dfM" kind="show" identifier="showMasterController" id="L7p-4b-mWW"/>
                         <segue destination="pWl-Zm-dfM" kind="show" identifier="showMasterControllerNonAnimated" animates="NO" id="6vE-00-AJr"/>
+                        <segue destination="zco-S9-q0E" kind="show" identifier="SearchSegue" id="VZz-29-PUG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YXf-NC-CVf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -306,7 +303,7 @@ MapsPeople</string>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Back.png" translatesAutoresizingMaskIntoConstraints="NO" id="H2t-Hf-m7N">
-                                <rect key="frame" x="16" y="55" width="24" height="24"/>
+                                <rect key="frame" x="16" y="31" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="28" id="jzU-6S-52X"/>
                                 </constraints>
@@ -372,7 +369,7 @@ MapsPeople</string>
                                         <rect key="frame" x="0.0" y="28" width="430" height="134"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HXD-0Y-00f" customClass="MDButton">
-                                        <rect key="frame" x="173" y="162" width="40" height="24"/>
+                                        <rect key="frame" x="173" y="138" width="40" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="qXn-2e-2GP"/>
                                         </constraints>
@@ -382,7 +379,7 @@ MapsPeople</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTn-NR-qhh" customClass="MDButton">
-                                        <rect key="frame" x="221" y="162" width="40" height="24"/>
+                                        <rect key="frame" x="221" y="138" width="40" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="Ay3-ff-Iz8"/>
                                         </constraints>
@@ -447,7 +444,7 @@ MapsPeople</string>
             <objects>
                 <navigationController id="vC3-pB-5Vb" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="DjV-YW-jjY">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -468,7 +465,7 @@ MapsPeople</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="transitSourceCellId" textLabel="ObJ-2L-OPJ" detailTextLabel="Wca-O2-dHw" style="IBUITableViewCellStyleValue1" id="70n-r8-9bn">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="70n-r8-9bn" id="H9i-tj-mxE">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -515,10 +512,12 @@ MapsPeople</string>
         <!--UITableViewController-yAx-nd-1pz-->
         <scene sceneID="OlJ-tx-w4w">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="UITableViewController-yAx-nd-1pz" storyboardName="Search" referencedIdentifier="UITableViewController-yAx-nd-1pz" id="zco-S9-q0E" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="UITableViewController-yAx-nd-1pz" storyboardName="Search" referencedIdentifier="UITableViewController-yAx-nd-1pz" id="zco-S9-q0E" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Tiz-z3-MBn"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hM0-GT-Opn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2465" y="-1367"/>
+            <point key="canvasLocation" x="1658" y="-1205"/>
         </scene>
         <!--UIViewController-Vq1-3s-pvX-->
         <scene sceneID="8kD-tI-Oj7">
@@ -540,7 +539,7 @@ MapsPeople</string>
     <resources>
         <image name="Back.png" width="24" height="24"/>
         <image name="BrandIcon" width="340" height="105"/>
-        <image name="SplashIcon" width="1681" height="1113"/>
+        <image name="SplashIcon" width="1024" height="1024"/>
         <image name="ic_arrow_back_48pt.png" width="48" height="48"/>
         <image name="ic_chevron_left.png" width="24" height="24"/>
         <image name="ic_chevron_right.png" width="24" height="24"/>

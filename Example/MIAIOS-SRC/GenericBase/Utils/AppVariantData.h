@@ -21,6 +21,8 @@
 @property (nonatomic, readonly, strong) NSString*       appSupplierUrl;
 @property (nonatomic, readonly, strong) NSString*       googleMapsStyle;
 @property (nonatomic, readonly, strong) NSString*       welcomeMessage;
+@property (nonatomic, readonly, strong) NSString*       imageNameForBlueDot;
+@property (nonatomic, readonly, strong) NSString*       imageNameForBlueDotWithHeading;
 
 // Theming:
 @property (nonatomic, readonly, strong) UIColor*        primaryColor;
@@ -30,10 +32,12 @@
 @property (nonatomic, readonly, strong) UIColor*        accentColor;
 @property (nonatomic, readonly, strong) UIColor*        statusBarColor;
 @property (nonatomic, readonly, strong) UIColor*        tertiaryHighlightColor;
+@property (nonatomic, readonly, strong) Class           customFloorSelectorClass;
 
 // Behaviours:
 @property (nonatomic, readonly) BOOL                    shouldPreloadRouteOriginWithCurrentLocation;
 @property (nonatomic, readonly) NSNotificationName      logoutNotificationName;
+@property (nonatomic, readonly) BOOL                    mapShouldTrackUserLocationOnAppLaunch;
 
 // Methods:
 + (instancetype) sharedAppVariantData;

@@ -53,7 +53,8 @@ class LocationSourcesController: UIViewController {
          Inside `viewDidLoad`, setup a display setting that refers to the type of locations that your people location source operates with.
          ***/
         let dr = MPLocationDisplayRule.init(name: "People", andIcon: UIImage.init(named: "user.png"), andZoomLevelOn: 17)!
-        self.mapControl?.add(dr)
+        dr.displayRank = 99999
+        self.mapControl?.setDisplayRule(dr)
     }
     
     /***

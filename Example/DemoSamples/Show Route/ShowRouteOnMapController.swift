@@ -24,15 +24,17 @@ class ShowRouteOnMapController: UIViewController, MPDirectionsRendererDelegate {
     /***
      Setup member variables for `MySearchController`:
      
-     * An instance of type `GMSMapView`
-     * An instance of type `MPMapControl`
-     * An instance of type `MPRoute` (the route object)
+     * A propertty of type `GMSMapView`
+     * A propertty of type `MPMapControl`
+     * A propertty of type `MPRoute` (the route object)
+     * A propertty of type `MPDirectionsRenderer` (the route renderer object)
      * A leg index
      * A step index
      ***/
     var map: GMSMapView? = nil
     var mapControl: MPMapControl? = nil
     var route:MPRoute? = nil
+    var renderer = MPDirectionsRenderer()
     var leg:Int = -1
     var step:Int = -1
     
@@ -64,9 +66,8 @@ class ShowRouteOnMapController: UIViewController, MPDirectionsRendererDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         /***
-         Inside `viewDidAppear`, setup a directions renderer and assign the Google map, route object and leg/step indices. Eventually, call the animate method to make it animate from the start to end of the leg/step
+         Inside `viewDidAppear`, configure the directions renderer and assign the Google map, route object and leg/step indices. Eventually, call the animate method to make it animate from the start to end of the leg/step
          ***/
-        let renderer = MPDirectionsRenderer.init()
         
         renderer.delegate = self
         renderer.fitBounds = true

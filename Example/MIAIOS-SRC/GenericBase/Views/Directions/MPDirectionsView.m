@@ -125,6 +125,7 @@
     if ( route != self.currentRoute ) {
         
         self.viewModel = [MPDirectionsViewModel newWithRoute:route routingData:routingData models:models];
+        self.viewModel.shouldShowInsideSteps = self.shouldShowInsideSteps;
         self.currentRoute = route;
         self.routingData = routingData;
         self.modelArray = models;
@@ -1501,6 +1502,17 @@
     return [self.viewModel accessibilityDescriptionForRouteSectionAtIndex:routeSegementIndex];
 }
 
+
+#pragma mark - Configuration
+
+- (void) setShouldShowInsideSteps:(BOOL)shouldShowInsideSteps {
+
+    if ( _shouldShowInsideSteps != shouldShowInsideSteps ) {
+        _shouldShowInsideSteps = shouldShowInsideSteps;
+        self.viewModel.shouldShowInsideSteps = shouldShowInsideSteps;
+        [self setNeedsLayout];
+    }
+}
 
 
 @end

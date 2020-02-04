@@ -130,9 +130,7 @@
         }];
         [openBtn setValue:[UIColor redColor] forKey:@"titleTextColor"];
         
-        UIAlertAction*  CancelBtn = [UIAlertAction actionWithTitle:kLangCancel style:UIAlertActionStyleCancel handler:^(UIAlertAction *action){
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }];
+        UIAlertAction*  CancelBtn = [UIAlertAction actionWithTitle:kLangCancel style:UIAlertActionStyleCancel handler:^(UIAlertAction *action){}];
         
         [alert addAction:openBtn];
         [alert addAction:CancelBtn];

@@ -29,10 +29,12 @@ class ShowBuildingController: UIViewController {
         
         let venueProvider = MPVenueProvider.init()
         
+        weak var _self = self
+        
         venueProvider.getBuildingsWithCompletion { (buildings, error) in
             if error == nil {
                 let bounds = buildings?.first?.getBounds()
-                self.map?.animate(with: GMSCameraUpdate.fit(bounds!))
+                _self?.map?.animate(with: GMSCameraUpdate.fit(bounds!))
             }
         }
     }

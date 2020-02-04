@@ -78,6 +78,12 @@
     return [UIFont boldSystemFontOfSize: [self scaledFontSizeForFontSize:fontSize] ];
 }
 
+- (UIFont*) scaledFontBasedOnFont:(UIFont*)font {
+
+    return [UIFont fontWithDescriptor:font.fontDescriptor size: font.pointSize * self.scaleFactor];
+}
+
+
 - (void) setConfiguredTextSize:(DynamicTextSize)configuredTextSize {
 
     // Check if we're allowed to use extra large sizes:

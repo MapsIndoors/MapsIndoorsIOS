@@ -40,6 +40,11 @@ typedef NS_ENUM(NSUInteger, RouteSectionType) {
 - (instancetype) init NS_UNAVAILABLE;
 
 
+#pragma mark - Configuration
+
+@property (nonatomic) BOOL      shouldShowInsideSteps;      /// Determine if steps are shown for indoor parts of the route.  Defaults to NO.
+
+
 #pragma mark - Action point support
 
 - (NSString*) textForActionPointAtIndex:(NSUInteger)index;

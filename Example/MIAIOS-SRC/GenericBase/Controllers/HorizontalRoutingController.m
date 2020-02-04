@@ -66,7 +66,7 @@
     __weak typeof(self)weakSelf = self;
     [self mp_onContentSizeChange:^(DynamicTextSize dynamicTextSize) {
 
-        [weakSelf.directionsView loadRoute:nil withModels:nil routingData:_routing];
+        [weakSelf.directionsView loadRoute:nil withModels:nil routingData:self->_routing];
         [weakSelf.directionsView onDynamicContentSizeChanged];
         [weakSelf.directionsView loadRoute:weakSelf.currentRoute withModels:weakSelf.modelArray routingData:weakSelf.routing];
     }];

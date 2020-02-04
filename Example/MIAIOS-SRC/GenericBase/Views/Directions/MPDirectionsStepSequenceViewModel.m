@@ -40,10 +40,11 @@
     MPDirectionsStepViewModel*  model;
     
     if ( self.steps.count > stepIndex ) {
-        
+
         MPRouteStep*    step = self.steps[ stepIndex ];
         NSString*       desc = NSLocalizedString([step.html_instructions stringByStrippingHTML],);
-        NSString*       distance = [Global getDistanceString:[step.distance doubleValue]];
+        double          stepDistance = [step.distance doubleValue];
+        NSString*       distance = stepDistance > 0.5 ? [Global getDistanceString:stepDistance] : nil;
         BOOL            isStairs = [step.highway isEqualToString:@"steps"];
         model = [MPDirectionsStepViewModel newWithDescription:desc details:distance manuever:step.maneuver isStairs:isStairs];
     }

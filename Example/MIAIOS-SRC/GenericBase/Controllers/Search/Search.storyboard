@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -43,7 +40,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="SearchCell" id="2jE-7T-2Ui" customClass="MPLocationCell">
-                                <rect key="frame" x="0.0" y="98" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="104" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2jE-7T-2Ui" id="6nQ-yy-Gjf">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -64,18 +61,9 @@
                         <outlet property="backButton" destination="eXX-El-IA3" id="XGE-SG-AnT"/>
                         <outlet property="headerView" destination="rmO-oD-nkW" id="1ES-Ay-2j0"/>
                         <outlet property="searchBar" destination="wNu-DF-1XH" id="jll-5G-lMe"/>
-                        <outlet property="searchDisplayController" destination="KsJ-4n-gwT" id="gGM-qT-snZ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FbJ-d5-tFB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="KsJ-4n-gwT">
-                    <connections>
-                        <outlet property="delegate" destination="yAx-nd-1pz" id="C2H-rG-MgM"/>
-                        <outlet property="searchContentsController" destination="yAx-nd-1pz" id="nGR-aj-IGb"/>
-                        <outlet property="searchResultsDataSource" destination="yAx-nd-1pz" id="k6O-nZ-Qfg"/>
-                        <outlet property="searchResultsDelegate" destination="yAx-nd-1pz" id="A8e-xJ-Sl2"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="2464.8000000000002" y="-1367.7661169415294"/>
         </scene>

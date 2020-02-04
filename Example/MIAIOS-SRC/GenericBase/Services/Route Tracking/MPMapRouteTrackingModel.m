@@ -14,7 +14,7 @@
 #import "GPSPositionProvider.h"
 
 
-#if DEBUG && 1
+#if DEBUG && 0
     #define DEBUGLOG(fMT,...)  NSLog( @"[D] MPMapRouteTrackingModel.m(%d): "fMT,  __LINE__, __VA_ARGS__ )
 #else
     #define DEBUGLOG(fMt,...)  /* Nada! */
@@ -238,7 +238,7 @@
 
         [self removeOutdatedSamples];
 
-        NSLog( @"%@", self.debugDescription );
+        DEBUGLOG( @"%@", self.debugDescription );
 
         if ( self.userGestureInProgress == NO ) {
 
@@ -336,7 +336,7 @@
         // Setup a travelmode dependent zoom level when in routing+turn-by-turn mode:
         MPRouteLeg*     leg = self.route.legs[ self.closestPointOnRoute.legIndex ];
         MPRouteStep*    step = leg.steps.firstObject;
-        MPTravelMode    travelMode = [step.travel_mode as_MPTravelMode];
+        MPTravelMode    travelMode = [step.travel_mode convertTo_MPTravelMode];
 
         switch ( travelMode ) {
             case MPTravelModeWalking:

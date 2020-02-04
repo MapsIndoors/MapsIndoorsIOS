@@ -44,7 +44,7 @@ class ShowMyLocationController: UIViewController {
          ***/
         let myLocationRule = MPLocationDisplayRule.init(name: "my-location", andIcon: UIImage.init(named: "MyLocationDirection"), andZoomLevelOn: 0)
         myLocationRule?.iconSize = CGSize(width: 30, height: 30)
-        self.mapControl?.add(myLocationRule!)
+        self.mapControl?.setDisplayRule (myLocationRule!)
         
         /***
          Inside `viewDidLoad`, finally

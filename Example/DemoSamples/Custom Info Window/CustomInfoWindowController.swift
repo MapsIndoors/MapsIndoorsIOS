@@ -32,10 +32,12 @@ class CustomInfoWindowController: UIViewController, GMSMapViewDelegate {
         
         self.view = self.map
         
+        weak var _self = self
+        
         MPVenueProvider().getVenuesWithCompletion { (coll, err) in
             let venues:[MPVenue] = coll!.venues as! [MPVenue]
             let bounds = venues.first!.getBoundingBox()
-            self.map?.animate(with: GMSCameraUpdate.fit(bounds!))
+            _self?.map?.animate(with: GMSCameraUpdate.fit(bounds!))
         }
         
     }

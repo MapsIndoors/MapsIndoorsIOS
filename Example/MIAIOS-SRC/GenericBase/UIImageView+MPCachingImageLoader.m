@@ -12,30 +12,55 @@
 
 @implementation UIImageView (MPCachingImageLoader)
 
+- (NSCharacterSet*) mp_urlEscapingCharacterSet {
+
+    static NSCharacterSet*  _urlEscapingCharacterSet;
+    static dispatch_once_t  onceToken;
+
+    dispatch_once(&onceToken, ^{
+        NSMutableCharacterSet*  set = [NSMutableCharacterSet new];
+
+        [set formUnionWithCharacterSet:[NSCharacterSet URLPathAllowedCharacterSet]];
+        [set formUnionWithCharacterSet:[NSCharacterSet URLHostAllowedCharacterSet]];
+        [set formUnionWithCharacterSet:[NSCharacterSet URLUserAllowedCharacterSet]];
+        [set formUnionWithCharacterSet:[NSCharacterSet URLQueryAllowedCharacterSet]];
+        [set formUnionWithCharacterSet:[NSCharacterSet URLFragmentAllowedCharacterSet]];
+        [set formUnionWithCharacterSet:[NSCharacterSet URLPasswordAllowedCharacterSet]];
+
+        _urlEscapingCharacterSet = [set copy];
+    });
+
+    return _urlEscapingCharacterSet;
+}
+
 - (void) mp_setImageWithURL:(NSString*)url placeholderImageName:(NSString*)placeholderImageName {
-    
+
     [self mp_setImageWithURL:url placeholderImage:[UIImage imageNamed:placeholderImageName]];
 }
 
 - (void) mp_setImageWithURL:(NSString*)url {
-    
+
     NSString*   imageName = [url lastPathComponent];        // If we should happen to have an embedded image with a matching name (we do for venue images), use that as placeholder.
-    
+
     [self mp_setImageWithURL:url placeholderImageName:imageName];
 }
 
 - (void) mp_setImageWithURL:(NSString*)url placeholderImage:(UIImage*)placeholderImage {
-    
+
+    if ( [url containsString:@"%"] == NO ) {        // We get URLs that area already URL-escaped and some that are not: assume URL-escaping has already been performed if the url-string contains %-characters.
+        url = [url stringByAddingPercentEncodingWithAllowedCharacters:[self mp_urlEscapingCharacterSet]];
+    }
+
     if ( url.length == 0 ) {
         self.image = placeholderImage;
-        
+
     } else {
-        
+
         [MPImageProvider getImageFromUrlStringAsync:url completionHandler:^(UIImage *image, NSError *error) {
-            
+
             if ( image && !error ) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    
+
                     [UIView transitionWithView:self
                                       duration:0.2
                                        options:UIViewAnimationOptionTransitionCrossDissolve

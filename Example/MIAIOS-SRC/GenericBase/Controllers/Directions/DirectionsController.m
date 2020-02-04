@@ -211,6 +211,7 @@
     self.directionsView.verticalLayout = YES;
     self.directionsView.verticalLegHeight = 108;
     self.directionsView.shouldHighlightFocusedRouteSegment = YES;
+    self.directionsView.shouldShowInsideSteps = YES;
 
     // Move the directionsForm from self.view to be managed as a "header-view" of the DirectionsView:
     CGRect r = self.directionsHeaderView.frame;
@@ -396,15 +397,18 @@
             MPLocationQuery* query = [[MPLocationQuery alloc] init];
             query.near = MapsIndoors.positionProvider.latestPositionResult.geometry;
             query.max = 1;
-            query.floor = 0;
+            query.floor = self.origin.floor;
             query.radius = [NSNumber numberWithInt:15];
             
             [MapsIndoors.locationsProvider getLocationsUsingQuery:query completionHandler:^(MPLocationDataset *locationData, NSError *error) {
                 
                 if (locationData != nil && locationData.list.count == 1) {
-                    self.origin = [locationData.list.firstObject copy];
-                    //TODO set display rule on mapcontrol instead
-                    //self.origin.displayRule.icon = [UIImage imageNamed:@"Mylocation"];
+
+                    MPLocationUpdate*   locUpdate = [MPLocationUpdate updateWithLocation:locationData.list.firstObject];
+                    locUpdate.position = [MapsIndoors.positionProvider.latestPositionResult.geometry getCoordinate];
+                    locUpdate.floor = MapsIndoors.positionProvider.latestPositionResult.geometry.zIndex;
+                    self.origin = locUpdate.location;
+
                 } else {
                     //TODO set description with builder instead
                     //self.origin.descr = nil;
@@ -579,6 +583,9 @@
     UIAlertController* alert = [self alertControllerForLocationServicesState];
     
     if ( alert ) {
+        if (!(IS_IPAD)) {
+            alert.modalPresentationStyle = UIModalPresentationFullScreen;
+        }
         [self presentViewController:alert animated:YES completion:nil];
         self.locationServicesAlert = alert;
     }
@@ -752,6 +759,7 @@
     }];
     
     self.disableAppearanceSetup = YES;
+
     [self.navigationController presentViewController:nav animated:YES completion:nil];
 }
 
@@ -780,6 +788,7 @@
     }];
     
     self.disableAppearanceSetup = YES;
+    
     [self.navigationController presentViewController:nav animated:YES completion:nil];
 }
 
@@ -819,7 +828,7 @@
     }
     
     VCMaterialDesignIcons* icon = nil;
-    switch ( [_routing.travelMode as_TRAVEL_MODE] ) {
+    switch ( [_routing.travelMode convertTo_TRAVEL_MODE] ) {
         case WALK:
             icon = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_walk fontSize:18];
             break;
@@ -908,7 +917,7 @@
 
 - (void)config {
     
-    self.sectionModelArray = [self.currentRoute sectionModelsForRequestTravelMode:[_routing.travelMode as_TRAVEL_MODE]];
+    self.sectionModelArray = [self.currentRoute sectionModelsForRequestTravelMode:[_routing.travelMode convertTo_TRAVEL_MODE]];
 
     _routing.latestModelArray = self.sectionModelArray;
     

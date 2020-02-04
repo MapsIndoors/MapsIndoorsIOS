@@ -21,6 +21,7 @@ typedef BOOL (^OpenUrlHookBlock)( UIApplication* app, NSURL* url, NSDictionary<N
 @property (strong, nonatomic) UINavigationController*   navigationController;
 @property (strong, nonatomic) NSString*                 locationIdToOpen;
 @property (nonatomic, copy) OpenUrlHookBlock            openUrlHook;
+@property (nonatomic) BOOL                              delayedMapsIndoorsInit;
 
 @end
 

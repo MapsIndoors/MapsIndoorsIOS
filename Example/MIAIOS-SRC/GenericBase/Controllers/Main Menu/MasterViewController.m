@@ -323,12 +323,12 @@
 
     [_appDataProvider getAppDataWithCompletion:^(MPAppData *appData, NSError *error) {
 
-        [_spinner stopAnimating];
+        [self->_spinner stopAnimating];
 
-        if (error && !_bar.isShowing) {
+        if (error && !self->_bar.isShowing) {
 
-            _bar = [[TCFKA_MDSnackbar alloc] initWithText:kLangCouldNotFindContent actionTitle:nil duration:4.0];
-            [_bar show];
+            self->_bar = [[TCFKA_MDSnackbar alloc] initWithText:kLangCouldNotFindContent actionTitle:nil duration:4.0];
+            [self->_bar show];
         }
         else if (appData) {
 
@@ -341,13 +341,13 @@
                 [self.headerImageView mp_setImageWithURL:headerImageUrl];
             }
 
-            _objects = [NSMutableArray array];  // Start out with a clean array, so we dont double up on menuitems.
+            self->_objects = [NSMutableArray array];  // Start out with a clean array, so we dont double up on menuitems.
             for (NSDictionary* item in [appData.menuInfo objectForKey:@"mainmenu"]) {
                 NSError* err;
                 MPMenuItem* menuItem = [[MPMenuItem alloc] initWithDictionary:item error:&err];
 
                 if (err == nil) {
-                    [_objects addObject:menuItem];
+                    [self->_objects addObject:menuItem];
                 }
             }
 

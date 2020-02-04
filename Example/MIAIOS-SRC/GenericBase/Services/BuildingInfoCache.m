@@ -54,6 +54,17 @@
     return self;
 }
 
+- (void) reinitForNewSolution {
+
+    CHK_MAIN_THREAD
+
+    NSString*   solutionId = [MapsIndoors getMapsIndoorsAPIKey];
+    if ( solutionId.length ) {
+        self.buildings = nil;
+        [self fetchBuildings];
+    }
+}
+
 - (MPVenueProvider *)venueProvider {
     
     if ( _venueProvider == nil ) {

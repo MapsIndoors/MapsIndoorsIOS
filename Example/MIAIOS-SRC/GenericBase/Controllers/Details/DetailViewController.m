@@ -87,7 +87,7 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
             _venueProvider = [[MPVenueProvider alloc] init];
             [_venueProvider getBuildingsWithCompletion:^(NSArray *buildings, NSError *error) {
                 if (error == nil) {
-                    _buildings = buildings;
+                    self->_buildings = buildings;
                 }
                 [self endOperation:@"getBuildingsAsync"];
             }];
@@ -96,7 +96,7 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
         if ( [self beginOperation:@"getVenuesAsync"] ) {
             [_venueProvider getVenuesWithCompletion:^(MPVenueCollection *venueCollection, NSError *error) {
                 if (error == nil) {
-                    _venues = venueCollection.venues;
+                    self->_venues = venueCollection.venues;
                 }
                 [self endOperation:@"getVenuesAsync"];
             }];
@@ -236,6 +236,7 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
     if ( IS_IPAD ) {
         shareCtrl.popoverPresentationController.barButtonItem = self.navigationItem.rightBarButtonItem;
     }
+    
     [app.window.rootViewController presentViewController:shareCtrl animated:YES completion:nil];
     
     [Tracker trackEvent:@"Location_Share" parameters:nil];
@@ -274,7 +275,8 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
         _from = originLocationUpdate.location;
         
         MPLocationQuery* query = [[MPLocationQuery alloc] init];
-        query.near = MapsIndoors.positionProvider.latestPositionResult.geometry;
+        query.near = _from.geometry;
+        query.floor = _from.floor;
         query.max = 1;
         query.radius = [NSNumber numberWithInt:15];
         
@@ -284,8 +286,8 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
                 [self endOperation:@"getLocationsUsingQueryAsync"];
                 
                 if (locationData != nil && locationData.list.count == 1) {
-                    _from = [locationData.list.firstObject copy];
-                    self.subTitleForDirectionsCell = [NSString stringWithFormat: kLangFromPosVar, _from.name];
+                    self->_from = [locationData.list.firstObject copy];
+                    self.subTitleForDirectionsCell = [NSString stringWithFormat: kLangFromPosVar, self->_from.name];
                 }
                 else if (error) {
                     dispatch_async(dispatch_get_main_queue(), ^{
@@ -305,7 +307,7 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
             }];
         }
         
-        if ( _from && _location && _from.geometry && _location.geometry ) {
+        if ( _from && _location && _from.geometry && _location.geometry && _from.geometry.lat != 0 ) {
             [self beginOperation:@"routingFrom"];
             
             NSArray*    avoids = Global.avoidStairs ? @[@"stairs"] : nil;
@@ -354,8 +356,8 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
                     [self endOperation:@"getBuildingDetailsAsync"];
                     
                     if(error == nil) {
-                        MPFloor* floor = [building.floors objectForKey:[_location.floor stringValue]];
-                        [_fields addObject:@{@"type": @"place", @"text": [NSString stringWithFormat:@"%@ %@\n%@\n%@", kLangLevel, floor.name, building.name, venue.name], @"icon": [self materialIcon:VCMaterialDesignIconCode.md_city]}];
+                        MPFloor* floor = [building.floors objectForKey:[self->_location.floor stringValue]];
+                        [self->_fields addObject:@{@"type": @"place", @"text": [NSString stringWithFormat:@"%@ %@\n%@\n%@", kLangLevel, floor.name, building.name, venue.name], @"icon": [self materialIcon:VCMaterialDesignIconCode.md_city]}];
                     }
                     
                     [self.tableView reloadData];
@@ -610,7 +612,7 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
     self.route = notification.object;
     if ( self.route ) {
         
-        NSArray<SectionModel*>* routeSections = [self.route sectionModelsForRequestTravelMode:[_routing.travelMode as_TRAVEL_MODE]];
+        NSArray<SectionModel*>* routeSections = [self.route sectionModelsForRequestTravelMode:[_routing.travelMode convertTo_TRAVEL_MODE]];
         MPDirectionsViewModel*  directionsViewModel = [MPDirectionsViewModel newWithRoute:self.route routingData:_routing models:routeSections];
         NSString*               overallTravelMode = _routing.travelMode;
         NSArray<NSNumber*>* travelModes = directionsViewModel.travelModes;

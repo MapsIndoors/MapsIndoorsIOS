@@ -34,11 +34,13 @@ class ShowLocationController: UIViewController {
         queryObj.query = "Paris"
         queryObj.max = 1
         
+        weak var _self = self
+        
         locations.getLocationsUsing(queryObj) { (locationData, error) in
             if error == nil {
                 let firstLocation = locationData?.list?.first
-                self.mapControl?.selectedLocation = firstLocation
-                self.mapControl?.currentFloor = firstLocation?.floor
+                _self?.mapControl?.selectedLocation = firstLocation
+                _self?.mapControl?.currentFloor = firstLocation?.floor
             }
         }
     }

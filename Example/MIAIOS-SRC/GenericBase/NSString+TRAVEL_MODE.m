@@ -10,7 +10,7 @@
 
 @implementation NSString (TRAVEL_MODE)
 
-- (TRAVEL_MODE) as_TRAVEL_MODE {
+- (TRAVEL_MODE) convertTo_TRAVEL_MODE {
 
     NSString*   selfLowercased = [self lowercaseString];
     
@@ -44,9 +44,9 @@
     return result;
 }
 
-- (MPTravelMode)as_MPTravelMode {
+- (MPTravelMode) convertTo_MPTravelMode {
     
-    switch ( [self as_TRAVEL_MODE] ) {
+    switch ( [self convertTo_TRAVEL_MODE] ) {
         case WALK:      return MPTravelModeWalking;
         case BIKE:      return MPTravelModeBicycling;
         case DRIVE:     return MPTravelModeDriving;

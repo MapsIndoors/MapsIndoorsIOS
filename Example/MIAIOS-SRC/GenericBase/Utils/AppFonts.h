@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (CGFloat) fontSizeScaleFactor;                            // Caller is responsible for enforcing minimumFontSize
 - (UIFont*) scaledFontForSize:(CGFloat)fontSize;
 - (UIFont*) scaledBoldFontForSize:(CGFloat)fontSize;
+- (UIFont*) scaledFontBasedOnFont:(UIFont*)font;
 
 #pragma mark - Ready to use font getters
 @property (nonatomic, strong, readonly) UIFont*     headerTitleFont;

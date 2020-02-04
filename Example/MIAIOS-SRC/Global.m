@@ -107,7 +107,8 @@
         NSLengthFormatter*  formatter = [NSLengthFormatter new];
         formatter.numberFormatter.maximumFractionDigits = 0;
 
-        s = [formatter stringFromMeters:distanceValue];
+        NSLengthFormatterUnit   unit = [[[NSLocale currentLocale] objectForKey:NSLocaleUsesMetricSystem] boolValue] ? NSLengthFormatterUnitMeter : NSLengthFormatterUnitYard;
+        s = [formatter stringFromValue:distanceValue unit:unit];
 
     } else {
         MKDistanceFormatter*    formatter = [MKDistanceFormatter new];
@@ -225,7 +226,7 @@ static RoutingData* routingData;
 }
 
 + (void) setTravelMode:(NSString*)travelMode {
-    NSString*   validatedTravelMode = [NSString stringFromTravelMode: [travelMode as_TRAVEL_MODE] ];
+    NSString*   validatedTravelMode = [NSString stringFromTravelMode: [travelMode convertTo_TRAVEL_MODE] ];
     [[NSUserDefaults standardUserDefaults] setObject:validatedTravelMode forKey:@"travelMode"];
 }
 
@@ -266,6 +267,19 @@ static MPLocationQuery* locationQuery;
 + (void) setLocationQuery:(MPLocationQuery*)value {
     @synchronized(self) {
         locationQuery = value;
+    }
+}
+
+static MPLocationQuery* appSchemeLocationQuery;
++ (MPLocationQuery*) appSchemeLocationQuery {
+    @synchronized(self) {
+        return appSchemeLocationQuery;
+    }
+}
+
++ (void) setAppSchemeLocationQuery:(MPLocationQuery*)value {
+    @synchronized(self) {
+        appSchemeLocationQuery = value;
     }
 }
 

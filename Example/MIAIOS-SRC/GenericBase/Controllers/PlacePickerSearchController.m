@@ -28,9 +28,10 @@
 #import <PureLayout/PureLayout.h>
 #import "MPQuickAccessPointsProvider.h"
 #import "UIViewController+Custom.h"
-#import "NoCancelButtonSearchController.h"
 #import "AppFonts.h"
 #import "TCFKA_MDSnackbar.h"
+#import "AppVariantData.h"
+
 
 typedef NS_ENUM(NSUInteger, PPSCSection) {
     PPSCSection_MyLocation,
@@ -44,7 +45,11 @@ typedef NS_ENUM(NSUInteger, PPSCSection) {
 #define kSearchTextMinLength        2           // Only search when the length of the search text is >= than this constant.
 
 
-@interface PlacePickerSearchController () <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+@interface PlacePickerSearchController () < DZNEmptyDataSetSource
+                                          , DZNEmptyDataSetDelegate
+                                          , UISearchControllerDelegate
+                                          , UIAdaptivePresentationControllerDelegate
+                                          >
 
     @property NSArray*                                      locations;
     @property NSMutableArray*                               places;
@@ -63,6 +68,7 @@ typedef NS_ENUM(NSUInteger, PPSCSection) {
     @property (nonatomic, strong) NSArray<MPLocation*>*     quickAccessPoints;
 
 @end
+
 
 @implementation PlacePickerSearchController {
 
@@ -97,14 +103,14 @@ static NSString* cellIdentifier = @"LocationCell";
     
     [_venueProvider getVenuesWithCompletion:^(MPVenueCollection *venueCollection, NSError *error) {
         if (error == nil) {
-            _venues = venueCollection.venues;
+            self->_venues = venueCollection.venues;
             [self.tableView reloadData];
         }
     }];
     
     [_venueProvider getBuildingsWithCompletion:^(NSArray *buildings, NSError *error) {
         if (error == nil) {
-            _buildings = buildings;
+            self->_buildings = buildings;
             [self.tableView reloadData];
         }
     }];
@@ -119,16 +125,18 @@ static NSString* cellIdentifier = @"LocationCell";
         }
     }];
 
-    self.searchController = [[NoCancelButtonSearchController alloc] initWithSearchResultsController:nil];
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     self.searchController.searchResultsUpdater = self;
-    self.searchController.dimsBackgroundDuringPresentation = NO;
+    self.searchController.obscuresBackgroundDuringPresentation = NO;
     self.searchController.searchBar.delegate = self;
     [self.searchController.searchBar setCustomStyle];
     self.searchController.hidesNavigationBarDuringPresentation = NO;
-    
+    self.searchController.searchBar.showsCancelButton = YES;
+    self.searchController.delegate = self;
+
+    [self configureIpadCancelButton];
+
     self.navigationItem.titleView = self.searchController.searchBar;
-    
-    [[UITextField appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setDefaultTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
     _spinner.hidesWhenStopped = YES;
     [self.tableView addSubview:_spinner];
@@ -147,8 +155,6 @@ static NSString* cellIdentifier = @"LocationCell";
     self.poweredByGoogleView.contentMode = UIViewContentModeScaleAspectFit;
     self.poweredByGoogleView.image = poweredByImage;
     
-    [self presentCustomBackButton];
-    
     __weak typeof(self)weakSelf = self;
     [self mp_onReachabilityChange:^(BOOL isNetworkReachable) {
         [weakSelf updateTableFooter];
@@ -159,7 +165,20 @@ static NSString* cellIdentifier = @"LocationCell";
     }];
 }
 
-- (void)dealloc {
+- (void) configureIpadCancelButton {
+
+    if ( UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
+        UIBarButtonItem*    ipadCancel = [[UIBarButtonItem alloc] initWithTitle:kLangCancel style:UIBarButtonItemStylePlain target:self action:@selector(onIpadCancel:)];
+        self.navigationItem.rightBarButtonItem = ipadCancel;
+    }
+}
+
+- (void) onIpadCancel:(id)sender {
+
+    [self dismissPlacePicker];
+}
+
+- (void) dealloc {
     
     self.tableView.emptyDataSetSource = nil;
     self.tableView.emptyDataSetDelegate = nil;
@@ -209,8 +228,6 @@ static NSString* cellIdentifier = @"LocationCell";
 
 - (void) focusSearchBar:(id)sender {
     
-    [self.searchController.searchBar.window makeKeyAndVisible];
-    [self.searchController.searchBar becomeFirstResponder];
     self.searchController.active = YES;
 }
 
@@ -516,7 +533,7 @@ static NSString* cellIdentifier = @"LocationCell";
             cell.subTextLabel.text = object.descr;
         }
             
-        [cell.imageView setImage:[UIImage imageNamed:@"MyLocation"]];
+        [cell.imageView setImage:[UIImage imageNamed:[AppVariantData sharedAppVariantData].imageNameForBlueDot]];
 
     } else {
         [cell.imageView mp_setImageWithURL:[Global getIconUrlForType:object.type] placeholderImage:[UIImage imageNamed:@"placeholder"]];
@@ -554,8 +571,8 @@ static NSString* cellIdentifier = @"LocationCell";
                 if (self.placePickerDelegate) {
                     [self.placePickerDelegate onLocationSelected:self.selectedLocation];
                 }
-                if (_selectCallback) {
-                    _selectCallback(self.selectedLocation);
+                if (self->_selectCallback) {
+                    self->_selectCallback(self.selectedLocation);
                 }
             }
             
@@ -614,7 +631,7 @@ static NSString* cellIdentifier = @"LocationCell";
                 }
                 
                 [self.tableView reloadData];
-                [_spinner stopAnimating];
+                [self->_spinner stopAnimating];
                 [self.reachabilitySpinner stopAnimating];
             });
         }];
@@ -643,7 +660,7 @@ static NSString* cellIdentifier = @"LocationCell";
                     [locationBuilder addPropertyValue:[placeDetails.attributedSecondaryText string] forKey:@"placesSecondaryText"];
 
                     MPLocation* googleLoc = locationBuilder.location;
-                    [_places addObject:googleLoc];
+                    [self->_places addObject:googleLoc];
                 }
             }
             
@@ -712,11 +729,11 @@ static NSString* cellIdentifier = @"LocationCell";
         if (self.placePickerDelegate) {
             [self.placePickerDelegate onLocationSelected:nil];
         }
-        if (_selectCallback) {
-            _selectCallback(nil);
+        if (self->_selectCallback) {
+            self->_selectCallback(nil);
         }
-        [_places removeAllObjects];
-        _locations = @[];
+        [self->_places removeAllObjects];
+        self->_locations = @[];
     }];
 }
 
@@ -818,6 +835,36 @@ static NSString* cellIdentifier = @"LocationCell";
         return - (_keyboardHeight / 2);
     }
     return 0;
+}
+
+
+#pragma mark - UISearchControllerDelegate
+
+- (void) didPresentSearchController:(UISearchController *)searchController {
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [searchController.searchBar becomeFirstResponder];
+        self.navigationController.presentationController.delegate = self;
+    });
+}
+
+- (BOOL) presentationControllerShouldDismiss:(UIPresentationController *)presentationController {
+
+    return YES;
+}
+
+- (void)presentationControllerDidAttemptToDismiss:(UIPresentationController *)presentationController {
+
+    [self dismissPlacePicker];
+}
+
+- (void)presentationControllerDidDismiss:(UIPresentationController *)presentationController {
+    
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
 }
 
 @end

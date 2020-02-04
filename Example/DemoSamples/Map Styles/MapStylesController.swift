@@ -30,13 +30,15 @@ class MapStyleController: UIViewController {
         
         self.view = self.map
         
+        weak var _self = self
+        
         MPVenueProvider().getVenuesWithCompletion { (coll, err) in
             let venues:[MPVenue] = coll!.venues as! [MPVenue]
-            self.venue = venues.first!
+            _self?.venue = venues.first!
             let bounds = self.venue!.getBoundingBox()
-            self.map?.animate(with: GMSCameraUpdate.fit(bounds!))
+            _self?.map?.animate(with: GMSCameraUpdate.fit(bounds!))
 
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Map Style", style: .plain, target: self, action: #selector(self.activateMapStyleSelector(sender:)))
+            _self?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Map Style", style: .plain, target: _self, action: #selector(self.activateMapStyleSelector(sender:)))
         }
         
     }

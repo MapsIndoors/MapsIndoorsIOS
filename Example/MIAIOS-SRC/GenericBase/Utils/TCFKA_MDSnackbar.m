@@ -301,23 +301,23 @@ TCFKA_MDSnackbarManger *snackbarManagerInstance;
       delay:0.f
       options:UIViewAnimationOptionCurveEaseInOut
       animations:^{
-        textLabel.alpha = 1;
-        actionButton.alpha = 1;
-        [rootView removeConstraint:hiddenConstraint];
-        [rootView addConstraint:showingConstraint];
-        [rootView layoutIfNeeded];
+      self->textLabel.alpha = 1;
+      self->actionButton.alpha = 1;
+      [self->rootView removeConstraint:self->hiddenConstraint];
+      [self->rootView addConstraint:self->showingConstraint];
+      [self->rootView layoutIfNeeded];
       }
       completion:^(BOOL finished) {
         if (finished) {
-          isAnimating = false;
+            self->isAnimating = false;
           [self performDelegateAction:@selector(snackbarDidAppear:)];
 
-            if(_duration > 0)
+            if(self->_duration > 0)
           [self performSelector:@selector(dismiss)
                      withObject:nil
-                     afterDelay:_duration];
+                     afterDelay:self->_duration];
 
-          actionButton.enabled = true;
+            self->actionButton.enabled = true;
         }
       }];
 }
@@ -388,21 +388,21 @@ TCFKA_MDSnackbarManger *snackbarManagerInstance;
       delay:0.f
       options:UIViewAnimationOptionCurveEaseInOut
       animations:^{
-        textLabel.alpha = 0;
-        actionButton.alpha = 0;
+      self->textLabel.alpha = 0;
+      self->actionButton.alpha = 0;
 
-        [rootView removeConstraint:showingConstraint];
-        [rootView addConstraint:hiddenConstraint];
-        [rootView layoutIfNeeded];
+      [self->rootView removeConstraint:self->showingConstraint];
+      [self->rootView addConstraint:self->hiddenConstraint];
+      [self->rootView layoutIfNeeded];
       }
       completion:^(BOOL finished) {
         if (finished) {
-          isAnimating = false;
+            self->isAnimating = false;
           [self performDelegateAction:@selector(snackbarDidDisappear:)];
           [self removeFromSuperview];
-          [textLabel removeFromSuperview];
-          [actionButton removeFromSuperview];
-          _isShowing = false;
+            [self->textLabel removeFromSuperview];
+            [self->actionButton removeFromSuperview];
+            self->_isShowing = false;
         }
       }];
 }

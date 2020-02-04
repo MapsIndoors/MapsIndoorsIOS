@@ -33,6 +33,7 @@
 #import "MPMapRouteTrackingModel.h"
 //#import "SimulatedPeopleLocationSource.h"
 #import "BuildingInfoCache.h"
+#import "AppVariantData.h"
 
 
 #define kRouteFromHere @"Route from here"
@@ -92,34 +93,47 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 
 @property (nonatomic, strong) MPLocationQuery*                      localLocationQuery;
 
-@property (nonatomic) BOOL                                          selectedLocationIsVisible;
-@property (nonatomic, weak) MPLocation*                             focusedBuilding;
+@property (nonatomic, strong) MPLocation*                           focusedBuilding;
+@property (nonatomic, weak) MPVenue*                                autoSelectedInitialVenue;
+
+@property (nonatomic) BOOL                                          userGestureInProgress;
+
+@property (nonatomic) BOOL                                          suspendTrackingOnVenueChange;
+
+@property (nonatomic, strong) UIView*                               statusBarView;
+@property (nonatomic, strong) UIView*                               directionsContainer;
+@property (nonatomic, strong) UIView*                               floatingActionMenuContainer;
+@property (nonatomic, strong) FloatingActionMenuController*         floatingActionMenuController;
+@property (nonatomic, strong) MPLocation*                           origin;
+@property (nonatomic, strong) MPLocation*                           destination;
+@property (nonatomic, strong) MPDirectionsRenderer*                 directionsRenderer;
+@property (nonatomic, strong) GMSCameraPosition *                   camera;
+@property (nonatomic, strong) UIImage*                              closeImg;
+@property (nonatomic) UIInterfaceOrientation                        currentOrientation;
+@property (nonatomic) BOOL                                          keepMapCameraOnce;
+@property (nonatomic, strong) MPVenueProvider*                      venueProvider;
+@property (nonatomic, strong) UIView *                              shadeView;
+@property (nonatomic, strong) UIButton*                             zoomHintBtn;
+@property (nonatomic, strong) UIButton*                             returnToVenueOrLocationBtn;
+
+@property (nonatomic) BOOL                                          shouldShowFloorSelector;
 
 @end
 
 
-@implementation MapViewController {
-    
-    UIView* _statusBarView;
-    UIView* _directionsContainer;
-    UIView* _floatingActionMenuContainer;
-    FloatingActionMenuController* _floatingActionMenuController;
-    MPLocation* _origin;
-    MPLocation* _destination;
-    MPDirectionsRenderer* _directionsRenderer;
-    GMSCameraPosition *_camera;
-    UIImage* _closeImg;
-    UIInterfaceOrientation _currentOrientation;
-    BOOL _keepMapCameraOnce;
-    MPVenueProvider* _venueProvider;
-    UIView *_shadeView;
-    UIButton* _zoomHintBtn;
-    UIButton* _returnToVenueOrLocationBtn;
-}
+@implementation MapViewController
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+
+    self.suspendTrackingOnVenueChange = YES;
+    if ( [AppVariantData sharedAppVariantData].mapShouldTrackUserLocationOnAppLaunch ) {
+        self.suspendTrackingOnVenueChange = NO;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.suspendTrackingOnVenueChange = YES;
+        });
+    }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLocationsReady:) name:@"LocationsDataReady" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLocationOnMap:) name:@"ShowLocationOnMap" object:nil];
@@ -203,9 +217,8 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     _displayQueryValidationCount = 0;
 
     [self.KVOController observe:self.mapControl keyPath:@"selectedLocation" options:NSKeyValueObservingOptionNew block:^(MapViewController* _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
-        [observer updateSelectedLocationVisibilityStatus];
-        [observer updateReturnToVenueOrLocationBtnText];
-        [observer updateReturnToVenueOrLocationBtnVisibility];
+        [observer updateReturnToVenueBtnText];
+        [observer updateReturnToVenueBtnVisibility];
     }];
 }
 
@@ -349,7 +362,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 - (void)setupZoomButtons {
     _returnToVenueOrLocationBtn = [MPMapButton buttonWithType:UIButtonTypeSystem];
     [_returnToVenueOrLocationBtn setTitle:kLangReturnToVenue forState:UIControlStateNormal];
-    [_returnToVenueOrLocationBtn addTarget:self action:@selector(returnToVenueOrLocation) forControlEvents:UIControlEventTouchUpInside];
+    [_returnToVenueOrLocationBtn addTarget:self action:@selector(returnToVenue) forControlEvents:UIControlEventTouchUpInside];
     _returnToVenueOrLocationBtn.alpha = 0;
 
     if ([[NSUserDefaults standardUserDefaults] objectForKey:kHasAppliedZoomHint] == nil) {
@@ -401,6 +414,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
                 }
 
                 if ( initialVenue ) {
+                    self.autoSelectedInitialVenue = initialVenue;
                     self.mapControl.venue = initialVenue.venueKey;
                     [self zoomToVenue:initialVenue];
                 }
@@ -573,9 +587,9 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         if ( _directionsContainer.hidden == YES ) {
             
             [UIView animateWithDuration:.3 animations:^{
-                _directionsContainer.hidden = NO;
+                self->_directionsContainer.hidden = NO;
                 [self.stackView layoutIfNeeded];
-                _floatingActionMenuContainer.layer.opacity = 0;
+                self->_floatingActionMenuContainer.layer.opacity = 0;
             }];
         }
     }
@@ -587,8 +601,8 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         
         [UIView animateWithDuration:.3 animations:^{
             [self.stackView layoutIfNeeded];
-            _directionsContainer.hidden = YES;
-            _floatingActionMenuContainer.layer.opacity = 1;
+            self->_directionsContainer.hidden = YES;
+            self->_floatingActionMenuContainer.layer.opacity = 1;
         }];
     }
 }
@@ -610,10 +624,12 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 }
 
 - (void)refreshMyLocationGraphic {
-    NSString* myLocationImageName = MapsIndoors.positionProvider.latestPositionResult.headingAvailable ? @"MyLocationDirection" : @"MyLocation";
+    NSString* myLocationImageName = MapsIndoors.positionProvider.latestPositionResult.headingAvailable
+                                  ? [AppVariantData sharedAppVariantData].imageNameForBlueDotWithHeading
+                                  : [AppVariantData sharedAppVariantData].imageNameForBlueDot;
     MPLocationDisplayRule* rule = [[MPLocationDisplayRule alloc] initWithName:@"my-location" AndIcon: [UIImage imageNamed:myLocationImageName] AndZoomLevelOn:0 AndShowLabel:NO];
     rule.iconSize = CGSizeMake(32, 32);
-    [self.mapControl addDisplayRule: rule];
+    [self.mapControl setDisplayRule: rule];
 }
 
 - (void)solutionDataReady:(MPSolution *)solution {
@@ -647,9 +663,9 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     if (notification.object || Global.locationQuery.query.length > 0 || Global.locationQuery.types || Global.locationQuery.categories) {
         _displayQueryCounter++;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 
-                if (++_displayQueryValidationCount == _displayQueryCounter) {
+                if (++self->_displayQueryValidationCount == self->_displayQueryCounter) {
                 
                     NSArray* searchResults = notification.object;
                     
@@ -710,12 +726,14 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     UIBarButtonItem*    clearMapButton = [[UIBarButtonItem alloc] initWithCustomView:button];
     
     // Add a spacing item - without there will be no space to the title on small screens (or long titles).
-    UIBarButtonItem* spacer = [UIBarButtonItem new];
-    spacer.style = UIBarButtonSystemItemFixedSpace;
+    UIBarButtonItem* spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     spacer.width = 1;
     spacer.isAccessibilityElement = NO;     // Dont alert voiceover user to item as it only exists to make a *visual* spacing
     
     self.navigationItem.rightBarButtonItems = @[ clearMapButton, spacer ];
+
+    [self updateReturnToVenueBtnText];
+    [self updateReturnToVenueBtnVisibility];
 }
 
 - (void) removeClearMapButton {
@@ -740,7 +758,8 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     self.venueSelectorIsShowing = VenueSelectorController.venueSelectorIsShown;
     [self updateCompass];
     [self updateMapTrackingUI:NO];
-    [self updateReturnToVenueOrLocationBtnText];    // In case the return button shows "Return to POI", we revert to "Return to Venue".
+    [self updateReturnToVenueBtnText];
+    [self updateReturnToVenueBtnVisibility];
 }
 
 - (void)showLocationOnMap:(NSNotification *)notification {
@@ -753,8 +772,30 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     self.mapControl.selectedLocation = notification.object;
     self.title = self.mapControl.selectedLocation.name;
     if (!_keepMapCameraOnce) {
-        GMSCameraPosition* pos = [GMSCameraPosition cameraWithTarget:CLLocationCoordinate2DMake(_destination.geometry.lat, _destination.geometry.lng) zoom:19];
-        _mapView.camera = pos;
+        //TODO: Why is this delay needed?
+        __weak typeof(self)weakSelf = self;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            MPLocation*                     location = weakSelf.destination;
+            NSString*                       locationType = location.type;
+            NSArray<MPPolygonGeometry*>*    polys = [MPGeometryHelper polygonsForLocation:location];
+
+            if ( polys.count && ([locationType isEqualToString:@"VENUE"] || [locationType isEqualToString:@"BUILDING"]) ) {
+
+                GMSCoordinateBounds*    bbox = [GMSCoordinateBounds new];
+
+                for ( MPPolygonGeometry* poly in polys ) {
+                    bbox = [bbox includingBounds: [[GMSCoordinateBounds alloc] initWithPath:poly.gmsPathForPath]];
+                }
+
+                [weakSelf.mapView animateWithCameraUpdate:[GMSCameraUpdate fitBounds:bbox withPadding:30.0f]];
+
+            } else {
+
+                CLLocationCoordinate2D locationTargetCoord = CLLocationCoordinate2DMake(weakSelf.destination.geometry.lat, weakSelf.destination.geometry.lng);
+                GMSCameraPosition* pos = [GMSCameraPosition cameraWithTarget:locationTargetCoord zoom:19];
+                weakSelf.mapView.camera = pos;
+            }
+        });
     } else {
         _keepMapCameraOnce = NO;
     }
@@ -826,7 +867,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
             }
             
             [UIView animateWithDuration:.3 animations:^{
-                _floatingActionMenuContainer.layer.opacity = 0;
+                self->_floatingActionMenuContainer.layer.opacity = 0;
             }];
             
             [self updateCompass];
@@ -885,7 +926,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     self.disableFloorSelectorControl = NO;
     
     [UIView animateWithDuration:.3 animations:^{
-        _floatingActionMenuContainer.layer.opacity = 1;
+        self->_floatingActionMenuContainer.layer.opacity = 1;
     }];
     
     [self updateCompass];
@@ -947,7 +988,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         MPLocation* loc = [self.mapControl getLocation:marker];
         if (loc) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"MapLocationTapped" object:loc];
-//            _keepMapCameraOnce = YES;
+            _keepMapCameraOnce = YES;
         }
     }
 }
@@ -958,7 +999,10 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 
     MPLocation* loc = [self.mapControl getLocation:marker];
     if (loc) {
+        CLLocationCoordinate2D  oldCameraTarget = self.mapView.camera.target;   // Remember current camera...
         self.mapControl.selectedLocation = loc;
+        [self.mapView animateToLocation:oldCameraTarget];                       // ... so we can restore the camera position (to circumvent centering the POI/marker).
+
         [Tracker trackEvent:kMPEventNameTappedLocationOnMap parameters:@{ @"Location": loc.name, @"Zoom_Level" : @(_mapView.camera.zoom)}];
         
         // If voiceover mode, go directly to full info (as it seems impossible to make the infowindow accessible):
@@ -988,7 +1032,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
     
         // Make the floor selector appear only when we're zoomed in to where building content is "pretty legible":
-        CGFloat     floorSelectorAlphaForCurrentZoomLevel = _mapView.camera.zoom < 15 ? 0 : 1;
+        CGFloat     floorSelectorAlphaForCurrentZoomLevel = (self->_mapView.camera.zoom < 15) || (self.shouldShowFloorSelector == NO) ? 0 : 1;
         if ( self.floorSelector.alpha != floorSelectorAlphaForCurrentZoomLevel ) {
             [UIView animateWithDuration:0.3 animations:^{
                 self.floorSelector.alpha = floorSelectorAlphaForCurrentZoomLevel;
@@ -996,10 +1040,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         }
     });
 
-    if ( self.mapControl.selectedLocation ) {
-        [self updateSelectedLocationVisibilityStatus];
-        [self updateReturnToVenueOrLocationBtnVisibility];
-    }
+    self.userGestureInProgress = NO;
 }
 
 - (void) mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position {
@@ -1009,13 +1050,20 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 
 - (void) mapView:(GMSMapView*)mapView willMove:(BOOL)gesture {
 
+    self.userGestureInProgress = YES;
+
     [self.mapRouteTrackingModel mapView:mapView willMove:gesture];
+
+    if ( gesture == YES ) {
+        self.shouldShowFloorSelector = YES;
+    }
 }
 
 - (void) focusedBuildingDidChange:(MPLocation *)building {
 
     self.focusedBuilding = building;
-    [self updateReturnToVenueOrLocationBtnVisibility];
+    [self updateReturnToVenueBtnVisibility];
+//    [self showCustomFloorSelector];
 }
 
 
@@ -1032,7 +1080,9 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 
 - (void)onVenueChanged:(NSNotification*) notification {
 
-    [self.mapRouteTrackingModel suspendTracking];
+    if ( self.suspendTrackingOnVenueChange ) {
+        [self.mapRouteTrackingModel suspendTracking];
+    }
 
     Global.venue = notification.object;
     self.mapControl.venue = Global.venue.venueKey;
@@ -1044,6 +1094,9 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     self.venueSelectorIsShowing = VenueSelectorController.venueSelectorIsShown;
 
     _returnToVenueOrLocationBtn.alpha = 0;
+    self.autoSelectedInitialVenue = nil;
+
+    self.shouldShowFloorSelector = NO;
 }
 
 - (void) fabOpening:(NSNotification*) notification {
@@ -1051,7 +1104,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     [Tracker trackEvent:@"Map_Fab_Opened" parameters:nil];
     
     [UIView animateWithDuration:0.3 animations:^{
-        self.floorSelector.alpha = 0;
+        [self hideCustomFloorSelector];
         self.myLocationBtn.alpha = 0;
         self.fabDimmingOverlay.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.7];
         
@@ -1063,14 +1116,13 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 - (void) fabClosing:(NSNotification*) notification {
     
     [self setupCustomFloorSelector];
+    [self showCustomFloorSelector];
 
     [UIView animateWithDuration:0.3 animations:^{
-        self.floorSelector.alpha = 1;
         self.myLocationBtn.alpha = 1;
         self.fabDimmingOverlay.backgroundColor = [UIColor clearColor];
         
     } completion:^(BOOL finished) {
-        self.floorSelector.alpha = 1;
         [self.fabDimmingOverlay removeFromSuperview];
     }];
 }
@@ -1103,7 +1155,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
             [self.navigationController.view addSubview:_shadeView];
             
             [UIView animateWithDuration:0.5f animations:^{
-                [_shadeView setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:.75]];
+                [self->_shadeView setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:.75]];
             }];
             
             [self hideHorizontalDirections:nil];
@@ -1111,9 +1163,9 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         } else {
             
             [UIView animateWithDuration:0.5f animations:^{
-                [_shadeView setBackgroundColor:[UIColor clearColor]];
+                [self->_shadeView setBackgroundColor:[UIColor clearColor]];
             } completion:^(BOOL finished) {
-                [_shadeView removeFromSuperview];
+                [self->_shadeView removeFromSuperview];
             }];
             
             if (self.mapControl.selectedLocation != nil) {
@@ -1199,14 +1251,16 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         MPFloorSelectorControl*  floorSel = self.floorSelector;
         
         if ( floorSel == nil ) {
-            
-            floorSel = [MPFloorSelectorControl new];
+
+            Class   floorSelectorClass = [AppVariantData sharedAppVariantData].customFloorSelectorClass ?: [MPFloorSelectorControl class];
+            floorSel = [floorSelectorClass new];
             
             floorSel.backgroundColor = [UIColor whiteColor];
             floorSel.topImageView.backgroundColor = [UIColor whiteColor];
             floorSel.topIcon = [UIImage imageNamed:@"floorSelectorGray"];
             floorSel.translatesAutoresizingMaskIntoConstraints = NO;
             floorSel.disableAutomaticLayoutManagement = YES;
+            floorSel.alpha = 0;
             
             [self monitorFloorSelectorChangesForAccessibility:floorSel];
         }
@@ -1235,11 +1289,45 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         // (Possibly by adding a new, optional, method to the MPFloorSelectorDelegate protocol)
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            for ( UIButton* b in observer.floorSelector.buttons ) {
-                b.accessibilityLabel = [NSString stringWithFormat:kLangSelectFloorNAccLabel, b.titleLabel.text];
+            for ( NSObject* b in observer.floorSelector.buttons ) {
+                id  text = [b valueForKeyPath:@"titleLabel.text"] ?: [b valueForKeyPath:@"text"] ?: [b valueForKeyPath:@"title"];
+                if ( [text isKindOfClass:[NSString class]] ) {
+                    b.accessibilityLabel = [NSString stringWithFormat:kLangSelectFloorNAccLabel, text];
+                }
             }
         });
     }];
+}
+
+- (void) setShouldShowFloorSelector:(BOOL)shouldShowFloorSelector {
+
+    if ( _shouldShowFloorSelector != shouldShowFloorSelector ) {
+        _shouldShowFloorSelector = shouldShowFloorSelector;
+
+            if ( _shouldShowFloorSelector && self.focusedBuilding ) {
+            [self showCustomFloorSelector];
+        } else {
+            [self hideCustomFloorSelector];
+        }
+    }
+}
+
+- (void) hideCustomFloorSelector {
+
+    if ( self.floorSelector.alpha ) {
+        [UIView animateWithDuration:0.2 animations:^{
+            self.floorSelector.alpha = 0;
+        }];
+    }
+}
+
+- (void) showCustomFloorSelector {
+
+    if ( (self.floorSelector.alpha < 1) && self.shouldShowFloorSelector ) {
+        [UIView animateWithDuration:0.2 animations:^{
+            self.floorSelector.alpha = 1;
+        }];
+    }
 }
 
 
@@ -1254,6 +1342,10 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     UIAlertController* alert = [self alertControllerForLocationServicesState];
     
     if ( alert ) {
+        if (!(IS_IPAD)) {
+            alert.modalPresentationStyle = UIModalPresentationFullScreen;
+        }
+        
         [self presentViewController:alert animated:YES completion:nil];
         self.locationServicesAlert = alert;
     }
@@ -1315,6 +1407,12 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
             [self.mapRouteTrackingModel onPositionUpdate:positionResult];
         }
     }
+
+    if ([self.floorSelector class] != [MPFloorSelectorControl class]) {
+        if ( [self.floorSelector respondsToSelector:@selector(setUserFloor:)] ) {
+            [self.floorSelector performSelector:@selector(setUserFloor:) withObject:[positionResult getFloor]];
+        }
+    }
 }
 
 
@@ -1324,7 +1422,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     [_mapView animateWithCameraUpdate:[GMSCameraUpdate fitBounds:[venue getBoundingBox] withEdgeInsets:UIEdgeInsetsMake(20, 20, 100, 20)]];
     //Every time a venue is displayed, it becomes the new initial starting point if map is cleared or venue selector is opened
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        _camera = _mapView.camera;
+        self->_camera = self->_mapView.camera;
     });
 }
 
@@ -1387,21 +1485,23 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
-    if ([kZoomObservePath isEqualToString: keyPath]) {
+
+    if ( [kZoomObservePath isEqualToString: keyPath] ) {
+
         double oldZoom = [[change objectForKey:NSKeyValueChangeOldKey] doubleValue];
         double newZoom = [[change objectForKey:NSKeyValueChangeNewKey] doubleValue];
-        if (oldZoom > 0 && oldZoom < newZoom) {
+
+        if ( (oldZoom > 0) && (oldZoom < newZoom) && self.userGestureInProgress ) {     // Zoom changed because of user gesture; remove zoom hint.
             [_mapView removeObserver:self forKeyPath:kZoomObservePath];
             [[NSUserDefaults standardUserDefaults] setObject:@YES forKey:kHasAppliedZoomHint];
             [UIView animateWithDuration:0.5 animations:^{
-                _zoomHintBtn.alpha = 0;
+                self->_zoomHintBtn.alpha = 0;
             } completion:^(BOOL finished) {
-                [_zoomHintBtn removeFromSuperview];
+                [self->_zoomHintBtn removeFromSuperview];
             }];
         }
 
-    }
-    else if ( [kViewingAngleObservePath isEqualToString:keyPath] ) {
+    } else if ( [kViewingAngleObservePath isEqualToString:keyPath] ) {
 
         // Limit max viewingAngle when in turn by turn mode because of Google Maps using up all memory when:
         //      camera target has been offset to the bottom of the screen
@@ -1487,7 +1587,10 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         if (@available(iOS 11.0, *)) {
             compassTop += self.view.safeAreaInsets.top;
         } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
             compassTop += self.topLayoutGuide.length;
+#pragma clang diagnostic pop
         }
 
         UIImageView*    compassView = [UIImageView new];
@@ -1596,6 +1699,9 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         if ( MapsIndoors.positionProvider.latestPositionResult ) {
             [_mapRouteTrackingModel onPositionUpdate: MapsIndoors.positionProvider.latestPositionResult];
         }
+        if ( [AppVariantData sharedAppVariantData].mapShouldTrackUserLocationOnAppLaunch ) {
+            _mapRouteTrackingModel.trackingMode = MPMapTrackingMode_Follow;
+        }
     }
     return _mapRouteTrackingModel;
 }
@@ -1651,32 +1757,40 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     [self.mapView animateToCameraPosition: newCamera ];
 }
 
-- (void) returnToVenueOrLocation {
+- (void) returnToVenue {
 
     [self.mapRouteTrackingModel suspendTracking];
 
-    if ( self.mapControl.selectedLocation && (self.selectedLocationIsVisible == NO)  ) {
-        [self centerMapOnPosition:self.mapControl.selectedLocation.geometry.getCoordinate];
-
-    } else if ( self.mapControl.venue ) {
-        [self zoomToVenue: Global.venue];
+    MPVenue*    targetVenue = Global.venue ?: self.autoSelectedInitialVenue;
+    if ( targetVenue ) {
+        [self zoomToVenue: targetVenue];
     }
 }
 
-- (void) updateReturnToVenueOrLocationBtnText {
+- (void) updateReturnToVenueBtnText {
 
     NSString*   targetName;
 
-    if ( self.mapControl.selectedLocation && (self.selectedLocationIsVisible == NO) ) {
-        targetName = self.mapControl.selectedLocation.name;
-    } else if ( Global.venue ) {
+    if ( Global.venue ) {
         targetName = Global.venue.name;
+    } else if ( self.autoSelectedInitialVenue ) {
+        targetName = self.autoSelectedInitialVenue.name;
     }
 
     if ( targetName.length ) {
         NSString*   s = [NSString stringWithFormat:@"%@ %@", kLangReturnTo, targetName];
         [_returnToVenueOrLocationBtn setTitle:s.uppercaseString forState:UIControlStateNormal];
     }
+}
+
+- (BOOL) isVisibleRegionEmpty {
+
+    GMSVisibleRegion        visibleRegion = self.mapView.projection.visibleRegion;
+
+    CLLocationDistance      d1 = GMSGeometryDistance(visibleRegion.nearLeft,visibleRegion.nearRight);
+    CLLocationDistance      d2 = GMSGeometryDistance(visibleRegion.nearLeft,visibleRegion.farLeft);
+
+    return (d1 + d2) < 0.001;
 }
 
 - (BOOL) isCoordinateVisibleOnMap:(CLLocationCoordinate2D)coo {
@@ -1692,34 +1806,34 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     return GMSGeometryContainsLocation( coo, displayedArea, YES );
 }
 
-- (void) updateSelectedLocationVisibilityStatus {
+- (void) updateReturnToVenueBtnVisibility {
 
-    BOOL            bVisible = NO;
-    MPLocation*     loc = self.mapControl.selectedLocation;
-
-    if ( loc ) {
-        bVisible = [self isCoordinateVisibleOnMap: [loc.geometry getCoordinate] ];
-    }
-
-    if ( self.selectedLocationIsVisible != bVisible ) {
-        self.selectedLocationIsVisible = bVisible;
-    }
-}
-
-- (void) updateReturnToVenueOrLocationBtnVisibility {
-
-    [self updateReturnToVenueOrLocationBtnText];
+    [self updateReturnToVenueBtnText];
 
     // Show "Return" button if the map is not showing any buildings (i.e. not showing anything from the venue):
     MPLocation* building = self.focusedBuilding;
     MPBuilding* mpBuilding = [[BuildingInfoCache sharedInstance] buildingFromAdministrativeId:building.roomId];
-    CGFloat zoomToVenueBtnAlpha = _directionsRenderer.isRenderingRoute || (building && [mpBuilding.venueId isEqualToString:Global.venue.venueId]) ? 0 : 1;
+    CGFloat zoomToVenueBtnAlpha = 1;
+
+    if ( [self isVisibleRegionEmpty] ) {
+        zoomToVenueBtnAlpha = 0;
+
+    } else if ( self.mapControl.searchResult ) {
+        zoomToVenueBtnAlpha = 0;
+
+    } else if ( _directionsRenderer.isRenderingRoute ) {
+        zoomToVenueBtnAlpha = 0;
+
+    } else if ( building ) {
+
+        if ( (Global.venue.venueId && [mpBuilding.venueId isEqualToString:Global.venue.venueId]) ||
+             (self.autoSelectedInitialVenue && [mpBuilding.venueId isEqualToString:self.autoSelectedInitialVenue.venueId]) ) {
+            zoomToVenueBtnAlpha = 0;
+        }
+    }
 
     if ( zoomToVenueBtnAlpha && [self isCoordinateVisibleOnMap:Global.venue.anchor.getCoordinate] ) {
         zoomToVenueBtnAlpha = 0;
-    }
-    if ( !_directionsRenderer.isRenderingRoute && self.mapControl.selectedLocation && !self.selectedLocationIsVisible && (zoomToVenueBtnAlpha < 1) ) {
-        zoomToVenueBtnAlpha = 1;
     }
     if ( [_returnToVenueOrLocationBtn titleForState:UIControlStateNormal].length == 0 ) {
         zoomToVenueBtnAlpha = 0;
@@ -1729,17 +1843,16 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         if ( zoomToVenueBtnAlpha > 0 ) {
             [_mapView addSubview: _returnToVenueOrLocationBtn];
             [UIView animateWithDuration:0.5 animations:^{
-                _returnToVenueOrLocationBtn.alpha = zoomToVenueBtnAlpha;
+                self->_returnToVenueOrLocationBtn.alpha = zoomToVenueBtnAlpha;
             }];
         } else {
             [UIView animateWithDuration:0.5 animations:^{
-                _returnToVenueOrLocationBtn.alpha = zoomToVenueBtnAlpha;
+                self->_returnToVenueOrLocationBtn.alpha = zoomToVenueBtnAlpha;
             } completion:^(BOOL finished) {
-                [_returnToVenueOrLocationBtn removeFromSuperview];
+                [self->_returnToVenueOrLocationBtn removeFromSuperview];
             }];
         }
     }
 }
-
 
 @end

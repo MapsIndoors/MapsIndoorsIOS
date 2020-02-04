@@ -6,6 +6,7 @@
 //  Copyright (c) 2015-2018 MapsPeople A/S. All rights reserved.
 //
 
+
 #import "ContainerViewController.h"
 #import "UIFont+SystemFontOverride.h"
 @import VCMaterialDesignIcons;
@@ -20,7 +21,7 @@
 #import "NSObject+ContentSizeChange.h"
 #import "AppFonts.h"
 #import "BuildingInfoCache.h"
-
+#import "MDDeviceHelper.h"
 
 @interface ContainerViewController () <UISplitViewControllerDelegate>
 
@@ -300,7 +301,9 @@
     NSString*   appProvider = [AppVariantData sharedAppVariantData].appProviderName;
     NSString*   msg = [NSString stringWithFormat:@"Contact %@ for more information", appProvider];
     UIAlertController*  alert = [UIAlertController alertControllerWithTitle:@"API Key Invalid" message:msg preferredStyle:UIAlertControllerStyleAlert];
-    
+    if (!(IS_IPAD)) {
+        alert.modalPresentationStyle = UIModalPresentationFullScreen;
+    }
     [self presentViewController:alert animated:YES completion:nil];
 }
 
@@ -315,7 +318,9 @@
         
         NSString*   msg = @"Please add a valid Google API Key to mapsindoors.plist";
         UIAlertController*  alert = [UIAlertController alertControllerWithTitle:@"Google API Key Invalid" message:msg preferredStyle:UIAlertControllerStyleAlert];
-        
+        if (!(IS_IPAD)) {
+            alert.modalPresentationStyle = UIModalPresentationFullScreen;
+        }
         [self presentViewController:alert animated:YES completion:nil];
     }
 }

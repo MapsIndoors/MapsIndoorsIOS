@@ -36,11 +36,13 @@ class ShowMultipleLocationsController: UIViewController {
         queryObj.categories = ["Toilet"]
         queryObj.max = Int32.max
         
+        weak var _self = self
+        
         locations.getLocationsUsing(queryObj) { (locationData, error) in
             if error == nil {
-                self.mapControl?.searchResult = locationData!.list
+                _self?.mapControl?.searchResult = locationData!.list
                 let firstLocation = locationData?.list?.first
-                self.mapControl?.currentFloor = firstLocation?.floor         // You are not guaranteed that the visible floor contains any search results, so that is why we change floor
+                _self?.mapControl?.currentFloor = firstLocation?.floor         // You are not guaranteed that the visible floor contains any search results, so that is why we change floor
             }
         }
     }

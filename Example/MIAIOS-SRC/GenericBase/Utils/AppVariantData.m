@@ -74,4 +74,40 @@
 
 - (NSNotificationName) logoutNotificationName   { return self.dict[ @"logoutNotificationName" ]; }
 
+- (BOOL) mapShouldTrackUserLocationOnAppLaunch {
+
+    BOOL    result = NO;
+    id      mapShouldTrackUserLocationOnAppLaunchSetting = self.dict[ @"mapShouldTrackUserLocationOnAppLaunch" ];
+
+    if ( mapShouldTrackUserLocationOnAppLaunchSetting ) {
+        result = [mapShouldTrackUserLocationOnAppLaunchSetting boolValue];
+    }
+
+    return result;
+}
+
+- (Class) customFloorSelectorClass {
+
+    Class   cls;
+    id      className = self.dict[ @"customFloorSelectorClass" ];
+
+    if ( className && [className isKindOfClass:[NSString class]] ) {
+        cls = NSClassFromString(className);
+    }
+
+    return cls;
+}
+
+- (NSString*) imageNameForBlueDot {
+
+    id      imageName = self.dict[ @"imageNameForBlueDot" ];
+    return [imageName isKindOfClass:[NSString class]] ? imageName : @"Mylocation";
+}
+
+- (NSString*) imageNameForBlueDotWithHeading {
+
+    id      imageName = self.dict[ @"imageNameForBlueDotWithHeading" ];
+    return [imageName isKindOfClass:[NSString class]] ? imageName : @"MyLocationDirection";
+}
+
 @end

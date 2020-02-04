@@ -19,41 +19,19 @@
 }
 
 - (void) setCustomStyle {
-    
-    self.searchBarStyle = UISearchBarStyleMinimal;
-    
-    [self setBackgroundImage:[self imageWithBackgroundColor:[UIColor appPrimaryColor] statusBarColor:[UIColor appDarkPrimaryColor]]
-              forBarPosition:UIBarPositionTopAttached
-                  barMetrics:UIBarMetricsDefault];
-    [self setBackgroundImage:[self imageWithBackgroundColor:[UIColor appPrimaryColor] statusBarColor:nil]
-              forBarPosition:UIBarPositionTop
-                  barMetrics:UIBarMetricsDefault];
-    
-    self.tintColor = [UIColor whiteColor];
-    
-    VCMaterialDesignIcons *icon = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_search fontSize:20.f];
-    [icon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
-    
-    [self setImage: icon.image forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
 
-    self.placeholder = @"";
-    
+    self.searchBarStyle = UISearchBarStyleProminent;
+    self.barTintColor = [UIColor appPrimaryColor];
+    self.translucent = NO;
     self.showsCancelButton = NO;
-    
-    UITextField *searchField = [self valueForKey:@"_searchField"];
-    searchField.textColor = [UIColor whiteColor];
-    
-    UIImage *imgClear = [UIImage imageNamed:@"clear"];
-    [self setImage:imgClear forSearchBarIcon:UISearchBarIconClear state:UIControlStateNormal];
-    
-}
+    self.barStyle = UIBarStyleDefault;
+    self.tintColor = [UIColor darkGrayColor];
 
-- (void) setPlaceholder:(NSString *)placeholder {
-    
-    UITextField *searchTextField = [self valueForKey:@"_searchField"];
-    if ([searchTextField respondsToSelector:@selector(setAttributedPlaceholder:)]) {
-        UIColor *color = [UIColor whiteColor];
-        [searchTextField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:placeholder attributes:@{NSForegroundColorAttributeName: color}]];
+    [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setTintColor:[UIColor whiteColor]];
+
+    if ( @available(iOS 13, *) ) {
+        self.searchTextField.backgroundColor = [UIColor whiteColor];
+        self.searchTextField.textColor = [UIColor darkGrayColor];
     }
 }
 

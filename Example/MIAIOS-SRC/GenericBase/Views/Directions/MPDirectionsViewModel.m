@@ -51,6 +51,7 @@
         _models = models;
         _numberOfActionPoints = models.count + 1;
         _routeSegmentIndexShowingDirections = NSNotFound;
+        _shouldShowInsideSteps = NO;
         
         [self transitAgenciesContributingToRoute];
     }
@@ -109,10 +110,10 @@
         SectionModel*   prevSectionModel = self.models[index-1];
         MPRouteLeg*     prevLeg = self.models[index-1].leg;
         
-        if ( [sectionModel.step.travel_mode as_TRAVEL_MODE] == TRANSIT ) {
+        if ( [sectionModel.step.travel_mode convertTo_TRAVEL_MODE] == TRANSIT ) {
             text = sectionModel.step.transit_details.departure_stop.name;
 
-        } else if ( [prevSectionModel.step.travel_mode as_TRAVEL_MODE] == TRANSIT ) {
+        } else if ( [prevSectionModel.step.travel_mode convertTo_TRAVEL_MODE] == TRANSIT ) {
             text = prevSectionModel.step.transit_details.arrival_stop.name;
             
         } else {
@@ -162,10 +163,10 @@
         SectionModel*   prevSectionModel = self.models[index-1];
         MPRouteLeg*     prevLeg = self.models[index-1].leg;
         
-        if ( [sectionModel.step.travel_mode as_TRAVEL_MODE] == TRANSIT ) {
+        if ( [sectionModel.step.travel_mode convertTo_TRAVEL_MODE] == TRANSIT ) {
             ;
             
-        } else if ( [prevSectionModel.step.travel_mode as_TRAVEL_MODE] == TRANSIT ) {
+        } else if ( [prevSectionModel.step.travel_mode convertTo_TRAVEL_MODE] == TRANSIT ) {
             ;
             
         } else {
@@ -277,10 +278,10 @@
     SectionModel*       section     = self.models[index];
     RouteSectionType    sectionType = RouteSectionType_Unknown;
     MPRouteStep*        currentStep = section.step;
-    TRAVEL_MODE         effectiveTravelMode = currentStep ? [currentStep.travel_mode as_TRAVEL_MODE] : section.travelMode;
+    TRAVEL_MODE         effectiveTravelMode = currentStep ? [currentStep.travel_mode convertTo_TRAVEL_MODE] : section.travelMode;
     
     if ( (section.legType == MPRouteLegTypeMapsIndoors) && ([@"OutsideOnVenue" isEqualToString:currentStep.routeContext] == NO) ) {
-        effectiveTravelMode = [currentStep.travel_mode as_TRAVEL_MODE];
+        effectiveTravelMode = [currentStep.travel_mode convertTo_TRAVEL_MODE];
     }
 
     switch ( effectiveTravelMode ) {
@@ -294,7 +295,7 @@
         case TRANSIT:
             switch ( section.legType ) {
                 case MPRouteLegTypeGoogle:
-                    sectionType = [section.step.travel_mode as_TRAVEL_MODE] == WALK ? RouteSectionType_Dots : RouteSectionType_LineWide;
+                    sectionType = [section.step.travel_mode convertTo_TRAVEL_MODE] == WALK ? RouteSectionType_Dots : RouteSectionType_LineWide;
                     break;
                 case MPRouteLegTypeMapsIndoors:
                     sectionType = RouteSectionType_LineNarrow;
@@ -311,7 +312,7 @@
     UIColor*        sectionColor = [UIColor appPrimaryColor];
     SectionModel*   section      = self.models[index];
     
-    if ( [self.routingData.travelMode as_TRAVEL_MODE] == TRANSIT ) {
+    if ( [self.routingData.travelMode convertTo_TRAVEL_MODE] == TRANSIT ) {
         if ( section.legType == MPRouteLegTypeGoogle ) {
             if ( section.step.transit_details.line.color ) {
                 sectionColor = [UIColor colorFromHexString:section.step.transit_details.line.color];
@@ -336,11 +337,11 @@
         SectionModel*   sectionModel = self.models[index];
         MPRouteLeg*     currentLeg = sectionModel.leg;
         MPRouteStep*    currentStep = sectionModel.step;
-        TRAVEL_MODE     effectiveTravelMode = currentStep ? [currentStep.travel_mode as_TRAVEL_MODE] : sectionModel.travelMode;
+        TRAVEL_MODE     effectiveTravelMode = currentStep ? [currentStep.travel_mode convertTo_TRAVEL_MODE] : sectionModel.travelMode;
         
         if ( (sectionModel.legType == MPRouteLegTypeMapsIndoors) && ([@"OutsideOnVenue" isEqualToString:currentStep.routeContext] == NO) ) {
             currentStep = currentLeg.steps.firstObject;
-            effectiveTravelMode = [currentStep.travel_mode as_TRAVEL_MODE];
+            effectiveTravelMode = [currentStep.travel_mode convertTo_TRAVEL_MODE];
         }
         
         headlineModel.iconColor = [UIColor appSecondaryTextColor];
@@ -377,7 +378,7 @@
                 break;
         }
         
-        if ( [currentStep.travel_mode as_TRAVEL_MODE] != TRANSIT ) {
+        if ( [currentStep.travel_mode convertTo_TRAVEL_MODE] != TRANSIT ) {
             
             BOOL    canExpand = YES;
             double  distance, duration;
@@ -385,12 +386,12 @@
             if ( sectionModel.legType == MPRouteLegTypeMapsIndoors ) {
                 distance = [currentLeg.distance doubleValue];
                 duration = [currentLeg.duration doubleValue];
-                canExpand = sectionModel.isOutside;
+                canExpand = self.shouldShowInsideSteps || sectionModel.isOutside;
             } else {
-                distance = sectionModel.travelMode != TRANSIT ? [currentLeg.distance doubleValue] : [currentStep.distance doubleValue];
-                duration = sectionModel.travelMode != TRANSIT ? [currentLeg.duration doubleValue] : [currentStep.duration doubleValue];
-                
-                if ( currentStep && ([currentStep.travel_mode as_TRAVEL_MODE] == TRANSIT) ) {
+                distance = currentStep ? [currentStep.distance doubleValue] : [currentLeg.distance doubleValue];
+                duration = currentStep ? [currentStep.duration doubleValue] : [currentLeg.duration doubleValue];
+
+                if ( currentStep && ([currentStep.travel_mode convertTo_TRAVEL_MODE] == TRANSIT) ) {
                     canExpand = NO;
                 }
             }
@@ -420,14 +421,14 @@
         SectionModel*   sectionModel = self.models[routeSegmentIndex];
         MPRouteStep*    currentStep = sectionModel.step;
         
-        if ( [currentStep.travel_mode as_TRAVEL_MODE] != TRANSIT ) {
+        if ( [currentStep.travel_mode convertTo_TRAVEL_MODE] != TRANSIT ) {
             
             directionsAvailable = YES;
             
             if ( sectionModel.legType == MPRouteLegTypeMapsIndoors ) {
-                directionsAvailable = sectionModel.isOutside;
+                directionsAvailable = self.shouldShowInsideSteps || sectionModel.isOutside;
             } else {
-                if ( currentStep && ([currentStep.travel_mode as_TRAVEL_MODE] == TRANSIT) ) {
+                if ( currentStep && ([currentStep.travel_mode convertTo_TRAVEL_MODE] == TRANSIT) ) {
                     directionsAvailable = NO;
                 }
             }
@@ -447,7 +448,7 @@
         MPRouteLeg*     leg = sectionModel.leg;
         MPRouteStep*    step = sectionModel.step;
         
-        if ( [Global.routingData.travelMode as_TRAVEL_MODE] == TRANSIT ) {
+        if ( [Global.routingData.travelMode convertTo_TRAVEL_MODE] == TRANSIT ) {
             
             steps = (step.steps == nil) ? leg.steps : step.steps;
         }
@@ -520,11 +521,11 @@
         SectionModel*       section     = self.models[ix];
         MPRouteLeg*         currentLeg  = section.leg;
         MPRouteStep*        currentStep = section.step;
-        TRAVEL_MODE         effectiveTravelMode = currentStep ? [currentStep.travel_mode as_TRAVEL_MODE] : section.travelMode;
+        TRAVEL_MODE         effectiveTravelMode = currentStep ? [currentStep.travel_mode convertTo_TRAVEL_MODE] : section.travelMode;
 
         if ( (section.legType == MPRouteLegTypeMapsIndoors) && ([@"OutsideOnVenue" isEqualToString:currentStep.routeContext] == NO) ) {
             currentStep = currentLeg.steps.firstObject;
-            effectiveTravelMode = [currentStep.travel_mode as_TRAVEL_MODE];
+            effectiveTravelMode = [currentStep.travel_mode convertTo_TRAVEL_MODE];
         }
         
         [modes addObject:@(effectiveTravelMode)];
@@ -545,12 +546,12 @@
         SectionModel*   sectionModel = self.models[index];
         MPRouteLeg*     currentLeg = sectionModel.leg;
         MPRouteStep*    currentStep = sectionModel.step;
-        TRAVEL_MODE     effectiveTravelMode = currentStep ? [currentStep.travel_mode as_TRAVEL_MODE] : sectionModel.travelMode;
+        TRAVEL_MODE     effectiveTravelMode = currentStep ? [currentStep.travel_mode convertTo_TRAVEL_MODE] : sectionModel.travelMode;
         NSString*       travelModeString;
         
         if ( (sectionModel.legType == MPRouteLegTypeMapsIndoors) && ([@"OutsideOnVenue" isEqualToString:currentStep.routeContext] == NO) ) {
             currentStep = currentLeg.steps.firstObject;
-            effectiveTravelMode = [currentStep.travel_mode as_TRAVEL_MODE];
+            effectiveTravelMode = [currentStep.travel_mode convertTo_TRAVEL_MODE];
         }
 
         switch ( effectiveTravelMode ) {
@@ -575,7 +576,7 @@
                 break;
         }
         
-        if ( [currentStep.travel_mode as_TRAVEL_MODE] != TRANSIT ) {
+        if ( [currentStep.travel_mode convertTo_TRAVEL_MODE] != TRANSIT ) {
             
             double  distance, duration;
             

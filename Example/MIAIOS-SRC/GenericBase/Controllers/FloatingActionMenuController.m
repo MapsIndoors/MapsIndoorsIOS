@@ -80,19 +80,19 @@
 
     _appDataProvider = [[MPAppDataProvider alloc] init];
     [_appDataProvider getAppDataWithCompletion:^(MPAppData *appData, NSError *error) {
-        if (error && !_bar.isShowing) {
-            _bar = [[TCFKA_MDSnackbar alloc] initWithText:kLangCouldNotFindContent actionTitle:@"" duration:4.0];
-            [_bar show];
+        if (error && !self->_bar.isShowing) {
+            self->_bar = [[TCFKA_MDSnackbar alloc] initWithText:kLangCouldNotFindContent actionTitle:@"" duration:4.0];
+            [self->_bar show];
         }
         else {
-            _hideFab = [[appData.appSettings objectForKey:@"hideFabMenu"] intValue];
-            if (!_hideFab && [appData.menuInfo objectForKey:@"fabmenu"] != nil) {
-                _menuItemModels = [NSMutableArray array];
+            self->_hideFab = [[appData.appSettings objectForKey:@"hideFabMenu"] intValue];
+            if (!self->_hideFab && [appData.menuInfo objectForKey:@"fabmenu"] != nil) {
+                self->_menuItemModels = [NSMutableArray array];
                 for (NSDictionary* item in [appData.menuInfo objectForKey:@"fabmenu"]) {
                     NSError* err;
                     MPMenuItem* menuItem = [[MPMenuItem alloc] initWithDictionary:item error:&err];
                     if (err == nil)
-                        [_menuItemModels addObject:menuItem];
+                        [self->_menuItemModels addObject:menuItem];
                 }
                 [self setupFloatingActionBtn];
                 
@@ -369,17 +369,17 @@
         [UIView animateWithDuration:0.15 animations:^{
             CGAffineTransform rotationTransform = CGAffineTransformIdentity;
             rotationTransform = CGAffineTransformRotate(rotationTransform, 3.14f);
-            _menuOpenBtnImageView.transform = rotationTransform;
+            self->_menuOpenBtnImageView.transform = rotationTransform;
         } completion:^(BOOL finished) {
-            if (_menuOpenBtnImageView.image == _menuOpenImage) {
-                _menuOpenBtnImageView.image = _menuCloseImage;
+            if (self->_menuOpenBtnImageView.image == self->_menuOpenImage) {
+                self->_menuOpenBtnImageView.image = self->_menuCloseImage;
             } else {
-                _menuOpenBtnImageView.image = _menuOpenImage;
+                self->_menuOpenBtnImageView.image = self->_menuOpenImage;
             }
             [UIView animateWithDuration:0.15 animations:^{
                 CGAffineTransform rotationTransform = CGAffineTransformIdentity;
                 rotationTransform = CGAffineTransformRotate(rotationTransform, 6.28f);
-                _menuOpenBtnImageView.transform = rotationTransform;
+                self->_menuOpenBtnImageView.transform = rotationTransform;
             }];
         }];
     }

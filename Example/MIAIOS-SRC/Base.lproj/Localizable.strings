@@ -1,4 +1,3 @@
-
 /*
  Localizable.strings
  MapsIndoorsSDK
@@ -176,7 +175,7 @@
 "Log out" = "Log out";
 
 // App User Roles
-"Choose the App User Roles you are part of. This only affacts the directions you get, not the locations you see on the map" = "Choose the App User Roles you are part of. This only affacts the directions you get, not the locations you see on the map";
+"Choose the App User Roles you are part of. This only affacts the directions you get, not the locations you see on the map" = "Choose the App User Roles you are part of. This only affects the directions you get, not the locations you see on the map";
 "Route Settings" = "Route Settings";
 "App User Roles" = "App User Roles";
 

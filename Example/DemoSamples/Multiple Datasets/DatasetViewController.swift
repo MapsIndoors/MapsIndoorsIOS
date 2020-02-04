@@ -36,10 +36,13 @@ class DatasetViewController: UIViewController, MPMapControlDelegate {
         let q = MPQuery.init()
         q.query = venueKey
         let f = MPFilter.init()
+        
+        weak var _self = self
+        
         MPLocationService.sharedInstance().getLocationsUsing(q, filter: f) { (locations, err) in
             if let location = locations?.first {
-                self.mapControl?.selectedLocation = location
-                self.mapControl?.go(to: location)
+                _self?.mapControl?.selectedLocation = location
+                _self?.mapControl?.go(to: location)
             }
         }
         

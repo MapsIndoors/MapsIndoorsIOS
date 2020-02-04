@@ -8,6 +8,7 @@
 
 #import "MasterNavigationController.h"
 #import "DetailViewController.h"
+//#import "SearchViewController.h"
 #import "Global.h"
 #import "AppDelegate.h"
 #import "UIColor+AppColor.h"
@@ -21,12 +22,14 @@
 #import "TCFKA_MDSnackbar.h"
 
 
+
 @interface MasterNavigationController () <UINavigationControllerDelegate>
 @end
 
 
 @implementation MasterNavigationController {
     NSUserDefaults* _prefs;
+    BOOL _visible;
 }
 
 - (void)viewDidLoad {
@@ -34,7 +37,6 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMapLocationTapped:) name:@"MapLocationTapped" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLocationOpened:) name:@"LocationOpen" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLocationSearch:) name:@"LocationSearch" object:nil];
 
     self.delegate = self;
     
@@ -42,9 +44,17 @@
     if (locToOpen) {
         [self performSelector:@selector(openLocationWithId:) withObject:locToOpen afterDelay:1.0];
     }
-    
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    _visible = false;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    _visible = true;
+}
 
 #pragma mark - Navigation
 
@@ -71,26 +81,23 @@
     [self openLocationWithId:locId];
 }
 
-- (void)onLocationSearch:(NSNotification*)notification {
-    
-    MPLocationQuery* lq = notification.object;
-    
-    [self openLocationSearch:lq];
-}
-
-- (void)openLocationWithId:(NSString*)locationId {
-    
-    [self.topViewController popToMasterViewControllerAnimated:NO];
-    
-    [self performSegueWithIdentifier:@"DetailSegue" sender:self];
-    
-    if ( self.splitViewController.displayMode != UISplitViewControllerDisplayModeAllVisible ) {
+- (void)openSidebar {
+    if ( !_visible && self.splitViewController.displayMode != UISplitViewControllerDisplayModeAllVisible ) {
         UIBarButtonItem* btn = self.splitViewController.displayModeButtonItem;
         [[UIApplication sharedApplication] sendAction:btn.action
                                                    to:btn.target
                                                  from:nil
                                              forEvent:nil];
     }
+}
+
+- (void)openLocationWithId:(NSString*)locationId {
+    
+    
+    [self.topViewController popToMasterViewControllerAnimated:NO];
+    [self performSegueWithIdentifier:@"DetailSegue" sender:self];
+    
+    [self openSidebar];
     
     [MapsIndoors.locationsProvider getLocationWithId:locationId completionHandler:^(MPLocation *location, NSError *error) {
         if (location) {
@@ -102,18 +109,6 @@
             });
         }
     }];
-}
-
-- (void)openLocationSearch:(MPLocationQuery*)locationQuery {
-    
-    [MapsIndoors.locationsProvider getLocationsUsingQuery:locationQuery];
-
-    [self popToRootViewControllerAnimated:NO];
-    
-    [self performSegueWithIdentifier:@"SearchSegue" sender:self];
-    
-    UIBarButtonItem* btn = self.splitViewController.displayModeButtonItem;
-    [[UIApplication sharedApplication] sendAction:btn.action to:btn.target from:nil forEvent:nil];
 }
 
 

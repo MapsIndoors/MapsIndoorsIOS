@@ -57,10 +57,12 @@ class OfflineController: UIViewController {
         view = stackView
         //
         
+        weak var _self = self
+        
         MPVenueProvider().getVenuesWithCompletion { (venueColl, error) in
             if error == nil {
                 let bounds = (venueColl!.venues!.first! as! MPVenue).getBoundingBox()
-                self.map?.animate(with: GMSCameraUpdate.fit(bounds!))
+                _self?.map?.animate(with: GMSCameraUpdate.fit(bounds!))
             }
         }
     }
@@ -73,10 +75,11 @@ class OfflineController: UIViewController {
      * Present the new view controller
      ***/
     @objc func syncContent() {
+        weak var _self = self
         self.syncButton!.isEnabled = false
         MapsIndoors.synchronizeContent { (error) in
             DispatchQueue.main.async {
-                self.syncButton!.isEnabled = true
+                _self?.syncButton!.isEnabled = true
             }
         }
     }

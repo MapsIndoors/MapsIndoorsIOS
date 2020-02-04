@@ -9,6 +9,29 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [2020.2] 2020-02-04
+
+### Update to MapsIndoors SDK 3.8.1
+### Fixed
+- Stability and performance improvements.
+
+### Changed
+- Improved route generation; improved detection of start and end rooms for indoor route, and improved rendering of route start and endpoints.
+- Multiple improvements to the search engine has been implemented.
+
+## [2.2.4] 2019-11-05
+### Fixed
+- Fixed synchronisation issue, that sometimes caused map graphics to disappear, if the app was killed in the middle of a synchronisation.
+- Fixed directions rendering issue causing the map camera to display random parts of the Google map instead of the route that was intended to be rendered.
+- Fixed some inconsistencies in how non-quadratic icons was anchored on the map.
+### Changed
+- Locations can now be configured as not searchable (configured from the MapsIndoors service), which in effect makes them eligible for map display but not searchable in the app.
+
+## [2.2.3] 2019-08-16
+
+### Fixed
+- Fixed regression causing search url scheme not to work anymore, e.g. "myapp://search?q=Room123"
+
 ## [2.2.1] 2019-08-16
 
 ### Fixed

@@ -16,6 +16,7 @@
 #import <MapsIndoors/MapsIndoors.h>
 #include <ifaddrs.h>
 #include <arpa/inet.h>
+#import "MDDeviceHelper.h"
 
 @implementation MPCiscoPositionProvider {
     NSString* _serviceUrl;
@@ -76,7 +77,7 @@
         
         NSString* ip = [self getIPAddress];
         
-        if (_useBitShiftedIp) {
+        if (self->_useBitShiftedIp) {
         
             NSArray *ipExplode = [[self getIPAddress] componentsSeparatedByString:@"."];
             
@@ -102,7 +103,7 @@
         
         if (ip) {
         
-            NSString* url = [NSString stringWithFormat:_serviceUrl, ip];
+            NSString* url = [NSString stringWithFormat:self->_serviceUrl, ip];
             
             NSString* encodedUrl = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
             
@@ -131,11 +132,11 @@
                             NSNumber* floor = [res getFloor];
                             if (floor && res.geometry.coordinates.count >= 2) {
                                 
-                                _mseAccuracy = [res getProbability];
-                                _latestMSEResultDate = [NSDate date];
+                                self->_mseAccuracy = [res getProbability];
+                                self->_latestMSEResultDate = [NSDate date];
                                 
                                 if ([self shouldDetermineBestPosition]){
-                                    if (_mseAccuracy < _gpsAccuracy) {
+                                    if (self->_mseAccuracy < self->_gpsAccuracy) {
                                         usePosition();
                                     }
                                 } else {
@@ -159,20 +160,25 @@
                 }
             }
         } else {
-            if (!_wifiAlert) {
+            if (!self->_wifiAlert) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    _wifiAlert = [UIAlertController alertControllerWithTitle:kLangPleaseEnableWIFI message:kLangEnableWIFIToGetPositioning preferredStyle:UIAlertControllerStyleAlert];
+                    self->_wifiAlert = [UIAlertController alertControllerWithTitle:kLangPleaseEnableWIFI message:kLangEnableWIFIToGetPositioning preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction* ok = [UIAlertAction
                                          actionWithTitle:@"OK"
                                          style:UIAlertActionStyleDefault
                                          handler:^(UIAlertAction * action)
                                          {
-                                             [_wifiAlert dismissViewControllerAnimated:YES completion:nil];
+                        [self->_wifiAlert dismissViewControllerAnimated:YES completion:nil];
                                              
                                          }];
-                    [_wifiAlert addAction:ok];
+                    [self->_wifiAlert addAction:ok];
                     //_wifiAlert = [[UIAlertView alloc] initWithTitle:kLangPlease_enable_WIFI message:kLangEnableWIFIToGetPositioning delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                    [[UIApplication sharedApplication].windows.firstObject.rootViewController presentViewController:_wifiAlert animated:YES completion:nil];
+                    
+                    if (!(IS_IPAD)) {
+                        self->_wifiAlert.modalPresentationStyle = UIModalPresentationFullScreen;
+                    }
+                    
+                    [[UIApplication sharedApplication].windows.firstObject.rootViewController presentViewController:self->_wifiAlert animated:YES completion:nil];
                     
                 });
             }

@@ -61,8 +61,10 @@
     }
     
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
-    
-    [MapsIndoors provideAPIKey:[AppVariantData sharedAppVariantData].mapsIndoorsAPIKey googleAPIKey:[AppVariantData sharedAppVariantData].googleAPIKey];
+
+    if ( self.delayedMapsIndoorsInit == NO ) {
+        [MapsIndoors provideAPIKey:[AppVariantData sharedAppVariantData].mapsIndoorsAPIKey googleAPIKey:[AppVariantData sharedAppVariantData].googleAPIKey];
+    }
 
 //    #ifdef BUILDING_SDK_APP
 //        [MapsIndoors registerLocationSources:@[ [MPMapsIndoorsLocationSource new], [SimulatedPeopleLocationSource new]]];
@@ -76,12 +78,6 @@
     
     [[UILabel appearance] setFont:[UIFont systemFontOfSize:15]];
     
-    //Fetches data if needed
-    [MapsIndoors synchronizeContent:^(NSError *error) {
-        if (error) NSLog(@"Failed fetching MapsIndoors data (locations and venue metadata): %@", error);
-        else NSLog(@"Done fetching MapsIndoors data (locations and venue metadata)");
-    }];
-
     self.locationManager = [CLLocationManager new];
     self.locationManager.delegate = self;
     
@@ -97,6 +93,10 @@
     if (self.isPositionProviderStoppedWhenInBackground) {
         [MapsIndoors.positionProvider startPositioning:nil];
     }
+
+    [MapsIndoors synchronizeContent:^(NSError *error) {
+        // Additional tasks and error handling/reporting could be done here.
+    }];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -121,8 +121,12 @@
     }
 }
 
-- (BOOL) application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
+- (void)applicationWillResignActive:(UIApplication *)application {
+    Global.appSchemeLocationQuery = nil;
+}
 
+- (BOOL) application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
+    
     BOOL    result = YES;
 
     if ( self.openUrlHook ) {
@@ -146,7 +150,8 @@
 
         MPLocationQuery* lq = [MPLocationQuery queryWithUrl:url];
         if (lq) {
-            [self performSelector:@selector(openLocationSearch:) withObject:lq afterDelay:1.0];
+            Global.appSchemeLocationQuery = lq;
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenLocationSearch" object:lq];
         }
 
         NSString *locationId = [self valueForKey:@"locationId" fromQueryItems:queryItems];
@@ -177,13 +182,13 @@
 
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     [MPNotificationsHelper fetchMessagesForSolution:[MapsIndoors getMapsIndoorsAPIKey] completionHandler:completionHandler messageHandler:^(MPMessage * message) {
-        [MPNotificationsHelper monitorRegionForMessage:message withLocationManager:_locationManager];
+        [MPNotificationsHelper monitorRegionForMessage:message withLocationManager:self->_locationManager];
     }];
 }
 
-- (void) openLocationSearch: (MPLocationQuery*) locationQuery {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationSearch" object:locationQuery];
-}
+//- (void) openLocationSearch: (MPLocationQuery*) locationQuery {
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationSearch" object:locationQuery];
+//}
 
 
 #pragma mark - CLLocationManagerDelegate

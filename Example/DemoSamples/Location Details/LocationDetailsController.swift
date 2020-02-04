@@ -55,7 +55,9 @@ class LocationDetailsController: UIViewController, GMSMapViewDelegate {
         descrLabel = UILabel.init()
         nameLabel.backgroundColor = UIColor.white
         descrLabel.backgroundColor = UIColor.white
-        
+        nameLabel.textColor = UIColor.darkGray
+        descrLabel.textColor = UIColor.darkGray
+
         /***
          Arrange the labels inside a stackview
          ***/

@@ -12,7 +12,7 @@
 @import VCMaterialDesignIcons;
 #import "MasterViewController.h"
 #import "LocalizedStrings.h"
-
+#import "MDDeviceHelper.h"
 
 @implementation UIViewController (Custom)
 
@@ -35,6 +35,10 @@
         
         nav.modalTransitionStyle   = UIModalTransitionStyleCoverVertical;
         nav.modalPresentationStyle = UIModalPresentationFormSheet;
+        
+        if (!(IS_IPAD)) {
+            nav.modalPresentationStyle = UIModalPresentationFullScreen;
+        }
         
         [self presentViewController:nav animated:YES completion:nil];
         

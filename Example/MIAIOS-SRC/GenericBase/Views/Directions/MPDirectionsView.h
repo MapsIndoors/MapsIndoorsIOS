@@ -44,6 +44,9 @@
 @property (nonatomic, strong) NSString*                     accessibilityLabelForFocusedRouteSegment;
 - (NSString*) accessibilityLabelForRouteSegmentAtIndex:(NSUInteger)routeSegementIndex;
 
+@property (nonatomic) BOOL                                  shouldShowInsideSteps;      /// Determine if steps are shown for indoor parts of the route.  Defaults to NO.
+
+
 - (void) loadRoute:(MPRoute*)route
         withModels:(NSArray<SectionModel*>*)models
        routingData:(RoutingData*)routingData;

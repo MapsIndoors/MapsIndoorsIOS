@@ -13,7 +13,7 @@ class DemosUITests: XCTestCase {
     var peakMemUsage = 0.0
     var accumulatedMem = 0.0
     let avgMemLimit = 180.0
-    let memLimit = 300.0
+    let memLimit = 250.0
     var numberOfMemSamples = 0.0
     
     override func setUp() {
@@ -103,8 +103,7 @@ class DemosUITests: XCTestCase {
         app.searchFields.firstMatch.tap()
         assertMemoryUsageTimespan(app)
         app.searchFields.firstMatch.typeText("park")
-        assertMemoryUsageTimespan(app)
-        tablesQuery.cells.firstMatch.tap()
+        tablesQuery.staticTexts["Guest Parking, , , Stigsborgvej"].tap()
         assertMemoryUsageTimespan(app)
         app.navigationBars.buttons.firstMatch.tap()
         

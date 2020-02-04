@@ -64,7 +64,7 @@
         q.avoidWayTypes = restrictions;
         q.departure = departureTime;
         q.arrival = arrivalTime;
-        q.travelMode = [mode as_MPTravelMode];
+        q.travelMode = [mode convertTo_MPTravelMode];
 
         if ( Global.userRoleManager.activeUserRoles.count ) {
             q.userRoles = Global.userRoleManager.activeUserRoles;
@@ -82,9 +82,9 @@
 
                 dispatch_async(dispatch_get_main_queue(), ^(void) {
                     if (error) {
-                        if ( !_bar.isShowing ) {
-                            _bar = [[TCFKA_MDSnackbar alloc] initWithText:kLangCouldNotFindDirections actionTitle:@"" duration:2.0];
-                            [_bar show];
+                        if ( !self->_bar.isShowing ) {
+                            self->_bar = [[TCFKA_MDSnackbar alloc] initWithText:kLangCouldNotFindDirections actionTitle:@"" duration:2.0];
+                            [self->_bar show];
                         }
                         self.latestRoutingRequestHash = 0;
                         [[NSNotificationCenter defaultCenter] postNotificationName:@"RoutingDataReady" object: nil];
@@ -116,11 +116,11 @@
             
             for ( int ix = 0; ix < (leg.steps.count -2); ++ix ) {
                 MPRouteStep*    thisStep = leg.steps[ix];
-                TRAVEL_MODE     thisTravelMode = [thisStep.travel_mode as_TRAVEL_MODE];
+                TRAVEL_MODE     thisTravelMode = [thisStep.travel_mode convertTo_TRAVEL_MODE];
                 MPRouteStep*    nextStep = leg.steps[ix+1];
-                TRAVEL_MODE     nextTravelMode = [nextStep.travel_mode as_TRAVEL_MODE];
+                TRAVEL_MODE     nextTravelMode = [nextStep.travel_mode convertTo_TRAVEL_MODE];
                 MPRouteStep*    nextNextStep = leg.steps[ix+2];
-                TRAVEL_MODE     nextNextTravelMode = [nextNextStep.travel_mode as_TRAVEL_MODE];
+                TRAVEL_MODE     nextNextTravelMode = [nextNextStep.travel_mode convertTo_TRAVEL_MODE];
                 NSUInteger      nextStepDistance = [nextStep.distance unsignedIntegerValue];
 
                 //
