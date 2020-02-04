@@ -16,6 +16,13 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.8.0] 2020-02-04
+### Fixed
+- Some searches unfortunately ended in a crash related to data inconsistency.
+- Directions completion handler was sometimes on the main queue.
+- Improved detection of start and end rooms on a route.
+- Script for embedding data for offline use would download all referenced URLs but should only download referenced images and maptiles.
+
 ## [3.8.0] 2020-01-24
 ### Changed
 - Improved route generation; improved detection of start and end rooms for indoor route, and improved rendering of route start and endpoints.
