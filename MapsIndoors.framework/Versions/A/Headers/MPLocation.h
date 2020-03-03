@@ -53,7 +53,8 @@
 @property (nonatomic, strong, nullable, readonly) NSNumber<Optional> *activeTo;
 @property (nonatomic, strong, nullable, readonly) NSString<Optional> *venue;
 @property (nonatomic, strong, nullable, readonly) NSString<Optional> *building;
-@property (nonatomic, strong, nullable, readonly) NSString<Optional> *roomId;
+@property (nonatomic, strong, nullable, readonly) NSString<Optional> *roomId DEPRECATED_MSG_ATTRIBUTE("Use externalId instead");
+@property (nonatomic, strong, nullable, readonly) NSString<Optional> *externalId;
 @property (nonatomic, strong, nullable, readonly) NSString<Optional> *descr;
 @property (nonatomic, strong, nullable, readonly) NSDictionary<NSString*, MPLocationField*><Optional, MPLocationField> *fields;
 @property (nonatomic, strong, nullable, readonly) NSArray<NSString*><Optional> *aliases;

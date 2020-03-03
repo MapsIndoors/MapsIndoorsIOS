@@ -74,6 +74,10 @@
  */
 @property (nonatomic, strong, nullable) NSString<Optional>* venueKey;
 /**
+ External id.
+ */
+@property (nonatomic, strong, nullable) NSString<Optional>* externalId;
+/**
  Venue name.
  */
 @property (nonatomic, strong, nullable) NSString<Optional>* name;

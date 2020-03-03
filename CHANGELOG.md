@@ -16,7 +16,17 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [3.8.0] 2020-02-04
+## [3.8.2] 2020-03-02
+### Fixed
+- Fixed an issue where the rendered route part would sometimes not be fully visible.
+- Fixed a problem with loading maptiles embedded in apps at first launch of app.
+- Fixed an directions issue where the reversed directions request (swapping origin and destination) could sometimes not be calculated. 
+### Added
+- Added an external id property `MPLocation.externalId`. This field is used for identifying each location on a matter that is external to MapsIndoors. The external id is maintained in MapsIndoors CMS.
+### Changed
+- Deprecated `MPLocation.roomId`. `MPLocation.externalId` is to be used instead. 
+
+## [3.8.1] 2020-02-04
 ### Fixed
 - Some searches unfortunately ended in a crash related to data inconsistency.
 - Directions completion handler was sometimes on the main queue.

@@ -53,9 +53,12 @@
  Simple counter that keeps track of how many floors and related tile layers are ready.
  */
 @property (nonatomic, strong, nullable) NSNumber<Optional>* floorsReady;
-
+/**
+ External id.
+ */
+@property (nonatomic, strong, nullable) NSString<Optional>* externalId;
 @property (nonatomic, strong, nullable) NSString* buildingId;
-@property (nonatomic, strong, nullable) NSString* administrativeId;
+@property (nonatomic, strong, nullable) NSString<Optional>* administrativeId;
 @property (nonatomic, strong, nullable) NSMutableDictionary<NSString*, MPFloor*><MPFloor, Optional>* floors;
 @property (nonatomic, strong, nullable) NSString* name;
 @property (nonatomic, strong, nullable) MPPoint* anchor;

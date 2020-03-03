@@ -18,7 +18,7 @@ Query object used when making a request to `MPLocationService`.
 
 
 /**
- List of properties that `MPLocationService` will take into account when finding and sorting matching locations. By default, `MPLocationService` will search in the name, roomId and aliases properties. Possible other properties depend on the location content. E.g. if an `MPLocation` has a field called `booking-id`, the string "booking-id" (case-sensitive) may be added. Query properties added that does not exist in any locations will be ignored.
+ List of properties that `MPLocationService` will take into account when finding and sorting matching locations. By default, `MPLocationService` will search in the name, externalId (formerly known as roomId) and aliases properties. Possible other properties depend on the location content. E.g. if an `MPLocation` has a field called `booking-id`, the string "booking-id" (case-sensitive) may be added. Query properties added that does not exist in any locations will be ignored.;
  */
 @property (nonatomic) NSArray<NSString*>* queryProperties;
 
