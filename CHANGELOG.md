@@ -16,6 +16,16 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.9.0] 
+
+### Added 
+
+- support for caching offline data for multiple datasets. See `MapsIndoors.dataSetCacheManager` and https://mapsindoors.github.io/ios/v3/offline/ for more details.
+
+### Changed
+
+- Updated Google Maps dependency to Google Maps 3.8.0
+
 ## [3.8.3] 2020-03-05
 
 ### Fixed

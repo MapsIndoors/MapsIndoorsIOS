@@ -14,6 +14,7 @@
 @protocol MPPositionProvider;
 @protocol MPLocationsProvider;
 @protocol MPLocationSource;
+@class MPDataSetCacheManager;
 
 
 /**
@@ -21,14 +22,14 @@
 
  @param error Error object.
  */
-typedef void(^mpSyncContentHandlerBlockType)(NSError* error);
+typedef void(^mpSyncContentHandlerBlockType)( NSError* _Nullable error );
 
 /**
  Offline content availability callback handler block
 
  @param error Error object.
  */
-typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
+typedef void(^mpOfflineDataHandlerBlockType)( NSError* _Nullable error);
 
 
 #define kMPNotificationPositionProviderReassign         @"MP_POSITION_PROVIDER_REASSIGNED"
@@ -50,44 +51,45 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
  @param googleAPIKey The Google API key.
  @return Whether the API key and content key was successfully provided
  */
-+ (BOOL) provideAPIKey:(NSString*)mapsIndoorsAPIKey googleAPIKey:(NSString*)googleAPIKey;
++ (BOOL) provideAPIKey:(nonnull NSString*)mapsIndoorsAPIKey googleAPIKey:(nullable NSString*)googleAPIKey;
 
 /**
  Gets the current MapsIndoors API key.
  @return The MapsIndoors API key as a string value.
  */
-+ (NSString*) getMapsIndoorsAPIKey;
++ (nullable NSString*) getMapsIndoorsAPIKey;
 /**
  Gets the current Google API key.
  @return The Google API key as a string value.
  */
-+ (NSString*) getGoogleAPIKey;
++ (nullable NSString*) getGoogleAPIKey;
 
 /**
  Sets the language for the content provided by MapsIndoors.
  @param languageCode The language for which the content should be fetched. Uses the two-letter language code ISO 639-1.
  */
-+ (void) setLanguage:(NSString*)languageCode;
++ (void) setLanguage:(nonnull NSString*)languageCode;
 
 /**
  Gets the current language for the content provided by MapsIndoors.
    @returns The language for which the content should be fetched. Uses the two-letter language code ISO 639-1.
  */
-+ (NSString*) getLanguage;
++ (nullable NSString*) getLanguage;
 
 /**
  Fetch all neccesary content to be able to run MapsIndoors in offline environments.
  If you have registered custom location sources, they are not synchronized by this method - it is the responsibility of the provider of the custom location source to synchronize as appropriate.
+ This method only synchronizes the current dataset - If you need to synchronize data for non-current datasets, please see @see dataSetCacheManager and MPDataSetCacheManager.synchronizeContent()
  @param  completionHandler Callback function that fires when content has been fetched or if this process resolves in an error. Note: Does not automtically retry fetch.
  */
-+ (void)synchronizeContent: (mpSyncContentHandlerBlockType) completionHandler;
++ (void)synchronizeContent: (nonnull mpSyncContentHandlerBlockType) completionHandler;
 
 /**
  Register Location data sources.
  All registered location sources must have a unique sourceId.
  @param  sources The sources of Location data to use in the current session.
  */
-+ (void)registerLocationSources: (NSArray<id<MPLocationSource>>*) sources;
++ (void)registerLocationSources: (nonnull NSArray<id<MPLocationSource>>*) sources;
 
 /**
  Sets the offline mode for the content provided by MapsIndoors. True means that the SDK is not allowed to use network traffic. NB: This forces the implementation to be offline, even if there is no data available offline.
@@ -102,6 +104,7 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 
 /**
  Determine if enough data is available for a good user experience in offline mode.
+ For results that are not dependent on timing of async calls, this is best used in the completion handler of +[MapsIndoors checkOfflineDataAvailabilityAsync:].
 
  @return YES if offline data is available, else NO.
  */
@@ -112,28 +115,28 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 
  @param completion callback
  */
-+ (void) checkOfflineDataAvailabilityAsync:(void(^)(void))completion;
++ (void) checkOfflineDataAvailabilityAsync:(void(^_Nonnull)(void))completion;
 
 
 /**
  The position provider that MapsIndoors should use when user location services are needed.
  */
-@property (class) id<MPPositionProvider> positionProvider;
+@property (class, nonnull) id<MPPositionProvider> positionProvider;
 
 /**
  The image provider that MapsIndoors should use when image ressources are needed. MapsIndoors will provide a default if this property is nil.
  */
-@property(class) id<MPImageProvider> imageProvider;
+@property (class, nullable) id<MPImageProvider> imageProvider;
 
 /**
  The location provider that MapsIndoors should use.
  */
-@property (class) id<MPLocationsProvider> locationsProvider;
+@property (class, nullable) id<MPLocationsProvider> locationsProvider;
 
 /**
  The currently registered location sources.
 */
-@property (class, readonly) NSArray<id<MPLocationSource>>* sources;
+@property (class, readonly, nullable) NSArray<id<MPLocationSource>>* sources;
 
 
 /**
@@ -142,5 +145,9 @@ typedef void(^mpOfflineDataHandlerBlockType)(NSError* error);
 + (BOOL) isAPIKeyValid;
 
 
+/**
+ Return the shared dataset cache manager.
+ */
+@property (class, readonly, nonnull) MPDataSetCacheManager*      dataSetCacheManager;
 
 @end
