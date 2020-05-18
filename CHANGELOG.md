@@ -16,7 +16,13 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [3.9.0] 
+## [3.9.1] 2020-05-18
+
+### Fixed 
+
+- Too many wayfinding steps were emitted for routes with slight curvature.
+
+## [3.9.0] 2020-05-04
 
 ### Added 
 
