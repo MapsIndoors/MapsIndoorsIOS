@@ -16,6 +16,12 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.9.2] 2020-06-02
+
+### Fixed 
+
+- Synchronizing new data would not take in current app session..
+
 ## [3.9.1] 2020-05-18
 
 ### Fixed 

@@ -55,7 +55,7 @@ typedef NS_ENUM(NSUInteger, MPTravelMode) {
  */
 @property (nonatomic, strong, nonnull) MPLocation* origin;
 /**
- Detination location.
+ Destination location.
  */
 @property (nonatomic, strong, nonnull) MPLocation* destination;
 /**
