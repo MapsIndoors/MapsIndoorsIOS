@@ -119,7 +119,7 @@
 #import <MapsIndoors/MPDataSetCacheItem.h>
 #import <MapsIndoors/MPDataSetEnums.h>
 #import <MapsIndoors/MPDataSetCacheManagerDelegate.h>
-#import "MPDataSetCacheManagerSizeDelegate.h"
+#import <MapsIndoors/MPDataSetCacheManagerSizeDelegate.h>
 
 #import <MapsIndoors/MPGeometryQueryProtocol.h>
 #import <MapsIndoors/MPPolygonGeometry.h>

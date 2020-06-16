@@ -17,7 +17,14 @@ typedef NS_ENUM(NSUInteger, MPDataSetCacheScope) {
     MPDataSetCachingScope_Detailed,     //! Basic + location-specific images.
     MPDataSetCachingScope_Full,         //! Full cache scope. All necessary content is downloaded for a data set to work offline.
 
-    MPDataSetCachingScope_Default = MPDataSetCachingScope_Basic
+    MPDataSetCachingScope_Default = MPDataSetCachingScope_Basic,
+    
+    //START:    Fix feature/MISDKIOS-545-Avoid-the-underscore-when-naming-our-Obj-C-enums-and-options-to-get-nicer-formating-in-Swift in a backwards compatible manner
+    MPDataSetDefault = MPDataSetCachingScope_Default,
+    MPDataSetBasic = MPDataSetCachingScope_Basic,        //! Basic cache scope. Information about locations, buildings and venue and type images.
+    MPDataSetDetailed = MPDataSetCachingScope_Detailed,  //! Basic + location-specific images.
+    MPDataSetFull = MPDataSetCachingScope_Full          //! Full cache scope. All necessary content is downloaded for a data set to work offline.
+    //END:      Fix feature/MISDKIOS-545-Avoid-the-underscore-when-naming-our-Obj-C-enums-and-options-to-get-nicer-formating-in-Swift in a backwards compatible manner
 };
 
 /**

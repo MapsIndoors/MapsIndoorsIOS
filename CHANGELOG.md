@@ -16,6 +16,17 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.9.3] 2020-06-16
+
+### Changed
+
+- Routes rendered on the map with `MPDirectionsRenderer` now has rounded curves when directions on the route change.
+
+### Fixed 
+
+- Fixed a crash in `MPDirectionsRenderer` that happened when new routes are applied in quick succession.
+- Fixed a problem synchronising multiple datasets simultaneously.
+
 ## [3.9.2] 2020-06-02
 
 ### Fixed 
