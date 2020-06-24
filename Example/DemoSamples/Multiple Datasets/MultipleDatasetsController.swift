@@ -11,7 +11,7 @@ import MapsIndoors
 
 class MultipleDatasetsController: UITableViewController {
     
-    let demoAPIKeys:[String] = [AppDelegate.mApiKey, "dbed3f9543b04b4e89ab1d01"]
+    let demoAPIKeys:[String] = [AppDelegate.mApiKey, "173386a6ff5e43cead3e396b"]
     let demoVenueKeys:[String] = ["Stigsborgvej", "Aalborg City"]
     
     //This cleanup is only needed in this demo

@@ -12,10 +12,10 @@ class DemosUITests: XCTestCase {
     
     var peakMemUsage = 0.0
     var accumulatedMem = 0.0
-    let avgMemLimit = 180.0
-    let memLimit = 250.0
+    let avgMemLimit = 260.0
+    let memLimit = 370.0
     var numberOfMemSamples = 0.0
-    
+
     override func setUp() {
         super.setUp()
         
@@ -103,7 +103,8 @@ class DemosUITests: XCTestCase {
         app.searchFields.firstMatch.tap()
         assertMemoryUsageTimespan(app)
         app.searchFields.firstMatch.typeText("park")
-        tablesQuery.staticTexts["Guest Parking, , , Stigsborgvej"].tap()
+        assertMemoryUsageTimespan(app)
+        tablesQuery.cells.element(boundBy: 0).tap()
         assertMemoryUsageTimespan(app)
         app.navigationBars.buttons.firstMatch.tap()
         
@@ -120,7 +121,7 @@ class DemosUITests: XCTestCase {
         app.navigationBars.buttons.firstMatch.tap()
         
         assertMemoryUsageTimespan(app)
-        
+
         print("\(#function): Average memory usage:  \(accumulatedMem/numberOfMemSamples)")
         print("\(#function): Peak memory usage:     \(peakMemUsage)")
         
