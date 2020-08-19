@@ -16,11 +16,18 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.9.7] 2020-08-19
+
+### Fixed
+
+- Fixed a race condition occurring in some poor networking conditions causing `MPMapControl` not to properly show its initial building outline.
+- Other internal stability improvements.
+
 ## [3.9.6] 2020-07-06
 
 ### Fixed
 
-- Fixed indoor routes with stairs leading to the same floor would omit the stair steps. 
+- Fixed indoor routes with stairs leading to the same Floor would omit the stair steps.
 
 ## [3.9.5] 2020-07-02
 
