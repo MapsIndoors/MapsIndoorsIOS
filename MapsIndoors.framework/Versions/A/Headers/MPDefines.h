@@ -20,5 +20,6 @@
 
 #define kMPUIApplicationDidReceiveMemoryWarningNotification @"UIApplicationDidReceiveMemoryWarningNotification"
 #define kMPRequestClearCacheMemoryNotification @"MPRequestClearCacheMemoryNotification"
+#define kMPRequestResetMapNotification @"MPRequestResetMapNotification"
 
 #endif /* MPDefines_h */
