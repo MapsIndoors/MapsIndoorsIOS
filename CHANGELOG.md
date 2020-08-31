@@ -16,14 +16,13 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [3.9.8] 2020-08-28
+## [3.9.9] 2020-08-31
 
 ### Fixed
 
 - Fixed issues causing `MPMapControl` to not properly cleanup content on the map when `MapsIndoors.provideAPIKey()` is called while a `MPMapControl` instance is already initialized.
 - Fixed issue causing `MPMapControl.selectedLocation` not to properly highlight on the map in some cases.
 - Internal search engine optimizations and improvements.
-
 
 ## [3.9.7] 2020-08-19
 
