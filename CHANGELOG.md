@@ -16,12 +16,12 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [3.10.0-beta0] 2020-09-02
+## [3.10.0-beta1] 2020-09-04
 
 ### Added
 
 - Support for Live Data added. For more information, read more about this feature in the [Live Data Guide](https://mapsindoors.github.io/ios/v3/live-data/). Please note that the Live Data feature is currently in beta.
-- In the `MPDatasetCacheManager` we have optimized support for changing caching scope from a larger scope to a smaller scope, by deleting obsolete caches.
+- In `MPDatasetCacheManager` we have optimized support for changing caching scope from a larger scope to a smaller scope, by deleting obsolete caches.
 
 ## [3.9.9] 2020-08-31
 
