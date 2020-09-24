@@ -16,12 +16,33 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.11.0] 2020-09-24
+
+### Info
+
+- Please note that the [Live Data](https://mapsindoors.github.io/ios/v3/live-data/) feature is not included in production versions yet. The latest version with Live Data is 3.10.0-beta1.
+
+### Added
+
+- In `MPDatasetCacheManager` we have optimized support for changing caching scope from a larger scope to a smaller scope, by deleting obsolete caches.
+
+### Fixed
+
+- Fixed that route end marker on `MPDirectionsRenderer` was obscuring the destination location marker.
+- Fixed an issue causing `MPDirectionsRenderer` not to use the `MPDirectionsRenderer.actionPointImages` in some cases.
+- Fixed a data synchronisation issue that caused the newly synchronised data to not being used before a new session was initiated.
+- Fixed a route path optimization issue that caused the optimization to be applied unintentionally in some cases.
+- Fixed a search issue that caused the search engine to ignore `MPLocation.externalId`.
+- Fixed a routing issue that caused the `MPDirectionsRenderer` to show a wrong the next leg marker.
+- Fixed an issue causing the Info Window of `MPMapControl.selectedLocation` to not show up in some cases.
+- Fixed an internal issue with the map marker collision handling.
+- Some internal refactorings and optimizations.
+
 ## [3.10.0-beta1] 2020-09-04
 
 ### Added
 
 - Support for Live Data added. For more information, read more about this feature in the [Live Data Guide](https://mapsindoors.github.io/ios/v3/live-data/). Please note that the Live Data feature is currently in beta.
-- In `MPDatasetCacheManager` we have optimized support for changing caching scope from a larger scope to a smaller scope, by deleting obsolete caches.
 
 ## [3.9.9] 2020-08-31
 
