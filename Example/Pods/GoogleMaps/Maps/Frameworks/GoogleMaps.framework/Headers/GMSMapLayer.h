@@ -2,7 +2,7 @@
 //  GMSMapLayer.h
 //  Google Maps SDK for iOS
 //
-//  Copyright 2013 Google Inc.
+//  Copyright 2013 Google LLC
 //
 //  Usage of this SDK is subject to the Google Maps/Google Earth APIs Terms of
 //  Service: https://developers.google.com/maps/terms
@@ -100,11 +100,11 @@ extern NSString *const kGMSLayerCameraViewingAngleKey;
  * during an animation, the animation will stop 'in-place' (at the current presentation value).
  */
 @interface GMSMapLayer : GMSCALayer
-@property(nonatomic, assign) CLLocationDegrees cameraLatitude;
-@property(nonatomic, assign) CLLocationDegrees cameraLongitude;
-@property(nonatomic, assign) CLLocationDirection cameraBearing;
-@property(nonatomic, assign) float cameraZoomLevel;
-@property(nonatomic, assign) double cameraViewingAngle;
+@property(nonatomic) CLLocationDegrees cameraLatitude;
+@property(nonatomic) CLLocationDegrees cameraLongitude;
+@property(nonatomic) CLLocationDirection cameraBearing;
+@property(nonatomic) float cameraZoomLevel;
+@property(nonatomic) double cameraViewingAngle;
 @end
 
 NS_ASSUME_NONNULL_END

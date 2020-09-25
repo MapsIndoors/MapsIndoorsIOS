@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Google Inc. All rights reserved.
+ * Copyright 2016 Google LLC. All rights reserved.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
@@ -15,18 +15,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DemoAppDelegate : UIResponder <
-    UIApplicationDelegate,
-    UISplitViewControllerDelegate>
+@interface DemoAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property(strong, nonatomic) UIWindow *window;
-@property(strong, nonatomic) UINavigationController *navigationController;
-@property(strong, nonatomic) UISplitViewController *splitViewController;
-
-/**
- * If the device is an iPad, this property controls the sample displayed in the
- * right side of its split view controller.
- */
-@property(strong, nonatomic) UIViewController *sample;
+@property(nonatomic) UIWindow *window;
+@property(nonatomic) UISplitViewController *splitViewController;
 
 @end

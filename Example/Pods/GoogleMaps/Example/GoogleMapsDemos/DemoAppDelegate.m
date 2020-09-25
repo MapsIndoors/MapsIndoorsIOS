@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Google Inc. All rights reserved.
+ * Copyright 2016 Google LLC. All rights reserved.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
@@ -15,9 +15,9 @@
 
 #import "GoogleMapsDemos/DemoAppDelegate.h"
 
-#import <GoogleMaps/GoogleMaps.h>
 #import "GoogleMapsDemos/MasterViewController.h"
 #import "GoogleMapsDemos/SDKDemoAPIKey.h"
+#import <GoogleMaps/GoogleMaps.h>
 
 @implementation DemoAppDelegate {
   id _services;
@@ -47,67 +47,27 @@
 
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   MasterViewController *master = [[MasterViewController alloc] init];
-  master.appDelegate = self;
 
-  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-    // This is an iPhone; configure the top-level navigation controller as the
-    // rootViewController, which contains the 'master' list of samples.
-    self.navigationController =
-        [[UINavigationController alloc] initWithRootViewController:master];
+  UINavigationController *masterNavigationController =
+      [[UINavigationController alloc] initWithRootViewController:master];
 
-    // Force non-translucent navigation bar for consistency of demo between
-    // iOS 6 and iOS 7.
-    self.navigationController.navigationBar.translucent = NO;
+  UIViewController *empty = [[UIViewController alloc] init];
+  UINavigationController *detailNavigationController =
+      [[UINavigationController alloc] initWithRootViewController:empty];
 
-    self.window.rootViewController = self.navigationController;
-  } else {
-    // This is an iPad; configure a split-view controller that contains the
-    // the 'master' list of samples on the left side, and the current displayed
-    // sample on the right (begins empty).
-    UINavigationController *masterNavigationController =
-        [[UINavigationController alloc] initWithRootViewController:master];
+  self.splitViewController = [[UISplitViewController alloc] init];
+  self.splitViewController.delegate = master;
+  self.splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModeAllVisible;
+  self.splitViewController.viewControllers =
+      @[ masterNavigationController, detailNavigationController ];
 
-    UIViewController *empty = [[UIViewController alloc] init];
-    UINavigationController *detailNavigationController =
-        [[UINavigationController alloc] initWithRootViewController:empty];
+  empty.navigationItem.leftItemsSupplementBackButton = YES;
+  empty.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
 
-    // Force non-translucent navigation bar for consistency of demo between
-    // iOS 6 and iOS 7.
-    detailNavigationController.navigationBar.translucent = NO;
-
-    self.splitViewController = [[UISplitViewController alloc] init];
-    self.splitViewController.delegate = master;
-    self.splitViewController.viewControllers =
-        @[masterNavigationController, detailNavigationController];
-    self.splitViewController.presentsWithGesture = NO;
-
-    self.window.rootViewController = self.splitViewController;
-  }
+  self.window.rootViewController = self.splitViewController;
 
   [self.window makeKeyAndVisible];
   return YES;
-}
-
-- (void)setSample:(UIViewController *)sample {
-  NSAssert([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad,
-           @"Expected device to be iPad inside setSample:");
-
-  // Finds the UINavigationController in the right side of the sample, and
-  // replace its displayed controller with the new sample.
-  UINavigationController *nav =
-      [self.splitViewController.viewControllers objectAtIndex:1];
-  [nav setViewControllers:[NSArray arrayWithObject:sample] animated:NO];
-}
-
-- (UIViewController *)sample {
-  NSAssert([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad,
-           @"Expected device to be iPad inside sample");
-
-  // The current sample is the top-most VC in the right-hand pane of the
-  // splitViewController.
-  UINavigationController *nav =
-      [self.splitViewController.viewControllers objectAtIndex:1];
-  return [[nav viewControllers] objectAtIndex:0];
 }
 
 @end

@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Google Inc. All rights reserved.
+ * Copyright 2016 Google LLC. All rights reserved.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
@@ -17,7 +17,7 @@
 
 #import <GoogleMaps/GoogleMaps.h>
 
-static CGFloat kOverlayHeight = 140.0f;
+static const CGFloat kOverlayHeight = 140.0f;
 
 @implementation VisibleRegionViewController {
   GMSMapView *_mapView;

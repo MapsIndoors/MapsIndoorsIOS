@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.author           = { "MapsPeople" => "info@mapspeople.com" }
   s.source           = { :git => "https://github.com/MapsIndoors/MapsIndoorsIOS.git", :tag => s.version.to_s, :submodules => true }
 
-  s.dependency 'GoogleMaps', '3.8.0'
+  s.dependency 'GoogleMaps', '3.10.0'
 
   s.frameworks = "UserNotifications", "GameplayKit"
 

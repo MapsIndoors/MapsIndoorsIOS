@@ -2,7 +2,7 @@
 //  GMSIndoorBuilding.h
 //  Google Maps SDK for iOS
 //
-//  Copyright 2013 Google Inc.
+//  Copyright 2013 Google LLC
 //
 //  Usage of this SDK is subject to the Google Maps/Google Earth APIs Terms of
 //  Service: https://developers.google.com/maps/terms
@@ -35,6 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
  * If YES, the building is entirely underground and supports being hidden.
  */
 @property(nonatomic, assign, readonly, getter=isUnderground) BOOL underground;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 

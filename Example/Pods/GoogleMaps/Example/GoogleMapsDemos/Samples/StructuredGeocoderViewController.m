@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Google Inc. All rights reserved.
+ * Copyright 2016 Google LLC. All rights reserved.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
@@ -42,7 +42,7 @@
 
 - (void)mapView:(GMSMapView *)mapView didLongPressAtCoordinate:(CLLocationCoordinate2D)coordinate {
   // On a long press, reverse geocode this location.
-  __weak typeof(self) weakSelf = self;
+  __weak __typeof__(self) weakSelf = self;
   GMSReverseGeocodeCallback handler = ^(GMSReverseGeocodeResponse *response, NSError *error) {
     [weakSelf handleResponse:response coordinate:coordinate error:error];
   };

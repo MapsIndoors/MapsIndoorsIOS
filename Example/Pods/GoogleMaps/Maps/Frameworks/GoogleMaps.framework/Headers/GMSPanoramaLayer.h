@@ -2,7 +2,7 @@
 //  GMSPanoramaLayer.h
 //  Google Maps SDK for iOS
 //
-//  Copyright 2013 Google Inc.
+//  Copyright 2013 Google LLC
 //
 //  Usage of this SDK is subject to the Google Maps/Google Earth APIs Terms of
 //  Service: https://developers.google.com/maps/terms
@@ -48,10 +48,10 @@ extern NSString *const kGMSLayerPanoramaFOVKey;
  * This layer should not be instantiated directly.
  */
 @interface GMSPanoramaLayer : GMSCALayer
-@property(nonatomic, assign) CLLocationDirection cameraHeading;
-@property(nonatomic, assign) double cameraPitch;
-@property(nonatomic, assign) float cameraZoom;
-@property(nonatomic, assign) double cameraFOV;
+@property(nonatomic) CLLocationDirection cameraHeading;
+@property(nonatomic) double cameraPitch;
+@property(nonatomic) float cameraZoom;
+@property(nonatomic) double cameraFOV;
 @end
 
 NS_ASSUME_NONNULL_END
