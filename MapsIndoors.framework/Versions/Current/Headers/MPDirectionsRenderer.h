@@ -90,7 +90,7 @@ typedef NS_ENUM(NSUInteger, MPDirectionsRenderFit) {
  */
 @property (nonatomic, readonly) BOOL    isRenderingRoute;
 /**
- Custom images to use for representing the action points.
+ Custom images to use for representing the action points. The first image will be used as the start image. The image at position N in the array will be used at the end of the leg with index N-1, as well as the end of the last step of the leg with index N-1.
  */
 @property (nonatomic, strong, nullable) NSArray<UIImage*>*  actionPointImages;
 

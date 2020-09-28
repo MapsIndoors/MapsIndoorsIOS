@@ -16,7 +16,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [3.11.0] 2020-09-24
+## [3.11.1] 2020-09-28
 
 ### Info
 
