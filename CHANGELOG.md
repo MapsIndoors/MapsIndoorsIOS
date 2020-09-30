@@ -16,6 +16,12 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.12.0] 2020-09-30
+
+### Added
+
+- Support for Live Data added. For more information, read about this feature in the [Live Data Guide](https://mapsindoors.github.io/ios/v3/live-data/).
+
 ## [3.11.1] 2020-09-28
 
 ### Info
@@ -37,12 +43,6 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 - Fixed an issue causing the Info Window of `MPMapControl.selectedLocation` to not show up in some cases.
 - Fixed an internal issue with the map marker collision handling.
 - Some internal refactorings and optimizations.
-
-## [3.10.0-beta1] 2020-09-04
-
-### Added
-
-- Support for Live Data added. For more information, read more about this feature in the [Live Data Guide](https://mapsindoors.github.io/ios/v3/live-data/). Please note that the Live Data feature is currently in beta.
 
 ## [3.9.9] 2020-08-31
 

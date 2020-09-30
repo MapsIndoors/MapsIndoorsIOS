@@ -157,6 +157,14 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 @optional
 - (void) onPositionUpdate:(nonnull MPPositionResult*)positionResult;
 
+/**
+ Called when MPMapControl receives a location update.
+
+ @param location The location that was updated
+ */
+@optional
+- (void) willUpdateLocationsOnMap:(nonnull NSArray<MPLocation*>*)locations NS_SWIFT_NAME(willUpdateLocationsOnMap(locations:));;
+
 @end
 
 

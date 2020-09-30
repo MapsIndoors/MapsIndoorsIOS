@@ -14,6 +14,9 @@
  Floor data model. Holds the floor geometry, display name, z-index and id of the building it belongs to. Furthermore it can hold a reference to a GMSTileLayer.
  */
 @interface MPFloor : MPJSONModel
+
+/// Floor id
+@property (nonatomic, strong, nonnull, readonly) NSString* floorId;
 /**
  Floor geometry.
  */
@@ -26,6 +29,7 @@
  Floor layer style, if any.
  */
 @property (nonatomic, strong, nullable) NSString<Optional>* style;
+/// Floor index
 @property (nonatomic, strong, nullable) NSNumber<Optional>* zIndex;
 @property (nonatomic, strong, nullable) NSString<Optional>* buildingId;
 @property (nonatomic, strong, nullable) NSArray<NSArray*>* bounds;

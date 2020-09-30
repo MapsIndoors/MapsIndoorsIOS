@@ -76,6 +76,11 @@
 
 #import <MapsIndoors/MPLocationsObserver.h>
 #import <MapsIndoors/MPLocationSource.h>
+#import <MapsIndoors/MPLiveDomainType.h>
+#import <MapsIndoors/MPLiveUpdateTopic.h>
+#import <MapsIndoors/MPLiveTopicCriteria.h>
+#import <MapsIndoors/MPLiveUpdate.h>
+#import <MapsIndoors/MPLiveDataManager.h>
 
 #import <MapsIndoors/MPDirectionsRenderer.h>
 #import <MapsIndoors/MPDirectionsService.h>

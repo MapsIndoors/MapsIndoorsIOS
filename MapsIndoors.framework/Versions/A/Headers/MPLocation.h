@@ -28,6 +28,7 @@
 #import "MPJSONModel.h"
 #import "MPLocationBaseType.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import "MPLiveUpdate.h"
 @class MPLocationDisplayRuleset;
 @class MPLocationDisplayRule;
 
@@ -142,6 +143,13 @@
 - (nullable MPLocationProperty*)getProperty:(nullable NSString*)propertyType DEPRECATED_MSG_ATTRIBUTE("Use -getFields instead.");
 
 - (nullable GMSCoordinateBounds*) getCoordinateBounds;
-
+/**
+ Get a live property value based on a known key and domain type
+ */
+- (nullable NSString*)getLiveValueForKey:(nonnull NSString*)key domainType:(nonnull NSString*)domainType;
+/**
+Get a live update based on a known domain type
+*/
+- (nullable MPLiveUpdate*) getLiveUpdateForDomainType:(nonnull NSString*)domainType;
 
 @end
