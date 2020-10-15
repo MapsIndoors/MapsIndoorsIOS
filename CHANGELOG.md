@@ -16,6 +16,22 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.13.0] 2020-10-14
+
+### Added
+
+- Support for Rendering of Polygons through Display Rules, see [updated guide about map styling](https://mapsindoors.github.io/ios/v3/map-styling/).
+
+### Fixed
+
+- Fixed an issue causing our route to go through walls in some cases. Sure hope we didn't cause any accidents:)
+- Fixed a logging issue causing obsolete logs to spam the console.
+- Fixed a rare issue causing a Live Data session to freeze in the UI thread.
+- Fixed an issue causing some Live Updates to be discarded unintentionally.
+- Fixed an issue causing some Live Updates to be emitted unintentionally while they should have been discarded.
+- Fixed offline data script so that it better handles external ressources.
+- Fixed some general stability issues
+
 ## [3.12.0] 2020-09-30
 
 ### Added
@@ -23,10 +39,6 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 - Support for Live Data added. For more information, read about this feature in the [Live Data Guide](https://mapsindoors.github.io/ios/v3/live-data/).
 
 ## [3.11.1] 2020-09-28
-
-### Info
-
-- Please note that the [Live Data](https://mapsindoors.github.io/ios/v3/live-data/) feature is not included in production versions yet. The latest version with Live Data is 3.10.0-beta1.
 
 ### Added
 
