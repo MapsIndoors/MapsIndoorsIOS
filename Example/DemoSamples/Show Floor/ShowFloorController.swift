@@ -27,6 +27,6 @@ class ShowFloorController: UIViewController {
         
         self.mapControl = MPMapControl.init(map: self.map!)
         
-        self.mapControl?.currentFloor = 1
+        self.mapControl?.currentFloor = 10
     }
 }

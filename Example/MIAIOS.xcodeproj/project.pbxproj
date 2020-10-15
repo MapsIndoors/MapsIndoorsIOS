@@ -116,7 +116,6 @@
 		30300A9420739FEC00BC24BE /* MySearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30300A7520739FEC00BC24BE /* MySearchController.swift */; };
 		30300A9520739FEC00BC24BE /* SearchMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30300A7620739FEC00BC24BE /* SearchMapController.swift */; };
 		30300A9620739FEC00BC24BE /* MultipleDatasetsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30300A7820739FEC00BC24BE /* MultipleDatasetsController.swift */; };
-		30300A9720739FEC00BC24BE /* DatasetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30300A7920739FEC00BC24BE /* DatasetViewController.swift */; };
 		30300A9920739FEC00BC24BE /* ShowMultipleLocationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30300A7C20739FEC00BC24BE /* ShowMultipleLocationsController.swift */; };
 		30300A9A20739FEC00BC24BE /* DemoSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30300A7D20739FEC00BC24BE /* DemoSelectorViewController.swift */; };
 		30300A9B20739FEC00BC24BE /* CustomFloorSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30300A7F20739FEC00BC24BE /* CustomFloorSelectorController.swift */; };
@@ -151,6 +150,10 @@
 		A23D042B228D74FD0099F246 /* AdvancedDirectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23D0428228D74FD0099F246 /* AdvancedDirectionsController.swift */; };
 		A25BDFD01EF3B0FD002681B9 /* MIAIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25BDFCF1EF3B0FD002681B9 /* MIAIOSUITests.swift */; };
 		A25BE14F1EF3DA00002681B9 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25BE14E1EF3DA00002681B9 /* SnapshotHelper.swift */; };
+		A2864AFD2538556800065357 /* LiveDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2864AF72538551200065357 /* LiveDataController.swift */; };
+		A2864AFE2538556E00065357 /* open.png in Resources */ = {isa = PBXBuildFile; fileRef = A2864AF82538551200065357 /* open.png */; };
+		A2864AFF2538557300065357 /* DatasetManagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2864AF42538551100065357 /* DatasetManagerController.swift */; };
+		A2864B002538557300065357 /* DatasetMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2864AF52538551100065357 /* DatasetMapController.swift */; };
 		A2ABD3D622739E5F00D472ED /* MPRouteTrackingSample.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ABD3CB22739E5E00D472ED /* MPRouteTrackingSample.m */; };
 		A2ABD3E222739E5F00D472ED /* MPMapRouteTrackingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ABD3CD22739E5E00D472ED /* MPMapRouteTrackingModel.m */; };
 		A2D301B5230A6EEE00234808 /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D301B4230A6EED00234808 /* Memory.swift */; };
@@ -228,7 +231,6 @@
 		30300A7520739FEC00BC24BE /* MySearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySearchController.swift; sourceTree = "<group>"; };
 		30300A7620739FEC00BC24BE /* SearchMapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchMapController.swift; sourceTree = "<group>"; };
 		30300A7820739FEC00BC24BE /* MultipleDatasetsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleDatasetsController.swift; sourceTree = "<group>"; };
-		30300A7920739FEC00BC24BE /* DatasetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatasetViewController.swift; sourceTree = "<group>"; };
 		30300A7C20739FEC00BC24BE /* ShowMultipleLocationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMultipleLocationsController.swift; sourceTree = "<group>"; };
 		30300A7D20739FEC00BC24BE /* DemoSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoSelectorViewController.swift; sourceTree = "<group>"; };
 		30300A7F20739FEC00BC24BE /* CustomFloorSelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFloorSelectorController.swift; sourceTree = "<group>"; };
@@ -442,6 +444,10 @@
 		A27C41581FBDBD9400C1DA49 /* MPMapButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPMapButton.m; sourceTree = "<group>"; };
 		A27FA35D1F15E97500F82885 /* NSObject+CustomIntegrations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CustomIntegrations.h"; sourceTree = "<group>"; };
 		A27FA35E1F15E97500F82885 /* NSObject+CustomIntegrations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CustomIntegrations.m"; sourceTree = "<group>"; };
+		A2864AF42538551100065357 /* DatasetManagerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatasetManagerController.swift; sourceTree = "<group>"; };
+		A2864AF52538551100065357 /* DatasetMapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatasetMapController.swift; sourceTree = "<group>"; };
+		A2864AF72538551200065357 /* LiveDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveDataController.swift; sourceTree = "<group>"; };
+		A2864AF82538551200065357 /* open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = open.png; sourceTree = "<group>"; };
 		A2900C411F8CE3EB0008C556 /* Resources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources.xcassets; sourceTree = "<group>"; };
 		A29849D41F14B06B000C6D22 /* DetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsTableViewCell.h; sourceTree = "<group>"; };
 		A29849D51F14B06B000C6D22 /* DetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsTableViewCell.m; sourceTree = "<group>"; };
@@ -564,6 +570,8 @@
 				30300A8520739FEC00BC24BE /* Info.plist */,
 				30300A6E20739FEC00BC24BE /* LaunchScreen.storyboard */,
 				30300A7020739FEC00BC24BE /* Main.storyboard */,
+				A2864AF32538551100065357 /* Dataset Manager */,
+				A2864AF62538551200065357 /* Live Data */,
 				A23D0425228D74FD0099F246 /* Advanced Directions */,
 				30300A6920739FEC00BC24BE /* Change Display Setting */,
 				A2FC5D94222D507000617468 /* Clustering */,
@@ -650,7 +658,6 @@
 			isa = PBXGroup;
 			children = (
 				30300A7820739FEC00BC24BE /* MultipleDatasetsController.swift */,
-				30300A7920739FEC00BC24BE /* DatasetViewController.swift */,
 			);
 			path = "Multiple Datasets";
 			sourceTree = "<group>";
@@ -1111,6 +1118,24 @@
 			path = Solutions;
 			sourceTree = "<group>";
 		};
+		A2864AF32538551100065357 /* Dataset Manager */ = {
+			isa = PBXGroup;
+			children = (
+				A2864AF42538551100065357 /* DatasetManagerController.swift */,
+				A2864AF52538551100065357 /* DatasetMapController.swift */,
+			);
+			path = "Dataset Manager";
+			sourceTree = "<group>";
+		};
+		A2864AF62538551200065357 /* Live Data */ = {
+			isa = PBXGroup;
+			children = (
+				A2864AF72538551200065357 /* LiveDataController.swift */,
+				A2864AF82538551200065357 /* open.png */,
+			);
+			path = "Live Data";
+			sourceTree = "<group>";
+		};
 		A2A67B461F8E3B7100915083 /* Main Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -1349,6 +1374,7 @@
 			files = (
 				30300A9120739FEC00BC24BE /* LaunchScreen.storyboard in Resources */,
 				300A2D862099CA0A00882D4E /* kitten2.jpg in Resources */,
+				A2864AFE2538556E00065357 /* open.png in Resources */,
 				30300A8D20739FEC00BC24BE /* Assets.xcassets in Resources */,
 				300A2D882099CA0A00882D4E /* kitten.jpg in Resources */,
 				30300A9220739FEC00BC24BE /* Main.storyboard in Resources */,
@@ -1392,6 +1418,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/HashBuilder/HashBuilder.framework",
 				"${BUILT_PRODUCTS_DIR}/KVOController/KVOController.framework",
+				"${BUILT_PRODUCTS_DIR}/MapsIndoorsUtils/MapsIndoorsUtils.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialControls/MaterialControls.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework",
@@ -1408,6 +1435,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HashBuilder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KVOController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapsIndoorsUtils.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialControls.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PureLayout.framework",
@@ -1434,6 +1462,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/HashBuilder/HashBuilder.framework",
 				"${BUILT_PRODUCTS_DIR}/KVOController/KVOController.framework",
+				"${BUILT_PRODUCTS_DIR}/MapsIndoorsUtils/MapsIndoorsUtils.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialControls/MaterialControls.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework",
@@ -1450,6 +1479,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HashBuilder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KVOController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapsIndoorsUtils.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialControls.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PureLayout.framework",
@@ -1552,6 +1582,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/HashBuilder/HashBuilder.framework",
 				"${BUILT_PRODUCTS_DIR}/KVOController/KVOController.framework",
+				"${BUILT_PRODUCTS_DIR}/MapsIndoorsUtils/MapsIndoorsUtils.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialControls/MaterialControls.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework",
@@ -1568,6 +1599,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HashBuilder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KVOController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapsIndoorsUtils.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialControls.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PureLayout.framework",
@@ -1693,35 +1725,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Demos/Pods-Demos-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
-				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
-				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleFontsiOS/GoogleFontsiOS.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/HashBuilder/HashBuilder.framework",
-				"${BUILT_PRODUCTS_DIR}/KVOController/KVOController.framework",
-				"${BUILT_PRODUCTS_DIR}/MaterialControls/MaterialControls.framework",
-				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
-				"${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework",
-				"${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework",
-				"${BUILT_PRODUCTS_DIR}/VCMaterialDesignIcons/VCMaterialDesignIcons.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/MapsIndoorsUtils/MapsIndoorsUtils.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleFontsiOS.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HashBuilder.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KVOController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialControls.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PureLayout.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVGKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VCMaterialDesignIcons.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapsIndoorsUtils.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1874,6 +1882,7 @@
 				A2F4566C22BCA2DF004F7781 /* LocationSourcesController.swift in Sources */,
 				30300A8C20739FEC00BC24BE /* MyPositionProvider.swift in Sources */,
 				30300A9E20739FEC00BC24BE /* ShowRouteController.swift in Sources */,
+				A2864B002538557300065357 /* DatasetMapController.swift in Sources */,
 				30300A9320739FEC00BC24BE /* LocationDetailsController.swift in Sources */,
 				A23D042A228D74FD0099F246 /* RouteSegmentView.swift in Sources */,
 				30300A9620739FEC00BC24BE /* MultipleDatasetsController.swift in Sources */,
@@ -1890,14 +1899,15 @@
 				A2D301B5230A6EEE00234808 /* Memory.swift in Sources */,
 				A23D042B228D74FD0099F246 /* AdvancedDirectionsController.swift in Sources */,
 				30300A9A20739FEC00BC24BE /* DemoSelectorViewController.swift in Sources */,
+				A2864AFD2538556800065357 /* LiveDataController.swift in Sources */,
 				A23D0429228D74FD0099F246 /* RouteSegmentsController.swift in Sources */,
 				30300A8720739FEC00BC24BE /* ShowFloorController.swift in Sources */,
 				30300A9020739FEC00BC24BE /* ShowLocationController.swift in Sources */,
 				A23D0421228D74DE0099F246 /* MapStylesController.swift in Sources */,
 				30300A9420739FEC00BC24BE /* MySearchController.swift in Sources */,
 				30300A8920739FEC00BC24BE /* ShowVenueController.swift in Sources */,
-				30300A9720739FEC00BC24BE /* DatasetViewController.swift in Sources */,
 				30300A9C20739FEC00BC24BE /* AppDelegate.swift in Sources */,
+				A2864AFF2538557300065357 /* DatasetManagerController.swift in Sources */,
 				30300A8F20739FEC00BC24BE /* ChangeDisplaySettingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2015,6 +2025,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7FDF880E2FE7E569C184B04F /* Pods-Demos.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_MODULES = YES;
@@ -2024,13 +2035,14 @@
 				DEVELOPMENT_TEAM = A8V6656PYZ;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "$(SRCROOT)/DemoSamples/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapspeople.MapsIndoors.Demos.TestFlight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 X86_64";
 			};
 			name = Debug;
 		};
@@ -2038,6 +2050,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E4D1CCB1F2AAEC005C999E48 /* Pods-Demos.release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_MODULES = YES;
@@ -2047,12 +2060,13 @@
 				DEVELOPMENT_TEAM = A8V6656PYZ;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "$(SRCROOT)/DemoSamples/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapspeople.MapsIndoors.Demos.TestFlight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 X86_64";
 			};
 			name = Release;
 		};
@@ -2154,6 +2168,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
 			};
 			name = Debug;
 		};
@@ -2201,11 +2216,13 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
 			};
 			name = Release;
 		};

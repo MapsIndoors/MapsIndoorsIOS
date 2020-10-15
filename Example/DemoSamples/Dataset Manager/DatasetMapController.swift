@@ -10,16 +10,14 @@ import UIKit
 import GoogleMaps
 import MapsIndoors
 
-class DatasetViewController: UIViewController, MPMapControlDelegate {
+class DatasetMapController: UIViewController, MPMapControlDelegate {
     
     var map: GMSMapView? = nil
     var mapControl: MPMapControl? = nil
-    var venueKey = ""
     
-    convenience init(_ apiKey:String, _ venueKey:String) {
+    convenience init(_ apiKey:String) {
         self.init(nibName:nil, bundle:nil)
         MapsIndoors.provideAPIKey(apiKey, googleAPIKey: AppDelegate.gApiKey)
-        self.venueKey = venueKey
     }
     
     override func viewDidLoad() {
@@ -34,27 +32,16 @@ class DatasetViewController: UIViewController, MPMapControlDelegate {
         
         self.mapControl?.delegate = self
         let q = MPQuery.init()
-        q.query = venueKey
         let f = MPFilter.init()
+        f.categories = ["venue"]
         
         weak var _self = self
-        
+
         MPLocationService.sharedInstance().getLocationsUsing(q, filter: f) { (locations, err) in
             if let location = locations?.first {
                 _self?.mapControl?.selectedLocation = location
                 _self?.mapControl?.go(to: location)
             }
         }
-        
-//        let deadlineTime = DispatchTime.now() + .seconds(5)
-//
-//        // Test that previous dataset is properly deleted from memory
-//        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-//            UIApplication.shared.perform(Selector(("_performMemoryWarning")))
-//        }
     }
-    
-//    func mapContentReady() {
-//        self.mapControl?.venue = venueKey
-//    }
 }

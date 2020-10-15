@@ -76,12 +76,8 @@ class MySearchController: UIViewController, UISearchBarDelegate, UITableViewDele
         let stackView = UIStackView.init(arrangedSubviews: [topFiller, searchBar, tableView])
         stackView.axis = .vertical
         view = stackView
-        if #available(iOS 11, *) {
-            let kw = UIApplication.shared.keyWindow
-            topFiller.heightAnchor.constraint(equalToConstant:kw?.safeAreaInsets.top ?? 0).isActive = true
-        } else {
-            topFiller.heightAnchor.constraint(equalToConstant:22).isActive = true
-        }
+        let kw = UIApplication.shared.keyWindow
+        topFiller.heightAnchor.constraint(equalToConstant:kw?.safeAreaInsets.top ?? 0).isActive = true
         topFiller.backgroundColor = .blue
         searchBar.barTintColor = .blue
         searchBar.tintColor = .white

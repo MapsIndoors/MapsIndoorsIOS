@@ -21,11 +21,7 @@ class DemoSelectorViewController: UITableViewController {
         memoryLabel.font = UIFont.boldSystemFont(ofSize: 10)
         memoryLabel.translatesAutoresizingMaskIntoConstraints = false
         memoryLabel.centerXAnchor.constraint(equalTo: window!.centerXAnchor).isActive = true
-        if #available(iOS 11.0, *) {
-            memoryLabel.topAnchor.constraint(equalTo: window!.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
-        } else {
-            memoryLabel.topAnchor.constraint(equalTo: window!.topAnchor, constant: 22).isActive = true
-        }
+        memoryLabel.topAnchor.constraint(equalTo: window!.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
         reportMemoryUsage()
     }
     
@@ -54,7 +50,9 @@ class DemoSelectorViewController: UITableViewController {
                                                           LocationSourcesController.self,
                                                           ClusteringController.self,
                                                           CustomInfoWindowController.self,
-                                                          AppUserRolesController.self
+                                                          AppUserRolesController.self,
+                                                          DatasetManagerController.self,
+                                                          LiveDataController.self
                                                         ]
     
     // MARK: Tableview delegate and datasource

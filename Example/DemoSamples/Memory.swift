@@ -33,15 +33,9 @@ class Memory: NSObject {
             else { return -1 }
 
         return Int64(info.phys_footprint)
-//        let usedBytes = Float(info.phys_footprint)
-//        return usedBytes
     }
     
     class func formattedMemoryFootprint() -> String {
         return ByteCountFormatter.string(fromByteCount: self.memoryFootprint(), countStyle: .memory)
-//        let usedBytes = UInt64(self.memoryFootprint() ?? 0)
-//        let usedMB = Double(usedBytes) / 1024 / 1024
-//        let usedMBAsString: String = "\(usedMB)MB"
-//        return usedMBAsString
     }
 }

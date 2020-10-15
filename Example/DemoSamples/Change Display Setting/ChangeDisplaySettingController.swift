@@ -60,11 +60,29 @@ class ChangeDisplaySettingController: UIViewController {
     var singleLocation:MPLocation? = nil
     
     /***
-    Add display setting properties of type `MPLocationDisplayRule` used for overriding display settings for a type, a single location and multiple locations. Also add a property `originalTypeDisplaySetting` to hold on to the original type display setting.
+    Add display setting properties of type `MPLocationDisplayRule` used for overriding display settings for a type, a single location and multiple locations. Enable polygon display and add a polygon fill color to the display rules. Also add a property `originalTypeDisplaySetting` to hold on to the original type display setting.
     ***/
-    let typeDisplaySetting = MPLocationDisplayRule.init(name: "MeetingRoom", andIcon: UIImage.init(color: UIColor.red), andZoomLevelOn: 15)!
-    let singleLocationDisplaySetting = MPLocationDisplayRule.init(name: nil, andIcon: UIImage.init(color: UIColor.blue), andZoomLevelOn: 15)!
-    let multipleLocationDisplaySetting = MPLocationDisplayRule.init(name: nil, andIcon: UIImage.init(color: UIColor.green), andZoomLevelOn: 15)!
+    var typeDisplaySetting:MPLocationDisplayRule { get {
+            let dr = MPLocationDisplayRule.init(name: "MeetingRoom", andIcon: UIImage.init(color: .red), andZoomLevelOn: 15)!
+            dr.showPolygon = true
+            dr.polygonFillColor = UIColor.red.withAlphaComponent(0.7)
+            return dr
+        }
+    }
+    var singleLocationDisplaySetting:MPLocationDisplayRule { get {
+            let dr = MPLocationDisplayRule.init(name: nil, andIcon: UIImage.init(color: .blue), andZoomLevelOn: 15)!
+            dr.showPolygon = true
+            dr.polygonFillColor = UIColor.blue.withAlphaComponent(0.7)
+            return dr
+        }
+    }
+    var multipleLocationDisplaySetting:MPLocationDisplayRule  { get {
+            let dr = MPLocationDisplayRule.init(name: nil, andIcon: UIImage.init(color: .green), andZoomLevelOn: 15)!
+            dr.showPolygon = true
+            dr.polygonFillColor = UIColor.green.withAlphaComponent(0.7)
+            return dr
+        }
+    }
     var originalTypeDisplaySetting:MPLocationDisplayRule?
     
     /***
@@ -92,7 +110,7 @@ class ChangeDisplaySettingController: UIViewController {
      ***/
     func prepareData() {
         let q = MPQuery()
-        q.query = "meeting room"
+        q.query = "Meeting Room"
         let f = MPFilter()
         f.take = UInt.max
         MPLocationService.sharedInstance().getLocationsUsing(q, filter: f) { (locations, error) in
