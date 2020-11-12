@@ -25,7 +25,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,   weak,           nullable) MPLocation*               location;
 @property (nonatomic, strong,           nullable) NSDate*                   startTime;
 @property (nonatomic, strong,           nullable) NSDate*                   endTime;
-@property (nonatomic, strong,           nullable) NSString*                 organizerId;
 @property (nonatomic, strong,           nullable) NSArray< NSString* >*     participantIds;
 @property (nonatomic, strong,           nullable) NSString*                 title;
 @property (nonatomic, strong,           nullable) NSString*                 bookingDescription;
