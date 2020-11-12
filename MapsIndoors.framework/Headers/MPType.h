@@ -11,16 +11,29 @@
 #import "MPLocationField.h"
 
 /**
- POI types (used by MapsPeoples services)
+ Location Type model.
  */
 @interface MPType : MPJSONModel
 
+/**
+Location Type name.
+*/
 @property (nonatomic, strong, nullable) NSString* name;
-@property (nonatomic, strong, nullable) NSString* icon;
+/**
+Location Type icon.
+*/
+@property (nonatomic, strong, nullable) NSString* icon DEPRECATED_MSG_ATTRIBUTE("Use MPType.displayRule.iconPath");
+/**
+Get the Display Rule assigned to this Location Type.
+*/
 @property (nonatomic, strong, nullable) MPLocationDisplayRule<Optional>* displayRule;
 /**
  Dictionary of custom fields
  */
 @property (nonatomic, strong, nullable, readonly) NSDictionary<NSString*, MPLocationField*><Optional, MPLocationField> *fields;
+/**
+Get restrictions for Type. Locations of this Type is restricted to this set of app user roles.
+*/
+@property (nonatomic, strong, nullable, readonly)  NSArray<NSString*><Optional>*       restrictions;
 
 @end

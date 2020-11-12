@@ -132,3 +132,8 @@
 #import <MapsIndoors/MPGeometryContainmentMetadata.h>
 
 #import <MapsIndoors/MPUserRole.h>
+
+#import "MPBookingService.h"
+#import "MPBooking.h"
+#import "MPBookableQuery.h"
+#import "MPBookingsQuery.h"

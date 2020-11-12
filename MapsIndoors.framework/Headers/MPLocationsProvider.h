@@ -51,12 +51,12 @@ typedef void(^mpLocationListHandlerBlockType)(MPLocationDataset* _Nullable locat
  @param  solutionId The MapsIndoors solution ID.
  @param  language The language code. Must be one of the MapsIndoors solutions supported content languages.
  */
-- (void)getLocationsAsync: (nonnull NSString*) solutionId language: (nonnull NSString*) language DEPRECATED_MSG_ATTRIBUTE("Use getLocations instead");
+- (void) getLocationsAsync: (nonnull NSString*) solutionId language: (nonnull NSString*) language DEPRECATED_MSG_ATTRIBUTE("Use getLocations instead");
 
 /**
- Method to initiate fetching of all locations from the provider in the current transation ([MapsIndoors getLanguage]).
+ Method to initiate fetching of all locations from the provider in the current translation ([MapsIndoors getLanguage]).
  */
-- (void)getLocations;
+- (void) getLocations;
 
 /**
  Method to initiate fetching of all locations from the provider in a specific translation.
@@ -65,13 +65,13 @@ typedef void(^mpLocationListHandlerBlockType)(MPLocationDataset* _Nullable locat
  @param  language The language code. Must be one of the MapsIndoors solutions supported content languages.
  @param  handler The handler callback block. Contains the MPLocation object (can be nil) and an NSError object (can be nil).
  */
-- (void)getLocationsAsync: (nonnull NSString*) solutionId language: (nonnull NSString*) language completionHandler: (nullable mpLocationListHandlerBlockType) handler DEPRECATED_MSG_ATTRIBUTE("Use getLocationsWithCompletion instead");
+- (void) getLocationsAsync: (nonnull NSString*) solutionId language: (nonnull NSString*) language completionHandler: (nullable mpLocationListHandlerBlockType) handler DEPRECATED_MSG_ATTRIBUTE("Use getLocationsWithCompletion instead");
 
 /**
- Method to initiate fetching of all locations from the provider in the current transation ([MapsIndoors getLanguage]).
+ Method to initiate fetching of all locations from the provider in the current translation ([MapsIndoors getLanguage]).
  @param  handler The handler callback block. Contains the MPLocation object (can be nil) and an NSError object (can be nil).
  */
-- (void)getLocationsWithCompletion: (nullable mpLocationListHandlerBlockType) handler;
+- (void) getLocationsWithCompletion: (nullable mpLocationListHandlerBlockType) handler;
 
 /**
  Method to query a unique location from the provider based on an id.
@@ -80,14 +80,14 @@ typedef void(^mpLocationListHandlerBlockType)(MPLocationDataset* _Nullable locat
  @param  locationId The MapsIndoors location ID.
  @param  language The language code. Must be one of the MapsIndoors solutions supported content languages.
  */
-- (void)getLocationDetailsAsync: (nonnull NSString*) solutionId withId:(nonnull NSString*)locationId language: (nonnull NSString*) language DEPRECATED_MSG_ATTRIBUTE("Use getLocationWithId: instead");
+- (void) getLocationDetailsAsync: (nonnull NSString*) solutionId withId:(nonnull NSString*)locationId language: (nonnull NSString*) language DEPRECATED_MSG_ATTRIBUTE("Use getLocationWithId: instead");
 
 /**
  Method to query a unique location from the provider based on an id.
- Data is returned in the current transation ([MapsIndoors getLanguage]).
+ Data is returned in the current translation ([MapsIndoors getLanguage]).
  @param  locationId The MapsIndoors location ID.
  */
-- (void)getLocationWithId:(nonnull NSString*)locationId;
+- (void) getLocationWithId:(nonnull NSString*)locationId;
 
 /**
  Method to query a unique location from the provider based on an id.
@@ -97,15 +97,24 @@ typedef void(^mpLocationListHandlerBlockType)(MPLocationDataset* _Nullable locat
  @param  language The language code. Must be one of the MapsIndoors solutions supported content languages.
  @param  handler The handler callback block. Contains the MPLocation object (can be nil) and an NSError object (can be nil).
  */
-- (void)getLocationDetailsAsync: (nonnull NSString*) solutionId withId:(nonnull NSString*)locationId language: (nonnull NSString*) language completionHandler: (nullable mpLocationDetailsHandlerBlockType) handler DEPRECATED_MSG_ATTRIBUTE("Use getLocationWithId:completionHandler: instead");
+- (void) getLocationDetailsAsync:(nonnull NSString*) solutionId withId:(nonnull NSString*)locationId language: (nonnull NSString*) language completionHandler: (nullable mpLocationDetailsHandlerBlockType) handler DEPRECATED_MSG_ATTRIBUTE("Use getLocationWithId:completionHandler: instead");
 
 /**
  Method to query a unique location from the provider based on an id.
- Data is returned in the current transation ([MapsIndoors getLanguage]).
- @param  locationId The MapsIndoors location ID.
+ Data is returned in the current translation ([MapsIndoors getLanguage]).
+ @param locationId The MapsIndoors location ID.
+ @param completionHandler callback for result delivery.
  */
-@required
-- (void)getLocationWithId:(nonnull NSString*)locationId completionHandler:(nullable mpLocationDetailsHandlerBlockType) handler;
+- (void) getLocationWithId:(nonnull NSString*)locationId completionHandler:(nullable mpLocationDetailsHandlerBlockType) completionHandler;
+
+/**
+ Method to query for a batch of locations given their ids.
+ Data is returned in the current translation ([MapsIndoors getLanguage]).
+ The order of the returned locations is indeterminate, and not in the order of the locationIds parameter.
+ @param locationIds The MapsIndoors location ID.
+ @param completionHandler callback for result delivery.
+*/
+- (void) getLocationsWithIds:(nonnull NSArray<NSString*>*)locationIds completionHandler:(nonnull mpLocationListHandlerBlockType)completionHandler;
 
 /**
  Method to query a subset of locations from the provider.
@@ -113,7 +122,7 @@ typedef void(^mpLocationListHandlerBlockType)(MPLocationDataset* _Nullable locat
  @param  locationQuery Locations query object. Must at least define your MapsIndoors solution ID (MPLocationQuery.solutionId)
  @param  language The language code. Must be one of the MapsIndoors solutions supported content languages.
  */
-- (void)getLocationsUsingQueryAsync: (nonnull MPLocationQuery*) locationQuery language: (nonnull NSString*) language DEPRECATED_MSG_ATTRIBUTE("Use getLocationsUsingQuery: instead");
+- (void) getLocationsUsingQueryAsync:(nonnull MPLocationQuery*) locationQuery language:(nonnull NSString*) language DEPRECATED_MSG_ATTRIBUTE("Use getLocationsUsingQuery: instead");
 
 /**
  Determine if cached or preloaded data is available for the given solutionId.
@@ -126,10 +135,10 @@ typedef void(^mpLocationListHandlerBlockType)(MPLocationDataset* _Nullable locat
 
 /**
  Method to query a subset of locations from the provider.
- Data is returned in the current transation ([MapsIndoors getLanguage]).
+ Data is returned in the current translation ([MapsIndoors getLanguage]).
  @param  locationQuery Locations query object. Must at least define your MapsIndoors solution ID (MPLocationQuery.solutionId)
  */
-- (void)getLocationsUsingQuery:(nonnull MPLocationQuery*) locationQuery;
+- (void) getLocationsUsingQuery:(nonnull MPLocationQuery*) locationQuery;
 
 /**
  Method to query a subset of locations from the provider.
@@ -138,7 +147,7 @@ typedef void(^mpLocationListHandlerBlockType)(MPLocationDataset* _Nullable locat
  @param language The language code. Must be one of the MapsIndoors solutions supported content languages.
  @param handler The handler callback block. Contains the MPLocationDataset object (can be nil) and an NSError object (can be nil).
  */
-- (void)getLocationsUsingQueryAsync: (nonnull MPLocationQuery*) locationQuery language: (nonnull NSString*) language completionHandler: (nullable mpLocationListHandlerBlockType) handler DEPRECATED_MSG_ATTRIBUTE("Use getLocationsUsingQuery:completionHandler: instead");
+- (void) getLocationsUsingQueryAsync:(nonnull MPLocationQuery*) locationQuery language:(nonnull NSString*) language completionHandler:(nullable mpLocationListHandlerBlockType) handler DEPRECATED_MSG_ATTRIBUTE("Use getLocationsUsingQuery:completionHandler: instead");
 
 /**
  Method to query a subset of locations from the provider.
@@ -146,7 +155,7 @@ typedef void(^mpLocationListHandlerBlockType)(MPLocationDataset* _Nullable locat
  @param locationQuery Locations query object. Must at least define your MapsIndoors solution ID (MPLocationQuery.solutionId)
  @param handler The handler callback block. Contains the MPLocationDataset object (can be nil) and an NSError object (can be nil).
  */
-- (void)getLocationsUsingQuery:(nonnull MPLocationQuery*)locationQuery completionHandler:(nullable mpLocationListHandlerBlockType)handler;
+- (void) getLocationsUsingQuery:(nonnull MPLocationQuery*)locationQuery completionHandler:(nullable mpLocationListHandlerBlockType)handler;
 
 @end
 

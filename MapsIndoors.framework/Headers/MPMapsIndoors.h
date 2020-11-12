@@ -15,6 +15,7 @@
 @protocol MPLocationsProvider;
 @protocol MPLocationSource;
 @class MPDataSetCacheManager;
+@class MPUserRole;
 
 
 /**
@@ -146,8 +147,13 @@ typedef void(^mpOfflineDataHandlerBlockType)( NSError* _Nullable error);
 
 
 /**
- Return the shared dataset cache manager.
+ Get the shared dataset cache manager.
  */
 @property (class, readonly, nonnull) MPDataSetCacheManager*      dataSetCacheManager;
+
+/**
+ Get or set the user roles that should apply generally for querying routes and locations. The roles are applied in an OR fashion. This means that if for example a locations internal restrictions matches one or more of the given roles, the location will be included in response object.
+ */
+@property (class, nonatomic, strong, nullable) NSArray<MPUserRole*>*       userRoles;
 
 @end

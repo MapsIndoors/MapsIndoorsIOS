@@ -109,14 +109,14 @@
 /**
  URL for image associated with this MPLocation.
  */
-@property (nonatomic, strong, nullable, readonly) NSString<Optional>* imageURL DEPRECATED_MSG_ATTRIBUTE("Use -fields to get properties like image, description etc.");
+@property (nonatomic, strong, nullable, readonly) NSString<Optional>* imageURL;
 /**
  Location Source ID. Some implementations have different location sources, and this id is a reference to the location source that created the location. The source ID will remain the same throughout the running application session, but the source ID is not expected to remain the same across sessions.
  */
 @property (nonatomic, strong, nullable, readonly) NSNumber<Optional>* sourceId;
 
 /**
- Location icon. If not set, the location will either get an icon from the settings configured for the type of location or a default appearance that is configurable through `MPMapControl`.
+ Location icon. If nil, the location will either get an icon from the settings configured for the type of location or a default appearance that is configurable through `MPMapControl`.
  */
 @property (nonatomic, strong, nullable, readonly) UIImage<Optional>*    icon;
 
@@ -129,6 +129,10 @@
  */
 @property (nonatomic, readonly) MPLocationBaseType                      baseType;
 
+/**
+If set, location is restricted to given set of app user roles.
+*/
+@property (nonatomic, strong, nullable, readonly)  NSArray<NSString*><Optional>*       restrictions;
 
 /**
  Get the point holding coordinates for the location object
@@ -151,5 +155,10 @@
 Get a live update based on a known domain type
 */
 - (nullable MPLiveUpdate*) getLiveUpdateForDomainType:(nonnull NSString*)domainType;
+
+/**
+ Determines if the MPLocation is bookable using the MPBookingService.
+ */
+@property (nonatomic, readonly) BOOL        isBookable;
 
 @end

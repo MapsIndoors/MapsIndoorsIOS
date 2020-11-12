@@ -11,6 +11,6 @@ typedef NS_ENUM(NSInteger, MPLocationSourceStatus)
 {
     MPLocationSourceStatusAvailable,
     MPLocationSourceStatusUnavailable,
-    MPLocationSourceStatusInactive,
     MPLocationSourceStatusInitialising,
+    MPLocationSourceStatusInactive,
 };
