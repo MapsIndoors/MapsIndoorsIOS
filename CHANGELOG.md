@@ -1,8 +1,10 @@
 ---
-title: Changelog
-layout: default
-published: true
-nav_weight: 1000
+title: iOS SDK v3 Changelog
+permalink: /changelogs/ios/v3/
+eleventyNavigation:
+  key: iOS SDK v3 Changlog
+  parent: changelogs
+  order: 3
 ---
 
 Changelog for MapsIndoors for iOS. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
@@ -15,6 +17,18 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Changed
 ### Removed
 -->
+
+## [3.17.0] 2020-11-11
+
+### Added
+
+- Added convenience methods for enabling Live Data for a `MPMapControl` instance. Methods are `MPMapControl.enableLiveData()` (two variants) and `MPMapControl.disableLiveData()`. For more information, read about this feature in the [Live Data Guide](https://mapsindoors.github.io/ios/v3/live-data/).
+
+## [3.15.0] 2020-11-12
+
+### Added
+
+- Support for Booking of Locations through a MapsIndoors Google Calendar Booking Provider, see [guide about booking](https://mapsindoors.github.io/ios/v3/booking/).
 
 ## [3.14.0] 2020-11-11
 
@@ -197,16 +211,6 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Changed
 
 - Multiple improvements to the search engine has been implemented.
-
-## [3.6.2] 2019-11-18
-
-### Fixed
-
-- Fixed a memory leak happening when switching Solution or API key.
-- Fixed `MPMapControl` is now more resilient against `GMSMapView.delegate` being changed.
-- [This issue](https://forums.developer.apple.com/thread/123003) made our SDK crash if built with XCode 10 and below. We have implemented a workaround in this version.
-- Fixed Restored previous behaviour where the map settles on a building and showing the floor selector initially.
-- Fixed Improved switching between different Solutions / API keys.
 
 ## [3.6.2] 2019-11-18
 
