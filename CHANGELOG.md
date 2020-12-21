@@ -18,11 +18,32 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [3.17.0] 2020-11-11
+## [3.16.0] 2020-12-17
 
 ### Added
 
 - Added convenience methods for enabling Live Data for a `MPMapControl` instance. Methods are `MPMapControl.enableLiveData()` (two variants) and `MPMapControl.disableLiveData()`. For more information, read about this feature in the [Live Data Guide](https://mapsindoors.github.io/ios/v3/live-data/).
+- Added default rendering of Live Data when using the above interface.
+- Added optional method `updateLiveDataInfo` to `MPLiveDataManager`. This makes it possible to fetch updated information about active Live Data Domain Types in the current dataset.
+- Added optional method `didUpdateLiveDataInfo` to `MPLiveDataManagerDelegate`. This makes it possible to receive updated information about active Live Data Domain Types in the current dataset.
+- When developing with Live Data, you can now use/cast to subclasses of `MPLiveUpdate`: `MPPositionLiveUpdate`, `MPOccupancyLiveUpdate`, `MPAvailabilityLiveUpdate`.
+- Added `types` and `locations` filter to `MPLocationService`.
+- Now returning an error from `MPLocationService` if a Location Source status changes to `unavailable`.
+- Added property `positionProviderConfigs` on `MPSolution` model.
+- Added property `dataSetId` on `MPSolution` model.
+- Added property `isIndoors` on `MPLocation` model, returning true if location is indoors and belongs to a building.
+
+### Changed
+
+- Made `didReceiveLiveUpdate` on `MPLiveDataManagerDelegate` optional.
+- Deprecated `MPLocationsProvider`. You can/should use `MPLocationService` instead.
+- Instead of ignoring Topics with Domain Types that are not relevant/active for current dataset, `MPLiveDataManager` will now throw an error through the delegate instead.
+
+### Fixed
+
+- Fix `bbox` getter returning `nil` on MPMultiPolygonGeometry and MPPolygonGeometry
+- Fixed occasional crash in `MPBooking` deserialization.
+- Improved search and filtering quality of the search engine in `MPLocationService`.
 
 ## [3.15.0] 2020-11-12
 

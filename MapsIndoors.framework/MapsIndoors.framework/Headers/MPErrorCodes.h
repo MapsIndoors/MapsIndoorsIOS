@@ -53,6 +53,8 @@
 #define kMPErrorCodeSaveDataError                                   101620
 #define kMPErrorCodeSynchronizeContentDataNotAvailableOffline       101620
 
+#define kMPErrorCodeLiveDataSubscriptionFailedNotActive             102000
+
 #define kMPMapsIndoorsDomain @"com.mapspeople.MapsIndoors"
 
 #define MPMakeErrorWithCode(cODE,uSRiNFOdICT)   [NSError errorWithDomain:kMPMapsIndoorsDomain code:cODE userInfo:uSRiNFOdICT]

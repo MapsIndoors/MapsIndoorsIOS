@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong,           nullable) NSArray< NSString* >*     participantIds;
 @property (nonatomic, strong,           nullable) NSString*                 title;
 @property (nonatomic, strong,           nullable) NSString*                 bookingDescription;
+@property (nonatomic,         readonly          ) BOOL                      isManaged;              //! Indicates whether this booking is managed by the MapsIndoors Booking Service or has been created by other means. Managed bookings are cancellable by the booking service.
 
 @end
 

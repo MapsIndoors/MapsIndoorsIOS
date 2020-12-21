@@ -24,11 +24,12 @@ typedef NS_ENUM(NSInteger, MPLiveDataManagerState) {
 
 @class MPLiveUpdate;
 @class MPLiveTopicCriteria;
+@class MPLiveDataInfo;
 
 /// Live Data Manager Delegate protocol. Conforming to this protocol makes it possible to get Live Updates, state changes, errors and other calls from MPLiveDataManager.
 @protocol MPLiveDataManagerDelegate <NSObject>
 
-@required
+@optional
 /// Called when a Live Update was recieved.
 /// @param liveUpdate The Live Update.
 - (void) didReceiveLiveUpdate:(MPLiveUpdate*)liveUpdate;
@@ -65,6 +66,11 @@ typedef NS_ENUM(NSInteger, MPLiveDataManagerState) {
 /// @param error The unsubscription error.
 - (void) onError:(NSError*)error;
 
+@optional
+/// Called when information about Liva Data for for a dataset is determined. The information will contain the currently active domain types.
+/// @param info The information about Liva Data for for a dataset.
+- (void) didReceiveLiveDataInfo:(MPLiveDataInfo*)info;
+
 @end
 
 /// The Live Data Manager class is the central class for managing Live Update subscriptions.
@@ -88,6 +94,8 @@ typedef NS_ENUM(NSInteger, MPLiveDataManagerState) {
 - (void) unsubscribe:(MPLiveTopicCriteria*)topic;
 /// Unsubscribe all Live Updates. When the last Topic Criteria is successfully unsubscribed the Live Data Manager will disconnect from the Live Update remote services.
 - (void) unsubscribeAll;
+/// Update Live Data information, including list of active Domain Types for the current dataset.
+- (void) updateLiveDataInfo;
 @end
 
 NS_ASSUME_NONNULL_END

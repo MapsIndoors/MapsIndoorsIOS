@@ -11,6 +11,10 @@
 #import <CoreLocation/CoreLocation.h>
 
 #import <MapsIndoors/UIColor+HexString.h>
+
+#import <MapsIndoors/MPSolution.h>
+#import <MapsIndoors/MPSolutionProvider.h>
+
 #import <MapsIndoors/MPAppData.h>
 #import <MapsIndoors/MPBuilding.h>
 #import <MapsIndoors/MPBuildingDataset.h>
@@ -86,6 +90,7 @@
 #import <MapsIndoors/MPAvailabilityLiveUpdate.h>
 #import <MapsIndoors/MPPositionLiveUpdate.h>
 #import <MapsIndoors/MPLiveDataManager.h>
+#import <MapsIndoors/MPLiveDataInfo.h>
 
 #import <MapsIndoors/MPDirectionsRenderer.h>
 #import <MapsIndoors/MPDirectionsService.h>
