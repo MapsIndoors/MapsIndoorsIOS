@@ -157,6 +157,9 @@
 		A2ABD3D622739E5F00D472ED /* MPRouteTrackingSample.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ABD3CB22739E5E00D472ED /* MPRouteTrackingSample.m */; };
 		A2ABD3E222739E5F00D472ED /* MPMapRouteTrackingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ABD3CD22739E5E00D472ED /* MPMapRouteTrackingModel.m */; };
 		A2D301B5230A6EEE00234808 /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D301B4230A6EED00234808 /* Memory.swift */; };
+		A2EAC31925A3427200E3FDC9 /* BookableLocationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EAC31625A3427200E3FDC9 /* BookableLocationsController.swift */; };
+		A2EAC31A25A3427200E3FDC9 /* BookingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EAC31725A3427200E3FDC9 /* BookingsController.swift */; };
+		A2EAC31B25A3427200E3FDC9 /* BookingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EAC31825A3427200E3FDC9 /* BookingController.swift */; };
 		A2F4566C22BCA2DF004F7781 /* LocationSourcesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F4566B22BCA2DF004F7781 /* LocationSourcesController.swift */; };
 		A2FC5D9B222D507000617468 /* ClusteringController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FC5D95222D507000617468 /* ClusteringController.swift */; };
 		A2FCD92B21BFD7DB00E135F1 /* mapsindoors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 302B0C3320653A72009C7BF9 /* mapsindoors.plist */; };
@@ -466,6 +469,9 @@
 		A2D03C4F2018874200086830 /* MPPointXY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPPointXY.h; sourceTree = "<group>"; };
 		A2D03C502018874200086830 /* MPPointXY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPPointXY.m; sourceTree = "<group>"; };
 		A2D301B4230A6EED00234808 /* Memory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
+		A2EAC31625A3427200E3FDC9 /* BookableLocationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookableLocationsController.swift; sourceTree = "<group>"; };
+		A2EAC31725A3427200E3FDC9 /* BookingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingsController.swift; sourceTree = "<group>"; };
+		A2EAC31825A3427200E3FDC9 /* BookingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingController.swift; sourceTree = "<group>"; };
 		A2F4566B22BCA2DF004F7781 /* LocationSourcesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSourcesController.swift; sourceTree = "<group>"; };
 		A2FC5D95222D507000617468 /* ClusteringController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusteringController.swift; sourceTree = "<group>"; };
 		A2FFF8922302AE5A00F4AF6B /* AppInfoOtherInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppInfoOtherInfoViewController.h; sourceTree = "<group>"; };
@@ -560,6 +566,7 @@
 		30300A5E20739FEC00BC24BE /* DemoSamples */ = {
 			isa = PBXGroup;
 			children = (
+				A2EAC31525A3427200E3FDC9 /* Booking */,
 				30AA81E82344AE0600B9FEF9 /* App User Roles */,
 				A2D301B4230A6EED00234808 /* Memory.swift */,
 				30300A8020739FEC00BC24BE /* AppDelegate.swift */,
@@ -1157,6 +1164,16 @@
 				A2ABD3CE22739E5E00D472ED /* MPRouteTrackingSample.h */,
 			);
 			path = "Route Tracking";
+			sourceTree = "<group>";
+		};
+		A2EAC31525A3427200E3FDC9 /* Booking */ = {
+			isa = PBXGroup;
+			children = (
+				A2EAC31625A3427200E3FDC9 /* BookableLocationsController.swift */,
+				A2EAC31725A3427200E3FDC9 /* BookingsController.swift */,
+				A2EAC31825A3427200E3FDC9 /* BookingController.swift */,
+			);
+			path = Booking;
 			sourceTree = "<group>";
 		};
 		A2F4566D22BCA359004F7781 /* Custom Info Window */ = {
@@ -1886,13 +1903,16 @@
 				30300A9320739FEC00BC24BE /* LocationDetailsController.swift in Sources */,
 				A23D042A228D74FD0099F246 /* RouteSegmentView.swift in Sources */,
 				30300A9620739FEC00BC24BE /* MultipleDatasetsController.swift in Sources */,
+				A2EAC31A25A3427200E3FDC9 /* BookingsController.swift in Sources */,
 				A23D041B228D74A00099F246 /* RoomAvailabilitySource.swift in Sources */,
 				A23D0424228D74EA0099F246 /* OfflineController.swift in Sources */,
 				30300A9920739FEC00BC24BE /* ShowMultipleLocationsController.swift in Sources */,
 				A2FC5D9B222D507000617468 /* ClusteringController.swift in Sources */,
 				30300A8B20739FEC00BC24BE /* ShowMyLocationController.swift in Sources */,
+				A2EAC31925A3427200E3FDC9 /* BookableLocationsController.swift in Sources */,
 				A23D041E228D74A00099F246 /* PeopleLocationSource.swift in Sources */,
 				30AA81EA2344AE0600B9FEF9 /* AppUserRolesController.swift in Sources */,
+				A2EAC31B25A3427200E3FDC9 /* BookingController.swift in Sources */,
 				30300A9D20739FEC00BC24BE /* ShowBuildingController.swift in Sources */,
 				30AA81E72344ADCA00B9FEF9 /* CustomInfoWindowController.swift in Sources */,
 				30300A9520739FEC00BC24BE /* SearchMapController.swift in Sources */,
@@ -2034,7 +2054,7 @@
 				DEVELOPMENT_TEAM = A8V6656PYZ;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "$(SRCROOT)/DemoSamples/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapspeople.MapsIndoors.Demos.TestFlight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2057,7 +2077,7 @@
 				DEVELOPMENT_TEAM = A8V6656PYZ;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "$(SRCROOT)/DemoSamples/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapspeople.MapsIndoors.Demos.TestFlight;
 				PRODUCT_NAME = "$(TARGET_NAME)";

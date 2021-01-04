@@ -44,8 +44,10 @@ class AppUserRolesController: UIViewController {
     func getUserRoles() {
         MPSolutionProvider.init().getUserRoles { (userRoles, error) in
             self.userRoles = userRoles!
+            var segment = 0
             self.userRoles.forEach({ (userRole) in
-                self.userRoleSegmentedControl.insertSegment(withTitle: "\(userRole.userRoleName) route", at: 0, animated: false)
+                self.userRoleSegmentedControl.insertSegment(withTitle: "\(userRole.userRoleName) Role", at: segment, animated: false)
+                segment += 1
             })
         }
     }
@@ -57,7 +59,7 @@ class AppUserRolesController: UIViewController {
         let index = userRoleSegmentedControl.selectedSegmentIndex
         let userRole = self.userRoles[index]
         let directionsQuery = MPDirectionsQuery.init(originPoint: MPPoint.init(lat: 57.0857756, lon: 9.9576971, zValue: 0), destination: MPPoint.init(lat: 57.0861556, lon: 9.958375, zValue: 0))
-        directionsQuery.userRoles = [userRole]
+        MapsIndoors.userRoles = [userRole]
         
         weak var _self = self
         

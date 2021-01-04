@@ -146,7 +146,7 @@ class MySearchController: UIViewController, UISearchBarDelegate, UITableViewDele
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         cell.textLabel?.text = locations[indexPath.row].name
         let defaultValue = ""
-        cell.textLabel?.text?.append(", \(locations[indexPath.row].roomId ?? defaultValue), \(locations[indexPath.row].building ?? defaultValue), \(locations[indexPath.row].venue ?? defaultValue)")
+        cell.textLabel?.text?.append(", \(locations[indexPath.row].externalId ?? defaultValue), \(locations[indexPath.row].building ?? defaultValue), \(locations[indexPath.row].venue ?? defaultValue)")
         return cell
     }
 

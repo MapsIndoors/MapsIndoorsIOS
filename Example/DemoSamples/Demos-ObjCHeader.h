@@ -11,4 +11,10 @@
 
 #import <MapsIndoors/MapsIndoors.h>
 
+@interface MPMIAPI (DevEnv)
+
+@property (nonatomic, readwrite) BOOL useDevEnvironment;
++ (MPMIAPI*) sharedInstance;
+@end
+
 #endif /* Demos_ObjCHeader_h */

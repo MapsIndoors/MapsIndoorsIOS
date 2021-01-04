@@ -22,14 +22,9 @@ class DatasetManagerController : UITableViewController {
     var syncSizesButton :UIBarButtonItem?
     var syncButton      :UIBarButtonItem?
     var cancelButton    :UIBarButtonItem?
-    var spinnerStyle    :UIActivityIndicatorView.Style = .gray
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if #available(iOS 12.0, *) {
-            self.spinnerStyle = self.traitCollection.userInterfaceStyle == .dark ? UIActivityIndicatorView.Style.white : UIActivityIndicatorView.Style.gray
-        }
 
         syncSizesButton = UIBarButtonItem.init(title: "Update sizes", style: .plain, target: self, action: #selector(fetchSyncSizes))
         syncButton = UIBarButtonItem.init(title: "Synchronise", style: .plain, target: self, action: #selector(syncroniseContent))
@@ -49,17 +44,7 @@ class DatasetManagerController : UITableViewController {
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         super.willTransition(to: newCollection, with: coordinator)
 
-        if #available(iOS 12.0, *) {
-            self.spinnerStyle = newCollection.userInterfaceStyle == .dark ? UIActivityIndicatorView.Style.white : UIActivityIndicatorView.Style.gray
-            for cell in self.tableView.visibleCells {
-                if let aiv = cell.accessoryView as? UIActivityIndicatorView {
-                    aiv.activityIndicatorViewStyle = self.spinnerStyle;
-                }
-            }
-            if let aiv = self.tableView.tableFooterView as? UIActivityIndicatorView {
-                aiv.activityIndicatorViewStyle = self.spinnerStyle;
-            }
-        }
+        
     }
 
     func setupRightBarButtons( cancel : Bool ) {
@@ -139,7 +124,7 @@ class DatasetManagerController : UITableViewController {
         }
         cell.detailTextLabel?.text = detail
         if cell.accessoryView == nil {
-            cell.accessoryView = UIActivityIndicatorView.init(activityIndicatorStyle: self.spinnerStyle)
+            cell.accessoryView = UIActivityIndicatorView.init()
         }
         if let aiv = cell.accessoryView as? UIActivityIndicatorView {
             if dataSetCache.isSyncing && !aiv.isAnimating {
@@ -194,7 +179,7 @@ extension DatasetManagerController : MPDataSetCacheManagerDelegate {
     }
 
     func dataSetManagerWillStartSynchronizing(_ dataSetManager: MPDataSetCacheManager) {
-        let syncSpinner = UIActivityIndicatorView.init(activityIndicatorStyle: self.spinnerStyle)
+        let syncSpinner = UIActivityIndicatorView.init()
         syncSpinner.startAnimating()
         self.tableView.tableFooterView = syncSpinner
     }
