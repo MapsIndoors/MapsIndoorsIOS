@@ -104,8 +104,13 @@
 }
 
 + (UIColor *)appTertiaryHighlightColor {
-    NSString*   c = [Global getPropertyFromPlist:@"TertiaryHighlightColor"] ?: @"#43aaa0";
-    return (c.length != 0) ? [UIColor colorFromRGBA:c] : [UIColor appPrimaryColor];
+    NSString*   c = [Global getPropertyFromPlist:@"TertiaryHighlightColor"];
+    return c ? [UIColor colorFromRGBA:c] : nil;
+}
+
++ (UIColor *)appRouteHighlightColor {
+    NSString*   c = [Global getPropertyFromPlist:@"RouteHighlightColor"];
+    return c ? [UIColor colorFromRGBA:c] : nil;
 }
 
 + (UIColor*) appToastBackgroundColor {

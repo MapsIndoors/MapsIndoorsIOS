@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-@import MaterialControls;
 
 @interface UIButton (AppButton)
 
-+ (MDButton *)appRectButtonWithTitle: (NSString*)title target: (id)target selector:(SEL)selector;
-+ (MDButton *)appRectButtonWithTitle: (NSString*)title target: (id)target selector:(SEL)selector xOffset:(int)x;
++ (UIButton *)appRectButtonWithTitle: (NSString*)title target: (id)target selector:(SEL)selector;
++ (UIButton *)appRectButtonWithTitle: (NSString*)title target: (id)target selector:(SEL)selector xOffset:(int)x;
 
 @end

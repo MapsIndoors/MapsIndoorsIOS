@@ -23,6 +23,7 @@
 + (UIColor *)appLaunchScreenColor;
 + (UIColor *)appStatusBarColor;
 + (UIColor *)appTertiaryHighlightColor;
++ (UIColor *)appRouteHighlightColor;
 + (UIColor *)appToastBackgroundColor;
 
 @end

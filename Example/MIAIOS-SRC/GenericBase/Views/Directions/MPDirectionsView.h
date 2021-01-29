@@ -60,6 +60,7 @@
 - (void) collapseDirectionsDisplayIfShowing;
 
 - (NSArray<UIImage*>*) imagesForActionPoints;
+- (NSArray<UIImage*>*) imagesForLegActionPoints;
 
 - (NSArray<NSNumber*>*) travelModes;    // Really NSArray<TRAVEL_MODE>
 

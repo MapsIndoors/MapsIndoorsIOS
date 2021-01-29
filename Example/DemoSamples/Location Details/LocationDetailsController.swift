@@ -100,7 +100,7 @@ extension LocationDetailsController : UITableViewDataSource {
             cell.detailTextLabel?.text = selectedLocation?.name
         case 1:
             cell.textLabel?.text = "Room Id"
-            cell.detailTextLabel?.text = selectedLocation?.externalId
+            cell.detailTextLabel?.text = selectedLocation?.roomId
         case 2:
             cell.textLabel?.text = "Floor Index"
             cell.detailTextLabel?.text = selectedLocation?.floor?.stringValue

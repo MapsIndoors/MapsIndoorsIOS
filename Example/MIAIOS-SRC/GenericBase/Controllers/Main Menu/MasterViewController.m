@@ -21,14 +21,23 @@
 #import "NSObject+ContentSizeChange.h"
 #import "AppFonts.h"
 #import "TCFKA_MDSnackbar.h"
+#import "MPUserRoleManager.h"
+#import <NSObject+FBKVOController.h>
+#import "AppNotifications.h"
+#import "AppSettingsViewController.h"
+
 
 @import VCMaterialDesignIcons;
-@import MaterialControls;
 
 
 @interface MasterViewController ()
 
-@property (nonatomic) NSInteger     venueCount;
+@property (nonatomic) NSInteger                         venueCount;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem*   appInfoBarButtonItem;
+
+@property (nonatomic, strong) UIBarButtonItem*          appSettings;
+@property (nonatomic) BOOL                              showAppSettings;
 
 @end
 
@@ -45,7 +54,7 @@
     TCFKA_MDSnackbar* _bar;
 }
 
-- (void)viewDidLoad {
+- (void) viewDidLoad {
     
     [super viewDidLoad];
     
@@ -67,7 +76,8 @@
     _categories = [NSMutableArray array];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onVenueChange:) name:@"VenueChanged" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onSolutionReady:) name:@"SolutionDataReady" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onSolutionReady:) name:AppNotifications.solutionDataReadyNotificationName object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onUserRolesChangedNotification:) name:AppNotifications.userRolesChangedNotificationName object:nil];
 
     CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
     CGFloat navBarHeight = self.navigationController.navigationBar.frame.size.height;
@@ -117,9 +127,9 @@
     self.navigationItem.leftBarButtonItem.accessibilityHint = kLangSelectVenueAccHint;
     self.venueLabel.accessibilityHint = kLangCurrentVenueAccHint;
     
-    self.navigationItem.rightBarButtonItem.accessibilityLabel = kLangShowAppInfo;
+    self.appInfoBarButtonItem.accessibilityLabel = kLangShowAppInfo;
 
-    self.navigationItem.rightBarButtonItem.image = [self.navigationItem.rightBarButtonItem.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.appInfoBarButtonItem.image = [[UIImage imageNamed:@"info_outline_24px"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]; //[self.appInfoBarButtonItem.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.navigationItem.leftBarButtonItem.image = [self.navigationItem.leftBarButtonItem.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 
     __weak typeof(self)weakSelf = self;
@@ -168,6 +178,8 @@
         }];
     }
     
+    [self configureAppSettingsButton];
+
     [self.tableView reloadData];
 }
 
@@ -175,6 +187,7 @@
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+
     if ([[segue identifier] isEqualToString:@"SearchSegue"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         
@@ -195,6 +208,11 @@
             Global.locationQuery.categories = nil;
             Global.locationQuery.venue = nil;
         }
+    }
+
+    if ( [segue.destinationViewController isKindOfClass:AppSettingsViewController.class] ) {
+        AppSettingsViewController*  appSettings = segue.destinationViewController;
+        appSettings.userRoleManager = Global.userRoleManager;
     }
 }
 
@@ -235,6 +253,7 @@
 }
 
 - (void)onSolutionReady: (NSNotification*) notification {
+//    [self configureAppSettingsButton];
     [self.tableView reloadData];
 }
 
@@ -355,5 +374,36 @@
         }
     }];
 }
+
+
+#pragma mark - App User Roles / Route Settings
+
+- (void) configureAppSettingsButton {
+
+    UIImage* appSettingsImg = [[UIImage imageNamed:@"tune_24px"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]; // [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_tune fontSize:28.0f].image;
+    self.appSettings = [[UIBarButtonItem alloc] initWithImage:appSettingsImg style:UIBarButtonItemStylePlain target:self action:@selector(onAppSettingsTapped:)];
+    self.appSettings.accessibilityHint = NSLocalizedString(@"Route Settings", );
+
+    self.showAppSettings = Global.userRoleManager.availableUserRoles.count > 0;
+
+    if ( self.showAppSettings ) {
+        self.navigationItem.rightBarButtonItems = @[ self.appSettings, self.appInfoBarButtonItem ];
+    } else {
+        self.navigationItem.rightBarButtonItems = @[ self.appInfoBarButtonItem ];
+    }
+}
+
+
+- (void) onAppSettingsTapped:(id)sender {
+
+    [self performSegueWithIdentifier:@"appSettingsSegue" sender:self];
+}
+
+
+- (void) onUserRolesChangedNotification:(NSNotification*)notification {
+
+    [self configureAppSettingsButton];
+}
+
 
 @end

@@ -27,6 +27,7 @@ static NSString* cellIdentifier = @"VenueSelectorCell_Id";
 @interface VenueSelectorController ()
 
 @property (nonatomic, weak, readwrite) MPAppData*   appData;
+@property (nonatomic)                  BOOL         venueLoadInProgress;
 
 @end
 
@@ -62,6 +63,7 @@ static BOOL _venueSelectorIsShown = NO;
     NSString* venueId = [[NSUserDefaults standardUserDefaults] objectForKey:@"venue"];
     if ( venueId ) {
 
+        self.venueLoadInProgress = YES;
         MPVenueProvider*    vp = [MPVenueProvider new];
         [vp getVenueWithId:venueId completionHandler:^(MPVenue *venue, NSError *error) {
 
@@ -72,6 +74,8 @@ static BOOL _venueSelectorIsShown = NO;
                     [self performSegueWithIdentifier:@"showMasterControllerNonAnimated" sender:self];
                 }
             }
+
+            self.venueLoadInProgress = NO;
         }];
     }
     
@@ -135,18 +139,20 @@ static BOOL _venueSelectorIsShown = NO;
             self->_venues = venueCollection.venues;
             
             [self.tableView reloadData];
-            
-            if (self->_venues.count == 1) {
-                MPVenue*   venue = [self->_venues objectAtIndex:0];
-                if (venue) {
-                    [[NSUserDefaults standardUserDefaults] setObject: venue.venueId forKey:@"venue"];
-                    [[NSNotificationCenter defaultCenter] postNotificationName:@"VenueChanged" object:venue];
-                }
-                if (!Global.appSchemeLocationQuery) {
-                    [self performSegueWithIdentifier:@"showMasterController" sender:self];
+
+            if ( self.venueLoadInProgress == NO ) {
+                if (self->_venues.count == 1) {
+                    MPVenue*   venue = [self->_venues objectAtIndex:0];
+                    if (venue) {
+                        [[NSUserDefaults standardUserDefaults] setObject: venue.venueId forKey:@"venue"];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"VenueChanged" object:venue];
+                    }
+                    if (!Global.appSchemeLocationQuery) {
+                        [self performSegueWithIdentifier:@"showMasterController" sender:self];
+                    }
                 }
             }
-            
+
             [self configureBackButton];
         }
     }];

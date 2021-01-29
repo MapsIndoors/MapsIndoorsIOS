@@ -105,4 +105,12 @@
     return [match firstObject];
 }
 
+- (MPBuilding*) buildingFromName:(NSString*)name {
+
+    NSPredicate*            bPredicate = [NSPredicate predicateWithFormat:@"name LIKE[c] %@", name];
+    NSArray<MPBuilding*>*   match = [self.buildings filteredArrayUsingPredicate:bPredicate];
+
+    return [match firstObject];
+}
+
 @end

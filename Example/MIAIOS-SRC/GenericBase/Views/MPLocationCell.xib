@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,7 +13,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hta-os-frs" id="Ixc-cf-Pre">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="249.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PFa-RK-k7R">
@@ -36,20 +34,39 @@
                         </subviews>
                     </stackView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="HFd-0l-nWf">
-                        <rect key="frame" x="16" y="105" width="40" height="40"/>
+                        <rect key="frame" x="26" y="115" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="HFd-0l-nWf" secondAttribute="height" multiplier="1:1" id="FVs-wG-c8n"/>
-                            <constraint firstAttribute="width" constant="40" id="r7n-q2-YTu"/>
+                            <constraint firstAttribute="width" constant="20" id="r7n-q2-YTu"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uuk-9F-ses">
+                        <rect key="frame" x="18" y="127" width="16" height="16"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="16" id="Zs0-r4-79N"/>
+                            <constraint firstAttribute="height" constant="16" id="mo5-El-3Gf"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <integer key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="PFa-RK-k7R" firstAttribute="centerY" secondItem="Ixc-cf-Pre" secondAttribute="centerY" id="72F-Ff-I50"/>
-                    <constraint firstItem="HFd-0l-nWf" firstAttribute="leading" secondItem="Ixc-cf-Pre" secondAttribute="leading" constant="16" id="Dmm-hc-SPY"/>
+                    <constraint firstItem="HFd-0l-nWf" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Ixc-cf-Pre" secondAttribute="leading" constant="26" id="Dmm-hc-SPY"/>
                     <constraint firstItem="HFd-0l-nWf" firstAttribute="centerY" secondItem="Ixc-cf-Pre" secondAttribute="centerY" id="Eo0-RE-2fC"/>
                     <constraint firstItem="HFd-0l-nWf" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Ixc-cf-Pre" secondAttribute="top" constant="11" id="GVi-kE-wYX"/>
                     <constraint firstItem="PFa-RK-k7R" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Ixc-cf-Pre" secondAttribute="top" constant="11" id="IUF-CT-kzV"/>
-                    <constraint firstItem="PFa-RK-k7R" firstAttribute="leading" secondItem="HFd-0l-nWf" secondAttribute="trailing" constant="8" id="RS2-qx-1d1"/>
+                    <constraint firstItem="Uuk-9F-ses" firstAttribute="centerX" secondItem="HFd-0l-nWf" secondAttribute="leading" id="MbQ-3l-rLD"/>
+                    <constraint firstItem="PFa-RK-k7R" firstAttribute="leading" relation="lessThanOrEqual" secondItem="HFd-0l-nWf" secondAttribute="trailing" constant="18" id="RS2-qx-1d1"/>
+                    <constraint firstItem="Uuk-9F-ses" firstAttribute="centerY" secondItem="HFd-0l-nWf" secondAttribute="bottom" id="S8O-8p-dYE"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="HFd-0l-nWf" secondAttribute="bottom" constant="10" id="goE-cD-lZy"/>
                     <constraint firstAttribute="trailingMargin" secondItem="PFa-RK-k7R" secondAttribute="trailing" id="ih5-ZC-2ka"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="PFa-RK-k7R" secondAttribute="bottom" constant="10" id="kHA-l8-NAe"/>
@@ -57,6 +74,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="imageView" destination="HFd-0l-nWf" id="eNF-z4-Z2R"/>
+                <outlet property="lowerLeftBadgeLabel" destination="Uuk-9F-ses" id="Ypc-mS-EhO"/>
                 <outlet property="subTextLabel" destination="F9N-fp-nQd" id="sCL-Bg-lNI"/>
                 <outlet property="textLabel" destination="D3p-El-2SW" id="YJh-ES-vLd"/>
             </connections>

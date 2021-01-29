@@ -24,7 +24,6 @@
 #import "DottedLine.h"
 #import "Tracker.h"
 
-@import MaterialControls;
 @import VCMaterialDesignIcons;
 @import PureLayout;
 #import "UIViewController+LocationServicesAlert.h"
@@ -41,6 +40,8 @@
 #import "MPRouteSettingsViewController.h"
 #import "MPUserRoleManager.h"
 
+#import "MPUrlSchemeHelper.h"
+
 
 @interface DirectionsController () < MPDirectionsViewDelegate >
 
@@ -49,9 +50,9 @@
 @property (nonatomic, strong) NSArray<SectionModel*>*   sectionModelArray;
 
 @property (nonatomic, strong) RoutingData*              routing;
-@property (nonatomic, strong) MDButton*                 nextBtn;
-@property (nonatomic, strong) MDButton*                 prevBtn;
-@property (nonatomic, strong) MDButton*                 showBtn;
+@property (nonatomic, strong) UIButton*                 nextBtn;
+@property (nonatomic, strong) UIButton*                 prevBtn;
+@property (nonatomic, strong) UIButton*                 showBtn;
 
 @property (nonatomic, strong) UIBarButtonItem*          car;
 @property (nonatomic, strong) UIBarButtonItem*          bike;
@@ -59,8 +60,6 @@
 @property (nonatomic, strong) UIBarButtonItem*          walk;
 
 @property (nonatomic, strong) UIBarButtonItem*          routeSettings;
-@property (nonatomic) BOOL                              showRouteSettings;
-
 
 @property (nonatomic, strong) NSArray*                  avoids;
 
@@ -74,7 +73,7 @@
 @property (nonatomic, strong) CLLocationManager*        xAppLocationManager;
 
 @property (nonatomic) BOOL                              isFirstLoading;
-@property (nonatomic) BOOL                              disableAppearanceSetup;
+@property (nonatomic) BOOL                              didPerformInitialSetup;
 
 @property (nonatomic, weak) UIAlertController*          locationServicesAlert;
 
@@ -91,6 +90,17 @@
 @property (weak, nonatomic) IBOutlet UILabel*                   reachabilityWarningLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView*   reachabilitySpinner;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint*        tableFooterHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint*        directionsViewBottomDistanceConstraint;
+
+@property (nonatomic, strong) MPLocation*                       routeRequestOriginLocation;
+@property (nonatomic, strong) MPLocation*                       routeRequestDestinationLocation;
+@property (nonatomic, strong) NSString*                         routeRequestTravelMode;
+@property (nonatomic, strong) NSArray<NSString*>*               routeRequestAvoids;
+
+@property (nonatomic, strong) NSArray<NSString*>*               typesOfDestinationsNeedingEndPointImage;
+
+
 @end
 
 
@@ -100,8 +110,17 @@
     
     [super viewDidLoad];
     
-    _routing = Global.routingData;
+    self.typesOfDestinationsNeedingEndPointImage = @[@"google-place", @"my-location"];
     
+    _routing = Global.routingData;
+    if ( self.routeRequestTravelMode ) {
+        _routing.travelMode = self.routeRequestTravelMode;
+    }
+    if ( self.routeRequestOriginLocation || self.routeRequestDestinationLocation ) {
+        _routing.origin = self.routeRequestOriginLocation;
+        _routing.destination = self.routeRequestDestinationLocation;
+    }
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRouteRequest) name:@"RoutingRequestStarted" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRouteResultReady:) name:@"RoutingDataReady" object:nil];
@@ -174,28 +193,25 @@
     self.routeSettings = [[UIBarButtonItem alloc] initWithImage:routeSettingsImg style:UIBarButtonItemStylePlain target:self action:@selector(onRouteSettingsTapped:)];
     self.routeSettings.accessibilityHint = NSLocalizedString(@"Route Settings", );
 
-    self.showRouteSettings = Global.userRoleManager.availableUserRoles.count > 0;
 #if BUILDING_SDK_APP
-    self.showRouteSettings = YES;
+    self.navigationItem.rightBarButtonItems = @[self.routeSettings, _car, _train, _bike, _walk];
+#else
+    self.navigationItem.rightBarButtonItems = @[_car, _train, _bike, _walk];
 #endif
-
-    if ( self.showRouteSettings ) {
-        self.navigationItem.rightBarButtonItems = @[self.routeSettings, _car, _train, _bike, _walk];
-    } else {
-        self.navigationItem.rightBarButtonItems = @[_car, _train, _bike, _walk];
-    }
 
     _walk.tintColor = [UIColor colorWithWhite: 1.0f alpha:0.5f];
     _train.tintColor = [UIColor colorWithWhite: 1.0f alpha:0.5f];
     _car.tintColor = [UIColor colorWithWhite: 1.0f alpha:0.5f];
     _bike.tintColor = [UIColor colorWithWhite: 1.0f alpha:0.5f];
-    
+
+    _avoids = self.routeRequestAvoids;
+    BOOL    avoidStairs = [_avoids containsObject:@"stairs"] ? YES : Global.avoidStairs;
     [self.avoidStairsSwitch addTarget:self action:@selector(avoidStairs) forControlEvents:UIControlEventValueChanged];
-    self.avoidStairsSwitch.thumbOn = [UIColor whiteColor];
-    self.avoidStairsSwitch.trackOn = [UIColor appLightPrimaryColor];
-    self.avoidStairsSwitch.thumbOff = [UIColor whiteColor];
-    self.avoidStairsSwitch.trackOff = [UIColor appDarkPrimaryColor];
-    self.avoidStairsSwitch.on = Global.avoidStairs;
+    self.avoidStairsSwitch.on = avoidStairs;
+    self.avoidStairsSwitch.onTintColor = [UIColor appLightPrimaryColor];
+    self.avoidStairsSwitch.tintColor = [UIColor appDarkPrimaryColor];
+    self.avoidStairsSwitch.backgroundColor = [UIColor appDarkPrimaryColor];
+    self.avoidStairsSwitch.layer.cornerRadius = 16.0;
     self.avoidStairsSwitch.accessibilityLabel = kLangAvoidStairs;
     self.avoidStairsSwitch.accessibilityHint = Global.avoidStairs ? kLangAvoidStairsOnAccHint : kLangAvoidStairsOffAccHint;
     self.avoidStairsSwitch.isAccessibilityElement = YES;
@@ -362,7 +378,6 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    self.directionsHeaderView.backgroundColor = [UIColor yellowColor];
     [self setupWhenAppeared];
 
     if ( self.currentRoute ) {
@@ -374,26 +389,30 @@
 
 - (void) setupWhenAppeared {
 
-    if ( self.disableAppearanceSetup == YES ) {
-        self.disableAppearanceSetup = NO;
+    if ( self.didPerformInitialSetup == NO ) {
 
-    } else {
-        
+        self.didPerformInitialSetup = YES;
+
         MPLocationUpdate* myLocationUpdate = [MPLocationUpdate new];
         myLocationUpdate.name = kLangMyPosition;
         myLocationUpdate.position = [MapsIndoors.positionProvider.latestPositionResult.geometry getCoordinate];
         myLocationUpdate.floor = [MapsIndoors.positionProvider.latestPositionResult getFloor].integerValue;
+        myLocationUpdate.type = @"my-location";
         
         self.myLocation = myLocationUpdate.location;
         
         self.destination = _routing.destination;
-        
+        self.origin = self.routeRequestOriginLocation;
+
         //Using my position (guessing a room)
-        BOOL    shouldPreloadOrigin = [AppVariantData sharedAppVariantData].shouldPreloadRouteOriginWithCurrentLocation;
-        if ( shouldPreloadOrigin && (self.origin == nil) && (MapsIndoors.positionProvider.latestPositionResult.geometry != nil) ) {
-            
-            self.origin = self.myLocation;       // Un-comment to auto-select users location as starting point for route calc.
-           
+        BOOL    shouldPreloadUserLocationOrigin = [AppVariantData sharedAppVariantData].shouldPreloadRouteOriginWithCurrentLocation && (self.origin == nil) && (MapsIndoors.positionProvider.latestPositionResult.geometry != nil);
+        BOOL    shouldPreloadRouteRequestOrigin = (self.origin != nil) && (self.origin.type == nil);
+        if ( shouldPreloadUserLocationOrigin || shouldPreloadRouteRequestOrigin ) {
+
+            if ( (self.origin == nil) && shouldPreloadUserLocationOrigin ) {
+                self.origin = self.myLocation;
+            }
+
             MPLocationQuery* query = [[MPLocationQuery alloc] init];
             query.near = MapsIndoors.positionProvider.latestPositionResult.geometry;
             query.max = 1;
@@ -406,6 +425,7 @@
 
                     MPLocationUpdate*   locUpdate = [MPLocationUpdate updateWithLocation:locationData.list.firstObject];
                     locUpdate.position = [MapsIndoors.positionProvider.latestPositionResult.geometry getCoordinate];
+                    locUpdate.type = @"my-location";
                     locUpdate.floor = MapsIndoors.positionProvider.latestPositionResult.geometry.zIndex;
                     self.origin = locUpdate.location;
 
@@ -491,14 +511,14 @@
             
             [_nextBtn configureForAutoLayout];
             [_nextBtn autoPinEdgeToSuperviewEdge:ALEdgeRight];
-            [_nextBtn autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+            [_nextBtn autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:10];
             [_nextBtn autoSetDimensionsToSize:CGSizeMake(106, 40)];
             [_nextBtn autoSetDimension:ALDimensionHeight toSize:40];
             [_nextBtn autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.tableFooter withMultiplier:0.45];
 
             [_prevBtn configureForAutoLayout];
             [_prevBtn autoPinEdgeToSuperviewEdge:ALEdgeLeft];
-            [_prevBtn autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+            [_prevBtn autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:10];
             [_prevBtn autoSetDimension:ALDimensionHeight toSize:40];
             [_prevBtn autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.tableFooter withMultiplier:0.45];
 
@@ -509,11 +529,29 @@
             
             [_showBtn configureForAutoLayout];
             [_showBtn autoPinEdgeToSuperviewEdge:ALEdgeRight];
-            [_showBtn autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+            [_showBtn autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:10];
             [_showBtn autoSetDimension:ALDimensionHeight toSize:40];
             [_showBtn autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.tableFooter withMultiplier:0.8 relation:NSLayoutRelationLessThanOrEqual];
             [_showBtn autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.tableFooter withMultiplier:0.6 relation:NSLayoutRelationGreaterThanOrEqual];
         }
+
+#if DEBUG
+        {
+            self.tableFooterHeightConstraint.constant = 128;
+            self.directionsViewBottomDistanceConstraint.constant = 128;
+
+            UIButton*   shareButton = [UIButton appRectButtonWithTitle:@"Top-secret Share Route Button" target:self selector:@selector(shareRoute)];
+            shareButton.backgroundColor = [UIColor systemPinkColor];
+            [self.tableFooter addSubview:shareButton];
+
+            [shareButton configureForAutoLayout];
+            [shareButton autoAlignAxisToSuperviewAxis:ALAxisVertical];
+            [shareButton autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:10];
+            [shareButton autoSetDimension:ALDimensionHeight toSize:40];
+            [shareButton autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.tableFooter withMultiplier:1.0 relation:NSLayoutRelationLessThanOrEqual];
+            [shareButton autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.tableFooter withMultiplier:0.8 relation:NSLayoutRelationGreaterThanOrEqual];
+        }
+#endif
         
         [self updateUI];
     }
@@ -556,7 +594,6 @@
         
         vc.transitSources = self.transitSources;
         self.transitSources = nil;
-        self.disableAppearanceSetup = YES;
 
     } else if ( [segue.destinationViewController isKindOfClass:[MPRouteSettingsViewController class]] ) {
         MPRouteSettingsViewController*  vc = segue.destinationViewController;
@@ -583,7 +620,7 @@
     UIAlertController* alert = [self alertControllerForLocationServicesState];
     
     if ( alert ) {
-        if (!(IS_IPAD)) {
+        if (!(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)) {
             alert.modalPresentationStyle = UIModalPresentationFullScreen;
         }
         [self presentViewController:alert animated:YES completion:nil];
@@ -651,7 +688,12 @@
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.reachabilitySpinner stopAnimating];
         });
-        
+
+        self.offlineMsg.hidden = YES;
+        self.offlineMsgDetail.hidden = YES;
+        self.lightningImgView.hidden = YES;
+        self.locationServicesBtn.hidden = YES;
+
         self.noRouteImageView.hidden = self.noRouteMessageLabel.hidden = self.currentRoute != nil;
         _showBtn.enabled = self.currentRoute != nil;
         _showBtn.alpha = _nextBtn.alpha = _prevBtn.alpha = self.currentRoute != nil ? 1 : 0.5;
@@ -729,7 +771,6 @@
 - (void)openDirectionsOnMap {
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] != UIUserInterfaceIdiomPad) {
-        
         [self toggleSidebar];
     }
 }
@@ -758,8 +799,6 @@
         [nav dismissViewControllerAnimated:YES completion:nil];
     }];
     
-    self.disableAppearanceSetup = YES;
-
     [self.navigationController presentViewController:nav animated:YES completion:nil];
 }
 
@@ -786,8 +825,6 @@
 
         [nav dismissViewControllerAnimated:YES completion:nil];
     }];
-    
-    self.disableAppearanceSetup = YES;
     
     [self.navigationController presentViewController:nav animated:YES completion:nil];
 }
@@ -951,16 +988,23 @@
 
     directionsView.focusedRouteSegment = index;
 
+    NSMutableArray* routeImages = [[directionsView imagesForLegActionPoints] mutableCopy];
+    if (![self.typesOfDestinationsNeedingEndPointImage containsObject:self.destination.type]) {
+        [routeImages removeLastObject];
+    }
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationRouteLegSelected
                                                         object:sectionModel
                                                       userInfo:@{ kLegIndex: @(sectionModel.legIndex)
                                                                 , kStepIndex: @(sectionModel.stepIndex)
-                                                                , kRouteSectionImages: [directionsView imagesForActionPoints]
+                                                                , kRouteSectionImages: routeImages
                                                                 , kRouteSectionAccessibilityLabel: self.directionsView.accessibilityLabelForFocusedRouteSegment ?: @""
                                                                 }];
+    
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationShowSelectedLegInList object:sectionModel userInfo:@{ kRouteSectionIndex: @(self.directionsView.focusedRouteSegment)
                                                                                                                                 , kNotificationSender: self
-                                                                                                                                , kRouteSectionImages: [directionsView imagesForActionPoints]
+                                                                                                                                , kRouteSectionImages: routeImages
                                                                                                                                 }];
     if ( openOnMap ) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"openDirectionsOnMap" object:nil];
@@ -978,17 +1022,23 @@
     directionsView.focusedRouteSegment = routeSegmentIndex;
     
     if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) {
-        
+        NSMutableArray* routeImages = [[directionsView imagesForLegActionPoints] mutableCopy];
+        if (![self.typesOfDestinationsNeedingEndPointImage containsObject:self.destination.type]) {
+            [routeImages removeLastObject];
+        }
         [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationRouteLegSelected
                                                             object:sectionModel
                                                           userInfo:@{ kLegIndex: @(sectionModel.legIndex)
                                                                     , kStepIndex: @(sectionModel.stepIndex)
-                                                                    , kRouteSectionImages: [directionsView imagesForActionPoints]
+                                                                    , kRouteSectionImages: routeImages
                                                                     , kRouteSectionAccessibilityLabel: self.directionsView.accessibilityLabelForFocusedRouteSegment ?: @""
                                                                     }];
+        
+        
+        
         [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationShowSelectedLegInList object:sectionModel userInfo:@{ kRouteSectionIndex: @(self.directionsView.focusedRouteSegment)
                                                                                                                                     , kNotificationSender: self
-                                                                                                                                    , kRouteSectionImages: [directionsView imagesForActionPoints]
+                                                                                                                                    , kRouteSectionImages: routeImages
                                                                                                                                     }];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"openDirectionsOnMap" object:nil];
     }
@@ -1053,6 +1103,10 @@
     } else {
         addr = [Global getAddressForLocation:location];
     }
+
+    if ( (addr.length == 0) && (location.name.length > 0) ) {
+        addr = location.name;
+    }
     
     return addr;
 }
@@ -1089,6 +1143,80 @@
 - (void) onRouteSettingsTapped:(id)sender {
 
     [self performSegueWithIdentifier:@"routeSettingsSegue" sender:self];
+}
+
+
+#pragma mark - Route Sharing
+
+- (NSString*) appUrlScheme {
+
+    NSArray<NSString*>* redirectSchemes = [[NSBundle mainBundle] valueForKeyPath:@"infoDictionary.CFBundleURLTypes.@distinctUnionOfArrays.CFBundleURLSchemes"];
+    return (redirectSchemes.count == 1) ? redirectSchemes.firstObject : nil;
+}
+
+
+- (BOOL) routeUsingLatitudeLongitude:(MPLocation*)location {
+
+    if ( location.locationId ) {
+
+        switch ( location.baseType ) {
+            case MPLocationBaseTypeArea:
+            case MPLocationBaseTypeRoom:
+            case MPLocationBaseTypePointOfInterest:
+                return NO;
+
+            case MPLocationBaseTypeBuilding:
+            case MPLocationBaseTypeFloor:
+            case MPLocationBaseTypeVenue:
+                return YES;
+                break;
+        }
+    }
+
+    return YES;
+}
+
+
+- (void) shareRoute
+{
+    NSMutableArray<NSString*>*  strings = [NSMutableArray array];
+    MPUrlSchemeHelper*          urlSchemeHelper = [MPUrlSchemeHelper new];
+
+    if ( [urlSchemeHelper urlForDirectionsWithOrigin:self.origin destination:self.destination travelMode:self.routing.travelMode avoids:self.avoids] ) {
+
+        [strings addObject:@"// Directions urls:"];
+        [strings addObjectsFromArray:urlSchemeHelper.urls];
+        [strings addObject:@""];
+    }
+
+    if ( [urlSchemeHelper urlForLocationDetails:self.origin] ) {
+
+        [strings addObject:@"// Origin POI detail urls:"];
+        [strings addObjectsFromArray:urlSchemeHelper.urls];
+        [strings addObject:@""];
+    }
+
+    if ( [urlSchemeHelper urlForLocationDetails:self.destination] ) {
+
+        [strings addObject:@"// Destination POI detail urls:"];
+        [strings addObjectsFromArray:urlSchemeHelper.urls];
+        [strings addObject:@""];
+    }
+
+    NSString*    s = [strings componentsJoinedByString:@"\n"];
+    [[UIPasteboard generalPasteboard] setString: s];
+    NSLog( @"()=>>> \n%@", s );
+}
+
+
+#pragma mark - Route request configured externally
+
+- (void) configureWithRouteFrom:(MPLocation*)originLocation to:(MPLocation*)destinationLocation travelMode:(NSString*)travelMode avoids:(NSArray<NSString*>*)avoids {
+
+    self.routeRequestOriginLocation = originLocation;
+    self.routeRequestDestinationLocation = destinationLocation;
+    self.routeRequestTravelMode = travelMode;
+    self.routeRequestAvoids = avoids;
 }
 
 @end

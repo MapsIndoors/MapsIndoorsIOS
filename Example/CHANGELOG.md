@@ -1,5 +1,5 @@
 # Changelog
-Changelog for MapsIndoors for iOS. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+Changelog for MapsIndoors for iOS. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 <!---
 ## [Unreleased]
@@ -8,6 +8,31 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Changed
 ### Removed
 -->
+
+## [2020.9.30] 2020-09-30
+
+### Added
+- Initial support for Live Data. The app will show Live room occupancy data and position updates if available in the building.
+
+## [2020.9.24] 2020-09-24
+
+### Added
+- Added option to add a help ressource url in the app info section.
+- In the Dataset Management section we have optimized support for changing caching scope from a larger scope to a smaller scope, by deleting obsolete caches.
+
+### Fixed
+
+- Fixed various route rendering issues, e.g. route end marker was obscuring the destination location marker.
+- Fixed a data synchronisation issue that caused the newly synchronised data to not being used before a new session was initiated.
+- Fixed a route path optimization issue that caused the optimization to be applied unintentionally in some cases.
+- Fixed a search issue that caused the search engine to ignore external ids.
+- Fixed an issue causing the Info Window of selected location to not show up in some cases.
+- Fixed an internal issue with the map rendering (marker collision handling).
+- Some internal refactorings and optimizations.
+
+### Changed
+
+- Update to MapsIndoors SDK 3.11.1.
 
 ## [2020.2] 2020-02-04
 
@@ -18,6 +43,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Changed
 - Improved route generation; improved detection of start and end rooms for indoor route, and improved rendering of route start and endpoints.
 - Multiple improvements to the search engine has been implemented.
+- Changed version scheme.
 
 ## [2.2.4] 2019-11-05
 ### Fixed

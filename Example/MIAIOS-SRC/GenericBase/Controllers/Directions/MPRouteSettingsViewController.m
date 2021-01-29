@@ -13,6 +13,7 @@
 #ifdef BUILDING_SDK_APP
     #import "MPRoutingProvider+Private.h"
     #import "MPPathOptimization.h"
+    #import "MPGraphPathFinder.h"
 #endif
 
 
@@ -72,7 +73,7 @@ typedef NS_ENUM(NSUInteger, RouteSettingSection) {
             numberOfRows = 3;
             break;
         case RouteSettingSection_RouteOptimization:
-            numberOfRows = 4;
+            numberOfRows = 5;
             break;
 #endif
 
@@ -169,6 +170,10 @@ typedef NS_ENUM(NSUInteger, RouteSettingSection) {
                     cell.textLabel.text = @"Optimize All Routing Graphs";
                     cell.accessoryType = (MPPathOptimization.pathOptimizationStrategy & MPPathOptimizationStrategy_AlwaysOptimize) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
                     break;
+                case 4:
+                    cell.textLabel.text = @"Offline routing uses A*";
+                    cell.accessoryType = MPGraphPathFinder.preferredPathfindingAlgorithm == MPPathfindingAlgorithmAStar ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+                    break;
             }
             break;
 #endif
@@ -226,6 +231,9 @@ typedef NS_ENUM(NSUInteger, RouteSettingSection) {
                     break;
                 case 3:
                     MPPathOptimization.pathOptimizationStrategy ^= MPPathOptimizationStrategy_AlwaysOptimize;
+                    break;
+                case 4:
+                    MPGraphPathFinder.preferredPathfindingAlgorithm = MPGraphPathFinder.preferredPathfindingAlgorithm == MPPathfindingAlgorithmAStar ? MPPathfindingAlgorithmDijkstra : MPPathfindingAlgorithmAStar;
                     break;
             }
 

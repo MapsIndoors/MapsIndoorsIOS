@@ -42,14 +42,14 @@ class MapsIndoors_App_UITests: XCTestCase {
         let indexOfSolutionIdKey = app.launchArguments.index(of: "-solutionId")
         if indexOfSolutionIdKey != nil {
             self.solutionId = app.launchArguments[indexOfSolutionIdKey!+1]
-            MapsIndoors.provideAPIKey(self.solutionId, googleAPIKey: nil)
+            MapsIndoors.provideAPIKey(self.solutionId!, googleAPIKey: nil)
         } else {
             let bundle = Bundle.init(for: MapsIndoors_App_UITests.self)
             if let fileUrl = bundle.url(forResource: "mapsindoors", withExtension: "plist"),
                 let data = try? Data(contentsOf: fileUrl) {
                 if let result = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [String: Any] { // [String: Any] which ever it is
                     self.solutionId = result!["MapsIndoorsAPIKey"] as? String
-                    MapsIndoors.provideAPIKey(self.solutionId, googleAPIKey: nil)
+                    MapsIndoors.provideAPIKey(self.solutionId!, googleAPIKey: nil)
                 }
             }
         }
@@ -103,7 +103,6 @@ class MapsIndoors_App_UITests: XCTestCase {
                         
                         snapshot("4-Directions-Init\(self.solutionId!)")
                         
-                        let scrollViewsQuery = app.scrollViews
                         app/*@START_MENU_TOKEN@*/.buttons["chooseStartingPointButton"]/*[[".otherElements[\"dismiss popup\"]",".buttons[\"Choose starting point\"]",".buttons[\"chooseStartingPointButton\"]",".otherElements[\"PopoverDismissRegion\"]"],[[[-1,2],[-1,1],[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
                         
                         app.searchFields.element(boundBy: 0).typeText(to!.name!)

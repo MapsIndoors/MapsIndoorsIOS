@@ -8,7 +8,6 @@
 
 #import "TransitSourcesTableViewController.h"
 #import "UIViewController+Custom.h"
-@import MaterialControls;
 #import "Tracker.h"
 #import "UIColor+AppColor.h"
 #import "LocalizedStrings.h"

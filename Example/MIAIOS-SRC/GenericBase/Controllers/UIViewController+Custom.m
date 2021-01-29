@@ -12,7 +12,6 @@
 @import VCMaterialDesignIcons;
 #import "MasterViewController.h"
 #import "LocalizedStrings.h"
-#import "MDDeviceHelper.h"
 
 @implementation UIViewController (Custom)
 
@@ -36,7 +35,7 @@
         nav.modalTransitionStyle   = UIModalTransitionStyleCoverVertical;
         nav.modalPresentationStyle = UIModalPresentationFormSheet;
         
-        if (!(IS_IPAD)) {
+        if ( UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad ) {
             nav.modalPresentationStyle = UIModalPresentationFullScreen;
         }
         
@@ -60,6 +59,8 @@
     
     if ( targetViewController ) {
         [self.navigationController popToViewController:targetViewController animated:animated];
+    } else {
+        [self.navigationController popToRootViewControllerAnimated:animated];
     }
 }
 

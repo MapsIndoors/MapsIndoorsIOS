@@ -30,18 +30,18 @@ class ShowMultipleLocationsController: UIViewController {
         
         /*** Show search on map ***/
         
-        let locations = MPLocationService.sharedInstance()
-        let filter = MPFilter.init()
+        let locations = MPLocationsProvider.init()
+        let queryObj = MPLocationQuery.init()
         
-        filter.categories = ["Toilet"]
-        filter.take = UInt.max
+        queryObj.categories = ["Toilet"]
+        queryObj.max = Int32.max
         
         weak var _self = self
         
-        locations.getLocationsUsing(MPQuery(), filter: filter) { (locations, error) in
+        locations.getLocationsUsing(queryObj) { (locationData, error) in
             if error == nil {
-                _self?.mapControl?.searchResult = locations
-                let firstLocation = locations?.first
+                _self?.mapControl?.searchResult = locationData!.list
+                let firstLocation = locationData?.list?.first
                 _self?.mapControl?.currentFloor = firstLocation?.floor         // You are not guaranteed that the visible floor contains any search results, so that is why we change floor
             }
         }

@@ -14,7 +14,11 @@
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 @property (nonatomic, weak) IBOutlet UILabel *textLabel;
 @property (nonatomic, weak) IBOutlet UILabel *subTextLabel;
+@property (weak, nonatomic) IBOutlet UILabel *lowerLeftBadgeLabel;
+
 
 - (void) centerTextLabelVertically;
+
+- (void) setBadgeColor:(UIColor*)c andText:(NSString*)s;
 
 @end

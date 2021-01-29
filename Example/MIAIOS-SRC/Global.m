@@ -174,7 +174,9 @@ static MPSolution* solution;
     @synchronized(self) {
         solution = value;
     }
-    [self setUserRoleManager:[MPUserRoleManager new]];
+    if ( solution ) {
+        [self setUserRoleManager:[MPUserRoleManager new]];
+    }
 }
 
 
@@ -308,8 +310,11 @@ static MPLocationQuery* appSchemeLocationQuery;
 + (NSString*)getIconUrlForType:(NSString*) typeName {
     if (Global.solution) {
         for (MPType* type in Global.solution.types) {
-            if ([type.name isEqualToString:typeName]) {
+            if ([type.name caseInsensitiveCompare:typeName] == NSOrderedSame ) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
                 return type.icon;
+#pragma clang diagnostic pop
             }
         }
     }
@@ -319,7 +324,7 @@ static MPLocationQuery* appSchemeLocationQuery;
 + (MPLocationDisplayRule*)getDisplayRuleForType:(NSString*) typeName {
     if (Global.solution) {
         for (MPType* type in Global.solution.types) {
-            if ([type.name isEqualToString:typeName]) {
+            if ([type.name caseInsensitiveCompare:typeName] == NSOrderedSame ) {
                 return type.displayRule;
             }
         }

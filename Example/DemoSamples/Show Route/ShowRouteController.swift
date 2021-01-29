@@ -33,7 +33,7 @@ class ShowRouteController: UITableViewController {
         let directions = MPDirectionsService.init()
         
         let origin = MPPoint.init(lat: 57.057917, lon: 9.950361, zValue:0)
-        let destination = MPPoint.init(lat: 57.058038, lon: 9.950509, zValue:10)
+        let destination = MPPoint.init(lat: 57.058038, lon: 9.950509, zValue:1)
         
         let directionsQuery = MPDirectionsQuery.init(originPoint: origin!, destination: destination!)
         

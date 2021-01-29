@@ -5,7 +5,6 @@
  Created by Daniel Nielsen on 02/08/16.
  Copyright © 2017 MapsPeople. All rights reserved.
  */
-"Language" = "Sprache";
 "Level" = "Stockwerk";
 "Level %@" = "Stockwerk %@";
 "OK" = "OK";
@@ -70,6 +69,7 @@
 "License: %@" = "Lizens: %@";
 "App" = "App";
 "SDK" = "SDK";
+"Supplier" = "Lieferant";
 
 // Location services alerts
 "Location Services are disabled" = "Ortungsdienste sind deaktiviert";
@@ -113,9 +113,9 @@
 "Transit" = "Transit";
 "Turn left" = "Biegen Sie links ab";
 "Turn right" = "Biegen Sie rechts ab";
-"Turn sharp left" = "Turn sharp left";
+"Turn sharp left" = "Biegen Sie scharf links ab";
 "Turn sharp right" = "Biegen Sie scharf rechts ab";
-"Turn slight left" = "Biegen Sie scharf links ab";
+"Turn slight left" = "Biegen Sie leicht links ab";
 "Turn slight right" = "Biegen Sie leicht rechts ab";
 "Turn around" = "Drehen Sie um";
 "Continue straight ahead" = "Fahren Sie geradeaus weiter";
@@ -170,15 +170,24 @@
 "My location, accuracy %@m"                     = "Mein Standort, Genauigkeit %@m";
 
 "Go" = "Gehen";
-"Enter solution-Id or API-key" = "Geben Sie die Lösungs-ID oder den API-Schlüssel ein";
+"Enter solution-Id or API-key" = "API-Schlüssel eingeben";
 "Oops. Please try again." = "Hoppla. Bitte versuche es erneut.";
 "Log out" = "Ausloggen";
 
 // App User Roles
-"Choose the App User Roles you are part of. This only affacts the directions you get, not the locations you see on the map" = "Wählen Sie die App-Benutzerrollen aus, zu denen Sie gehören. Dies wirkt sich nur auf die Wegbeschreibung aus, nicht auf die Orte, die Sie auf der Karte sehen";
+"Choose the App User Roles you are part of. This only affacts the directions you get, not the locations you see on the map" = "Wählen Sie die App-Benutzerrollen aus, zu denen Sie gehören. Dies wirkt sich auf die Wegbeschreibung aus, und auf die Orte, die Sie auf der Karte sehen";
 "Route Settings" = "Routeneinstellungen";
+"Settings" = "Einstellungen";
 "App User Roles" = "App-Benutzerrollen";
 
 //App Info
 "impressum" = "Impressum";
 "privacy" = "Datenschutz";
+
+// Booking related:
+"Booked from %@" = "Reserviert von %@";
+"Oops - something went wrong getting the calendar for %@" = "Ups - konnte den Kalender für %@ nicht bekommen";
+"Book" = "Buchen";
+"Booking" = "Reservieren";
+"Cancelling" = "Abbrechen";
+"Booked" = "Reserviert";

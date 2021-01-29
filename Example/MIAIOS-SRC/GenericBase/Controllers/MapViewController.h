@@ -10,7 +10,6 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import <MapsIndoors/MapsIndoors.h>
 
-#import  "UIFont+SystemFontOverride.h"
 
 @interface MapViewController : UIViewController<MPMapControlDelegate, GMSMapViewDelegate, MPDirectionsRendererDelegate>
 

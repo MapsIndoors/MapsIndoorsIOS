@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel*                   detailLabel;
 @property (weak, nonatomic) IBOutlet UIView*                    separatorView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView*   activityIndicator;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint*        detailImageViewHeightConstraint;
 
 @end
 
@@ -36,12 +37,14 @@
     [super prepareForReuse];
     
     self.detailImageView.image = nil;
+    self.accessoryView = nil;
     self.detailImageView.tintColor = nil;
     self.detailImageView.alpha = 1;
     self.detailLabel.textColor = [UIColor appPrimaryTextColor];
     self.showSeparator = NO;
     self.showActivityIndicator = NO;
     [self.activityIndicator stopAnimating];
+    self.compactHeight = NO;
 }
 
 - (void) configureWithTitle:(id)title subTitle:(NSString*)subTitle image:(UIImage*)image {
@@ -49,6 +52,9 @@
     self.detailImageView.image = image;
     self.detailImageView.contentMode = UIViewContentModeCenter;
     self.detailImageViewWidthConstraint.constant = image ? 54 : 0;
+    if ( image ) {  // Enforce 1:1 aspect when we have an image
+        self.detailImageViewHeightConstraint.constant = self.detailImageViewWidthConstraint.constant;
+    }
     self.detailLabel.font = [AppFonts sharedInstance].listItemFont;
 
     if ( [title isKindOfClass:[NSAttributedString class]] ) {
@@ -120,6 +126,19 @@
             [self.activityIndicator startAnimating];
         } else {
             [self.activityIndicator stopAnimating];
+        }
+    }
+}
+
+- (void) setCompactHeight:(BOOL)compactHeight {
+
+    if ( _compactHeight != compactHeight ) {
+        _compactHeight = compactHeight;
+
+        if ( compactHeight ) {
+            self.detailImageViewHeightConstraint.constant = 0;
+        } else {
+            self.detailImageViewHeightConstraint.constant = self.detailImageViewWidthConstraint.constant;
         }
     }
 }

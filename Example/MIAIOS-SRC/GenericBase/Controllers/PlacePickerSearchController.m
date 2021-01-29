@@ -16,7 +16,6 @@
 #import "MPLocationCell.h"
 #import "UIColor+AppColor.h"
 #import "UIImageView+MPCachingImageLoader.h"
-@import MaterialControls;
 @import VCMaterialDesignIcons;
 #import "Tracker.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
@@ -31,6 +30,8 @@
 #import "AppFonts.h"
 #import "TCFKA_MDSnackbar.h"
 #import "AppVariantData.h"
+#import <NSObject+FBKVOController.h>
+#import "AppFlowController.h"
 
 
 typedef NS_ENUM(NSUInteger, PPSCSection) {
@@ -97,9 +98,7 @@ static NSString* cellIdentifier = @"LocationCell";
     _venueProvider = [[MPVenueProvider alloc] init];
     self.places = [NSMutableArray array];
     
-    VCMaterialDesignIcons* icon = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_pin fontSize:32];
-    [icon addAttribute:NSForegroundColorAttributeName value:[UIColor appSecondaryTextColor]];
-    _placesIcon = icon.image;
+    _placesIcon = [UIImage imageNamed:@"google-maps"];
     
     [_venueProvider getVenuesWithCompletion:^(MPVenueCollection *venueCollection, NSError *error) {
         if (error == nil) {
@@ -476,8 +475,8 @@ static NSString* cellIdentifier = @"LocationCell";
     
     NSMutableArray<NSString*>*  details = [NSMutableArray array];
 
-    if ( object.roomId.length && ![object.name isEqualToString:object.roomId] ) {
-        [details addObject:object.roomId];
+    if ( object.externalId.length && ![object.name isEqualToString:object.externalId] ) {
+        [details addObject:object.externalId];
     }
 
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"venueKey LIKE[c] %@", object.venue];
@@ -496,7 +495,7 @@ static NSString* cellIdentifier = @"LocationCell";
 
         if ( (_buildings.count > 1) || (_venues.count > 1) ) {
             [details addObject: buildingName];
-            if ( [buildingName isEqualToString:venueName] == NO ) {
+            if ( venueName && ([buildingName isEqualToString:venueName] == NO) ) {
                 [details addObject: venueName];
             }
         }
@@ -536,7 +535,19 @@ static NSString* cellIdentifier = @"LocationCell";
         [cell.imageView setImage:[UIImage imageNamed:[AppVariantData sharedAppVariantData].imageNameForBlueDot]];
 
     } else {
-        [cell.imageView mp_setImageWithURL:[Global getIconUrlForType:object.type] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+        MPLocationDisplayRule*  dr = [AppFlowController.sharedInstance.currentMapControl getEffectiveDisplayRuleForLocation:object];
+
+        if ( dr ) {
+            if ( dr.icon ) {
+                cell.imageView.image = dr.icon;
+            } else {
+                [self.KVOController observe:dr keyPath:@"icon" options:NSKeyValueObservingOptionNew block:^(PlacePickerSearchController* _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
+                    [observer.tableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+                }];
+            }
+        } else {
+            [cell.imageView mp_setImageWithURL:[Global getIconUrlForType:object.type] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+        }
     }
     
     return cell;

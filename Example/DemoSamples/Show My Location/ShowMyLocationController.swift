@@ -55,7 +55,7 @@ class ShowMyLocationController: UIViewController {
          ***/
         self.mapControl?.showUserPosition(true)
         MapsIndoors.positionProvider = MyPositionProvider()
-        MapsIndoors.positionProvider?.startPositioning(nil)
+        MapsIndoors.positionProvider.startPositioning(nil)
         //
 
     }

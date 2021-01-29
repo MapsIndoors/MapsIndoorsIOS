@@ -2,12 +2,10 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "ic_info_outline_white.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "ic_info_outline_white@2x.png",
       "scale" : "2x"
     },
     {

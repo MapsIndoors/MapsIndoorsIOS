@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <MapsIndoors/MapsIndoors.h>
 
-#import  "UIFont+SystemFontOverride.h"
 
 @interface SearchViewController : UITableViewController<UISearchBarDelegate>
 

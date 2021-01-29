@@ -1343,8 +1343,36 @@
 }
 
 - (NSArray<UIImage*>*) imagesForActionPoints {
-
     return [self.actionPoints valueForKeyPath:@"image"];
+}
+
+- (NSArray<UIImage*>*) imagesForLegActionPoints {
+    NSMutableDictionary<NSNumber*,UIImage*>* imagesForLegActionPoints = [NSMutableDictionary dictionaryWithCapacity:self.currentRoute.legs.count+1];
+    
+    for (int i = 1; i < self.modelArray.count; i++) {
+        SectionModel* sectionModel = self.modelArray[i];
+        UIImage* image = self.actionPoints[i].image;
+        NSUInteger idx = [self.currentRoute.legs indexOfObject:sectionModel.leg];
+        if (idx != NSNotFound) {
+            if (imagesForLegActionPoints[@(idx)] == nil) {
+                imagesForLegActionPoints[@(idx)] = image;
+            }
+        }
+    }
+
+    imagesForLegActionPoints[@(0)] = self.actionPoints.firstObject.image;
+    imagesForLegActionPoints[@(self.currentRoute.legs.count)] = self.actionPoints.lastObject.image;
+
+    NSMutableArray* imagesForLegActionPointsArr = [NSMutableArray arrayWithCapacity:self.currentRoute.legs.count+1];
+    for (int i = 0; i < imagesForLegActionPoints.count; i++) {
+        if (imagesForLegActionPoints[@(i)] != nil) {
+            [imagesForLegActionPointsArr setObject: imagesForLegActionPoints[@(i)] atIndexedSubscript:i];
+        } else {
+            [imagesForLegActionPointsArr setObject: [UIImage new] atIndexedSubscript:i];
+        }
+    }
+    
+    return imagesForLegActionPointsArr;
 }
 
 

@@ -10,11 +10,11 @@
 #import "LocalizedStrings.h"
 #import "Global.h"
 @import HashBuilder;
-@import MaterialControls;
 #import "NSString+TRAVEL_MODE.h"
 #import <MapsIndoors/MapsIndoors.h>
 #import "TCFKA_MDSnackbar.h"
 #import "MPUserRoleManager.h"
+#import "AppNotifications.h"
 
 
 #if DEBUG && 0
@@ -29,6 +29,7 @@
 @property (nonatomic, strong) MPDirectionsService*  service;
 @property (nonatomic, strong) TCFKA_MDSnackbar*     bar;
 @property (nonatomic, strong) MPVenueProvider*      venueProvider;
+@property (nonatomic, strong) NSDictionary*         routeParamsDict;
     
 @end
 
@@ -41,6 +42,8 @@
     self.service = [MPDirectionsService new];
     self.origin = from;
     self.destination = to;
+    self.restrictions = [restrictions copy];
+    self.routeParamsDict = [AppNotifications userInfoDictForRouteRequestNotificationWithOrigin:_origin destination:_destination travelMode:mode avoids:restrictions];
     
     HashBuilder *builder = [HashBuilder builder];
     [builder contributeObject:[from.geometry description]];
@@ -66,10 +69,6 @@
         q.arrival = arrivalTime;
         q.travelMode = [mode convertTo_MPTravelMode];
 
-        if ( Global.userRoleManager.activeUserRoles.count ) {
-            q.userRoles = Global.userRoleManager.activeUserRoles;
-        }
-
         [s routingWithQuery:q completionHandler:^(MPRoute *route, NSError *error) {
 
             DEBUGLOG( @"RESPONSE routingFrom: %@ -> %@ using %@ => %@ (hash %@)", from.name, to.name, mode, s == self.service ? @"Latest" : @"OBSOLETE", @(builder.builtHash) );
@@ -91,19 +90,19 @@
                     } else {
                         self.latestRoutingRequestHash = builder.builtHash;
                         self.latestRoute = route;
-                        [[NSNotificationCenter defaultCenter] postNotificationName:@"RoutingDataReady" object: self.latestRoute];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"RoutingDataReady" object: self.latestRoute userInfo:self.routeParamsDict];
                     }
                 });
             }
         }];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"RoutingRequestStarted" object: self.latestRoute];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"RoutingRequestStarted" object: self.latestRoute userInfo:self.routeParamsDict];
         
     } else if ( self.latestRoute ) {
 
         DEBUGLOG( @"CACHE    routingFrom: Using cached route result with hash %@", @(builder.builtHash) );
         
         self.service = nil;     // Invalidate pending route request (if any)
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"RoutingDataReady" object: self.latestRoute];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"RoutingDataReady" object: self.latestRoute userInfo:self.routeParamsDict];
     }
 }
 

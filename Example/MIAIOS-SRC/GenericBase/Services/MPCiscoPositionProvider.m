@@ -16,7 +16,6 @@
 #import <MapsIndoors/MapsIndoors.h>
 #include <ifaddrs.h>
 #include <arpa/inet.h>
-#import "MDDeviceHelper.h"
 
 @implementation MPCiscoPositionProvider {
     NSString* _serviceUrl;
@@ -174,7 +173,7 @@
                     [self->_wifiAlert addAction:ok];
                     //_wifiAlert = [[UIAlertView alloc] initWithTitle:kLangPlease_enable_WIFI message:kLangEnableWIFIToGetPositioning delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                     
-                    if (!(IS_IPAD)) {
+                    if (!(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)) {
                         self->_wifiAlert.modalPresentationStyle = UIModalPresentationFullScreen;
                     }
                     

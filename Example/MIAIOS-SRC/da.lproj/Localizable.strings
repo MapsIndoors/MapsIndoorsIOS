@@ -6,7 +6,6 @@
  Created by Daniel Nielsen on 02/08/16.
  Copyright © 2017 MapsPeople. All rights reserved.
  */
-"Language" = "Sprog";
 "Level" = "Etage";
 "Level %@" = "Etage %@";
 "OK" = "OK";
@@ -53,6 +52,7 @@
 "by bike" = "på cykel";
 
 "Get feedback?" = "Har du feedback?";
+"Need help?" = "Brug for hjælp?";
 "Send us an email" = "Send os en email";
 "Please enable WIFI" = "Aktivér venligst WIFI";
 "In order to determine your position WIFI must be enabled and the phone must be connected to the Wifi network" = "For at afgøre din placering bør WIFI være aktiveret og enheden skal være tilsluttet det trådløse netværk";
@@ -73,6 +73,9 @@
 "App Version" = "App version";
 "Credits" = "Anerkendelser";
 "License: %@" = "Licens: %@";
+"App" = "App";
+"SDK" = "SDK";
+"Supplier" = "Leverandør";
 
 // Location services alerts
 "Location Services are disabled" = "Lokationstjenester er slået fra";
@@ -174,15 +177,24 @@
 "My location, accuracy %@m"                     = "Nuværende lokation, præcision %@m";
 
 "Go" = "Go";
-"Enter solution-Id or API-key" = "Indtast solution-Id eller API-nøgle";
+"Enter solution-Id or API-key" = "Indtast API-nøgle";
 "Oops. Please try again." = "Ups. Prøv igen.";
 "Log out" = "Log ud";
 
 // App User Roles
-"Choose the App User Roles you are part of. This only affacts the directions you get, not the locations you see on the map" = "Vælg de app bruger roller du tilhører. Dette påvirker kun ruter, ikke de lokationer du ser på kortet";
+"Choose the App User Roles you are part of. This only affacts the directions you get, not the locations you see on the map" = "Vælg de app bruger roller du tilhører. Dette påvirker ruter og de lokationer du ser på kortet";
 "Route Settings" = "Rute Indstillinger";
+"Settings" = "Indstillinger";
 "App User Roles" = "App bruger roller";
 
 //App Info
 "impressum" = "Impressum";
 "privacy" = "Databeskyttelse";
+
+// Booking related:
+"Booked from %@" = "Booket fra %@";
+"Oops - something went wrong getting the calendar for %@" = "Ups - Kunne ikke hente kalenderen for %@";
+"Book" = "Book";
+"Booking" = "Booker";
+"Cancelling" = "Annullerer";
+"Booked" = "Booket";

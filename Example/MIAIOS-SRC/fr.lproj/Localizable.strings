@@ -1,0 +1,195 @@
+/*
+ Localizable.strings
+ MapsIndoorsSDK
+
+ Created by Daniel Nielsen on 02/08/16.
+ Copyright © 2017 MapsPeople. All rights reserved.
+ */
+"Level" = "Étage";
+"Level %@" = "Étage %@";
+"OK" = "OK";
+"Get directions" = "Où voulez vous aller?";
+"Origin" = "Point de départ";
+"Destination" = "Destination";
+"Choose destination" = "Choisissez une destination";
+"Choose starting point" = "Choisissez un point de départ";
+"Map" = "Carte";
+"Categories" = "Catégories";
+"Search" = "Recherche";
+"Search %@" = "Chercher %@";
+"Show on map" = "Afficher sur la carte";
+"Estimated: %@" = "Paramètres: %@";
+"From %@" = "A partir de %@";
+"Next" = "Prochain";
+"Previous" = "Précédent";
+"My position" = "Ma position";
+"Searching for '%@'" = "Researcher '%@'";
+"Cancel" = "Annuler";
+"Select Venue" = "Sélectionner un site";
+"Search Result" = "Résultat de la recherche";
+"Avoid stairs" = "Éviter les escaliers";
+"Sorry, failed to get app content..." = "Échec, impossible d'obtention du contenu de l'application..";
+"Sorry, failed to get locations..." = "Échec, impossible d'obtenir les emplacements...";
+"Sorry, failed to get location details..." = "Échec, impossible d'obtenir les détails de l’emplacement...";
+"Sorry, failed to get directions..." = "Échec, impossible d'obtenir les directions...";
+"Get directions" = "Directions";
+"Zoom for more details" = "Zoomez pour plus de détails";
+"RETURN TO VENUE" = "RETOUR AU LIEU";
+"Return to" = "Revenir a";
+
+"%d min" = "%d min";
+"%d h %d min" = "%d h %d min";
+"%d d %d h %d min" = "%d d %d h %d min";
+
+"walk" = "marcher";
+"by car" = "en voiture";
+"transit" = "transit";
+"by transit" = "par transit";
+"by bike" = "à vélo";
+
+"Get feedback?" = "Vous avez des retours?";
+"Need help?" = "Besoin d’aide?";
+"Send us an email" = "Envoyez nous un email";
+"Please enable WIFI" = "Veuillez activer le WIFI";
+"In order to determine your position WIFI must be enabled and the phone must be connected to the Wifi network" = "Afin de déterminer votre position, le WIFI doit être activé et le téléphone doit être connecté au réseau Wifi";
+
+"Welcome to the map service of MapsPeople" = "Bienvenue sur le service de cartographie de MapsPeople";
+"Buildings and rooms are being loaded" = "Les bâtiments et les pièces sont en cours de chargement";
+
+"No matches for \"%@\"" = "Pas de correspondance pour \"%@\"";
+"No locations to show" = "Aucune localisation disponible";
+"Use the search to search across\n%@" = "Utilisez la recherche pour rechercher dans\n%@";
+"Use the searchfield at the top to search across\n%@" = "Utilisez le champ de recherche au dessus pour chercher dans\n%@";
+"Search for locations indoors and outdoors" = "Rechercher des lieux à l'intérieur et à l'extérieur";
+"No route found" = "Aucun itinéraire trouvé";
+
+// App Information screen:
+"App Information" = "Informations sur l'application";
+"App Version" = "Version de l'application";
+"Credits" = "Crédits";
+"License: %@" = "License: %@";
+"App" = "Application";
+"SDK" = "SDK";
+"Supplier" = "Fournisseur";
+
+// Location services alerts
+"Location Services are disabled" = "Les services de localisation sont désactivés";
+"Please turn on your phone's location services from privacy settings for us to determine your location." = "Veuillez activer les services de localisation de votre téléphone à partir des paramètres de confidentialité pour que nous puissions déterminer votre position.";
+"Please turn on location services for %@ to determine your location." = "Veuillez activer les services de localisation pour %@ afin de déterminer votre position.";
+"Turn On" = "Activer";
+"Turn on location services to get your estimated position" = "Activez les services de localisation pour obtenir votre position estimée";
+"Turn on location services" = "Activer les services de localisation";
+
+//
+"Clear Map" = "Effacer la carte";
+
+// Transit sources:
+"Tickets and information (%@)" = "Billets et information (%@)";
+"Tickets and information" = "Billets et information";
+
+// Floating action menu
+"Find" = "Trouver";
+
+// Offline UI
+"No internet, unable to update map" = "Pas de connexion internet, impossible de mettre la carte à jour";
+"OFFLINE - TRY TO RECONNECT" = "HORS LIGNE - ESSAYER DE VOUS RECONNECTER";
+"OFFLINE - Previously loaded content available" = "Hors ligne - Le contenu de la dernière utilisation est disponible";
+"OFFLINE - Failed to get app content" = "HORS LIGNE - Échec de l'obtention du contenu de l'application
+";
+"No Internet" = "Pas d'Internet";
+"kLangNoInternetMessage" = "Votre appareil semble être hors ligne.\nVeuillez désactiver le mode avion ou activer le Wi-Fi";
+"No Internet - No Google results" = "Pas d'Internet - ne montre pas les résultats Google";
+
+// Directions panel
+"▼ Directions" = "▼ Directions";
+"▲ Directions" = "▲ Directions";
+"Level %@ to %@" = "Level %@ to %@";
+"Enter" = "Entrer";
+"Exit" = "Sortie";
+"Stairs" = "Éscalier";
+"Start" = "Départ";
+"End" = "Fin";
+"Walk" = "Marcher";
+"Bike" = "Vélo";
+"Drive" = "Conduire";
+"Transit" = "Transit";
+"Turn left" = "Turn left";
+"Turn right" = "Turn right";
+"Turn sharp left" = "Turn sharp left";
+"Turn sharp right" = "Turn sharp right";
+"Turn slight left" = "Turn slight left";
+"Turn slight right" = "Turn slight right";
+"Turn around" = "Turn around";
+"Continue straight ahead" = "Continuez tout droit";
+
+// Transit sources
+"Website" = "Site web";
+"Phone" = "Téléphone";
+"Open in Safari ?" = "Ouvrir avec Safari ?";
+"Open" = "Ouvrir";
+"Phone number copied to clipboard" = "Le numéro de téléphone est copié sur le clipboard";
+
+// Directions
+"%d stops (%@)" = "%d stops (%@)";
+"Duration estimate not available" = "L’estimation de la durée n’est pas disponible";
+"Please choose starting point" = "Choisissez un point de départ";
+"Please choose destination"    = "choisissez une destination";
+
+// Accessibility strings
+"Exit venue selector" = "Quitter le sélecteur de lieu";
+"Current Venue" = "Lieu actuel";
+"Show Category" = "Montrer les categories";
+"%@ Results available" = "%@ Resultas disponible";
+"Back" = "Retour";
+"Select route origin" =      "Sélectionner le point de départ";
+"Select route destination" = "Sélectionner le point d’arriver”";
+"Swap route start and destination" = "Échanger le point de départ et le point d’arriver";
+"Avoid Stairs On, double tap to change."  = "Éviter les escaliers est engagé, appuyez deux fois pour modifier.";
+"Avoid Stairs Off, double tap to change." = "Éviter les escaliers est désengagé, appuyez deux fois pour modifier.";
+"Route available : %@" = "Itinéraires disponible: %@";
+"Finding Route" = "Trouver un itinéraire";
+"Show Side Bar Menu" = "Afficher le menu de la barre latérale";
+"Hide Side Bar Menu" = "Cacher le menu de la barre latérale";
+"Select Floor %@" = "Sélectionner l'étage %@";
+"Find nearest shortcut menu" = "Trouver le raccourcie le plus proche";
+"Show Category: %@" = "Affichez les catégories: %@";
+"Tracking disabled"        = "Suivi désactivé"       ;
+"Tracking Off"             = "Suivi désactivé"            ;
+"Tracking On"              = "Suivi activé"             ;
+"Tracking On With Heading" = "Tracking On With Heading";
+"Change tracking options"  = "Changer les options du suivi";
+"Show App Information" = "Afficher les informations de l’application";
+"Drive %@ stops with public transport, %@ %@"   = "Conduisez% @ arrêts avec les transports publics, %@ %@";
+"Walk"                                          = "Marcher"                                       ;
+"Bike"                                          = "Vélo"                                       ;
+"Drive"                                         = "Conduire"                                      ;
+"Start Route from %@, "                         = "Démarrer l'itinéraire à partir de %@, "                      ;
+"Continue Route from %@, "                      = "Continuer l'itinéraire à partir de %@, "                   ;
+"towards %@, "                                  = "vers %@, "                               ;
+"towards destination %@, "                      = "vers la destination %@, "                   ;
+"Route instructions %@ to %@ of %@"             = "Instructions d'itinéraire %@ to %@ of %@";
+"My Location"                                   = "Ma position";
+"My location, accuracy %@m"                     = "Ma position, précision %@m";
+
+"Go" = "Partir";
+"Enter solution-Id or API-key" = "Entrer une clé API";
+"Oops. Please try again." = "Oops. Veuillez réessayer.";
+"Log out" = "Se déconnecter";
+
+// App User Roles
+"Choose the App User Roles you are part of. This only affacts the directions you get, not the locations you see on the map" = "Choisissez les rôles d\'utilisateur de l\'application dont vous faites partie. Cela affecte que les directions que vous obtenez, et les emplacements que vous voyez sur la carte";
+"Route Settings" = "Paramètres de l'itinéraire";
+"Settings" = "Paramètres";
+"App User Roles" = "Rôles des utilisateurs de l'application";
+
+//App Info
+"impressum" = "Impressum";
+"privacy" = "Protection des données";
+
+// Booking related:
+"Booked from %@" = "Réservé depuis %@";
+"Oops - something went wrong getting the calendar for %@" = "Oups, une erreur s'est produite lors de l'obtention du calendrier de %@";
+"Book" = "Réserver";
+"Booking" = "Réserve";
+"Cancelling" = "Annule";
+"Booked" = "Réservé";

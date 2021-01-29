@@ -8,7 +8,6 @@
 
 
 #import "ContainerViewController.h"
-#import "UIFont+SystemFontOverride.h"
 @import VCMaterialDesignIcons;
 #import "Global.h"
 #import "UIColor+AppColor.h"
@@ -21,7 +20,8 @@
 #import "NSObject+ContentSizeChange.h"
 #import "AppFonts.h"
 #import "BuildingInfoCache.h"
-#import "MDDeviceHelper.h"
+#import "AppFlowController.h"
+
 
 @interface ContainerViewController () <UISplitViewControllerDelegate>
 
@@ -229,6 +229,9 @@
         self.welcomeLabel.hidden = YES;
         self.loadingLabel.hidden = YES;
         self.loadingIndicator.hidden = YES;
+
+        [AppFlowController sharedInstance].splitViewController = self.splitViewController;
+        [AppFlowController sharedInstance].mainUiIsReady = YES;
     }];
 
     [BuildingInfoCache sharedInstance]; // Preheat the building info cache.
@@ -301,7 +304,7 @@
     NSString*   appProvider = [AppVariantData sharedAppVariantData].appProviderName;
     NSString*   msg = [NSString stringWithFormat:@"Contact %@ for more information", appProvider];
     UIAlertController*  alert = [UIAlertController alertControllerWithTitle:@"API Key Invalid" message:msg preferredStyle:UIAlertControllerStyleAlert];
-    if (!(IS_IPAD)) {
+    if (!(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)) {
         alert.modalPresentationStyle = UIModalPresentationFullScreen;
     }
     [self presentViewController:alert animated:YES completion:nil];
@@ -318,7 +321,7 @@
         
         NSString*   msg = @"Please add a valid Google API Key to mapsindoors.plist";
         UIAlertController*  alert = [UIAlertController alertControllerWithTitle:@"Google API Key Invalid" message:msg preferredStyle:UIAlertControllerStyleAlert];
-        if (!(IS_IPAD)) {
+        if (!(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)) {
             alert.modalPresentationStyle = UIModalPresentationFullScreen;
         }
         [self presentViewController:alert animated:YES completion:nil];

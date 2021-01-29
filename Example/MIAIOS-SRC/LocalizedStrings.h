@@ -40,6 +40,7 @@
 #define kLangCouldNotFindLocationDetails    MPLocalizedString(@"Sorry, failed to get location details...", @"")
 #define kLangCouldNotFindDirections         MPLocalizedString(@"Sorry, failed to get directions...", @"")
 #define kLangFeedback                       MPLocalizedString(@"Got feedback?", @"")
+#define kLangHelp                           MPLocalizedString(@"Need help?", @"")
 #define kLangFeedbackSendEmail              MPLocalizedString(@"Send us an email", @"")
 #define kLangPleaseEnableWIFI               MPLocalizedString(@"Please enable WIFI", @"")
 #define kLangEnableWIFIToGetPositioning     MPLocalizedString(@"In order to determine your position WIFI must be enabled and the phone must be connected to the Wifi network", @"")
@@ -134,6 +135,6 @@
 #define kLangUserLocationAccuracyAccLabel               MPLocalizedString( @"My location, accuracy %@m", @"" )
 
 #define kLangLoginGo                                    MPLocalizedString( @"Go", @"" )
-#define kLangLoginEnterSolutionId                       MPLocalizedString( @"Indtast solution-Id eller API-nøgle", @"" )
-#define kLangLoginTryAGain                              MPLocalizedString( @"Ups. Prøv igen.", @"" )
-#define kLangLogOut                                     MPLocalizedString( @"Log ud", @"" )
+#define kLangLoginEnterSolutionId                       MPLocalizedString( @"Enter solution-Id or API-key", @"" )
+#define kLangLoginTryAGain                              MPLocalizedString( @"Oops. Please try again.", @"" )
+#define kLangLogOut                                     MPLocalizedString( @"Log out", @"" )

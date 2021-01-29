@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIFont+SystemFontOverride.h"
+
 
 @interface UINavigationController (TransparentNavigationController)
 - (void)presentTransparentNavigationBar;

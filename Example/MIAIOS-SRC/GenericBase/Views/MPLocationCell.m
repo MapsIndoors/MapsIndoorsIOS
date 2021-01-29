@@ -23,6 +23,8 @@
 
     self.textLabel.font = [AppFonts sharedInstance].listItemFont;
     self.subTextLabel.font = [AppFonts sharedInstance].listItemSubTextFont;
+    self.lowerLeftBadgeLabel.backgroundColor = UIColor.clearColor;
+    self.lowerLeftBadgeLabel.text = @"";
 
     __weak typeof(self)weakSelf = self;
     [self mp_onContentSizeChange:^(DynamicTextSize dynamicTextSize) {
@@ -35,11 +37,23 @@
     
     [super prepareForReuse];
     self.subTextLabel.hidden = NO;
+    self.accessoryView = nil;
+    self.lowerLeftBadgeLabel.backgroundColor = UIColor.clearColor;
+    self.lowerLeftBadgeLabel.text = @"";
 }
 
 - (void) centerTextLabelVertically {
     
     self.subTextLabel.hidden = YES;
+}
+
+- (void) setBadgeColor:(UIColor*)c andText:(NSString*)s {
+
+    self.lowerLeftBadgeLabel.backgroundColor = c;
+    self.lowerLeftBadgeLabel.text = s;
+    [self.lowerLeftBadgeLabel setFont:[UIFont boldSystemFontOfSize:12]];
+    self.lowerLeftBadgeLabel.layer.masksToBounds = YES;
+    self.lowerLeftBadgeLabel.layer.cornerRadius = self.lowerLeftBadgeLabel.bounds.size.width / 2;
 }
 
 @end

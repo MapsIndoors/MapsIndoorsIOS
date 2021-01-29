@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIFont+SystemFontOverride.h"
 #import <MapsIndoors/MapsIndoors.h>
 
 

@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSString*     travelMode;
 @property (nonatomic, strong) MPLocation*   origin;
 @property (nonatomic, strong) MPLocation*   destination;
+@property (nonatomic, strong) NSArray*      restrictions;
 
 - (void)routingFrom:(MPLocation *)from to:(MPLocation *)to by:(NSString *)mode avoid:(NSArray *)restrictions depart:(NSDate *)departureTime arrive:(NSDate *)arrivalTime;
 

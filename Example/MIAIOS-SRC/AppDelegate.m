@@ -13,9 +13,6 @@
 #import "Global.h"
 #import "UIColor+AppColor.h"
 #import "RoutingData.h"
-#import "UIFont+SystemFontOverride.h"
-#import <Fabric/Fabric.h>
-#import <Crashlytics/Crashlytics.h>
 #import "LocalizationSystem.h"
 #import <AFNetworking/AFNetworkReachabilityManager.h>
 #import "Tracker.h"
@@ -24,20 +21,29 @@
 #import "NSObject+CustomIntegrations.h"
 #import "AppVariantData.h"
 //#import "SimulatedPeopleLocationSource.h"
+#import "MPUrlSchemeHelper.h"
+#import "AppFlowController.h"
+#import "AppPositionProvider.h"
 
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
 @property (nonatomic, strong) CLLocationManager*    locationManager;
-@property BOOL isPositionProviderStoppedWhenInBackground;
+@property (nonatomic) BOOL                          isPositionProviderStoppedWhenInBackground;
+@property (nonatomic) BOOL                          shouldSynchronizeDataOnAppActivation;
 
 @end
 
+@interface MPMIAPI (DevEnv)
+
+@property (nonatomic, readwrite) BOOL useDevEnvironment;
++ (MPMIAPI*) sharedInstance;
+@end
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+
     self.isPositionProviderStoppedWhenInBackground = NO;
     
     MapsIndoors.imageProvider =  [MPSVGImageProvider new];
@@ -48,7 +54,6 @@
     
     [GMSServices provideAPIKey:[Global getPropertyFromPlist:@"GoogleAPIKey"]];
     [MPGooglePlacesClient provideAPIKey:[Global getPropertyFromPlist:@"GoogleAPIKey"]];
-    [Fabric with:@[[Crashlytics class]]];
     
     NSString*   googleServiceInfoPlist = [[NSBundle mainBundle] pathForResource:@"GoogleService-Info" ofType:@"plist"];
     Tracker.disabled = [[NSFileManager defaultManager] fileExistsAtPath:googleServiceInfoPlist] == NO;
@@ -62,10 +67,11 @@
     
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
 
+    self.shouldSynchronizeDataOnAppActivation = self.delayedMapsIndoorsInit == NO;
     if ( self.delayedMapsIndoorsInit == NO ) {
         [MapsIndoors provideAPIKey:[AppVariantData sharedAppVariantData].mapsIndoorsAPIKey googleAPIKey:[AppVariantData sharedAppVariantData].googleAPIKey];
     }
-
+    
 //    #ifdef BUILDING_SDK_APP
 //        [MapsIndoors registerLocationSources:@[ [MPMapsIndoorsLocationSource new], [SimulatedPeopleLocationSource new]]];
 //    #endif
@@ -80,8 +86,10 @@
     
     self.locationManager = [CLLocationManager new];
     self.locationManager.delegate = self;
-    
-    [MPNotificationsHelper setupNotificationsForApp:[UIApplication sharedApplication] withLocationManager:self.locationManager];
+
+    if ( self.delayedMapsIndoorsInit == NO ) {
+        [MPNotificationsHelper setupNotificationsForApp:[UIApplication sharedApplication] withLocationManager:self.locationManager];
+    }
     
     return YES;
 }
@@ -94,14 +102,31 @@
         [MapsIndoors.positionProvider startPositioning:nil];
     }
 
-    [MapsIndoors synchronizeContent:^(NSError *error) {
-        // Additional tasks and error handling/reporting could be done here.
-    }];
+    if ( self.shouldSynchronizeDataOnAppActivation ) {
+
+        [MapsIndoors synchronizeContent:^(NSError *error) {
+            // Additional tasks and error handling/reporting could be done here.
+        }];
+
+    } else {
+
+        self.shouldSynchronizeDataOnAppActivation = YES;
+    }
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    [MapsIndoors.positionProvider stopPositioning:nil];
-    self.isPositionProviderStoppedWhenInBackground = YES;
+
+    BOOL    bStopPositioning = YES;
+
+    if ( [MapsIndoors.positionProvider conformsToProtocol:@protocol(AppPositionProvider)] ) {
+        id<AppPositionProvider>     appPositionProvider = (id<AppPositionProvider>)MapsIndoors.positionProvider;
+        bStopPositioning = appPositionProvider.backgroundLocationUpdates ? NO : YES;
+    }
+
+    if ( bStopPositioning ) {
+        [MapsIndoors.positionProvider stopPositioning:nil];
+        self.isPositionProviderStoppedWhenInBackground = YES;
+    }
 }
 
 - (void) onLocationDetailTapped: (NSNotification*) notification {
@@ -129,39 +154,60 @@
     
     BOOL    result = YES;
 
-    if ( self.openUrlHook ) {
+    if ( !self.openUrlHook || !self.openUrlHook( app, url, options ) ) {
 
-        result = self.openUrlHook( app, url, options );
+        MPUrlSchemeHelper*  urlSchemeHelper = [MPUrlSchemeHelper new];
+        if ( [urlSchemeHelper parseUrl:url.absoluteString] ) {
 
-    } else {
+            switch ( urlSchemeHelper.command ) {
+                case MPUrlSchemeCommand_LocationDetails:
+                    [[AppFlowController sharedInstance] presentDetailsScreenForLocationWitId:urlSchemeHelper.location];
+                    break;
 
-        NSURLComponents *urlComponents = [NSURLComponents componentsWithURL:url resolvingAgainstBaseURL:NO];
+                case MPUrlSchemeCommand_Directions:
+                    [[AppFlowController sharedInstance] presentRouteFrom:urlSchemeHelper.origin
+                                                            fromLocation:urlSchemeHelper.originLocation
+                                                                      to:urlSchemeHelper.destination
+                                                              toLocation:urlSchemeHelper.destinationLocation
+                                                              travelMode:urlSchemeHelper.travelMode
+                                                                   avoid:urlSchemeHelper.avoids];
+                    break;
 
-        NSArray *queryItems = urlComponents.queryItems;
-        NSString *venue = [self valueForKey:@"venueId" fromQueryItems:queryItems];
-        if (venue) {
-            MPVenueProvider* venues = [[MPVenueProvider alloc] init];
-            [venues getVenueWithId:venue completionHandler:^(MPVenue *venue, NSError *error) {
-                if (error == nil) {
-                    Global.venue = venue;
-                }
-            }];
-        }
+                case MPUrlSchemeCommand_Unknown:
+                    break;
+            }
 
-        MPLocationQuery* lq = [MPLocationQuery queryWithUrl:url];
-        if (lq) {
-            Global.appSchemeLocationQuery = lq;
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenLocationSearch" object:lq];
-        }
+        } else {
 
-        NSString *locationId = [self valueForKey:@"locationId" fromQueryItems:queryItems];
-        if (locationId && locationId.length == 24)
-            [MapsIndoors.locationsProvider getLocationWithId:locationId];
+            NSURLComponents *urlComponents = [NSURLComponents componentsWithURL:url resolvingAgainstBaseURL:NO];
 
-        NSString *initialPos = [self valueForKey:@"center" fromQueryItems:queryItems];
-        if (initialPos) {
-            NSArray* posArr = [initialPos componentsSeparatedByString:@","];
-            Global.initialPosition = [[MPPoint alloc] initWithLat:[[posArr objectAtIndex:0] doubleValue] lon:[[posArr objectAtIndex:1] doubleValue]];
+            NSArray *queryItems = urlComponents.queryItems;
+            NSString *venue = [self valueForKey:@"venueId" fromQueryItems:queryItems];
+            if (venue) {
+                MPVenueProvider* venues = [[MPVenueProvider alloc] init];
+                [venues getVenueWithId:venue completionHandler:^(MPVenue *venue, NSError *error) {
+                    if (error == nil) {
+                        Global.venue = venue;
+                    }
+                }];
+            }
+
+            MPLocationQuery* lq = [MPLocationQuery queryWithUrl:url];
+            if (lq) {
+                Global.appSchemeLocationQuery = lq;
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenLocationSearch" object:lq];
+            }
+
+            NSString *locationId = [self valueForKey:@"locationId" fromQueryItems:queryItems];
+            if (locationId && locationId.length == 24) {
+                [MapsIndoors.locationsProvider getLocationWithId:locationId];
+            }
+
+            NSString *initialPos = [self valueForKey:@"center" fromQueryItems:queryItems];
+            if (initialPos) {
+                NSArray* posArr = [initialPos componentsSeparatedByString:@","];
+                Global.initialPosition = [[MPPoint alloc] initWithLat:[[posArr objectAtIndex:0] doubleValue] lon:[[posArr objectAtIndex:1] doubleValue]];
+            }
         }
 
         [MPNotificationsHelper setupNotificationsForApp:[UIApplication sharedApplication] withLocationManager:self.locationManager];

@@ -29,16 +29,21 @@
 #import "NSObject+ContentSizeChange.h"
 #import "AppFonts.h"
 #import "TCFKA_MDSnackbar.h"
+#import "BookingDetailsViewModel.h"
+#import "BookingDetailsEntry.h"
+#import <NSObject+FBKVOController.h>
+#import "NSObject+MPUserInfo.h"
+
 
 @import VCMaterialDesignIcons;
-@import MaterialControls;
 @import PureLayout;
 
 
 typedef NS_ENUM(NSUInteger, DetailSection) {
     DetailSection_OfflineMessage,
     DetailSection_LocationDetails,
-    
+    DetailSection_Booking,
+
     DetailSection_Count
 };
 
@@ -49,6 +54,7 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
 @property (nonatomic, strong) MPRoute*                              route;
 @property (nonatomic, strong) NSDictionary<NSString*,NSString*>*    categoriesMap;
 @property (nonatomic, strong) NSString*                             subTitleForDirectionsCell;
+@property (nonatomic, strong) BookingDetailsViewModel*              bookingDetailsViewModel;
 
 @end
 
@@ -57,8 +63,8 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
     
     NSMutableArray* _fields;
     RoutingData* _routing;
-    MDButton* _routeBtn;
-    MDButton* _showMapBtn;
+    UIButton* _routeBtn;
+    UIButton* _showMapBtn;
     MPLocation* _from;
     MPVenueProvider* _venueProvider;
     NSArray* _buildings;
@@ -233,7 +239,7 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
     NSURL* url = [NSURL URLWithString:sUrl];
     UIActivityViewController* shareCtrl = [[UIActivityViewController alloc] initWithActivityItems:@[url] applicationActivities:nil];
     AppDelegate* app = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    if ( IS_IPAD ) {
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) {
         shareCtrl.popoverPresentationController.barButtonItem = self.navigationItem.rightBarButtonItem;
     }
     
@@ -251,14 +257,25 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
 - (void)setLocation:(MPLocation *)location {
         
     _location = location;
+
+    self.bookingDetailsViewModel = [BookingDetailsViewModel newWithBookableLocation:location];
+
     if (_location) {
         
-        if (_location.categories.allKeys.count > 0 || _location.roomId) {
-            NSString*   categoryKey = _location.categories.allKeys.firstObject;
-            NSString* category = self.categoriesMap[categoryKey];
-            NSString* infoText = category ?: @"";
-            if (_location.roomId) {
-                infoText = infoText.length ? [infoText stringByAppendingFormat:@"\n%@", _location.roomId] : _location.roomId;
+        if (_location.categories.allKeys.count > 0 || _location.externalId) {
+            NSMutableArray<NSString*>*      categoryNames = [NSMutableArray array];
+            for ( NSString* key in _location.categories.allKeys ) {
+
+                NSString*   categoryName = _location.categories[key];
+                if ( categoryName.length == 0 ) {
+                    categoryName = self.categoriesMap[key];
+                }
+                [categoryNames addObject: categoryName.length ? categoryName : key];        // Show category name with fallback to key.
+            }
+            [categoryNames sortUsingSelector:@selector(localizedStandardCompare:)];
+            NSString* infoText = [categoryNames componentsJoinedByString:@", "] ?: @"";
+            if (_location.externalId) {
+                infoText = infoText.length ? [infoText stringByAppendingFormat:@"\n%@", _location.externalId] : _location.externalId;
             }
             [_fields addObject:@{@"text": infoText, @"icon": [self materialIcon:VCMaterialDesignIconCode.md_info]}];
         }
@@ -379,7 +396,7 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
     [self mp_onContentSizeChange:^(DynamicTextSize dynamicTextSize) {
         __strong __typeof(weakSelf)strongSelf = weakSelf;
         strongSelf.titleLabel.font = [AppFonts sharedInstance].headerTitleFont;
-        MDButton* routeBtn = strongSelf->_routeBtn;
+        UIButton* routeBtn = strongSelf->_routeBtn;
         routeBtn.titleLabel.font = [AppFonts sharedInstance].buttonFont;
     }];
 }
@@ -387,8 +404,6 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 88;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
@@ -488,9 +503,27 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return (section == DetailSection_LocationDetails) ? _fields.count :
-             self.mp_isNetworkReachable || self.route ? 0
-                                                      : 1;
+    NSInteger nRows = 0;
+
+    switch ( (DetailSection)section ) {
+        case DetailSection_LocationDetails:
+            nRows = _fields.count;
+            break;
+        case DetailSection_OfflineMessage:
+            nRows = self.mp_isNetworkReachable || self.route ? 0 : 1;
+            break;
+        case DetailSection_Booking:
+            if ( self.bookingDetailsViewModel.shouldShowBookingInformation ) {
+                nRows = 1 + self.bookingDetailsViewModel.bookingEntries.count;
+                if ( self.bookingDetailsViewModel.error ) {
+                    ++nRows;
+                }
+            }
+            break;
+        case DetailSection_Count:
+            break;
+    }
+    return nRows;
 }
 
 - (UIImage*) materialIcon:(NSString*)iconCode {
@@ -542,6 +575,85 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
             break;
         }
 
+        case DetailSection_Booking:
+            if ( indexPath.row == 0 ) {
+                DetailsTableViewCell*   detailsCell = [tableView dequeueReusableCellWithIdentifier:@"DetailCell" forIndexPath:indexPath];
+                // UIImageSymbolConfiguration* config = [UIImageSymbolConfiguration configurationWithPointSize:24];
+                // UIImage*                image = [UIImage systemImageNamed:@"calendar.badge.plus" withConfiguration:config];
+                UIImage*    image = [UIImage imageNamed:@"booking-calendar"];
+                NSString*               title = NSLocalizedString(@"Book",);
+
+                [detailsCell configureWithTitle:title titleColor:[UIColor appPrimaryTextColor] image:image imageTintColor:[UIColor appPrimaryColor]];
+                detailsCell.showActivityIndicator = self.bookingDetailsViewModel.isBusy;
+
+                UISegmentedControl*     durationSelector = [[UISegmentedControl alloc] initWithItems: self.bookingDetailsViewModel.availableDurations];
+                durationSelector.selectedSegmentIndex = self.bookingDetailsViewModel.selectedDurationIndex;
+                [durationSelector addTarget:self action:@selector(onBookingDurationChanged:) forControlEvents:UIControlEventValueChanged];
+                [durationSelector sizeToFit];
+                CGRect r = durationSelector.frame;
+                r.size.width += 8;
+                durationSelector.frame = r;
+                detailsCell.accessoryView = durationSelector;
+
+                cell = detailsCell;
+
+            } else if ( indexPath.row <= self.bookingDetailsViewModel.bookingEntries.count ) {
+
+                BookingDetailsEntry*    bookingEntry = self.bookingDetailsViewModel.bookingEntries[ indexPath.row -1 ];
+
+                UIImage*    image = [UIImage new];
+                NSString*   cellTitle = bookingEntry.descriptionText;
+                NSString*   actionTitle;
+                UIColor*    actionTitleColor = UIColor.lightGrayColor;
+                UIFont*     actionFont = [AppFonts sharedInstance].listItemFont;
+
+                UIButton*       actionButton = [UIButton new];
+                if ( bookingEntry.isBookable ) {
+                    if ( !bookingEntry.bookingInProgress ) {
+                        actionTitle = NSLocalizedString(@"Book",);
+                        actionTitleColor = [UIColor appPrimaryColor];
+                        actionFont = [AppFonts.sharedInstance scaledBoldFontForSize:15];
+                    } else {
+                        actionTitle = NSLocalizedString(@"Booking",);
+                    }
+                } else if ( bookingEntry.isCancellable ) {
+                    actionTitle = bookingEntry.bookingInProgress ? NSLocalizedString(@"Cancelling",) : NSLocalizedString(@"Cancel",);
+                    actionTitleColor = bookingEntry.bookingInProgress ? UIColor.lightGrayColor : UIColor.redColor;
+                } else {
+                    actionTitle = NSLocalizedString( @"Booked", );
+                }
+
+                DetailsTableViewCell*   detailsCell = [tableView dequeueReusableCellWithIdentifier:@"DetailCell" forIndexPath:indexPath];
+                [detailsCell configureWithTitle:cellTitle titleColor:[UIColor appPrimaryTextColor] image:image imageTintColor:[UIColor appPrimaryColor]];
+                detailsCell.compactHeight = YES;
+                detailsCell.accessoryView = actionButton;
+                detailsCell.showActivityIndicator = bookingEntry.bookingInProgress;
+                [actionButton setTitle:actionTitle forState:UIControlStateNormal];
+                [actionButton.titleLabel setFont:actionFont];
+                [actionButton setTitleColor:actionTitleColor forState:UIControlStateNormal];
+                [actionButton sizeToFit];
+                actionButton.mp_userInfo = bookingEntry;
+                actionButton.tag = indexPath.row;
+                [actionButton addTarget:self action:@selector(handleBookingAction:) forControlEvents:UIControlEventTouchUpInside];
+
+                cell = detailsCell;
+
+            } else if ( indexPath.row == (self.bookingDetailsViewModel.bookingEntries.count +1) ) {
+
+                DetailsTableViewCell*   detailsCell = [tableView dequeueReusableCellWithIdentifier:@"DetailCell" forIndexPath:indexPath];
+                NSString*               title = [NSString stringWithFormat: NSLocalizedString( @"Oops - something went wrong getting the calendar for %@",), self.location.name];
+                NSString*               message = self.bookingDetailsViewModel.error.localizedDescription;
+
+                if ( message.length ) {
+                    title = [title stringByAppendingFormat:@":\n%@", message];
+                }
+
+                [detailsCell configureWithTitle:title titleColor:[UIColor appPrimaryTextColor] image:[UIImage new] imageTintColor:[UIColor appPrimaryColor]];
+
+                cell = detailsCell;
+            }
+            break;
+
         case DetailSection_Count:       // Only here for completeness, so Xcode will warn if/when adding new sections to enum
             break;
     }
@@ -565,7 +677,8 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
             [self reloadLocationData];
             break;
         }
-            
+
+        case DetailSection_Booking:
         case DetailSection_Count:
             break;
     }
@@ -585,7 +698,7 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
                 return NO;
             }
             
-        } else if ( indexPathForSelectedRow.section == DetailSection_OfflineMessage ) {
+        } else if ( (indexPathForSelectedRow.section == DetailSection_OfflineMessage) || (indexPathForSelectedRow.section == DetailSection_Booking)) {
             return NO;
         }
     }
@@ -662,5 +775,83 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
     [self.operationsInProgress removeObject:opName];
     [self showSpinnerIfNeeded];
 }
+
+
+#pragma mark - Booking support
+
+
+- (void) reloadBookingsList {
+
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:DetailSection_Booking] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+
+- (void) setBookingDetailsViewModel:(BookingDetailsViewModel*)bookingDetailsViewModel {
+
+    if ( _bookingDetailsViewModel ) {
+        [self.KVOController unobserve:_bookingDetailsViewModel];
+    }
+
+    _bookingDetailsViewModel = bookingDetailsViewModel;
+
+    if ( _bookingDetailsViewModel ) {
+        [_bookingDetailsViewModel refresh];
+        
+        [self.KVOController observe:_bookingDetailsViewModel keyPath:@"isBusy" options:NSKeyValueObservingOptionNew block:^(DetailViewController* _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
+            [observer reloadBookingsList];
+        }];
+    }
+}
+
+
+- (void) onBookingDurationChanged:(UISegmentedControl*)sender {
+    
+    self.bookingDetailsViewModel.selectedDurationIndex = sender.selectedSegmentIndex;
+    
+    // Avoid text truncation in the segmented control titles. Credits https://stackoverflow.com/a/19823102:
+    for ( int i=0; i < sender.numberOfSegments; ++i ) {
+        NSString* segmentTitle = [sender titleForSegmentAtIndex:i];
+        [sender setTitle:segmentTitle forSegmentAtIndex:i];
+    }
+}
+
+
+- (void) handleBookingAction:(UIButton*)sender {
+
+    id                      thing = sender.mp_userInfo;
+
+    if ( [thing isKindOfClass:BookingDetailsEntry.class] ) {
+
+        BookingDetailsEntry*    bookingEntry = thing;
+
+        if ( bookingEntry.bookingInProgress == NO ) {
+
+            if ( bookingEntry.isBookable ) {
+
+                [self.bookingDetailsViewModel performBooking:bookingEntry completion:^(BookingDetailsEntry *entry, NSError *error) {
+
+                    if ( error ) {
+                        NSLog( @"[E] Error booking %@ from %@ to %@ (%@)", self.location.name, bookingEntry.startTime, bookingEntry.endTime, error );
+                    }
+                    [self reloadBookingsList];
+                }];
+
+            } else if ( bookingEntry.isCancellable ) {
+
+                [self.bookingDetailsViewModel cancelBooking:bookingEntry completion:^(BookingDetailsEntry *entry, NSError *error) {
+
+                    if ( error ) {
+                        NSLog( @"[E] Error cancelling booking %@ from %@ to %@ (%@)", self.location.name, bookingEntry.startTime, bookingEntry.endTime, error );
+                    }
+                    [self reloadBookingsList];
+                }];
+
+            }
+
+            [self.tableView reloadRowsAtIndexPaths:@[ [NSIndexPath indexPathForRow:sender.tag inSection:DetailSection_Booking] ] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+    }
+}
+
 
 @end

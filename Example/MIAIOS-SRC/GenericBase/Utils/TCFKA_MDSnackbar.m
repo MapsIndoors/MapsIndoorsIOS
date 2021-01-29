@@ -32,10 +32,7 @@
 // THE SOFTWARE.
 
 #import "TCFKA_MDSnackbar.h"
-#import "UIColorHelper.h"
-#import "UIFontHelper.h"
-#import "MDConstants.h"
-#import "MDDeviceHelper.h"
+#import "UIColor+AppColor.h"
 #import "AppFonts.h"
 
 #define kMDAnimationDuration .25f
@@ -58,7 +55,7 @@ TCFKA_MDSnackbarManger *snackbarManagerInstance;
 @implementation TCFKA_MDSnackbar {
   NSLayoutConstraint *hiddenConstraint;
   NSLayoutConstraint *showingConstraint;
-  UIView *rootView;
+  UIWindow *rootView;
   UILabel *textLabel;
   BOOL isAnimating;
   NSMutableSet *delegates;
@@ -101,7 +98,7 @@ TCFKA_MDSnackbarManger *snackbarManagerInstance;
 - (void)createContent {
   delegates = [[NSMutableSet alloc] init];
   _duration = kMDSnackbarDurationShort;
-  self.backgroundColor = [UIColorHelper colorWithRGBA:@"#323232"];
+  self.backgroundColor = [UIColor colorFromRGBA:@"#323232"];
 
   textLabel = [[UILabel alloc] init];
   textLabel.font = [[AppFonts sharedInstance] scaledFontForSize:14];
@@ -125,9 +122,9 @@ TCFKA_MDSnackbarManger *snackbarManagerInstance;
   [textLabel
       setContentCompressionResistancePriority:UILayoutPriorityDefaultLow
                                       forAxis:UILayoutConstraintAxisHorizontal];
-
-  if (IS_IPAD) {
-    self.layer.cornerRadius = kMDCornerRadius;
+  
+  if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) {
+      self.layer.cornerRadius = kMDCornerRadius;
   }
 
   UISwipeGestureRecognizer *swipeGesture =
@@ -197,7 +194,7 @@ TCFKA_MDSnackbarManger *snackbarManagerInstance;
     [self addConstraints:hConstraints];
   }
 
-  if (IS_IPAD) {
+  if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
     // set min, max width
     NSLayoutConstraint *minWidthConstraint = [NSLayoutConstraint
         constraintWithItem:self
@@ -221,12 +218,11 @@ TCFKA_MDSnackbarManger *snackbarManagerInstance;
 }
 
 - (void)addSelfToScreen {
-  rootView = [MDDeviceHelper getMainView];
-
+  rootView = [UIApplication sharedApplication].keyWindow;
   [rootView addSubview:self];
   NSDictionary *dict = @{ @"view" : self };
 
-  if (IS_IPAD) {
+  if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
     NSLayoutConstraint *centerConstraint =
         [NSLayoutConstraint constraintWithItem:self
                                      attribute:NSLayoutAttributeCenterX

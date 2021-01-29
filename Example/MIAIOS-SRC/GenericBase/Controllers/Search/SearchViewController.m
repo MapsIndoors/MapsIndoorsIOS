@@ -12,7 +12,6 @@
 #import "UINavigationController+TransparentNavigationController.h"
 #import "UISearchBar+AppSearchBar.h"
 @import VCMaterialDesignIcons;
-@import MaterialControls;
 #import "UIViewController+Custom.h"
 #import "MPLocationCell.h"
 #import "LocalizedStrings.h"
@@ -26,21 +25,28 @@
 #import "BuildingInfoCache.h"
 #import "TCFKA_MDSnackbar.h"
 #import "UIViewController+Custom.h"
+#import "NSObject+MPNetworkReachability.h"
+#import <NSObject+FBKVOController.h>
+#import "AppFlowController.h"
+
 
 #define kSearchTextMinLength        2           // Only search when the length of the search text is >= than this constant.
 
 
 @interface SearchViewController () <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
-@property (nonatomic, strong) NSArray*          objects;
-@property (nonatomic, strong) MPLocationQuery*  locationQuery;
-@property (nonatomic, strong) TCFKA_MDSnackbar* snackBar;
-@property (nonatomic, strong) NSTimer*          snackBarTimer;
-@property (weak, nonatomic) IBOutlet UIView*    headerView;
-@property (nonatomic) CGFloat                   normalTableHeaderHeight;
-@property (nonatomic) BOOL                      didSelectPOI;
-@property (nonatomic) BOOL                      menuIsOpen;
-@property (nonatomic) BOOL                      awaitingInitialResult;
+@property (nonatomic, strong) NSArray*              objects;
+@property (nonatomic, strong) MPLocationQuery*      locationQuery;
+@property (nonatomic, strong) TCFKA_MDSnackbar*     snackBar;
+@property (nonatomic, strong) NSTimer*              snackBarTimer;
+@property (weak, nonatomic) IBOutlet UIView*        headerView;
+@property (nonatomic) CGFloat                       normalTableHeaderHeight;
+@property (nonatomic) BOOL                          didSelectPOI;
+@property (nonatomic) BOOL                          menuIsOpen;
+@property (nonatomic) BOOL                          awaitingInitialResult;
+
+@property (nonatomic, strong) NSSet< NSString* >*   locationIdsOfBookableAndAvailableLocations;
+@property (nonatomic, strong) NSTimer*              bookingStatusRefreshTimer;
 
 @end
 
@@ -126,7 +132,13 @@
     self.tableView.tableHeaderView = nil;
     
     self.menuIsOpen = YES;      // Assume open until notified otherwise
-    
+
+    __weak typeof(self)weakSelf = self;
+    [self mp_onReachabilityChange:^(BOOL isNetworkReachable) {
+        if ( isNetworkReachable ) {
+            [weakSelf refreshBookableAndAvailableLocations];
+        }
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -194,14 +206,19 @@
     
     [super viewDidAppear:animated];
 
-    
-    [self performSelector:@selector(focusSearchBar:) withObject:nil afterDelay:0.05];
+//    [self performSelector:@selector(focusSearchBar:) withObject:nil afterDelay:0.05];
+
+    [self refreshBookableAndAvailableLocations];
+    __weak typeof(self)weakSelf = self;
+    self.bookingStatusRefreshTimer = [NSTimer scheduledTimerWithTimeInterval:60 repeats:YES block:^(NSTimer * _Nonnull timer) {
+        [weakSelf refreshBookableAndAvailableLocations];
+    }];
 }
 
 - (void) viewDidDisappear:(BOOL)animated {
     
     [super viewDidDisappear:animated];
-    //[self unsubscribeFromMenuOpenCloseNotification];
+    [self.bookingStatusRefreshTimer invalidate];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -293,8 +310,8 @@
 
         NSMutableArray<NSString*>*  details = [NSMutableArray array];
 
-        if ( object.roomId.length && ![object.name isEqualToString:object.roomId] ) {
-            [details addObject:object.roomId];
+        if ( object.externalId.length && ![object.name isEqualToString:object.externalId] ) {
+            [details addObject:object.externalId];
         } 
 
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"venueKey LIKE[c] %@", object.venue];
@@ -328,7 +345,23 @@
         } else if (object.iconUrl) {
             [cell.imageView mp_setImageWithURL:object.iconUrl.absoluteString placeholderImage:[UIImage imageNamed:@"placeholder"]];
         } else {
-            [cell.imageView mp_setImageWithURL:[Global getIconUrlForType:object.type] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+            MPLocationDisplayRule*  dr = [AppFlowController.sharedInstance.currentMapControl getEffectiveDisplayRuleForLocation:object];
+
+            if ( dr ) {
+                if ( dr.icon ) {
+                    cell.imageView.image = dr.icon;
+                } else {
+                    [self.KVOController observe:dr keyPath:@"icon" options:NSKeyValueObservingOptionNew block:^(SearchViewController* _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
+                        [observer.tableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+                    }];
+                }
+            } else {
+                [cell.imageView mp_setImageWithURL:[Global getIconUrlForType:object.type] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+            }
+        }
+
+        if ( object.isBookable ) {
+            [self updateBookableIndicatorForCell:cell location:object];
         }
     }
 
@@ -609,6 +642,65 @@
 - (void) onMenuOpenOrClose:(NSNotification*) notification {
     
     self.menuIsOpen = [notification.userInfo[ kNotificationMenuOpenClose_IsOpenKey] boolValue];
+}
+
+
+#pragma mark - Booking support
+
+- (void) refreshBookableAndAvailableLocations {
+
+    //
+    // Query for bookable locations right now, so the badge status shows the status of the location for current 30 minute time slot.
+    //
+    __weak typeof(self)weakSelf = self;
+    MPBookableQuery*    q = [MPBookableQuery new];
+    q.startTime = NSDate.date;
+    
+    // Figure out timespan we should query:
+    NSDate*             now = [NSDate date];
+    NSCalendar*         calendar = [NSCalendar currentCalendar];
+    NSDateComponents*   comps = [calendar components: NSCalendarUnitEra|NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute fromDate: now];
+    if ( comps.minute < 30 ) {
+        comps.minute = 30;
+        q.endTime = [calendar dateFromComponents:comps];
+    } else {
+        comps.minute = 0;
+        q.endTime = [[calendar dateFromComponents:comps] dateByAddingTimeInterval:60*60];
+    }
+    [MPBookingService.sharedInstance getBookableLocationsUsingQuery:q completion:^(NSArray<MPLocation *> * _Nullable locations, NSError * _Nullable error) {
+
+        if ( !error ) {
+            weakSelf.locationIdsOfBookableAndAvailableLocations = [NSSet setWithArray: [locations valueForKeyPath:@"locationId"] ];
+            // NSLog( @"()=> locationIdsOfBookableAndAvailableLocations = %@", weakSelf.locationIdsOfBookableAndAvailableLocations );
+            [weakSelf updateBookableIndicators];
+        }
+    }];
+}
+
+
+- (void) updateBookableIndicators {
+
+    for ( NSIndexPath* indexpath in [self.tableView indexPathsForVisibleRows] ) {
+
+        MPLocation*     loc = self.objects[ indexpath.row ];
+        MPLocationCell* cell = [self.tableView cellForRowAtIndexPath:indexpath];
+
+        [self updateBookableIndicatorForCell:cell location:loc];
+    }
+}
+
+- (void) updateBookableIndicatorForCell:(MPLocationCell*)cell location:(MPLocation*)loc {
+
+    UIColor*    c = UIColor.clearColor;
+    NSString*   s = @"";
+
+    if ( loc.isBookable && self.locationIdsOfBookableAndAvailableLocations ) {
+        BOOL    available = [self.locationIdsOfBookableAndAvailableLocations containsObject:loc.locationId];
+        c = available ? [UIColor colorFromHexString:@"#56C281"] : [UIColor colorFromHexString:@"#DE1B1B"];
+        s = available ? @"✓" : @"X";
+    }
+
+    [cell setBadgeColor:c andText:s];
 }
 
 

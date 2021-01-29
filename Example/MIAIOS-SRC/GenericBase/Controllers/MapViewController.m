@@ -7,13 +7,13 @@
 //
 
 #import "MapViewController.h"
-#import "Global.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import <MapsIndoors/MapsIndoors.h>
-#import "HorizontalRoutingController.h"
-#import <MaterialControls/MaterialControls.h>
-#import "UIColor+AppColor.h"
 #import <VCMaterialDesignIcons/VCMaterialDesignIcons.h>
+
+#import "Global.h"
+#import "HorizontalRoutingController.h"
+#import "UIColor+AppColor.h"
 #import "FloatingActionMenuController.h"
 #import "SectionModel.h"
 #import "BeaconPositionProvider.h"
@@ -34,6 +34,7 @@
 //#import "SimulatedPeopleLocationSource.h"
 #import "BuildingInfoCache.h"
 #import "AppVariantData.h"
+#import "AppNotifications.h"
 
 
 #define kRouteFromHere @"Route from here"
@@ -55,7 +56,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 
 @interface MapViewController () < MPCategoriesProviderDelegate
                                 , MPMapRouteTrackingModelDelegate
-                                >
+                                , MPLiveDataManagerDelegate >
 
 @property (nonatomic, weak) NSLayoutConstraint*                     horizontalDirectionsHeightConstraint;
 @property (nonatomic, strong) HorizontalRoutingController*          horizontalRoutingController;
@@ -117,6 +118,10 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 @property (nonatomic, strong) UIButton*                             returnToVenueOrLocationBtn;
 
 @property (nonatomic) BOOL                                          shouldShowFloorSelector;
+
+@property (nonatomic, strong) NSArray<NSString*>*                   activeLiveDataDomains;
+
+@property (nonatomic, weak) UILabel*        debugInfoLabel;
 
 @end
 
@@ -182,7 +187,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     self.mapControl.delegate = self;
     self.mapControl.userLocationAccessibilityLabel = kLangUserLocationMarkerAccLabel;
     self.mapControl.userLocationAccuracyAccessibilityLabel = kLangUserLocationAccuracyAccLabel;
-
+    
 //    [self.mapControl addDisplayRule:SimulatedPeopleLocationSource.peopleDisplayRule];
 //    [self.mapControl addDisplayRule:SimulatedPeopleLocationSource.currentUserDisplayRule];
 
@@ -220,6 +225,14 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         [observer updateReturnToVenueBtnText];
         [observer updateReturnToVenueBtnVisibility];
     }];
+
+    [self updateDebugInfoLabel];
+    
+    //Live Data
+    MPLiveDataManager.sharedInstance.delegate = self;
+    
+    [MPLiveDataManager.sharedInstance updateLiveDataInfo];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -277,8 +290,8 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     _directionsRenderer.delegate = self;
     _directionsRenderer.map = _mapView;
     _directionsRenderer.fitMode = MPDirectionsRenderFitIndoorPathFirstLineUpwards;
-    _directionsRenderer.solidColor = [UIColor appDarkPrimaryColor];
-    _directionsRenderer.backgroundColor = [[UIColor appLightPrimaryColor] colorWithAlphaComponent:0.5];
+    _directionsRenderer.solidColor = [UIColor appRouteHighlightColor];
+    _directionsRenderer.backgroundColor = [[UIColor appRouteHighlightColor] colorWithAlphaComponent:0.5];
     _directionsRenderer.nextRouteLegButton = [[MPMapRouteLegButton alloc] init];
     _directionsRenderer.nextRouteLegButton.backgroundColor = [UIColor appAccentColor];
     [_directionsRenderer.nextRouteLegButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -516,7 +529,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
             case TrackingButtonState_Enabled:
             case TrackingButtonState_Disabled:
             case TrackingButtonState_TrackingLocationAndHeadingSuspended:
-                if ( userGestureTrigger == NO ) {           // When triggered ny a user gesture on the map, we do not force fit the current route leg
+                if ( userGestureTrigger == NO ) {           // When triggered by a user gesture on the map, we do not force fit the current route leg
                     _directionsRenderer.fitBounds = YES;
                 }
                 break;
@@ -639,7 +652,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     [self.mapControl showUserPosition:YES];
     
     Global.solution = solution;
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"SolutionDataReady" object:solution];
+    [AppNotifications postSolutionDataReadyNotificationWithSolution:solution];
     self.venueSelectorIsShowing = VenueSelectorController.venueSelectorIsShown;
 }
 
@@ -739,6 +752,18 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 - (void) removeClearMapButton {
     
     self.navigationItem.rightBarButtonItems = nil;
+}
+
+- (void)enableLiveData {
+    for (NSString* domainType in self.activeLiveDataDomains) {
+        [self.mapControl enableLiveData:domainType];
+    }
+}
+
+- (void)disableLiveData {
+    for (NSString* domainType in self.activeLiveDataDomains) {
+        [self.mapControl disableLiveData:domainType];
+    }
 }
 
 - (void)clearMap {
@@ -871,6 +896,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
             }];
             
             [self updateCompass];
+            
         }
     }
 }
@@ -1063,19 +1089,20 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 
     self.focusedBuilding = building;
     [self updateReturnToVenueBtnVisibility];
-//    [self showCustomFloorSelector];
 }
 
 
 #pragma mark - Notifications
 
 - (void)onRouteResultReady:(NSNotification*) notification {
-    _directionsRenderer.route = notification.object;
+    self.directionsRenderer.route = notification.object;
     self.venueSelectorIsShowing = VenueSelectorController.venueSelectorIsShown;
     self.mapRouteTrackingModel.route = _directionsRenderer.route;
     if (self.mapRouteTrackingModel.isTurnByTurnApplicable) {
         self.enterTurnByTurnModeOnNextRouteRendering = YES;
     }
+
+    self.destination = notification.userInfo[ AppNotifications.routeRequestDestinationKey ];
 }
 
 - (void)onVenueChanged:(NSNotification*) notification {
@@ -1342,7 +1369,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     UIAlertController* alert = [self alertControllerForLocationServicesState];
     
     if ( alert ) {
-        if (!(IS_IPAD)) {
+        if (!(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)) {
             alert.modalPresentationStyle = UIModalPresentationFullScreen;
         }
         
@@ -1358,11 +1385,17 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     
     if ( MapsIndoors.positionProvider && (self.didConnectPositionProviderToMapControl == NO) ) {
         self.didConnectPositionProviderToMapControl = YES;
-        
-        [self locationServicesCheck];
-        
+
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self locationServicesCheck];
+        });
+
         [self.KVOController observe:MapsIndoors.positionProvider keyPath:@"locationServicesActive" options:NSKeyValueObservingOptionNew block:^(MapViewController* _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
             [observer locationServicesCheck];
+        }];
+
+        [self.KVOController observe:MapsIndoors.positionProvider keyPath:@"enableDebugInfo" options:NSKeyValueObservingOptionNew block:^(MapViewController* _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
+            [observer updateDebugInfoLabel];
         }];
     }
 }
@@ -1395,6 +1428,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 - (void)onPositionUpdate:(MPPositionResult *)positionResult {
     [self onPositionUpdateImpl:positionResult];
     [self refreshMyLocationGraphic];
+    [self updateDebugInfoLabel];
 }
 
 - (void)onPositionUpdateImpl:(MPPositionResult *)positionResult {
@@ -1745,6 +1779,15 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     [self updateMapTrackingUI:userGesture];
 }
 
+#pragma mark - MPLiveDataManagerDelegate
+
+- (void)didReceiveLiveDataInfo:(MPLiveDataInfo *)info {
+    
+    self.activeLiveDataDomains = info.activeDomainTypes;
+    
+    [self enableLiveData];
+    
+}
 
 #pragma mark - Return to "venue"
 
@@ -1812,7 +1855,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 
     // Show "Return" button if the map is not showing any buildings (i.e. not showing anything from the venue):
     MPLocation* building = self.focusedBuilding;
-    MPBuilding* mpBuilding = [[BuildingInfoCache sharedInstance] buildingFromAdministrativeId:building.roomId];
+    MPBuilding* mpBuilding = [[BuildingInfoCache sharedInstance] buildingFromName:building.name];
     CGFloat zoomToVenueBtnAlpha = 1;
 
     if ( [self isVisibleRegionEmpty] ) {
@@ -1854,5 +1897,48 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         }
     }
 }
+
+
+#pragma mark - Debug info
+
+- (void) updateDebugInfoLabel {
+
+    id<AppPositionProvider>     pp;
+
+    if ( [MapsIndoors.positionProvider conformsToProtocol:@protocol(AppPositionProvider)] ) {
+        pp = (id<AppPositionProvider>)MapsIndoors.positionProvider;
+    }
+
+    NSString*   s = pp.debugInfo;
+
+    if ( (self.debugInfoLabel == nil) && s.length ) {
+        UILabel*    label = [UILabel new];
+        self.debugInfoLabel = label;
+        self.debugInfoLabel.opaque = NO;
+        self.debugInfoLabel.numberOfLines = 0;
+        self.debugInfoLabel.textColor = UIColor.yellowColor;
+        self.debugInfoLabel.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
+        self.debugInfoLabel.translatesAutoresizingMaskIntoConstraints = NO;
+
+        [self.view addSubview:self.debugInfoLabel];
+        [self.debugInfoLabel.rightAnchor constraintEqualToAnchor:self.mapView.rightAnchor constant:-8].active = YES;
+        [self.debugInfoLabel.bottomAnchor constraintEqualToAnchor:self.mapView.bottomAnchor constant:-8].active = YES;
+
+//        if (@available(iOS 11.0, *)) {
+            [self.debugInfoLabel.widthAnchor constraintLessThanOrEqualToAnchor:self.view.widthAnchor multiplier:0.7].active = YES;
+//        } else {
+//            // ...can't be bothered to make fallback on earlier versions
+//        }
+    }
+
+    if ( self.debugInfoLabel ) {
+        NSArray<NSString*>* lines = [s componentsSeparatedByString:@"\n"];
+        s = [NSString stringWithFormat:@"\n  %@  \n", [lines componentsJoinedByString:@"  \n  "]];
+        self.debugInfoLabel.text = s ?: @"Debug info not available";
+    }
+
+    self.debugInfoLabel.hidden = pp.enableDebugInfo == NO;
+}
+
 
 @end

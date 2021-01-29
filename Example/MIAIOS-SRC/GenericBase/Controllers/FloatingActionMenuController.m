@@ -30,8 +30,8 @@
 @property (nonatomic, strong) NSLayoutConstraint*                   widthConstraint;
 @property (nonatomic, strong) NSArray<NSLayoutConstraint*>*         menuItemPositionConstraints;
 @property (nonatomic)         BOOL                                  isOpen;
-@property (nonatomic, weak) MDButton*                               fabButton;
-@property (nonatomic, strong) NSArray<MDButton*>*                   actionButtons;
+@property (nonatomic, weak) UIButton*                               fabButton;
+@property (nonatomic, strong) NSArray<UIButton*>*                   actionButtons;
 @property (nonatomic, strong) NSMutableArray<UILabel*>*             infoLabels;
 @property (nonatomic, strong) NSMutableArray<UIView*>*              infoLabelContainers;
 @property (nonatomic, strong) NSMutableArray<NSLayoutConstraint*>*  infoLabelContainerWidthConstraints;
@@ -118,19 +118,20 @@
     
     if (!_hideFab && _menuItemModels.count > 2) {
         
-        MDButton *nearestBtn = [[MDButton alloc] initWithFrame:CGRectMake(0, 0, 60, 60) type:MDButtonTypeFloatingAction rippleColor:[UIColor colorWithWhite:1.0f alpha:.2f]];
+        UIButton *nearestBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
         nearestBtn.tag = NSNotFound;
         [self.view addSubview:nearestBtn];
         [nearestBtn configureForAutoLayout];
         [nearestBtn autoSetDimensionsToSize:CGSizeMake(60,60)];
         [nearestBtn autoPinEdgeToSuperviewEdge:ALEdgeRight];
         [nearestBtn autoPinEdgeToSuperviewEdge:ALEdgeBottom];
+        nearestBtn.layer.cornerRadius = 30;
         self.fabButton = nearestBtn;
         self.fabButton.accessibilityLabel = kLangFindNearestAccLabel;
         
         CGFloat     btnClosedInset = - [self.menuItemBottomInsets[0] doubleValue];
         
-        MDButton*   btn1 = [[MDButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40) type:MDButtonTypeFloatingAction rippleColor:[UIColor appLightPrimaryColor]];
+        UIButton*   btn1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
         btn1.tag = 0;
         [btn1 addTarget:self action:@selector(showOnMap:) forControlEvents:UIControlEventTouchDown];
         [self.view insertSubview:btn1 belowSubview:nearestBtn];
@@ -139,7 +140,7 @@
         [btn1 autoAlignAxis:ALAxisVertical toSameAxisOfView:nearestBtn];
         NSLayoutConstraint* btn1Pos = [btn1 autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:btnClosedInset];
 
-        MDButton *btn2 = [[MDButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40) type:MDButtonTypeFloatingAction rippleColor:[UIColor appLightPrimaryColor]];
+        UIButton *btn2 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
         btn2.tag = 1;
         [btn2 addTarget:self action:@selector(showOnMap:) forControlEvents:UIControlEventTouchDown];
         [self.view insertSubview:btn2 belowSubview:nearestBtn];
@@ -147,7 +148,7 @@
         [btn2 autoAlignAxis:ALAxisVertical toSameAxisOfView:nearestBtn];
         NSLayoutConstraint* btn2Pos = [btn2 autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:btnClosedInset];
 
-        MDButton *btn3 = [[MDButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40) type:MDButtonTypeFloatingAction rippleColor:[UIColor appLightPrimaryColor]];
+        UIButton *btn3 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
         btn3.tag = 2;
         [btn3 addTarget:self action:@selector(showOnMap:) forControlEvents:UIControlEventTouchDown];
         [self.view insertSubview:btn3 belowSubview:nearestBtn];
@@ -212,7 +213,7 @@
 
         // Finish off with some accessibility tweaking:
         for ( int i=0; i < self.actionButtons.count; ++i ) {
-            MDButton*   button = self.actionButtons[i];
+            UIButton*   button = self.actionButtons[i];
             NSString*   title = [self titleForCategoryKey:[_menuItemModels[i] categoryKey]];
             
             button.hidden = YES;
@@ -237,7 +238,7 @@
         self.infoLabelContainerWidthConstraints = [NSMutableArray array];
         
         for ( int i=0; i < self.actionButtons.count; ++i ) {
-            MDButton*   button = self.actionButtons[i];
+            UIButton*   button = self.actionButtons[i];
             NSString*   title = [self titleForCategoryKey:[_menuItemModels[i] categoryKey]];
             [self createInfoLabelForButton:button title:title tag:button.tag];
         }

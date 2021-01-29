@@ -25,7 +25,7 @@
 @property (nonatomic, weak) IBOutlet UIButton*      originButton;
 @property (nonatomic, weak) IBOutlet UIButton*      destinationButton;
 
-@property (nonatomic, weak) IBOutlet MDSwitch*      avoidStairsSwitch;
+@property (nonatomic, weak) IBOutlet UISwitch*      avoidStairsSwitch;
 @property (nonatomic, weak) IBOutlet UILabel*       avoidStairsLabel;
 @property (nonatomic, strong) IBOutlet UIView*      directionsForm;
 @property (nonatomic, weak) IBOutlet DottedLine*    line;
@@ -46,5 +46,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView*   lightningImgView;
 
 -(IBAction) pop;
+
+#pragma mark - Route request configured externally
+- (void) configureWithRouteFrom:(MPLocation*)originLocation to:(MPLocation*)toLocation travelMode:(NSString*)travelMode avoids:(NSArray<NSString*>*)avoids;
 
 @end

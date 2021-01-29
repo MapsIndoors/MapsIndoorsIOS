@@ -8,7 +8,7 @@
 
 #import "MasterNavigationController.h"
 #import "DetailViewController.h"
-//#import "SearchViewController.h"
+#import "DirectionsController.h"
 #import "Global.h"
 #import "AppDelegate.h"
 #import "UIColor+AppColor.h"
@@ -17,13 +17,15 @@
 #import "LocalizationSystem.h"
 @import VCMaterialDesignIcons;
 #import "UIViewController+Custom.h"
-#import <MaterialControls/MaterialControls.h>
 #import "LocalizedStrings.h"
 #import "TCFKA_MDSnackbar.h"
-
+#import "AppNotifications.h"
 
 
 @interface MasterNavigationController () <UINavigationControllerDelegate>
+
+@property (nonatomic, strong) NSDictionary*     routeRequestParameters;
+
 @end
 
 
@@ -37,6 +39,7 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMapLocationTapped:) name:@"MapLocationTapped" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLocationOpened:) name:@"LocationOpen" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRouteRequested:) name:AppNotifications.routeRequestNotificationName object:nil];
 
     self.delegate = self;
     
@@ -60,10 +63,21 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    if ([segue.identifier isEqualToString:@"DetailSegue"] && sender == self) {
-        DetailViewController* dvc = segue.destinationViewController;
-        dvc.location = nil;
-    
+    if ( [segue.identifier isEqualToString:@"DetailSegue"] && (sender == self) ) {
+
+        DetailViewController* vc = segue.destinationViewController;
+        vc.location = nil;
+
+    } else if ( [segue.identifier isEqualToString:@"RouteRequestSegue"] ) {
+
+        DirectionsController*   vc = segue.destinationViewController;
+        [vc configureWithRouteFrom: self.routeRequestParameters[ AppNotifications.routeRequestOriginKey ]
+                                to: self.routeRequestParameters[ AppNotifications.routeRequestDestinationKey ]
+                        travelMode: self.routeRequestParameters[ AppNotifications.routeRequestTravelModeKey ]
+                            avoids: self.routeRequestParameters[ AppNotifications.routeRequestAvoidsKey ]
+        ];
+
+        self.routeRequestParameters = nil;
     }
 }
 
@@ -92,8 +106,7 @@
 }
 
 - (void)openLocationWithId:(NSString*)locationId {
-    
-    
+
     [self.topViewController popToMasterViewControllerAnimated:NO];
     [self performSegueWithIdentifier:@"DetailSegue" sender:self];
     
@@ -111,6 +124,15 @@
     }];
 }
 
+- (void) onRouteRequested:(NSNotification*)notification {
+
+    self.routeRequestParameters = notification.userInfo;
+
+    [self.topViewController popToMasterViewControllerAnimated:NO];
+    [self performSegueWithIdentifier:@"RouteRequestSegue" sender:self];
+
+    [self openSidebar];
+}
 
 #pragma mark - UINavigationControllerDelegate
 

@@ -9,7 +9,6 @@
 #import "BeaconPositionProvider.h"
 #import "MPPositionCalculator.h"
 #import <MapsIndoors/MapsIndoors.h>
-@import MaterialControls;
 #include <sys/time.h>
 #import "Constant.h"
 
@@ -28,7 +27,6 @@
     NSArray* _currentRangedBeacons;
     NSArray* _currentServerBeacons;
     BOOL _firstGPSUpdate;
-    MDToast* _toast;
     NSNumber* _manualFloor;
     NSDate* _lastManualFloorDate;
     

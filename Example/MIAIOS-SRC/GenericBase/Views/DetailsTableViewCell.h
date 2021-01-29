@@ -12,6 +12,7 @@
 
 @property (nonatomic) BOOL      showSeparator;
 @property (nonatomic) BOOL      showActivityIndicator;
+@property (nonatomic) BOOL      compactHeight;
 
 - (void) configureWithTitle:(id)title subTitle:(NSString*)subTitle image:(UIImage*)image;
 - (void) configureWithTitle:(id)title titleColor:(UIColor*)titleColor image:(UIImage*)image imageTintColor:(UIColor*)imageTintColor;

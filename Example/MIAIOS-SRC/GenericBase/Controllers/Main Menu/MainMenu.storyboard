@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7bK-jq-Zjz">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7bK-jq-Zjz">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -80,7 +78,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuItemCell" id="WCw-Qf-5nD" customClass="MPMenuItemCell">
-                                <rect key="frame" x="0.0" y="262" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="268" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -99,7 +97,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="c4Z-ZR-bhS">
-                        <barButtonItem key="leftBarButtonItem" image="ic_location_city_white" id="ENx-CJ-ejb">
+                        <barButtonItem key="leftBarButtonItem" image="location_city_24px" id="ENx-CJ-ejb">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="venue_button_id"/>
                             </userDefinedRuntimeAttributes>
@@ -111,11 +109,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="appInfoBarButtonItem" destination="d42-pw-eKp" id="UbK-DE-VJe"/>
                         <outlet property="headerImageView" destination="nav-98-0Tn" id="8NM-4M-yD2"/>
                         <outlet property="iconImageView" destination="Vb1-dy-d2q" id="Hiy-1K-Php"/>
                         <outlet property="searchBar" destination="Rjn-DZ-EDA" id="Owq-dN-AtF"/>
                         <outlet property="venueButtonItem" destination="ENx-CJ-ejb" id="dtW-sv-gs0"/>
                         <outlet property="venueLabel" destination="VnX-k7-6rv" id="FJm-Hw-CnR"/>
+                        <segue destination="tLh-NL-s0A" kind="show" identifier="appSettingsSegue" id="6uC-xk-9TI"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
@@ -130,6 +130,16 @@
             </objects>
             <point key="canvasLocation" x="2316" y="-2008"/>
         </scene>
+        <!--AppSettings-->
+        <scene sceneID="Vg4-uC-ZiY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AppSettings" id="tLh-NL-s0A" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Ki2-cI-kmq"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H5l-Tq-w1X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2552" y="-1275"/>
+        </scene>
         <!--UITableViewController-yAx-nd-1pz-->
         <scene sceneID="1K9-v1-bb0">
             <objects>
@@ -142,6 +152,6 @@
     <resources>
         <image name="header_image.jpg" width="1000" height="523"/>
         <image name="ic_info_outline_white" width="36" height="36"/>
-        <image name="ic_location_city_white" width="26" height="27"/>
+        <image name="location_city_24px" width="34" height="41"/>
     </resources>
 </document>

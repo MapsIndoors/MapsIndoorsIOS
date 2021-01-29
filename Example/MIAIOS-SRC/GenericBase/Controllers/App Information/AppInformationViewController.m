@@ -16,7 +16,9 @@
 #import <MapsIndoors/MPVersion.h>
 #import "AppInfoAcknowledgementViewController.h"
 #import "AppInfoOtherInfoViewController.h"
+#import "LocalizedStrings.h"
 #import <sys/utsname.h>
+#import "AppPositionProvider.h"
 
 
 typedef NS_ENUM(NSUInteger, AppInfoSection) {
@@ -32,7 +34,8 @@ typedef NS_ENUM(NSUInteger, AppInfoSection) {
 typedef NS_ENUM(NSUInteger, AppInfoVersion) {
     AppInfoVersion_App,
     AppInfoVersion_SDK,
-    
+    AppInfoVersion_PositioningProvider,
+
     AppInfoVersion_Count
 };
 
@@ -42,17 +45,21 @@ typedef NS_ENUM(NSUInteger, AppInfoVersion) {
 @property (weak, nonatomic) IBOutlet UITableView*           tableView;
 @property (weak, nonatomic) IBOutlet UIView*                feedbackContainerView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint*    feedbackDistanceFromBottomConstraint;
-@property (weak, nonatomic) IBOutlet UIButton*              feedbackButton;
-@property (weak, nonatomic) IBOutlet UIImageView*           feedbackImageView;
+@property (weak, nonatomic) IBOutlet UITableView*           actionsTableView;
 @property (weak, nonatomic) IBOutlet UIButton*              logoutButton;
 
 
 @property (nonatomic, strong) NSString*                     feedbackUrl;
+@property (nonatomic, strong) NSString*                     helpUrl;
 @property (nonatomic, strong) NSString*                     providerHomepageUrl;
 @property (nonatomic, strong) NSString*                     supplierHomepageUrl;
 
+@property (nonatomic) NSUInteger numberOfActionsTableViewRows;
+
 @property (nonatomic, strong) NSArray<NSDictionary*>*       licenses;
 @property (nonatomic, strong) NSMutableDictionary*          otherInfo;
+
+@property (nonatomic) BOOL                                  havePositioningProviderInfo;
 
 @end
 
@@ -72,16 +79,27 @@ typedef NS_ENUM(NSUInteger, AppInfoVersion) {
     self.providerHomepageUrl = [Global getPropertyFromPlist: @"AppProviderUrl"];
     self.supplierHomepageUrl = [Global getPropertyFromPlist: @"AppSupplierUrl"];
     
-    [self.feedbackButton setTitleColor:[UIColor appLightPrimaryColor] forState:UIControlStateNormal];
+    self.actionsTableView.dataSource = self;
+    self.actionsTableView.delegate = self;
+
+    self.havePositioningProviderInfo = [MapsIndoors.positionProvider conformsToProtocol:@protocol(AppPositionProvider)];
+
+//    [self.feedbackButton setTitleColor:[UIColor appLightPrimaryColor] forState:UIControlStateNormal];
+//
+//    self.feedbackImageView.image = [[UIImage imageNamed:@"info_white_48dp"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+//    self.feedbackImageView.tintColor = [UIColor appDarkPrimaryColor];
     
-    self.feedbackImageView.image = [[UIImage imageNamed:@"info_white_48dp"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    self.feedbackImageView.tintColor = [UIColor appDarkPrimaryColor];
     
     self.feedbackUrl = [Global.appData.appSettings objectForKey: @"feedbackUrl"];
-    if ( self.feedbackUrl.length == 0 ) {
-        // Hide feedback area if no URL is configured.
-        self.feedbackDistanceFromBottomConstraint.constant = 0;
+    self.helpUrl = [Global.appData.appSettings objectForKey: @"helpUrl"];
+    self.numberOfActionsTableViewRows = 0;
+    if ( self.feedbackUrl.length > 0 ) {
+        self.numberOfActionsTableViewRows++;
     }
+    if ( self.helpUrl.length > 0 ) {
+        self.numberOfActionsTableViewRows++;
+    }
+    self.feedbackDistanceFromBottomConstraint.constant = 32 + self.numberOfActionsTableViewRows * 44;
     
     // Locate acknowledgement plist:
     NSString*           pathToAcknowledgementsPlist;
@@ -129,7 +147,11 @@ typedef NS_ENUM(NSUInteger, AppInfoVersion) {
 
 #pragma mark - Actions
 
-- (IBAction) onFeedbackButtonTapped:(id)sender {
+- (void) helpCellTapped {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.helpUrl] options:@{} completionHandler:nil];
+}
+
+- (void) feedbackCellTapped {
 
     NSString*   feedbackUrl = self.feedbackUrl;
     
@@ -181,6 +203,10 @@ typedef NS_ENUM(NSUInteger, AppInfoVersion) {
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
+    if (tableView == self.actionsTableView) {
+        return self.numberOfActionsTableViewRows;
+    }
+    
     NSInteger   numberOfRows = 0;
     
     switch ( (AppInfoSection)section ) {
@@ -193,6 +219,9 @@ typedef NS_ENUM(NSUInteger, AppInfoVersion) {
             break;
         case AppInfoSection_AppVersions:
             numberOfRows = AppInfoVersion_Count;
+            if ( !self.havePositioningProviderInfo ) {
+                --numberOfRows;
+            }
             break;
         case AppInfoSection_Credits:
             numberOfRows = self.licenses.count;
@@ -206,10 +235,18 @@ typedef NS_ENUM(NSUInteger, AppInfoVersion) {
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
+    if (tableView == self.actionsTableView) {
+        return 1;
+    }
+    
     return AppInfoSection_Count;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
+    if ( tableView == self.actionsTableView ) {
+        return nil;
+    }
     
     NSString*   title;
     
@@ -235,6 +272,10 @@ typedef NS_ENUM(NSUInteger, AppInfoVersion) {
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
+    if (tableView == self.actionsTableView) {
+        return [self createActionCellForTableView:tableView indexPath:(NSIndexPath *)indexPath];
+    }
+    
     UITableViewCell*    cell;
     
     switch ( (AppInfoSection)indexPath.section ) {
@@ -251,6 +292,9 @@ typedef NS_ENUM(NSUInteger, AppInfoVersion) {
                     break;
                 case AppInfoVersion_SDK:
                     cell = [self createSdkVersionCellForTableView:tableView];
+                    break;
+                case AppInfoVersion_PositioningProvider:
+                    cell = [self createPositioningProviderVersionCellForTableView:tableView];
                     break;
                 case AppInfoVersion_Count:
                     break;
@@ -271,29 +315,61 @@ typedef NS_ENUM(NSUInteger, AppInfoVersion) {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if ( indexPath.section == AppInfoSection_Supplier ) {
-        [self onAppSupplierNameTapped];
-    } else if ( indexPath.section == AppInfoSection_OtherInfo ) {
-        NSUInteger      index = indexPath.row;
-        NSURL*   file;
-        if ( index < self.otherInfo.count ) {
-            NSString* key = self.otherInfo.allKeys[index];
-            file = self.otherInfo[key];
-            NSString* title = NSLocalizedString(key,);
-            AppInfoOtherInfoViewController *vc = [[AppInfoOtherInfoViewController alloc] initWithTitle:(NSString*)title textFile:file];
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-    } else if ( indexPath.section == AppInfoSection_Credits ) {
-        NSUInteger      index = indexPath.row;
-        NSDictionary*   licenseDict;
-        if ( index < self.licenses.count ) {
-            licenseDict = self.licenses[index];
+    if (tableView == self.actionsTableView) {
+        if (indexPath.row == 0 && self.feedbackUrl.length > 0) {
+            [self feedbackCellTapped];
+        } else if (indexPath.row == 1 || self.helpUrl.length > 0) {
+            [self helpCellTapped];
         }
 
-        AppInfoAcknowledgementViewController*   vc = [[AppInfoAcknowledgementViewController alloc] initWithAcknowledgementDict:licenseDict];
-        [self.navigationController pushViewController:vc animated:YES];
+    } else {
+
+        switch ( (AppInfoSection)indexPath.section ) {
+            case AppInfoSection_Supplier:
+                [self onAppSupplierNameTapped];
+                break;
+            case AppInfoSection_OtherInfo: {
+                NSUInteger      index = indexPath.row;
+                NSURL*   file;
+                if ( index < self.otherInfo.count ) {
+                    NSString* key = self.otherInfo.allKeys[index];
+                    file = self.otherInfo[key];
+                    NSString* title = NSLocalizedString(key,);
+                    AppInfoOtherInfoViewController *vc = [[AppInfoOtherInfoViewController alloc] initWithTitle:(NSString*)title textFile:file];
+                    [self.navigationController pushViewController:vc animated:YES];
+                }
+                break;
+            }
+
+            case AppInfoSection_Credits: {
+                NSUInteger      index = indexPath.row;
+                NSDictionary*   licenseDict;
+                if ( index < self.licenses.count ) {
+                    licenseDict = self.licenses[index];
+                }
+
+                AppInfoAcknowledgementViewController*   vc = [[AppInfoAcknowledgementViewController alloc] initWithAcknowledgementDict:licenseDict];
+                [self.navigationController pushViewController:vc animated:YES];
+
+                break;
+            }
+
+            case AppInfoSection_AppVersions: {
+                if ( indexPath.row == AppInfoVersion_PositioningProvider ) {
+                    if ( [MapsIndoors.positionProvider conformsToProtocol:@protocol(AppPositionProvider)] ) {
+                        id<AppPositionProvider>     pp = (id<AppPositionProvider>)MapsIndoors.positionProvider;
+                        pp.enableDebugInfo = pp.enableDebugInfo == NO;
+                    }
+                }
+                break;
+            }
+
+            case AppInfoSection_BaseInfo:
+            case AppInfoSection_Count:
+                break;
+        }
     }
-    
+
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
     
@@ -323,15 +399,20 @@ typedef NS_ENUM(NSUInteger, AppInfoVersion) {
     
     AppInfoTextTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"appInfoTextCell"];
     [cell configureWithText:name detail:version];
+    cell.accessoryType = UITableViewCellAccessoryNone;
     return cell;
+}
+
+- (NSString*) appVersionForPresentation {
+
+    NSString*   version = [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
+    NSString*   buildNumber = [NSBundle mainBundle].infoDictionary[@"CFBundleVersion"];
+    return [NSString stringWithFormat:@"%@ (%@)", version, buildNumber];
 }
 
 - (UITableViewCell*) createAppVersionCellForTableView:(UITableView*)tableView {
 
-    NSString*   version = [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
-    NSString*   buildNumber = [NSBundle mainBundle].infoDictionary[@"CFBundleVersion"];
-    NSString*   presentedVersion = [NSString stringWithFormat:@"%@ (%@)", version, buildNumber];
-    
+    NSString*   presentedVersion = [self appVersionForPresentation];
     return [self createVersionCellForTableView:tableView name:NSLocalizedString(@"App",) version:presentedVersion];
 }
 
@@ -339,6 +420,21 @@ typedef NS_ENUM(NSUInteger, AppInfoVersion) {
     
     return [self createVersionCellForTableView:tableView name:NSLocalizedString(@"SDK",) version:[MPSDKVersion versionString]];
 }
+
+
+- (UITableViewCell*) createPositioningProviderVersionCellForTableView:(UITableView*)tableView {
+
+    UITableViewCell*    cell;
+
+    if ( self.havePositioningProviderInfo ) {
+        id<AppPositionProvider>     pp = (id<AppPositionProvider>)MapsIndoors.positionProvider;
+
+        cell = [self createVersionCellForTableView:tableView name:pp.name version:pp.version ?: [self appVersionForPresentation]];
+    }
+
+    return cell;
+}
+
 
 - (UITableViewCell*) createSupplierCellForTableView:(UITableView*)tableView {
     
@@ -369,6 +465,20 @@ typedef NS_ENUM(NSUInteger, AppInfoVersion) {
     [cell configureWithText:NSLocalizedString(infoKey,) detail:@"" selectable:NO];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
+    return cell;
+}
+
+- (UITableViewCell*) createActionCellForTableView:(UITableView*)tableView indexPath:(NSIndexPath*)indexPath {
+    UITableViewCell* cell = [UITableViewCell new];
+    cell.textLabel.tintColor = [UIColor appLightPrimaryColor];
+    cell.imageView.tintColor = [UIColor appDarkPrimaryColor];
+    if (indexPath.row == 0 && self.feedbackUrl.length > 0) {
+        cell.textLabel.text = kLangFeedback;
+        cell.imageView.image = [[UIImage imageNamed:@"baseline_error_outline_white_36pt"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    } else if (indexPath.row == 1 || self.helpUrl.length > 0) {
+        cell.textLabel.text = kLangHelp;
+        cell.imageView.image = [[UIImage imageNamed:@"baseline_help_outline_white_36pt"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    }
     return cell;
 }
 

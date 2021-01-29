@@ -101,7 +101,7 @@
 - (NSString*) imageNameForBlueDot {
 
     id      imageName = self.dict[ @"imageNameForBlueDot" ];
-    return [imageName isKindOfClass:[NSString class]] ? imageName : @"Mylocation";
+    return [imageName isKindOfClass:[NSString class]] ? imageName : @"MyLocation";
 }
 
 - (NSString*) imageNameForBlueDotWithHeading {

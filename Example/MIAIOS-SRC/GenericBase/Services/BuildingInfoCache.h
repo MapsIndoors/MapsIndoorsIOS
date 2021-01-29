@@ -20,6 +20,7 @@
 
 - (void) fetchBuildings;
 - (MPBuilding*) buildingFromAdministrativeId:(NSString*)administrativeId;
+- (MPBuilding*) buildingFromName:(NSString*)name;
 - (void) reinitForNewSolution;
 
 @end

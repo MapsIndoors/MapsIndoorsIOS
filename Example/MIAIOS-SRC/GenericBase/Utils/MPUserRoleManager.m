@@ -8,7 +8,7 @@
 
 #import "MPUserRoleManager.h"
 #import <MapsIndoors/MapsIndoors.h>
-
+#import "AppNotifications.h"
 
 
 @interface MPUserRoleManager ()
@@ -41,6 +41,8 @@
             weakSelf.availableUserRoles = userRoles;
             weakSelf.activeUserRoles = [weakSelf getActiveUserRoleObjects];
         }
+
+        [AppNotifications postUserRolesChangedNotification];
     }];
 }
 
@@ -83,6 +85,10 @@
     [[NSUserDefaults standardUserDefaults] setObject:[activeUserRoleIds.allObjects componentsJoinedByString:@","] forKey:[self userDefaultsKeyForActiveUserRoles]];
 
     _activeUserRoles = [self getActiveUserRoleObjects];
+
+    MapsIndoors.userRoles = _activeUserRoles;
+
+    [AppNotifications postUserRolesChangedNotification];
 }
 
 

@@ -9,19 +9,18 @@
 #import "UIColor+AppColor.h"
 #import "NSObject+ContentSizeChange.h"
 #import "AppFonts.h"
-@import MaterialControls;
 
 
 @implementation UIButton (AppButton)
 
-+ (MDButton *)appRectButtonWithTitle: (NSString*)title target: (id)target selector:(SEL)selector {
++ (UIButton *)appRectButtonWithTitle: (NSString*)title target: (id)target selector:(SEL)selector {
 
     return [self appRectButtonWithTitle:title target:target selector:selector xOffset:0];
 }
 
-+ (MDButton *)appRectButtonWithTitle: (NSString*)title target: (id)target selector:(SEL)selector xOffset:(int)x {
++ (UIButton *)appRectButtonWithTitle: (NSString*)title target: (id)target selector:(SEL)selector xOffset:(int)x {
 
-    MDButton* btn = [[MDButton alloc] initWithFrame:CGRectMake(x, 0, 106, 40) type:MDButtonTypeRaised rippleColor:[UIColor colorWithWhite:1 alpha:0.2f]];
+    UIButton* btn = [[UIButton alloc] initWithFrame:CGRectMake(x, 0, 106, 40)];
     btn.backgroundColor = [UIColor appAccentColor];
     [btn setTitle:title forState:UIControlStateNormal];
     btn.titleLabel.font = [AppFonts sharedInstance].buttonFont;

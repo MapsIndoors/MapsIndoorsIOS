@@ -83,8 +83,8 @@ static BOOL _disabled;
 //    id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
 //    [tracker set:kGAIScreenName value:screenName];
 //    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
-    [FIRAnalytics setScreenName:screenName screenClass:nil];
 
+    [FIRAnalytics logEventWithName:kFIREventScreenView parameters:@{kFIRParameterScreenName:screenName}];
 }
 
 + (void)trackEvent:(NSString *)name
