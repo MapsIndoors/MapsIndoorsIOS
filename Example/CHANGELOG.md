@@ -9,6 +9,17 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [2021.1.29] 2020-01-29
+
+### Added
+
+- LIVE DATA INTEGRATIONS. MapsIndoors now accommodate live data from iOT sensors, and facilitates viewing the live status of things like meeting room availability, number people in a room, temperature and so on.
+- RESOURCE BOOKING SERVICE INTEGRATION. MapsIndoors provides integration of room/resource booking, for example for meeting room booking.
+- USER ROLES. User roles can impact what you can see on the map, search for and get directions to.
+
+### Fixed
+- Loads of bug-fixing, related to search, routing and more.
+
 ## [2020.9.30] 2020-09-30
 
 ### Added

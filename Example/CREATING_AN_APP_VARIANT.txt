@@ -1,45 +1,0 @@
-Creating a new variant:
-
-Creating a new variant:
-1. Copy an existing variant folder, for example Solutions/aaumaps.
-
-2. Rename the variant-specific info.plist: 
-aaumaps-Info.plist => new-variant.plist. 
-The plist-name must be unique across *all* variants.
-
-3. Add the newly copied variant-folder to the Xcode-project.
-
-4. Duplicate an existing Xcode-target. 
-Rename the target to reflect the new variant.
-Rename the associated scheme to reflect the new variant.
-Change the used info.plist to “Solutions/new-variant/new-variant-Info.plist.
-Change the bundle identifier (f.ex. com.mapspeople.new-variant-map).
-Change version to “1.0” or whatever is appropriate. 
-Setup code signing: unless otherwise requested to Team = MapsPeople A/S and automatically managed code signing.
-
-5. Change target-membership of all files in the copied variant-folder *and* the new-variant-folder: 
-Remove target membership from the source-variant. 
-Add target membership to the new-variant.
-
-6. Add new target to Podfile
-
-7. Run “pod install” to update Xcode project+workspace.
-
-8. Replace reference to old acknowledgements plist with new: 
-i.e. replace reference to Pods-AAU Maps-acknowledgement..plist with Pods-NEW VARIANT-acknowledgements.plist.
-Find the new acknowledgements plist in the Pods project:  “Pods/Target Support Files/Pods-new-variant/Pods-new-variant-acknowledgements.plist”
-
-9. Customize content of variant files: 
-mapsindoors.plist: solutionId, Google APIkey, colours, strings, … 
-GoogleService-Info.plist: see #11 
-new-variant.plist
-
-10. Revise the “Embed Preload mapsindoors data” build phase to locate the correct plist for preloading data: 
-mapsindoorsPlist="Solutions/new-variant/mapsindoors.plist"
-
-11. Generate a new GoogleService-Info.plist using https://console.firebase.google.com 
-Overwrite the GoogleService-Info.plist located in Solutions/new-variant.
-Remember to add mapspeople teammembers to ownership of firebase project if a new one is created.
-
-12. Change URL-scheme to something app specific or remove it. (else the newly created variant will have same url scheme as the one it was copied from)
-
