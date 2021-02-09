@@ -77,8 +77,9 @@ PODS:
     - GoogleUtilities/Logger
   - HashBuilder (1.0.2)
   - KVOController (1.2.0)
-  - MapsIndoors (3.17.0):
+  - MapsIndoors (3.18.0):
     - GoogleMaps (= 3.10.0)
+  - MapsIndoorsUtils (0.1.0-alpha6)
   - nanopb (2.30907.0):
     - nanopb/decode (= 2.30907.0)
     - nanopb/encode (= 2.30907.0)
@@ -98,6 +99,7 @@ DEPENDENCIES:
   - HashBuilder (~> 1.0)
   - KVOController (~> 1.2.0)
   - MapsIndoors (from `../`)
+  - MapsIndoorsUtils (= 0.1.0-alpha6)
   - PureLayout (~> 3.0.2)
   - SVGKit
   - VCMaterialDesignIcons (~> 2.1)
@@ -119,6 +121,7 @@ SPEC REPOS:
     - GoogleUtilities
     - HashBuilder
     - KVOController
+    - MapsIndoorsUtils
     - nanopb
     - PromisesObjC
     - PureLayout
@@ -145,13 +148,14 @@ SPEC CHECKSUMS:
   GoogleUtilities: d866834472f1324d080496bc67ab3ce5d0d46027
   HashBuilder: 4c433308ca46f204900a903aebd078edf92ea33f
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
-  MapsIndoors: 777fb40ec2569ce9cdd08ced747402d45dde8e58
+  MapsIndoors: f2a51e3289525a0cae77819cea4f7dccc09c577b
+  MapsIndoorsUtils: 4239f64186e6cdad8ab3628ada692be040ac0df9
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   SVGKit: 652cdf7bef8bec8564d04a8511d3ab50c7595fac
   VCMaterialDesignIcons: 68a944308ab41282ba8555770cb57e3fbf2034be
 
-PODFILE CHECKSUM: a751d3e94f2b744ce35f8b4fe6546e933dc57142
+PODFILE CHECKSUM: 63211127a535387eb04791b8354925eabda3b305
 
 COCOAPODS: 1.10.0

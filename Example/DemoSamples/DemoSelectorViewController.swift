@@ -51,8 +51,9 @@ class DemoSelectorViewController: UITableViewController {
                                                           ClusteringController.self,
                                                           CustomInfoWindowController.self,
                                                           AppUserRolesController.self,
-                                                          MultipleDatasetsController.self,
-                                                          LiveDataController.self
+                                                          DatasetManagerController.self,
+                                                          LiveDataController.self,
+                                                          BookableLocationsController.self
                                                         ]
     
     // MARK: Tableview delegate and datasource

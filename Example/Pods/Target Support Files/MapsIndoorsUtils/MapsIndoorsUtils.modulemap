@@ -1,0 +1,6 @@
+framework module MapsIndoorsUtils {
+  umbrella header "MapsIndoorsUtils-umbrella.h"
+
+  export *
+  module * { export * }
+}

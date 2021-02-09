@@ -27,6 +27,7 @@ end
 
 target 'Demos' do
     miaios_deps
+    pod 'MapsIndoorsUtils', '0.1.0-alpha6'
 end
 
 target 'DemosUITests' do

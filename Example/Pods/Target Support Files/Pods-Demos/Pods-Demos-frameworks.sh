@@ -191,6 +191,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/VCMaterialDesignIcons/VCMaterialDesignIcons.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MapsIndoorsUtils/MapsIndoorsUtils.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework"
@@ -209,6 +210,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/VCMaterialDesignIcons/VCMaterialDesignIcons.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MapsIndoorsUtils/MapsIndoorsUtils.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

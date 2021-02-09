@@ -148,6 +148,11 @@
 		30FA8F9825836A9B00F5758C /* NSObject+MPUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FA8F9225836A9A00F5758C /* NSObject+MPUserInfo.m */; };
 		3C2E64B1F149A4DCC91A2D6E /* Pods_MIAIOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7113A228F8A18AAB54734EE9 /* Pods_MIAIOSUITests.framework */; };
 		9161EA49FC99165F939C6B05 /* Pods_DemosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90D51927056F2D23CEEA0DF /* Pods_DemosUITests.framework */; };
+		A235111E25D2B32300111BB0 /* BookableLocationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235111B25D2B32300111BB0 /* BookableLocationsController.swift */; };
+		A235111F25D2B32300111BB0 /* BookingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235111C25D2B32300111BB0 /* BookingsController.swift */; };
+		A235112025D2B32300111BB0 /* BookingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235111D25D2B32300111BB0 /* BookingController.swift */; };
+		A235112725D2B33600111BB0 /* DatasetManagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235112525D2B33500111BB0 /* DatasetManagerController.swift */; };
+		A235112825D2B33600111BB0 /* DatasetMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235112625D2B33500111BB0 /* DatasetMapController.swift */; };
 		A23D041A228D74A00099F246 /* closed.png in Resources */ = {isa = PBXBuildFile; fileRef = A23D0414228D74A00099F246 /* closed.png */; };
 		A23D041B228D74A00099F246 /* RoomAvailabilitySource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23D0415228D74A00099F246 /* RoomAvailabilitySource.swift */; };
 		A23D041C228D74A00099F246 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = A23D0416228D74A00099F246 /* user.png */; };
@@ -241,7 +246,6 @@
 		30300A8420739FEC00BC24BE /* ShowRouteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowRouteController.swift; sourceTree = "<group>"; };
 		30300A8520739FEC00BC24BE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30300A8620739FEC00BC24BE /* Demos-ObjCHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Demos-ObjCHeader.h"; sourceTree = "<group>"; };
-		303784912064EFD7006A910B /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
 		3038412120E62A6E005F59FA /* MPRoute+SectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MPRoute+SectionModel.h"; sourceTree = "<group>"; };
 		3038412220E62A6E005F59FA /* MPRoute+SectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MPRoute+SectionModel.m"; sourceTree = "<group>"; };
 		3041B572215E2FB40055A086 /* NSObject+ContentSizeChange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+ContentSizeChange.h"; sourceTree = "<group>"; };
@@ -329,6 +333,11 @@
 		A20CBD711F4C598D0077D96E /* MPCiscoPositionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCiscoPositionResponse.h; sourceTree = "<group>"; };
 		A20CBD721F4C598D0077D96E /* MPCiscoPositionResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCiscoPositionResponse.m; sourceTree = "<group>"; };
 		A20DB5E21FB4949300E76E0A /* gmap_style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gmap_style.json; sourceTree = "<group>"; };
+		A235111B25D2B32300111BB0 /* BookableLocationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookableLocationsController.swift; sourceTree = "<group>"; };
+		A235111C25D2B32300111BB0 /* BookingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingsController.swift; sourceTree = "<group>"; };
+		A235111D25D2B32300111BB0 /* BookingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingController.swift; sourceTree = "<group>"; };
+		A235112525D2B33500111BB0 /* DatasetManagerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatasetManagerController.swift; sourceTree = "<group>"; };
+		A235112625D2B33500111BB0 /* DatasetMapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatasetMapController.swift; sourceTree = "<group>"; };
 		A23D0414228D74A00099F246 /* closed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closed.png; sourceTree = "<group>"; };
 		A23D0415228D74A00099F246 /* RoomAvailabilitySource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomAvailabilitySource.swift; sourceTree = "<group>"; };
 		A23D0416228D74A00099F246 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
@@ -596,6 +605,8 @@
 				30300A8520739FEC00BC24BE /* Info.plist */,
 				30300A6E20739FEC00BC24BE /* LaunchScreen.storyboard */,
 				30300A7020739FEC00BC24BE /* Main.storyboard */,
+				A235112425D2B33500111BB0 /* Dataset Manager */,
+				A235111A25D2B32300111BB0 /* Booking */,
 				A23D0425228D74FD0099F246 /* Advanced Directions */,
 				30300A6920739FEC00BC24BE /* Change Display Setting */,
 				A2FC5D94222D507000617468 /* Clustering */,
@@ -869,6 +880,25 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A235111A25D2B32300111BB0 /* Booking */ = {
+			isa = PBXGroup;
+			children = (
+				A235111B25D2B32300111BB0 /* BookableLocationsController.swift */,
+				A235111C25D2B32300111BB0 /* BookingsController.swift */,
+				A235111D25D2B32300111BB0 /* BookingController.swift */,
+			);
+			path = Booking;
+			sourceTree = "<group>";
+		};
+		A235112425D2B33500111BB0 /* Dataset Manager */ = {
+			isa = PBXGroup;
+			children = (
+				A235112525D2B33500111BB0 /* DatasetManagerController.swift */,
+				A235112625D2B33500111BB0 /* DatasetMapController.swift */,
+			);
+			path = "Dataset Manager";
+			sourceTree = "<group>";
+		};
 		A23D0412228D74A00099F246 /* Location Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -929,7 +959,6 @@
 				30300A5E20739FEC00BC24BE /* DemoSamples */,
 				30D17D2020765BD400A6D666 /* DemosUITests */,
 				A25BDFAD1EF3B0FD002681B9 /* Products */,
-				303784912064EFD7006A910B /* Scripts */,
 				D6F23D8AF087E5FF0CB1B030 /* Frameworks */,
 				34BB8508795A10A9D4BA3AFF /* Pods */,
 				A2D3AC7A25C4028A00DD8DB4 /* Recovered References */,
@@ -1808,6 +1837,7 @@
 				"${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework",
 				"${BUILT_PRODUCTS_DIR}/VCMaterialDesignIcons/VCMaterialDesignIcons.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/MapsIndoorsUtils/MapsIndoorsUtils.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1827,6 +1857,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVGKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VCMaterialDesignIcons.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapsIndoorsUtils.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2006,6 +2037,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30300A9B20739FEC00BC24BE /* CustomFloorSelectorController.swift in Sources */,
+				A235111E25D2B32300111BB0 /* BookableLocationsController.swift in Sources */,
 				30E26F3D212C119900596D86 /* ShowRouteOnMapController.swift in Sources */,
 				30300A8A20739FEC00BC24BE /* BaseMapDemoController.swift in Sources */,
 				A2F4566C22BCA2DF004F7781 /* LocationSourcesController.swift in Sources */,
@@ -2013,18 +2045,22 @@
 				30300A9E20739FEC00BC24BE /* ShowRouteController.swift in Sources */,
 				30300A9320739FEC00BC24BE /* LocationDetailsController.swift in Sources */,
 				A23D042A228D74FD0099F246 /* RouteSegmentView.swift in Sources */,
+				A235112825D2B33600111BB0 /* DatasetMapController.swift in Sources */,
+				A235112025D2B32300111BB0 /* BookingController.swift in Sources */,
 				30300A9620739FEC00BC24BE /* MultipleDatasetsController.swift in Sources */,
 				A23D041B228D74A00099F246 /* RoomAvailabilitySource.swift in Sources */,
 				A23D0424228D74EA0099F246 /* OfflineController.swift in Sources */,
 				30300A9920739FEC00BC24BE /* ShowMultipleLocationsController.swift in Sources */,
 				A2FC5D9B222D507000617468 /* ClusteringController.swift in Sources */,
 				30300A8B20739FEC00BC24BE /* ShowMyLocationController.swift in Sources */,
+				A235111F25D2B32300111BB0 /* BookingsController.swift in Sources */,
 				A23D041E228D74A00099F246 /* PeopleLocationSource.swift in Sources */,
 				30AA81EA2344AE0600B9FEF9 /* AppUserRolesController.swift in Sources */,
 				30300A9D20739FEC00BC24BE /* ShowBuildingController.swift in Sources */,
 				30AA81E72344ADCA00B9FEF9 /* CustomInfoWindowController.swift in Sources */,
 				30300A9520739FEC00BC24BE /* SearchMapController.swift in Sources */,
 				A2D301B5230A6EEE00234808 /* Memory.swift in Sources */,
+				A235112725D2B33600111BB0 /* DatasetManagerController.swift in Sources */,
 				A23D042B228D74FD0099F246 /* AdvancedDirectionsController.swift in Sources */,
 				30300A9A20739FEC00BC24BE /* DemoSelectorViewController.swift in Sources */,
 				30B988912563FEAF002CA287 /* LiveDataController.swift in Sources */,

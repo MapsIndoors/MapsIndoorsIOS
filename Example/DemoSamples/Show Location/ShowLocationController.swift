@@ -28,17 +28,18 @@ class ShowLocationController: UIViewController {
         
         self.mapControl = MPMapControl.init(map: self.map!)
         
-        let locations = MPLocationsProvider.init()
-        let queryObj = MPLocationQuery.init()
+        let locationService = MPLocationService.sharedInstance()
+        let query = MPQuery.init()
+        let filter = MPFilter.init()
         
-        queryObj.query = "Paris"
-        queryObj.max = 1
+        query.query = "Paris"
+        filter.take = 1
         
         weak var _self = self
         
-        locations.getLocationsUsing(queryObj) { (locationData, error) in
+        locationService.getLocationsUsing(query, filter: filter) { (locations, error) in
             if error == nil {
-                let firstLocation = locationData?.list?.first
+                let firstLocation = locations?.first
                 _self?.mapControl?.selectedLocation = firstLocation
                 _self?.mapControl?.currentFloor = firstLocation?.floor
             }
