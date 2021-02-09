@@ -18,6 +18,17 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.18.0] 2021-02-05
+
+### Added
+
+- Added a `floorName` property on `MPLocation`.
+
+### Changed
+
+- Changed the default icon for a location where it is not possible to determine a specific icon.
+- Changed `iconUrl` on `MPLocation` so that it will conveniently return either specific icon url or the icon url for the corresponding Location Type.
+
 ## [3.17.0] 2021-01-21
 
 ### Added
@@ -26,13 +37,13 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 ### Fixed
 
-- Fixed a date bug in the `MPBookingService` causing the service to query for available locations with a wrong date, offset by one hour from the intended date.
-- Fixed a bug preventing display of info windows for locations that should not have an icon nor a label.
+- Fixed a date bug in the `MPBookingService` causing the service to query for available Locations with a wrong date, offset by one hour from the intended date.
+- Fixed a bug preventing display of info windows for Locations that should not have an icon nor a label.
 - Improved various elements of our search engine.
 
 ### Changed
 
-- Changed the default selection highlight color for locations with a polygon shape. See [more about the UX behind it here](https://blog.mapspeople.com/new-selection-highlight-color). To customize the highlight color see this [guide about map styling](https://docs.mapsindoors.com/ios/v3/map-styling/#modify-the-display-rule-for-the-selected-location).
+- Changed the default selection highlight color for Locations with a polygon shape. See [more about the UX decision behind it here](https://blog.mapspeople.com/new-selection-highlight-color). To customize the highlight color see this [guide about map styling](https://docs.mapsindoors.com/ios/v3/map-styling/#modify-the-display-rule-for-the-selected-location).
 
 ## [3.16.1] 2021-01-04
 

@@ -46,16 +46,35 @@
 - (nullable instancetype) initWithPoint:(nullable MPPoint*)point andName:(nullable NSString*)name DEPRECATED_MSG_ATTRIBUTE("Use MPLocationBuilder instead");
 - (nullable instancetype) initWithLocation:(nullable MPLocation*)location DEPRECATED_MSG_ATTRIBUTE("Use MPLocationBuilder instead");
 /**
- Location ID string.
+ Location id property.
  */
 @property (nonatomic, strong, nullable, readonly) NSString *locationId;
+/**
+ Location type property. This string correlates with `MPType.name`.
+ */
 @property (nonatomic, strong, nullable, readonly) NSString *type;
-@property (nonatomic, strong, nullable, readonly) NSNumber<Optional> *activeFrom;
-@property (nonatomic, strong, nullable, readonly) NSNumber<Optional> *activeTo;
+
+@property (nonatomic, strong, nullable, readonly) NSNumber<Optional> *activeFrom DEPRECATED_ATTRIBUTE;
+@property (nonatomic, strong, nullable, readonly) NSNumber<Optional> *activeTo DEPRECATED_ATTRIBUTE;
+/**
+ Location venue property. This string correlates with `MPVenue.venueKey`.
+ */
 @property (nonatomic, strong, nullable, readonly) NSString<Optional> *venue;
+/**
+ Location building property. This string correlates with `MPBuilding.administrativeId`.
+ */
 @property (nonatomic, strong, nullable, readonly) NSString<Optional> *building;
+/**
+ Location room id property.
+ */
 @property (nonatomic, strong, nullable, readonly) NSString<Optional> *roomId DEPRECATED_MSG_ATTRIBUTE("Use externalId instead");
+/**
+ Location external id property.
+ */
 @property (nonatomic, strong, nullable, readonly) NSString<Optional> *externalId;
+/**
+ Location description property.
+ */
 @property (nonatomic, strong, nullable, readonly) NSString<Optional> *descr;
 
 /**
@@ -71,19 +90,23 @@
  */
 - (nullable MPLocationField*) getFieldForKey:(nonnull NSString*)key NS_SWIFT_NAME(getField(forKey:));
 
-@property (nonatomic, strong, nullable, readonly) NSArray<NSString*><Optional> *aliases;
+@property (nonatomic, strong, nullable, readonly) NSArray<NSString*> *aliases;
 /**
  Location name.
  */
-@property (nonatomic, strong, nullable, readonly) NSString<Optional> *name;
+@property (nonatomic, strong, nullable, readonly) NSString *name;
 /**
- If the location resides on a specific floor level, this string property is set. 
+ If the location resides on a specific floor level, this property is set. This value correlates with `MPFloor.zIndex`.
  */
 @property (nonatomic, strong, nullable, readonly) NSNumber* floor;
 /**
- The categories for this location, as an array of strings.
+ If the location resides on a specific floor level, the name of that floor level can be retrieved here.
  */
-@property (nonatomic, strong, nullable, readonly) NSMutableDictionary<Optional> *categories;
+@property (nonatomic, strong, nullable, readonly) NSString* floorName;
+/**
+ The categories for this location, as a dictionary.
+ */
+@property (nonatomic, strong, nullable, readonly) NSMutableDictionary *categories;
 /**
  Dictionary of location properties. The keys 'image' and 'description' will always be present, and possibly others, such as 'address', 'contact', 'openinghours' and '_tags' or your own data structure.
  @deprecated
@@ -100,30 +123,30 @@
 /**
  Marker property used to display on map.
  */
-@property (nonatomic, strong, nullable, readonly) GMSMarker<Optional> *marker DEPRECATED_MSG_ATTRIBUTE("Getting a marker from a location is not supported anymore, if you need to change the appearance of a location, create MPDisplaySettings for this");
+@property (nonatomic, strong, nullable, readonly) GMSMarker *marker DEPRECATED_MSG_ATTRIBUTE("Getting a marker from a location is not supported anymore, if you need to change the appearance of a location, create MPDisplaySettings for this");
 /**
  Location image. 
  */
-@property (nonatomic, strong, nullable, readonly) UIImage<Optional> *image DEPRECATED_MSG_ATTRIBUTE("Use -fields to get properties like image, description etc.");
+@property (nonatomic, strong, nullable, readonly) UIImage *image DEPRECATED_MSG_ATTRIBUTE("Use -fields to get properties like image, description etc.");
 
 /**
  URL for image associated with this MPLocation.
  */
-@property (nonatomic, strong, nullable, readonly) NSString<Optional>* imageURL;
+@property (nonatomic, strong, nullable, readonly) NSString* imageURL;
 /**
  Location Source ID. Some implementations have different location sources, and this id is a reference to the location source that created the location. The source ID will remain the same throughout the running application session, but the source ID is not expected to remain the same across sessions.
  */
-@property (nonatomic, strong, nullable, readonly) NSNumber<Optional>* sourceId;
+@property (nonatomic, strong, nullable, readonly) NSNumber* sourceId;
 
 /**
  Location icon. If nil, the location will either get an icon from the settings configured for the type of location or a default appearance that is configurable through `MPMapControl`.
  */
-@property (nonatomic, strong, nullable, readonly) UIImage<Optional>*    icon;
+@property (nonatomic, strong, nullable, readonly) UIImage*    icon;
 
 /**
  Location icon as a URL. If icon is originally set as a UIImage, this property will be ignored.
  */
-@property (nonatomic, strong, nullable, readonly) NSURL<Optional>*      iconUrl;
+@property (nonatomic, strong, nullable, readonly) NSURL*      iconUrl;
 /**
  Location base type.
  */
@@ -132,7 +155,7 @@
 /**
 If set, location is restricted to given set of app user roles.
 */
-@property (nonatomic, strong, nullable, readonly)  NSArray<NSString*><Optional>*       restrictions;
+@property (nonatomic, strong, nullable, readonly)  NSArray<NSString*>*       restrictions;
 
 /**
  Get the point holding coordinates for the location object

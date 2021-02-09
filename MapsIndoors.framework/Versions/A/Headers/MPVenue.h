@@ -46,7 +46,8 @@
  */
 @property (nonatomic, strong, nullable) NSString* tilesUrl;
 /**
- Array of buildings in this venue.
+ Container array for buildings in this venue. Note that this array are not populated initially. `MPMapControl` will populate this for the active venue.
+ To get the buildings for an arbitrary venue, please use `MPVenueProvider.getBuildingsWithCompletion()`.
  */
 @property (nonatomic, strong, nullable) NSArray<MPBuilding*><MPBuilding, Optional>* buildings;
 /**

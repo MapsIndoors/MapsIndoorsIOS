@@ -34,34 +34,42 @@
 @end
 
 /**
- Holds relevant data for a single building, and provides a way to interact with the buildings floor levels.
+ Holds relevant data for a single building, and the buildings floor levels.
  */
 @interface MPBuilding : MPJSONModel
 /**
  Holds the current floor.
  */
-@property (nonatomic, strong, nullable) NSNumber<Optional>* currentFloor;
+@property (nonatomic, strong, nullable) NSNumber* currentFloor;
 /**
  Delegate that holds the building ready event method. Relevant when using offline mode, as it will take a while to load the database upon first app start.
  */
-@property (nonatomic, weak, nullable) id <MPBuildingDelegate, Optional> delegate;
+@property (nonatomic, weak, nullable) id <MPBuildingDelegate> delegate;
 /**
  Reference to the map. The reference is used to activate/deactivate tile layers.
  */
-@property (nonatomic, weak, nullable) GMSMapView<Optional>* map;
+@property (nonatomic, weak, nullable) GMSMapView* map;
 /**
  Simple counter that keeps track of how many floors and related tile layers are ready.
  */
-@property (nonatomic, strong, nullable) NSNumber<Optional>* floorsReady;
+@property (nonatomic, strong, nullable) NSNumber* floorsReady;
 /**
  External id.
  */
-@property (nonatomic, strong, nullable) NSString<Optional>* externalId;
+@property (nonatomic, strong, nullable) NSString* externalId;
+/// Get building id
 @property (nonatomic, strong, nullable) NSString* buildingId;
-@property (nonatomic, strong, nullable) NSString<Optional>* administrativeId;
-@property (nonatomic, strong, nullable) NSMutableDictionary<NSString*, MPFloor*><MPFloor, Optional>* floors;
+/// Get building address
+@property (nonatomic, strong, nullable) NSString* address;
+/// Get building administrative id
+@property (nonatomic, strong, nullable) NSString* administrativeId;
+/// Get building floors
+@property (nonatomic, strong, nullable) NSMutableDictionary<NSString*, MPFloor*><MPFloor>* floors;
+/// Get building name
 @property (nonatomic, strong, nullable) NSString* name;
+/// Get building anchor coordinate
 @property (nonatomic, strong, nullable) MPPoint* anchor;
+/// Get building bounds
 @property (nonatomic, strong, nullable) NSArray<NSArray*>* bounds;
 
 /**
@@ -72,11 +80,11 @@
 /**
  Get the buildings default floor. Is used by MPMapControl to determine which floor to show if a user have not already selected a floor.
  */
-@property (nonatomic, strong, nullable, readonly) NSNumber<Optional>* defaultFloor;
+@property (nonatomic, strong, nullable, readonly) NSNumber* defaultFloor;
 /**
  Dictionary of custom fields
  */
-@property (nonatomic, strong, nullable, readonly) NSDictionary<NSString*, MPLocationField*><Optional, MPLocationField> *fields;
+@property (nonatomic, strong, nullable, readonly) NSDictionary<NSString*, MPLocationField*><MPLocationField> *fields;
 
 /**
  Get the current floor.
