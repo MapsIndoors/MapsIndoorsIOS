@@ -165,6 +165,14 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 @optional
 - (void) willUpdateLocationsOnMap:(nonnull NSArray<MPLocation*>*)locations NS_SWIFT_NAME(willUpdateLocationsOnMap(locations:));;
 
+/**
+ Called when an error occurs in `MPMapControl`. The error code will reveal what kind of error was emitted. kMPErrorCode- definitions.
+
+ @param error The error object.
+ */
+@optional
+- (void) onError:(NSError* _Nonnull)error;
+
 @end
 
 
