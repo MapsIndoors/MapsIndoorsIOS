@@ -18,6 +18,19 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.19.0] 2021-02-24
+
+### Changed
+
+- `MPLocationService` now accounts for vertical proximity when `near` (z value) parameter is provided with `MPQuery`.
+
+### Fixed
+
+- Fixed a map rendering issue where icons would appear/disappear in a flaky and not intuitive manner.
+- Fixed an issue with custom Display Rules not being properly rendered.
+- Fixed an issue in the Live Data convenience methods in `MPMapControl`, causing Live Data subscriptions not to be updated a floor level change.
+- Fixed an issue causing the default Live Data rendering to skip Locations that were previously not shown.
+
 ## [3.18.0] 2021-02-05
 
 ### Added
@@ -26,7 +39,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 ### Changed
 
-- Changed the default icon for a location where it is not possible to determine a specific icon.
+- Changed the default icon for a Location where it is not possible to determine a specific icon.
 - Changed `iconUrl` on `MPLocation` so that it will conveniently return either specific icon url or the icon url for the corresponding Location Type.
 
 ## [3.17.0] 2021-01-21
