@@ -18,6 +18,13 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.21.0] 2021-03-16
+
+### Changed
+
+- A map label will now be centered when the icon is hidden for a given Location.
+- When Live Data is enabled for both `occupancy` and `availability`, the default rendering will now combine these two into a visualisation where it is possible to see if a room is booked and how many people are in the room.
+
 ## [3.20.0] 2021-03-05
 
 ### Changed
@@ -30,7 +37,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 - Fixed some map label rendering artifacts when rendering the system font with a stroke as the map label font.
 - Fixed some Live Data related stability issues.
-- Fixed a caching issue causing some locations to get the same icon.
+- Fixed a caching issue causing some Locations to get the same icon.
 
 ## [3.19.0] 2021-02-24
 
