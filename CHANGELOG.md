@@ -18,7 +18,11 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [3.21.0] 2021-03-16
+## [3.22.0] 2021-03-18
+
+### Fixed
+
+- Fixed an issue with our offline bundling feature causing languages to be mixed on first install and start of the application using the SDK with offline bundling.
 
 ### Changed
 
