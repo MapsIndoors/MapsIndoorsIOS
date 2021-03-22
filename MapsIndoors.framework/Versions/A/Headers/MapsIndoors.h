@@ -84,6 +84,9 @@
 #import <MapsIndoors/MPLocationSource.h>
 #import <MapsIndoors/MPLiveDomainType.h>
 #import <MapsIndoors/MPLiveUpdateTopic.h>
+#import <MapsIndoors/MPWirelessPositionTopic.h>
+#import <MapsIndoors/MPMQTTSubscriptionClient.h>
+#import <MapsIndoors/MPSubscriptionTopic.h>
 #import <MapsIndoors/MPLiveTopicCriteria.h>
 #import <MapsIndoors/MPLiveUpdate.h>
 #import <MapsIndoors/MPOccupancyLiveUpdate.h>

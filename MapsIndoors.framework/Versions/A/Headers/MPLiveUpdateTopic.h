@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MPSubscriptionTopic.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /// Topic model for a Live Update. A Live Update Topic is hierarchical in the way it is defined, and its relation to MapsIndoors data is derivable by its 7 components: Dataset, Venue, Building, Floor, Room, Location and Domain Type
-@interface MPLiveUpdateTopic : NSObject
+@interface MPLiveUpdateTopic : NSObject<MPSubscriptionTopic>
 
 /// Initialises a Topic with a 7-component path formatted string, for example "datasetId/venueId/buildingId/floorId/roomId/locationId/domainType"
 /// @param topic The topic string

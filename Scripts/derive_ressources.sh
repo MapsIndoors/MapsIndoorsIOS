@@ -61,8 +61,20 @@ echo "{ \"solutionId\" : \"$KEY\" }" > "${OUTPUTPATH}/mi_sync_solutionid.json"
 DATATIMESTAMP=$(date -j -f "%a %b %d %T %Z %Y" "`date`" "+%s")
 echo "{ \"timestamp\" : $DATATIMESTAMP }" > "${OUTPUTPATH}/mi_sync_timestamp.json"
 
-for relUrl in "/sync/venues" "/sync/buildings" "/sync/appconfig" "/sync/solutions" "/sync/locations" "/sync/categories" "/sync/graph" "/sync/tiles"; do
-    url="$BASEURL$relUrl?solutionId=$KEY&lr=$LANG&v=3"
+for relUrl in "/sync/solutions" "/sync/venues" "/sync/buildings" "/sync/appconfig" "/sync/locations" "/sync/categories" "/sync/appuserroles"; do
+    url="$BASEURL$relUrl?solutionId=$KEY&lr=$LANG&v=5"
+    path="mi$(echo ${relUrl//\//_})_$LANG"
+    path="${OUTPUTPATH}/$path.json"
+    echo "Downloading asset from $url to path $path"
+    status_code=$(curl $url -o "$path" --write-out %{http_code})
+    if [[ $status_code > 204 ]] ; then
+        echo "Exiting because of http error"
+        exit 1;
+    fi
+done
+
+for relUrl in "/sync/graph" "/sync/tiles"; do
+    url="$BASEURL$relUrl?solutionId=$KEY&lr=$LANG&v=5"
     path="mi$(echo ${relUrl//\//_})"
     path="${OUTPUTPATH}/$path.json"
     echo "Downloading asset from $url to path $path"
@@ -74,10 +86,12 @@ for relUrl in "/sync/venues" "/sync/buildings" "/sync/appconfig" "/sync/solution
 done
 
 # "${OUTPUTPATH}/mi_sync_locations.json" 
-for fileName in "${OUTPUTPATH}/mi_sync_solutions.json" "${OUTPUTPATH}/mi_sync_tiles.json" "${OUTPUTPATH}/mi_sync_appconfig.json" "${OUTPUTPATH}/mi_sync_locations.json"; do
-    grep -oE '\b(http|https)://[a-zA-Z0-9./?=_-]*(.png|.jpg|.jpeg|.pdf|.zip)' "$fileName" | while read url
+for fileName in "${OUTPUTPATH}/mi_sync_solutions.json" "${OUTPUTPATH}/mi_sync_tiles.json" "${OUTPUTPATH}/mi_sync_appconfig_$LANG.json" "${OUTPUTPATH}/mi_sync_locations_$LANG.json"; do
+    # regex:   http(s) ://  host path extension (optional query params) BUT stop at first encountered " character
+    grep -oE '\bhttp[s]?://([a-zA-Z0-9./?=_-]|%2F)*(.png|.jpg|.jpeg|.pdf|.zip)(\?[^\"]*)?' "$fileName" | while read url
     do
         path="$(echo $url | cut -d '/' -f4-)"
+        path=`echo $path | sed -e "s/%2F/\//g"`
         path="mi_$(echo ${path//\//_})"
         path="${path/\?*/}"
         path="${OUTPUTPATH}/$path"
