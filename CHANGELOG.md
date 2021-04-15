@@ -18,6 +18,18 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.23.0] 2021-04-06
+
+### Fixed
+
+- Fixed an occasional crash issue caused by changing the text size through the accessibility settings while showing a map.
+- Fixed an issue causing live data to not appear when enabled under offline conditions and getting connectivity at a later stage.
+- Fixed a parameter assertion causing a crash in `MPLocationsProvider`.
+
+### Changed
+
+- Changed some location polygon styling defaults. To customize the styling of polygons, see this [guide about map styling](https://docs.mapsindoors.com/ios/v3/map-styling/).
+
 ## [3.22.0] 2021-03-18
 
 ### Fixed
