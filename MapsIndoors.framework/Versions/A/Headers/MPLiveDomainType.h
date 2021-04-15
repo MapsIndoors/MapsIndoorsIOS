@@ -14,6 +14,10 @@
 #define kMPLiveDomainTypePosition @"position"
 /// Constant for Availability Domain Type
 #define kMPLiveDomainTypeAvailability @"availability"
+/// Constant for Count Domain Type
+#define kMPLiveDomainTypeCount @"count"
+/// Constant for Temperature Domain Type
+#define kMPLiveDomainTypeTemperature @"temperature"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -25,6 +29,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (class, readonly, nonatomic, strong) NSString* position;
 /// Get the Availability Domain Type
 @property (class, readonly, nonatomic, strong) NSString* availability;
+/// Get the Count Domain Type
+@property (class, readonly, nonatomic, strong) NSString* count;
+/// Get the Temperature Domain Type
+@property (class, readonly, nonatomic, strong) NSString* temperature;
 
 @end
 

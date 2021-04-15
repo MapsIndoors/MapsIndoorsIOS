@@ -18,6 +18,12 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.24.0] 2021-04-15
+
+### Added
+
+- Added new default renderings of Temperature and Count Domains. For more information about Live Data, read about the feature in the [Live Data Guide](https://docs.mapsindoors.com/ios/v3/live-data/).
+
 ## [3.23.0] 2021-04-06
 
 ### Fixed
