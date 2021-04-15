@@ -2,10 +2,13 @@ platform :ios, '12.0'
 use_frameworks!
 inhibit_all_warnings!
 
-def miaios_deps
+def mapsindoors_deps
     
-
     pod 'MapsIndoors', :path => '../'
+
+end
+
+def miaios_deps
     
     pod 'Firebase/Crashlytics'
     pod 'Firebase/Analytics'
@@ -22,20 +25,21 @@ def miaios_deps
 end
 
 target 'MapsIndoors GitHub App' do
+    mapsindoors_deps
     miaios_deps
 end
 
 target 'Demos' do
-    miaios_deps
+    mapsindoors_deps
     pod 'MapsIndoorsUtils', '0.1.0-alpha6'
 end
 
 target 'DemosUITests' do
-    miaios_deps
+    
 end
 
 target 'MIAIOSUITests' do
-    miaios_deps
+    
 end
 
 
