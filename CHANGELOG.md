@@ -18,6 +18,16 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.25.0] 2021-04-28
+
+### Fixed
+
+- Fixed an issue causing Live Data badges from the default rendering to get different sizes depending on the original image.
+- Fixed mis-alignment of text instructions for offline and online directions.
+- Fixed an issue causing `MPMapControl` to lock the maps view port to a search result of a single Location.
+- Improved the ranking of search results.
+- Small performance improvements.
+
 ## [3.24.0] 2021-04-15
 
 ### Added
@@ -29,12 +39,12 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Fixed
 
 - Fixed an occasional crash issue caused by changing the text size through the accessibility settings while showing a map.
-- Fixed an issue causing live data to not appear when enabled under offline conditions and getting connectivity at a later stage.
+- Fixed an issue causing Live Data to not appear when enabled under offline conditions and getting connectivity at a later stage.
 - Fixed a parameter assertion causing a crash in `MPLocationsProvider`.
 
 ### Changed
 
-- Changed some location polygon styling defaults. To customize the styling of polygons, see this [guide about map styling](https://docs.mapsindoors.com/ios/v3/map-styling/).
+- Changed some Location polygon styling defaults. To customize the styling of polygons, see this [guide about map styling](https://docs.mapsindoors.com/ios/v3/map-styling/).
 
 ## [3.22.0] 2021-03-18
 
