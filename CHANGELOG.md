@@ -18,6 +18,12 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.26.0] 2021-05-11
+
+### Fixed
+
+- Fixed an issue causing with the `MPFilter.parents` filter to return unexpected results.
+
 ## [3.25.0] 2021-04-28
 
 ### Fixed
