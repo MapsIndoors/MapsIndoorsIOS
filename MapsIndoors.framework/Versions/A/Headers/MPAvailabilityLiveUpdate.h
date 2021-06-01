@@ -10,8 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// Model for live availability information for a given Location.
 @interface MPAvailabilityLiveUpdate : MPLiveUpdate
 
+/// Get the availability state for a given Location.
 @property (nonatomic, readonly) BOOL available;
 
 @end

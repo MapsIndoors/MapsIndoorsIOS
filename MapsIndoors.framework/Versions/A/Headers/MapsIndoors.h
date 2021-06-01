@@ -92,6 +92,10 @@
 #import <MapsIndoors/MPOccupancyLiveUpdate.h>
 #import <MapsIndoors/MPAvailabilityLiveUpdate.h>
 #import <MapsIndoors/MPPositionLiveUpdate.h>
+#import <MapsIndoors/MPCountLiveUpdate.h>
+#import <MapsIndoors/MPTemperatureLiveUpdate.h>
+#import <MapsIndoors/MPCO2LiveUpdate.h>
+#import <MapsIndoors/MPHumidityLiveUpdate.h>
 #import <MapsIndoors/MPLiveDataManager.h>
 #import <MapsIndoors/MPLiveDataInfo.h>
 

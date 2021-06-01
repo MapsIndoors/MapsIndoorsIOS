@@ -1,5 +1,5 @@
 //
-//  MPAvailabilityLiveUpdate.h
+//  MPTemperatureLiveUpdate.h
 //  MapsIndoors
 //
 //  Created by Daniel Nielsen on 02/12/2020.
@@ -10,8 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// Model for live temperature measurement for a given Location.
 @interface MPTemperatureLiveUpdate : MPLiveUpdate
 
+/// Get the measured temperature for a given Location. Base unit is Kelvin.
 @property (nonatomic, readonly) NSMeasurement* temperature;
 
 @end

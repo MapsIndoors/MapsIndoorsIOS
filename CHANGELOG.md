@@ -18,7 +18,11 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [3.27.0] 2021-05-17
+## [3.28.0] 2021-05-31
+
+### Added
+
+- Added new default renderings of live CO2 levels and humidity. For more information about Live Data, read about the feature in the [Live Data Guide](https://docs.mapsindoors.com/ios/v3/live-data/).
 
 ### Fixed
 

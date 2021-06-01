@@ -18,6 +18,10 @@
 #define kMPLiveDomainTypeCount @"count"
 /// Constant for Temperature Domain Type
 #define kMPLiveDomainTypeTemperature @"temperature"
+/// Constant for CO2 Domain Type
+#define kMPLiveDomainTypeCO2 @"co2"
+/// Constant for Humidity Domain Type
+#define kMPLiveDomainTypeHumidity @"humidity"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -33,6 +37,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (class, readonly, nonatomic, strong) NSString* count;
 /// Get the Temperature Domain Type
 @property (class, readonly, nonatomic, strong) NSString* temperature;
+/// Get the CO2 Domain Type
+@property (class, readonly, nonatomic, strong) NSString* co2;
+/// Get the Humidity Domain Type
+@property (class, readonly, nonatomic, strong) NSString* humidity;
 
 @end
 

@@ -11,9 +11,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// Model for live position information for a given Location.
 @interface MPPositionLiveUpdate : MPLiveUpdate
 
+/// Get the geographic coordinates.
 @property (nonatomic, readonly) CLLocationCoordinate2D position;
+/// Get the floor index.
 @property (nonatomic, readonly) int floor;
 
 @end
