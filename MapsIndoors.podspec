@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.author           = { "MapsPeople" => "info@mapspeople.com" }
   s.source           = { :git => "https://github.com/MapsIndoors/MapsIndoorsIOS.git", :tag => s.version.to_s, :submodules => true }
 
-  s.dependency 'GoogleMaps', '3.10.0'
+  s.dependency 'GoogleMaps', '4.2.0'
 
   s.frameworks = "UserNotifications", "GameplayKit"
 
@@ -31,8 +31,8 @@ Pod::Spec.new do |s|
   s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 
   s.ios.deployment_target    = '9.0'
-  s.ios.preserve_paths = ['MapsIndoors.framework','Scripts']
-  s.ios.vendored_frameworks  = 'MapsIndoors.framework'
-  s.resources = ['MapsIndoors.framework/Versions/A/Resources/MapsIndoors.bundle']
+  s.ios.preserve_paths = ['MapsIndoors.xcframework','Scripts']
+  s.ios.vendored_frameworks  = 'MapsIndoors.xcframework'
+  s.resources = ['MapsIndoors.xcframework/ios-arm64/MapsIndoors.framework/Versions/A/Resources/MapsIndoors.bundle']
 
 end
