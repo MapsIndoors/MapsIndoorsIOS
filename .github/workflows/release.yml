@@ -22,6 +22,6 @@ jobs:
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: MapsIndoors.xcframework.zip
-        asset_name: MapsIndoors.xcframework
+        asset_name: MapsIndoors.xcframework.zip
         tag: ${{ github.ref }}
         overwrite: true
