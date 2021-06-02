@@ -12,11 +12,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Install Zip
-      run: apt-get install zip
-    - name: Zip Framework
-      run: zip -r MapsIndoors.xcframework.zip MapsIndoors.xcframework
-    - name: Upload binaries to release
+    - name: Archive Release
+      uses: thedoctor0/zip-release@master
+      with:
+        filename: MapsIndoors.xcframework.zip
+        path: MapsIndoors.xcframework
+    - name: Upload binary to release
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
