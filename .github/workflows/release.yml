@@ -12,8 +12,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build
+    - name: Install Zip
       run: apt-get install zip
+    - name: Zip Framework
       run: zip -r MapsIndoors.xcframework.zip MapsIndoors.xcframework
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v2
