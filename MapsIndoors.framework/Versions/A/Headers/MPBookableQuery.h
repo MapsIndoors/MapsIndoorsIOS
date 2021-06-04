@@ -23,28 +23,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface MPBookableQuery : NSObject
 
-/// Required start date for your potential booking.
+// Required timespan:
 @property (nonatomic, strong,           nonnull ) NSDate*                   startTime;
-
-/// Required end date for your potential booking.
 @property (nonatomic, strong,           nonnull ) NSDate*                   endTime;
 
-/// Optional filter for which Venue the found Locations should be contained in.
+// Optional filter for what the found objects should be contained in:
 @property (nonatomic, strong,           nullable) MPVenue*                  venue;
-
-/// Optional filter for which Building the found Locations should be contained in.
 @property (nonatomic, strong,           nullable) MPBuilding*               building;
-
-/// Optional filter for which Floor the found Locations should belong to.
 @property (nonatomic, strong,           nullable) NSNumber*                 floorIndex;
-
-/// Optional filter for which Location the found Locations should either be or be contained in.
 @property (nonatomic, strong,           nullable) MPLocation*               location;
 
-/// Optional filter for which Category the found Locations should belong to.
+// Optional category and locationType filter:
 @property (nonatomic, strong,           nullable) NSString*                 category;
-
-/// Optional filter for what the found Locations should belong to.
 @property (nonatomic, strong,           nullable) NSString*                 locationType;
 
 @end

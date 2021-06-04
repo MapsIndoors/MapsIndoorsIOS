@@ -16,8 +16,6 @@
  */
 @interface MPPositionResult : MPJSONModel
 
-- (_Nullable instancetype) initWithWirelessPositionData:(nonnull NSData*) positionData;
-
 /**
  The geographic point geometry of the position
  */

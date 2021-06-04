@@ -7,7 +7,7 @@
 //
 
 #import "MPJSONModel.h"
-#import <GoogleMaps/GoogleMaps.h>
+
 #import "MPEncodedPolyline.h"
 #import "MPRouteProperty.h"
 #import "MPRouteCoordinate.h"

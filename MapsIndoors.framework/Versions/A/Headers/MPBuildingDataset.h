@@ -31,10 +31,5 @@
  @param delegate The delegate object
  */
 - (void) setBuildingDelegate: (nullable NSObject<MPBuildingDelegate>*) delegate;
-/**
- Get the intersection area on two GMSCoordinateBounds.
- @param  b1 Some coordinate bounds (Typically the current map viewport bounds)
- @param  b2 Some other coordinate bounds (Typically building bounds)
- */
-- (double) intersectionAreaBetweenBounds: (nonnull GMSCoordinateBounds*) b1 andBounds: (nonnull GMSCoordinateBounds*) b2;
+
 @end

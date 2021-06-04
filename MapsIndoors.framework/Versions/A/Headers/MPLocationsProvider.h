@@ -163,7 +163,6 @@ typedef void(^mpLocationListHandlerBlockType)(MPLocationDataset* _Nullable locat
 /**
  Locations provider that defines a delegate and a method to initiate fetching of locations from the provider.
  */
-DEPRECATED_MSG_ATTRIBUTE("Use MPLocationService instead.")
 @interface MPLocationsProvider : NSObject<MPLocationsProvider>
 
 @end

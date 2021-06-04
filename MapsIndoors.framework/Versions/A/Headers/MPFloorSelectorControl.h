@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <GoogleMaps/GoogleMaps.h>
 #import "MPFloorSelectorProtocol.h"
 
 
@@ -16,7 +15,6 @@
  */
 @protocol MPFloorButton
 @end
-
 
 /**
   Floor selection UI element. Can be added to the map, but should be linked to an MPBuilding to make sense.
@@ -111,20 +109,6 @@
   @param sender The button tapped
  */
 - (void)notifyFloorSelect:(nonnull id)sender;
-
-/**
-  Add the floor selector to a map.
-  @param map The map that should hold the floor selector.
- @deprecated
- */
-- (void) addToMap:(nonnull GMSMapView*)map DEPRECATED_MSG_ATTRIBUTE("Please use addSubview on containing view instead");
-
-/**
-  Add the floor selector to a view.
-  @param view The view that should hold the floor selector.
- @deprecated
- */
-- (void) addToView:(nonnull UIView*)view DEPRECATED_MSG_ATTRIBUTE("Please use addSubview on containing view instead");
 
 /**
   Update the floor selector view frame. Needed upon switch to landscape/portrait

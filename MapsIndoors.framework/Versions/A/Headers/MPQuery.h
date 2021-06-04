@@ -28,7 +28,7 @@ Query object used when making a request to `MPLocationService`.
 @property (nonatomic) NSString* query;
 
 /**
- Geographical point that serve as additional horizontal and vertical proximity context for a search. If supplied, locations that is closer to the `near` point will be ranked higher. The proximity calculation is based on direct lines and does not reflect real world travel distances.
+ Geographical point that serve as additional proximity context for a search. If supplied, locations that is closer to the `near` point will be ranked higher. Locations that have a low rank in other regards will not gain from this.
  */
 @property (nonatomic) MPPoint* near;
 

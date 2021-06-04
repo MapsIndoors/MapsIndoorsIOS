@@ -12,33 +12,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
-Filter object used when making a request to `MPLocationService`. The filters will be applied in the following order:
- 1. Bounds filter
- 2. Locations filter
- 3. Floor filter
- 4. Categories filter
- 5. Types filter
- 6. Parents and depth filter
- 7. Take filter
- 8. Skip filter
- Locations must pass all filters to be part of the result.
+Filter object used when making a request to `MPLocationService`.
 */
 @interface MPFilter : NSObject
-
-/**
- Locations filter. List of location ids as in `MPLocation.locationId`. If multiple locations are supplied the filter will OR'ed.
- */
-@property (nonatomic, strong) NSArray<NSString*>* locations;
-
-/**
- Types filter. List of type names as in `MPLocation.type`. If multiple types are supplied the filter will OR'ed, meaning if a location belongs to at least one of the types it will be considered as a match.
- */
-@property (nonatomic, strong) NSArray<NSString*>* types;
 
 /**
  Categories filter. List of category keys as in `MPLocation.categories.allKeys`. If multiple categories are supplied the filter will OR'ed, meaning if a location belongs to at least one of the categories it will be considered as a match.
  */
 @property (nonatomic, strong) NSArray<NSString*>* categories;
+
 
 /**
  Rectangular geographical bounds filter.

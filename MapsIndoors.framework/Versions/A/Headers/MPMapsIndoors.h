@@ -122,7 +122,7 @@ typedef void(^mpOfflineDataHandlerBlockType)( NSError* _Nullable error);
 /**
  The position provider that MapsIndoors should use when user location services are needed.
  */
-@property (class, nullable) id<MPPositionProvider> positionProvider;
+@property (class, nonnull) id<MPPositionProvider> positionProvider;
 
 /**
  The image provider that MapsIndoors should use when image ressources are needed. MapsIndoors will provide a default if this property is nil.
@@ -132,7 +132,7 @@ typedef void(^mpOfflineDataHandlerBlockType)( NSError* _Nullable error);
 /**
  The location provider that MapsIndoors should use.
  */
-@property (class, nullable) id<MPLocationsProvider> locationsProvider DEPRECATED_MSG_ATTRIBUTE("Use MPLocationSource, setting MapsIndoors.sources instead");
+@property (class, nullable) id<MPLocationsProvider> locationsProvider;
 
 /**
  The currently registered location sources.

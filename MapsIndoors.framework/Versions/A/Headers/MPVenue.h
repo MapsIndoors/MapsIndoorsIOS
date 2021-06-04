@@ -8,7 +8,7 @@
 #define kDefaultTilesURL "https://mtw-tiles.cloudapp.net/venues/{venueId}/{style}/{buildingId}/{floor}/{z}/{x}/{y}.png"
 
 #import "MPJSONModel.h"
-#import <GoogleMaps/GoogleMaps.h>
+
 #import "MPMapStyle.h"
 #import "MPPoint.h"
 #import "MPBuilding.h"
@@ -46,8 +46,7 @@
  */
 @property (nonatomic, strong, nullable) NSString* tilesUrl;
 /**
- Container array for buildings in this venue. Note that this array are not populated initially. `MPMapControl` will populate this for the active venue.
- To get the buildings for an arbitrary venue, please use `MPVenueProvider.getBuildingsWithCompletion()`.
+ Array of buildings in this venue.
  */
 @property (nonatomic, strong, nullable) NSArray<MPBuilding*><MPBuilding, Optional>* buildings;
 /**
@@ -94,14 +93,5 @@
  Get a default style. If none is set, it will be the first string value in the list of map styles
  */
 - (nullable MPMapStyle*)getDefaultStyle;
-/**
- Get the geographic bounding box for the venue
- */
-- (nullable GMSCoordinateBounds *)getBoundingBox;
-/**
- Get the geographic bounds for the venue
- @deprecated
- */
-- (nullable GMSCoordinateBounds *)getVenueBounds DEPRECATED_MSG_ATTRIBUTE("Use getBoundingBox");
 
 @end

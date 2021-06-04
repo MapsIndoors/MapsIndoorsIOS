@@ -19,18 +19,11 @@
  */
 @interface MPSolution : MPJSONModel
 
-@property (nonatomic, strong, nullable          ) NSString*                                         name;
-@property (nonatomic, strong, nullable          ) NSString*                                         defaultLanguage;
-@property (nonatomic, strong, nullable          ) NSArray<NSString*>*                               availableLanguages;
-@property (nonatomic, strong, nullable          ) NSArray<NSString*>*                               modules;
-@property (nonatomic, strong, nullable          ) NSString<Optional>*                               mapClientUrl;
-@property (nonatomic, strong, nullable, readonly) NSString*                                         dataSetId;
-
-/**
- Optionally contains configuration data for the positioning systems used with the solution.
- The content of the configuration dictionaries are specific for the positioning system.
-*/
-@property (nonatomic, strong, nullable, readonly) NSDictionary<NSString*,NSDictionary*><Optional>*  positionProviderConfigs;
+@property (nonatomic, strong, nullable) NSString* name;
+@property (nonatomic, strong, nullable) NSString* defaultLanguage;
+@property (nonatomic, strong, nullable) NSArray<NSString*>* availableLanguages;
+@property (nonatomic, strong, nullable) NSArray<NSString*>* modules;
+@property (nonatomic, strong, nullable) NSString<Optional>* mapClientUrl;
 
 /**
  Array of types in this solution.
