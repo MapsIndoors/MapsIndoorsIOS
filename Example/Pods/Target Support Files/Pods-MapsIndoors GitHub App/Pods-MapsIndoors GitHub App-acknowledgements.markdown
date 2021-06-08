@@ -28,7 +28,7 @@ THE SOFTWARE.
 
 BSD 3-Clause License
 
-Copyright (c) 2010-2020, Deusty, LLC
+Copyright (c) 2010-2021, Deusty, LLC
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -1329,7 +1329,7 @@ Copyright 2021 Google
 
 ## GoogleMaps
 
-Copyright 2020 Google
+Copyright 2021 Google
 
 ## GoogleUtilities
 

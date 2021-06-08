@@ -20,6 +20,8 @@
 
 #import "SVGTransformable.h"
 
+#import "SVGKDefine_Private.h"
+
 @interface SVGElement ()
 
 @property (nonatomic, copy) NSString *stringValue;
@@ -270,12 +272,19 @@
 				SVGKitLogError(@"[%@] ERROR: input file is illegal, has an item in the SVG transform attribute which has no open-bracket. Item = %@, transform attribute value = %@", [self class], transformString, value );
 				return;
 			}
-			NSString* command = [transformString substringToIndex:loc.location];
+            NSString* command = [transformString substringToIndex:loc.location];
             NSString* rawParametersString = [transformString substringFromIndex:loc.location+1];
-			NSArray* parameterStrings = [rawParametersString componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@", "]];
-			
-			/** if you get ", " (comma AND space), Apple sends you an extra 0-length match - "" - between your args. We strip that here */
-			parameterStrings = [parameterStrings filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"length > 0"]];
+            NSMutableArray *parameterStrings = [NSMutableArray array];
+            NSScanner *scanner = [[NSScanner alloc] initWithString:rawParametersString];
+            CGFloat currentValue;
+
+            NSCharacterSet *commaAndWhitespace = [NSCharacterSet characterSetWithCharactersInString:@", "];
+            while (![scanner isAtEnd]) {
+                if ([scanner scanDouble:&currentValue]) {
+                    [parameterStrings addObject:[@(currentValue) stringValue]];
+                }
+                [scanner scanCharactersFromSet:commaAndWhitespace intoString:NULL];
+            }
 			
 			//EXTREME DEBUG: SVGKitLogVerbose(@"[%@] DEBUG: found parameters = %@", [self class], parameterStrings);
 			
@@ -481,16 +490,25 @@
     {
         if( element.className != nil )
         {
+            NSScanner *classNameScanner = [NSScanner scannerWithString:element.className];
+            NSMutableCharacterSet *whitespaceAndCommaSet = [NSMutableCharacterSet whitespaceCharacterSet];
+            NSString *substring;
+            
+            [whitespaceAndCommaSet addCharactersInString:@","];
             selector = [selector substringFromIndex:1];
             __block BOOL matched = NO;
-            [element.className enumerateSubstringsInRange:NSMakeRange(0, element.className.length) options:NSStringEnumerationByWords usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop)
-             {
-                 if( [substring isEqualToString:selector] )
-                 {
-                     matched = YES;
-                     *stop = YES;
-                 }
-             }];
+
+            while ([classNameScanner scanUpToCharactersFromSet:whitespaceAndCommaSet intoString:&substring])
+            {
+                if( [substring isEqualToString:selector] )
+                {
+                    matched = YES;
+                    break;
+                }
+				
+                if (!classNameScanner.isAtEnd)
+                    classNameScanner.scanLocation = classNameScanner.scanLocation+1L;
+            }
             if( matched )
             {
                 *specificity += 100;

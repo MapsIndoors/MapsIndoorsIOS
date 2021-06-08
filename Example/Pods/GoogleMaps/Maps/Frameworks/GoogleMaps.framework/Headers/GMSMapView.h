@@ -23,6 +23,7 @@
 #endif
 #import "GMSMapLayer.h"
 #import "GMSUISettings.h"
+#import "GMSAccessibilityLabels.h"
 
 @class GMSCameraPosition;
 @class GMSCameraUpdate;
@@ -502,19 +503,5 @@ typedef NS_ENUM(NSUInteger, GMSMapViewPaddingAdjustmentBehavior) {
                             position:(GMSCameraPosition *)otherPosition;
 
 @end
-
-/**
- * Accessibility identifier for the compass button.
- *
- * @related GMSMapView
- */
-extern NSString *const kGMSAccessibilityCompass;
-
-/**
- * Accessibility identifier for the "my location" button.
- *
- * @related GMSMapView
- */
-extern NSString *const kGMSAccessibilityMyLocation;
 
 NS_ASSUME_NONNULL_END

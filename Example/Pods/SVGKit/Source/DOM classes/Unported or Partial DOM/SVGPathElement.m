@@ -12,6 +12,8 @@
 
 #import "SVGElement_ForParser.h" // to resolve Xcode circular dependencies; in long term, parsing SHOULD NOT HAPPEN inside any class whose name starts "SVG" (because those are reserved classes for the SVG Spec)
 
+#import "SVGKDefine_Private.h"
+
 @interface SVGPathElement ()
 
 - (void) parseData:(NSString *)data;
@@ -86,19 +88,23 @@
                     } else if ([@"v" isEqualToString:command]) {
                         lastCurve = [SVGKPointsAndPathsParser readVerticalLinetoCommand:commandScanner
                                                                                    path:path
-                                                                             relativeTo:lastCurve.p];
+                                                                             relativeTo:lastCurve.p
+                                                                             isRelative:TRUE];
                     } else if ([@"V" isEqualToString:command]) {
                         lastCurve = [SVGKPointsAndPathsParser readVerticalLinetoCommand:commandScanner
                                                                                    path:path
-                                                                             relativeTo:CGPointZero];
+                                                                             relativeTo:CGPointZero
+                                                                             isRelative:FALSE];
                     } else if ([@"h" isEqualToString:command]) {
                         lastCurve = [SVGKPointsAndPathsParser readHorizontalLinetoCommand:commandScanner
                                                                                      path:path
-                                                                               relativeTo:lastCurve.p];
+                                                                               relativeTo:lastCurve.p
+                                                                               isRelative:TRUE];
                     } else if ([@"H" isEqualToString:command]) {
                         lastCurve = [SVGKPointsAndPathsParser readHorizontalLinetoCommand:commandScanner
                                                                                      path:path
-                                                                               relativeTo:CGPointZero];
+                                                                               relativeTo:CGPointZero
+                                                                               isRelative:FALSE];
                     } else if ([@"c" isEqualToString:command]) {
                         lastCurve = [SVGKPointsAndPathsParser readCurvetoCommand:commandScanner
                                                                             path:path

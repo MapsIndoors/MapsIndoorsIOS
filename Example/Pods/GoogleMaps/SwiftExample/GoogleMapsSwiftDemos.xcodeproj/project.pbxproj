@@ -401,7 +401,6 @@
 		5874A4B608088BA842B934C2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = YES;
 			};
 			buildConfigurationList = C0C7530177213989B18ED3FC /* Build configuration list for PBXProject "GoogleMapsSwiftDemos" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -545,11 +544,15 @@
 		6798450D013ACAFF39CF0187 /* Default */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"ARCHS[sdk=iphonesimulator*]" = (
+					i386,
+					x86_64,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ./GoogleMapsSwiftDemos/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LIBRARY_SEARCH_PATHS = (
 					.,
 					"$(SDKROOT)/System/Library/Frameworks",

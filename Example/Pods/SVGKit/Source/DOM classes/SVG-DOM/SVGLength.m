@@ -4,6 +4,7 @@
 #import "CSSPrimitiveValue_ConfigurablePixelsPerInch.h"
 
 #import "SVGUtils.h"
+#import "SVGKDefine_Private.h"
 
 #include <sys/types.h>
 #include <sys/sysctl.h>
@@ -209,7 +210,8 @@ static float cachedDevicePixelsPerInch;
 	|| [platform hasPrefix:@"iPad5,3"]
     || [platform hasPrefix:@"iPad5,4"]
 	|| [platform hasPrefix:@"iPad6"]
-    || [platform hasPrefix:@"iPad7"])
+    || [platform hasPrefix:@"iPad7"]
+    || [platform hasPrefix:@"iPad8"])
 		return 264.0f;
     
 	if( [platform hasPrefix:@"iPad"]) // catch-all for higher-end devices not yet existing

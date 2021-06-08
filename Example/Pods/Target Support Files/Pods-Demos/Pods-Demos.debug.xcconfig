@@ -1,11 +1,11 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
 EXCLUDED_ARCHS[sdk=iphonesimulator*] = arm64
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/MapsIndoorsUtils" "${PODS_ROOT}/../.." "${PODS_ROOT}/GoogleMaps/Base/Frameworks" "${PODS_ROOT}/GoogleMaps/Maps/Frameworks"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/MapsIndoorsUtils" "${PODS_ROOT}/../.." "${PODS_ROOT}/GoogleMaps/Base/Frameworks" "${PODS_ROOT}/GoogleMaps/Maps/Frameworks" "${PODS_XCFRAMEWORKS_BUILD_DIR}/MapsIndoors"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/MapsIndoorsUtils/MapsIndoorsUtils.framework/Headers" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Firebase"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_CONFIGURATION_BUILD_DIR}/MapsIndoorsUtils/MapsIndoorsUtils.framework/Headers" -iframework "${PODS_ROOT}/GoogleMaps/Base/Frameworks" -iframework "${PODS_ROOT}/GoogleMaps/Maps/Frameworks" -iframework "${PODS_ROOT}/../.." -iframework "${PODS_CONFIGURATION_BUILD_DIR}/MapsIndoorsUtils"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_CONFIGURATION_BUILD_DIR}/MapsIndoorsUtils/MapsIndoorsUtils.framework/Headers" -iframework "${PODS_ROOT}/GoogleMaps/Base/Frameworks" -iframework "${PODS_ROOT}/GoogleMaps/Maps/Frameworks" -iframework "${PODS_ROOT}/../.." -iframework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MapsIndoors" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/MapsIndoorsUtils"
 OTHER_LDFLAGS = $(inherited) -ObjC -l"c++" -l"z" -framework "Accelerate" -framework "CoreData" -framework "CoreGraphics" -framework "CoreImage" -framework "CoreLocation" -framework "CoreTelephony" -framework "CoreText" -framework "GLKit" -framework "GameplayKit" -framework "GoogleMaps" -framework "GoogleMapsBase" -framework "GoogleMapsCore" -framework "ImageIO" -framework "MapsIndoors" -framework "MapsIndoorsUtils" -framework "Metal" -framework "OpenGLES" -framework "QuartzCore" -framework "SystemConfiguration" -framework "UIKit" -framework "UserNotifications"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}

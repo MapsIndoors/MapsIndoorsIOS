@@ -40,3 +40,4 @@
 #import "GMSPanoramaService.h"
 #import "GMSPanoramaSource.h"
 #import "GMSPanoramaView.h"
+#import "GMSAccessibilityLabels.h"

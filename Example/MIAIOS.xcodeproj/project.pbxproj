@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		227AC5252543A6203F41C3C1 /* Pods_Demos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9204C9DD93E66C3EB9919AB5 /* Pods_Demos.framework */; };
 		300A2D852099CA0A00882D4E /* kitten2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 300A2D832099CA0A00882D4E /* kitten2.jpg */; };
 		300A2D862099CA0A00882D4E /* kitten2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 300A2D832099CA0A00882D4E /* kitten2.jpg */; };
 		300A2D872099CA0A00882D4E /* kitten.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 300A2D842099CA0A00882D4E /* kitten.jpg */; };
@@ -146,8 +145,6 @@
 		30FA8F6C258234A500F5758C /* BookingDetailsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FA8F66258234A400F5758C /* BookingDetailsViewModel.m */; };
 		30FA8F822582379900F5758C /* BookingDetailsEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FA8F7C2582379900F5758C /* BookingDetailsEntry.m */; };
 		30FA8F9825836A9B00F5758C /* NSObject+MPUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FA8F9225836A9A00F5758C /* NSObject+MPUserInfo.m */; };
-		3C2E64B1F149A4DCC91A2D6E /* Pods_MIAIOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7113A228F8A18AAB54734EE9 /* Pods_MIAIOSUITests.framework */; };
-		9161EA49FC99165F939C6B05 /* Pods_DemosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90D51927056F2D23CEEA0DF /* Pods_DemosUITests.framework */; };
 		A235111E25D2B32300111BB0 /* BookableLocationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235111B25D2B32300111BB0 /* BookableLocationsController.swift */; };
 		A235111F25D2B32300111BB0 /* BookingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235111C25D2B32300111BB0 /* BookingsController.swift */; };
 		A235112025D2B32300111BB0 /* BookingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235111D25D2B32300111BB0 /* BookingController.swift */; };
@@ -172,7 +169,6 @@
 		A2F4566C22BCA2DF004F7781 /* LocationSourcesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F4566B22BCA2DF004F7781 /* LocationSourcesController.swift */; };
 		A2FC5D9B222D507000617468 /* ClusteringController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FC5D95222D507000617468 /* ClusteringController.swift */; };
 		A2FFF8992302AE5A00F4AF6B /* AppInfoOtherInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FFF8932302AE5A00F4AF6B /* AppInfoOtherInfoViewController.m */; };
-		DF75D83594D2056A3A9D2A1F /* Pods_MapsIndoors_GitHub_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 677A40AFFB3E8EA2BD37D4D2 /* Pods_MapsIndoors_GitHub_App.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -323,10 +319,7 @@
 		5272773AB13678BA9FA03CF3 /* Pods-DemosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemosUITests.release.xcconfig"; path = "Target Support Files/Pods-DemosUITests/Pods-DemosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		55F603E1D0473B32851B156B /* Pods-DemosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemosUITests.debug.xcconfig"; path = "Target Support Files/Pods-DemosUITests/Pods-DemosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5D2DA8424AC713281F50FFC2 /* Pods-MapsIndoors GitHub App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsIndoors GitHub App.debug.xcconfig"; path = "Target Support Files/Pods-MapsIndoors GitHub App/Pods-MapsIndoors GitHub App.debug.xcconfig"; sourceTree = "<group>"; };
-		677A40AFFB3E8EA2BD37D4D2 /* Pods_MapsIndoors_GitHub_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapsIndoors_GitHub_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7113A228F8A18AAB54734EE9 /* Pods_MIAIOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MIAIOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87F4F7EA5BE3F6396E01E023 /* Pods-MapsIndoors GitHub App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsIndoors GitHub App.release.xcconfig"; path = "Target Support Files/Pods-MapsIndoors GitHub App/Pods-MapsIndoors GitHub App.release.xcconfig"; sourceTree = "<group>"; };
-		9204C9DD93E66C3EB9919AB5 /* Pods_Demos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95A53DBDDECE07AE8E47F06B /* Pods-MIAIOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MIAIOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-MIAIOSUITests/Pods-MIAIOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A20CBD6F1F4C598D0077D96E /* MPCiscoPositionProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCiscoPositionProvider.h; sourceTree = "<group>"; };
 		A20CBD701F4C598D0077D96E /* MPCiscoPositionProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCiscoPositionProvider.m; sourceTree = "<group>"; };
@@ -504,7 +497,6 @@
 		A2FFF8932302AE5A00F4AF6B /* AppInfoOtherInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppInfoOtherInfoViewController.m; sourceTree = "<group>"; };
 		AB1A76018B3FEDA976B95972 /* Pods-MIAIOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MIAIOSUITests.release.xcconfig"; path = "Target Support Files/Pods-MIAIOSUITests/Pods-MIAIOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D05B8A161989F01F655FE264 /* Pods-Demos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demos.release.xcconfig"; path = "Target Support Files/Pods-Demos/Pods-Demos.release.xcconfig"; sourceTree = "<group>"; };
-		E90D51927056F2D23CEEA0DF /* Pods_DemosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -513,7 +505,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				302B0C07206539F5009C7BF9 /* MapKit.framework in Frameworks */,
-				DF75D83594D2056A3A9D2A1F /* Pods_MapsIndoors_GitHub_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,7 +512,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				227AC5252543A6203F41C3C1 /* Pods_Demos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,7 +519,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9161EA49FC99165F939C6B05 /* Pods_DemosUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,7 +526,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C2E64B1F149A4DCC91A2D6E /* Pods_MIAIOSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1293,10 +1281,6 @@
 				A25F6BC120C182E10075C841 /* AudioToolbox.framework */,
 				A25F6BBF20C182D80075C841 /* Accelerate.framework */,
 				304CCE262012186A000A7B9D /* MapKit.framework */,
-				9204C9DD93E66C3EB9919AB5 /* Pods_Demos.framework */,
-				E90D51927056F2D23CEEA0DF /* Pods_DemosUITests.framework */,
-				7113A228F8A18AAB54734EE9 /* Pods_MIAIOSUITests.framework */,
-				677A40AFFB3E8EA2BD37D4D2 /* Pods_MapsIndoors_GitHub_App.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1618,7 +1602,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Demos/Pods-Demos-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
-				"${PODS_ROOT}/../../MapsIndoors.framework/Versions/A/Resources/MapsIndoors.bundle",
+				"${PODS_ROOT}/../../MapsIndoors.xcframework/ios-arm64/MapsIndoors.framework/Versions/A/Resources/MapsIndoors.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -1748,7 +1732,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MapsIndoors GitHub App/Pods-MapsIndoors GitHub App-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
-				"${PODS_ROOT}/../../MapsIndoors.framework/Versions/A/Resources/MapsIndoors.bundle",
+				"${PODS_ROOT}/../../MapsIndoors.xcframework/ios-arm64/MapsIndoors.framework/Versions/A/Resources/MapsIndoors.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (

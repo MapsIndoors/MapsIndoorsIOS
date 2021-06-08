@@ -7,7 +7,7 @@
 //
 
 #import "NSData+NSInputStream.h"
-
+#import "SVGKDefine_Private.h"
 
 #define BUFSIZE 65536U
 
@@ -16,6 +16,12 @@
 
 
 +(NSData *)dataWithContentsOfStream:(NSInputStream *)input initialCapacity:(NSUInteger)capacity error:(NSError **)error {
+    if (!input) {
+        if (error) {
+            *error = [NSError errorWithDomain:NSPOSIXErrorDomain code:ENOENT userInfo:nil];
+        }
+        return nil;
+    }
     size_t bufsize = MIN(BUFSIZE, capacity);
     uint8_t * buf = malloc(bufsize);
     if (buf == NULL) {

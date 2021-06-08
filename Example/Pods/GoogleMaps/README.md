@@ -38,7 +38,7 @@ specify it in your `Podfile`:
 
 ```
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '9.0'
+platform :ios, '10.0'
 target 'YOUR_APPLICATION_TARGET_NAME_HERE' do
   pod 'GoogleMaps'
 end
@@ -54,12 +54,6 @@ Before you can start using the API, you have to activate it in the [Google
 Developer Console](https://console.developers.google.com/) and integrate the
 respective API key in your project. For detailed installation instructions,
 visit Google's Getting Started Guides for the [Google Maps SDK for iOS](https://developers.google.com/maps/documentation/ios-sdk/start).
-
-# Migration from version 1
-
-If you are using the Google Places API for iOS as part of the Google Maps SDK
-for iOS version 1 please check the [migration guide](https://developers.google.com/places/migrate-to-v2)
-for more information on upgrading your project.
 
 # License and Terms of Service
 

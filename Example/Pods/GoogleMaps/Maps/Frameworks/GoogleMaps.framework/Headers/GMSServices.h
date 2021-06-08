@@ -56,6 +56,15 @@ NS_ASSUME_NONNULL_BEGIN
 + (BOOL)provideAPIOptions:(NSArray<NSString *> *)APIOptions;
 
 /**
+ * Enables reporting of abnormal SDK terminations such as the app crashes while the SDK is still
+ * running. This allows Google to improve SDK stability when applicable. The default is @c YES and
+ * value must be updated before the services instance is initialized.
+ *
+ * This property must be set from the main thread.
+ */
++ (void)setAbnormalTerminationReportingEnabled:(BOOL)enabled;
+
+/**
  * Returns the open source software license information for Google Maps SDK for iOS. This
  * information must be made available within your application.
  */

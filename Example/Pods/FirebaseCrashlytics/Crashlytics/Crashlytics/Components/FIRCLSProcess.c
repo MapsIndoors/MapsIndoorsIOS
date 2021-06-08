@@ -57,10 +57,6 @@ bool FIRCLSProcessInit(FIRCLSProcess *process, thread_t crashedThread, void *uap
   return true;
 }
 
-bool FIRCLSProcessDestroy(FIRCLSProcess *process) {
-  return false;
-}
-
 // https://developer.apple.com/library/mac/#qa/qa2004/qa1361.html
 bool FIRCLSProcessDebuggerAttached(void) {
   int junk;
@@ -167,7 +163,7 @@ static bool FIRCLSProcessGetThreadState(FIRCLSProcess *process,
                                         thread_t thread,
                                         FIRCLSThreadContext *context) {
   if (!FIRCLSIsValidPointer(context)) {
-    FIRCLSSDKLogError("invalid context supplied");
+    FIRCLSSDKLogError("Invalid context supplied\n");
     return false;
   }
 
@@ -259,7 +255,7 @@ static const char *FIRCLSProcessGetThreadDispatchQueueName(FIRCLSProcess *proces
   infoCount = THREAD_IDENTIFIER_INFO_COUNT;
   if (thread_info(thread, THREAD_IDENTIFIER_INFO, (thread_info_t)&info, &infoCount) !=
       KERN_SUCCESS) {
-    FIRCLSSDKLog("unable to get thread info\n");
+    FIRCLSSDKLog("Unable to get thread info\n");
     return NULL;
   }
 
@@ -395,12 +391,12 @@ static bool FIRCLSProcessRecordThread(FIRCLSProcess *process, thread_t thread, F
   FIRCLSThreadContext context;
 
   if (!FIRCLSProcessGetThreadState(process, thread, &context)) {
-    FIRCLSSDKLogError("unable to get thread state");
+    FIRCLSSDKLogError("Unable to get thread state\n");
     return false;
   }
 
   if (!FIRCLSUnwindInit(&unwindContext, context)) {
-    FIRCLSSDKLog("unable to init unwind context\n");
+    FIRCLSSDKLog("Unable to init unwind context\n");
 
     return false;
   }
@@ -490,7 +486,7 @@ bool FIRCLSProcessRecordAllThreads(FIRCLSProcess *process, FIRCLSFile *file) {
 
     FIRCLSSDKLogInfo("recording thread %d data\n", i);
     if (!FIRCLSProcessRecordThread(process, thread, file)) {
-      FIRCLSSDKLogError("Failed to record thread state. Closing threads JSON to prevent malformed crash report.");
+      FIRCLSSDKLogError("Failed to record thread state. Closing threads JSON to prevent malformed crash report.\n");
 
       FIRCLSFileWriteArrayEnd(file);
 
@@ -503,7 +499,7 @@ bool FIRCLSProcessRecordAllThreads(FIRCLSProcess *process, FIRCLSFile *file) {
 
   FIRCLSFileWriteSectionEnd(file);
 
-  FIRCLSSDKLogInfo("completed recording all thread data\n");
+  FIRCLSSDKLogInfo("Completed recording all thread data\n");
 
   return true;
 }
