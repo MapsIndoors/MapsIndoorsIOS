@@ -18,12 +18,12 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [3.30.0-beta0] 2021-06-02
+## [3.30.0] 2021-06-07
 
 ### Changed
 
 - We are now distributing MapsIndoors as an XCFramework.
-- This version is functionally identical to 3.28.0.
+- This version is functionally identical to version 3.28.0.
 
 ## [3.28.0] 2021-05-31
 
