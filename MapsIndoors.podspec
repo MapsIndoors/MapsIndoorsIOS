@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
   s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 
-  s.ios.deployment_target    = '9.0'
+  s.ios.deployment_target    = '10.0'
   s.ios.preserve_paths = ['MapsIndoors.xcframework','Scripts']
   s.ios.vendored_frameworks  = 'MapsIndoors.xcframework'
   s.resources = ['MapsIndoors.xcframework/ios-arm64/MapsIndoors.framework/Versions/A/Resources/MapsIndoors.bundle']
