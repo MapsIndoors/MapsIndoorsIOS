@@ -104,7 +104,7 @@ PODS:
     - GoogleUtilities/Logger
   - HashBuilder (1.0.2)
   - KVOController (1.2.0)
-  - MapsIndoors (3.30.0-beta0):
+  - MapsIndoors (3.30.0):
     - GoogleMaps (= 4.2.0)
   - MapsIndoorsUtils (0.1.0-alpha6)
   - nanopb (2.30908.0):
@@ -175,7 +175,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: f8a43108b38a68eebe8b3540e1f4f2d28843ce20
   HashBuilder: 4c433308ca46f204900a903aebd078edf92ea33f
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
-  MapsIndoors: bd08ce4b7d490020fed96c306a171cbcb33cd212
+  MapsIndoors: 9a825d24a6bc56a8290ff629da3c73d520b828a5
   MapsIndoorsUtils: 4239f64186e6cdad8ab3628ada692be040ac0df9
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
