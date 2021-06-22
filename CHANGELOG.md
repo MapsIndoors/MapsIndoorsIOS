@@ -18,6 +18,22 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.31.0] 2021-06-22
+
+### Fixed
+
+- Fixed an archive issue caused by missing architectures in the XCFramework.
+- Fixed a rendering issue in `MPDirectionsRenderer` causing a route to be rendered at the wrong floor.
+- Fixed an issue in the `MPFloorSelectorControl` causing it to not reflecting the correct floor in some cases.
+- Fixed an issue causing inactive Locations to briefly appear when Live Data was imposed to them.
+- Fixed an issue in `MPBookingService` causing some booked slots to appear as not booked.
+
+### Changed
+
+- Changed default Occupancy Live Data rendering for unknown number of people.
+- Improved raster image quality.
+- Now defaulting to `MPMapControl.mapIconSize` in an `MPLocationDisplayRule`.
+
 ## [3.30.0] 2021-06-07
 
 ### Changed

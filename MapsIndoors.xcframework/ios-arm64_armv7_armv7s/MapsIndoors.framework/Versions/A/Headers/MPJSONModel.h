@@ -1,18 +1,7 @@
 //
 //  MPJSONModel.h
+//  MPJSONModel
 //
-//  @version 1.4
-//  @author Marin Todorov (http://www.underplot.com) and contributors
-//
-
-// Copyright (c) 2012-2015 Marin Todorov, Underplot ltd.
-// This code is distributed under the terms and conditions of the MIT license.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-// The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-//
-
 
 #import <Foundation/Foundation.h>
 
@@ -42,7 +31,7 @@ DEPRECATED_ATTRIBUTE
  * Protocol for defining properties in a JSON Model class that should not be considered at all
  * neither while importing nor when exporting JSON.
  *
- * @property (strong, nonatomic) NSString&lt;Ignore&gt; *propertyName;
+ * @property (strong, nonatomic) NSString <Ignore> *propertyName;
  *
  */
 @protocol Ignore
@@ -52,7 +41,7 @@ DEPRECATED_ATTRIBUTE
  * Protocol for defining optional properties in a JSON Model class. Use like below to define
  * model properties that are not required to have values in the JSON input:
  *
- * @property (strong, nonatomic) NSString&lt;Optional&gt; *propertyName;
+ * @property (strong, nonatomic) NSString <Optional> *propertyName;
  *
  */
 @protocol Optional
@@ -117,7 +106,7 @@ DEPRECATED_ATTRIBUTE
  * @exception MPJSONModelTypeNotAllowedException thrown when one of your model's custom class properties
  * does not have matching transformer method in an MPJSONValueTransformer.
  */
-- (NSDictionary *)toDictionaryWithKeys:(NSArray *)propertyNames;
+- (NSDictionary *)toDictionaryWithKeys:(NSArray <NSString *> *)propertyNames;
 @end
 
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -179,14 +168,14 @@ DEPRECATED_ATTRIBUTE
  * @param propertyNames the properties to export; if nil, all properties exported
  * @return JSON text describing the data model
  */
-- (NSString *)toJSONStringWithKeys:(NSArray *)propertyNames;
+- (NSString *)toJSONStringWithKeys:(NSArray <NSString *> *)propertyNames;
 
 /**
  * Export the specified properties of the object to a JSON data text string
  * @param propertyNames the properties to export; if nil, all properties exported
  * @return JSON text data describing the data model
  */
-- (NSData *)toJSONDataWithKeys:(NSArray *)propertyNames;
+- (NSData *)toJSONDataWithKeys:(NSArray <NSString *> *)propertyNames;
 
 /** @name Batch methods */
 
@@ -271,8 +260,18 @@ DEPRECATED_ATTRIBUTE
  *     @property (strong) NSArray *things;
  * @param propertyName the name of the property
  * @return Class the class used to deserialize the elements of the collection
+ *
+ * Example in Swift 3.0:
+ * override static func classForCollectionProperty(propertyName: String) -> AnyClass? {
+ *   switch propertyName {
+ *     case "childModel":
+ *       return ChildModel.self
+ *     default:
+ *       return nil
+ *   }
+ * }
  */
-+ (Class)classForCollectionProperty:(NSString *)propertyName;
++ (Class)classForCollectionProperty:(NSString *)propertyName NS_SWIFT_NAME(classForCollectionProperty(propertyName:));
 
 /**
  * Merges values from the given dictionary into the model instance.
