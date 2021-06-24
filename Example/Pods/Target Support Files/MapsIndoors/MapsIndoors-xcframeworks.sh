@@ -149,5 +149,5 @@ install_xcframework() {
   echo "Copied $source to $destination"
 }
 
-install_xcframework "${PODS_ROOT}/../../MapsIndoors.xcframework" "MapsIndoors" "framework" "ios-i386_x86_64-simulator" "ios-arm64"
+install_xcframework "${PODS_ROOT}/../../MapsIndoors.xcframework" "MapsIndoors" "framework" "ios-i386_x86_64-simulator" "ios-arm64_armv7_armv7s"
 

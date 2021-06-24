@@ -1516,7 +1516,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Demos/Pods-Demos-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
-				"${PODS_ROOT}/../../MapsIndoors.xcframework/ios-arm64/MapsIndoors.framework/Versions/A/Resources/MapsIndoors.bundle",
+				"${PODS_ROOT}/../../MapsIndoors.xcframework/ios-arm64_armv7_armv7s/MapsIndoors.framework/Versions/A/Resources/MapsIndoors.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -1748,7 +1748,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MapsIndoors GitHub App/Pods-MapsIndoors GitHub App-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
-				"${PODS_ROOT}/../../MapsIndoors.xcframework/ios-arm64/MapsIndoors.framework/Versions/A/Resources/MapsIndoors.bundle",
+				"${PODS_ROOT}/../../MapsIndoors.xcframework/ios-arm64_armv7_armv7s/MapsIndoors.framework/Versions/A/Resources/MapsIndoors.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
