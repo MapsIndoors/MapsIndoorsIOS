@@ -18,6 +18,13 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.32.0] 2021-07-05
+
+### Fixed
+
+- Fixed missing call of the `GMSMapViewDelegate` method `markerInfoContents()`.
+- Fixed an issue causing Location Updates involving floor changes to not being updated on the map.
+
 ## [3.31.0] 2021-06-22
 
 ### Fixed

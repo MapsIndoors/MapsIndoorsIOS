@@ -131,6 +131,7 @@ typedef void(^mpOfflineDataHandlerBlockType)( NSError* _Nullable error);
 
 /**
  The location provider that MapsIndoors should use.
+ @deprecated Use MPLocationSource, setting MapsIndoors.sources instead
  */
 @property (class, nullable) id<MPLocationsProvider> locationsProvider DEPRECATED_MSG_ATTRIBUTE("Use MPLocationSource, setting MapsIndoors.sources instead");
 
