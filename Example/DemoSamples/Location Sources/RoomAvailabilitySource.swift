@@ -32,7 +32,7 @@ class RoomAvailabilitySource : NSObject, MPLocationSource, MPLocationsObserver {
      ***/
     private var observers = [MPLocationsObserver]()
     private var locationUpdates = Dictionary<String, MPLocationUpdate>()
-    private let miMapsIndoorsSource:MPLocationSource = MPMapsIndoorsLocationSource()
+    private let miMapsIndoorsSource = MPMapsIndoorsLocationSource()
     
     /***
      In the initialiser, add this instance as observer for The MapsIndoors source.
@@ -40,6 +40,7 @@ class RoomAvailabilitySource : NSObject, MPLocationSource, MPLocationsObserver {
     override init() {
         super.init()
         self.miMapsIndoorsSource.add(self)
+        self.miMapsIndoorsSource.synchronizeContent(completion: nil)
     }
     
     /***
