@@ -67,7 +67,7 @@ class PeopleLocationSource : NSObject, MPLocationSource {
             
             locationUpdate.type = type
             locationUpdate.addPropertyValue("John Doe #\(locId)", forKey: MPLocationFieldName)
-            locationUpdate.floor = 1
+            locationUpdate.floor = 10
             let p = getRandomPoint()
             locationPoints.append(p)
             locationDirs.append(Double.random(in: 0 ..< 360))
