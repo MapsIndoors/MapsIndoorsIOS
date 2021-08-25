@@ -31,4 +31,7 @@
 /// Floor name
 @property (nonatomic, strong, nullable) NSString* name;
 
+/// Floor aliases
+@property (nonatomic, strong, nullable) NSArray<NSString *><Optional>* aliases;
+
 @end

@@ -157,4 +157,9 @@ typedef void(^mpOfflineDataHandlerBlockType)( NSError* _Nullable error);
  */
 @property (class, nonatomic, strong, nullable) NSArray<MPUserRole*>*       userRoles;
 
+/**
+  Gets or sets the event logging state. If enabled, the SDK will collect anonymous SDK usage data from the application. By default, the collection of usage event data is enabled, but in order for logs to be collected, the logging must also be enabled in the MapsIndoors CMS.
+ */
+@property (class, nonatomic) BOOL                                           eventLoggingDisabled;
+
 @end

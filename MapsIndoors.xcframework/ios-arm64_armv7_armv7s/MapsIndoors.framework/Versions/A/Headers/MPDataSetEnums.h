@@ -27,6 +27,12 @@ typedef NS_ENUM(NSUInteger, MPDataSetCacheScope) {
     //END:      Fix feature/MISDKIOS-545-Avoid-the-underscore-when-naming-our-Obj-C-enums-and-options-to-get-nicer-formating-in-Swift in a backwards compatible manner
 };
 
+#define MPDataSetCachingScopeString(enum) @{ \
+    @(MPDataSetBasic):@"basic", \
+    @(MPDataSetDetailed):@"detailed", \
+    @(MPDataSetFull):@"full" \
+}[@(enum)]\
+
 /**
 Data set caching strategy.
 */
@@ -44,5 +50,11 @@ typedef NS_ENUM(NSUInteger, MPDataSetCachingStrategy) {
     */
     MPDataSetCachingStrategyManual,
 };
+
+#define MPDataSetCachingStrategyString(enum) @{ \
+    @(MPDataSetCachingStrategyDontCache):@"dont_cache", \
+    @(MPDataSetCachingStrategyAutomatic):@"automatic", \
+    @(MPDataSetCachingStrategyManual):@"manual" \
+}[@(enum)]\
 
 #endif /* MPDataSetScope_h */

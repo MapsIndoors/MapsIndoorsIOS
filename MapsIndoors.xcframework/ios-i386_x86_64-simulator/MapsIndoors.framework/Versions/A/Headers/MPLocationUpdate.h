@@ -1,5 +1,5 @@
 //
-//  MPLocationBuilder.h
+//  MPLocationUpdate.h
 //  MapsIndoors
 //
 //  Created by Daniel Nielsen on 29/11/2018.

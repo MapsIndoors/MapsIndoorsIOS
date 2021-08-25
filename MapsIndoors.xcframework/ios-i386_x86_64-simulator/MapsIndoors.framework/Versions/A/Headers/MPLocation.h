@@ -42,9 +42,15 @@
  Location constructor.
  @param  point The geographic point.
  @param  name The name of the location.
+ @deprecated Use MPLocationUpdate instead
  */
-- (nullable instancetype) initWithPoint:(nullable MPPoint*)point andName:(nullable NSString*)name DEPRECATED_MSG_ATTRIBUTE("Use MPLocationBuilder instead");
-- (nullable instancetype) initWithLocation:(nullable MPLocation*)location DEPRECATED_MSG_ATTRIBUTE("Use MPLocationBuilder instead");
+- (nullable instancetype) initWithPoint:(nullable MPPoint*)point andName:(nullable NSString*)name DEPRECATED_MSG_ATTRIBUTE("Use MPLocationUpdate instead");
+/**
+ Location constructor.
+ @param  location Make a new instance from an existing location.
+ @deprecated Use MPLocationUpdate instead
+ */- (nullable instancetype) initWithLocation:(nullable MPLocation*)location DEPRECATED_MSG_ATTRIBUTE("Use MPLocationUpdate instead");
+
 /**
  Location id property.
  */
@@ -53,8 +59,15 @@
  Location type property. This string correlates with `MPType.name`.
  */
 @property (nonatomic, strong, nullable, readonly) NSString *type;
-
+/**
+ Active from timestamp
+ @deprecated
+ */
 @property (nonatomic, strong, nullable, readonly) NSNumber<Optional> *activeFrom DEPRECATED_ATTRIBUTE;
+/**
+ Active to timestamp
+ @deprecated
+ */
 @property (nonatomic, strong, nullable, readonly) NSNumber<Optional> *activeTo DEPRECATED_ATTRIBUTE;
 /**
  Location venue property. This string correlates with `MPVenue.venueKey`.
@@ -66,6 +79,7 @@
 @property (nonatomic, strong, nullable, readonly) NSString<Optional> *building;
 /**
  Location room id property.
+ @deprecated Use externalId instead
  */
 @property (nonatomic, strong, nullable, readonly) NSString<Optional> *roomId DEPRECATED_MSG_ATTRIBUTE("Use externalId instead");
 /**
@@ -76,20 +90,20 @@
  Location description property.
  */
 @property (nonatomic, strong, nullable, readonly) NSString<Optional> *descr;
-
 /**
  Custom properties associated with the location object.
  Keys are case sensitive.  For case-insensitive access to custom properties use @sa -[getFieldForKey:]
  */
 @property (nonatomic, strong, nullable, readonly) NSDictionary<NSString*, MPLocationField*><Optional, MPLocationField> *fields;
-
 /**
  Get data for custom property with key, disregarding casing of key.
  @param key identifier for custom property.
  @return MPLocationField* or nil.
  */
 - (nullable MPLocationField*) getFieldForKey:(nonnull NSString*)key NS_SWIFT_NAME(getField(forKey:));
-
+/**
+ Get aliases for location.
+ */
 @property (nonatomic, strong, nullable, readonly) NSArray<NSString*> *aliases;
 /**
  Location name.
@@ -109,7 +123,7 @@
 @property (nonatomic, strong, nullable, readonly) NSMutableDictionary *categories;
 /**
  Dictionary of location properties. The keys 'image' and 'description' will always be present, and possibly others, such as 'address', 'contact', 'openinghours' and '_tags' or your own data structure.
- @deprecated
+ @deprecated Use fields dictionary instead
  */
 @property (nonatomic, strong, nullable, readonly) NSMutableDictionary *properties DEPRECATED_MSG_ATTRIBUTE("Use fields dictionary instead");
 /**
@@ -159,16 +173,16 @@ If set, location is restricted to given set of app user roles.
 
 /**
  Get the point holding coordinates for the location object
- *
  */
 - (nullable MPPoint*)getPoint DEPRECATED_MSG_ATTRIBUTE("Use -getGeometry instead.");
 
 /**
  Get location property of the given type identifier
- *
  */
 - (nullable MPLocationProperty*)getProperty:(nullable NSString*)propertyType DEPRECATED_MSG_ATTRIBUTE("Use -getFields instead.");
-
+/**
+ Get coordinate bounds for the location object
+ */
 - (nullable GMSCoordinateBounds*) getCoordinateBounds;
 /**
  Get a live property value based on a known key and domain type
