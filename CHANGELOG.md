@@ -18,12 +18,18 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.33.1] 2021-08-30
+
+### Fixed
+
+- We fixed an issue causing route instructions to reflect the wrong floor when routing across several floors.
+
 ## [3.33.0] 2021-08-24
 
 ### Added
 
-- Added internal logging functionality in the SDK. Logging of anonymous statistic and diagnostic events will occur if enabled for the current API key. Logging may be disabled entirely by calling `MapsIndoors.eventLoggingDisabled = true`. [Read more](https://docs.mapsindoors.com/ios/v3/guides/event-logging/).
-- Search for floor aliases is now possible.
+- Added internal logging functionality in the SDK. Logging of anonymous statistics and diagnostic events will occur if enabled for the current API key. Logging may be disabled entirely by calling `MapsIndoors.eventLoggingDisabled = true`. [Read more](https://docs.mapsindoors.com/ios/v3/guides/event-logging/).
+- Search for Floor aliases is now possible.
 
 ### Fixed
 
