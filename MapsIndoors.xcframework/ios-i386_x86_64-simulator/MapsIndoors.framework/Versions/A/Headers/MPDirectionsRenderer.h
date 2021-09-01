@@ -101,5 +101,12 @@ typedef NS_ENUM(NSUInteger, MPDirectionsRenderFit) {
  */
 - (void)animate:(NSTimeInterval)duration;
 
+/**
+ Show labels and icons from nearby Locations as additional contextual information about the start and end positions of the rendered route segment.
+
+ @param locationTypes The Type of Location that should be used when showing text and icon for a start or end marker. If no Types are supplied, all Types of Locations will be considered.
+ @param maxDistance The maximum distance in meters allowed for using text and icon from a Location.
+ */
+- (void)useContentOfNearbyLocations:(nonnull NSArray<NSString*>*)locationTypes maxDistance:(double)maxDistance NS_SWIFT_NAME(useContentOfNearbyLocations(ofTypes:maxDistance:));
 
 @end

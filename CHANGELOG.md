@@ -18,6 +18,12 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.34.0-beta0] 2021-09-01
+
+### Added
+
+- The following feature is in Beta and is subject to change or removal without further notice. In `MPDirectionsRenderer`, we added a way to show the labels and icons from Locations within proximity to the start and the end of the currently rendered route segment (leg or step). Usage example: `myDirectionsRenderer.useContentOfNearbyLocations(ofTypes: ["Entry"], maxDistance: 5)`
+
 ## [3.33.1] 2021-08-30
 
 ### Fixed
