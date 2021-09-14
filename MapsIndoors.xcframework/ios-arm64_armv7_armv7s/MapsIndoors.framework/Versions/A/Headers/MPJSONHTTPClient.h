@@ -5,11 +5,11 @@
 
 #import "MPJSONModel.h"
 
-extern NSString *const kHTTPMethodGET DEPRECATED_ATTRIBUTE;
-extern NSString *const kHTTPMethodPOST DEPRECATED_ATTRIBUTE;
-extern NSString *const kContentTypeAutomatic DEPRECATED_ATTRIBUTE;
-extern NSString *const kContentTypeJSON DEPRECATED_ATTRIBUTE;
-extern NSString *const kContentTypeWWWEncoded DEPRECATED_ATTRIBUTE;
+extern NSString *const kMPHTTPMethodGET DEPRECATED_ATTRIBUTE;
+extern NSString *const kMPHTTPMethodPOST DEPRECATED_ATTRIBUTE;
+extern NSString *const kMPContentTypeAutomatic DEPRECATED_ATTRIBUTE;
+extern NSString *const kMPContentTypeJSON DEPRECATED_ATTRIBUTE;
+extern NSString *const kMPContentTypeWWWEncoded DEPRECATED_ATTRIBUTE;
 
 typedef void (^JSONObjectBlock)(id json, MPJSONModelError *err) DEPRECATED_ATTRIBUTE;
 

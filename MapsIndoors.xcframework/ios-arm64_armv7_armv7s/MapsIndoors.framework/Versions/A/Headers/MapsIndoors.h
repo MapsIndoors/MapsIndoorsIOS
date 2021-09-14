@@ -13,7 +13,6 @@
 #import <MapsIndoors/UIColor+HexString.h>
 
 #import <MapsIndoors/MPSolution.h>
-#import <MapsIndoors/MPLoggingConfig.h>
 #import <MapsIndoors/MPSolutionProvider.h>
 
 #import <MapsIndoors/MPAppData.h>

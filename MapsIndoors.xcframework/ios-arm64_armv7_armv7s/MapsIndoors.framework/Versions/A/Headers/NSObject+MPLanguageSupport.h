@@ -14,7 +14,7 @@ extern NSNotificationName _Nonnull kNotificationMapsIndoorsLanguageChanged;
 
 @interface NSObject (MPLanguageSupport)
 
-- (void) mi_setLanguage:(nonnull NSString*)languageCode;
+- (BOOL) mi_setLanguage:(nonnull NSString*)languageCode;
 - (nullable NSString*) mi_getLanguage;
 
 - (void) mi_setDefaultLanguage:(nonnull NSString*)languageCode;
