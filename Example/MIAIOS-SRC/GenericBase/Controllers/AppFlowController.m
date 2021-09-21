@@ -160,7 +160,7 @@ typedef void(^AppFlowLocationResolveBlock)(MPLocation*);
 
     } else if ( locPoint ) {
 
-        MPLocationUpdate* locationBuilder = [MPLocationUpdate new];
+        MPLocationUpdate* locationBuilder = [MPLocationUpdate updateWithLocation:[MPLocation new]];
         locationBuilder.name = [locPoint latLngString];
         locationBuilder.position = [locPoint getCoordinate];
         locationBuilder.floor = [locPoint zIndex];
