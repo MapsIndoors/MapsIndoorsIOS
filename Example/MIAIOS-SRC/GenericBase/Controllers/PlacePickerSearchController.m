@@ -663,7 +663,7 @@ static NSString* cellIdentifier = @"LocationCell";
                 
                 for (NSDictionary* placeDict in placesPredictions) {
                     MPGooglePlacesAutoCompletePrediction*   placeDetails = [MPGooglePlacesAutoCompletePrediction newWithDict:placeDict];
-                    MPLocationUpdate*       locationBuilder = [MPLocationUpdate new];
+                    MPLocationUpdate*       locationBuilder = [MPLocationUpdate updateWithLocation:[MPLocation new]];
                     locationBuilder.name = [placeDetails.attributedPrimaryText string];
                     locationBuilder.floor = 0;
                     locationBuilder.type = @"google-place";

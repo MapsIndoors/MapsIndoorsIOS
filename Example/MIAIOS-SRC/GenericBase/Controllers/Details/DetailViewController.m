@@ -285,7 +285,7 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
             [_fields addObject:@{@"text": _location.descr, @"icon": [self materialIcon:VCMaterialDesignIconCode.md_file_text]}];
         }
         
-        MPLocationUpdate* originLocationUpdate = [MPLocationUpdate new];
+        MPLocationUpdate* originLocationUpdate = [MPLocationUpdate updateWithLocation:[MPLocation new]];
         originLocationUpdate.position = [MapsIndoors.positionProvider.latestPositionResult.geometry getCoordinate];
         originLocationUpdate.floor = [MapsIndoors.positionProvider.latestPositionResult getFloor].integerValue;
         originLocationUpdate.name = kLangMyPosition;

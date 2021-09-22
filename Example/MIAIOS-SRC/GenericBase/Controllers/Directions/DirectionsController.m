@@ -393,7 +393,7 @@
 
         self.didPerformInitialSetup = YES;
 
-        MPLocationUpdate* myLocationUpdate = [MPLocationUpdate new];
+        MPLocationUpdate* myLocationUpdate = [MPLocationUpdate updateWithLocation:[MPLocation new]];
         myLocationUpdate.name = kLangMyPosition;
         myLocationUpdate.position = [MapsIndoors.positionProvider.latestPositionResult.geometry getCoordinate];
         myLocationUpdate.floor = [MapsIndoors.positionProvider.latestPositionResult getFloor].integerValue;
@@ -910,7 +910,7 @@
                 
                 if ( (myLocation.latitude != currLocation.latitude) || (myLocation.longitude != currLocation.longitude) ) {
                     
-                    MPLocationUpdate* myLocationUpdate = [MPLocationUpdate new];
+                    MPLocationUpdate* myLocationUpdate = [MPLocationUpdate updateWithLocation:[MPLocation new]];
                     myLocationUpdate.name = kLangMyPosition;
                     myLocationUpdate.position = [MapsIndoors.positionProvider.latestPositionResult.geometry getCoordinate];
                     myLocationUpdate.floor = [MapsIndoors.positionProvider.latestPositionResult getFloor].integerValue;
