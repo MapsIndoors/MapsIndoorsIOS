@@ -18,6 +18,28 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.34.0] 2021-09-28
+
+### Fixed
+
+- We fixed a layout issue in the floor selector causing large (>4 characters) floor names to be truncated.
+- We fixed a Location selection issue causing the Info Window to sometimes not show on selection.
+- We fixed a rendering issue causing some Live Data badges to show as unintentionally large icons.
+- We fixed an issue causing some icon images to not load and display on the map.
+- We fixed a packaging issue causing some CocoaPods project integrations to not being able to build when using static libraries instead of frameworks in CocoaPods.
+- We fixed an issue in our [Dataset Cache Manager](https://docs.mapsindoors.com/ios/v3/guides/offline/) causing some images to not being properly fetched from cache.
+- We fixed a warning about some public header files not being included by the framework umbrella header.
+- We fixed some issues with the `MPRouteStep` [instructions property](https://app.mapsindoors.com/mapsindoors/reference/ios/v3/interface_m_p_route_step.html#aff76e19b8eb2de29490cf4f4ac7e4d15) not properly reflecting the recommended end-user actions.
+
+### Added
+
+- We added support for Obstacles to our [Directions Service](https://docs.mapsindoors.com/ios/v3/guides/directions/directions-service/). No interface changes are made, but the routing engine will fetch and respect Obstacles created in the MapsIndoors backbone when creating routes.  
+
+### Changed
+
+- We are now sorting search results using a more natural sorting algorithm when applicable.
+- We have changed the our internal image service so that it now primarily serves higher quality remote images and resorting to potentially lower quality cached images when offline.
+
 ## [3.33.1] 2021-08-30
 
 ### Fixed

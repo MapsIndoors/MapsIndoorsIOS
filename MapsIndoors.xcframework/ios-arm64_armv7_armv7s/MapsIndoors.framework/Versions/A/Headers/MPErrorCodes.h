@@ -57,6 +57,8 @@
 
 #define kMPErrorCodeDependingConnectionWasLost                      103000
 
+#define kMPErrorCodeRouteLayerNotFound                              103010
+
 #define kMPMapsIndoorsDomain @"com.mapspeople.MapsIndoors"
 
 #define MPMakeErrorWithCode(cODE,uSRiNFOdICT)   [NSError errorWithDomain:kMPMapsIndoorsDomain code:cODE userInfo:uSRiNFOdICT]
