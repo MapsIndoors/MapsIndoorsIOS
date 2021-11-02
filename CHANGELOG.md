@@ -18,6 +18,18 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.35.0] 2021-10-29
+
+### Fixed
+
+- We fixed an issue in the floor selector causing the scroll indicator to be shown when only few levels.
+- We fixed a rendering issue with live data badges when location is unoccupied.
+
+### Added
+
+- We added support for multiple lines in labels on the map by including a "\n" as part of the Location name or by setting `MPLocationDisplayRule.labelWidth`
+
+
 ## [3.34.0] 2021-09-28
 
 ### Fixed

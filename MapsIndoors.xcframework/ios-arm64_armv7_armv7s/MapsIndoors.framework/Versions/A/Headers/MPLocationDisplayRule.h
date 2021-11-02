@@ -91,6 +91,13 @@
 @property (assign, nonatomic) CGSize iconSize;
 
 /**
+ Maximum width in points of the label shown on the map. If the text shown in the label
+ (typically the location name) is longer than the labelWidth the text will flow onto as many
+ lines as needed.
+ */
+@property (nonatomic, assign) NSUInteger labelWidth;
+
+/**
  Processes the rule conditions at the given map zoom level.
  @param  zLevel The current map zoom level.
    @return Whether or not to show the location.
