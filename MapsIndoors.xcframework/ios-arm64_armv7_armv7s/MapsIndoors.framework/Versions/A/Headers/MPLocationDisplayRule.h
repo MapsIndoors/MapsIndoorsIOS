@@ -92,10 +92,10 @@
 
 /**
  Maximum width in points of the label shown on the map. If the text shown in the label
- (typically the location name) is longer than the labelWidth the text will flow onto as many
+ (typically the location name) is longer than the labelMaxWidth the text will flow onto as many
  lines as needed.
  */
-@property (nonatomic, assign) NSUInteger labelWidth;
+@property (nonatomic, assign) NSUInteger labelMaxWidth;
 
 /**
  Processes the rule conditions at the given map zoom level.

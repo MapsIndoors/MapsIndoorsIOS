@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @class MPLocation;
-
+@class MPBookingAuthConfig;
 
 typedef void (^mpBookingCompletion)( MPBooking* _Nullable booking, NSError* _Nullable error );
 typedef void (^mpBookingListCompletion)( NSArray<MPBooking*>* _Nullable bookings, NSError* _Nullable error );
@@ -37,11 +37,23 @@ typedef void (^mpLocationListCompletion)( NSArray<MPLocation*>* _Nullable locati
 + (instancetype) sharedInstance;
 
 /**
+ Set authentication configuration. This may be used if the Booking Service should book on behalf of an authenticated user. Otherwise the attempted bookings will be anonymous.
+*/
+@property (nonatomic, strong, nullable) MPBookingAuthConfig* authenticationConfig;
+
+/**
  Query for bookable locations given the query filter.
  @param q filter to apply
  @param completion handler
  */
 - (void) getBookableLocationsUsingQuery:(MPBookableQuery*)q completion:(mpLocationListCompletion)completion;
+
+/**
+ Query for locations that are configured for booking given the query filter.
+ @param query filter to apply
+ @param completion handler
+ */
+- (void) getLocationsConfiguredForBooking:(MPBookableQuery*)query completion:(mpLocationListCompletion)completion NS_SWIFT_NAME(getLocationsConfiguredForBooking(query:completion:));
 
 /**
  Get existing booking according the the given query.

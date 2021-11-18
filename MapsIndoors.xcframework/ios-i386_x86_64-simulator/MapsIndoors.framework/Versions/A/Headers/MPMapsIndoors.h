@@ -16,6 +16,8 @@
 @protocol MPLocationSource;
 @class MPDataSetCacheManager;
 @class MPUserRole;
+@protocol MPAuthDetails;
+@protocol MPMapsIndoorsDelegate;
 
 
 /**
@@ -31,6 +33,13 @@ typedef void(^mpSyncContentHandlerBlockType)( NSError* _Nullable error );
  @param error Error object.
  */
 typedef void(^mpOfflineDataHandlerBlockType)( NSError* _Nullable error);
+
+/**
+ Authentication details callback handler block
+
+ @param error Error object.
+ */
+typedef void(^mpAuthDetailsHandlerBlockType)( id<MPAuthDetails> _Nullable authDetails, NSError* _Nullable error );
 
 
 #define kMPNotificationPositionProviderReassign         @"MP_POSITION_PROVIDER_REASSIGNED"
@@ -118,6 +127,13 @@ typedef void(^mpOfflineDataHandlerBlockType)( NSError* _Nullable error);
  */
 + (void) checkOfflineDataAvailabilityAsync:(void(^_Nonnull)(void))completion;
 
+/**
+ Fetch authentication details needed to perform an Auth2 supported single signon flow in your application.
+
+ @param completion callback
+ */
++ (void) fetchAuthenticationDetails:(mpAuthDetailsHandlerBlockType _Nonnull)completion;
+
 
 /**
  The position provider that MapsIndoors should use when user location services are needed.
@@ -153,7 +169,7 @@ typedef void(^mpOfflineDataHandlerBlockType)( NSError* _Nullable error);
 @property (class, readonly, nonnull) MPDataSetCacheManager*      dataSetCacheManager;
 
 /**
- Get or set the user roles that should apply generally for querying routes and locations. The roles are applied in an OR fashion. This means that if for example a locations internal restrictions matches one or more of the given roles, the location will be included in response object.
+ Get or set the user roles that should apply generally for querying routes and locations. The roles are applied in an OR fashion. This means that if for example a locations internal restrictions matches one or more of the given roles, the location will be included in response object. Setting the user roles will only work when online.
  */
 @property (class, nonatomic, strong, nullable) NSArray<MPUserRole*>*       userRoles;
 
@@ -161,5 +177,15 @@ typedef void(^mpOfflineDataHandlerBlockType)( NSError* _Nullable error);
   Gets or sets the event logging state. If enabled, the SDK will collect anonymous SDK usage data from the application. By default, the collection of usage event data is enabled, but in order for logs to be collected, the logging must also be enabled in the MapsIndoors CMS.
  */
 @property (class, nonatomic) BOOL                                           eventLoggingDisabled;
+
+/**
+ Get or set the access token. Only relevant for datasets that requires authorised access.
+ */
+@property (class, nonatomic, strong, nullable) NSString*       accessToken;
+
+/**
+ Get or set the delegate object.
+ */
+@property (class, nonatomic, weak, nullable) id<MPMapsIndoorsDelegate>       delegate;
 
 @end

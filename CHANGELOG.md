@@ -29,7 +29,6 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 - We added support for multiple lines in labels on the map by including a "\n" as part of the Location name or by setting `MPLocationDisplayRule.labelWidth`
 
-
 ## [3.34.0] 2021-09-28
 
 ### Fixed
