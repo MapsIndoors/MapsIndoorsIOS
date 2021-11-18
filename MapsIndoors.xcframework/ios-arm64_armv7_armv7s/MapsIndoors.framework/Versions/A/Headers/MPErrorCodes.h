@@ -59,6 +59,8 @@
 
 #define kMPErrorCodeRouteLayerNotFound                              103010
 
+#define kMPErrorCodeNotAuthorised                                   104000
+
 #define kMPMapsIndoorsDomain @"com.mapspeople.MapsIndoors"
 
 #define MPMakeErrorWithCode(cODE,uSRiNFOdICT)   [NSError errorWithDomain:kMPMapsIndoorsDomain code:cODE userInfo:uSRiNFOdICT]

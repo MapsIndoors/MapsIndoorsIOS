@@ -13,6 +13,36 @@
 #define kMPNotificationDirectionsRenderingStarted @"MP_DIRECTIONS_RENDERING_STARTED"
 #define kMPNotificationDirectionsRenderingStopped @"MP_DIRECTIONS_RENDERING_STOPPED"
 
+#pragma mark - DirectionsRendererContextualInfoSettings
+
+typedef NS_ENUM(NSUInteger, MPDirectionsRendererContextualInfoScope) {
+    /** Shows both icon and name of POI of defined type along the rendered route */
+    MPDirectionsRendererContextualInfoScopeIconAndName,
+    /** Shows only icon of POI of defined type along the rendered route */
+    MPDirectionsRendererContextualInfoScopeIconOnly,
+    /** Shows only name of POI of defined type along the rendered route */
+    MPDirectionsRendererContextualInfoScopeNameOnly
+};
+
+@interface MPDirectionsRendererContextualInfoSettings
+// The Types of Location that should be used when showing text and icon for a start or end marker.
+// If no Types are supplied, all Types of Locations will be considered.
+@property (nonatomic, nullable) NSArray<NSString*>* types;
+
+// The Categories of Location that should be used when showing text and icon for a start or end marker.
+// If no Categories are supplied, all Categories of Locations will be considered.
+@property (nonatomic, nullable) NSArray<NSString*>* categories;
+
+// The maximum distance in meters allowed for using text and icon from a Location. Leave blank for a sensible default.
+@property (nonatomic) double maxDistance;
+
+// Which content should be used. Default is IconAndName.
+@property MPDirectionsRendererContextualInfoScope contentScope;
+
+@end
+
+#pragma mark - Directions Renderer Delegate
+
 /**
  Directions Renderer delegate protocol
  */
@@ -34,6 +64,7 @@ typedef NS_ENUM(NSUInteger, MPDirectionsRenderFit) {
     MPDirectionsRenderFitNorthBound
 };
 
+#pragma mark - Directions Renderer
 
 /**
  Directions Renderer
@@ -101,5 +132,10 @@ typedef NS_ENUM(NSUInteger, MPDirectionsRenderFit) {
  */
 - (void)animate:(NSTimeInterval)duration;
 
+/**
+ Set this property to show labels and icons from nearby Locations as additional contextual information about the start and end positions of the rendered route segment.
+ */
+@property (nonatomic, nullable) MPDirectionsRendererContextualInfoSettings* contextualInfoSettings;
 
 @end
+

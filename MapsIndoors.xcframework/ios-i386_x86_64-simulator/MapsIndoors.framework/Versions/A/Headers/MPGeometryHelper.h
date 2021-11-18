@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "MPPolygonGeometry.h"
 #import "MPLocation.h"
+#define LATITUDE_MAX 90
+#define LATITUDE_MIN -90
+#define LONGITUDE_MAX 180
+#define LONGITUDE_MIN -180
+
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -154,3 +154,8 @@
 #import "MPBooking.h"
 #import "MPBookableQuery.h"
 #import "MPBookingsQuery.h"
+#import "MPBookingAuthConfig.h"
+
+#import <MapsIndoors/MPAuthDetails.h>
+#import <MapsIndoors/MPAuthClientInfo.h>
+#import <MapsIndoors/MPMapsIndoorsDelegate.h>
