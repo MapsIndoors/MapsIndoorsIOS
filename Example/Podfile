@@ -32,6 +32,7 @@ end
 target 'Demos' do
     mapsindoors_deps
     pod 'MapsIndoorsUtils', '0.1.0-alpha6'
+    pod 'AppAuth'
 end
 
 target 'DemosUITests' do

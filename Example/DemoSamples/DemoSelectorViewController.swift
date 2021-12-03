@@ -53,7 +53,8 @@ class DemoSelectorViewController: UITableViewController {
                                                           AppUserRolesController.self,
                                                           DatasetManagerController.self,
                                                           LiveDataController.self,
-                                                          BookableLocationsController.self
+                                                          BookableLocationsController.self,
+                                                          SingleSignOnController.self
                                                         ]
     
     // MARK: Tableview delegate and datasource
