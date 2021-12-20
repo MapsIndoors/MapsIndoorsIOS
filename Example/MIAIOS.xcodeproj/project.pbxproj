@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D973569275A1D6E003670A2 /* SingleSignOnController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D973567275A1D6E003670A2 /* SingleSignOnController.swift */; };
+		2D97356A275A1D6E003670A2 /* SingleSignOnHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D973568275A1D6E003670A2 /* SingleSignOnHelper.swift */; };
 		300A2D852099CA0A00882D4E /* kitten2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 300A2D832099CA0A00882D4E /* kitten2.jpg */; };
 		300A2D862099CA0A00882D4E /* kitten2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 300A2D832099CA0A00882D4E /* kitten2.jpg */; };
 		300A2D872099CA0A00882D4E /* kitten.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 300A2D842099CA0A00882D4E /* kitten.jpg */; };
@@ -211,6 +213,8 @@
 		0499DFD5D77D881968C013CE /* Pods-DemosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemosUITests.debug.xcconfig"; path = "Target Support Files/Pods-DemosUITests/Pods-DemosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		0CACBBD449189BEEA8ECD089 /* Pods-MIAIOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MIAIOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-MIAIOSUITests/Pods-MIAIOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1515B6BA533CC735B38EDF5E /* Pods-MapsIndoors GitHub App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsIndoors GitHub App.release.xcconfig"; path = "Target Support Files/Pods-MapsIndoors GitHub App/Pods-MapsIndoors GitHub App.release.xcconfig"; sourceTree = "<group>"; };
+		2D973567275A1D6E003670A2 /* SingleSignOnController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleSignOnController.swift; sourceTree = "<group>"; };
+		2D973568275A1D6E003670A2 /* SingleSignOnHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleSignOnHelper.swift; sourceTree = "<group>"; };
 		300A2D832099CA0A00882D4E /* kitten2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kitten2.jpg; sourceTree = "<group>"; };
 		300A2D842099CA0A00882D4E /* kitten.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kitten.jpg; sourceTree = "<group>"; };
 		301D3F3A217F1AD000804A85 /* TCFKA_MDSnackbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCFKA_MDSnackbar.h; sourceTree = "<group>"; };
@@ -544,6 +548,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D973566275A1D6E003670A2 /* Single Sign-On */ = {
+			isa = PBXGroup;
+			children = (
+				2D973567275A1D6E003670A2 /* SingleSignOnController.swift */,
+				2D973568275A1D6E003670A2 /* SingleSignOnHelper.swift */,
+			);
+			path = "Single Sign-On";
+			sourceTree = "<group>";
+		};
 		302B0C3020653A72009C7BF9 /* mi-github-app */ = {
 			isa = PBXGroup;
 			children = (
@@ -626,6 +639,7 @@
 				30300A8320739FEC00BC24BE /* Show Route */,
 				30B9888E2563FEAF002CA287 /* Live Data */,
 				30300A6220739FEC00BC24BE /* Show Venue */,
+				2D973566275A1D6E003670A2 /* Single Sign-On */,
 			);
 			path = DemoSamples;
 			sourceTree = "<group>";
@@ -1707,10 +1721,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Demos/Pods-Demos-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
 				"${BUILT_PRODUCTS_DIR}/MapsIndoorsUtils/MapsIndoorsUtils.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapsIndoorsUtils.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1868,6 +1884,7 @@
 				A235111E25D2B32300111BB0 /* BookableLocationsController.swift in Sources */,
 				30E26F3D212C119900596D86 /* ShowRouteOnMapController.swift in Sources */,
 				30300A8A20739FEC00BC24BE /* BaseMapDemoController.swift in Sources */,
+				2D973569275A1D6E003670A2 /* SingleSignOnController.swift in Sources */,
 				A2F4566C22BCA2DF004F7781 /* LocationSourcesController.swift in Sources */,
 				30300A8C20739FEC00BC24BE /* MyPositionProvider.swift in Sources */,
 				30300A9E20739FEC00BC24BE /* ShowRouteController.swift in Sources */,
@@ -1898,6 +1915,7 @@
 				A23D0421228D74DE0099F246 /* MapStylesController.swift in Sources */,
 				30300A9420739FEC00BC24BE /* MySearchController.swift in Sources */,
 				30300A8920739FEC00BC24BE /* ShowVenueController.swift in Sources */,
+				2D97356A275A1D6E003670A2 /* SingleSignOnHelper.swift in Sources */,
 				30300A9C20739FEC00BC24BE /* AppDelegate.swift in Sources */,
 				30300A8F20739FEC00BC24BE /* ChangeDisplaySettingController.swift in Sources */,
 			);
