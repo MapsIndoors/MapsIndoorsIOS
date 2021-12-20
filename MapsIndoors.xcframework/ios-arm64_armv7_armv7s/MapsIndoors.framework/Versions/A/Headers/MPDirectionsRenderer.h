@@ -24,7 +24,7 @@ typedef NS_ENUM(NSUInteger, MPDirectionsRendererContextualInfoScope) {
     MPDirectionsRendererContextualInfoScopeNameOnly
 };
 
-@interface MPDirectionsRendererContextualInfoSettings
+@interface MPDirectionsRendererContextualInfoSettings : NSObject
 // The Types of Location that should be used when showing text and icon for a start or end marker.
 // If no Types are supplied, all Types of Locations will be considered.
 @property (nonatomic, nullable) NSArray<NSString*>* types;
@@ -33,7 +33,7 @@ typedef NS_ENUM(NSUInteger, MPDirectionsRendererContextualInfoScope) {
 // If no Categories are supplied, all Categories of Locations will be considered.
 @property (nonatomic, nullable) NSArray<NSString*>* categories;
 
-// The maximum distance in meters allowed for using text and icon from a Location. Leave blank for a sensible default.
+// The maximum distance in meters allowed for using text and icon from a Location. Leave blank for a default of 5 meters.
 @property (nonatomic) double maxDistance;
 
 // Which content should be used. Default is IconAndName.
