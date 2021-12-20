@@ -18,6 +18,38 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.37.0] 2021-12-20
+
+### Fixed
+
+- We fixed an issue where the shown route could have a strange starting point.
+- We fixed an issue where the selected location would not be properly selected if it had been set to nil shortly before.
+- We fixed an issue where the html instructions for a route was not identical to the route leg description.
+
+### Changed
+
+- The default value for `MPFilter.take` has been changed from 25 to unlimited.
+- The default value for `MPDirectionsRendererContextualInfoSettings.maxDistance` has been changed from 0 to 5 meters.
+
+## [3.36.0] 2021-11-15
+
+### Fixed
+
+- We fixed an issue where MapsIndoors would crash while calculating a route.
+- We fixed an issue where location specific icons could disappear.
+- We fixed an issue where the correct floor (and tiles for it) would not be shown when advancing on a route.
+
+### Added
+
+- We added support for requiring authentication for accessing MapsIndoors solution data.
+- We added the ability to create room bookings associated with a specific user account rather than only anonymous bookings. This also enables the possibility to delete bookings.
+- We added a possibility to show specific contextual information on the map along a route. You can choose to show icon, label or both.
+
+### Changed
+
+- The `MPLocationDisplayRule.labelWidth` attribute added in 3.35.0 has been renamed to `MPLocationDisplayRule.labelMaxWidth`.
+- It is now not possible to change user roles while worknig in offline mode.
+
 ## [3.35.0] 2021-10-29
 
 ### Fixed
@@ -27,7 +59,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 ### Added
 
-- We added support for multiple lines in labels on the map by including a "\n" as part of the Location name or by setting `MPLocationDisplayRule.labelWidth`
+- We added support for multiple lines in labels on the map by including a "\n" as part of the Location name or by setting `MPLocationDisplayRule.labelWidth`.
 
 ## [3.34.0] 2021-09-28
 
