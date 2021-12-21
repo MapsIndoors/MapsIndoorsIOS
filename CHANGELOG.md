@@ -18,12 +18,18 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.37.1] 2021-12-21
+
+### Fixed
+
+- We fixed an issue where selecting a Location with `MPMapcontrol.selectedLocation` would not obey the current zoom level.
+
 ## [3.37.0] 2021-12-20
 
 ### Fixed
 
-- We fixed an issue where the shown route could have a strange starting point.
-- We fixed an issue where the selected location would not be properly selected if it had been set to nil shortly before.
+- We fixed an issue where the shown route could have an unintended starting point.
+- We fixed an issue where the selected Location would not be properly selected if it had been set to `nil` shortly before.
 - We fixed an issue where the html instructions for a route was not identical to the route leg description.
 
 ### Changed
