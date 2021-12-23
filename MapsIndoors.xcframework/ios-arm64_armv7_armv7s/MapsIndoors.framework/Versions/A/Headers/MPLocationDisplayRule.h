@@ -26,14 +26,24 @@
 @property (nonatomic, strong, nullable) NSString<Ignore>* name;
 
 /**
- The map zoom level above which the location marker should be visible.
+ The map zoom level above which the location marker icon should be visible.
  */
 @property (nonatomic, strong, nullable) NSNumber* zOn;
 
 /**
- The map zoom level beneath which the location marker should be visible.
+ The map zoom level beneath which the location marker icon should be visible.
  */
 @property (nonatomic, strong, nullable) NSNumber* zOff;
+
+/**
+ The map zoom level above which the location marker label should be visible.
+ */
+@property (nonatomic, strong, nullable) NSNumber* labelZoomFrom;
+
+/**
+ The map zoom level beneath which the location marker label should be visible.
+ */
+@property (nonatomic, strong, nullable) NSNumber* labelZoomTo;
 
 /**
  Relative path of the marker icon to use, without extension. Format is png.
