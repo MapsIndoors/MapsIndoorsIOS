@@ -18,6 +18,12 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.38.0] 2022-01-10
+
+### Added
+
+- We added support for `escalators` in `MPDirectionsQuery.avoidWayTypes`.
+
 ## [3.37.1] 2021-12-21
 
 ### Fixed
