@@ -24,6 +24,8 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/MapsIndoors/MapsIndoorsIOS.git", :tag => s.version.to_s, :submodules => true }
 
   s.dependency 'GoogleMaps', '4.2.0'
+  s.dependency 'MQTTClient'
+  s.dependency 'SSZipArchive'
 
   s.frameworks = "UserNotifications", "GameplayKit"
 
