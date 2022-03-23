@@ -1,0 +1,92 @@
+
+# Route network path optimization engine.;
+PathOptimization = interface +c {
+
+    # Optimizes a path by applying a line-of-sight algorithm based on provided edges (the path) and polygons (the walls). Returns new edges that form the new optimized path. Uses a default minWallDistanceMeter of 0.3m;
+    optimizePath( pathSegments: list<RoomPathSegment> ) : list<Edge>;
+
+    # Optimizes a path by applying a line-of-sight algorithm based on provided edges (the path) and polygons (the walls). Returns new edges that form the new optimized path.;
+    optimizePathEx( pathSegments: list<RoomPathSegment>, optimizationStrategy: PathOptimizationStrategy, minWallDistanceMeter: f32 ) : list<Edge>;
+
+    # Static constructor.;
+    static create() : PathOptimization;
+
+}
+
+################################################## DIRECTIONS, PATH OPTIMIZATIONS AND DEPENDENCIES  ########################################################
+
+# Route network edge model.;
+Edge = record {
+
+    # Node at the start of the edge;
+    u: Node;
+    # Node at the end of the edge.;
+    v: Node;
+    # Way type of = record the edge.;
+    highwayType: HighwayType;
+    # The distance of the edge in millimeters.;
+    distance: i32;
+    # The context of the edge. Can be anything, including "OutsideOnVenue", "InsideBuilding";
+    context: string;
+    waittime: i32;
+}
+
+# Route network node model.;
+Node = record {
+
+    # The node position in WGS84.;
+    position: Coordinate;
+    # The altitude or floor index of the node.;
+    altitude: f32;
+    nodeId: i32;
+    # indicates whether node.position may be modified by the path optimizer-
+    allowPathOptimization: bool;
+}
+
+# Highway type classification = record;
+HighwayType = enum {
+    #Unclassified path type;
+    Unclassified;
+    #Footway path type. Used most places in the indoor part of our route network.;
+    Footway;
+    #Residential path type. Used most places in the indoor part of our route network.;
+    Residential;
+    #Service path type. Used some places in the outdoor part of our route network.;
+    Service;
+    #Ramp path type. Used where there is a ramp or hill of some kind.;
+    Ramp;
+    #Steps path type. Used where there is steps, stairs or staircases.;
+    Steps;
+    #Escalator path type.;
+    Escalator;
+    #Travelator path type.;
+    Travelator;
+    #Elevator path type.;
+    Elevator;
+    #Wheelchair ramp path type. Used where there is a wheelchair ramp.;
+    WheelChairRamp;
+    #Wheelchair lift path type. Used where there is a wheelchair lift.;
+    WheelChairLift;
+    #Ladder path type. Used where there is a ladder, fixed or movable.;
+    Ladder;
+}
+
+
+Path = record {
+
+    coordinates: list<Coordinate>;
+}
+
+PathOptimizationStrategy = flags {
+
+    None;
+    LineOfSight;
+    OvershootPrevention;
+    AlwaysOptimize;
+}
+
+RoomPathSegment = record {
+
+    room: Polygon;
+    path: list<Edge>;
+}
