@@ -1001,14 +1001,6 @@
 		<data>
 		T19n8Fe/x5F9ldKApeToTbRj9go=
 		</data>
-		<key>Headers/MPJSONAPI.h</key>
-		<data>
-		eY5X7RxFmZ8RphkAUbyWEk5/uxg=
-		</data>
-		<key>Headers/MPJSONHTTPClient.h</key>
-		<data>
-		OsnmYFy3dPhffEeysYEny3RulBk=
-		</data>
 		<key>Headers/MPJSONKeyMapper.h</key>
 		<data>
 		HlST3jc/csrdFvuaKaox1kp3Vcw=
@@ -1016,10 +1008,6 @@
 		<key>Headers/MPJSONModel.h</key>
 		<data>
 		Qo7IDcv2OBrxA4fpb56c8IFesJw=
-		</data>
-		<key>Headers/MPJSONModelClassProperty.h</key>
-		<data>
-		tfihJe4wWgjRjoDdyq+h4K8QWKA=
 		</data>
 		<key>Headers/MPJSONModelError.h</key>
 		<data>
@@ -1267,7 +1255,7 @@
 		</data>
 		<key>Headers/MPRouteStep.h</key>
 		<data>
-		eo7wcP+sWYrN2z6gzz95zhR4Dtg=
+		EI+O/SDF90hekEY5+1dUTdeVEsQ=
 		</data>
 		<key>Headers/MPRoutingProvider.h</key>
 		<data>
@@ -1359,7 +1347,7 @@
 		</data>
 		<key>Headers/MPVersionConstants.h</key>
 		<data>
-		q27+rg2DRcSEputLwO4zPueHbM4=
+		suCyQMXkyctcfd2BGLBjdRtfpr8=
 		</data>
 		<key>Headers/MPWirelessPositionTopic.h</key>
 		<data>
@@ -1367,7 +1355,7 @@
 		</data>
 		<key>Headers/MapsIndoors.h</key>
 		<data>
-		GP15SKaTPWSTM1z5W4NErjSj7gI=
+		RneLXKlb5hvwrtkFvPWx+pDeBjg=
 		</data>
 		<key>Headers/NSDictionary+MPLocationPropertiesDictionary.h</key>
 		<data>
@@ -1969,7 +1957,7 @@
 		</data>
 		<key>PrivateHeaders/MPGraphEdgePropertyProtocol.h</key>
 		<data>
-		OKeXAzeLkH/3lwyeqNMMq1WXelk=
+		RVPA3nKKGnEnABYhb+yXMki/s20=
 		</data>
 		<key>PrivateHeaders/MPGraphNode.h</key>
 		<data>
@@ -1998,6 +1986,18 @@
 		<key>PrivateHeaders/MPIOSDeviceTypes.h</key>
 		<data>
 		pP7XpmS2BnBV0Hs76EL5g2HVmtQ=
+		</data>
+		<key>PrivateHeaders/MPJSONAPI.h</key>
+		<data>
+		eY5X7RxFmZ8RphkAUbyWEk5/uxg=
+		</data>
+		<key>PrivateHeaders/MPJSONHTTPClient.h</key>
+		<data>
+		OsnmYFy3dPhffEeysYEny3RulBk=
+		</data>
+		<key>PrivateHeaders/MPJSONModelClassProperty.h</key>
+		<data>
+		tfihJe4wWgjRjoDdyq+h4K8QWKA=
 		</data>
 		<key>PrivateHeaders/MPLiveDataInfo+Private.h</key>
 		<data>
@@ -4528,28 +4528,6 @@
 			yB2QKKyOqNmIaQJKP0E/HTGPnzZixNrZ7JSxG/QkH3M=
 			</data>
 		</dict>
-		<key>Headers/MPJSONAPI.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			eY5X7RxFmZ8RphkAUbyWEk5/uxg=
-			</data>
-			<key>hash2</key>
-			<data>
-			X/A3kOEpxW50bt24ckIxH0yB09mnoE+9wAMEKP9XALU=
-			</data>
-		</dict>
-		<key>Headers/MPJSONHTTPClient.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			OsnmYFy3dPhffEeysYEny3RulBk=
-			</data>
-			<key>hash2</key>
-			<data>
-			vK7/fCe9tZk+yWE7KwEnQgqz28w5Dwg1lfa6lFuYYbM=
-			</data>
-		</dict>
 		<key>Headers/MPJSONKeyMapper.h</key>
 		<dict>
 			<key>hash</key>
@@ -4570,17 +4548,6 @@
 			<key>hash2</key>
 			<data>
 			DyiKeCXednKR1yLgoyGvkZUUynsmsfmIZJWku0uDIOY=
-			</data>
-		</dict>
-		<key>Headers/MPJSONModelClassProperty.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			tfihJe4wWgjRjoDdyq+h4K8QWKA=
-			</data>
-			<key>hash2</key>
-			<data>
-			K9l8vAFZuyKJ4XP4iiZDTy5utLOAm540hSd6NfbnN3o=
 			</data>
 		</dict>
 		<key>Headers/MPJSONModelError.h</key>
@@ -5258,11 +5225,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			eo7wcP+sWYrN2z6gzz95zhR4Dtg=
+			EI+O/SDF90hekEY5+1dUTdeVEsQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			YxPD0YxMOBNlSnYaCv46KkAFvdFxxaxovCaM8quVI7w=
+			ZbgT6SCQjMK3kSgUof1VofpAaMxZXZ1R1uHhw0SjIeE=
 			</data>
 		</dict>
 		<key>Headers/MPRoutingProvider.h</key>
@@ -5511,11 +5478,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			q27+rg2DRcSEputLwO4zPueHbM4=
+			suCyQMXkyctcfd2BGLBjdRtfpr8=
 			</data>
 			<key>hash2</key>
 			<data>
-			lC3So2yXoRCFut4gUhpRKRAu2wmIs++v0Qny3VAL+F8=
+			UWIisbuT9IAC1mYwS1B+sBBdG1wavQgmvTicsIWMfj8=
 			</data>
 		</dict>
 		<key>Headers/MPWirelessPositionTopic.h</key>
@@ -5533,11 +5500,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			GP15SKaTPWSTM1z5W4NErjSj7gI=
+			RneLXKlb5hvwrtkFvPWx+pDeBjg=
 			</data>
 			<key>hash2</key>
 			<data>
-			O68EVVg05w2zNGCJ8I6NnyXlhbxEiIuBR/VHn8pekls=
+			/thZ44bjdB7jQdx647kbf75QbCem6zPw4hGV7/JcxmQ=
 			</data>
 		</dict>
 		<key>Headers/NSDictionary+MPLocationPropertiesDictionary.h</key>
@@ -7154,11 +7121,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			OKeXAzeLkH/3lwyeqNMMq1WXelk=
+			RVPA3nKKGnEnABYhb+yXMki/s20=
 			</data>
 			<key>hash2</key>
 			<data>
-			awJvJ7RoN/FALwkA341N2bvadx9pduSzyJmxNdf2aXw=
+			BM8LnGbaEUur7ooCY2RG1wMNNIrGbhB7NH9CcRx5evQ=
 			</data>
 		</dict>
 		<key>PrivateHeaders/MPGraphNode.h</key>
@@ -7236,6 +7203,39 @@
 			<key>hash2</key>
 			<data>
 			9/X8Kd3CsAfoARsy1HLtPsNW5j9mmDKNCgbzCpPdJ+c=
+			</data>
+		</dict>
+		<key>PrivateHeaders/MPJSONAPI.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			eY5X7RxFmZ8RphkAUbyWEk5/uxg=
+			</data>
+			<key>hash2</key>
+			<data>
+			X/A3kOEpxW50bt24ckIxH0yB09mnoE+9wAMEKP9XALU=
+			</data>
+		</dict>
+		<key>PrivateHeaders/MPJSONHTTPClient.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			OsnmYFy3dPhffEeysYEny3RulBk=
+			</data>
+			<key>hash2</key>
+			<data>
+			vK7/fCe9tZk+yWE7KwEnQgqz28w5Dwg1lfa6lFuYYbM=
+			</data>
+		</dict>
+		<key>PrivateHeaders/MPJSONModelClassProperty.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			tfihJe4wWgjRjoDdyq+h4K8QWKA=
+			</data>
+			<key>hash2</key>
+			<data>
+			K9l8vAFZuyKJ4XP4iiZDTy5utLOAm540hSd6NfbnN3o=
 			</data>
 		</dict>
 		<key>PrivateHeaders/MPLiveDataInfo+Private.h</key>

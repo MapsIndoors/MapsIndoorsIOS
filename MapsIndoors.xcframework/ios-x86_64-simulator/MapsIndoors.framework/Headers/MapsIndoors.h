@@ -123,14 +123,6 @@
 #import <MapsIndoors/MPTransitTime.h>
 #import <MapsIndoors/MPTransitVehicle.h>
 
-#import <MapsIndoors/MPJSONAPI.h>
-#import <MapsIndoors/MPJSONHTTPClient.h>
-#import <MapsIndoors/MPJSONKeyMapper.h>
-#import <MapsIndoors/MPJSONModel.h>
-#import <MapsIndoors/MPJSONModelClassProperty.h>
-#import <MapsIndoors/MPJSONModelError.h>
-#import <MapsIndoors/MPJSONValueTransformer.h>
-
 #import <MapsIndoors/MPLocationService.h>
 #import <MapsIndoors/MPQuery.h>
 #import <MapsIndoors/MPFilter.h>

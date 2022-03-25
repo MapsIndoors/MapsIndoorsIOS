@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MPDefines.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol MPGraphEdgePropertyProtocol <NSObject>
 
 @property (nonatomic, readonly)                   BOOL              directed;       // "oneway" flag
-@property (nonatomic, readonly, strong, nullable) NSString*         highway;
+@property (nonatomic, readonly, strong, nullable) MPHighwayType         highway;
 @property (nonatomic, readonly, strong, nullable) NSString*         context;
 @property (nonatomic, readonly)                   NSUInteger        distance;       // mm
 @property (nonatomic, readonly)                   double            speedFactor;

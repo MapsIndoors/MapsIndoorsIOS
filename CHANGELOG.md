@@ -18,6 +18,22 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.39.0] 2022-03-28
+
+### Added
+
+- We added the possibility to get the `translatedName` property of Location Types.
+- We added an enum for `MPHighwayType`, so it is now easy to know which values are valid to use.
+- We added the method `MPVenue.hasGraph` so it can be checked if there is a routing network available on a solution to get directions.
+
+### Changed
+
+- A number of headers are no longer public – they were not intended for public consumption anyways…
+
+### Fixed
+
+- We made the standard floor selector control always update to the correct floor.
+
 ## [3.38.0] 2022-01-10
 
 ### Added

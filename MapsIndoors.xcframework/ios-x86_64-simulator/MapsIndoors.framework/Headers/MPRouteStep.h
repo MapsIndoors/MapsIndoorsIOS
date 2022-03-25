@@ -46,6 +46,7 @@ enum MPRouteActionDirection {
 #import "MPRouteCoordinate.h"
 #import "MPEncodedPolyline.h"
 #import "MPTransitDetails.h"
+#import "MPDefines.h"
 
 @protocol MPRouteCoordinate
 @end
@@ -108,7 +109,7 @@ enum MPRouteActionDirection {
 /**
  Way type for this step (part of the route). E.g. footway, steps, elevator, residential etc.
  */
-@property (nonatomic, strong, nullable) NSString<Optional>* highway;
+@property _Nullable MPHighwayType highway;
 /**
  Context of the step. May be `InsideBuilding`, `OutsideOnVenue` or a custom context e.g. `Security`
  */
