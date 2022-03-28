@@ -1,6 +1,6 @@
 // Auto-generated file - Do not modify
-#define MI_SDK_VERSION        @"3.39.0-beta4"
+#define MI_SDK_VERSION        @"3.39.0-beta5"
 #define MI_SDK_VERSION_MAJOR  3
 #define MI_SDK_VERSION_MINOR  39
 #define MI_SDK_VERSION_PATCH  0
-#define MI_SDK_VERSION_LABEL  @"beta4"
+#define MI_SDK_VERSION_LABEL  @"beta5"
