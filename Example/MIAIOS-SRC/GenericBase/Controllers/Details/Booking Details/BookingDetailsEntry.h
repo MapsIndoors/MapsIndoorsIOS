@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype) new NS_UNAVAILABLE;
 - (instancetype) init NS_UNAVAILABLE;
 
++ (instancetype) newWithBooking:(MPBooking*)b fitToTimeslotFrom:(NSDate*)startTime to:(NSDate*)endTime;
 + (instancetype) newWithBooking:(MPBooking*)b;
 + (instancetype) newWithStartTime:(NSDate*)startTime duration:(NSTimeInterval)duration location:(MPLocation*)location;
 

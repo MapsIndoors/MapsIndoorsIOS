@@ -33,19 +33,19 @@
     return _urlEscapingCharacterSet;
 }
 
-- (void) mp_setImageWithURL:(NSString*)url placeholderImageName:(NSString*)placeholderImageName {
+- (void) mp_setImageWithURL:(NSString*)url size:(CGSize)size placeholderImageName:(NSString*)placeholderImageName {
 
-    [self mp_setImageWithURL:url placeholderImage:[UIImage imageNamed:placeholderImageName]];
+    [self mp_setImageWithURL:url size:(CGSize)size placeholderImage:[UIImage imageNamed:placeholderImageName]];
 }
 
-- (void) mp_setImageWithURL:(NSString*)url {
+- (void) mp_setImageWithURL:(NSString*)url size:(CGSize)size {
 
     NSString*   imageName = [url lastPathComponent];        // If we should happen to have an embedded image with a matching name (we do for venue images), use that as placeholder.
 
-    [self mp_setImageWithURL:url placeholderImageName:imageName];
+    [self mp_setImageWithURL:url size:(CGSize)size placeholderImageName:imageName];
 }
 
-- (void) mp_setImageWithURL:(NSString*)url placeholderImage:(UIImage*)placeholderImage {
+- (void) mp_setImageWithURL:(NSString*)url size:(CGSize)size placeholderImage:(UIImage*)placeholderImage {
 
     if ( [url containsString:@"%"] == NO ) {        // We get URLs that area already URL-escaped and some that are not: assume URL-escaping has already been performed if the url-string contains %-characters.
         url = [url stringByAddingPercentEncodingWithAllowedCharacters:[self mp_urlEscapingCharacterSet]];
@@ -56,7 +56,7 @@
 
     } else {
 
-        [MPImageProvider getImageFromUrlStringAsync:url completionHandler:^(UIImage *image, NSError *error) {
+        [MapsIndoors.imageProvider getImageFromUrlStringAsync:url imageSize:size completionHandler:^(UIImage *image, NSError *error) {
 
             if ( image && !error ) {
                 dispatch_async(dispatch_get_main_queue(), ^{

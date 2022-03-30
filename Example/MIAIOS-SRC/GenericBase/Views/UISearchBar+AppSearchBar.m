@@ -26,6 +26,7 @@
     self.showsCancelButton = NO;
     self.barStyle = UIBarStyleDefault;
     self.tintColor = [UIColor darkGrayColor];
+    self.returnKeyType = UIReturnKeyGo;
 
     [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setTintColor:[UIColor whiteColor]];
 

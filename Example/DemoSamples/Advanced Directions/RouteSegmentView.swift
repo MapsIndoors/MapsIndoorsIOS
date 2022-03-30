@@ -26,16 +26,6 @@ enum RouteContext : String
     case outsideOnVenue = "OutsideOnVenue"
 }
 
-enum WayType : String
-{
-    case stairs = "steps"
-    case elevator = "elevator"
-    case travellator = "travellator"
-    case escalator = "escalator"
-    case footway = "footway"
-    case residential = "residential"
-}
-
 /***
  Create a subclass of `UICollectionViewCell` called `RouteSegmentView`
  ***/
@@ -107,11 +97,11 @@ class RouteSegmentView : UITableViewCell {
         if currentStep.start_location?.zLevel?.intValue != currentStep.end_location?.zLevel?.intValue {
             
             let floor = currentStep.end_location?.floor_name ?? ""
-            let wayType = WayType.init(rawValue: currentStep.highway ?? "") ?? .footway
+            let wayType = currentStep.highway ?? .footway
             
             switch (wayType) {
-                case .elevator, .escalator, .stairs, .travellator:
-                    instructions = "Take the \(wayType.rawValue) to floor \(floor)"
+                case .elevator, .escalator, .stairs, .travelator:
+                    instructions = "Take the \(wayType) to floor \(floor)"
                 default:
                     instructions = "Go to level \(floor)"
             }

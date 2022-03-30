@@ -19,6 +19,7 @@
 @property (nonatomic, readonly) CLAuthorizationStatus   authorizationStatus;
 @property (nonatomic, readonly) BOOL                    locationServicesActive;     // enabled AND authorized
 @property (nonatomic, readonly) NSUInteger              permissionsChangeCount;
+@property (nonatomic, readonly) BOOL                    canDeliverPosition;
 
 - (void) requestLocationPermissions;
 - (void) updateLocationPermissionStatus;

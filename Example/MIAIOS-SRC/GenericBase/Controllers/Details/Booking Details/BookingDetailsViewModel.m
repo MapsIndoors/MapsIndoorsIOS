@@ -146,32 +146,24 @@
 
             // Add free timeslots:
             for ( ; remainingMinutes > 0; remainingMinutes -= timeslotDuration ) {
-                BookingDetailsEntry*    bookingForFreeTimeslot = [BookingDetailsEntry newWithStartTime:entryDate duration:timeslotDuration*60 location:self.bookableLocation];
+                BookingDetailsEntry*    bookingForTimeslot = [BookingDetailsEntry newWithStartTime:entryDate duration:timeslotDuration*60 location:self.bookableLocation];
 
                 for ( MPBooking* existingBooking in bookings ) {
 
-                    BOOL  timeslotStartsAfterExistingBooking = [bookingForFreeTimeslot.startTime compare:existingBooking.endTime] != NSOrderedAscending;
-                    BOOL  timeslotEndsBeforeExistingBooking  = [bookingForFreeTimeslot.endTime compare:existingBooking.startTime] != NSOrderedDescending;
+                    BOOL  timeslotStartsAfterExistingBooking = [bookingForTimeslot.startTime compare:existingBooking.endTime] != NSOrderedAscending;
+                    BOOL  timeslotEndsBeforeExistingBooking  = [bookingForTimeslot.endTime compare:existingBooking.startTime] != NSOrderedDescending;
 
                     if ( timeslotStartsAfterExistingBooking || timeslotEndsBeforeExistingBooking ) {
                         // OK - free timeslot is not overlapping existingBooking
                     } else {
-                        bookingForFreeTimeslot = nil;
+                        bookingForTimeslot = [BookingDetailsEntry newWithBooking:existingBooking fitToTimeslotFrom:bookingForTimeslot.startTime to:bookingForTimeslot.endTime];
                         break;
                     }
                 }
 
-                if ( bookingForFreeTimeslot ) {
-                    [entries addObject: bookingForFreeTimeslot];
-                }
-
+                [entries addObject: bookingForTimeslot];
+                
                 entryDate = [entryDate dateByAddingTimeInterval:timeslotDuration*60];
-            }
-
-            // Add existing bookings:
-            for ( MPBooking* existingBooking in bookings ) {
-                BookingDetailsEntry*    b = [BookingDetailsEntry newWithBooking:existingBooking];
-                [entries addObject: b];
             }
 
             // Sort entries by startdate...

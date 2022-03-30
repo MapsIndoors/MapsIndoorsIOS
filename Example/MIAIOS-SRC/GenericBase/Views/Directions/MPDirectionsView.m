@@ -1235,6 +1235,14 @@
     if ( directionsView == nil ) {
         
         NSArray<MPRouteStep*>*              steps = [self.viewModel stepsForRouteSegmentAtIndex:routeSegmentIndex];
+        
+        //Begin MIAIOS-1177
+        //Routing involving Elevators should only be shown as Actions
+        if (steps.firstObject.highway && [@[MPHighwayTypeElevator, MPHighwayTypeStairs] containsObject:steps.firstObject.highway] && steps.firstObject.start_location.zLevel.intValue != steps.firstObject.end_location.zLevel.intValue) {
+            steps = [steps subarrayWithRange:NSMakeRange(1, steps.count-1)];
+        }
+        //End MIAIOS-1177
+        
         MPDirectionsStepSequenceViewModel*  stepSequenceViewModel = [MPDirectionsStepSequenceViewModel newWithSteps:steps];
         
         UIView*                             headlineView = self.routeSectionHeadlines[routeSegmentIndex];

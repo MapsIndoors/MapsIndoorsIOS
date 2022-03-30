@@ -17,10 +17,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HFd-0l-nWf">
-                        <rect key="frame" x="16" y="15" width="32" height="32"/>
+                        <rect key="frame" x="24" y="19" width="24" height="24"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="32" id="XIs-Cj-ZxQ"/>
-                            <constraint firstAttribute="width" constant="32" id="yN9-r9-OUT"/>
+                            <constraint firstAttribute="height" constant="24" id="XIs-Cj-ZxQ"/>
+                            <constraint firstAttribute="width" constant="24" id="yN9-r9-OUT"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3p-El-2SW">
@@ -32,7 +32,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="D3p-El-2SW" firstAttribute="centerY" secondItem="HFd-0l-nWf" secondAttribute="centerY" id="B1q-nZ-6A1"/>
-                    <constraint firstItem="HFd-0l-nWf" firstAttribute="leading" secondItem="Ixc-cf-Pre" secondAttribute="leadingMargin" id="KpJ-5f-TMr"/>
+                    <constraint firstItem="HFd-0l-nWf" firstAttribute="leading" secondItem="Ixc-cf-Pre" secondAttribute="leadingMargin" constant="8" id="KpJ-5f-TMr"/>
                     <constraint firstItem="D3p-El-2SW" firstAttribute="leading" secondItem="HFd-0l-nWf" secondAttribute="trailing" constant="16" id="PpJ-sl-hMn"/>
                     <constraint firstAttribute="trailingMargin" secondItem="D3p-El-2SW" secondAttribute="trailing" constant="9" id="eyH-Au-fcr"/>
                     <constraint firstItem="HFd-0l-nWf" firstAttribute="centerY" secondItem="Ixc-cf-Pre" secondAttribute="centerY" id="rg9-L0-gdq"/>

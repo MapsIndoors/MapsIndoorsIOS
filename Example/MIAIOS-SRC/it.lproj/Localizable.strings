@@ -3,7 +3,7 @@
  MapsIndoorsSDK
 
  Created by Daniel Nielsen on 02/08/16.
- Copyright © 2017 MapsPeople. All rights reserved.
+ Copyright © 2021 MapsPeople. All rights reserved.
  */
 "Level" = "Piano";
 "Level %@" = "Piano %@";
@@ -120,6 +120,7 @@
 "Turn slight right" = "Gira leggermente a destra";
 "Turn around" = "Girati";
 "Continue straight ahead" = "Continua dritto";
+"Park" = "Parcheggiare";
 
 // Transit sources
 "Website" = "Sito web";

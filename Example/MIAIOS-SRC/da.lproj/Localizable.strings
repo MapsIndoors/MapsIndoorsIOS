@@ -4,7 +4,7 @@
  MapsIndoorsSDK
  
  Created by Daniel Nielsen on 02/08/16.
- Copyright © 2017 MapsPeople. All rights reserved.
+ Copyright © 2021 MapsPeople. All rights reserved.
  */
 "Level" = "Etage";
 "Level %@" = "Etage %@";
@@ -111,6 +111,7 @@
 "Enter" = "Gå ind";
 "Exit" = "Gå ud";
 "Stairs" = "Trapper";
+"Ladder" = "Stige";
 "Escalator" = "Rulletrapper";
 "Start" = "Start";
 "End" = "Slut";
@@ -126,6 +127,7 @@
 "Turn slight right" = "Tag lidt til højre";
 "Turn around" = "Vend om";
 "Continue straight ahead" = "Fortsæt ligeud";
+"Park" = "Parkér";
 
 // Transit sources
 "Website" = "Web";

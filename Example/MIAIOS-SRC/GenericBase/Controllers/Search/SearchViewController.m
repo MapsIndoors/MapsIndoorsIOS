@@ -151,7 +151,7 @@
     [self presentCustomBackButton];
     
     UISearchBar*    sb = self.searchBar;
-    [sb.heightAnchor constraintEqualToConstant:44].active = YES;
+    //[sb.heightAnchor constraintEqualToConstant:44].active = YES;
     [sb setBarTintColor:[UIColor clearColor]];
     sb.backgroundImage = [UIImage new];
     self.navigationItem.titleView = sb;
@@ -206,7 +206,7 @@
     
     [super viewDidAppear:animated];
 
-//    [self performSelector:@selector(focusSearchBar:) withObject:nil afterDelay:0.05];
+    [self focusSearchBar:nil];
 
     [self refreshBookableAndAvailableLocations];
     __weak typeof(self)weakSelf = self;
@@ -343,7 +343,7 @@
         if (object.icon) {
             cell.imageView.image = object.icon;
         } else if (object.iconUrl) {
-            [cell.imageView mp_setImageWithURL:object.iconUrl.absoluteString placeholderImage:[UIImage imageNamed:@"placeholder"]];
+            [cell.imageView mp_setImageWithURL:object.iconUrl.absoluteString size: MPMapControl.mapIconSize placeholderImage:[UIImage imageNamed:@"placeholder"]];
         } else {
             MPLocationDisplayRule*  dr = [AppFlowController.sharedInstance.currentMapControl getEffectiveDisplayRuleForLocation:object];
 
@@ -356,7 +356,7 @@
                     }];
                 }
             } else {
-                [cell.imageView mp_setImageWithURL:[Global getIconUrlForType:object.type] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+                [cell.imageView mp_setImageWithURL:[Global getIconUrlForType:object.type] size: MPMapControl.mapIconSize placeholderImage:[UIImage imageNamed:@"placeholder"]];
             }
         }
 
@@ -509,8 +509,7 @@
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    _keyboardHeight = 0;
-    [self trackSearchWithSelectedLocation:nil];
+    [self toggleSidebar];
 }
 
 - (void) trackSearchWithSelectedLocation:(NSString*)selectedLocation {

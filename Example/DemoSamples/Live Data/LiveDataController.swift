@@ -84,28 +84,30 @@ class LiveDataController: UIViewController {
         
         super.viewDidLoad()
         
-        MapsIndoors.provideAPIKey("0e5259aa94704b8890c36ea9", googleAPIKey: nil)
-                
-        /***
-         Inside `viewDidLoad()`, initialise your instance of `GMSMapView` and `MPMapControl`. Set the delegate to be able to get notified about Live Updates for the map.
-         ***/
         self.map = GMSMapView.init(frame: CGRect.zero)
         self.map?.accessibilityElementsHidden = false
         self.mapControl = MPMapControl.init(map: self.map!)
         
-        /***
-        Inside `viewDidLoad()`, also request a building and go to this building on the map.
-        ***/
-        let q = MPQuery.init()
-        let f = MPFilter.init()
-        f.locations = ["4036547c2c5741bf9cf2ddae"]
-        
-        MPLocationService.sharedInstance().getLocationsUsing(q, filter: f) { (locations, error) in
-            if let loc = locations?.first {
-                self.mapControl?.go(to: loc)
+        MapsIndoors.provideAPIKey("d876ff0e60bb430b8fabb145", googleAPIKey: nil)
+        MapsIndoors.synchronizeContent { [self] error in
+            /***
+             Inside `viewDidLoad()`, initialise your instance of `GMSMapView` and `MPMapControl`. Set the delegate to be able to get notified about Live Updates for the map.
+             ***/
+            /***
+            Inside `viewDidLoad()`, also request a building and go to this building on the map.
+            ***/
+            let q = MPQuery.init()
+            let f = MPFilter.init()
+            
+            q.query = "white house"
+            
+            MPLocationService.sharedInstance().getLocationsUsing(q, filter: f) { (locations, error) in
+                if let loc = locations?.first {
+                    self.mapControl?.go(to: loc)
+                }
             }
         }
-        
+
         /***
          Inside `viewDidLoad()` method, call `setupLiveDataButtons()` arrange the map view and the buttons in stackviews.
          ***/
@@ -116,7 +118,6 @@ class LiveDataController: UIViewController {
         let stackView = UIStackView.init(arrangedSubviews: [map!, buttonStackView])
         stackView.axis = .vertical
         view = stackView
-        
     }
     
     /***

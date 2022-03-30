@@ -115,7 +115,7 @@
     if ( self.latestPositionResult.geometry ) {
         if ( (newHeading.trueHeading >= 0) && (newHeading.trueHeading <= 360) ) {
             [self.latestPositionResult setHeadingDegrees:newHeading.trueHeading];
-            
+            self.latestPositionResult.headingAvailable = YES;
             if ( [self.delegate respondsToSelector:@selector(onPositionUpdate:)] ) {
                 [self.delegate onPositionUpdate:self.latestPositionResult];
             }

@@ -262,7 +262,7 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
 
     if (_location) {
         
-        if (_location.categories.allKeys.count > 0 || _location.externalId) {
+        if (_location.categories.allKeys.count > 0 || _location.externalId.length > 0) {
             NSMutableArray<NSString*>*      categoryNames = [NSMutableArray array];
             for ( NSString* key in _location.categories.allKeys ) {
 
@@ -285,7 +285,7 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
             [_fields addObject:@{@"text": _location.descr, @"icon": [self materialIcon:VCMaterialDesignIconCode.md_file_text]}];
         }
         
-        MPLocationUpdate* originLocationUpdate = [MPLocationUpdate updateWithLocation:[MPLocation new]];
+        MPLocationUpdate* originLocationUpdate = [MPLocationUpdate updateWithLocation: [MPLocation new]];
         originLocationUpdate.position = [MapsIndoors.positionProvider.latestPositionResult.geometry getCoordinate];
         originLocationUpdate.floor = [MapsIndoors.positionProvider.latestPositionResult getFloor].integerValue;
         originLocationUpdate.name = kLangMyPosition;
@@ -327,7 +327,7 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
         if ( _from && _location && _from.geometry && _location.geometry && _from.geometry.lat != 0 ) {
             [self beginOperation:@"routingFrom"];
             
-            NSArray*    avoids = Global.avoidStairs ? @[@"stairs"] : nil;
+            NSArray* avoids = Global.avoidStairs ? @[MPHighwayTypeStairs, MPHighwayTypeLadder] : nil;
             [_routing routingFrom: _from to: _location by:_routing.travelMode avoid:avoids depart:nil arrive:nil];
         
         } else {
@@ -388,7 +388,7 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
         }
         
         if (headerImageUrl && headerImageUrl.length > 7) {
-            [self.headerImageView mp_setImageWithURL:headerImageUrl placeholderImageName:@"placeholder"];
+            [self.headerImageView mp_setImageWithURL:headerImageUrl size: self.headerImageView.bounds.size placeholderImageName:@"placeholder"];
         }
     }
 
@@ -540,13 +540,13 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell*    cell;
+    UITableViewCell*      cell;
+    DetailsTableViewCell* detailsCell = [tableView dequeueReusableCellWithIdentifier:@"DetailCell" forIndexPath:indexPath];
     
     switch ( (DetailSection)indexPath.section ) {
 
         case DetailSection_LocationDetails: {
             NSDictionary*           dict = (indexPath.row < _fields.count) ? [_fields objectAtIndex:indexPath.row] : @{};
-            DetailsTableViewCell*   detailsCell = [tableView dequeueReusableCellWithIdentifier:@"DetailCell" forIndexPath:indexPath];
             UIImage*                img = [dict objectForKey:@"icon"];
             id                      title = [dict objectForKey:@"text"];
             NSString*               subTitle;
@@ -563,7 +563,6 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
         }
             
         case DetailSection_OfflineMessage: {
-            DetailsTableViewCell*   detailsCell = [tableView dequeueReusableCellWithIdentifier:@"DetailCell" forIndexPath:indexPath];
             UIImage*                img = [self materialIcon:VCMaterialDesignIconCode.md_cloud_off];
             NSString*               title = kLangOfflineTryToReconnect;
             
@@ -577,7 +576,6 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
 
         case DetailSection_Booking:
             if ( indexPath.row == 0 ) {
-                DetailsTableViewCell*   detailsCell = [tableView dequeueReusableCellWithIdentifier:@"DetailCell" forIndexPath:indexPath];
                 // UIImageSymbolConfiguration* config = [UIImageSymbolConfiguration configurationWithPointSize:24];
                 // UIImage*                image = [UIImage systemImageNamed:@"calendar.badge.plus" withConfiguration:config];
                 UIImage*    image = [UIImage imageNamed:@"booking-calendar"];
@@ -623,7 +621,6 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
                     actionTitle = NSLocalizedString( @"Booked", );
                 }
 
-                DetailsTableViewCell*   detailsCell = [tableView dequeueReusableCellWithIdentifier:@"DetailCell" forIndexPath:indexPath];
                 [detailsCell configureWithTitle:cellTitle titleColor:[UIColor appPrimaryTextColor] image:image imageTintColor:[UIColor appPrimaryColor]];
                 detailsCell.compactHeight = YES;
                 detailsCell.accessoryView = actionButton;
@@ -640,7 +637,6 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
 
             } else if ( indexPath.row == (self.bookingDetailsViewModel.bookingEntries.count +1) ) {
 
-                DetailsTableViewCell*   detailsCell = [tableView dequeueReusableCellWithIdentifier:@"DetailCell" forIndexPath:indexPath];
                 NSString*               title = [NSString stringWithFormat: NSLocalizedString( @"Oops - something went wrong getting the calendar for %@",), self.location.name];
                 NSString*               message = self.bookingDetailsViewModel.error.localizedDescription;
 
@@ -668,6 +664,9 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
         case DetailSection_LocationDetails: {
             NSDictionary* dict = [_fields objectAtIndex:indexPath.row];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"DetailFieldTapped" object:dict];
+            if ([[dict objectForKey: @"type"] isEqualToString: @"website"]) {
+                [self openWebsite: [dict objectForKey: @"text"]];
+            }
             break;
         }
             
@@ -682,6 +681,14 @@ typedef NS_ENUM(NSUInteger, DetailSection) {
         case DetailSection_Count:
             break;
     }
+}
+
+- (void)openWebsite:(NSString *)urlString {
+    NSURLComponents* url = [NSURLComponents componentsWithString: urlString];
+    if (!url.scheme) {
+        url.scheme = @"https";
+    }
+    [[UIApplication sharedApplication] openURL:url.URL options:@{} completionHandler:NULL];
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {

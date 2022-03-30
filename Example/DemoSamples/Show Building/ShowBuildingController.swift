@@ -23,18 +23,21 @@ class ShowBuildingController: UIViewController {
         
         self.view = self.map
         
-        self.map?.camera = .camera(withLatitude: 57.057964, longitude: 9.9504112, zoom: 20)
-        
         self.mapControl = MPMapControl.init(map: self.map!)
         
-        let venueProvider = MPVenueProvider.init()
+        let locationService = MPLocationService.sharedInstance()
+        let query = MPQuery.init()
+        let filter = MPFilter.init()
+        
+        let buildingId = ProcessInfo.processInfo.environment["building"] ?? "586ca9f1bc1f5702406442b6"
+        
+        filter.locations = [buildingId]
         
         weak var _self = self
         
-        venueProvider.getBuildingsWithCompletion { (buildings, error) in
-            if error == nil {
-                let bounds = buildings?.first?.getBounds()
-                _self?.map?.animate(with: GMSCameraUpdate.fit(bounds!))
+        locationService.getLocationsUsing(query, filter: filter) { (locations, error) in
+            if let firstLocation = locations?.first {
+                _self?.mapControl?.go(to: firstLocation)
             }
         }
     }

@@ -21,6 +21,8 @@ extern NSString *const FIRCLSReportExceptionFile;
 extern NSString *const FIRCLSReportCustomExceptionAFile;
 extern NSString *const FIRCLSReportCustomExceptionBFile;
 extern NSString *const FIRCLSReportSignalFile;
+extern NSString *const FIRCLSMetricKitFatalReportFile;
+extern NSString *const FIRCLSMetricKitNonfatalReportFile;
 #if CLS_MACH_EXCEPTION_SUPPORTED
 extern NSString *const FIRCLSReportMachExceptionFile;
 #endif
@@ -72,7 +74,7 @@ extern NSString *const FIRCLSReportUserCompactedKVFile;
 @property(nonatomic, copy, readonly) NSString *installID;
 
 /**
- * Returns YES if report contains a signal, mach exception or unhandled exception record, NO
+ * Returns true if report contains a signal, mach exception or unhandled exception record, false
  * otherwise.
  **/
 @property(nonatomic, assign, readonly) BOOL isCrash;

@@ -174,11 +174,14 @@
         
         _selectedIndex++;
         SectionModel *currentModel = [self.modelArray objectAtIndex:_selectedIndex];
-        [self postDrawRouteLegNotificationWithLegIndex:currentModel.legIndex
-                                          currentModel:currentModel
-                                         withStepIndex:currentModel.stepIndex
-                                    accessibilityLabel:[self.directionsView accessibilityLabelForRouteSegmentAtIndex:_selectedIndex]
-        ];
+        
+        if ([sender isKindOfClass:UIButton.class]) {
+            [self postDrawRouteLegNotificationWithLegIndex:currentModel.legIndex
+                                              currentModel:currentModel
+                                             withStepIndex:currentModel.stepIndex
+                                        accessibilityLabel:[self.directionsView accessibilityLabelForRouteSegmentAtIndex:_selectedIndex]
+            ];
+        }
 
         [self.directionsView focusNextRouteSegment];
         [self updateUI];

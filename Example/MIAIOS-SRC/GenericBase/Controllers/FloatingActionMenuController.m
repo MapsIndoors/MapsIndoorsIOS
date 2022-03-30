@@ -157,9 +157,9 @@
         [btn3 autoAlignAxis:ALAxisVertical toSameAxisOfView:nearestBtn];
         NSLayoutConstraint* btn3Pos = [btn3 autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:btnClosedInset];
 
-        btn1.backgroundColor = [UIColor whiteColor];
-        btn2.backgroundColor = [UIColor whiteColor];
-        btn3.backgroundColor = [UIColor whiteColor];
+        btn1.backgroundColor = [UIColor clearColor];
+        btn2.backgroundColor = [UIColor clearColor];
+        btn3.backgroundColor = [UIColor clearColor];
         nearestBtn.backgroundColor = [UIColor appAccentColor];
         
         //Image icons or fonts?
@@ -185,21 +185,21 @@
         
         UIImageView* imageView1 = [[UIImageView alloc] initWithFrame:btn1.frame];
         imageView1.contentMode = UIViewContentModeScaleAspectFill;
-        [imageView1 mp_setImageWithURL:item1.iconUrl];
+        [imageView1 mp_setImageWithURL:item1.iconUrl size:CGSizeMake(40, 40)];
         [btn1 addSubview:imageView1];
         
         MPMenuItem* item2 = [_menuItemModels objectAtIndex:1];
         
         UIImageView* imageView2 = [[UIImageView alloc] initWithFrame:btn2.frame];
         imageView2.contentMode = UIViewContentModeScaleAspectFill;
-        [imageView2 mp_setImageWithURL:item2.iconUrl];
+        [imageView2 mp_setImageWithURL:item2.iconUrl size:CGSizeMake(40, 40)];
         [btn2 addSubview:imageView2];
         
         MPMenuItem* item3 = [_menuItemModels objectAtIndex:2];
         
         UIImageView* imageView3 = [[UIImageView alloc] initWithFrame:btn3.frame];
         imageView3.contentMode = UIViewContentModeScaleAspectFill;
-        [imageView3 mp_setImageWithURL:item3.iconUrl];
+        [imageView3 mp_setImageWithURL:item3.iconUrl size:CGSizeMake(40, 40)];
         [btn3 addSubview:imageView3];
         
         _menuOpenBtnImageView = imageView;

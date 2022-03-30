@@ -35,6 +35,7 @@
 #import "BuildingInfoCache.h"
 #import "AppVariantData.h"
 #import "AppNotifications.h"
+#import "UINavigationController+TransparentNavigationController.h"
 
 
 #define kRouteFromHere @"Route from here"
@@ -118,6 +119,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 @property (nonatomic, strong) UIButton*                             returnToVenueOrLocationBtn;
 
 @property (nonatomic) BOOL                                          shouldShowFloorSelector;
+@property (nonatomic) BOOL                                          showUserPosition;
 
 @property (nonatomic, strong) NSArray<NSString*>*                   activeLiveDataDomains;
 
@@ -228,6 +230,8 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 
     [self updateDebugInfoLabel];
     
+    [self refreshMyLocationGraphic];
+    
     //Live Data
     MPLiveDataManager.sharedInstance.delegate = self;
     
@@ -256,8 +260,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         }
     }];
 
-    self.navigationController.navigationBar.barTintColor = [UIColor appPrimaryColor];
-    
+    [self.navigationController resetNavigationBar];
     self.venueSelectorIsShowing = VenueSelectorController.venueSelectorIsShown;
 }
 
@@ -406,16 +409,19 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         }];
     }
 
-    // No previously selected venue, select either solution default venue or the first venue in the venue list as fallback:
-    if (venueId.length == 0 && self.mapControl.venue == nil) {
+    [[MPAppDataProvider new] getAppDataWithCompletion:^(MPAppData *appData, NSError *error) {
+       
+        BOOL showUserPosition = [appData.appSettings objectForKey:@"positioningDisabled"].boolValue == NO;
+        [self updateDisplayForUserPosition:showUserPosition];
+       
+        // No previously selected venue, select either solution default venue or the first venue in the venue list as fallback:
+        if (venueId.length == 0 && self.mapControl.venue == nil) {
 
-        [_venueProvider getVenuesWithCompletion:^(MPVenueCollection * _Nullable venueCollection, NSError * _Nullable error) {
+            [self.venueProvider getVenuesWithCompletion:^(MPVenueCollection * _Nullable venueCollection, NSError * _Nullable error) {
 
-            NSArray<MPVenue>*   venues = venueCollection.venues;
-            __block MPVenue*    initialVenue = venueCollection.venues.firstObject;
-
-            [[MPAppDataProvider new] getAppDataWithCompletion:^(MPAppData *appData, NSError *error) {
-
+                NSArray<MPVenue>*   venues = venueCollection.venues;
+                __block MPVenue*    initialVenue = venueCollection.venues.firstObject;
+ 
                 NSString* defaultVenue = [appData.appSettings objectForKey:@"defaultVenue"];
                 if ( defaultVenue.length ) {
                     for ( MPVenue* v in venues ) {
@@ -432,8 +438,9 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
                     [self zoomToVenue:initialVenue];
                 }
             }];
-        }];
-    }
+        }
+        
+    }];
 
     self.venueSelectorIsShowing = VenueSelectorController.venueSelectorIsShown;
     
@@ -646,11 +653,6 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 }
 
 - (void)solutionDataReady:(MPSolution *)solution {
-    
-    [self refreshMyLocationGraphic];
-    
-    [self.mapControl showUserPosition:YES];
-    
     Global.solution = solution;
     [AppNotifications postSolutionDataReadyNotificationWithSolution:solution];
     self.venueSelectorIsShowing = VenueSelectorController.venueSelectorIsShown;
@@ -1095,6 +1097,7 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 #pragma mark - Notifications
 
 - (void)onRouteResultReady:(NSNotification*) notification {
+    [self setupDirectionsRenderer];
     self.directionsRenderer.route = notification.object;
     self.venueSelectorIsShowing = VenueSelectorController.venueSelectorIsShown;
     self.mapRouteTrackingModel.route = _directionsRenderer.route;
@@ -1376,9 +1379,25 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
         [self presentViewController:alert animated:YES completion:nil];
         self.locationServicesAlert = alert;
     }
+    [self updateDisplayForUserPosition];
+    
     BOOL locationServicesActive = MapsIndoors.positionProvider.locationServicesActive;
-    [self.mapControl showUserPosition: locationServicesActive];
     self.myLocationBtn.trackingButtonState = locationServicesActive ? TrackingButtonState_Enabled : TrackingButtonState_Disabled;
+}
+
+- (void)updateDisplayForUserPosition:(BOOL)showUserPosition {
+    self.showUserPosition = showUserPosition;
+    [self updateDisplayForUserPosition];
+}
+
+- (void)updateDisplayForUserPosition {
+    [self.mapControl showUserPosition:self.shouldShowUserPosition];
+    [self refreshMyLocationGraphic];
+}
+
+- (BOOL) shouldShowUserPosition {
+    BOOL locationServicesActive = MapsIndoors.positionProvider.locationServicesActive;
+    return locationServicesActive && self.showUserPosition;
 }
 
 - (void) connectPositionProviderToMapControl {
@@ -1744,7 +1763,10 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 
     if ( tracker.isTracking ) {
         self.mapControl.currentFloor = floor;
-        [self.mapControl showUserPosition:YES];
+        [self.mapControl showUserPosition:[self shouldShowUserPosition]];
+        if (floor) {
+            [(self.mapControl.customFloorSelector ?: self.mapControl.floorSelector) setFloor: floor];
+        }
     }
 }
 
@@ -1754,6 +1776,9 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 
         if ( [floor isEqualToNumber:self.mapControl.currentFloor] == NO ) {
             self.mapControl.currentFloor = floor;
+            if (floor) {
+                [(self.mapControl.customFloorSelector ?: self.mapControl.floorSelector) setFloor: floor];
+            }
         }
 
         [_mapView animateToCameraPosition:[GMSCameraPosition cameraWithTarget:mapCenter zoom:zoom bearing:bearing viewingAngle:viewingAngle]];
@@ -1777,6 +1802,11 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
 - (void) mapRouteTrackingModel:(MPMapRouteTrackingModel *)tracker didChangeTrackingState:(MPMapTrackingState)state userGesture:(BOOL)userGesture {
 
     [self updateMapTrackingUI:userGesture];
+    
+    if (MapsIndoors.positionProvider.latestPositionResult) {
+        [self onPositionUpdate:MapsIndoors.positionProvider.latestPositionResult];
+    }
+    
 }
 
 #pragma mark - MPLiveDataManagerDelegate
@@ -1859,9 +1889,6 @@ typedef NS_ENUM( NSUInteger, StackLayoutIndex ) {
     CGFloat zoomToVenueBtnAlpha = 1;
 
     if ( [self isVisibleRegionEmpty] ) {
-        zoomToVenueBtnAlpha = 0;
-
-    } else if ( self.mapControl.searchResult ) {
         zoomToVenueBtnAlpha = 0;
 
     } else if ( _directionsRenderer.isRenderingRoute ) {

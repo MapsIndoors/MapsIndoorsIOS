@@ -52,8 +52,20 @@
     [self.navigationBar setShadowImage:nil];
     [self setNavigationBarHidden:NO animated:NO];
     
-    self.navigationBar.tintColor = [UIColor whiteColor];
-    self.navigationBar.barTintColor = [UIColor appPrimaryColor];
+    if (@available(iOS 13.0, *)) {
+        UINavigationBarAppearance* appearence = [[UINavigationBarAppearance alloc] init];
+        appearence.configureWithOpaqueBackground;
+        appearence.backgroundColor = [UIColor appPrimaryColor];
+        [appearence setTitleTextAttributes:
+                @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+        
+        self.navigationBar.standardAppearance = appearence;
+        self.navigationBar.scrollEdgeAppearance = self.navigationBar.standardAppearance;
+    } else {
+        // Fallback on earlier versions
+        self.navigationBar.tintColor = [UIColor whiteColor];
+        self.navigationBar.barTintColor = [UIColor appPrimaryColor];
+    }
     
     UIView *statusBarBackgroundView = [self.navigationBar viewWithTag:909];
     statusBarBackgroundView.layer.opacity = 0.35;

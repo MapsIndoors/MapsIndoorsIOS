@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D973569275A1D6E003670A2 /* SingleSignOnController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D973567275A1D6E003670A2 /* SingleSignOnController.swift */; };
 		2D97356A275A1D6E003670A2 /* SingleSignOnHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D973568275A1D6E003670A2 /* SingleSignOnHelper.swift */; };
+		2DF73BCE27F4402800EC7A5B /* Editing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF73BCD27F4402800EC7A5B /* Editing.swift */; };
 		300A2D852099CA0A00882D4E /* kitten2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 300A2D832099CA0A00882D4E /* kitten2.jpg */; };
 		300A2D862099CA0A00882D4E /* kitten2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 300A2D832099CA0A00882D4E /* kitten2.jpg */; };
 		300A2D872099CA0A00882D4E /* kitten.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 300A2D842099CA0A00882D4E /* kitten.jpg */; };
@@ -30,7 +31,6 @@
 		302B0BC7206539F5009C7BF9 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A25BDFEC1EF3B428002681B9 /* DetailViewController.m */; };
 		302B0BC9206539F5009C7BF9 /* UISearchBar+AppSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A25BE05A1EF3B428002681B9 /* UISearchBar+AppSearchBar.m */; };
 		302B0BCA206539F5009C7BF9 /* UIImage+MapsPeople.m in Sources */ = {isa = PBXBuildFile; fileRef = A25BE0351EF3B428002681B9 /* UIImage+MapsPeople.m */; };
-		302B0BCB206539F5009C7BF9 /* MPSVGImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A29849DA1F14BAE8000C6D22 /* MPSVGImageProvider.m */; };
 		302B0BCD206539F5009C7BF9 /* MPLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A25BE0521EF3B428002681B9 /* MPLocationCell.m */; };
 		302B0BCE206539F5009C7BF9 /* MPGooglePlacesAutoCompletePrediction.m in Sources */ = {isa = PBXBuildFile; fileRef = A25BE0251EF3B428002681B9 /* MPGooglePlacesAutoCompletePrediction.m */; };
 		302B0BCF206539F5009C7BF9 /* MPDirectionsStepSequenceView.m in Sources */ = {isa = PBXBuildFile; fileRef = A25BE04E1EF3B428002681B9 /* MPDirectionsStepSequenceView.m */; };
@@ -215,6 +215,7 @@
 		1515B6BA533CC735B38EDF5E /* Pods-MapsIndoors GitHub App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsIndoors GitHub App.release.xcconfig"; path = "Target Support Files/Pods-MapsIndoors GitHub App/Pods-MapsIndoors GitHub App.release.xcconfig"; sourceTree = "<group>"; };
 		2D973567275A1D6E003670A2 /* SingleSignOnController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleSignOnController.swift; sourceTree = "<group>"; };
 		2D973568275A1D6E003670A2 /* SingleSignOnHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleSignOnHelper.swift; sourceTree = "<group>"; };
+		2DF73BCD27F4402800EC7A5B /* Editing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Editing.swift; sourceTree = "<group>"; };
 		300A2D832099CA0A00882D4E /* kitten2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kitten2.jpg; sourceTree = "<group>"; };
 		300A2D842099CA0A00882D4E /* kitten.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kitten.jpg; sourceTree = "<group>"; };
 		301D3F3A217F1AD000804A85 /* TCFKA_MDSnackbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCFKA_MDSnackbar.h; sourceTree = "<group>"; };
@@ -488,8 +489,6 @@
 		A2900C411F8CE3EB0008C556 /* Resources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources.xcassets; sourceTree = "<group>"; };
 		A29849D41F14B06B000C6D22 /* DetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsTableViewCell.h; sourceTree = "<group>"; };
 		A29849D51F14B06B000C6D22 /* DetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsTableViewCell.m; sourceTree = "<group>"; };
-		A29849D91F14BAE8000C6D22 /* MPSVGImageProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPSVGImageProvider.h; sourceTree = "<group>"; };
-		A29849DA1F14BAE8000C6D22 /* MPSVGImageProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSVGImageProvider.m; sourceTree = "<group>"; };
 		A29849DE1F14C2BD000C6D22 /* MPAssertionHandlerLogAll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPAssertionHandlerLogAll.h; sourceTree = "<group>"; };
 		A29849DF1F14C2BD000C6D22 /* MPAssertionHandlerLogAll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPAssertionHandlerLogAll.m; sourceTree = "<group>"; };
 		A2A67B471F8E3BA900915083 /* MainMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
@@ -897,6 +896,7 @@
 		A235111A25D2B32300111BB0 /* Booking */ = {
 			isa = PBXGroup;
 			children = (
+				2DF73BCD27F4402800EC7A5B /* Editing.swift */,
 				A235111B25D2B32300111BB0 /* BookableLocationsController.swift */,
 				A235111C25D2B32300111BB0 /* BookingsController.swift */,
 				A235111D25D2B32300111BB0 /* BookingController.swift */,
@@ -1039,8 +1039,6 @@
 				A25BE03C1EF3B428002681B9 /* Views */,
 				A25BE0051EF3B428002681B9 /* MPSimpleFileCache.h */,
 				A25BE0061EF3B428002681B9 /* MPSimpleFileCache.m */,
-				A29849D91F14BAE8000C6D22 /* MPSVGImageProvider.h */,
-				A29849DA1F14BAE8000C6D22 /* MPSVGImageProvider.m */,
 				A25BE0071EF3B428002681B9 /* NSString+Category.h */,
 				A25BE0081EF3B428002681B9 /* NSString+Category.m */,
 				A25BE0091EF3B428002681B9 /* NSString+MD5.h */,
@@ -1530,12 +1528,10 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Demos/Pods-Demos-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
-				"${PODS_ROOT}/../../MapsIndoors.xcframework/ios-arm64_armv7_armv7s/MapsIndoors.framework/Versions/A/Resources/MapsIndoors.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MapsIndoors.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1662,11 +1658,14 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/HashBuilder/HashBuilder.framework",
 				"${BUILT_PRODUCTS_DIR}/KVOController/KVOController.framework",
+				"${BUILT_PRODUCTS_DIR}/MQTTClient/MQTTClient.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
 				"${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework",
 				"${BUILT_PRODUCTS_DIR}/VCMaterialDesignIcons/VCMaterialDesignIcons.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/MapsIndoors/MapsIndoors.framework/MapsIndoors",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1681,11 +1680,14 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HashBuilder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KVOController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MQTTClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PureLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVGKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VCMaterialDesignIcons.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapsIndoors.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1721,13 +1723,19 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Demos/Pods-Demos-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MQTTClient/MQTTClient.framework",
+				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
 				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
 				"${BUILT_PRODUCTS_DIR}/MapsIndoorsUtils/MapsIndoorsUtils.framework",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/MapsIndoors/MapsIndoors.framework/MapsIndoors",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MQTTClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapsIndoorsUtils.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapsIndoors.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1764,12 +1772,10 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MapsIndoors GitHub App/Pods-MapsIndoors GitHub App-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
-				"${PODS_ROOT}/../../MapsIndoors.xcframework/ios-arm64_armv7_armv7s/MapsIndoors.framework/Versions/A/Resources/MapsIndoors.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MapsIndoors.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1801,7 +1807,6 @@
 				30FA8F9825836A9B00F5758C /* NSObject+MPUserInfo.m in Sources */,
 				302B0BC9206539F5009C7BF9 /* UISearchBar+AppSearchBar.m in Sources */,
 				302B0BCA206539F5009C7BF9 /* UIImage+MapsPeople.m in Sources */,
-				302B0BCB206539F5009C7BF9 /* MPSVGImageProvider.m in Sources */,
 				302B0BCD206539F5009C7BF9 /* MPLocationCell.m in Sources */,
 				302B0BCE206539F5009C7BF9 /* MPGooglePlacesAutoCompletePrediction.m in Sources */,
 				302B0BCF206539F5009C7BF9 /* MPDirectionsStepSequenceView.m in Sources */,
@@ -1904,6 +1909,7 @@
 				30300A9D20739FEC00BC24BE /* ShowBuildingController.swift in Sources */,
 				30AA81E72344ADCA00B9FEF9 /* CustomInfoWindowController.swift in Sources */,
 				30300A9520739FEC00BC24BE /* SearchMapController.swift in Sources */,
+				2DF73BCE27F4402800EC7A5B /* Editing.swift in Sources */,
 				A2D301B5230A6EEE00234808 /* Memory.swift in Sources */,
 				A235112725D2B33600111BB0 /* DatasetManagerController.swift in Sources */,
 				A23D042B228D74FD0099F246 /* AdvancedDirectionsController.swift in Sources */,

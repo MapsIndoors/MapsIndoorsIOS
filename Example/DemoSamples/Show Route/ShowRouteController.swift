@@ -24,22 +24,38 @@ class ShowRouteController: UITableViewController {
     /***
      Add a `MPRoute` property to the class
      ***/
-    var route:MPRoute? = nil
+    var route: MPRoute?
+    let directions = MPDirectionsService()
+
     //
     override func viewDidLoad() {
         /***
          Inside `viewDidLoad`, setup a directions service, call the directions service and save the route result to your `MPRoute` property
          ***/
-        let directions = MPDirectionsService.init()
-        
-        let origin = MPPoint.init(lat: 57.057917, lon: 9.950361, zValue:0)
-        let destination = MPPoint.init(lat: 57.058038, lon: 9.950509, zValue:10)
-        
-        let directionsQuery = MPDirectionsQuery.init(originPoint: origin!, destination: destination!)
-        
-        directions.routing(with: directionsQuery) { (route, error) in
-            self.route = route
-            self.tableView.reloadData()
+
+        MapsIndoors.synchronizeContent { error in
+            let locationService = MPLocationService.sharedInstance()
+            let query = MPQuery()
+            let filter = MPFilter()
+
+            let originName = "Paris"
+            let destinationName = "Gym"
+
+            query.query = originName
+            locationService.getLocationsUsing(query, filter: filter) { [self] locations, error in
+                let originLocation = locations?.first
+                
+                query.query = destinationName
+                locationService.getLocationsUsing(query, filter: filter) { locations, error in
+                    let destinationLocation = locations?.first
+                    
+                    let directionsQuery = MPDirectionsQuery(origin: originLocation!, destination: destinationLocation!)
+                    self.directions.routing(with: directionsQuery) { route, error in
+                        self.route = route
+                        self.tableView.reloadData()
+                    }
+                }
+            }
         }
         //
     }
@@ -48,7 +64,7 @@ class ShowRouteController: UITableViewController {
      Override `numberOfRowsInSection` to return the number of steps in the current leg plus the leg itself
     ***/
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let leg:MPRouteLeg = route?.legs?[section] as? MPRouteLeg {
+        if let leg: MPRouteLeg = route?.legs?[section] as? MPRouteLeg {
             return leg.steps!.count + 1
         }
         return 0

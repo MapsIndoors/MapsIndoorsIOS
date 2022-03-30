@@ -10,8 +10,8 @@
 
 @interface UIImageView (MPImageProvider)
 
-- (void) mp_setImageWithURL:(NSString*)url;
-- (void) mp_setImageWithURL:(NSString*)url placeholderImage:(UIImage*)placeholderImage;
-- (void) mp_setImageWithURL:(NSString*)url placeholderImageName:(NSString*)placeholderImageName;
+- (void) mp_setImageWithURL:(NSString*)url size:(CGSize)size;
+- (void) mp_setImageWithURL:(NSString*)url size:(CGSize)size placeholderImage:(UIImage*)placeholderImage;
+- (void) mp_setImageWithURL:(NSString*)url size:(CGSize)size placeholderImageName:(NSString*)placeholderImageName;
 
 @end

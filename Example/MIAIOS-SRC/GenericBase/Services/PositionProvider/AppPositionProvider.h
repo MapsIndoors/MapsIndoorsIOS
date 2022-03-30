@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, readonly, nullable) NSString*             debugInfo;
 @property (nonatomic                            ) BOOL                  enableDebugInfo;
 @property (nonatomic,         readonly          ) BOOL                  backgroundLocationUpdates;
+@property (nonatomic,         readonly          ) BOOL                  canDeliverPosition;
 
 + (id<MPPositionProvider>) newWithConfigDict:(NSDictionary*)dict;
 - (id<MPPositionProvider>) initWithConfigDict:(NSDictionary*)dict;

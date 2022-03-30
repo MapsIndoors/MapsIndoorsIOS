@@ -48,7 +48,7 @@ class PeopleLocationSource : NSObject, MPLocationSource {
     func getRandomPoint() -> MPPoint {
         let lat = 57.058037 + Double.random(in: -0.0004 ..< 0.0004)
         let lng = 9.950572 + Double.random(in: -0.0004 ..< 0.0004)
-        return MPPoint.init(lat: lat, lon: lng, zValue: 1)
+        return MPPoint.init(lat: lat, lon: lng, zValue: 10)
     }
     
     
@@ -67,7 +67,7 @@ class PeopleLocationSource : NSObject, MPLocationSource {
             
             locationUpdate.type = type
             locationUpdate.addPropertyValue("John Doe #\(locId)", forKey: MPLocationFieldName)
-            locationUpdate.floor = 10
+            locationUpdate.floor = Int.random(in: 0...4)*10
             let p = getRandomPoint()
             locationPoints.append(p)
             locationDirs.append(Double.random(in: 0 ..< 360))

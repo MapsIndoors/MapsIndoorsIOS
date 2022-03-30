@@ -33,7 +33,7 @@
 
     NSString*   imageName = [imageUrl lastPathComponent];
     
-    [self.venueImageView mp_setImageWithURL:imageUrl placeholderImageName:imageName];
+    [self.venueImageView mp_setImageWithURL:imageUrl size:self.venueImageView.bounds.size placeholderImageName:imageName];
     self.venueNameLabel.text = self.venue.name;
     self.venueNameLabel.font = AppFonts.sharedInstance.headerTitleFont;
 

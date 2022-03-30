@@ -512,7 +512,7 @@ static NSString* cellIdentifier = @"LocationCell";
         
     } else if (object.iconUrl) {
         
-        [cell.imageView mp_setImageWithURL: object.iconUrl.absoluteString placeholderImageName:@"placeholder"];
+        [cell.imageView mp_setImageWithURL: object.iconUrl.absoluteString size: MPMapControl.mapIconSize placeholderImageName:@"placeholder"];
         
     } else if ([object.type isEqualToString:@"google-place"]) {
         
@@ -546,7 +546,7 @@ static NSString* cellIdentifier = @"LocationCell";
                 }];
             }
         } else {
-            [cell.imageView mp_setImageWithURL:[Global getIconUrlForType:object.type] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+            [cell.imageView mp_setImageWithURL:[Global getIconUrlForType:object.type] size: MPMapControl.mapIconSize placeholderImage:[UIImage imageNamed:@"placeholder"]];
         }
     }
     
@@ -663,7 +663,7 @@ static NSString* cellIdentifier = @"LocationCell";
                 
                 for (NSDictionary* placeDict in placesPredictions) {
                     MPGooglePlacesAutoCompletePrediction*   placeDetails = [MPGooglePlacesAutoCompletePrediction newWithDict:placeDict];
-                    MPLocationUpdate*       locationBuilder = [MPLocationUpdate updateWithLocation:[MPLocation new]];
+                    MPLocationUpdate*       locationBuilder = [MPLocationUpdate updateWithLocation: [MPLocation new]];
                     locationBuilder.name = [placeDetails.attributedPrimaryText string];
                     locationBuilder.floor = 0;
                     locationBuilder.type = @"google-place";

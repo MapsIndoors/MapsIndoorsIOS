@@ -32,9 +32,22 @@
     return _sharedTimeFormatter;
 }
 
++ (instancetype) newWithBooking:(MPBooking*)b fitToTimeslotFrom:(NSDate*)startTime to:(NSDate*)endTime {
+    return [[self alloc] initWithBooking:b fitToTimeslotFrom:startTime to:endTime];
+}
 
 + (instancetype) newWithBooking:(MPBooking*)b {
     return [[self alloc] initWithBooking:b];
+}
+
+- (instancetype) initWithBooking:(MPBooking*)b fitToTimeslotFrom:(NSDate*)startTime to:(NSDate*)endTime {
+    self = [self initWithBooking:b];
+    if (self) {
+        _startTime = startTime;
+        _endTime = endTime;
+        _descriptionText = [self formatDescriptionText];
+    }
+    return self;
 }
 
 - (instancetype) initWithBooking:(MPBooking*)b {

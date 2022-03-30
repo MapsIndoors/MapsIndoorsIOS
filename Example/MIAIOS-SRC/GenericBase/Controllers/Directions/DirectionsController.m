@@ -121,16 +121,7 @@
         _routing.destination = self.routeRequestDestinationLocation;
     }
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRouteRequest) name:@"RoutingRequestStarted" object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRouteResultReady:) name:@"RoutingDataReady" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(next:) name:@"ShowNextRouteLegInList" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(prev:) name:@"ShowPreviousRouteLegInList" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openDirectionsOnMap) name:@"openDirectionsOnMap" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationDidChange:) name:@"UIDeviceOrientationDidChangeNotification" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadMapData:) name:kNotificationLocationServicesActivated object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveToCurrentLeg:) name:kNotificationShowSelectedLegInList object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationTrackingOccured:) name:kNotificationLocationTrackingOccurred object:nil];
+    [self setupNotificationCenter];
     
     [self.directionsHeaderView removeFromSuperview];
 
@@ -143,85 +134,28 @@
     [self.destinationButton addTarget:self action:@selector(openDestinationSearch) forControlEvents:UIControlEventTouchDown];
     [self.originButton addTarget:self action:@selector(openOriginSearch) forControlEvents:UIControlEventTouchDown];
     
-    self.originButton.layer.cornerRadius = 6.0f;
-    self.destinationButton.layer.cornerRadius = 6.0f;
+    [self searchBarAppearence:self.originButton withHint:kLangSelectRouteOriginAccHint];
+    [self searchBarAppearence:self.destinationButton withHint:kLangSelectRouteDestinationAccHint];
     
-    self.originButton.backgroundColor = [UIColor appDarkPrimaryColor];
-    self.destinationButton.backgroundColor = [UIColor appDarkPrimaryColor];
+    [self lineApperence:self.line];
     
-    self.originButton.contentEdgeInsets = UIEdgeInsetsMake(6, 6, 6, 6);
-    self.destinationButton.contentEdgeInsets = UIEdgeInsetsMake(6, 6, 6, 6);
-    self.originButton.hitTestEdgeInsets = UIEdgeInsetsMake(-10, -50, -10, -10);
-    self.destinationButton.hitTestEdgeInsets = UIEdgeInsetsMake(-10, -50, -10, -10);
-
-    self.line.thickness = 4.0f;
-    self.line.color = [UIColor appLightPrimaryColor];
-    self.line.dashedGap = 4.0f;
-    self.line.dashedLength = 4.0f;
+    [self locationServicesButtonAppearence:self.locationServicesBtn];
     
-    self.locationServicesBtn.layer.borderWidth = 1.0;
-    self.locationServicesBtn.layer.borderColor = [UIColor appSecondaryTextColor].CGColor;
-    self.locationServicesBtn.layer.opacity = 0.30;
-    self.locationServicesBtn.layer.cornerRadius = 2.0;
-    self.locationServicesBtn.layer.shadowRadius = 1.0;
-    self.locationServicesBtn.layer.shadowOffset = CGSizeMake(1.0, 1.0);
-    self.locationServicesBtn.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.locationServicesBtn.layer.shadowOpacity = 1.0;
+    float fontSize = 28.0f;
+    [self buildSwitchDirectionButtonWithFontSize:fontSize];
+        
+    fontSize = 22.0f;
+    [self buildTransitBarButtonsWithFontSize:fontSize];
     
-    UIImage* dirImage = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_swap_vertical fontSize:28.0f].image;
-    [self.switchDirIconButton setImage:dirImage forState:UIControlStateNormal];
-    [self.switchDirIconButton addTarget:self action:@selector(switchDir) forControlEvents:UIControlEventTouchUpInside];
-    self.switchDirIconButton.tintColor = [UIColor whiteColor];
-    
-    UIImage* carImg = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_car fontSize:22.0f].image;
-    _car = [[UIBarButtonItem alloc] initWithImage:carImg style:UIBarButtonItemStylePlain target:self action:@selector(transitMode:)];
-    _car.accessibilityHint = kLangByCar;
-    
-    UIImage* bikeImg = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_bike fontSize:22.0f].image;
-    _bike = [[UIBarButtonItem alloc] initWithImage:bikeImg style:UIBarButtonItemStylePlain target:self action:@selector(transitMode:)];
-    _bike.accessibilityHint = kLangByCycling;
-    
-    UIImage* trainImg = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_bus fontSize:22.0f].image;
-    _train = [[UIBarButtonItem alloc] initWithImage:trainImg style:UIBarButtonItemStylePlain target:self action:@selector(transitMode:)];
-    _train.accessibilityHint = kLangByTransit;
-    
-    UIImage* walkImg = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_walk fontSize:22.0f].image;
-    _walk = [[UIBarButtonItem alloc] initWithImage:walkImg style:UIBarButtonItemStylePlain target:self action:@selector(transitMode:)];
-    _walk.accessibilityHint = kLangByWalk;
-
-    UIImage* routeSettingsImg = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_tune fontSize:22.0f].image;
-    self.routeSettings = [[UIBarButtonItem alloc] initWithImage:routeSettingsImg style:UIBarButtonItemStylePlain target:self action:@selector(onRouteSettingsTapped:)];
-    self.routeSettings.accessibilityHint = NSLocalizedString(@"Route Settings", );
-
 #if BUILDING_SDK_APP
     self.navigationItem.rightBarButtonItems = @[self.routeSettings, _car, _train, _bike, _walk];
 #else
     self.navigationItem.rightBarButtonItems = @[_car, _train, _bike, _walk];
 #endif
-
-    _walk.tintColor = [UIColor colorWithWhite: 1.0f alpha:0.5f];
-    _train.tintColor = [UIColor colorWithWhite: 1.0f alpha:0.5f];
-    _car.tintColor = [UIColor colorWithWhite: 1.0f alpha:0.5f];
-    _bike.tintColor = [UIColor colorWithWhite: 1.0f alpha:0.5f];
-
-    _avoids = self.routeRequestAvoids;
-    BOOL    avoidStairs = [_avoids containsObject:@"stairs"] ? YES : Global.avoidStairs;
-    [self.avoidStairsSwitch addTarget:self action:@selector(avoidStairs) forControlEvents:UIControlEventValueChanged];
-    self.avoidStairsSwitch.on = avoidStairs;
-    self.avoidStairsSwitch.onTintColor = [UIColor appLightPrimaryColor];
-    self.avoidStairsSwitch.tintColor = [UIColor appDarkPrimaryColor];
-    self.avoidStairsSwitch.backgroundColor = [UIColor appDarkPrimaryColor];
-    self.avoidStairsSwitch.layer.cornerRadius = 16.0;
-    self.avoidStairsSwitch.accessibilityLabel = kLangAvoidStairs;
-    self.avoidStairsSwitch.accessibilityHint = Global.avoidStairs ? kLangAvoidStairsOnAccHint : kLangAvoidStairsOffAccHint;
-    self.avoidStairsSwitch.isAccessibilityElement = YES;
-    self.avoidStairsSwitch.accessibilityTraits = UIAccessibilityTraitButton;
     
-    UITapGestureRecognizer* helperForTheLittleMDSwitchThatCouldntDetectTapsProperly = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avoidStairsWasTapped:)];
-    [self.avoidStairsSwitch addGestureRecognizer:helperForTheLittleMDSwitchThatCouldntDetectTapsProperly];
+    [self buildAvoidStairsSwitch];
     
     self.directionsForm.backgroundColor = [UIColor appPrimaryColor];
-    self.avoidStairsLabel.text = kLangAvoidStairs;
     
     self.directionsView.delegate = self;
     self.directionsView.verticalLayout = YES;
@@ -247,13 +181,111 @@
 #if defined(MI_SDK_VERSION_MAJOR) && (MI_SDK_VERSION_MAJOR >= 2)
     locationServicesActive = MapsIndoors.positionProvider.locationServicesActive;
 #endif
-    self.offlineMsg.hidden = locationServicesActive;
-    self.offlineMsgDetail.hidden = locationServicesActive;
-    self.lightningImgView.hidden = locationServicesActive;
-    self.locationServicesBtn.hidden = locationServicesActive;
+    
+    [self hideOfflineView:locationServicesActive];
     
     self.noRouteMessageLabel.text = kLangNoRouteFound;
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"EnableHorizontalDirections" object:nil];
     
+    [self applyFonts];
+}
+
+// #pragma mark - Initializing Functions
+- (void) setupNotificationCenter {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRouteRequest) name:@"RoutingRequestStarted" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRouteResultReady:) name:@"RoutingDataReady" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(next:) name:@"ShowNextRouteLegInList" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(prev:) name:@"ShowPreviousRouteLegInList" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openDirectionsOnMap) name:@"openDirectionsOnMap" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationDidChange:) name:@"UIDeviceOrientationDidChangeNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadMapData:) name:kNotificationLocationServicesActivated object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveToCurrentLeg:) name:kNotificationShowSelectedLegInList object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationTrackingOccured:) name:kNotificationLocationTrackingOccurred object:nil];
+}
+
+- (void) searchBarAppearence: (UIButton*)button withHint:(NSString*)hint {
+    button.layer.cornerRadius = 6.0f;
+    button.backgroundColor = [UIColor appDarkPrimaryColor];
+    button.contentEdgeInsets = UIEdgeInsetsMake(6, 6, 6, 6);
+    button.hitTestEdgeInsets = UIEdgeInsetsMake(-10, -50, -10, -10);
+    button.accessibilityHint = hint;
+}
+
+- (void) lineApperence: (DottedLine*)line {
+    self.line.thickness = 4.0f;
+    self.line.color = [UIColor appLightPrimaryColor];
+    self.line.dashedGap = 4.0f;
+    self.line.dashedLength = 4.0f;
+}
+
+- (void) locationServicesButtonAppearence: (UIButton*)button {
+    button.layer.borderWidth = 1.0;
+    button.layer.borderColor = [UIColor appSecondaryTextColor].CGColor;
+    button.layer.opacity = 0.30;
+    button.layer.cornerRadius = 2.0;
+    button.layer.shadowRadius = 1.0;
+    button.layer.shadowOffset = CGSizeMake(1.0, 1.0);
+    button.layer.shadowColor = [UIColor blackColor].CGColor;
+    button.layer.shadowOpacity = 1.0;
+}
+
+- (void) buildSwitchDirectionButtonWithFontSize: (float) fontSize {
+    UIImage* dirImage = [VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_swap_vertical fontSize:fontSize].image;
+    [self.switchDirIconButton setImage:dirImage forState:UIControlStateNormal];
+    [self.switchDirIconButton addTarget:self action:@selector(switchDir) forControlEvents:UIControlEventTouchUpInside];
+    self.switchDirIconButton.tintColor = [UIColor whiteColor];
+    self.switchDirIconButton.accessibilityHint = kLangSwapRouteStartAndDestinationAccHint;
+
+}
+
+- (void) buildTransitBarButtonsWithFontSize: (float)fontSize {
+    UIColor* customTintColor = [UIColor colorWithWhite:1.0f alpha:0.5f];
+    
+    _car = [self transitModeButtonWithImage:[VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_car fontSize:fontSize].image withAction:@selector(transitMode:) withHint:kLangByCar];
+    _car.tintColor = customTintColor;
+    
+    _bike = [self transitModeButtonWithImage:[VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_bike fontSize:fontSize].image withAction:@selector(transitMode:) withHint:kLangByCycling];
+    _bike.tintColor = customTintColor;
+    
+    _train = [self transitModeButtonWithImage:[VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_bus fontSize:fontSize].image withAction:@selector(transitMode:) withHint:kLangByTransit];
+    _train.tintColor = customTintColor;
+    
+    _walk = [self transitModeButtonWithImage:[VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_walk fontSize:fontSize].image withAction:@selector(transitMode:) withHint:kLangByWalk];
+    _walk.tintColor = customTintColor;
+    
+    self.routeSettings = [self transitModeButtonWithImage:[VCMaterialDesignIcons iconWithCode:VCMaterialDesignIconCode.md_tune fontSize:fontSize].image withAction:@selector(onRouteSettingsTapped:) withHint:NSLocalizedString(@"Route Settings", )];
+}
+
+- (UIBarButtonItem*) transitModeButtonWithImage: (UIImage*)icon withAction:(SEL)action withHint:(NSString*)accessibilityHint {
+    UIBarButtonItem* button = [[UIBarButtonItem alloc]initWithImage:icon style:UIBarButtonItemStylePlain target:self action:action];
+    button.accessibilityHint = accessibilityHint;
+    
+    return button;
+}
+
+- (void) buildAvoidStairsSwitch {
+    _avoids = self.routeRequestAvoids;
+    BOOL avoidStairs = [_avoids containsObject:MPHighwayTypeStairs] || [_avoids containsObject:MPHighwayTypeLadder] ? YES : Global.avoidStairs;
+    if (avoidStairs) {
+        [self avoidStairs];
+    }
+    [self.avoidStairsSwitch addTarget:self action:@selector(avoidStairs) forControlEvents:UIControlEventValueChanged];
+    self.avoidStairsSwitch.on = avoidStairs;
+    self.avoidStairsSwitch.onTintColor = [UIColor appLightPrimaryColor];
+    self.avoidStairsSwitch.tintColor = [UIColor appDarkPrimaryColor];
+    self.avoidStairsSwitch.backgroundColor = [UIColor appDarkPrimaryColor];
+    self.avoidStairsSwitch.layer.cornerRadius = 16.0;
+    self.avoidStairsSwitch.accessibilityLabel = kLangAvoidStairs;
+    self.avoidStairsSwitch.accessibilityHint = Global.avoidStairs ? kLangAvoidStairsOnAccHint : kLangAvoidStairsOffAccHint;
+    self.avoidStairsSwitch.isAccessibilityElement = YES;
+    self.avoidStairsSwitch.accessibilityTraits = UIAccessibilityTraitButton;
+    
+    self.avoidStairsLabel.text = kLangAvoidStairs;
+}
+
+- (void) applyFonts {
     __weak typeof(self)weakSelf = self;
     self.reachabilityWarningView.hidden = YES;
     [self configureReachabilityWarning: self.mp_isNetworkReachable ];
@@ -264,13 +296,7 @@
             [weakSelf updateRouting];
         }
     }];
-
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"EnableHorizontalDirections" object:nil];
-
-    self.originButton.accessibilityHint      = kLangSelectRouteOriginAccHint;
-    self.destinationButton.accessibilityHint = kLangSelectRouteDestinationAccHint;
-    self.switchDirIconButton.accessibilityHint = kLangSwapRouteStartAndDestinationAccHint;
-
+    
     self.originButton.titleLabel.font = [AppFonts sharedInstance].buttonFont;
     self.destinationButton.titleLabel.font = [AppFonts sharedInstance].buttonFont;
     self.avoidStairsLabel.font = [AppFonts sharedInstance].buttonFont;
@@ -300,15 +326,16 @@
     }];
 }
 
+- (void) hideOfflineView: (BOOL) hide {
+    self.offlineMsg.hidden = hide;
+    self.offlineMsgDetail.hidden = hide;
+    self.lightningImgView.hidden = hide;
+    self.locationServicesBtn.hidden = hide;
+}
+
 - (void) configureLocationServiceOffMessage {
 
     self.offlineMsgDetail.text = ([AppFonts sharedInstance].configuredTextSize < DynamicTextSize_XL) ? kLangTurOnLocationInDirections : kLangTurOnLocationInDirectionsAbbr;
-}
-
-- (void) avoidStairsWasTapped:(UITapGestureRecognizer*)tapGesture {
-    self.avoidStairsSwitch.on = !self.avoidStairsSwitch.on;
-    Global.avoidStairs = self.avoidStairsSwitch.on;
-    self.avoidStairsSwitch.accessibilityHint = Global.avoidStairs ? kLangAvoidStairsOnAccHint : kLangAvoidStairsOffAccHint;
 }
 
 - (void) onRouteRequest {
@@ -345,7 +372,7 @@
 - (void) avoidStairs {
     
     if (self.avoidStairsSwitch.on) {
-        _avoids = @[@"stairs"];
+        _avoids = @[MPHighwayTypeStairs, MPHighwayTypeLadder];
     } else {
         _avoids = nil;
     }
@@ -393,147 +420,21 @@
 
         self.didPerformInitialSetup = YES;
 
-        MPLocationUpdate* myLocationUpdate = [MPLocationUpdate updateWithLocation:[MPLocation new]];
-        myLocationUpdate.name = kLangMyPosition;
-        myLocationUpdate.position = [MapsIndoors.positionProvider.latestPositionResult.geometry getCoordinate];
-        myLocationUpdate.floor = [MapsIndoors.positionProvider.latestPositionResult getFloor].integerValue;
-        myLocationUpdate.type = @"my-location";
+        [self setupRouteLocationsInfo];
         
-        self.myLocation = myLocationUpdate.location;
-        
-        self.destination = _routing.destination;
-        self.origin = self.routeRequestOriginLocation;
-
         //Using my position (guessing a room)
         BOOL    shouldPreloadUserLocationOrigin = [AppVariantData sharedAppVariantData].shouldPreloadRouteOriginWithCurrentLocation && (self.origin == nil) && (MapsIndoors.positionProvider.latestPositionResult.geometry != nil);
         BOOL    shouldPreloadRouteRequestOrigin = (self.origin != nil) && (self.origin.type == nil);
-        if ( shouldPreloadUserLocationOrigin || shouldPreloadRouteRequestOrigin ) {
-
-            if ( (self.origin == nil) && shouldPreloadUserLocationOrigin ) {
-                self.origin = self.myLocation;
-            }
-
-            MPLocationQuery* query = [[MPLocationQuery alloc] init];
-            query.near = MapsIndoors.positionProvider.latestPositionResult.geometry;
-            query.max = 1;
-            query.floor = self.origin.floor;
-            query.radius = [NSNumber numberWithInt:15];
-            
-            [MapsIndoors.locationsProvider getLocationsUsingQuery:query completionHandler:^(MPLocationDataset *locationData, NSError *error) {
-                
-                if (locationData != nil && locationData.list.count == 1) {
-
-                    MPLocationUpdate*   locUpdate = [MPLocationUpdate updateWithLocation:locationData.list.firstObject];
-                    locUpdate.position = [MapsIndoors.positionProvider.latestPositionResult.geometry getCoordinate];
-                    locUpdate.type = @"my-location";
-                    locUpdate.floor = MapsIndoors.positionProvider.latestPositionResult.geometry.zIndex;
-                    self.origin = locUpdate.location;
-
-                } else {
-                    //TODO set description with builder instead
-                    //self.origin.descr = nil;
-
-                    [[MPReverseGeocodingService sharedGeoCoder] reverseGeocodeLocation:self.origin completionHandler:^(GMSReverseGeocodeResponse * _Nullable result, NSError * _Nullable error) {
-                        
-                        if ( self.origin.mp_firstReverseGeocodedAddress.length ) {
-                            //TODO set description with builder instead
-                            //self.origin.descr = self.origin.mp_firstReverseGeocodedAddress;
-                            
-                            [self.directionsView routeUpdated:self.currentRoute];
-                            [self updateOriginDestinationButtonTitles];
-                        }
-                    }];
-                }
-                
-                if (self.isFirstLoading) {
-                    //Hide offline msg label and details
-                    self.offlineMsg.hidden = YES;
-                    self.offlineMsgDetail.hidden = YES;
-                    self.lightningImgView.hidden = YES;
-                    self.locationServicesBtn.hidden = YES;
-                    
-                    self.isFirstLoading = false;
-                }
-
-                [self updateRouting];
-                
-                if (locationData != nil && locationData.list.count == 1) {
-                    [self.originButton setTitle:[NSString stringWithFormat: kLangEstimatedPosNearVar, self.origin.name] forState:UIControlStateNormal];
-                }
-            }];
-            
-        } else {
-            
-            if (self.isFirstLoading) {
-                //TODO set type with builder instead
-                //self.origin.type = @"google-place";
-                self.isFirstLoading = false;
-            }
-            
-            if ( self.currentRoute == nil ) {
-                [self updateRouting];
-            }
+        
+        [self setupRouteInfo:shouldPreloadUserLocationOrigin withPreloadRoute:shouldPreloadRouteRequestOrigin];
+        
+        if ( self.currentRoute == nil ) {            
+            [self displayNetworkConnection];
         }
         
-        if ( self.currentRoute == nil ) {
-            
-            if ( self.mp_isNetworkReachable == NO ) {
-                
-                NSLog(@"WIFI is not reachable");
-                [self.lightningImgView setImage:[UIImage imageNamed:@"iosOfflinex36.png"]];
-                
-            } else {
-                
-                BOOL locationServicesActive = [MapsIndoors.positionProvider isRunning];
-#if defined(MI_SDK_VERSION_MAJOR) && (MI_SDK_VERSION_MAJOR >= 2)
-                locationServicesActive = MapsIndoors.positionProvider.locationServicesActive;
-#endif
-                self.offlineMsg.hidden = locationServicesActive;
-                self.offlineMsgDetail.hidden = locationServicesActive;
-                self.lightningImgView.hidden = locationServicesActive;
-                self.locationServicesBtn.hidden = locationServicesActive;
-            }
-        }
+        [self clearSubViews];
         
-        for (UIView* v in self.tableFooter.subviews) {
-            [v removeFromSuperview];
-        }
-        
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-            
-            _prevBtn = [UIButton appRectButtonWithTitle:kLangPrev target:self selector:@selector(prev:)];
-            [_prevBtn setTitleColor:[UIColor appSecondaryTextColor] forState:UIControlStateNormal];
-            _prevBtn.backgroundColor = [UIColor appTextAndIconColor];
-            _nextBtn = [UIButton appRectButtonWithTitle:kLangNext target:self selector:@selector(next:)];
-            
-            [self.tableFooter addSubview:_prevBtn];
-            [self.tableFooter addSubview:_nextBtn];
-            
-            [_nextBtn configureForAutoLayout];
-            [_nextBtn autoPinEdgeToSuperviewEdge:ALEdgeRight];
-            [_nextBtn autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:10];
-            [_nextBtn autoSetDimensionsToSize:CGSizeMake(106, 40)];
-            [_nextBtn autoSetDimension:ALDimensionHeight toSize:40];
-            [_nextBtn autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.tableFooter withMultiplier:0.45];
-
-            [_prevBtn configureForAutoLayout];
-            [_prevBtn autoPinEdgeToSuperviewEdge:ALEdgeLeft];
-            [_prevBtn autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:10];
-            [_prevBtn autoSetDimension:ALDimensionHeight toSize:40];
-            [_prevBtn autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.tableFooter withMultiplier:0.45];
-
-        } else {
-            
-            _showBtn = [UIButton appRectButtonWithTitle:kLangShowOnMap target:self selector:@selector(reloadDirectionsOnMap)];
-            [self.tableFooter addSubview:_showBtn];
-            
-            [_showBtn configureForAutoLayout];
-            [_showBtn autoPinEdgeToSuperviewEdge:ALEdgeRight];
-            [_showBtn autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:10];
-            [_showBtn autoSetDimension:ALDimensionHeight toSize:40];
-            [_showBtn autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.tableFooter withMultiplier:0.8 relation:NSLayoutRelationLessThanOrEqual];
-            [_showBtn autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.tableFooter withMultiplier:0.6 relation:NSLayoutRelationGreaterThanOrEqual];
-        }
+        [self setupPrevNextButtons];
 
 #if DEBUG
         {
@@ -557,18 +458,170 @@
     }
 }
 
+- (void) setupRouteLocationsInfo {
+    MPLocationUpdate* myLocationUpdate = [MPLocationUpdate updateWithLocation: [MPLocation new]];
+    myLocationUpdate.name = kLangMyPosition;
+    myLocationUpdate.position = [MapsIndoors.positionProvider.latestPositionResult.geometry getCoordinate];
+    myLocationUpdate.floor = [MapsIndoors.positionProvider.latestPositionResult getFloor].integerValue;
+    myLocationUpdate.type = @"my-location";
+    
+    self.myLocation = myLocationUpdate.location;
+    
+    self.destination = _routing.destination;
+    self.origin = self.routeRequestOriginLocation;
+}
+
+- (void) setupRouteInfo: (BOOL)preloadUser withPreloadRoute: (BOOL)preloadRoute {
+    if ( preloadUser || preloadRoute ) {
+
+        if ( (self.origin == nil) && preloadUser ) {
+            self.origin = self.myLocation;
+        }
+
+        MPLocationQuery* query = [[MPLocationQuery alloc] init];
+        query.near = MapsIndoors.positionProvider.latestPositionResult.geometry;
+        query.max = 1;
+        query.floor = self.origin.floor;
+        query.radius = [NSNumber numberWithInt:15];
+        
+        [MapsIndoors.locationsProvider getLocationsUsingQuery:query completionHandler:^(MPLocationDataset *locationData, NSError *error) {
+            
+            if (locationData != nil && locationData.list.count == 1) {
+
+                MPLocationUpdate*   locUpdate = [MPLocationUpdate updateWithLocation:locationData.list.firstObject];
+                locUpdate.position = [MapsIndoors.positionProvider.latestPositionResult.geometry getCoordinate];
+                locUpdate.type = @"my-location";
+                locUpdate.floor = MapsIndoors.positionProvider.latestPositionResult.geometry.zIndex;
+                self.origin = locUpdate.location;
+
+            } else {
+                //TODO set description with builder instead
+                //self.origin.descr = nil;
+
+                [[MPReverseGeocodingService sharedGeoCoder] reverseGeocodeLocation:self.origin completionHandler:^(GMSReverseGeocodeResponse * _Nullable result, NSError * _Nullable error) {
+                    
+                    if ( self.origin.mp_firstReverseGeocodedAddress.length ) {
+                        //TODO set description with builder instead
+                        //self.origin.descr = self.origin.mp_firstReverseGeocodedAddress;
+                        
+                        [self.directionsView routeUpdated:self.currentRoute];
+                        [self updateOriginDestinationButtonTitles];
+                    }
+                }];
+            }
+            
+            if (self.isFirstLoading) {
+                //Hide offline msg label and details
+                self.offlineMsg.hidden = YES;
+                self.offlineMsgDetail.hidden = YES;
+                self.lightningImgView.hidden = YES;
+                self.locationServicesBtn.hidden = YES;
+                
+                self.isFirstLoading = false;
+            }
+
+            [self updateRouting];
+            
+            if (locationData != nil && locationData.list.count == 1) {
+                [self.originButton setTitle:[NSString stringWithFormat: kLangEstimatedPosNearVar, self.origin.name] forState:UIControlStateNormal];
+            }
+        }];
+        
+    } else {
+        
+        if (self.isFirstLoading) {
+            //TODO set type with builder instead
+            //self.origin.type = @"google-place";
+            self.isFirstLoading = false;
+        }
+        
+        if ( self.currentRoute == nil ) {
+            [self updateRouting];
+        }
+    }
+}
+
+- (void) displayNetworkConnection {
+    if ( self.mp_isNetworkReachable == NO ) {
+        
+        NSLog(@"WIFI is not reachable");
+        [self.lightningImgView setImage:[UIImage imageNamed:@"iosOfflinex36.png"]];
+        
+    } else {
+        
+        BOOL locationServicesActive = [MapsIndoors.positionProvider isRunning];
+#if defined(MI_SDK_VERSION_MAJOR) && (MI_SDK_VERSION_MAJOR >= 2)
+        locationServicesActive = MapsIndoors.positionProvider.locationServicesActive;
+#endif
+        self.offlineMsg.hidden = locationServicesActive;
+        self.offlineMsgDetail.hidden = locationServicesActive;
+        self.lightningImgView.hidden = locationServicesActive;
+        self.locationServicesBtn.hidden = locationServicesActive;
+    }
+}
+
+- (void) clearSubViews {
+    for (UIView* v in self.tableFooter.subviews) {
+        [v removeFromSuperview];
+    }
+}
+
+- (void) setupPrevNextButtons {
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        
+        _prevBtn = [UIButton appRectButtonWithTitle:kLangPrev target:self selector:@selector(prev:)];
+        [_prevBtn setTitleColor:[UIColor appSecondaryTextColor] forState:UIControlStateNormal];
+        _prevBtn.backgroundColor = [UIColor appTextAndIconColor];
+        _nextBtn = [UIButton appRectButtonWithTitle:kLangNext target:self selector:@selector(next:)];
+        
+        [self.tableFooter addSubview:_prevBtn];
+        [self.tableFooter addSubview:_nextBtn];
+        
+        [_nextBtn configureForAutoLayout];
+        [_nextBtn autoPinEdgeToSuperviewEdge:ALEdgeRight];
+        [_nextBtn autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:10];
+        [_nextBtn autoSetDimensionsToSize:CGSizeMake(106, 40)];
+        [_nextBtn autoSetDimension:ALDimensionHeight toSize:40];
+        [_nextBtn autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.tableFooter withMultiplier:0.45];
+
+        [_prevBtn configureForAutoLayout];
+        [_prevBtn autoPinEdgeToSuperviewEdge:ALEdgeLeft];
+        [_prevBtn autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:10];
+        [_prevBtn autoSetDimension:ALDimensionHeight toSize:40];
+        [_prevBtn autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.tableFooter withMultiplier:0.45];
+
+    } else {
+        
+        _showBtn = [UIButton appRectButtonWithTitle:kLangShowOnMap target:self selector:@selector(reloadDirectionsOnMap)];
+        [self.tableFooter addSubview:_showBtn];
+        
+        [_showBtn configureForAutoLayout];
+        [_showBtn autoPinEdgeToSuperviewEdge:ALEdgeRight];
+        [_showBtn autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:10];
+        [_showBtn autoSetDimension:ALDimensionHeight toSize:40];
+        [_showBtn autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.tableFooter withMultiplier:0.8 relation:NSLayoutRelationLessThanOrEqual];
+        [_showBtn autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.tableFooter withMultiplier:0.6 relation:NSLayoutRelationGreaterThanOrEqual];
+    }
+}
+
+#pragma end
+
 - (void) next:(id)sender {
     
     if ( [self.directionsView focusNextRouteSegment] ) {
         
         SectionModel* sm = [self.sectionModelArray objectAtIndex: self.directionsView.focusedRouteSegment ];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationRouteLegSelected
+        
+        if ([sender isKindOfClass:UIButton.class]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationRouteLegSelected
                                                             object:sm
                                                           userInfo:@{ kLegIndex: @(sm.legIndex)
                                                                     , kStepIndex: @(sm.stepIndex)
                                                                     , kRouteSectionAccessibilityLabel: self.directionsView.accessibilityLabelForFocusedRouteSegment ?: @""
                                                                     }];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationShowSelectedLegInList object:sm userInfo:@{ kRouteSectionIndex: @(self.directionsView.focusedRouteSegment), kNotificationSender: self}];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationShowSelectedLegInList object:sm userInfo:@{ kRouteSectionIndex: @(self.directionsView.focusedRouteSegment), kNotificationSender: self}];
+        }
+        
     }
 }
 
@@ -756,7 +809,7 @@
     
     SectionModel *model = nil;
     
-    model = [self.sectionModelArray objectAtIndex:0];
+    model = [self.sectionModelArray objectAtIndex:self.directionsView.focusedRouteSegment];
     
     if (model) {
         [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationRouteLegSelected
@@ -844,10 +897,7 @@
     if (self.origin) {
         
         //Hide the location services unavailable information.
-        self.offlineMsg.hidden = YES;
-        self.offlineMsgDetail.hidden = YES;
-        self.lightningImgView.hidden = YES;
-        self.locationServicesBtn.hidden = YES;
+        [self hideOfflineView:YES];
         
         [self.originButton setTitle:[self getAddressForLocation:self.origin] forState:UIControlStateNormal];
         [self.originButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -886,16 +936,10 @@
         if ( [self.origin.name isEqualToString:kLangMyPosition] && !_isLocationServicesOn && !MapsIndoors.positionProvider.latestPositionResult.geometry ) {
             
             //Hide the location services unavailable information.
-            self.offlineMsg.hidden = NO;
-            self.offlineMsgDetail.hidden = NO;
-            self.lightningImgView.hidden = NO;
-            self.locationServicesBtn.hidden = NO;
+            [self hideOfflineView: NO];
             
         } else {
-            self.offlineMsg.hidden = YES;
-            self.offlineMsgDetail.hidden = YES;
-            self.lightningImgView.hidden = YES;
-            self.locationServicesBtn.hidden = YES;
+            [self hideOfflineView:YES];
         }
         
         if ( MapsIndoors.positionProvider.latestPositionResult.geometry != nil ) {
@@ -910,7 +954,7 @@
                 
                 if ( (myLocation.latitude != currLocation.latitude) || (myLocation.longitude != currLocation.longitude) ) {
                     
-                    MPLocationUpdate* myLocationUpdate = [MPLocationUpdate updateWithLocation:[MPLocation new]];
+                    MPLocationUpdate* myLocationUpdate = [MPLocationUpdate updateWithLocation: [MPLocation new]];
                     myLocationUpdate.name = kLangMyPosition;
                     myLocationUpdate.position = [MapsIndoors.positionProvider.latestPositionResult.geometry getCoordinate];
                     myLocationUpdate.floor = [MapsIndoors.positionProvider.latestPositionResult getFloor].integerValue;
@@ -1019,29 +1063,29 @@
     
     [Tracker trackEvent:kMPEventNameDirectionsExpanded parameters:nil];
     
-    directionsView.focusedRouteSegment = routeSegmentIndex;
-    
-    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) {
-        NSMutableArray* routeImages = [[directionsView imagesForLegActionPoints] mutableCopy];
-        if (![self.typesOfDestinationsNeedingEndPointImage containsObject:self.destination.type]) {
-            [routeImages removeLastObject];
-        }
-        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationRouteLegSelected
-                                                            object:sectionModel
-                                                          userInfo:@{ kLegIndex: @(sectionModel.legIndex)
-                                                                    , kStepIndex: @(sectionModel.stepIndex)
-                                                                    , kRouteSectionImages: routeImages
-                                                                    , kRouteSectionAccessibilityLabel: self.directionsView.accessibilityLabelForFocusedRouteSegment ?: @""
-                                                                    }];
-        
-        
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationShowSelectedLegInList object:sectionModel userInfo:@{ kRouteSectionIndex: @(self.directionsView.focusedRouteSegment)
-                                                                                                                                    , kNotificationSender: self
-                                                                                                                                    , kRouteSectionImages: routeImages
-                                                                                                                                    }];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"openDirectionsOnMap" object:nil];
-    }
+//    directionsView.focusedRouteSegment = routeSegmentIndex;
+//
+//    NSMutableArray* routeImages = [[directionsView imagesForLegActionPoints] mutableCopy];
+//    if (![self.typesOfDestinationsNeedingEndPointImage containsObject:self.destination.type]) {
+//        [routeImages removeLastObject];
+//    }
+//    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationRouteLegSelected
+//                                                        object:sectionModel
+//                                                      userInfo:@{ kLegIndex: @(sectionModel.legIndex)
+//                                                                , kStepIndex: @(sectionModel.stepIndex)
+//                                                                , kRouteSectionImages: routeImages
+//                                                                , kRouteSectionAccessibilityLabel: self.directionsView.accessibilityLabelForFocusedRouteSegment ?: @""
+//                                                                }];
+//
+//
+//
+//    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationShowSelectedLegInList object:sectionModel userInfo:@{ kRouteSectionIndex: @(self.directionsView.focusedRouteSegment)
+//                                                                                                                                , kNotificationSender: self
+//                                                                                                                                , kRouteSectionImages: routeImages
+//                                                                                                                                }];
+//    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) {
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"openDirectionsOnMap" object:nil];
+//    }
 }
 
 - (void)directionsView:(MPDirectionsView *)directionsView didChangeFocusedRouteSegment:(NSUInteger)routeSegmentIndex {

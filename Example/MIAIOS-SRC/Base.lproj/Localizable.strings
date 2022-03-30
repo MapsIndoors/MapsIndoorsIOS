@@ -3,7 +3,7 @@
  MapsIndoorsSDK
  
  Created by Daniel Nielsen on 02/08/16.
- Copyright © 2017 MapsPeople. All rights reserved.
+ Copyright © 2021 MapsPeople. All rights reserved.
  */
 "Level" = "Level";
 "Level %@" = "Level %@";
@@ -106,6 +106,7 @@
 "Enter" = "Enter";
 "Exit" = "Exit";
 "Stairs" = "Stairs";
+"Ladder" = "Ladder";
 "Start" = "Start";
 "End" = "End";
 "Walk" = "Walk";

@@ -17,20 +17,21 @@
 #import <AFNetworking/AFNetworkReachabilityManager.h>
 #import "Tracker.h"
 #import "MPGooglePlacesClient.h"
-#import "MPSVGImageProvider.h"
 #import "NSObject+CustomIntegrations.h"
 #import "AppVariantData.h"
 //#import "SimulatedPeopleLocationSource.h"
 #import "MPUrlSchemeHelper.h"
 #import "AppFlowController.h"
 #import "AppPositionProvider.h"
+#import <AppTrackingTransparency/AppTrackingTransparency.h>
 
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
-@property (nonatomic, strong) CLLocationManager*    locationManager;
-@property (nonatomic) BOOL                          isPositionProviderStoppedWhenInBackground;
-@property (nonatomic) BOOL                          shouldSynchronizeDataOnAppActivation;
+@property (nonatomic, strong) CLLocationManager* locationManager;
+@property (nonatomic) BOOL isPositionProviderStoppedWhenInBackground;
+@property (nonatomic) BOOL shouldSynchronizeDataOnAppActivation;
+@property (nonatomic) BOOL hasConfiguredTracking;
 
 @end
 
@@ -43,10 +44,8 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+    _hasConfiguredTracking = NO;
     self.isPositionProviderStoppedWhenInBackground = NO;
-    
-    MapsIndoors.imageProvider =  [MPSVGImageProvider new];
     
     [self applyCustomIntegrations];
     
@@ -55,10 +54,6 @@
     [GMSServices provideAPIKey:[Global getPropertyFromPlist:@"GoogleAPIKey"]];
     [MPGooglePlacesClient provideAPIKey:[Global getPropertyFromPlist:@"GoogleAPIKey"]];
     
-    NSString*   googleServiceInfoPlist = [[NSBundle mainBundle] pathForResource:@"GoogleService-Info" ofType:@"plist"];
-    Tracker.disabled = [[NSFileManager defaultManager] fileExistsAtPath:googleServiceInfoPlist] == NO;
-    [Tracker setup];
-
     if ( overrideLanguage ) {
         LocalizationSetLanguage( overrideLanguage );
     } else {
@@ -95,22 +90,38 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-
     [MapsIndoors.positionProvider updateLocationPermissionStatus];
 
     if (self.isPositionProviderStoppedWhenInBackground) {
         [MapsIndoors.positionProvider startPositioning:nil];
     }
 
-    if ( self.shouldSynchronizeDataOnAppActivation ) {
-
+    if ( self.shouldSynchronizeDataOnAppActivation && self.delayedMapsIndoorsInit == NO ) {
         [MapsIndoors synchronizeContent:^(NSError *error) {
             // Additional tasks and error handling/reporting could be done here.
         }];
-
     } else {
-
         self.shouldSynchronizeDataOnAppActivation = YES;
+    }
+    
+    [self requestTrackingAuthorization];
+}
+
+- (void)requestTrackingAuthorization {
+    if (@available(ios 14, *)) {
+        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+            if (_hasConfiguredTracking == NO) {
+                _hasConfiguredTracking = YES;
+                if (status == ATTrackingManagerAuthorizationStatusAuthorized) {
+                    NSString* googleServiceInfoPlist = [[NSBundle mainBundle] pathForResource:@"GoogleService-Info" ofType:@"plist"];
+                    Tracker.disabled = [[NSFileManager defaultManager] fileExistsAtPath:googleServiceInfoPlist] == NO;
+                    [Tracker setup];
+                    MapsIndoors.eventLoggingDisabled = NO;
+                } else {
+                    MapsIndoors.eventLoggingDisabled = YES;
+                }
+            }
+        }];
     }
 }
 

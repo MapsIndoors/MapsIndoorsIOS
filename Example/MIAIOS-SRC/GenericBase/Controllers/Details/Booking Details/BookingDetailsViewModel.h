@@ -8,13 +8,12 @@
 
 #import <MapsIndoors/MapsIndoors.h>
 
+NS_ASSUME_NONNULL_BEGIN
 
 @class BookingDetailsEntry;
 typedef void (^BookingRefreshCompletion)( NSError* error );
 typedef void (^BookingOperationCompletion)( BookingDetailsEntry* entry, NSError* error );
 
-
-NS_ASSUME_NONNULL_BEGIN
 
 @interface BookingDetailsViewModel : NSObject
 

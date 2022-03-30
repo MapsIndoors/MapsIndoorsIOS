@@ -3,7 +3,7 @@
  MapsIndoorsSDK
 
  Created by Daniel Nielsen on 02/08/16.
- Copyright © 2017 MapsPeople. All rights reserved.
+ Copyright © 2021 MapsPeople. All rights reserved.
  */
 "Level" = "Stockwerk";
 "Level %@" = "Stockwerk %@";
@@ -119,6 +119,7 @@
 "Turn slight right" = "Biegen Sie leicht rechts ab";
 "Turn around" = "Drehen Sie um";
 "Continue straight ahead" = "Fahren Sie geradeaus weiter";
+"Park" = "Parken";
 
 // Transit sources
 "Website" = "Webseite";

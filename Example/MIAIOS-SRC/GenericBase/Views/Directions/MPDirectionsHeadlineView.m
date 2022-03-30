@@ -9,6 +9,9 @@
 #import "MPDirectionsHeadlineView.h"
 #import "MPDirectionsViewHeadlineModel.h"
 #import "UIImageView+MPCachingImageLoader.h"
+
+#define kMPHeadlineViewImageSize 21
+
 @import VCMaterialDesignIcons;
 
 
@@ -183,7 +186,7 @@
             if ( textSize.width == 0 ) {
                 directionsDetailLabelRect.origin.x += 8;
             }
-            directionsDetailLabelRect.size.width = availableWidth - directionsDetailLabelRect.origin.x;
+            directionsDetailLabelRect.size.width = availableWidth - directionsDetailLabelRect.origin.x - 100;
             
             CGFloat dy = directionsLabelRect.size.height * 0.66;
             directionsLabelRect.origin.y -= dy;
@@ -264,7 +267,8 @@
     self.directionsDetailLabel.textColor = model.detailTextColor ?: [UIColor darkGrayColor];
     
     if ( model.imageUrl ) {
-        [self.imageView mp_setImageWithURL:model.imageUrl];
+        CGSize imageSize = CGSizeMake(kMPHeadlineViewImageSize, kMPHeadlineViewImageSize);
+        [self.imageView mp_setImageWithURL:model.imageUrl size:imageSize];
         
     } else if ( model.materialDesignIconCode ) {
         VCMaterialDesignIcons* icon = [VCMaterialDesignIcons iconWithCode:model.materialDesignIconCode fontSize:18];

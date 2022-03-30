@@ -36,6 +36,8 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem*   appInfoBarButtonItem;
 
+@property (strong, nonatomic, readonly) UIBarButtonItem* emptyBarButtonItem;
+
 @property (nonatomic, strong) UIBarButtonItem*          appSettings;
 @property (nonatomic) BOOL                              showAppSettings;
 
@@ -150,6 +152,10 @@
     [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (UIBarButtonItem *)emptyBarButtonItem {
+    return [[UIBarButtonItem alloc] initWithImage:[[UIImage alloc] init] style:UIBarButtonItemStylePlain target:nil action:nil];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
@@ -160,7 +166,7 @@
 
     NSString* headerImageUrl = [Global.appData.venueImages objectForKey:Global.venue.venueKey];
     if (headerImageUrl != nil) {
-        [self.headerImageView mp_setImageWithURL:headerImageUrl placeholderImageName:[headerImageUrl lastPathComponent]];
+        [self.headerImageView mp_setImageWithURL:headerImageUrl size:self.headerImageView.bounds.size placeholderImageName:[headerImageUrl lastPathComponent]];
     }
     
     if ( self.venueCount < 0 ) {
@@ -171,7 +177,14 @@
                     self.venueCount = venueCollection.venues.count;
                     
                     if ( self.venueCount == 1 ) {
+                        
+                        self.navigationItem.leftBarButtonItem = self.emptyBarButtonItem;
+                        
                         [self configureAppForVenue:venueCollection.venues.firstObject];
+                    } else {
+                        
+                        self.navigationItem.leftBarButtonItem = self.venueButtonItem;
+                        
                     }
                 });
             }
@@ -182,7 +195,6 @@
 
     [self.tableView reloadData];
 }
-
 
 #pragma mark - Segues
 
@@ -245,7 +257,7 @@
     
     cell.textLabel.text = [self categoryForKey:object.categoryKey].value;
     cell.textLabel.textColor = [UIColor appPrimaryTextColor];
-    [cell.imageView mp_setImageWithURL: object.iconUrl placeholderImageName:@"placeholder"];
+    [cell.imageView mp_setImageWithURL: object.iconUrl size:MPMapControl.mapIconSize placeholderImageName:@"placeholder"];
 
     cell.accessibilityHint = kLangShowCategoryAccHint;
     
@@ -289,7 +301,7 @@
     
     NSString* headerImageUrl = [Global.appData.venueImages objectForKey:Global.venue.venueKey];
     if (headerImageUrl != nil) {
-        [self.headerImageView mp_setImageWithURL:headerImageUrl];
+        [self.headerImageView mp_setImageWithURL:headerImageUrl size:self.headerImageView.bounds.size];
     }
     if (MapsIndoors.positionProvider.latestPositionResult == nil) {
         MapsIndoors.positionProvider.latestPositionResult = [[MPPositionResult alloc] init];
@@ -339,7 +351,6 @@
 }
 
 - (void) configureUiForCurrentVenue {
-
     [_appDataProvider getAppDataWithCompletion:^(MPAppData *appData, NSError *error) {
 
         [self->_spinner stopAnimating];
@@ -357,7 +368,7 @@
 
             NSString* headerImageUrl = [Global.appData.venueImages objectForKey:Global.venue.venueKey];
             if (headerImageUrl != nil) {
-                [self.headerImageView mp_setImageWithURL:headerImageUrl];
+                [self.headerImageView mp_setImageWithURL:headerImageUrl size:self.headerImageView.bounds.size];
             }
 
             self->_objects = [NSMutableArray array];  // Start out with a clean array, so we dont double up on menuitems.
@@ -366,11 +377,26 @@
                 MPMenuItem* menuItem = [[MPMenuItem alloc] initWithDictionary:item error:&err];
 
                 if (err == nil) {
-                    [self->_objects addObject:menuItem];
+                    
+                    MPQuery* q = MPQuery.new;
+                    MPFilter* f = MPFilter.new;
+                    if (menuItem.categoryKey) {
+                        f.categories = @[menuItem.categoryKey];
+                    }
+                    if (Global.venue.venueId) {
+                        f.parents = @[Global.venue.venueId];
+                    }
+                    f.depth = 4;
+                    [MPLocationService.sharedInstance getLocationsUsingQuery:q filter:f completionHandler:^(NSArray<MPLocation *> * _Nullable locations, NSError * _Nullable error) {
+                        if (error == nil && locations.count > 0) {
+                            [self->_objects addObject:menuItem];
+                            [self.tableView reloadData];
+                        }
+                    }];
+
                 }
             }
 
-            [self.tableView reloadData];
         }
     }];
 }

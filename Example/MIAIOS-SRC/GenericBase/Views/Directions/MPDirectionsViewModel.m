@@ -72,7 +72,7 @@
         
         NSString*   addressForLocation = [Global getAddressForLocation:location];
 
-        if ( location.venue ) {
+        if ( location.venue.length > 0 ) {
             NSDictionary*   venueData = [MPVenueProvider getDataFromPoint:location.geometry];
             MPVenue*        venue     = [venueData objectForKey:@"venue"];
             MPBuilding*     building  = [venueData objectForKey:@"building"];
@@ -134,7 +134,7 @@
                 if (sectionModel.travelMode == WALK && (prevSectionModel.travelMode == DRIVE || prevSectionModel.travelMode == BIKE)) {
                     text = sectionModel.leg.start_location.label;
                 }
-                else if ( [@[@"steps", @"elevator"] indexOfObject: currentStep.highway] != NSNotFound ) {
+                else if ( [@[MPHighwayTypeStairs, MPHighwayTypeElevator] indexOfObject: currentStep.highway] != NSNotFound ) {
                     NSString*   fmt = NSLocalizedString(@"Level %@ to %@",);
                     text = [NSString stringWithFormat:fmt, currentStep.start_location.floor_name, currentStep.end_location.floor_name];
                 }
@@ -189,9 +189,12 @@
                     text = NSLocalizedString(@"Park",);
                 }
                 else if ( currentStep.highway.length ) {
-                    if ( [currentStep.highway isEqualToString:@"steps"] ) {
+                    if ( [currentStep.highway isEqualToString:MPHighwayTypeStairs] ) {
                         text = NSLocalizedString(@"Stairs",);
-                    } else {    // "elevator", ...
+                    } else if ([currentStep.highway isEqualToString:MPHighwayTypeLadder]) {
+                        text = NSLocalizedString(@"Ladder",);
+                    }
+                    else {    // "elevator", ...
                         text = [currentStep.highway localizedCapitalizedString];
                     }
                 }
@@ -245,10 +248,10 @@
             
             MPRouteStep*    firstStep   = [currentLeg.steps firstObject];
 
-            if ( [firstStep.highway isEqualToString:@"steps"] ) {
+            if ( [firstStep.highway isEqualToString:MPHighwayTypeStairs] ) {
                 imageName = @"stairs64";
                 
-            } else if ( [firstStep.highway isEqualToString:@"elevator"] ) {
+            } else if ( [firstStep.highway isEqualToString:MPHighwayTypeElevator] ) {
                 imageName = @"lift64";
             }
         }
