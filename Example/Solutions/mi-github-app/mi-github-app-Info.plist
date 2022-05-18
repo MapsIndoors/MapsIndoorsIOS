@@ -100,6 +100,6 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
 	<key>NSUserTrackingUsageDescription</key>
-	<string>This application requires tracking.</string>
+	<string>The app collects anonymous statistics about usage and crash information.</string>
 </dict>
 </plist>
