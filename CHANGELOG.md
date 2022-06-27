@@ -30,7 +30,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 ### Fixed
 
-- We fixed an issue where it was not possible to get a route from an external location to a MapsIndoors Location if all entries are restricted by user roles. 
+- We fixed an issue where it was not possible to get a route from an external location to a MapsIndoors Location if all entries are restricted by user roles.
 
 ### Changed
 
