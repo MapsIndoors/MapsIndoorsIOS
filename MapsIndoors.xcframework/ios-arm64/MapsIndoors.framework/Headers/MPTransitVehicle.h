@@ -6,12 +6,12 @@
 //  Copyright  Daniel-Nielsen. All rights reserved.
 //
 
-#import "MPJSONModel.h"
+@import JSONModel;
 
 /**
  Transit vehicle information.
  */
-@interface MPTransitVehicle : MPJSONModel
+@interface MPTransitVehicle : JSONModel
 
 /**
  Name contains the name of the vehicle on this line. eg. "Subway."

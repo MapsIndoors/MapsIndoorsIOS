@@ -6,7 +6,7 @@
 //  Copyright (c) 2017 MapsPeople A/S. All rights reserved.
 //
 
-#import "MPJSONModel.h"
+@import JSONModel;
 #import "MPFloor.h"
 #import "MPGeometry.h"
 #import "MPPoint.h"
@@ -35,7 +35,7 @@
 /**
  Holds relevant data for a single building, and the buildings floor levels.
  */
-@interface MPBuilding : MPJSONModel
+@interface MPBuilding : JSONModel
 /**
  Holds the current floor.
  */

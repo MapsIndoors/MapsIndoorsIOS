@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 MapsPeople A/S. All rights reserved.
 //
 
-#import "MPJSONModel.h"
+@import JSONModel;
 
 /**
  Map style used by MapsPeoples services. The map style refers to a graphical layout of the building floor plans.
  */
-@interface MPMapStyle : MPJSONModel
+@interface MPMapStyle : JSONModel
 
 
 /**

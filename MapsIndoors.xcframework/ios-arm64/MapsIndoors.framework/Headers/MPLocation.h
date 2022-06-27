@@ -25,7 +25,7 @@
 #import "MPLocationProperty.h"
 #import "NSDictionary+MPLocationPropertiesDictionary.h"
 #import "MPLocationField.h"
-#import "MPJSONModel.h"
+@import JSONModel;
 #import "MPLocationBaseType.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import "MPLiveUpdate.h"
@@ -37,7 +37,7 @@
 /**
  This class holds the data for a single location and a marker to display the data on a map.
  */
-@interface MPLocation : MPJSONModel
+@interface MPLocation : JSONModel
 /**
  Location constructor.
  @param  point The geographic point.

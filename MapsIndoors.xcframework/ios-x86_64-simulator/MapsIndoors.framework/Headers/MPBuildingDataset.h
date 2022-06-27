@@ -6,13 +6,13 @@
 //  Copyright (c) 2017 MapsPeople A/S. All rights reserved.
 //
 
-#import "MPJSONModel.h"
+@import JSONModel;
 #import "MPBuilding.h"
 
 /**
  Collection of buildings with some retrieval and calculation functionality.
  */
-@interface MPBuildingDataset : MPJSONModel
+@interface MPBuildingDataset : JSONModel
 /**
  The type of data (equals "FeatureCollection").
  */

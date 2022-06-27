@@ -6,14 +6,14 @@
 //  Copyright  Daniel-Nielsen. All rights reserved.
 //
 
-#import "MPJSONModel.h"
+@import JSONModel;
 #import "MPRouteCoordinate.h"
 
 
 /**
  Transit stop information.
  */
-@interface MPTransitStop : MPJSONModel
+@interface MPTransitStop : JSONModel
 
 /**
  The name of the transit station/stop. eg. "Union Square".
