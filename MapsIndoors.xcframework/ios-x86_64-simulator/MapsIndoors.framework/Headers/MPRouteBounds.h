@@ -6,13 +6,13 @@
 //  Copyright © 2015 MapsPeople A/S. All rights reserved.
 //
 
-#import "MPJSONModel.h"
+@import JSONModel;
 #import "MPRouteCoordinate.h"
 
 /**
  Route bounds model
  */
-@interface MPRouteBounds : MPJSONModel
+@interface MPRouteBounds : JSONModel
 
 /**
  North east corner coordinate.

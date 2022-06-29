@@ -6,10 +6,10 @@
 //  Copyright  Daniel Nielsen. All rights reserved.
 //
 
-#import "MPJSONModel.h"
+@import JSONModel;
 #import <UIKit/UIKit.h>
 
-@interface MPMessage : MPJSONModel
+@interface MPMessage : JSONModel
 
 @property (nonatomic, strong, nullable) NSString* messageId;
 @property (nonatomic, strong, nullable) NSString<Optional>* beaconId;

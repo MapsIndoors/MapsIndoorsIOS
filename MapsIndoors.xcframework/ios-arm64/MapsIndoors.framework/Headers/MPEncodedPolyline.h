@@ -5,9 +5,9 @@
 //  Created by Daniel Nielsen on 07/07/14.
 //  Copyright (c) 2014 MapsPeople A/S. All rights reserved.
 //
-#import "MPJSONModel.h"
+@import JSONModel;
 
-@interface MPEncodedPolyline : MPJSONModel
+@interface MPEncodedPolyline : JSONModel
 
 @property (nonatomic, strong, nullable) NSString* points;
 

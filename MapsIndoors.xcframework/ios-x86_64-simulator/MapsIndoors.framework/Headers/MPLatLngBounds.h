@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "MPLatLng.h"
-#import "MPJSONModel.h"
+@import JSONModel;
 
-@interface MPLatLngBounds : MPJSONModel
+@interface MPLatLngBounds : JSONModel
 
 @property (nonatomic, strong, nullable) MPLatLng* southWest;
 @property (nonatomic, strong, nullable) MPLatLng* northEast;

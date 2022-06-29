@@ -6,14 +6,14 @@
 //  Copyright (c) 2017 MapsPeople A/S. All rights reserved.
 //
 
-#import "MPJSONModel.h"
+@import JSONModel;
 #import "MPMenuItem.h"
 
 
 /** 
    Provides the contextual information needed for setting up a map with specific MapsPeople site data
  */
-@interface MPAppData : MPJSONModel
+@interface MPAppData : JSONModel
 /**
  Ruleset that defines how and when to show the different map markers
  */

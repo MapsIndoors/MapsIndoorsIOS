@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 MapsPeople A/S. All rights reserved.
 //
 
-#import "MPJSONModel.h"
+@import JSONModel;
 
 /**
  Route property model
  */
-@interface MPRouteProperty : MPJSONModel
+@interface MPRouteProperty : JSONModel
 
 /**
  Route property description.

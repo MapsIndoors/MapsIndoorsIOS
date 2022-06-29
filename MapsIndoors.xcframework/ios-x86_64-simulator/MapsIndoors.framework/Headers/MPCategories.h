@@ -6,11 +6,11 @@
 //  Copyright  Daniel Nielsen. All rights reserved.
 //
 
-#import "MPJSONModel.h"
+@import JSONModel;
 #import "MPDataField.h"
 
 
-@interface MPCategories : MPJSONModel
+@interface MPCategories : JSONModel
 
 @property (nonatomic, strong, nullable) NSArray<MPDataField*><MPDataField>* list;
 

@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "MPPoint.h"
-#import "MPJSONModel.h"
+@import JSONModel;
 
 
 @protocol MPBeacon
 @end
 
 
-@interface MPBeacon : MPJSONModel
+@interface MPBeacon : JSONModel
 
 @property (nonatomic, strong, nullable) NSString* beaconId;
 @property (nonatomic, strong, nullable) NSNumber* maxTxPower;

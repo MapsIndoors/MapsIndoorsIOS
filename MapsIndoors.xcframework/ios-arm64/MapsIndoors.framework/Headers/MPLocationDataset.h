@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Dataset that holds locations, searched results and a filter.
  */
-@interface MPLocationDataset : MPJSONModel
+@interface MPLocationDataset : JSONModel
 
 - (instancetype)initWithLocations:(NSArray<MPLocation*>*) locations;
 

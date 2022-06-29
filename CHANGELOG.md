@@ -18,6 +18,24 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.40.0] 2022-06-27
+
+### __*Note: Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issues/7155) it is necessary to include the post_install hook in your Podfile described in the [PodFile post_install](https://github.com/MapsIndoors/MapsIndoorsIOS/wiki/Podfile-post_install) wiki*__
+
+### Added
+
+- We added forwarding of the missing Google Map View Delegate methods. Now all delegate methods are supported.
+- We added the possibility to use Google API keys that are restricted to an iOS app, as Google recommends.
+- We added support for any HighwayType in `avoidWayTypes` so it is possible to avoid e.g. elevators specifically.
+
+### Fixed
+
+- We fixed an issue where it was not possible to get a route from an external location to a MapsIndoors Location if all entries are restricted by user roles.
+
+### Changed
+
+- The SDK now queries the MapsIndoors backend to determine which cache endpoint will respond the fastest to future queries from the SDK. This will be done once per app launch.
+
 ## [3.39.0] 2022-03-31
 
 ### __*Note: Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issues/7155) it is necessary to include the post_install hook in your Podfile described in the [PodFile post_install](https://github.com/MapsIndoors/MapsIndoorsIOS/wiki/Podfile-post_install) wiki*__

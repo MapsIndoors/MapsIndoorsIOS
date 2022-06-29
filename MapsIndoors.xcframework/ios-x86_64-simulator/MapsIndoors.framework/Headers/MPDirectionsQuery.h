@@ -48,7 +48,7 @@ typedef NS_ENUM(NSUInteger, MPTravelMode) {
 -(nonnull instancetype) initWithOriginPoint:(nonnull MPPoint*)origin destination:(nonnull MPPoint*)destination;
 
 /**
- Way types that should be avoided when calculating routes. Currently supports `"stairs"` and `"escalator"`.
+ Way types that should be avoided when calculating routes. Supports any MPHighwayType.
  */
 @property (nonatomic, strong, nullable) NSArray<MPHighwayType>* avoidWayTypes;
 /**

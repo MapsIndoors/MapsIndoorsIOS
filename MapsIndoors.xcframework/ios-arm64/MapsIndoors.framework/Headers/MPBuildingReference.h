@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MPJSONModel.h"
+@import JSONModel;
 
-@interface MPBuildingReference : MPJSONModel
+@interface MPBuildingReference : JSONModel
 
 @property (nonatomic, strong, nullable) NSString* refId;
 

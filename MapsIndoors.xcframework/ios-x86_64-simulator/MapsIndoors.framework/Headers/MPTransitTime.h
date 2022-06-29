@@ -6,13 +6,13 @@
 //  Copyright  Daniel-Nielsen. All rights reserved.
 //
 
-#import "MPJSONModel.h"
+@import JSONModel;
 
 
 /**
  Transit time information.
  */
-@interface MPTransitTime : MPJSONModel
+@interface MPTransitTime : JSONModel
 
 /**
  The time specified as a string. The time is displayed in the time zone of the transit stop.

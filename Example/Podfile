@@ -12,6 +12,7 @@ def miaios_deps
   pod 'Firebase/Analytics'
   pod 'Firebase/Crashlytics'
   pod 'HashBuilder', '~> 1.0'
+  pod 'JSONModel', '~> 1.8'
   pod 'KVOController', '~> 1.2.0'
   pod 'MapsIndoors', :path => '../'
   pod 'PureLayout', '~> 3.0.2'

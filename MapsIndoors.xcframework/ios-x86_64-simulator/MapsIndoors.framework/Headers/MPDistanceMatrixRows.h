@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h> 
-#import "MPJSONModel.h"
+@import JSONModel;
 #import "MPDistanceMatrixElements.h"
 
 
@@ -7,6 +7,6 @@
 @end
 
 
-@interface MPDistanceMatrixRows : MPJSONModel
+@interface MPDistanceMatrixRows : JSONModel
 	@property (nonatomic, strong, nullable) NSArray<MPDistanceMatrixElements*><MPDistanceMatrixElements>* elements;
 @end

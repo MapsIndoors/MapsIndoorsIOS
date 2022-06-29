@@ -5,7 +5,7 @@
 //  Created by Daniel Nielsen on 15/12/14.
 //  Copyright (c) 2014 MapsPeople A/S. All rights reserved.
 //
-#import "MPJSONModel.h"
+@import JSONModel;
 
 #define MPLocationFieldName @"name"
 #define MPLocationFieldDescription @"description"
@@ -24,7 +24,7 @@
 
 @end
 
-@interface MPLocationField : MPJSONModel
+@interface MPLocationField : JSONModel
 
 @property (nonatomic, strong, nullable) NSString* type;
 @property (nonatomic, strong, nullable) NSString* text;

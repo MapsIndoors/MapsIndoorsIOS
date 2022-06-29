@@ -6,14 +6,14 @@
 //  Copyright (c) 2014 MapsPeople A/S. All rights reserved.
 //
 
-#import "MPJSONModel.h"
+@import JSONModel;
 #import "MPGeometry.h"
 #import <GoogleMaps/GoogleMaps.h>
 
 /**
  Floor data model. Holds the floor geometry, display name, z-index and id of the building it belongs to.
  */
-@interface MPFloor : MPJSONModel
+@interface MPFloor : JSONModel
 
 /// Floor id
 @property (nonatomic, strong, nonnull, readonly) NSString* floorId;

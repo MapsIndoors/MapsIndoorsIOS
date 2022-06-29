@@ -7,7 +7,7 @@
 //
 #define kDefaultTilesURL "https://mtw-tiles.cloudapp.net/venues/{venueId}/{style}/{buildingId}/{floor}/{z}/{x}/{y}.png"
 
-#import "MPJSONModel.h"
+@import JSONModel;
 #import <GoogleMaps/GoogleMaps.h>
 #import "MPMapStyle.h"
 #import "MPPoint.h"
@@ -28,7 +28,7 @@
 /**
  The venue model holds data about the buildings and floors in a venue, plus additional meta-data.
  */
-@interface MPVenue : MPJSONModel
+@interface MPVenue : JSONModel
 /**
  Solution id
  */

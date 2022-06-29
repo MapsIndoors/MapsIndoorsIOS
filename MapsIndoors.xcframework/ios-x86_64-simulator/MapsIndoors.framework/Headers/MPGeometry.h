@@ -6,12 +6,12 @@
 //
 //
 
-#import "MPJSONModel.h"
+@import JSONModel;
 
 /**
  Basic geometry class holding one or more coordinate sets
  */
-@interface MPGeometry : MPJSONModel
+@interface MPGeometry : JSONModel
 
 /**
  Type of data (equals Geometry)

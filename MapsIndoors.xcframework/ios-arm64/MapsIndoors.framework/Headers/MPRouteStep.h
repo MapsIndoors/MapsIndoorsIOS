@@ -40,7 +40,7 @@ enum MPRouteActionDirection {
     DOWN_DIRECTION = 0
 };
 
-#import "MPJSONModel.h"
+@import JSONModel;
 #import "MPPoint.h"
 #import "MPRouteProperty.h"
 #import "MPRouteCoordinate.h"
@@ -58,7 +58,7 @@ enum MPRouteActionDirection {
 /**
  Route step model. A step is segment on a `MPRouteLeg` (`MPRouteLeg` is a segment on a `MPRoute`). The step contains start and end locations, distance and duration information, as well as navigational instructions.
  */
-@interface MPRouteStep : MPJSONModel
+@interface MPRouteStep : JSONModel
 
 
 /**
