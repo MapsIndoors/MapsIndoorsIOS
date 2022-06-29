@@ -22,6 +22,7 @@ Pod::Spec.new do |s|
 
   s.dependency 'GoogleMaps', '4.2.0'
   s.dependency 'MQTTClient'
+  s.dependency 'JSONModel'
   s.dependency 'SSZipArchive'
 
   s.frameworks = "UserNotifications", "GameplayKit"
