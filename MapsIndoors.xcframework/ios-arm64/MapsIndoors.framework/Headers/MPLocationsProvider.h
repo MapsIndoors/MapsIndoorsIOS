@@ -7,14 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MPDefines.h"
-#import "MPLocationsObserver.h"
-
 
 @class MPLocationDataset;
 @class MPLocationQuery;
 @class MPLocation;
-
 
 typedef void(^mpLocationDetailsHandlerBlockType)(MPLocation* _Nullable location, NSError* _Nullable error);
 typedef void(^mpLocationListHandlerBlockType)(MPLocationDataset* _Nullable locationData, NSError* _Nullable error);

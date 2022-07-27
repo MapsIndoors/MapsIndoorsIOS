@@ -29,10 +29,6 @@
 #import "MPLocationBaseType.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import "MPLiveUpdate.h"
-@class MPLocationDisplayRuleset;
-@class MPLocationDisplayRule;
-
-
 
 /**
  This class holds the data for a single location and a marker to display the data on a map.
