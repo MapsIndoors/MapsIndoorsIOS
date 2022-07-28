@@ -108,9 +108,11 @@ PODS:
   - GoogleUtilities/UserDefaults (7.7.0):
     - GoogleUtilities/Logger
   - HashBuilder (1.0.3)
+  - JSONModel (1.8.0)
   - KVOController (1.2.0)
-  - MapsIndoors (3.39.0-beta6):
+  - MapsIndoors (3.41.0):
     - GoogleMaps (= 4.2.0)
+    - JSONModel
     - MQTTClient
     - SSZipArchive
   - MapsIndoorsUtils (0.1.0-alpha6)
@@ -141,6 +143,7 @@ DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Crashlytics
   - HashBuilder (~> 1.0)
+  - JSONModel (~> 1.8)
   - KVOController (~> 1.2.0)
   - MapsIndoors (from `../`)
   - MapsIndoorsUtils (= 0.1.0-alpha6)
@@ -165,6 +168,7 @@ SPEC REPOS:
     - GoogleMaps
     - GoogleUtilities
     - HashBuilder
+    - JSONModel
     - KVOController
     - MapsIndoorsUtils
     - MQTTClient
@@ -195,8 +199,9 @@ SPEC CHECKSUMS:
   GoogleMaps: eb03e327edfd70b06de1e6e321653f73712df7ad
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   HashBuilder: 158e37d87119eea057e6a57e5ec09bafa002020e
+  JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
-  MapsIndoors: c79b895da172067ed4eb87d542451f18bbeb2dd7
+  MapsIndoors: dd38f3e6ee01c44666cbc87bc66b5e22d11274ed
   MapsIndoorsUtils: 4239f64186e6cdad8ab3628ada692be040ac0df9
   MQTTClient: 0dfa04e789479c2e461786464969895c1fcb0875
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
@@ -206,6 +211,6 @@ SPEC CHECKSUMS:
   SVGKit: 1ad7513f8c74d9652f94ed64ddecda1a23864dea
   VCMaterialDesignIcons: 68a944308ab41282ba8555770cb57e3fbf2034be
 
-PODFILE CHECKSUM: 72bf2d2174d9a5437b78e1c9f4a424cc28a80b96
+PODFILE CHECKSUM: 09ed0d257750ad51e268a8e197059cc4732cac06
 
 COCOAPODS: 1.11.3

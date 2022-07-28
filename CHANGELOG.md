@@ -18,6 +18,18 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.41.0] 2022-07-27
+
+### __*Note: Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issues/7155) it is necessary to include the post_install hook in your Podfile described in the [PodFile post_install](https://github.com/MapsIndoors/MapsIndoorsIOS/wiki/Podfile-post_install) wiki*__
+
+### Added
+
+- We added a new delegate `MPLocationServiceDelegate` with a `locationsReady` callback invoked when the Locations in the current Solution are all loaded and ready to be worked with, e.g. search in them.
+
+### Changed
+
+- The SDK now queries the MapsIndoors backend to determine which cache endpoint will respond the fastest to future queries from the SDK. This will be done once per app launch.
+
 ## [3.40.0] 2022-06-27
 
 ### __*Note: Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issues/7155) it is necessary to include the post_install hook in your Podfile described in the [PodFile post_install](https://github.com/MapsIndoors/MapsIndoorsIOS/wiki/Podfile-post_install) wiki*__
@@ -31,10 +43,6 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Fixed
 
 - We fixed an issue where it was not possible to get a route from an external location to a MapsIndoors Location if all entries are restricted by user roles.
-
-### Changed
-
-- The SDK now queries the MapsIndoors backend to determine which cache endpoint will respond the fastest to future queries from the SDK. This will be done once per app launch.
 
 ## [3.39.0] 2022-03-31
 
@@ -118,13 +126,13 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 - We fixed a rendering issue causing some Live Data badges to show as unintentionally large icons.
 - We fixed an issue causing some icon images to not load and display on the map.
 - We fixed a packaging issue causing some CocoaPods project integrations to not being able to build when using static libraries instead of frameworks in CocoaPods.
-- We fixed an issue in our [Dataset Cache Manager](https://docs.mapsindoors.com/ios/v3/guides/offline/) causing some images to not being properly fetched from cache.
+- We fixed an issue in our [Dataset Cache Manager](https://docs.mapsindoors.com/data/offline-data/offline-ios/) causing some images to not being properly fetched from cache.
 - We fixed a warning about some public header files not being included by the framework umbrella header.
 - We fixed some issues with the `MPRouteStep` [instructions property](https://app.mapsindoors.com/mapsindoors/reference/ios/v3/interface_m_p_route_step.html#aff76e19b8eb2de29490cf4f4ac7e4d15) not properly reflecting the recommended end-user actions.
 
 ### Added
 
-- We added support for Obstacles to our [Directions Service](https://docs.mapsindoors.com/ios/v3/guides/directions/directions-service/). No interface changes are made, but the routing engine will fetch and respect Obstacles created in the MapsIndoors backbone when creating routes.  
+- We added support for Obstacles to our [Directions Service](https://docs.mapsindoors.com/directions/directions-service/directions-service-ios/). No interface changes are made, but the routing engine will fetch and respect Obstacles created in the MapsIndoors backbone when creating routes.  
 
 ### Changed
 
@@ -189,7 +197,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 ### Added
 
-- Added new default renderings of live CO2 levels and humidity. For more information about Live Data, read about the feature in the [Live Data Guide](https://docs.mapsindoors.com/ios/v3/live-data/).
+- Added new default renderings of live CO2 levels and humidity. For more information about Live Data, read about the feature in the [Live Data Guide](https://docs.mapsindoors.com/map/live-data/live-data-intro-ios/).
 
 ### Fixed
 
@@ -205,7 +213,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 ### Added
 
-- Added new default renderings of Temperature and Count Domains. For more information about Live Data, read about the feature in the [Live Data Guide](https://docs.mapsindoors.com/ios/v3/live-data/).
+- Added new default renderings of Temperature and Count Domains. For more information about Live Data, read about the feature in the [Live Data Guide](https://docs.mapsindoors.com/map/live-data/live-data-intro-ios/).
 
 ## [3.23.0] 2021-04-06
 
@@ -217,7 +225,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 ### Changed
 
-- Changed some Location polygon styling defaults. To customize the styling of polygons, see this [guide about map styling](https://docs.mapsindoors.com/ios/v3/map-styling/).
+- Changed some Location polygon styling defaults. To customize the styling of polygons, see this [guide about map styling](https://docs.mapsindoors.com/map/map-styling/map-styling-ios/).
 
 ## [3.22.0] 2021-03-18
 
@@ -288,7 +296,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 ### Added
 
-- Added convenience methods for enabling Live Data for a `MPMapControl` instance. Methods are `MPMapControl.enableLiveData()` (two variants) and `MPMapControl.disableLiveData()`. For more information, read about this feature in the [Live Data Guide](https://docs.mapsindoors.com/ios/v3/live-data/).
+- Added convenience methods for enabling Live Data for a `MPMapControl` instance. Methods are `MPMapControl.enableLiveData()` (two variants) and `MPMapControl.disableLiveData()`. For more information, read about this feature in the [Live Data Guide](https://docs.mapsindoors.com/map/live-data/live-data-intro-ios/).
 - Added default rendering of Live Data when using the above interface.
 - Added optional method `updateLiveDataInfo` to `MPLiveDataManager`. This makes it possible to fetch updated information about active Live Data Domain Types in the current dataset.
 - Added optional method `didUpdateLiveDataInfo` to `MPLiveDataManagerDelegate`. This makes it possible to receive updated information about active Live Data Domain Types in the current dataset.
@@ -315,13 +323,13 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 ### Added
 
-- Support for Booking of Locations through a MapsIndoors Google Calendar Booking Provider, see [guide about booking](https://docs.mapsindoors.com/ios/v3/booking/).
+- Support for Booking of Locations through a MapsIndoors Google Calendar Booking Provider, see [guide about booking](https://docs.mapsindoors.com/data/booking/booking-ios/).
 
 ## [3.14.0] 2020-11-11
 
 ### Added
 
-- Support for global App User Roles setting, `MapsIndoors.userRoles`, see [introduction to App User Roles here](https://docs.mapsindoors.com/ios/v3/app-user-roles/).
+- Support for global App User Roles setting, `MapsIndoors.userRoles`, see [introduction to App User Roles here](https://docs.mapsindoors.com/map/displaying-objects/app-user-roles/).
 
 ### Fixed
 
@@ -339,7 +347,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 ### Added
 
-- Support for Rendering of Polygons through Display Rules, see [updated guide about map styling](https://docs.mapsindoors.com/ios/v3/map-styling/).
+- Support for Rendering of Polygons through Display Rules, see [updated guide about map styling](https://docs.mapsindoors.com/map/map-styling/map-styling-ios/).
 
 ### Fixed
 
@@ -355,7 +363,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 ### Added
 
-- Support for Live Data added. For more information, read about this feature in the [Live Data Guide](https://docs.mapsindoors.com/ios/v3/live-data/).
+- Support for Live Data added. For more information, read about this feature in the [Live Data Guide](https://docs.mapsindoors.com/map/live-data/live-data-intro-ios/).
 
 ## [3.11.1] 2020-09-28
 
@@ -440,7 +448,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 ### Added
 
-- Support for caching offline data for multiple datasets. See `MapsIndoors.dataSetCacheManager` and [https://docs.mapsindoors.com/ios/v3/offline/](https://docs.mapsindoors.com/ios/v3/offline/) for more details.
+- Support for caching offline data for multiple datasets. See `MapsIndoors.dataSetCacheManager` and [https://docs.mapsindoors.com/data/offline-data/offline-ios/)](https://docs.mapsindoors.com/data/offline-data/offline-ios/)) for more details.
 
 ### Changed
 

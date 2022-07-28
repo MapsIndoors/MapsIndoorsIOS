@@ -124,6 +124,7 @@
 #import <MapsIndoors/MPTransitVehicle.h>
 
 #import <MapsIndoors/MPLocationService.h>
+#import <MapsIndoors/MPLocationServiceDelegate.h>
 #import <MapsIndoors/MPQuery.h>
 #import <MapsIndoors/MPFilter.h>
 

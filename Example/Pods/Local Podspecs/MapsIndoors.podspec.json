@@ -1,6 +1,6 @@
 {
   "name": "MapsIndoors",
-  "version": "3.39.0-beta6",
+  "version": "3.41.0",
   "summary": "Library making the MapsIndoors experience available to your iOS users.",
   "description": "The MapsIndoors SDK is the idea of integrating everything at your venue, like people, goods, offices, shops, rooms and buildings with the mapping, positioning and wayfinding technologies provided in the MapsIndoors platform. We make the MapsIndoors platform available to interested businesses and/or partners. So if you think you should be one of them, please call us or send us an email. Meanwhile, you are most welcome to check out the demo project using 'pod try MapsIndoors'.",
   "homepage": "https://mapspeople.com/developers",
@@ -17,16 +17,16 @@
     "MapsPeople": "info@mapspeople.com"
   },
   "source": {
-    "http": "https://github.com/MapsIndoors/MapsIndoorsIOS/releases/download/3.39.0-beta6/MapsIndoors.xcframework.zip"
-  },
-  "xcconfig": {
-    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 i386"
+    "http": "https://github.com/MapsIndoors/MapsIndoorsIOS/releases/download/3.41.0/MapsIndoors.xcframework.zip"
   },
   "dependencies": {
     "GoogleMaps": [
       "4.2.0"
     ],
     "MQTTClient": [
+
+    ],
+    "JSONModel": [
 
     ],
     "SSZipArchive": [
