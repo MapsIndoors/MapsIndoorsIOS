@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    
     var currentAuthorizationFlow: OIDExternalUserAgentSession?
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         GMSServices.provideAPIKey(AppDelegate.gApiKey)
         MapsIndoors.provideAPIKey(AppDelegate.mApiKey, googleAPIKey: AppDelegate.gApiKey)
@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ app: UIApplication,
                      open url: URL,
-                     options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+                     options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
       // Sends the URL to the current authorization flow (if any) which will
       // process it if it relates to an authorization response.
       if let authorizationFlow = self.currentAuthorizationFlow,

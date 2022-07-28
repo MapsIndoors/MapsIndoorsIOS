@@ -73,7 +73,7 @@ class DatasetManagerController : UITableViewController {
     
     //This cleanup is only needed in this demo
     override func viewWillDisappear(_ animated: Bool) {
-        if self.isMovingFromParentViewController {
+        if self.isMovingFromParent {
             MapsIndoors.provideAPIKey(AppDelegate.mApiKey, googleAPIKey: AppDelegate.gApiKey)
         }
     }

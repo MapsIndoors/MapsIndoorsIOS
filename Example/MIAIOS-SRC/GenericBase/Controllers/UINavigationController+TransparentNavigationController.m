@@ -54,7 +54,7 @@
     
     if (@available(iOS 13.0, *)) {
         UINavigationBarAppearance* appearence = [[UINavigationBarAppearance alloc] init];
-        appearence.configureWithOpaqueBackground;
+        [appearence configureWithOpaqueBackground];
         appearence.backgroundColor = [UIColor appPrimaryColor];
         [appearence setTitleTextAttributes:
                 @{NSForegroundColorAttributeName:[UIColor whiteColor]}];

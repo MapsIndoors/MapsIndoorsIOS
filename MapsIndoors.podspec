@@ -18,8 +18,6 @@ Pod::Spec.new do |s|
   s.author           = { "MapsPeople" => "info@mapspeople.com" }
   s.source           = { http: "https://github.com/MapsIndoors/MapsIndoorsIOS/releases/download/#{s.version.to_s}/MapsIndoors.xcframework.zip" }
 
-  s.xcconfig = { "EXCLUDED_ARCHS[sdk=iphonesimulator*]" => "arm64 i386" }
-
   s.dependency 'GoogleMaps', '4.2.0'
   s.dependency 'MQTTClient'
   s.dependency 'JSONModel'
