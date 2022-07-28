@@ -5,21 +5,7 @@
 import MapsIndoors_Private
 import Swift
 import _Concurrency
-@objc @_inheritsConvenienceInitializers @objcMembers public class MPDisplayRuleManager : ObjectiveC.NSObject {
-  @objc public static let sharedInstance: MapsIndoors.MPDisplayRuleManager
-  @objc public var defaultDisplayRule: MapsIndoors.MPLocationDisplayRule? {
-    @objc get
-    @objc set
-  }
-  @objc public func getDisplayRuleFor(location: MapsIndoors.MPLocation) -> MapsIndoors.MPLocationDisplayRule?
-  @objc public func getDisplayRuleForTypeName(_ name: Swift.String?) -> MapsIndoors.MPLocationDisplayRule?
-  @objc public func getEffectiveDisplayRuleFor(location: MapsIndoors.MPLocation) -> MapsIndoors.MPLocationDisplayRule?
-  @objc public func removeDisplayRuleForTypeName(_ name: Swift.String?) -> MapsIndoors.MPLocationDisplayRule?
-  @objc public func resetDisplayRuleForLocation(_ location: MapsIndoors.MPLocation) -> MapsIndoors.MPLocationDisplayRule?
-  @objc public func resolveDisplayRuleForLocation(_ location: MapsIndoors.MPLocation) -> MapsIndoors.MPLocationDisplayRule
-  @objc public func setDisplayRule(_ displayRule: MapsIndoors.MPLocationDisplayRule, forLocation location: MapsIndoors.MPLocation) -> Swift.Bool
-  @objc public func setDisplayRule(_ displayRule: MapsIndoors.MPLocationDisplayRule, forLocationId locationId: Swift.String) -> Swift.Bool
-  @objc public func setDisplayRule(_ displayRule: MapsIndoors.MPLocationDisplayRule, forTypeName name: Swift.String?)
+@_inheritsConvenienceInitializers @objc public class MPDisplayRuleManager : ObjectiveC.NSObject {
   @objc override dynamic public init()
   @objc deinit
 }

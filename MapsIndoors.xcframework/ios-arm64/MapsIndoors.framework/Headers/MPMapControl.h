@@ -289,7 +289,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
   @param rule displayrule to add.
   @since 3.7.0
  */
-- (void) setDisplayRule:(nonnull MPLocationDisplayRule*)rule;
+- (void) setDisplayRule:(nullable MPLocationDisplayRule*)rule;
 
 /**
  Add multiple location display rules.
@@ -307,7 +307,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
  @param location MPLocation that the displayrule should apply to.
  @since 3.7.0
  */
-- (void) setDisplayRule:(nonnull MPLocationDisplayRule*)rule forLocation:(nonnull MPLocation*)location;
+- (void) setDisplayRule:(nonnull MPLocationDisplayRule*)rule forLocation:(nullable MPLocation*)location;
 
 /**
  Add a location display rule for multiple MPLocations.

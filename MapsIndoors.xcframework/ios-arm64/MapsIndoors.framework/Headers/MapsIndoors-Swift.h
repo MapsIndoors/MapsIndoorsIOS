@@ -213,24 +213,9 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
-@class MPLocationDisplayRule;
-@class MPLocation;
-@class NSString;
 
 SWIFT_CLASS("_TtC11MapsIndoors20MPDisplayRuleManager")
 @interface MPDisplayRuleManager : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MPDisplayRuleManager * _Nonnull sharedInstance;)
-+ (MPDisplayRuleManager * _Nonnull)sharedInstance SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, strong) MPLocationDisplayRule * _Nullable defaultDisplayRule;
-- (MPLocationDisplayRule * _Nullable)getDisplayRuleForLocation:(MPLocation * _Nonnull)location SWIFT_WARN_UNUSED_RESULT;
-- (MPLocationDisplayRule * _Nullable)getDisplayRuleForTypeName:(NSString * _Nullable)name SWIFT_WARN_UNUSED_RESULT;
-- (MPLocationDisplayRule * _Nullable)getEffectiveDisplayRuleForLocation:(MPLocation * _Nonnull)location SWIFT_WARN_UNUSED_RESULT;
-- (MPLocationDisplayRule * _Nullable)removeDisplayRuleForTypeName:(NSString * _Nullable)name SWIFT_WARN_UNUSED_RESULT;
-- (MPLocationDisplayRule * _Nullable)resetDisplayRuleForLocation:(MPLocation * _Nonnull)location SWIFT_WARN_UNUSED_RESULT;
-- (MPLocationDisplayRule * _Nonnull)resolveDisplayRuleForLocation:(MPLocation * _Nonnull)location SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)setDisplayRule:(MPLocationDisplayRule * _Nonnull)displayRule forLocation:(MPLocation * _Nonnull)location SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)setDisplayRule:(MPLocationDisplayRule * _Nonnull)displayRule forLocationId:(NSString * _Nonnull)locationId SWIFT_WARN_UNUSED_RESULT;
-- (void)setDisplayRule:(MPLocationDisplayRule * _Nonnull)displayRule forTypeName:(NSString * _Nullable)name;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
