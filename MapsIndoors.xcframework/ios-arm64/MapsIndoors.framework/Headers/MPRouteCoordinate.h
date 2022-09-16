@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 MapsPeople A/S. All rights reserved.
 //
 
-@import JSONModel;
+#import "JSONModel.h"
 
 /**
  Route coordinate model

@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 MapsPeople A/S. All rights reserved.
 //
 
-@import JSONModel;
+#import "JSONModel.h"
 #import "MPLocationDisplayRule.h"
 #import "MPLocationField.h"
 

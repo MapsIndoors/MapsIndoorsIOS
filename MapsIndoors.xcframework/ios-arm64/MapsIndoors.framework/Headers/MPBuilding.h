@@ -6,7 +6,7 @@
 //  Copyright (c) 2017 MapsPeople A/S. All rights reserved.
 //
 
-@import JSONModel;
+#import "JSONModel.h"
 #import "MPFloor.h"
 #import "MPGeometry.h"
 #import "MPPoint.h"

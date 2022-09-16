@@ -7,7 +7,7 @@
 //
 #define kDefaultTilesURL "https://mtw-tiles.cloudapp.net/venues/{venueId}/{style}/{buildingId}/{floor}/{z}/{x}/{y}.png"
 
-@import JSONModel;
+#import "JSONModel.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import "MPMapStyle.h"
 #import "MPPoint.h"

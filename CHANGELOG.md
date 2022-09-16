@@ -25,6 +25,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Added
 
 - We added a new delegate `MPLocationServiceDelegate` with a `locationsReady` callback invoked when the Locations in the current Solution are all loaded and ready to be worked with, e.g. search in them.
+- We added a new `locationSourceStatus` property to `MPLocationService` that can be checked to see if Locations in the current Solution are all loaded and ready to be worked with, e.g. search in them. This is an alternative to using the `MPLocationServiceDelegate.locationsReady` delegate callback.
 
 ### Changed
 

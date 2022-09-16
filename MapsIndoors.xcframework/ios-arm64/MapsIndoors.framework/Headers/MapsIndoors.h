@@ -151,3 +151,4 @@
 #import <MapsIndoors/MPAuthDetails.h>
 #import <MapsIndoors/MPAuthClientInfo.h>
 #import <MapsIndoors/MPMapsIndoorsDelegate.h>
+#import <MapsIndoors/MPType.h>

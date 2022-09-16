@@ -6,9 +6,9 @@
 //  Copyright © 2018 MapsPeople A/S. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "MapsIndoors/MPLocationDisplayRule.h"
-@import JSONModel;
+
+NS_ASSUME_NONNULL_BEGIN
 
 @protocol MPLocationDisplayRuleDelegate;
 
@@ -39,4 +39,19 @@
 
 - (BOOL)shouldShowPolygonAtZoom:(CGFloat)zLevel;
 
+#pragma mark - 2D Model support
+
+@property (nonatomic, strong, nullable) NSNumber* model2DBearing;
+@property (nonatomic, strong, nullable) NSNumber* model2DHeightMeters;
+@property (nonatomic, strong, nullable) UIImage* model2DImage;
+@property (nonatomic, strong, nullable) NSString* model2DModelUrl;
+@property (nonatomic, assign) BOOL model2DVisible;
+@property (nonatomic, strong, nullable) NSNumber* model2DWidthMeters;
+@property (nonatomic, strong, nullable) NSNumber* model2DZoomFrom;
+@property (nonatomic, strong, nullable) NSNumber* model2DZoomTo;
+
+- (BOOL)shouldShow2DModelAtZoom:(float)zoomLevel;
+
 @end
+
+NS_ASSUME_NONNULL_END

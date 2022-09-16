@@ -6,7 +6,7 @@
 //
 //
 
-@import JSONModel;
+#import "JSONModel.h"
 
 /**
  Basic geometry class holding one or more coordinate sets

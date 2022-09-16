@@ -40,7 +40,7 @@ enum MPRouteActionDirection {
     DOWN_DIRECTION = 0
 };
 
-@import JSONModel;
+#import "JSONModel.h"
 #import "MPPoint.h"
 #import "MPRouteProperty.h"
 #import "MPRouteCoordinate.h"

@@ -6,7 +6,7 @@
 //  Copyright  Daniel-Nielsen. All rights reserved.
 //
 
-@import JSONModel;
+#import "JSONModel.h"
 #import "MPRouteCoordinate.h"
 
 
