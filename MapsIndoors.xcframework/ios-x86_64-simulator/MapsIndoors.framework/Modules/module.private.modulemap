@@ -1,0 +1,7 @@
+framework module MapsIndoors_Private {
+    header "MPLocation+Private.h"
+    header "MPLocationDisplayRule+Private.h"
+    header "MPLocationDisplayRuleset.h"
+
+    export *
+}
