@@ -176,17 +176,11 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/MQTTClient/MQTTClient.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MapsIndoorsUtils/MapsIndoorsUtils.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MapsIndoors/MapsIndoors.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/MQTTClient/MQTTClient.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MapsIndoorsUtils/MapsIndoorsUtils.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MapsIndoors/MapsIndoors.framework"
