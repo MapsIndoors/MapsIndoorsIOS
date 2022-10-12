@@ -6,9 +6,6 @@ PODS:
   - AppAuth/Core (1.5.0)
   - AppAuth/ExternalUserAgent (1.5.0):
     - AppAuth/Core
-  - CocoaLumberjack (3.7.4):
-    - CocoaLumberjack/Core (= 3.7.4)
-  - CocoaLumberjack/Core (3.7.4)
   - DZNEmptyDataSet (1.8.1)
   - Firebase/Analytics (8.14.0):
     - Firebase/Core
@@ -108,22 +105,10 @@ PODS:
   - GoogleUtilities/UserDefaults (7.7.0):
     - GoogleUtilities/Logger
   - HashBuilder (1.0.3)
-  - JSONModel (1.8.0)
   - KVOController (1.2.0)
-  - MapsIndoors (3.41.0):
+  - MapsIndoors (3.42.0):
     - GoogleMaps (= 4.2.0)
-    - JSONModel
-    - MQTTClient
-    - SSZipArchive
   - MapsIndoorsUtils (0.1.0-alpha6)
-  - MQTTClient (0.15.3):
-    - MQTTClient/Core (= 0.15.3)
-  - MQTTClient/Core (0.15.3):
-    - MQTTClient/Manager
-    - MQTTClient/Min
-  - MQTTClient/Manager (0.15.3):
-    - MQTTClient/Min
-  - MQTTClient/Min (0.15.3)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
     - nanopb/encode (= 2.30908.0)
@@ -131,31 +116,25 @@ PODS:
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.0.0)
   - PureLayout (3.0.2)
-  - SSZipArchive (2.4.3)
-  - SVGKit (3.0.0):
-    - CocoaLumberjack (~> 3.0)
   - VCMaterialDesignIcons (2.1.1)
 
 DEPENDENCIES:
   - AFNetworking/Reachability (~> 2.6)
-  - AppAuth
+  - AppAuth (~> 1.5.0)
   - DZNEmptyDataSet (~> 1.8.1)
-  - Firebase/Analytics
-  - Firebase/Crashlytics
+  - Firebase/Analytics (~> 8.12)
+  - Firebase/Crashlytics (~> 8.12)
   - HashBuilder (~> 1.0)
-  - JSONModel (~> 1.8)
   - KVOController (~> 1.2.0)
   - MapsIndoors (from `../`)
   - MapsIndoorsUtils (= 0.1.0-alpha6)
   - PureLayout (~> 3.0.2)
-  - SVGKit
   - VCMaterialDesignIcons (~> 2.1)
 
 SPEC REPOS:
   trunk:
     - AFNetworking
     - AppAuth
-    - CocoaLumberjack
     - DZNEmptyDataSet
     - Firebase
     - FirebaseAnalytics
@@ -168,15 +147,11 @@ SPEC REPOS:
     - GoogleMaps
     - GoogleUtilities
     - HashBuilder
-    - JSONModel
     - KVOController
     - MapsIndoorsUtils
-    - MQTTClient
     - nanopb
     - PromisesObjC
     - PureLayout
-    - SSZipArchive
-    - SVGKit
     - VCMaterialDesignIcons
 
 EXTERNAL SOURCES:
@@ -186,7 +161,6 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: 8dd5f9b9691e09186393069a12cc3b5ed7c8b511
   AppAuth: 80317d99ac7ff2801a2f18ff86b48cd315ed465d
-  CocoaLumberjack: 543c79c114dadc3b1aba95641d8738b06b05b646
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Firebase: 7e8fe528c161b9271d365217a74c16aaf834578e
   FirebaseAnalytics: 2fc3876e2eb347673ad2f35e249ae7b15d6c88f5
@@ -199,18 +173,14 @@ SPEC CHECKSUMS:
   GoogleMaps: eb03e327edfd70b06de1e6e321653f73712df7ad
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   HashBuilder: 158e37d87119eea057e6a57e5ec09bafa002020e
-  JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
-  MapsIndoors: dd38f3e6ee01c44666cbc87bc66b5e22d11274ed
+  MapsIndoors: dfff4735c71d018147b231e23b21234407f851b2
   MapsIndoorsUtils: 4239f64186e6cdad8ab3628ada692be040ac0df9
-  MQTTClient: 0dfa04e789479c2e461786464969895c1fcb0875
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
-  SSZipArchive: fe6a26b2a54d5a0890f2567b5cc6de5caa600aef
-  SVGKit: 1ad7513f8c74d9652f94ed64ddecda1a23864dea
   VCMaterialDesignIcons: 68a944308ab41282ba8555770cb57e3fbf2034be
 
-PODFILE CHECKSUM: 09ed0d257750ad51e268a8e197059cc4732cac06
+PODFILE CHECKSUM: 552e821d3f5a5fc9733b4b6877ee4f1f57faf55c
 
 COCOAPODS: 1.11.3
