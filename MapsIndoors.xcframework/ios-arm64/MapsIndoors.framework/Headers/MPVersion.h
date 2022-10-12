@@ -9,7 +9,7 @@
 #ifndef MPVersion_h
 #define MPVersion_h
 
-#import "MPVersionConstants.h"
+#import <Foundation/Foundation.h>
 
 @interface MPSDKVersion : NSObject
 

@@ -1,4 +1,5 @@
 framework module MapsIndoors_Private {
+    header "MPFileCache.h"
     header "MPLocation+Private.h"
     header "MPLocationDisplayRule+Private.h"
     header "MPLocationDisplayRuleset.h"

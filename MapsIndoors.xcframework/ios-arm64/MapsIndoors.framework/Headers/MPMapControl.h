@@ -424,9 +424,14 @@ Once the location-specific display rules are removed, the MPLocations will be di
 @property (readonly) NSRange        zIndexRangeForMapsIndoorsOverlays;
 
 /**
- zIndex range reserved for polygon overlays managed by the MapsIndoors.
+ zIndex range reserved for polygon overlays managed by MapsIndoors.
  */
 @property (readonly) NSRange        zIndexRangeForPolygonOverlays;
+
+/**
+ zIndex range reserved for 2D Model overlays managed by MapsIndoors.
+ */
+@property (readonly) NSRange zIndexRangeFor2DModelOverlays;
 
 /**
  zIndex of the user location marker (aka "the blue dot").

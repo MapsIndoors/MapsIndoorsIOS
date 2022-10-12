@@ -4,6 +4,7 @@
 @_exported import MapsIndoors
 import MapsIndoors_Private
 import Swift
+import UIKit
 import _Concurrency
 @_inheritsConvenienceInitializers @objc public class MPDisplayRuleManager : ObjectiveC.NSObject {
   @objc override dynamic public init()
