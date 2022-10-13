@@ -18,9 +18,13 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
-## [3.42.0] 2022-10-10
+## [3.42.0] 2022-10-13
 
-### __*Note: Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issues/7155) it is necessary to include the post_install hook in your Podfile described in the [PodFile post_install](https://github.com/MapsIndoors/MapsIndoorsIOS/wiki/Podfile-post_install) wiki*__
+__*Note: Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issues/7155) it is necessary to include the post_install hook in your Podfile described in the [PodFile post_install](https://github.com/MapsIndoors/MapsIndoorsIOS/wiki/Podfile-post_install) wiki*__
+
+### iOS Version Support
+
+Please note that support for iOS 10 in MapsIndoors SDK v3 will soon end. The minimum supported version going forward will be iOS 11.
 
 ### Added
 
@@ -33,11 +37,11 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 ### Changed
 
-- The XCFramework no longer has dependencies on any other 3rd party libraries than Google Maps making it much easier to integrate MapsIndoors in your project. This also applies to the Cocoapod version, although dependencies are managed by Cocoapods.  
+- The XCFramework no longer has dependencies on any other 3rd party libraries than Google Maps making it much easier to integrate MapsIndoors in your project. This also applies to the Cocoapod version, although dependencies are managed by Cocoapods.
 
 ## [3.41.0] 2022-07-27
 
-### __*Note: Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issues/7155) it is necessary to include the post_install hook in your Podfile described in the [PodFile post_install](https://github.com/MapsIndoors/MapsIndoorsIOS/wiki/Podfile-post_install) wiki*__
+__*Note: Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issues/7155) it is necessary to include the post_install hook in your Podfile described in the [PodFile post_install](https://github.com/MapsIndoors/MapsIndoorsIOS/wiki/Podfile-post_install) wiki*__
 
 ### Added
 
@@ -50,7 +54,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 ## [3.40.0] 2022-06-27
 
-### __*Note: Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issues/7155) it is necessary to include the post_install hook in your Podfile described in the [PodFile post_install](https://github.com/MapsIndoors/MapsIndoorsIOS/wiki/Podfile-post_install) wiki*__
+__*Note: Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issues/7155) it is necessary to include the post_install hook in your Podfile described in the [PodFile post_install](https://github.com/MapsIndoors/MapsIndoorsIOS/wiki/Podfile-post_install) wiki*__
 
 ### Added
 
@@ -64,7 +68,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 ## [3.39.0] 2022-03-31
 
-### __*Note: Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issues/7155) it is necessary to include the post_install hook in your Podfile described in the [PodFile post_install](https://github.com/MapsIndoors/MapsIndoorsIOS/wiki/Podfile-post_install) wiki*__
+__*Note: Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issues/7155) it is necessary to include the post_install hook in your Podfile described in the [PodFile post_install](https://github.com/MapsIndoors/MapsIndoorsIOS/wiki/Podfile-post_install) wiki*__
 
 ### Added
 
