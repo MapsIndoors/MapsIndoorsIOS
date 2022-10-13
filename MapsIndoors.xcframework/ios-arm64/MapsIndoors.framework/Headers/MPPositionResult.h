@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MPPoint.h"
-@import JSONModel;
+#import "JSONModel.h"
 
 
 /**

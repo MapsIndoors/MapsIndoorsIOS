@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MPLatLng.h"
-@import JSONModel;
+#import "JSONModel.h"
 
 @interface MPLatLngBounds : JSONModel
 

@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)setDisplayRule:(MPLocationDisplayRule*)rule forLocation:(MPLocation*)location;
 - (BOOL)setDisplayRule:(MPLocationDisplayRule*)rule forLocationId:(NSString*)name;
 - (void)setDisplayRule:(MPLocationDisplayRule*)rule forTypeName:(NSString*)name;
+- (nullable UIImage*)model2DImageForURL:(NSString*)model2DURL maxSize:(CGFloat)size completion:(void(^)(UIImage* _Nullable ))image;
 
 @end
 

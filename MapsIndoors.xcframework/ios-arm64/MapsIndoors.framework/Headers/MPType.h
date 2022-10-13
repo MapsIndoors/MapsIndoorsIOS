@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 MapsPeople A/S. All rights reserved.
 //
 
-@import JSONModel;
+#import "JSONModel.h"
 #import "MPLocationDisplayRule.h"
 #import "MPLocationField.h"
 
@@ -29,7 +29,7 @@ Location Type translated name. May be nil if not defined in the CMS.
 /**
 Location Type icon.
 */
-@property (nonatomic, strong, nullable) NSString* icon DEPRECATED_MSG_ATTRIBUTE("Use MPType.displayRule.iconPath");
+@property (nonatomic, strong, nullable) NSString<Optional>* icon DEPRECATED_MSG_ATTRIBUTE("Use MPType.displayRule.iconPath");
 /**
 Get the Display Rule assigned to this Location Type.
 */

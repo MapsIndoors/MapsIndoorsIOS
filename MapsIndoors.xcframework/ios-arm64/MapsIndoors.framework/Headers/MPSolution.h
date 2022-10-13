@@ -6,14 +6,11 @@
 //  Copyright (c) 2015 MapsPeople A/S. All rights reserved.
 //
 
-@import JSONModel;
-#import "MPType.h"
+#import "JSONModel.h"
 
-/**
- Type protocol specification
- */
-@protocol MPType
-@end
+@class MPType;
+@protocol MPType;
+
 /**
  The solution model holds data about the buildings and floors in a solution, plus additional meta-data.
  */

@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h> 
-@import JSONModel;
+#import "JSONModel.h"
 #import "MPDistanceMatrixElements.h"
 
 

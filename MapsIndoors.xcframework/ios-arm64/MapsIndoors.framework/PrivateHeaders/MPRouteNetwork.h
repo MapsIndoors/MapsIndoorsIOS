@@ -6,7 +6,6 @@
 //  Copyright © 2017 MapsPeople A/S. All rights reserved.
 //
 
-@import JSONModel;
 #import <CoreLocation/CoreLocation.h>
 #import "MPLocationCoordinate3D.h"
 

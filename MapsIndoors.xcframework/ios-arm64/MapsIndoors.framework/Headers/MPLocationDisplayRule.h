@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-@import JSONModel;
+#import "JSONModel.h"
 #import "MPLocation.h"
 
 
@@ -198,5 +198,14 @@
  */
 @property (nonatomic, strong, nullable) UIColor*    polygonFillColor;
 
+#pragma mark - 2D Model support
+
+@property (nonatomic, strong, nullable, readonly) NSNumber* model2DBearing;
+@property (nonatomic, strong, nullable, readonly) NSNumber* model2DHeightMeters;
+@property (nonatomic, strong, nullable, readonly) NSString* model2DModel;
+@property (nonatomic, assign, readonly) BOOL model2DVisible;
+@property (nonatomic, strong, nullable, readonly) NSNumber* model2DWidthMeters;
+@property (nonatomic, strong, nullable, readonly) NSNumber* model2DZoomFrom;
+@property (nonatomic, strong, nullable, readonly) NSNumber* model2DZoomTo;
 
 @end

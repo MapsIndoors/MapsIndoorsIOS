@@ -18,13 +18,35 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [3.42.0] 2022-10-13
+
+__*Note: Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issues/7155) it is necessary to include the post_install hook in your Podfile described in the [PodFile post_install](https://github.com/MapsIndoors/MapsIndoorsIOS/wiki/Podfile-post_install) wiki*__
+
+### iOS Version Support
+
+Please note that support for iOS 10 in MapsIndoors SDK v3 will soon end. The minimum supported version going forward will be iOS 11.
+
+### Added
+
+- Support for 2D Models on Locations.
+- The SDK version number is now included in the XCFramework in the Info.plist for each architecture.
+
+### Fixed
+
+- Fixed a bug that would potentially exclude certain topics from being subscribed to via the LiveDataManager.
+
+### Changed
+
+- The XCFramework no longer has dependencies on any other 3rd party libraries than Google Maps making it much easier to integrate MapsIndoors in your project. This also applies to the Cocoapod version, although dependencies are managed by Cocoapods.
+
 ## [3.41.0] 2022-07-27
 
-### __*Note: Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issues/7155) it is necessary to include the post_install hook in your Podfile described in the [PodFile post_install](https://github.com/MapsIndoors/MapsIndoorsIOS/wiki/Podfile-post_install) wiki*__
+__*Note: Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issues/7155) it is necessary to include the post_install hook in your Podfile described in the [PodFile post_install](https://github.com/MapsIndoors/MapsIndoorsIOS/wiki/Podfile-post_install) wiki*__
 
 ### Added
 
 - We added a new delegate `MPLocationServiceDelegate` with a `locationsReady` callback invoked when the Locations in the current Solution are all loaded and ready to be worked with, e.g. search in them.
+- We added a new `locationSourceStatus` property to `MPLocationService` that can be checked to see if Locations in the current Solution are all loaded and ready to be worked with, e.g. search in them. This is an alternative to using the `MPLocationServiceDelegate.locationsReady` delegate callback.
 
 ### Changed
 
@@ -32,7 +54,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 ## [3.40.0] 2022-06-27
 
-### __*Note: Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issues/7155) it is necessary to include the post_install hook in your Podfile described in the [PodFile post_install](https://github.com/MapsIndoors/MapsIndoorsIOS/wiki/Podfile-post_install) wiki*__
+__*Note: Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issues/7155) it is necessary to include the post_install hook in your Podfile described in the [PodFile post_install](https://github.com/MapsIndoors/MapsIndoorsIOS/wiki/Podfile-post_install) wiki*__
 
 ### Added
 
@@ -46,7 +68,7 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 ## [3.39.0] 2022-03-31
 
-### __*Note: Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issues/7155) it is necessary to include the post_install hook in your Podfile described in the [PodFile post_install](https://github.com/MapsIndoors/MapsIndoorsIOS/wiki/Podfile-post_install) wiki*__
+__*Note: Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issues/7155) it is necessary to include the post_install hook in your Podfile described in the [PodFile post_install](https://github.com/MapsIndoors/MapsIndoorsIOS/wiki/Podfile-post_install) wiki*__
 
 ### Added
 

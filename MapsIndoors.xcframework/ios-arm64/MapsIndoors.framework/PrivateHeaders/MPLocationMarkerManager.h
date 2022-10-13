@@ -49,6 +49,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void) configureLocation:(MPLocation*)location forDisplayRule:(MPLocationDisplayRule*)displayRule;
 
+- (BOOL)shouldLocation:(MPLocation*)location show2DModelAtZoomLevel:(CGFloat)zoomLevel floor:(int)floor;
+- (void)updateLocation2DModelForLocation:(MPLocation*)location floor:(int)floor map:(GMSMapView*)map;
+
 @end
 
 NS_ASSUME_NONNULL_END

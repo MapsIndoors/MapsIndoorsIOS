@@ -25,7 +25,7 @@
 #import "MPLocationProperty.h"
 #import "NSDictionary+MPLocationPropertiesDictionary.h"
 #import "MPLocationField.h"
-@import JSONModel;
+#import "JSONModel.h"
 #import "MPLocationBaseType.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import "MPLiveUpdate.h"

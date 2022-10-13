@@ -6,8 +6,7 @@
 //  Copyright (c) 2017 MapsPeople A/S. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-@import JSONModel;
+#import "MapsIndoors/JSONModel.h"
 
 @class MPLocationDisplayRule;
 

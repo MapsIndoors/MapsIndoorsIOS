@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
  Return the cached data for item or nil if no data has been cached.
  @param item item identifier.
 */
-- (NSData*) cachedDataForItem:(NSString*)item;
+- (nullable NSData*)cachedDataForItem:(NSString*)item;
 
 /**
  Return the cache key for caching 'item'
