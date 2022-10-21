@@ -9,7 +9,20 @@
 #ifndef SwiftPrivate_h
 #define SwiftPrivate_h
 
+#import <UIKit/UIImage.h>
 #import <MapsIndoors/MapsIndoors-Swift.h>
+
+#pragma mark - Forward declarations
+
+@class MPLocation;
+@class MPLocationDisplayRule;
+
+@protocol MPSubscriptionClientDelegate;
+@protocol MPSubscriptionTopic;
+
+typedef NS_ENUM(NSInteger, MPSubscriptionState);
+
+#pragma mark - Interface extensions
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,6 +39,19 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)setDisplayRule:(MPLocationDisplayRule*)rule forLocationId:(NSString*)name;
 - (void)setDisplayRule:(MPLocationDisplayRule*)rule forTypeName:(NSString*)name;
 - (nullable UIImage*)model2DImageForURL:(NSString*)model2DURL maxSize:(CGFloat)size completion:(void(^)(UIImage* _Nullable ))image;
+
+@end
+
+@interface MPMQTTSubscriptionClientSwift ()
+
+@property (nonatomic, weak) id<MPSubscriptionClientDelegate> delegate;
+@property (nonatomic) MPSubscriptionState state;
+
+- (instancetype)initWithHost:(NSString*)host;
+- (void)connect:(BOOL)cleanSessionFlag;
+- (void)disconnect;
+- (void)subscribe:(id<MPSubscriptionTopic>)topic;
+- (void)unsubscribe:(id<MPSubscriptionTopic>)topic;
 
 @end
 

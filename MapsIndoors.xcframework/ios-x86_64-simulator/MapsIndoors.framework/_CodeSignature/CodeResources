@@ -4,6 +4,492 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>CocoaMQTT/.gitignore</key>
+		<data>
+		TRanOIQLlLebMox6F5emfXx9YwE=
+		</data>
+		<key>CocoaMQTT/.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata</key>
+		<data>
+		hCQ4SPVLDFmD4e0m3vtB0mLOE1Q=
+		</data>
+		<key>CocoaMQTT/.travis.yml</key>
+		<data>
+		50E2edjVG2inCGJEsCH/td25YY0=
+		</data>
+		<key>CocoaMQTT/Cartfile</key>
+		<data>
+		rcg7GeeTSRscbqD9i0bNnzLlkvw=
+		</data>
+		<key>CocoaMQTT/CocoaMQTT.podspec</key>
+		<data>
+		vhk0OV6gb0V3Xvr476GNcrRpGXA=
+		</data>
+		<key>CocoaMQTT/CocoaMQTT.xcodeproj/Example.xcworkspace/contents.xcworkspacedata</key>
+		<data>
+		WgH948O5WB6VKbyZl/reuHsv1+Q=
+		</data>
+		<key>CocoaMQTT/CocoaMQTT.xcodeproj/project.pbxproj</key>
+		<data>
+		yPkUBtD9ocLLlpxTqjn31YS5lhQ=
+		</data>
+		<key>CocoaMQTT/CocoaMQTT.xcodeproj/project.xcworkspace/contents.xcworkspacedata</key>
+		<data>
+		vIwymU2fRPxfjiKkw426od4zpR4=
+		</data>
+		<key>CocoaMQTT/CocoaMQTT.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist</key>
+		<data>
+		31/nObizq2nPGjKoiBxIoWYuA0A=
+		</data>
+		<key>CocoaMQTT/CocoaMQTT.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings</key>
+		<data>
+		VSfa7yjTLBBzwTMaJECXpPpnYOc=
+		</data>
+		<key>CocoaMQTT/CocoaMQTT.xcodeproj/xcshareddata/xcschemes/Mac Framework.xcscheme</key>
+		<data>
+		4Zk1pt5GdulwRqbP8G8/gaTeajk=
+		</data>
+		<key>CocoaMQTT/CocoaMQTT.xcodeproj/xcshareddata/xcschemes/iOS Framework.xcscheme</key>
+		<data>
+		aL62ZUg1mu3Cl9ISg1P7cEULzkE=
+		</data>
+		<key>CocoaMQTT/CocoaMQTT.xcodeproj/xcshareddata/xcschemes/tvOS Framework.xcscheme</key>
+		<data>
+		XHIogL+bo//Se83lWJd6PcJcbIw=
+		</data>
+		<key>CocoaMQTT/CocoaMQTTTests/CocoaMQTTDeliverTests.swift</key>
+		<data>
+		wozSbaf5Q5aeStKzV9FvLcjmz0M=
+		</data>
+		<key>CocoaMQTT/CocoaMQTTTests/CocoaMQTTStorageTests.swift</key>
+		<data>
+		TPelGfijKIsAFiI5Eg9URg8LbP8=
+		</data>
+		<key>CocoaMQTT/CocoaMQTTTests/CocoaMQTTTests.swift</key>
+		<data>
+		gTv7s1mcA4/3tVx1rGi+mmYXTk0=
+		</data>
+		<key>CocoaMQTT/CocoaMQTTTests/FrameTests.swift</key>
+		<data>
+		C/5vIuiagCbdf7y3mEfUSjtp3v4=
+		</data>
+		<key>CocoaMQTT/CocoaMQTTTests/Info.plist</key>
+		<data>
+		QjmYTOCbbsmeZI2UDESmRbGsz2E=
+		</data>
+		<key>CocoaMQTT/CocoaMQTTTests/client-keycert.p12</key>
+		<data>
+		LnBeyHRnvG+8OKm5eCpPW/0OYB4=
+		</data>
+		<key>CocoaMQTT/Example/Example.xcodeproj/project.pbxproj</key>
+		<data>
+		dLcNSF4/Wm50RSPjCP20Zwz+Pl0=
+		</data>
+		<key>CocoaMQTT/Example/Example.xcodeproj/project.xcworkspace/contents.xcworkspacedata</key>
+		<data>
+		evGnDMw66jKARqzFExlAGdxMERo=
+		</data>
+		<key>CocoaMQTT/Example/Example.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist</key>
+		<data>
+		31/nObizq2nPGjKoiBxIoWYuA0A=
+		</data>
+		<key>CocoaMQTT/Example/Example/AppDelegate.swift</key>
+		<data>
+		nuCQyRYcp3a9bjPJ59QC/kQLn+Q=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/AppIcon.appiconset/Contents.json</key>
+		<data>
+		LSnWu4y1Jw8CviEiiEtudMtyTo0=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Contents.json</key>
+		<data>
+		OsxTSdeF0zGUdTl13dMC26vX4YM=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Double Down Green.imageset/Contents.json</key>
+		<data>
+		khlJPYsFUMEIZPJN75EzdftgIkI=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Double Down Green.imageset/Double Down.png</key>
+		<data>
+		KJuDSF4illd272B79sEuiDfI5wU=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Double Down.imageset/Contents.json</key>
+		<data>
+		yNQoTZ+MUjnngssHoP70MAf7Las=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Double Down.imageset/Double Down-100.png</key>
+		<data>
+		DehS0rsb7OX2wIHserZzBhyDkTw=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Down-green.imageset/Contents.json</key>
+		<data>
+		U6X1LwWRjeKOESwHra94CE5PfLc=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Down-green.imageset/Down-green.png</key>
+		<data>
+		U4kzQUdD9z7aEPv+O+FYXjloNVY=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Down.imageset/Contents.json</key>
+		<data>
+		EWCt71MaM8dDEACS1rFjjPH5HsU=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Down.imageset/Down.png</key>
+		<data>
+		hvonpa3v6RURuvTp1o7krtKAqUc=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Horse.imageset/Contents.json</key>
+		<data>
+		0Weg+yYrXwJqKxXCAyLiwQWNEZE=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Horse.imageset/Horse100.png</key>
+		<data>
+		AS4LJcX1tu8A7FY3oWrI0y/Rd00=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Pig.imageset/Contents.json</key>
+		<data>
+		blEgodw4FUAKhctCAeulWaL4k7M=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Pig.imageset/Pig100.png</key>
+		<data>
+		xz1qem5CnJufvITha/YaVHAGlkM=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Sheep.imageset/Contents.json</key>
+		<data>
+		4vjHS/woWo02aB/IivSf6AU9qTs=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Sheep.imageset/Sheep100.png</key>
+		<data>
+		rGQ1Q7nwuQYCJyJKglXMYahTiUQ=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/animals.imageset/Contents.json</key>
+		<data>
+		3GyEspEhNsMEJ6soPn3ZbfF6aVU=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/animals.imageset/animals.jpg</key>
+		<data>
+		6hqgGBvSoJVKLJ/KTKPoexqaEWw=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/left_message_back.imageset/Contents.json</key>
+		<data>
+		GbUFzBofURakSiFooeUHxV3lSis=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/left_message_back.imageset/chatfrom_bg_normal.png</key>
+		<data>
+		qtGrDlo784NFTIlj9rtQyibnulo=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/other.imageset/Contents.json</key>
+		<data>
+		vUqoIIPyobFeuEh2jx7BlDWYx8w=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/other.imageset/other.jpg</key>
+		<data>
+		45IZKBkLKuZEkDMvCOqXYbP/Soo=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/right_message_back.imageset/Contents.json</key>
+		<data>
+		dX7CiMOHnxvblHnQ+n58K2bjLKA=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/right_message_back.imageset/chatto_bg_normal.png</key>
+		<data>
+		4YyNR9eZ9fSGw2v/j+39RAB8xvU=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/tabHorse.imageset/Contents.json</key>
+		<data>
+		2/nwkrgBF/zActGPkAG5HKtTtJ0=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/tabHorse.imageset/Horse.png</key>
+		<data>
+		SspRICaxxA8tgdhQB3CFRYxj06M=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/tabHorse.imageset/Horse@2x.png</key>
+		<data>
+		7hvkYNEDwyBkiNISTxgl+1yccvE=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/tabHorse.imageset/Horse@3x.png</key>
+		<data>
+		GMtWo9NkY5sZWOrOQDKaAIaJJzY=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/tabPig.imageset/Contents.json</key>
+		<data>
+		B0fUpC9IpNnP8VXrFWGq769jb6o=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/tabPig.imageset/Pig1.png</key>
+		<data>
+		nBLBp0jZw8x3oKmAPp8iGURA7M0=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/tabPig.imageset/Pig1@2x.png</key>
+		<data>
+		YJ5Jl2gmBTzxmRLy6WLQMuGk+j8=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/tabPig.imageset/Pig1@3x.png</key>
+		<data>
+		T9bKEj5AM/OuLQUE1ToYXdIyxdk=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/tabSheep.imageset/Contents.json</key>
+		<data>
+		U0o/0CV22gzPWByb4SHBJaA3iF0=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/tabSheep.imageset/Sheep.png</key>
+		<data>
+		Tx+Grs4tTD70g8rqQs7C8BxHjGE=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/tabSheep.imageset/Sheep@2x.png</key>
+		<data>
+		XRGsO0XbfhMczgunfTR6R60yhq0=
+		</data>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/tabSheep.imageset/Sheep@3x.png</key>
+		<data>
+		qX40i2GToa00td5i9jJAouUStPc=
+		</data>
+		<key>CocoaMQTT/Example/Example/Base.lproj/LaunchScreen.storyboard</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			BFro+31DffKA6e64Pmhcv2acRz4=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Base.lproj/Main.storyboard</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			94JaqtTzUcVh0e6DoLy+FaHg0cI=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>CocoaMQTT/Example/Example/ChatLeftMessageCell.swift</key>
+		<data>
+		GkWTDKmsuVE/veYmTa1YhtWMgOY=
+		</data>
+		<key>CocoaMQTT/Example/Example/ChatMessage.swift</key>
+		<data>
+		/SYPtjzatICq0fK8jgfkQlcHrGI=
+		</data>
+		<key>CocoaMQTT/Example/Example/ChatRightMessageCell.swift</key>
+		<data>
+		3hQaxYcZaPtK6ZlNukWckP8OXiM=
+		</data>
+		<key>CocoaMQTT/Example/Example/ChatViewController.swift</key>
+		<data>
+		Cm2sz2SEnz6rDYxW/GndRw5e8jI=
+		</data>
+		<key>CocoaMQTT/Example/Example/Info.plist</key>
+		<data>
+		CGjjErRoBkRsvhDH2+4/04XlRsk=
+		</data>
+		<key>CocoaMQTT/Example/Example/ViewController.swift</key>
+		<data>
+		fIn1dtE6I3Pu0LfMEU2krCjhua0=
+		</data>
+		<key>CocoaMQTT/Example/Example/client-keycert.p12</key>
+		<data>
+		LnBeyHRnvG+8OKm5eCpPW/0OYB4=
+		</data>
+		<key>CocoaMQTT/Example/Podfile</key>
+		<data>
+		zIJ2RofCF3jH6DExUe15LjghBXo=
+		</data>
+		<key>CocoaMQTT/LICENSE</key>
+		<data>
+		wpJiJIBYvj3cDISmMq/LMXJ11zg=
+		</data>
+		<key>CocoaMQTT/Package.swift</key>
+		<data>
+		vl9A66CSZRY3zCBJS6auxUehY+8=
+		</data>
+		<key>CocoaMQTT/README.md</key>
+		<data>
+		B7/hpmHE3lytQb8qvI45/1QCA6M=
+		</data>
+		<key>CocoaMQTT/Source/CocoaMQTT.h</key>
+		<data>
+		HDA9Xses5tEdaIBd32EH6uL3DdM=
+		</data>
+		<key>CocoaMQTT/Source/CocoaMQTT.swift</key>
+		<data>
+		pMrhN2Lm5PXgRSVeQVYmzvrKC9I=
+		</data>
+		<key>CocoaMQTT/Source/CocoaMQTT5.swift</key>
+		<data>
+		CWYPvNcj4zXhL/lxoM49oSg1hco=
+		</data>
+		<key>CocoaMQTT/Source/CocoaMQTT5Message.swift</key>
+		<data>
+		UQfVObw7HKRRFXdki0cscqBs6pg=
+		</data>
+		<key>CocoaMQTT/Source/CocoaMQTTDeliver.swift</key>
+		<data>
+		a/Myl5nTheK05InFyNPLt951jis=
+		</data>
+		<key>CocoaMQTT/Source/CocoaMQTTLogger.swift</key>
+		<data>
+		X5fJ6fi2rsqiWOH1uKShTl7WUms=
+		</data>
+		<key>CocoaMQTT/Source/CocoaMQTTMessage.swift</key>
+		<data>
+		BgsysC1mwS93zEXqYErYytOAKhk=
+		</data>
+		<key>CocoaMQTT/Source/CocoaMQTTProperty.swift</key>
+		<data>
+		8DuVeWFF3CKV+1iU1PpX5DbzYd0=
+		</data>
+		<key>CocoaMQTT/Source/CocoaMQTTReader.swift</key>
+		<data>
+		wgDBBzt06huyQ1apE7L8wIk2yHk=
+		</data>
+		<key>CocoaMQTT/Source/CocoaMQTTReasonCode.swift</key>
+		<data>
+		7mLN+wSrqKhmZ53VZ/Yx1fb+lpc=
+		</data>
+		<key>CocoaMQTT/Source/CocoaMQTTSocket.swift</key>
+		<data>
+		dwd+gkpVYZ2oFr0ZhXa0hCbF2PA=
+		</data>
+		<key>CocoaMQTT/Source/CocoaMQTTStorage.swift</key>
+		<data>
+		7CbL9Yhe8aitozFhTZMv7pVuJ7M=
+		</data>
+		<key>CocoaMQTT/Source/CocoaMQTTTimer.swift</key>
+		<data>
+		DEBgx1GgNcZ/T+DHelAxbChQay0=
+		</data>
+		<key>CocoaMQTT/Source/CocoaMQTTTypes.swift</key>
+		<data>
+		XVT2gbKx+cbVvckBnG6Ke2XnAUM=
+		</data>
+		<key>CocoaMQTT/Source/CocoaMQTTWebSocket.swift</key>
+		<data>
+		PxyPT6WGRNFv0UQtThX3ynsJWno=
+		</data>
+		<key>CocoaMQTT/Source/Frame.swift</key>
+		<data>
+		H8Lph6pdRIXc5i2695g9H4up64o=
+		</data>
+		<key>CocoaMQTT/Source/FrameAuth.swift</key>
+		<data>
+		X1Lhs+yOk/0DyXRVPb0xYM9jSxI=
+		</data>
+		<key>CocoaMQTT/Source/FrameConnAck.swift</key>
+		<data>
+		/LnQ7z98O01CcSzXbvWTtnDrMjc=
+		</data>
+		<key>CocoaMQTT/Source/FrameConnect.swift</key>
+		<data>
+		fRfTzUw6zpLGYl2QDKl8qH+P80k=
+		</data>
+		<key>CocoaMQTT/Source/FrameDisconnect.swift</key>
+		<data>
+		80cLb3LhQJvrpzOh4ymQlPQp76w=
+		</data>
+		<key>CocoaMQTT/Source/FramePingReq.swift</key>
+		<data>
+		xMfFr6yw5mjXRwPUoMh9yCEoIO8=
+		</data>
+		<key>CocoaMQTT/Source/FramePingResp.swift</key>
+		<data>
+		gnelfcgbpmLdf6EUh10EUZTLKoM=
+		</data>
+		<key>CocoaMQTT/Source/FramePubAck.swift</key>
+		<data>
+		Uj7oUfYddhfNkbj2wBcjeVuneus=
+		</data>
+		<key>CocoaMQTT/Source/FramePubComp.swift</key>
+		<data>
+		J6qmHFTEajITXjAyvSIHt9jVAtU=
+		</data>
+		<key>CocoaMQTT/Source/FramePubRec.swift</key>
+		<data>
+		3+PUoAw3l2OPCtu0/yJs0f6K9Rw=
+		</data>
+		<key>CocoaMQTT/Source/FramePubRel.swift</key>
+		<data>
+		4CNN+bzJfPf4DotEcGIAg0NE9CE=
+		</data>
+		<key>CocoaMQTT/Source/FramePublish.swift</key>
+		<data>
+		QhF3sRmvt7VIDbDu4KiCezzEsLo=
+		</data>
+		<key>CocoaMQTT/Source/FrameSubAck.swift</key>
+		<data>
+		iFb8BWLtIOadQjrqys8FI1U9qYQ=
+		</data>
+		<key>CocoaMQTT/Source/FrameSubscribe.swift</key>
+		<data>
+		wOcWRsw3GT/eEo/elnjjDCYK+jI=
+		</data>
+		<key>CocoaMQTT/Source/FrameUnsubAck.swift</key>
+		<data>
+		FeOLIeV6Q/3zq223Eo+2GzNcHd8=
+		</data>
+		<key>CocoaMQTT/Source/FrameUnsubscribe.swift</key>
+		<data>
+		93wcbAsGG718iUjgQojHuNMMcCw=
+		</data>
+		<key>CocoaMQTT/Source/Info.plist</key>
+		<data>
+		E27iz83QlpPvsY3IGYvKAxaV+oU=
+		</data>
+		<key>CocoaMQTT/Source/MqttAuthProperties.swift</key>
+		<data>
+		eA9TBasZzYa/rrKVdLq44HklV94=
+		</data>
+		<key>CocoaMQTT/Source/MqttConnectProperties.swift</key>
+		<data>
+		5OfmfP0p0zSG0sZoyeJCf0XiQzs=
+		</data>
+		<key>CocoaMQTT/Source/MqttDecodeConnAck.swift</key>
+		<data>
+		/OMtXatjIXljW5XPzWqho3vlFGE=
+		</data>
+		<key>CocoaMQTT/Source/MqttDecodePubAck.swift</key>
+		<data>
+		ZYOFQuz+GljBqB48ffgmk7yVFWU=
+		</data>
+		<key>CocoaMQTT/Source/MqttDecodePubComp.swift</key>
+		<data>
+		3eNKgWRG7/VzaoW5HJ7WJAeGKZY=
+		</data>
+		<key>CocoaMQTT/Source/MqttDecodePubRec.swift</key>
+		<data>
+		LXYIuBQSZe1mfn4oa9oJAOPex9k=
+		</data>
+		<key>CocoaMQTT/Source/MqttDecodePubRel.swift</key>
+		<data>
+		KCYeid2b799OoqQeztQbazL6ZY0=
+		</data>
+		<key>CocoaMQTT/Source/MqttDecodePublish.swift</key>
+		<data>
+		R1iAPgALBIvjoAmFxptDRTTp0y8=
+		</data>
+		<key>CocoaMQTT/Source/MqttDecodeSubAck.swift</key>
+		<data>
+		eWcxQI3CoFpfxBBAWdVbQ45NKRE=
+		</data>
+		<key>CocoaMQTT/Source/MqttDecodeUnsubAck.swift</key>
+		<data>
+		v4HO2aWaVdwVG++xYWxDfgwCRkI=
+		</data>
+		<key>CocoaMQTT/Source/MqttPublishProperties.swift</key>
+		<data>
+		+kpR8U/92sn+P2bpA5czs5YQ4kI=
+		</data>
+		<key>CocoaMQTT/Source/MqttSubscription.swift</key>
+		<data>
+		PIJZO4jN6ZZSNRanngU58Y+nZDY=
+		</data>
+		<key>CocoaMQTT/coveralls.sh</key>
+		<data>
+		jBdyxCr4gSSNa4fNHt2JNOpfIAM=
+		</data>
+		<key>CocoaMQTT/edl-v10</key>
+		<data>
+		2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+		</data>
+		<key>CocoaMQTT/epl-v10</key>
+		<data>
+		dBb7jA2f4v864I2qyQlDGDdsIJI=
+		</data>
 		<key>GoogleMaps.bundle/GMSCacheStorage.momd/Storage.mom</key>
 		<data>
 		6xa+f3YJTyV2uQzd9QC3rRwsluQ=
@@ -1275,7 +1761,7 @@
 		</data>
 		<key>Headers/MPSubscriptionClientDelegate.h</key>
 		<data>
-		DwNQ9FnFa+LYOA4FO4xqyzpPrPA=
+		afD5De2MHO/d4nOYG7rLkxljsDM=
 		</data>
 		<key>Headers/MPSubscriptionState.h</key>
 		<data>
@@ -1347,7 +1833,7 @@
 		</data>
 		<key>Headers/MPVersionConstants.h</key>
 		<data>
-		QzUV+34gQAv1ZEADvOOYUJp7HQU=
+		oCPdw85KJf/mAkTikYe0Fct1iOc=
 		</data>
 		<key>Headers/MPWirelessPositionTopic.h</key>
 		<data>
@@ -1355,7 +1841,7 @@
 		</data>
 		<key>Headers/MapsIndoors-Swift.h</key>
 		<data>
-		XxlLaLzMVTe4CTzOxHvYJ6H5lHA=
+		JJp7ZmfrYNiiY21Yz+CES9Dfsfg=
 		</data>
 		<key>Headers/MapsIndoors.h</key>
 		<data>
@@ -1391,7 +1877,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		ZXJaIc/lZLRG/dHm3HngiwU2D6E=
+		G7Mg27tEHOL05LZrj03upGQmU8U=
 		</data>
 		<key>MapsIndoors.bundle/.gitkeep</key>
 		<data>
@@ -1561,15 +2047,15 @@
 		</data>
 		<key>Modules/MapsIndoors.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		6miitmZhgBdxUXAlz/bpFRXs5NY=
+		SeSh1xQhAwMqgjWCU4ApTsQM8MQ=
 		</data>
 		<key>Modules/MapsIndoors.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		cMiqs4pmYd9KUWWQ5xX3Z6vAalE=
+		8cV/YA5PAD0asRYBfygwvWQ3o4k=
 		</data>
 		<key>Modules/MapsIndoors.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		4EYYFn9AGIT9qgHsK1ElPhTajsM=
+		ZLDrzlcbwWhJhsSpwEYzt0iRaF0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -2121,7 +2607,7 @@
 		</data>
 		<key>PrivateHeaders/SwiftPrivate.h</key>
 		<data>
-		QaJNm0DJfAiE0qSfwIyyiFblWAg=
+		NXLMMeAcN+cKWZ9vTk7eVzh2Czs=
 		</data>
 		<key>PrivateHeaders/UIImage+MPHash.h</key>
 		<data>
@@ -2130,12 +2616,845 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>CocoaMQTT/.gitignore</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			caZ1hSlLYqkRCfmZTbnUtpn2uFfGcBA3LAnyHIPHuGc=
+			</data>
+		</dict>
+		<key>CocoaMQTT/.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			fzsAtcP9tFJC17h+HlxOJdH6gSmhbJQpXsxOjqIjXF8=
+			</data>
+		</dict>
+		<key>CocoaMQTT/.travis.yml</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			S3+Lvtbc8DqwRjj1naXaE92aNYeUwqaZhPzDTZvpakY=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Cartfile</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			AbpHGcgLb+kRsJGnwFEktk7uzpZOCcBY74+YBdrKVGs=
+			</data>
+		</dict>
+		<key>CocoaMQTT/CocoaMQTT.podspec</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			2DGZycpY13BMFiTFrCLsrmkLXBzkTnWOSDhuP8cBBlA=
+			</data>
+		</dict>
+		<key>CocoaMQTT/CocoaMQTT.xcodeproj/Example.xcworkspace/contents.xcworkspacedata</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			TGbSdTCHut2ebE5tIJKSa4cwSaCmJzT3r6vUgQCYXrU=
+			</data>
+		</dict>
+		<key>CocoaMQTT/CocoaMQTT.xcodeproj/project.pbxproj</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			rfDXT6/9IJRxaFms8C+5XOUhi2oV6FmiWkygGEk0/s0=
+			</data>
+		</dict>
+		<key>CocoaMQTT/CocoaMQTT.xcodeproj/project.xcworkspace/contents.xcworkspacedata</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			w2PWTvwScfW5uPmG7ZNYP8EgiIyz0zAiZjLVTG7s5kU=
+			</data>
+		</dict>
+		<key>CocoaMQTT/CocoaMQTT.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			36D5u4W5XMupxoEa2t+MtAf7XVIIjonbg+vDCOxEhUI=
+			</data>
+		</dict>
+		<key>CocoaMQTT/CocoaMQTT.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			AM3Ecldr48NegcyNISLU2iGvjGoO3nyuHgdfY664Gfg=
+			</data>
+		</dict>
+		<key>CocoaMQTT/CocoaMQTT.xcodeproj/xcshareddata/xcschemes/Mac Framework.xcscheme</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			rbOXf/ACygwO05x+r9wVRfZ21r2zJtVEZW7+Ozn+o+M=
+			</data>
+		</dict>
+		<key>CocoaMQTT/CocoaMQTT.xcodeproj/xcshareddata/xcschemes/iOS Framework.xcscheme</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			O7iJuVqMehnIcitU0Jr2NZ9Y9qNtg2DxhMKOmWgWLus=
+			</data>
+		</dict>
+		<key>CocoaMQTT/CocoaMQTT.xcodeproj/xcshareddata/xcschemes/tvOS Framework.xcscheme</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			CsvILnT16p9gM3NMI98gZrnfqbL6nw1xETKoFYWSEYQ=
+			</data>
+		</dict>
+		<key>CocoaMQTT/CocoaMQTTTests/CocoaMQTTDeliverTests.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			4uREaaia12do+A48FXbpxKXabBxty5K/dUtpQLZBNb0=
+			</data>
+		</dict>
+		<key>CocoaMQTT/CocoaMQTTTests/CocoaMQTTStorageTests.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			sGfPQ9GaSLreh3PiSOzMyTOkkCPiRpHOPWWHJFXa13M=
+			</data>
+		</dict>
+		<key>CocoaMQTT/CocoaMQTTTests/CocoaMQTTTests.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			GIoNbygsGIjADs+pzpYq+oEtEIGzEs3tW4bGJRxs6xc=
+			</data>
+		</dict>
+		<key>CocoaMQTT/CocoaMQTTTests/FrameTests.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			4EWAfsVSUblTjXzw3Wb5aU5ps0beOiIIwit0Z2O0yL4=
+			</data>
+		</dict>
+		<key>CocoaMQTT/CocoaMQTTTests/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			HctaqI2rtfGbZx9wZiBL1YIg3thlTckfX3nglpDYE2U=
+			</data>
+		</dict>
+		<key>CocoaMQTT/CocoaMQTTTests/client-keycert.p12</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			6khJ0RqrTxaUkDVo4T8OI2InhdV/y4h3ckkqYdr+hvA=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example.xcodeproj/project.pbxproj</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			YAWG+qxgbnVqhYCUC3CXl+1R9n1MJTgtg2NTv1Lgba4=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example.xcodeproj/project.xcworkspace/contents.xcworkspacedata</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			9Rdi7dwbiIlVCz3/b3aEPaxaV9Ee8lGh/46dJ1z88J0=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			36D5u4W5XMupxoEa2t+MtAf7XVIIjonbg+vDCOxEhUI=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/AppDelegate.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			PAgnAsqReon8RCk9EKuSf3nutRObOWB8qinVPtFSNtg=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/AppIcon.appiconset/Contents.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			RW/If5FIEmYvozZ6d5nMl8JvKBkI2+yYna8OquF8M4o=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Contents.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			D9Sbo8NYXHCWeOAEaoIcPGBoXscGNyDTDTo0SL46IIs=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Double Down Green.imageset/Contents.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			9L/WuVowkoWHv0+zhkKlNz/zTgCI8zz8D/CE4TYCCAQ=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Double Down Green.imageset/Double Down.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			cejt1oRv7AgSw+fNHsHICnOMQqoEH1V17CP6eZQ2kJ8=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Double Down.imageset/Contents.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			2zJDrqiHWvap2FbIPD9dK/d7+u+lN6q+hegxCOsH+UQ=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Double Down.imageset/Double Down-100.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			gcZoVlqWvbDQ0z2LiGf8zRgvJ+YUnyPFuvhZzJdKlIQ=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Down-green.imageset/Contents.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			NkKalpmSQLK6JsnK6ltg9eoXBWeaWI/mvdARomkyAP0=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Down-green.imageset/Down-green.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			/Mh6VguCf0i+KFzWRjq7wZhWSLxzkf/5rjFSCrgU8XA=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Down.imageset/Contents.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			rNS8h5lyb/sCku3b6smf/PiNUXdCXURye9jrXhc0hH8=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Down.imageset/Down.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			aVq2I9p+yMGzovaIzCfFNSx11K7ri9PT+w7PH4YuTkI=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Horse.imageset/Contents.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			zQBPAnl8ghrqrvCwraqH/8Qs0O+IPds3g/LtRrtZweQ=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Horse.imageset/Horse100.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			gcxOaVHRb4Myv+gbpKW4Z8mcv8P1j1KSF48sCPv0fsA=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Pig.imageset/Contents.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			mN9O3F6SQ4yRHiRPjRpvLe6WkX8epBQ5xdzvqFLpwUE=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Pig.imageset/Pig100.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			bmdWvtrbUdnaOz5m6d2FFFopJceB+E5eKoUiLPXA0z4=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Sheep.imageset/Contents.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			XXm0izsZHSu+kBMVFBQP57WuFSIZnr/GO16CLhJJrh0=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/Sheep.imageset/Sheep100.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			P7VdnlesJhpT5opneHZ1srXyddlvVdXyZaFU0J0UAuY=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/animals.imageset/Contents.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			A+6xDe7us9hWG1iv0lwWd/vx1zZusgwvx0szFSk+Kpc=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/animals.imageset/animals.jpg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			bADAeEvzloXKhaV0ke881jaBpgSdsc9OO8zF20mvnPI=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/left_message_back.imageset/Contents.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Lhi9uhdp8d5NqF/fz8+37/4IrsqhllDZeZaqgJftaTM=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/left_message_back.imageset/chatfrom_bg_normal.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			DIZMwpdSri4lgZlDzRrGcWacGZ2fV1tMx942dQK9Kx0=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/other.imageset/Contents.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			oApAPCuKOGQgj+TrTsD2MxyVJlY7WLdBU+Z56728SqQ=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/other.imageset/other.jpg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Kx6FpFAN23tHzBR5cG4Gph8fB3flP2tsuHNkL/TSGUg=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/right_message_back.imageset/Contents.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			dA8M5gdEbRLH9oLWuvk+sQhorgYXvmD54LVxmp69FS8=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/right_message_back.imageset/chatto_bg_normal.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			9PoiNkij7UT21OvJ7355tIrmmW+aVQX0AxjGnVf9+z4=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/tabHorse.imageset/Contents.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			5RqLK+zkoulcSbLbUFrzOXOxfJweOR4KQeyTzlZx+gE=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/tabHorse.imageset/Horse.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ejnMYYIdoYEKjS9Eu5PbiscLMVYloBNv+jTfzr/iPoo=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/tabHorse.imageset/Horse@2x.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			LYPu5XMlqNqtrxMZUvYPzFopMYtRajzkQi81LiQoPro=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/tabHorse.imageset/Horse@3x.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			wZwqmqvlKvC5J1yuK7pPKFFqst9DDM9qlEc8H7IgRVY=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/tabPig.imageset/Contents.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			mFix4Tsac8J2sxfsdx1+vGg36FF/DtuWTCRIEJt4Vgw=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/tabPig.imageset/Pig1.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			XsXwsiqzh0zIO/G5Ht9f2WTjH2K2TXpSug14R1oRTgg=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/tabPig.imageset/Pig1@2x.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			2QMa3sVmtJoQP+9Oa/g2OsT/rik8zmz54lKc9Nc2Fwc=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/tabPig.imageset/Pig1@3x.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			tN52p7F5bEyUk92z1Tjf3oAsp6hh3+s0gI57sm8gW+4=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/tabSheep.imageset/Contents.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			M6GQoiQCl9+TT5OaEJySDpYm+xRo59Vc9GoVYJ53Ux0=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/tabSheep.imageset/Sheep.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			sn3Cjvx7bNePAUaeOYaHIzlcYrT6UKESGmqMWkQWVHs=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/tabSheep.imageset/Sheep@2x.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			QCaGSG+IFM9RqVmKorAdKwsskAx0yES1QyVQKwkQhpM=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Assets.xcassets/tabSheep.imageset/Sheep@3x.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			1YufHqM/UUYfVIUZddWoyTyLOkrEmucLIPmN1NyhVkk=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Base.lproj/LaunchScreen.storyboard</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			oamcq7fhx1hV1cR4ast5hIocAkIpA4fyKOATJc7Sz5I=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Base.lproj/Main.storyboard</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			nQ6K7DuEvzgL4fYxPewLpsS39fY40SOB22hYOJCx1r8=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>CocoaMQTT/Example/Example/ChatLeftMessageCell.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			AN4urpauaR2VC12J6luGVWzGCYg6bAhnWVfNETPHLgQ=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/ChatMessage.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			pqS3o5cREnnJ/vN1W0qFTeg46k7gM0iG8dBaykQJMbs=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/ChatRightMessageCell.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			5ru0jyWeLVgsDc2PJ+E+RWGl5tRSOpEdtuHBsi9tnrA=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/ChatViewController.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			WoVcs3p/zufzbeISrSpMoj6jqyGnN0RK5w74VDZQIoo=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Twq1zZDpMnNG7OJpTfKUhT+dFjM2Lcqa6z8iWSQij5c=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/ViewController.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			8+Ig/AlGzsHQZadt/KmFyNyp+sDmiB48cTgtFpAoR6I=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Example/client-keycert.p12</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			6khJ0RqrTxaUkDVo4T8OI2InhdV/y4h3ckkqYdr+hvA=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Example/Podfile</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			xp2eVZAIamBZ8iUCmmsN/xz7d3af0otK84Ux9XrhgU4=
+			</data>
+		</dict>
+		<key>CocoaMQTT/LICENSE</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			zHfiW6/UBje3CE8ECG1gbwogAFG2GAb5fJNAWSZnC8E=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Package.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			qlaUg8h0c8JzkYGRqVmlGLyNmTCeShlaAkKmFGW5qAE=
+			</data>
+		</dict>
+		<key>CocoaMQTT/README.md</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			6n9ghIgMCbjYT7OkYvHUUt7azyvN/1JjQFyTemy/WWU=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/CocoaMQTT.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			xmCx8GVM+7yWcBUiH0vTNqkqZ18mAy87CoXYJU2dW7I=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/CocoaMQTT.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			U23sblVYVFzjK5uv0xwa2DjbV+XRUC+TQ1oG2ijsMew=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/CocoaMQTT5.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			cpphUKbxZjJRq0AvFSDzQEWV69mAt4bPYz1K/1toscU=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/CocoaMQTT5Message.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			lM1ZpK6E4Xg7JHquLC/xaJieCjqVqp8JtuHIbMpFh8s=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/CocoaMQTTDeliver.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Q12+nRh4GZv3b4EzztQxthHR6VHJVyaZoJmfXKn9rA8=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/CocoaMQTTLogger.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			OAdLUlbl6VHqbb3pEcytCtTUGeghLx3UeyAXrI19q6s=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/CocoaMQTTMessage.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			RvI0Osvv4tPDQy5IKbCevIZ36ONSJdhj9u0yFRRwDKY=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/CocoaMQTTProperty.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			cZ4j9FCGQP9JYyhjCvmrVjCLlCLEKjopv99miUu9Dts=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/CocoaMQTTReader.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			dgAkxHnlFE186DLRNoEln6q1pp2FHk+boTSdv7fSPqc=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/CocoaMQTTReasonCode.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			9BgOPCDYEDWOj96edEGZgMxOYZaaH89nFIMp6Ui+aPE=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/CocoaMQTTSocket.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			xVt8aixiBgQtFuuAQJFvSHgI0qF2dHHUjkZMN9w5h4I=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/CocoaMQTTStorage.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			4Xu2AVnBG62mk04bFOqW7gfP1gshiq9BHJAOKsdo0WQ=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/CocoaMQTTTimer.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			70VijxVSInm6wVjILvZtt1p1cKU05EY8bm/7tzipN3A=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/CocoaMQTTTypes.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			urrGdCpSQr3ReEAxWc8anbapVnuVw26BU52yw8hKB+I=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/CocoaMQTTWebSocket.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			6AUwvUegGgRDjWG2f0SlpNoXKOtwjTyJX5pnNJAjoR8=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/Frame.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			7z6CFgPZFWgzV3MbASfBu/GZ6ys8OA2LUtYuXrlg6SA=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/FrameAuth.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			KwE5uQVTklPXM8Y0gIicvDS6kpMUAVISLoHWJtPjbi0=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/FrameConnAck.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			83sJ/duJUOLLnG+Vqs8neewNpO8tdfi+3WQlPwhG6/c=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/FrameConnect.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ZdFzp+Ifxtj+NR/I5tPDWpEp/My1JJqm/05ewnTIKBI=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/FrameDisconnect.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			xxFIxJJgQszhYG8hv6k2fhiguDIfgz8XtXxNb3WG/fk=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/FramePingReq.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			d0JCVyTra0hyB9J2a4Hd+DTfoRtLdzs5MzFIf47NC+A=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/FramePingResp.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			GDVtirNVmk2q1RXURuywf+phhXUGML+dRr32JZVTayU=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/FramePubAck.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			6hHD30WF7a4taOrBAxMCFQQdaInyDJ6bEy5UGhkvKvQ=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/FramePubComp.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			0bGJmRHroh9uFXZ2Ih+dFpihj5C41ZosM1PBRfaT/lY=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/FramePubRec.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			6zaOoAvmoz3lqAWGX9Q95l8miUFNOZOOMK08ibBDe70=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/FramePubRel.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			oIeS+bLzTfq1VIT9hRMDpgUr+xw8/T+uCVwp6iygY+g=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/FramePublish.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			gkUBs53C1jcbiDAMtCdsAhrfZ4iSn1GNxm0g0107A/8=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/FrameSubAck.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			h2Nv3x4NHAMDaf8UCAW9UdEC/YnH1orl5QvfM6vAZZc=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/FrameSubscribe.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			R4+kf2V4CnYv7CCOIXitKg1sg+ppScqqBN3lrEnH6HU=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/FrameUnsubAck.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			x0Zb9kB9ssgLibwPtOiscJCvM4T3YPQWo2FKUqcmCqM=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/FrameUnsubscribe.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			it6+8QczdBLN9pSg2GW7Czg7zqoGO6cZKLNyz2S//l4=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			/8EjP/c5QQrrzrrIYGHPmy3FlWo2vibGUZYknEKi880=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/MqttAuthProperties.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			z53ay6xcJTNZPqqVvaEb+rhWJYT4nHX8XQ2LW2bXveU=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/MqttConnectProperties.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			FxMlNEKgMcgXAnoCRJiDBwKaPdxKqJaliKRK1vLBgig=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/MqttDecodeConnAck.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			W+kKoKmCW23HN77vTasJ1BNb8pVHztD/Mxx0NeVrjLY=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/MqttDecodePubAck.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			w+JkaJz6cc6/juL04bZ4kmD4fy1byf/awEQfST8hpgg=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/MqttDecodePubComp.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			+oSUrNfvxdxRRW6nzVFAXpAYCk7+JSqwqdO/2fOGSJQ=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/MqttDecodePubRec.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			rL1On17Uu9J3IIL7pZj+kNQqOrHS/ri3lFtYvPcDSJc=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/MqttDecodePubRel.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			QH3djcv8EjPPTQWtUgfJl3f4RglotdI80v+BFUazNJE=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/MqttDecodePublish.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			VnHKQsqQ3R4voy/xZKMtsdLX6wWeL0IlZtbqbLRIJj8=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/MqttDecodeSubAck.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			f4zI2of8/SY6aPY+YviFcCk0cwLqfoUzmP2365ZKPmQ=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/MqttDecodeUnsubAck.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			UJ/L5I5Ba+oXY7XbBDmsnbtvVVoC2R4LimEwyVT/n7g=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/MqttPublishProperties.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Ugf2V9bFMfRb6HFcCHoSE2QOqdTOY5/GQ6APfdXgeGo=
+			</data>
+		</dict>
+		<key>CocoaMQTT/Source/MqttSubscription.swift</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			NXASDyaW9cdGFsiXkILaD/0/6IcuwHdK3tU458LA+R8=
+			</data>
+		</dict>
+		<key>CocoaMQTT/coveralls.sh</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			1cVJnsGgknLeGNqKZLwW6bZlBeq/J0sZCvFalGW4LyM=
+			</data>
+		</dict>
+		<key>CocoaMQTT/edl-v10</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
+			</data>
+		</dict>
+		<key>CocoaMQTT/epl-v10</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			EshgHCsKKFJwe0jBuX8pV09qzsMYAwJYQM+SFkbG1RE=
+			</data>
+		</dict>
 		<key>GoogleMaps.bundle/GMSCacheStorage.momd/Storage.mom</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			6xa+f3YJTyV2uQzd9QC3rRwsluQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			m6UB9yBE79NM2Uytoaz0LrphkQFxaGwaYyTmXLnC0kw=
@@ -2143,10 +3462,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCacheStorage.momd/StorageWithTileProto.mom</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ERMuR7yBrjUr/jmtt9HYI8dEhpk=
-			</data>
 			<key>hash2</key>
 			<data>
 			ZpjTVlc8YgkmgA/B1oCpEWHga64qTFNjshPVYyvb+G4=
@@ -2154,10 +3469,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCacheStorage.momd/StorageWithTileVersionID.mom</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			YotiW1KG8+OLofkZgxUBa7UKq04=
-			</data>
 			<key>hash2</key>
 			<data>
 			o9RaPUoc9B/2Zn29X3dmrPUST5JZPbYq3q+u0jkl7EY=
@@ -2165,10 +3476,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCacheStorage.momd/VersionInfo.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			HTYqw3m8dIaBrYtkwin0OHV6t04=
-			</data>
 			<key>hash2</key>
 			<data>
 			SdCHFcwUWcOn+6S2pVcKPWo5J1cOtjjALFOZ8D4dur0=
@@ -2176,10 +3483,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/Assets.car</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			M+Fc7kqc+7/a4WxZtIqY18tlMOA=
-			</data>
 			<key>hash2</key>
 			<data>
 			/Hxlqb85WgWgg9cQtR+YB4W1Xzg078/9jpeKC+5PkM0=
@@ -2187,10 +3490,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/DroidSansMerged-Regular.ttf</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			IM7pUc3dgbBfKBC7eTUgbJOheGI=
-			</data>
 			<key>hash2</key>
 			<data>
 			oRgIxXbtc2TA+CQC4IYwuDWJiwC79rQTLdnyhCHh0Pg=
@@ -2198,10 +3497,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/GMSNavNightModeSprites-0-1x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			KBiuGmPvZm6y3heWHurqjBMitJw=
-			</data>
 			<key>hash2</key>
 			<data>
 			6I9AZoWd/JQ8PV9b4FcAqf5GJT6iUEe7YeuyNGEkwfc=
@@ -2209,10 +3504,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/GMSNavNightModeSprites-0-2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/ZC7kLA33LLUaGoy4elYV+v1Pss=
-			</data>
 			<key>hash2</key>
 			<data>
 			35EHfeztT/7K9NKjZJGCUlauQ2HOF3PBQxkLgM2OGUw=
@@ -2220,10 +3511,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/GMSNavNightModeSprites-0-3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			UPqwKRHKhiKSYvXhNjoHx17Nuzw=
-			</data>
 			<key>hash2</key>
 			<data>
 			yGhIyrKtKLoQ2oJfnH4RrIxHQUQYODC5SL+bLjiNbxo=
@@ -2231,10 +3518,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/GMSNavSprites-0-1x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			mfB/MyxUmXFg9Vpp/U5VsQY7S1g=
-			</data>
 			<key>hash2</key>
 			<data>
 			jRfU5I+eBrG4NBhLV9IBsXXb0DJ9cXoHbCE4CN0QiUc=
@@ -2242,10 +3525,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/GMSNavSprites-0-2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			jjx4hEkp/WAC6uAe/KXdwGjm6CI=
-			</data>
 			<key>hash2</key>
 			<data>
 			S3sLYbDleAUGAjWIVe8mvnmB6ONkTxlmkd9BPlylOWs=
@@ -2253,10 +3532,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/GMSNavSprites-0-3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			71kfAzHiEMvBEzOv7EHvlQHjfuA=
-			</data>
 			<key>hash2</key>
 			<data>
 			0SyDaAgdNWt5XirK8fh9r/KPbbBqlWeaa1+p4aMYRvw=
@@ -2264,10 +3539,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/GMSSprites-0-1x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			kTImvvhPNwGducZxQIge0htrydo=
-			</data>
 			<key>hash2</key>
 			<data>
 			BJ/CdkKenceRLMDe+MunBTuEuxiQCgVvt+nSj/6rCg4=
@@ -2275,10 +3546,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/GMSSprites-0-2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/Ak2nSBFOmRyjMHWbuSNF/lvkWQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			OPVWGaTPueMHWC8PCrRPRTI2lLSfik6kzy75aos1fSA=
@@ -2286,10 +3553,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/GMSSprites-0-3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			JF5PbsOVVEh0TzkNwOfUWRqw5To=
-			</data>
 			<key>hash2</key>
 			<data>
 			Ijnc0gU0ux+qkMhUgBqkQ0dSXFaOQF00NhTzyjRI7Cs=
@@ -2297,10 +3560,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/Info.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			T08Pzwxsc5EefqRbuozfwCiQ0vE=
-			</data>
 			<key>hash2</key>
 			<data>
 			w6NQotjNmQvrCIVQmWDIJyBdx41ukLlc/0b2GlGTK48=
@@ -2308,10 +3567,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/Tharlon-Regular.ttf</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			QKmhT0236O/x77A3aFViLI3U0RA=
-			</data>
 			<key>hash2</key>
 			<data>
 			4HMV9v4N9IH0373fJ215YuoHOKrnkWwgbsN63C7LlNc=
@@ -2319,10 +3574,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ar.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			JbmKQ7Yi9nb9O+v/B5QrGMl5qbc=
-			</data>
 			<key>hash2</key>
 			<data>
 			DiOX80dqLJHNOFs8pK7D0mrw5UC1SlY+YVruxgh51u4=
@@ -2332,10 +3583,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/button_background.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			58HUtPew0VfX28iT0hoZoqqV8R0=
-			</data>
 			<key>hash2</key>
 			<data>
 			VUfuf1zHkFbUsHfs0W2XgKZU1+OccZ1EFTBKqUPRvpA=
@@ -2343,10 +3590,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/button_background@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			6gBjAkHF3kLwzqmfNBlRZY9e/kA=
-			</data>
 			<key>hash2</key>
 			<data>
 			L3cYb4rSz5yv0DjIESC1J3/cb8P0Js0Ff9mVn459XmA=
@@ -2354,10 +3597,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/button_background@3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			wI+5cU+Y/voatJ+IHCVJWAv6jQQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			UJlmp7f16dQ1TqC/a0uyZ8RGy7o/exUVKOFU8OsbbFU=
@@ -2365,10 +3604,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/button_compass.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			DSedvNbNTixsQO+c0IlL1PkNCdY=
-			</data>
 			<key>hash2</key>
 			<data>
 			fFQ2JJGO00f80s6uU4uleAHJ+R9BTG1nUEYfsfZY9Fo=
@@ -2376,10 +3611,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/button_compass@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			euWXSDkE7B75wvPAU1ssfZA9NaM=
-			</data>
 			<key>hash2</key>
 			<data>
 			KsU6yUyahIrTFyLyw00wG+zkDkxGGocVZMhX46e19Gs=
@@ -2387,10 +3618,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/button_compass_night.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			d+Mu/JBZVfGIW30YjWEaWiC/sMA=
-			</data>
 			<key>hash2</key>
 			<data>
 			ZyxSDpdORHSyv61cmUzZqM8ndta0mAzjXNz1I0LMonI=
@@ -2398,10 +3625,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/button_compass_night@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			lE3Jc6hIhQEfpuGBhw6EKFWV+Q8=
-			</data>
 			<key>hash2</key>
 			<data>
 			CriYgwzkN/I/cVy1eJf4HI6kfJaC2PT7qk3sqSPG60g=
@@ -2409,10 +3632,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/button_my_location.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			1h5giTFrQI++3fVXazIMR/7gzoY=
-			</data>
 			<key>hash2</key>
 			<data>
 			qHyHEkW8JdVyAqojiLMeEvdbdu29vAMj/80KkzOxCoI=
@@ -2420,10 +3639,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/button_my_location@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			xT8ttVKmlQQ7RypGMAzTOIjuhLs=
-			</data>
 			<key>hash2</key>
 			<data>
 			Lit0EakIiwZVnj6fbN0D3wgszTkSE9/rnfzmpGBwUps=
@@ -2431,10 +3646,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ca.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			T5Ry/FWXMWmjvrxcsHP7qESkY9U=
-			</data>
 			<key>hash2</key>
 			<data>
 			H47XRZ7l/rTYyESAv8ohSFtLsg8+5H6NyZ3HWx36ryU=
@@ -2444,10 +3655,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/cs.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			bzTpYpYOsxUvdELEsNav7tg8Uqg=
-			</data>
 			<key>hash2</key>
 			<data>
 			oUajzNZqfSA69lkv+CsikGfg64oxk1xqfdZ+kLtraJk=
@@ -2457,10 +3664,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/da.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			aCGXQI8CceG6V6ol6lZpn+xEO18=
-			</data>
 			<key>hash2</key>
 			<data>
 			oPJNv7H4WSuFoYK7eejNgb/XAKoKU3KtvnVzUYairZo=
@@ -2470,10 +3673,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/dav_one_way_16_256.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			6ZZOqO9aCr59xWXdfdxHYMMTkEM=
-			</data>
 			<key>hash2</key>
 			<data>
 			7/vwjVbNju+XCu1xevYaVQ4/JUsqO/RCsRDlPNq7kaY=
@@ -2481,10 +3680,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/de.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			kXIJA6+wX/K9jf2Hujfjog3tcNo=
-			</data>
 			<key>hash2</key>
 			<data>
 			DnRVfvU+UHFrNaIHAkx2603D8XNia2JPQ65WEYrT19I=
@@ -2494,10 +3689,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/el.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ue+ybnKPpYbbRYlnUjLCJ23NmIA=
-			</data>
 			<key>hash2</key>
 			<data>
 			1OWW2r+TcI04GAzLLa7dKGBUCWYyguNu5uwT0YYLKOA=
@@ -2507,10 +3698,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/en.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			IHYnabnDXvmCRBqRyQB2tV7WS6I=
-			</data>
 			<key>hash2</key>
 			<data>
 			fPpXDX73lW/RnZTi5eGVKOyMVlJ7aNEDXRbk9JbLlJ0=
@@ -2520,10 +3707,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/en_AU.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			5lJIfvDH2f7QNivaY24C1v3IMSA=
-			</data>
 			<key>hash2</key>
 			<data>
 			3dInCJ6Vxw6N9uReExxeVg5ZETji151akMx7S7eVpzI=
@@ -2533,10 +3716,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/en_GB.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			5lJIfvDH2f7QNivaY24C1v3IMSA=
-			</data>
 			<key>hash2</key>
 			<data>
 			3dInCJ6Vxw6N9uReExxeVg5ZETji151akMx7S7eVpzI=
@@ -2546,10 +3725,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/en_IN.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			5lJIfvDH2f7QNivaY24C1v3IMSA=
-			</data>
 			<key>hash2</key>
 			<data>
 			3dInCJ6Vxw6N9uReExxeVg5ZETji151akMx7S7eVpzI=
@@ -2559,10 +3734,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/es.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			aTt+26dsWZeYDS+XJp91dJW6XPs=
-			</data>
 			<key>hash2</key>
 			<data>
 			bNEqmxtX/c6TwMSQgglT0qxaaubbOsKvp6wRJZ+bwXM=
@@ -2572,10 +3743,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/es_419.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			6j8AZkLqElUzbBSleBGbbzJVv3o=
-			</data>
 			<key>hash2</key>
 			<data>
 			CsEz4d4OQ3tyiePZw5djebxIUHOwxb3ylz7i+9+Bme4=
@@ -2585,10 +3752,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/es_MX.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			6j8AZkLqElUzbBSleBGbbzJVv3o=
-			</data>
 			<key>hash2</key>
 			<data>
 			CsEz4d4OQ3tyiePZw5djebxIUHOwxb3ylz7i+9+Bme4=
@@ -2598,10 +3761,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/fi.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			QshaVMsla0C4pBe5s1r3/je8G6U=
-			</data>
 			<key>hash2</key>
 			<data>
 			1VGyN5Sd2ufWo8WeIMlDBRKy04yW8ilMgDuFeomMRT8=
@@ -2611,10 +3770,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/fr.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			gxOrQTrBzVCR0KLf/2DjcghR/38=
-			</data>
 			<key>hash2</key>
 			<data>
 			Yf5Ylm4f57mHp+5F5hrpG++KQjhdLhw+uEI0m5pigbg=
@@ -2624,10 +3779,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/fr_CA.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			8OFgRokj2aQkz5PAVj6yhWCkrb0=
-			</data>
 			<key>hash2</key>
 			<data>
 			HP9Xs4hGscjnhKPQ5HkIYVYpoQNjnDz1Kg6thffHWNE=
@@ -2637,10 +3788,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/he.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			8zYc83A9d6OqMODdRjv+FTOB3qM=
-			</data>
 			<key>hash2</key>
 			<data>
 			R0mdqjWgHHVgSKu4xgu0z4U76Tiev9tHPyjO1Kf5WM0=
@@ -2650,10 +3797,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/hi.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			h3N6E04gIIPlD3pnLNUgthlec+w=
-			</data>
 			<key>hash2</key>
 			<data>
 			vmrofZ7GlDSkxK0ynDE0D5ApcfP6wjIYddTWN4miPJw=
@@ -2663,10 +3806,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/hr.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Y4gd7MUWlUxVrC0S4jxqZw5Qhuo=
-			</data>
 			<key>hash2</key>
 			<data>
 			YOhL4Omy9LbQ178xmODPhZuGaE6d5QfkdYlhoiKN1c0=
@@ -2676,10 +3815,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/hu.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			3TKcyay/Qz4LthmS3cN81pR2yeY=
-			</data>
 			<key>hash2</key>
 			<data>
 			51q+9WQFoOZ7mTbzQ5SbbBPVwUKi9upgAvK+mamOroI=
@@ -2689,10 +3824,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_closed_place_waypoint_alert_32pt.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			bFfwK83wBj2pyvoGrW0gsjjayaw=
-			</data>
 			<key>hash2</key>
 			<data>
 			XB10YfoFMMA/1hJ7RcpPwRn4FPISn4/GfcLt1yacpbk=
@@ -2700,10 +3831,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_closed_place_waypoint_alert_32pt@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			hQkZK9WIJ30yrzBkesaTSfM5C1k=
-			</data>
 			<key>hash2</key>
 			<data>
 			6Zoc/OxM+MGLTiTWiXfGiG/vQbaZu+4BpYdjwEWmO+k=
@@ -2711,10 +3838,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_closed_place_waypoint_alert_32pt@3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			FCUpCQIg8t8Kle0t7ba+v99x9x8=
-			</data>
 			<key>hash2</key>
 			<data>
 			32rNSQbMm/k11a9saRft5TUhSAEwkY3nI3izgMIVsWc=
@@ -2722,10 +3845,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_closed_place_waypoint_alert_night_32pt.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			//Qx3mc4+ewO3CjLc2Y1//23DEY=
-			</data>
 			<key>hash2</key>
 			<data>
 			tA6fq0SW033/kwgkIJ6B6sQ3DSvEwrztHLfbLzPMZJ8=
@@ -2733,10 +3852,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_closed_place_waypoint_alert_night_32pt@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			KrTZRKDI7Kduyxjzb3s8GUaEn68=
-			</data>
 			<key>hash2</key>
 			<data>
 			7w1goskgoHENDngEcZmMetZnbBY202XkAvwpkFUUGmc=
@@ -2744,10 +3859,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_closed_place_waypoint_alert_night_32pt@3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			jAhA6BSLXPLryZQnXa1GUxjVKi4=
-			</data>
 			<key>hash2</key>
 			<data>
 			9NGwfkNI8H2ANbn1RB4cLWXlA/Nj4yeB5459a6Vr9Sc=
@@ -2755,10 +3866,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_compass_needle.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			FczO+2H9ZOJL3KtoFkr7ZEbUEo0=
-			</data>
 			<key>hash2</key>
 			<data>
 			V2HcZbiTq9tAJFbLYxUnzbb0utxxO6kEVKiZsw0cr9c=
@@ -2766,10 +3873,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_compass_needle@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ik1Nng6iqN/+ruu7baKmTu3Cy/M=
-			</data>
 			<key>hash2</key>
 			<data>
 			l7DXZC/yFWAiJnn1y7b8MOf2wCeJgHDmWYdKB5lMTS8=
@@ -2777,10 +3880,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_compass_needle_32pt.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			IgSXn2hc/27HC0evGvhDhTXKIE4=
-			</data>
 			<key>hash2</key>
 			<data>
 			1TKLueEVV6y48hWYWBESJz23RavEBopB2CMUaHlutSg=
@@ -2788,10 +3887,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_compass_needle_32pt@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			byDfU2A4NkxQbzsuboUTK7iuvnI=
-			</data>
 			<key>hash2</key>
 			<data>
 			HcFbnY64QuHwGzcNE6SaFXzwaKhtLHJf4uQ9wDMEgGA=
@@ -2799,10 +3894,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_compass_needle_32pt@3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			tHnPy6KqF69QBs6+b1B9h0FqGRU=
-			</data>
 			<key>hash2</key>
 			<data>
 			GaTms7wugZAVzLWzjmz62i/7XEjgP6usP/nU20AYYP4=
@@ -2810,10 +3901,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_compass_needle_large.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/WPXm9lH4rlc3x4vdnr7k2RHkEg=
-			</data>
 			<key>hash2</key>
 			<data>
 			0TDx02zeOyLukli+xhvRlGoyfDPfmHWEXjHT3uzpDk8=
@@ -2821,10 +3908,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_compass_needle_large@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			zbZAM7mPNNvouB2QcXsTxOCJtxQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			H8OXFdacv5KzG+qLR5RrChts7GKxClFlKqHyXNg/6qA=
@@ -2832,10 +3915,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_compass_needle_large@3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			P08jpJQZdro2N5VhzgQnu+jsSZk=
-			</data>
 			<key>hash2</key>
 			<data>
 			z9EXEDKpCzvyZ7kGENSEXZznpcbyINaD1V8HSi9sgSs=
@@ -2843,10 +3922,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_covid_border_waypoint_alert_32pt.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			b4HAoXXQ9MHUkvo2sAUYv1olAFk=
-			</data>
 			<key>hash2</key>
 			<data>
 			yBxDOtAyeWqzpC63ugLpJhxYcAscliU1BgZnNdEcxmI=
@@ -2854,10 +3929,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_covid_border_waypoint_alert_32pt@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			aRQYYYNELohm737W3DQtx10B1Sw=
-			</data>
 			<key>hash2</key>
 			<data>
 			0RtBxUvJfAOQCu0YN4P+NXKIgVGXshxUEVhfsd5RBek=
@@ -2865,10 +3936,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_covid_border_waypoint_alert_32pt@3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			cuJK6gmSOjEhVI30xIeEIONVSTQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			ccFj0dMmtprxMVMeVoKpD1/Kb4WJxACoK30HziyMr+E=
@@ -2876,10 +3943,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_covid_checkpoint_waypoint_alert_32pt.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			jNNswlCF0SH6V+5se0OWriTR7uQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			kE33BkYF1sZUQlzcuqab1WvHw2bKowuYmlzrbJpShF8=
@@ -2887,10 +3950,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_covid_checkpoint_waypoint_alert_32pt@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			lUI1aCanVG7Yzr2hHEiHEha2VNQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			1VhiJ1I7+yEdNt0CQMVPQt3sqbXWCS4N+l+OU4f+Wik=
@@ -2898,10 +3957,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_covid_checkpoint_waypoint_alert_32pt@3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			JWzMUhmhmba6Wxo9dCHPf5IQb8s=
-			</data>
 			<key>hash2</key>
 			<data>
 			hl7Q3DhOytiS5PxACeNjtBEwRxXf7l8c3w6kbzMZtLY=
@@ -2909,10 +3964,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_covid_checkpoint_waypoint_alert_night_32pt.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			8O78ScAfBRbkyJp9FhiadAejM50=
-			</data>
 			<key>hash2</key>
 			<data>
 			jDxAgphhHwy2VvYUHX82RqRNnQDGP80tsgbIm4TM/Ik=
@@ -2920,10 +3971,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_covid_checkpoint_waypoint_alert_night_32pt@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ZHFlVPKPc/Zwb3ySc9nBC689uOU=
-			</data>
 			<key>hash2</key>
 			<data>
 			OflLl1p4nwACrp977dRsNpKM9fZyFj0Yckli+0LJ7kE=
@@ -2931,10 +3978,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_covid_checkpoint_waypoint_alert_night_32pt@3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			B+VEFeaeFm2C6uIBDXzUldmMLZM=
-			</data>
 			<key>hash2</key>
 			<data>
 			OiZcsS9CGROol2GoyCRvbD/1OnnO5Cr9tMmymx+gJuE=
@@ -2942,10 +3985,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_covid_medical_waypoint_alert_32pt.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			KhSMRxKx1AkoUpWWV+VBZqgpDsw=
-			</data>
 			<key>hash2</key>
 			<data>
 			OW3vSyC7N+/XTypt4QcbljeyrObk1gU5n9aHHmZk5oA=
@@ -2953,10 +3992,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_covid_medical_waypoint_alert_32pt@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			nwdneM0KoilU07pSKqKyw4UeWxI=
-			</data>
 			<key>hash2</key>
 			<data>
 			4JsF2Fuy38x5T4fSQJsUzzGbcTca7TicSUHZ04JfcyE=
@@ -2964,10 +3999,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_covid_medical_waypoint_alert_32pt@3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			GIkw+XPhxJ6mPgnW6nZLmostL4s=
-			</data>
 			<key>hash2</key>
 			<data>
 			PfQ+g1OVrp2reKoxUY29V6sSev0XbPSVORza8Pa4s+4=
@@ -2975,10 +4006,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_covid_medical_waypoint_alert_night_32pt.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			yxcShW6PUH4L7SvAnPK6znnipCk=
-			</data>
 			<key>hash2</key>
 			<data>
 			HgTUWKNNKDODh4K+sGwW4Ydlmqb22QS0xe1R27RpXcY=
@@ -2986,10 +4013,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_covid_medical_waypoint_alert_night_32pt@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			YEJpYFlKpPtva6iPBIofJQGmrF8=
-			</data>
 			<key>hash2</key>
 			<data>
 			9i3bLmY8j1wPb8oYLkoXlfbtaxJSCwouObY+wUi4aUA=
@@ -2997,10 +4020,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_covid_medical_waypoint_alert_night_32pt@3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			mpZTRyQo0MeDf8tFP5XVApaPBB0=
-			</data>
 			<key>hash2</key>
 			<data>
 			RyZlVNbjaAqlDgKugE8FWdRwJhKx7ew7iQzSCsccclk=
@@ -3008,10 +4027,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_location_off.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			xh3gGmRY86tJc5Lh3Nd6zBYqSbs=
-			</data>
 			<key>hash2</key>
 			<data>
 			JtnHExDZopxjHDdkxKvEUTYb16WTqGyOKzA5Al5e17k=
@@ -3019,10 +4034,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_location_off@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			NTF65BOR+sJY4SRV1e2mgkz9kmc=
-			</data>
 			<key>hash2</key>
 			<data>
 			yRv8itmfa+f7QkgZ03TsPrjc+YcMHHZz9Oxeuc5C+I4=
@@ -3030,10 +4041,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_location_off@3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			rQpisYk5GDcvEAM1KX1zN7Tk0UE=
-			</data>
 			<key>hash2</key>
 			<data>
 			Kswz6NBndW1QRhKZxc87C8BWIjBoKm5mPxHp6tqgvug=
@@ -3041,10 +4048,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_qu_direction_mylocation.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			v210WlF/V/X0MFX7rrbTkt6/gKg=
-			</data>
 			<key>hash2</key>
 			<data>
 			JtJ9rKoWknZ/eIujTeaSz/i9MKoY20wUUxxgY64wMz4=
@@ -3052,10 +4055,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_qu_direction_mylocation@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			+WqWJySO0WVHmdN9btErTRncON0=
-			</data>
 			<key>hash2</key>
 			<data>
 			6PWtTGpNSDY/JmLM2KVXntVhoQhJKZUP/moGRbY3NMU=
@@ -3063,10 +4062,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ic_qu_direction_mylocation@3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Nda7w6LKUWLwuNgEGSa3UV+Gu4c=
-			</data>
 			<key>hash2</key>
 			<data>
 			ILRnt9YuI4SFIzANE21lIdVzBhRC5hfsfl+AshH7LAg=
@@ -3074,10 +4069,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/id.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Id2d1TYMOC3GPpiy92XGj//yFgI=
-			</data>
 			<key>hash2</key>
 			<data>
 			WWuYhcGRPSEkS3jEe2ROs3IrNb25OFbcRQn2LuePONg=
@@ -3087,10 +4078,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/it.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			D4rPH9dJz1fTBQeKsIB6AYKE2oo=
-			</data>
 			<key>hash2</key>
 			<data>
 			rkCfvrRgS8xYZnlpwfzv1sXNTJokABiWUBd0xirTHLE=
@@ -3100,10 +4087,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ja.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ak1jUzKd12Du7Cn/KaVBeSviYI4=
-			</data>
 			<key>hash2</key>
 			<data>
 			KZNFQNC20A2RPP90HaN7azncoRp8QY1jPsH4epCAjdE=
@@ -3113,10 +4096,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ka.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			LNvs+CzgutdzKwN0XZXq9t5F30k=
-			</data>
 			<key>hash2</key>
 			<data>
 			0AZlUe3I8Y9apquafluTQQuMl9rZQaABLCKi+iTsni4=
@@ -3126,10 +4105,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ko.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			vFpe6HKmx3Wty7ZISQtlzkcxpAc=
-			</data>
 			<key>hash2</key>
 			<data>
 			p0cQEikCmDDs8hdnPxIq24zJhIi+27Cd81errvm+3FI=
@@ -3139,10 +4114,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/lt.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			0tSKlBt3yuxrW05GsNzqdnrT+h0=
-			</data>
 			<key>hash2</key>
 			<data>
 			JXukFf88Wdzwa5tcV9HraZsGfM/F/70ZM1kltn6ihUU=
@@ -3152,10 +4123,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/lv.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			RCKBIodaq/BPm8R2wxxZI+BN2sc=
-			</data>
 			<key>hash2</key>
 			<data>
 			UGS+ER4ARYA7fjUPNlaOVKTsV0sTtmPSqnimetvKkWM=
@@ -3165,10 +4132,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ms.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			F54SHbn1MLKggYz4+8O7SOBDRII=
-			</data>
 			<key>hash2</key>
 			<data>
 			SPULUmoHielVYCs3bYRVSXqGNU1cEfO/xYpW5YrvB0Y=
@@ -3178,10 +4141,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/my.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			MYlyD/zOjrnV2n2U91CPt24WJ0E=
-			</data>
 			<key>hash2</key>
 			<data>
 			vqFe1I+ykIJ6doyGy3Yuw0wrLvQoV3vNbO4YRXktYEA=
@@ -3191,10 +4150,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/nb.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			x9Hiy4AniUrBTVmJNVaNZuNH6PQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			+4Uo+TBpnpWN5a1SmEcpXIGEvydLWnCYwJd9GbHc/m0=
@@ -3204,10 +4159,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/nl.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			lr/iJTMM7V7gPV5Dsxn0fcdtkUA=
-			</data>
 			<key>hash2</key>
 			<data>
 			K7VMI6cOtdN/KGMdl5skO2BBSGErAeIa49sNoqJR6y4=
@@ -3217,10 +4168,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/pl.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			pruyhhc1rJKou3MKILqUZ4Lrc70=
-			</data>
 			<key>hash2</key>
 			<data>
 			CGCb9/AxCbiU3Cl38M8SKof+EVcE3ocGs0gw5tKewUo=
@@ -3230,10 +4177,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/polyline_colors_texture.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			z1kf4/sWpoPOzvXlf8K5f337H7o=
-			</data>
 			<key>hash2</key>
 			<data>
 			+dg+/X/HQz7XU5A0YjxVVb409jFOvCba/h/Dk0xwgJg=
@@ -3241,10 +4184,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/polyline_colors_texture_dim.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			YoDHbGi2Kzr6KzaLWpIC+iHNW24=
-			</data>
 			<key>hash2</key>
 			<data>
 			utLkKWB1FOz3jZ0C25RC8IQUZKhnBiX4Zhqy+V9G1sM=
@@ -3252,10 +4191,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/pt.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			fLIf4JvrU9JH3q7AGeGEUnwBnmo=
-			</data>
 			<key>hash2</key>
 			<data>
 			Ow721PuesGjAAoA8TA/11xralYhO3PlQYUK5+xrByfA=
@@ -3265,10 +4200,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/pt_BR.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			fLIf4JvrU9JH3q7AGeGEUnwBnmo=
-			</data>
 			<key>hash2</key>
 			<data>
 			Ow721PuesGjAAoA8TA/11xralYhO3PlQYUK5+xrByfA=
@@ -3278,10 +4209,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/pt_PT.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			nmztYu9MrcyhylrohbORXSff/NY=
-			</data>
 			<key>hash2</key>
 			<data>
 			k71LApZTJgdqcCCsIkJVYp3/UaN0UugujINtnjw1bAw=
@@ -3291,10 +4218,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ro.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			S9njFdXfuGJAMhGyZcZYt7NI2o0=
-			</data>
 			<key>hash2</key>
 			<data>
 			+B5crTy8VuOwuLcfxGNA/bO75pB3C4CjHlJ3DOATtRc=
@@ -3304,10 +4227,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/road_1-1.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			HG4lAzW99jq1X860ruCadRTP1JI=
-			</data>
 			<key>hash2</key>
 			<data>
 			lzM7SlPvx18FzuOhp0AfctCjH872VUYhotrEmV/bjj8=
@@ -3315,10 +4234,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/road_128-32.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Y9Cc3P9fnqQlvUq6hljpmps6Rfg=
-			</data>
 			<key>hash2</key>
 			<data>
 			nxJMmc39cm6sjewdRFv7mVHN62HynJzISegXtemahqE=
@@ -3326,10 +4241,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/road_16-4.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			RnyN/LbKvVpEJtWMNkWwn1v0jnY=
-			</data>
 			<key>hash2</key>
 			<data>
 			gBiXF2YDIq+dMhZNzmXGIviFDDKW65Wwd5MGxawE07s=
@@ -3337,10 +4248,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/road_2-1.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			liaTlaCHAiLcpdhS15/FoNQuex8=
-			</data>
 			<key>hash2</key>
 			<data>
 			locpte2xHJxxYikj3vpYPAO4Fm0BJbKH3qAMUEHC6AQ=
@@ -3348,10 +4255,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/road_256-64.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			TgH7/QavDGQI/skL1YE/6rzYH6I=
-			</data>
 			<key>hash2</key>
 			<data>
 			xWNHfxSxFwcTcbRx6ksenSsdQax+gxZj5zqKa4P5bWE=
@@ -3359,10 +4262,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/road_32-8.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			5lTmhJEnxGk7JCSt1o7hQvsaZE0=
-			</data>
 			<key>hash2</key>
 			<data>
 			iBDn2L41GYIiiENv/p0efRgu7EM6L1eut92OA3dwsiM=
@@ -3370,10 +4269,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/road_4-1.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			RMtreAjsSE5oStFTdN9QLiWrM14=
-			</data>
 			<key>hash2</key>
 			<data>
 			ucj2pK8WExUWdTnnnvWIu9iE9PEOo0rSvhyP+qAhUe0=
@@ -3381,10 +4276,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/road_64-16.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			solZa4fFXHU4p61KSegryhqGfMM=
-			</data>
 			<key>hash2</key>
 			<data>
 			7X62FR3qKLKgCi3mkwhoJfSYdhXVzy/pTp6j1wtdE1s=
@@ -3392,10 +4283,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/road_8-2.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			IGEsKFv6icS08/TMkp+MormykLo=
-			</data>
 			<key>hash2</key>
 			<data>
 			pvfCkomVwJ0KZwclEtmUR11mSagaN9LrXrn58aC8Afw=
@@ -3403,10 +4290,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/ru.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ZQxxbOa9SqerIFcZxVCb7hwnVPc=
-			</data>
 			<key>hash2</key>
 			<data>
 			8F3iIfeZfkt3kc7zw4d4l5s9m2b9vFCn+p7G/68yjac=
@@ -3416,10 +4299,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/sk.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			nSlgSiTUs/Q8ntegpWOmKpS6OkI=
-			</data>
 			<key>hash2</key>
 			<data>
 			feymRx/Bi+chAP3Ey5Agr9Ft2cE7nqIhoQRcSalOf18=
@@ -3429,10 +4308,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/sq.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			k5p4vwv3FB0n44izHXvxmLEu6hc=
-			</data>
 			<key>hash2</key>
 			<data>
 			xdPaO4Y0CzvRMTCC1q1H1VfThTHn2MaId+Q5GxGa3LA=
@@ -3442,10 +4317,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/sr.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			UIAXncQsUcT2XlYbK0TI6Pc+gXg=
-			</data>
 			<key>hash2</key>
 			<data>
 			8rNHcU3oYlM0NSmNJOc1P3mtrinjUgblf//jx+xIDpw=
@@ -3455,10 +4326,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/sv.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			gEVwxbj/miOHxRU7VePK8B/BNSM=
-			</data>
 			<key>hash2</key>
 			<data>
 			8tCCYi9Yl0YnYWmOeOvY8stlPrs0P1Ykmu3VZKX+ZvE=
@@ -3468,10 +4335,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/sw.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			3OrZzSbV0A8W1luKhYLPVH7i9ZQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			jTgCu5jFsQzYN22/wifVsX/RArJeiIrn85W+yYfIYW8=
@@ -3481,10 +4344,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/th.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			NhXIJxUR+Rn3xqHWJfwZSswdydk=
-			</data>
 			<key>hash2</key>
 			<data>
 			RC/EzqptnmbJr3KK7eF7JYvn5YMqHCwoT6JVZuSHC6g=
@@ -3494,10 +4353,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/tr.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Un2Wg0+U5Up8KdhDqnHZOZA0W0M=
-			</data>
 			<key>hash2</key>
 			<data>
 			k6qQBFkz41GpPIpKN8nbu0HCLy7uhiXBqPPKpgXMjNw=
@@ -3507,10 +4362,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/uk.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			hJHQimxffwCObZrgPVGUGfI9SEg=
-			</data>
 			<key>hash2</key>
 			<data>
 			C7crpYbUw8AOQhb9wpJaWi/B8UdKX92fMREVGsUv4yw=
@@ -3520,10 +4371,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/vi.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			9e+3O4rjHEfIQylawQkOstDGWFE=
-			</data>
 			<key>hash2</key>
 			<data>
 			XDRpaLGcAXpWlyiHwm48D8P53TDZavyuwZxOqf+NyNM=
@@ -3533,10 +4380,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/zh_CN.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			mkxZfPLm1uPPz6PPyn9RctnE+0Y=
-			</data>
 			<key>hash2</key>
 			<data>
 			sgjNca8LpMcjMVVQDTUR0Yb/VgUcg6dw+ALrOMRvuO8=
@@ -3546,10 +4389,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/zh_HK.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			0W3/Rg1FHTleO/XRiX2MgMmLgW0=
-			</data>
 			<key>hash2</key>
 			<data>
 			ieYiGeYETunrujyWGcmRClgFR/nkeEW6hpip167/vjY=
@@ -3559,10 +4398,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/GMSCoreResources.bundle/zh_TW.lproj/GMSCore.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			4KI0ZC3ZrAiaNpBlwgjmB9NaZnY=
-			</data>
 			<key>hash2</key>
 			<data>
 			eymXX+mzJGCbSuahiQXvbJtVXL/5XjaV+T5s0lYYFLc=
@@ -3572,10 +4407,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/Info.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			OrqVgdCg8LIVCd5/bJFTXrHIocY=
-			</data>
 			<key>hash2</key>
 			<data>
 			gyKMh+03cpSrdWLD89j+rc27wnygQB2vM4G/ttAAAxQ=
@@ -3583,10 +4414,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/bubble_left.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			wEgufayRRGE/XJ0qEoTBxkKrlHk=
-			</data>
 			<key>hash2</key>
 			<data>
 			esJZo0DQ/iA9fGTeZgnhHBaaXjKiwF0Q+D77afKUdtQ=
@@ -3594,10 +4421,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/bubble_left@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Nk+SqgFNjGYaDU/37+ZTq+lPIrk=
-			</data>
 			<key>hash2</key>
 			<data>
 			85j4wRMjUhbJzw2Cj/dcdiSaIcvVJMiwY8pyr9uAvoQ=
@@ -3605,10 +4428,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/bubble_left@3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			PeAkYTqZ90NC+h3Mi5El7hzRBgw=
-			</data>
 			<key>hash2</key>
 			<data>
 			CC5oWJdSl7qbV3Nhcm9VlpgXL0MZNtSwnDkXPFFjOAs=
@@ -3616,10 +4435,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/bubble_right.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			y8j2sPykvEUgCCWbqkMQajBUA70=
-			</data>
 			<key>hash2</key>
 			<data>
 			af0tM2SZMSGEXPSOUwN7JZ7as/APH644Mlk2l4IWqms=
@@ -3627,10 +4442,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/bubble_right@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			szkKZfIOIr+5aD8GPzuDEHHmsBY=
-			</data>
 			<key>hash2</key>
 			<data>
 			2tW3XA24iExRY3gHrbutr+hAVYLNOk3LrSXZmHRjUIA=
@@ -3638,10 +4449,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/bubble_right@3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			YSf405gjD1uaF7YDsam6q4yvNso=
-			</data>
 			<key>hash2</key>
 			<data>
 			02zlKov8Ubrnz7aJ/JXa+qQ073+mO2gy2CgeYrDNF18=
@@ -3649,10 +4456,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/default_marker.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ppuMWsDz33zJ4WQEf/T44wDUbH4=
-			</data>
 			<key>hash2</key>
 			<data>
 			887sC+aoN4dU/vbAxS4n+OVJF0OhaWtI5+ApUiAo4OI=
@@ -3660,10 +4463,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/default_marker@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			16rmol/KiLxPFBpJ2CXEt6iN1tY=
-			</data>
 			<key>hash2</key>
 			<data>
 			li0yHMe3GXzy6oYRXekDdiGI1lMKUe6WiOCFJxC3+3w=
@@ -3671,10 +4470,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/default_marker@3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			qsYrYr4gBke8SZua6qJO3PzmRHM=
-			</data>
 			<key>hash2</key>
 			<data>
 			CKZ6iFy+RrstUS7CKGBG4IwG/33OisBfa5HXSMu8aXs=
@@ -3682,10 +4477,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/ic_error.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			0CVIeN+d0Z/e6FHcEzk0GpRz9KM=
-			</data>
 			<key>hash2</key>
 			<data>
 			ZELicqEYSjWiwLH5Bpm+L59wifWIeso6rvF1uk5JPN8=
@@ -3693,10 +4484,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/ic_error@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			BYvkcO3ien1dBURGTX7/iQ61684=
-			</data>
 			<key>hash2</key>
 			<data>
 			g+br70qT4Wo8OHYO9GEnd5pkjYLVQsyw1W8T8+pd7Xo=
@@ -3704,10 +4491,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/ic_error@3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			4z+GVXIKMXonei9wATmOpaG2Yp0=
-			</data>
 			<key>hash2</key>
 			<data>
 			l/lLCEplaZnTitN6/IXGuLZM5QXaxaSim9fc8XsRb3c=
@@ -3715,10 +4498,6 @@
 		</dict>
 		<key>GoogleMaps.bundle/oss_licenses_maps.txt.gz</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			3Xx/BlT5UQYM2X8QFQU0ZDWYWR4=
-			</data>
 			<key>hash2</key>
 			<data>
 			qZJF/QFb3AZPslnhmf7Ly+QHPe4I5KJLYhtYOEQrB6k=
@@ -3726,10 +4505,6 @@
 		</dict>
 		<key>Headers/JSONKeyMapper.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			2NCXcgFIMFgOzec5PT2DHqfTorI=
-			</data>
 			<key>hash2</key>
 			<data>
 			CpTlDGSOAqOwi9zPHe8VjszUxCkO7qHPKdiDyzHiqKg=
@@ -3737,10 +4512,6 @@
 		</dict>
 		<key>Headers/JSONModel.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			nBawwj4vB0j0jZ+dWqovLtP4o1U=
-			</data>
 			<key>hash2</key>
 			<data>
 			o7gHHK2q6op5TpIymETRnWO7ig+eWgcCJxrwzdYVSK0=
@@ -3748,10 +4519,6 @@
 		</dict>
 		<key>Headers/JSONModelError.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			bwqIagompeQQnfliS7pcOweyrFY=
-			</data>
 			<key>hash2</key>
 			<data>
 			JevPeZUCw/ULWbRuvFzAe6ciPhQv/JoED0i7iflx9VM=
@@ -3759,10 +4526,6 @@
 		</dict>
 		<key>Headers/JSONValueTransformer.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			rm2I4E+8FJmTl9oe6lL0weZpWcA=
-			</data>
 			<key>hash2</key>
 			<data>
 			4NFjyoZoYT4Di+LTaEVCwefNQuhTtQtNA3Li2g3AWsU=
@@ -3770,10 +4533,6 @@
 		</dict>
 		<key>Headers/MPAppData.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Tne3dsgbhzHXDJ99S6lqEOf248k=
-			</data>
 			<key>hash2</key>
 			<data>
 			DfeThMVwBtKGd9HDEQ8ZLZXKf0jqSTA9LOgYhIIT2qs=
@@ -3781,10 +4540,6 @@
 		</dict>
 		<key>Headers/MPAppDataProvider.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			koaYWccRcyQEG07ISJXkK3A26Ho=
-			</data>
 			<key>hash2</key>
 			<data>
 			T8Jra5dM0yzEYI/c6wH0RwaXXM/6t6vnW3hEi6FjAA4=
@@ -3792,10 +4547,6 @@
 		</dict>
 		<key>Headers/MPAuthClientInfo.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			uicQG+bsCcdOKedZRLrsM94YFFM=
-			</data>
 			<key>hash2</key>
 			<data>
 			lJs7R1QK3XXZxqIy+xcoNG4yjKjrFQH0g5B5mSJTF0w=
@@ -3803,10 +4554,6 @@
 		</dict>
 		<key>Headers/MPAuthDetails.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			bh2xWMBFQVNEiZG9Rl5ojrMgDRU=
-			</data>
 			<key>hash2</key>
 			<data>
 			DqxwGLu1F0p0FoU9i58litYRTMzQuUOaAEcX/vE3Q3U=
@@ -3814,10 +4561,6 @@
 		</dict>
 		<key>Headers/MPAvailabilityLiveUpdate.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			pzxKkmQNS3gsykO//Pag+8k5X/A=
-			</data>
 			<key>hash2</key>
 			<data>
 			ALIS8lMvHrf9uCd7U7tvUNEss/K/1GhaZQP+tWxYXM0=
@@ -3825,10 +4568,6 @@
 		</dict>
 		<key>Headers/MPBeacon.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			P30lm5NoIIPODZaDC3jWlxxoFnM=
-			</data>
 			<key>hash2</key>
 			<data>
 			4VlyXxEfrJrLWNNfPOPUD0ssKDySW0xaFkjG3BFo0zg=
@@ -3836,10 +4575,6 @@
 		</dict>
 		<key>Headers/MPBeaconCollection.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			BLrD963kO2E1IKyPAyOin7H9Bx4=
-			</data>
 			<key>hash2</key>
 			<data>
 			A0qmN+ER8iC0Q4icezenkfydI+ohK/DkAQr8Bmv2HpE=
@@ -3847,10 +4582,6 @@
 		</dict>
 		<key>Headers/MPBeaconProvider.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			LqIOiK/qS/kl5+4yJtqHjY2QGaA=
-			</data>
 			<key>hash2</key>
 			<data>
 			XpJAxE4Tbj97x25Juurt7UTI3f35K5Fdvx5BhwMS/BI=
@@ -3858,10 +4589,6 @@
 		</dict>
 		<key>Headers/MPBookableQuery.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			qSlmSU7Rm+FqtHrOBwYCgvOq1Ys=
-			</data>
 			<key>hash2</key>
 			<data>
 			PX/nXTynu8w0oh6YkEr7RMjf0rd7MhYTh5RfKNlrHTI=
@@ -3869,10 +4596,6 @@
 		</dict>
 		<key>Headers/MPBooking.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			6IoaYWKwbOvkxgszs1XT0NY0tuQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			qFNJdlbWaFcaAJLTgR3RjORJ2+XmUpaqmAJMnnWxpDk=
@@ -3880,10 +4603,6 @@
 		</dict>
 		<key>Headers/MPBookingAuthConfig.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			QxT/eUwFDwLu6IDk9z6urSlMBc4=
-			</data>
 			<key>hash2</key>
 			<data>
 			hIyN0RShFuomdPRzoZeU979hBa5Ptk/DCfkKhDkEsis=
@@ -3891,10 +4610,6 @@
 		</dict>
 		<key>Headers/MPBookingService.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			LWp8/k/N9Lc7RyOJ3b5BKbxMp9Y=
-			</data>
 			<key>hash2</key>
 			<data>
 			5Hyr9EA4vatQkFf+FdjhG2m2h8Cd4GJIA85YrvU1eMM=
@@ -3902,10 +4617,6 @@
 		</dict>
 		<key>Headers/MPBookingsQuery.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			iga2cZkePrcMrjoVNZOMZSN8KKE=
-			</data>
 			<key>hash2</key>
 			<data>
 			SIU1yGLRNGnyu3dv12umvVqPUBQgue/Uy7feWqLlIz0=
@@ -3913,10 +4624,6 @@
 		</dict>
 		<key>Headers/MPBuilding.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			QeaTErlW81B2gyU99pWfQxWZL1k=
-			</data>
 			<key>hash2</key>
 			<data>
 			S0GgK8iiCBnFmTynixHragXUEC5CTxcpIUjRW0VhumU=
@@ -3924,10 +4631,6 @@
 		</dict>
 		<key>Headers/MPBuildingCollection.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			jQqsV3DMMh8lQuRJ517f0Wpo1jg=
-			</data>
 			<key>hash2</key>
 			<data>
 			e9fuC0NoRpdbSHDIK21IeHIPn34HKdu9zuXn36YVDdY=
@@ -3935,10 +4638,6 @@
 		</dict>
 		<key>Headers/MPBuildingDataset.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			SMHSnL4bfwOWM+UM8MBWnvq+fFw=
-			</data>
 			<key>hash2</key>
 			<data>
 			phki0g3mzzEt6XZbw2MM0gF0Dzi7RVjFltYV5Lfjack=
@@ -3946,10 +4645,6 @@
 		</dict>
 		<key>Headers/MPBuildingReference.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			zB02QH6rkcrAblzM5ngFQPommNo=
-			</data>
 			<key>hash2</key>
 			<data>
 			WXjMRHgbDk72msDOUScWce1N/GZ8y749RSlv5aLbCbE=
@@ -3957,10 +4652,6 @@
 		</dict>
 		<key>Headers/MPCO2LiveUpdate.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			kY6N3v5R0aYEO1W5hbKfIb5wYIg=
-			</data>
 			<key>hash2</key>
 			<data>
 			6Ge8PowtJhUHJQdOYi9yfyJnXNi4RndlocmwFF4arI8=
@@ -3968,10 +4659,6 @@
 		</dict>
 		<key>Headers/MPCategories.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			s+Ksj3ZFNVtcTQb3ar0VD353QfY=
-			</data>
 			<key>hash2</key>
 			<data>
 			ixdrAvhaBItDxCghPpe9WdF/EP6wgrQlsL5jGm7cvyI=
@@ -3979,10 +4666,6 @@
 		</dict>
 		<key>Headers/MPCategoriesProvider.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			dEkZOVUeN3qLdzDwnw1Hyt6r5LM=
-			</data>
 			<key>hash2</key>
 			<data>
 			/a83CydQ1HzxgesSPUnxQgHQ2xrQYel1zXgxk8Nross=
@@ -3990,10 +4673,6 @@
 		</dict>
 		<key>Headers/MPContactModule.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			zhuW73EgJnz9Ijh6zygUJvZ7kSk=
-			</data>
 			<key>hash2</key>
 			<data>
 			hSlO1RldlX+ULJDxIMzcP0a3KB50X4+nhhS/AjLrvyQ=
@@ -4001,10 +4680,6 @@
 		</dict>
 		<key>Headers/MPCountLiveUpdate.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			bK0YPU24xcsmoPYHNJb/3FsFKPc=
-			</data>
 			<key>hash2</key>
 			<data>
 			MXBW2WKJ9RGeifonHDWqu/NF5C7FvQCmVn7mrd5BEpo=
@@ -4012,10 +4687,6 @@
 		</dict>
 		<key>Headers/MPDataField.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Bssaxo3EWBmiQi0SxJninVWDVaA=
-			</data>
 			<key>hash2</key>
 			<data>
 			hgvK23jkqs7yWbNDRzwysnQDMVo+EoO4e1iB2mZtvi0=
@@ -4023,10 +4694,6 @@
 		</dict>
 		<key>Headers/MPDataSetCache.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			2y9kM96iNP0G38/cKtnvVd7OCiE=
-			</data>
 			<key>hash2</key>
 			<data>
 			YvCS5Fdki4MLjI0kNI+PKRu3QPsvdczOyAwf31W89tE=
@@ -4034,10 +4701,6 @@
 		</dict>
 		<key>Headers/MPDataSetCacheItem.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			uPqV4Kae10EevGuOQQ9Eo+/l6j4=
-			</data>
 			<key>hash2</key>
 			<data>
 			fzy1QO9wUgj90RgS8zIP33f6Q/gBSp6BjVuDoGCvExw=
@@ -4045,10 +4708,6 @@
 		</dict>
 		<key>Headers/MPDataSetCacheManager.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			AQpkZJHefA9p/qVifAcMa2ikQ4E=
-			</data>
 			<key>hash2</key>
 			<data>
 			y+XhaWgtP82D3ap3WEB790fQ1dAnEOZNzLpNDVKTwd8=
@@ -4056,10 +4715,6 @@
 		</dict>
 		<key>Headers/MPDataSetCacheManagerDelegate.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			l9D/3LEiRLePDYqKZbEcMbkkr6o=
-			</data>
 			<key>hash2</key>
 			<data>
 			xqS+PDSpcONOB9OKlS1yVifjA+RSSCqVOtdl+saX2i0=
@@ -4067,10 +4722,6 @@
 		</dict>
 		<key>Headers/MPDataSetCacheManagerSizeDelegate.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			VmyTzNmB6lf2W7hYc15ImCxjGbw=
-			</data>
 			<key>hash2</key>
 			<data>
 			4yoBccp/SXPmoOg5rm9sYryRXJ6Ow7Uc/5Uds+5IZVI=
@@ -4078,10 +4729,6 @@
 		</dict>
 		<key>Headers/MPDataSetEnums.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			0nZoAS1dFt2Jy/WkTE5uLje/f1k=
-			</data>
 			<key>hash2</key>
 			<data>
 			9yFEeJQ8Seh5E2DFNT2ghpsbSyr2uQ6nUc1i43WBDms=
@@ -4089,10 +4736,6 @@
 		</dict>
 		<key>Headers/MPDefines.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			oQlmFL0yv/hiKFeUKjxobZ7RNOY=
-			</data>
 			<key>hash2</key>
 			<data>
 			YAzWQGsCerx+bZqsQW+lZFNpRwWvSoogQEuqjn8Ovvs=
@@ -4100,10 +4743,6 @@
 		</dict>
 		<key>Headers/MPDirectionsQuery.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			zC9QFeLO9ko4vOmA14ilMnFwOm8=
-			</data>
 			<key>hash2</key>
 			<data>
 			orrH0GbQjv889Bova6v1SP5F0omykDHz7KNbguNpaZE=
@@ -4111,10 +4750,6 @@
 		</dict>
 		<key>Headers/MPDirectionsRenderer.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Q0gq6oVLiUUNSpT7WIpSZ1d/VcA=
-			</data>
 			<key>hash2</key>
 			<data>
 			YUSQnQfCwnexUb1Qp7hTKUo7ahIoaJvLUXQ0S1d1kv4=
@@ -4122,10 +4757,6 @@
 		</dict>
 		<key>Headers/MPDirectionsService.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			loI4Q137KOPfxnQNTz8JW93q398=
-			</data>
 			<key>hash2</key>
 			<data>
 			eqc9C2YivrN/+BFvWmxdGj/5CVnwgdBgsnIsLxFTMAQ=
@@ -4133,10 +4764,6 @@
 		</dict>
 		<key>Headers/MPDistanceMatrixElements.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			hvrEiTSvPZhw/1ChBmr9qG5t61s=
-			</data>
 			<key>hash2</key>
 			<data>
 			jiu9kh+fY4dqHotvJ5C0OlTSH8V/OiqJy9JfOJBZ4Rw=
@@ -4144,10 +4771,6 @@
 		</dict>
 		<key>Headers/MPDistanceMatrixProvider.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			1te1dodCKS6qulJZfLeWq5N1QS4=
-			</data>
 			<key>hash2</key>
 			<data>
 			dHZn1uu0/aRfgOFPd1QZ3RQ9BSr41jE3gGnJftDx9aQ=
@@ -4155,10 +4778,6 @@
 		</dict>
 		<key>Headers/MPDistanceMatrixResult.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			tjAPUWXFU78PcDl3b+Wq9qP3Tdw=
-			</data>
 			<key>hash2</key>
 			<data>
 			IMRgKmBlXVeADie/QzHQDIa4MonNWiax0bLn1aDvjtA=
@@ -4166,10 +4785,6 @@
 		</dict>
 		<key>Headers/MPDistanceMatrixRows.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			1vcMLVIhlE6bUzQqQmABg7mqPKs=
-			</data>
 			<key>hash2</key>
 			<data>
 			Euqg5mYqLWf1G4Cg9GaYeBiRVpJXkdqWVek5Efx9FrA=
@@ -4177,10 +4792,6 @@
 		</dict>
 		<key>Headers/MPEncodedPolyline.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			z1YuvqTTaUw8n9nnWDwVWCdbCws=
-			</data>
 			<key>hash2</key>
 			<data>
 			hilUOwDV8EKs1ilv3N0AL23mmyupQZuAp7zuMq3c9eA=
@@ -4188,10 +4799,6 @@
 		</dict>
 		<key>Headers/MPErrorCodes.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			8Wsm32OUpqFXfFR1AZJl8VbI5qA=
-			</data>
 			<key>hash2</key>
 			<data>
 			4cC9ZVbjE8Fat2mXwkMOQ+0D9O/pVvIMo2aru+Tg0gc=
@@ -4199,10 +4806,6 @@
 		</dict>
 		<key>Headers/MPFilter.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			KNH9vo2ab82b1M+i+nfrHlsBrq4=
-			</data>
 			<key>hash2</key>
 			<data>
 			TQBEyWx3SaKFaSPGxUKok8qoFt1Pos1TARRSJ7H+eD0=
@@ -4210,10 +4813,6 @@
 		</dict>
 		<key>Headers/MPFloor.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			mOyLk8ZTT7TllT4Ecv9aoiPiY3g=
-			</data>
 			<key>hash2</key>
 			<data>
 			mXdHF3u1mxeeZ2noLAcxde+HdkpRCU2QbZ2REWYB4mo=
@@ -4221,10 +4820,6 @@
 		</dict>
 		<key>Headers/MPFloorSelectorControl.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			C1Ap5sE69mc8SE4YywaIoci5vbo=
-			</data>
 			<key>hash2</key>
 			<data>
 			9kf2ad/9O3Y5h7N9T8zATVm0BnJD92VU06e4pLyBN7Y=
@@ -4232,10 +4827,6 @@
 		</dict>
 		<key>Headers/MPFloorSelectorProtocol.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			B0GV6Tnb4QGJSWXMPZo7m5paMbM=
-			</data>
 			<key>hash2</key>
 			<data>
 			K4BM4ZIUq0DhNXk7oHhoHIjjcKUSOTY1jh/ZKPvum+k=
@@ -4243,10 +4834,6 @@
 		</dict>
 		<key>Headers/MPFloorTileLayer.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			5zAj+kZZCQAb4H3C85+9lIPjjWQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			eyfXsYtlY6K64shFk1fbaq/8mPK62l68QbGQaERKwco=
@@ -4254,10 +4841,6 @@
 		</dict>
 		<key>Headers/MPGeometry.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			cf+2IMC0AViv9zmoyEhbdqzrh6I=
-			</data>
 			<key>hash2</key>
 			<data>
 			OnAcHk6N6finOuTLWxSDxmMGkzMn66PZmmtZ8sBRbQI=
@@ -4265,10 +4848,6 @@
 		</dict>
 		<key>Headers/MPGeometryContainmentMetadata.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			etnUTHRRU0imaBHRuVgcAno2Tok=
-			</data>
 			<key>hash2</key>
 			<data>
 			V6A5MeGfB2xZtC1TnVYAaa5MsroFeEkRnQAPlyLRv7E=
@@ -4276,10 +4855,6 @@
 		</dict>
 		<key>Headers/MPGeometryHelper.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			FbplHX11Fr8RywcNTsEWQLJ4CVA=
-			</data>
 			<key>hash2</key>
 			<data>
 			Nqx1kofdlregvI01ZlcZH3CTYzVkrFmYA8HHJY3ySeI=
@@ -4287,10 +4862,6 @@
 		</dict>
 		<key>Headers/MPGeometryQueryProtocol.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			uRc2y1BemSMShfq5b/fiFq1qfHA=
-			</data>
 			<key>hash2</key>
 			<data>
 			AOACFD9NFqQMLzHoEsj94XWsP926wgNV+exRLH+Sm38=
@@ -4298,10 +4869,6 @@
 		</dict>
 		<key>Headers/MPHumidityLiveUpdate.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			gJ6pOas/uHoNHa6tGfIYVf9cR9s=
-			</data>
 			<key>hash2</key>
 			<data>
 			wHIFFXWxk5nezgAyGnG5LaejDuPDJfyrw1TUPPq0rZ0=
@@ -4309,10 +4876,6 @@
 		</dict>
 		<key>Headers/MPImageProvider.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			614I22nE9Oi0pMRwZ96E7VyH3CM=
-			</data>
 			<key>hash2</key>
 			<data>
 			aCVkS6FKhYweRgYYG0L+Weqy8lgyDCWs7jMOGS/r7yQ=
@@ -4320,10 +4883,6 @@
 		</dict>
 		<key>Headers/MPImageRenderer.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			T19n8Fe/x5F9ldKApeToTbRj9go=
-			</data>
 			<key>hash2</key>
 			<data>
 			yB2QKKyOqNmIaQJKP0E/HTGPnzZixNrZ7JSxG/QkH3M=
@@ -4331,10 +4890,6 @@
 		</dict>
 		<key>Headers/MPLatLng.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			fMyynjal6fCravKlPziNlKSImok=
-			</data>
 			<key>hash2</key>
 			<data>
 			r3S3dR+ACWhF7QVaz9F0/na5LHMUl/rAjPQrlBPh/wA=
@@ -4342,10 +4897,6 @@
 		</dict>
 		<key>Headers/MPLatLngBounds.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			gn/HSERJ7SqT+MlFxMAKMwGvS/Y=
-			</data>
 			<key>hash2</key>
 			<data>
 			S/8xiXl/GmaMvFzkb8LResJHtgW+s/bDX2QtvFb3c/E=
@@ -4353,10 +4904,6 @@
 		</dict>
 		<key>Headers/MPLayerType.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			459wRuj7t/iwuDNstDPbT9jlAKg=
-			</data>
 			<key>hash2</key>
 			<data>
 			QPcHg0kRnLp1O2bbCu31oYqDV+V9SPaCh/byaUk2r1Y=
@@ -4364,10 +4911,6 @@
 		</dict>
 		<key>Headers/MPLineGeometry.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			fgDEUObVtW+o5UUwWYivhSqxV00=
-			</data>
 			<key>hash2</key>
 			<data>
 			Z3MEx2Ch2Dku2mI7p7blDb7mK7eNY7YL1JCmLm6ndOk=
@@ -4375,10 +4918,6 @@
 		</dict>
 		<key>Headers/MPLiveDataInfo.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Qp4/Xu5apri8GTl3jB5VssSTXVM=
-			</data>
 			<key>hash2</key>
 			<data>
 			0yliS44429IV/TFZQ3IPFnCUZcdginsBAOebJaqiB1Q=
@@ -4386,10 +4925,6 @@
 		</dict>
 		<key>Headers/MPLiveDataManager.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ZmwPc7hQNYdn6nPwalQLEH3YcC4=
-			</data>
 			<key>hash2</key>
 			<data>
 			oBNAzXu7IiO8mo4Aa6t3w4mQlb2VMq0yjCZ0HBUsG9k=
@@ -4397,10 +4932,6 @@
 		</dict>
 		<key>Headers/MPLiveDomainType.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			CUf/ZhSpGRKpekjnmBzYlo6bW5Y=
-			</data>
 			<key>hash2</key>
 			<data>
 			eOn9zfo7gGE0iv6rWuPO9+EJ3LboBtH8FsKi3OjfajU=
@@ -4408,10 +4939,6 @@
 		</dict>
 		<key>Headers/MPLiveTopicCriteria.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			T6/grg54gvx/W7p3iJykKA6UUME=
-			</data>
 			<key>hash2</key>
 			<data>
 			b11TMaS5PQJtWi7IvSnH9bke1VE0o+XiE8AdMw0RH9M=
@@ -4419,10 +4946,6 @@
 		</dict>
 		<key>Headers/MPLiveUpdate.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			uJJCtLXryBWljz1DTcm/uKlohFw=
-			</data>
 			<key>hash2</key>
 			<data>
 			Duw/I+YgDSDy9DVPZfHXAkSB40umHF4SzJ/8eoM3HVw=
@@ -4430,10 +4953,6 @@
 		</dict>
 		<key>Headers/MPLiveUpdateTopic.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			AqhzWiPavhaSVEIKg+ElDZiXjU4=
-			</data>
 			<key>hash2</key>
 			<data>
 			4S4fiKp0Lugv4r0WciYtlmPwevXGMdaXKpzNZbcexLo=
@@ -4441,10 +4960,6 @@
 		</dict>
 		<key>Headers/MPLoadIndicator.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			dz7JDoijLK8II6P4jtbSya3ggTg=
-			</data>
 			<key>hash2</key>
 			<data>
 			Y/dGK6XLgzhIc0se5vPdSQn9EEQUOt0oEIPemFOeVDE=
@@ -4452,10 +4967,6 @@
 		</dict>
 		<key>Headers/MPLocation.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			IuOzbSmPdT/UvjVjhxPlvVc6NNQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			pOsLcyTMp3/RsFvKpNYZc8llTcYriDXgMq2C3k408jg=
@@ -4463,10 +4974,6 @@
 		</dict>
 		<key>Headers/MPLocationBaseType.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			bTk0BuqEjT7A6z/tKsu/d90bqS8=
-			</data>
 			<key>hash2</key>
 			<data>
 			LpiI5QxEFhSOwcrCsZQuguZBv18fvX99POQmAfmMXLY=
@@ -4474,10 +4981,6 @@
 		</dict>
 		<key>Headers/MPLocationCoordinate3D.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			QOzba4y7eY98cLe9dYurHvRUp5E=
-			</data>
 			<key>hash2</key>
 			<data>
 			iQJKjvDtvIaY0vRfreR+z7AcDhZgyfvqy4K9FypTz5g=
@@ -4485,10 +4988,6 @@
 		</dict>
 		<key>Headers/MPLocationDataset.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			nrwch8CHAiY6WAv/Qq0vFWkf9/c=
-			</data>
 			<key>hash2</key>
 			<data>
 			Y9VAaRJet+Ay7WwVnBtQCdxKaDBefC2YxTOxGKSvdw8=
@@ -4496,10 +4995,6 @@
 		</dict>
 		<key>Headers/MPLocationDisplayRule.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			quiDvPquiL8cP01Hbvf3P8kb+BQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			Z+Mmo9/FUZk5x7KlKnACr17y29wVU92AKnfgU+Eh1Lk=
@@ -4507,10 +5002,6 @@
 		</dict>
 		<key>Headers/MPLocationField.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			QEdOxQrAgYk9dwiXabaRnii0Tgk=
-			</data>
 			<key>hash2</key>
 			<data>
 			niae38oHYf5JbVjJdOmtUf8dQ9ZsDIrR1mYmTtK4lU8=
@@ -4518,10 +5009,6 @@
 		</dict>
 		<key>Headers/MPLocationProperty.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			SgWJY/n3f0uIGBNA3YsN8ZQLicE=
-			</data>
 			<key>hash2</key>
 			<data>
 			QC/p7qGLCNR++vvJLwl+xcf53n9AwSDSyFfydQR43ZQ=
@@ -4529,10 +5016,6 @@
 		</dict>
 		<key>Headers/MPLocationQuery.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			mLIz/AiMVxlvpCfrvPgseyRdNwc=
-			</data>
 			<key>hash2</key>
 			<data>
 			lFmzn0bTyBggRlzPKYhRFwYG4l/QHA+5qE6+nA/1OXM=
@@ -4540,10 +5023,6 @@
 		</dict>
 		<key>Headers/MPLocationService.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			hqpJ7B8dkCaE8DM+6+mCVjgZfuI=
-			</data>
 			<key>hash2</key>
 			<data>
 			RlFGoyYHWzY9G1uZoJqFQSnVpgq1ErxmUuS5HL051mg=
@@ -4551,10 +5030,6 @@
 		</dict>
 		<key>Headers/MPLocationServiceDelegate.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			0gk2j7VRhdGJzWSEZNJJOEw/z2Y=
-			</data>
 			<key>hash2</key>
 			<data>
 			bHcRzMN+h2k/od/Nk38DaJRtT8zNpMrMs10VE5sBGPU=
@@ -4562,10 +5037,6 @@
 		</dict>
 		<key>Headers/MPLocationSource.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			0KPnH+Y7bwOIeszHToaAiHpuyY8=
-			</data>
 			<key>hash2</key>
 			<data>
 			I8I3HP631fl9SnLFIYkwx+kWXv5ADZYWlmN1ighE8RQ=
@@ -4573,10 +5044,6 @@
 		</dict>
 		<key>Headers/MPLocationSourceStatus.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			a4LCFEGFE76pOnr5oteeyYvcsbM=
-			</data>
 			<key>hash2</key>
 			<data>
 			s1UCXq96VT6Rz4bDSWbP43BI46cj0CyJsIDJj77rEIA=
@@ -4584,10 +5051,6 @@
 		</dict>
 		<key>Headers/MPLocationUpdate.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			gXuFpGg1WQw6y81VfqeN1HC7HuU=
-			</data>
 			<key>hash2</key>
 			<data>
 			J+er225aRQS6VholJzXwoSEgNn20tsO7oGuPeAcM3B8=
@@ -4595,10 +5058,6 @@
 		</dict>
 		<key>Headers/MPLocationsObserver.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			3woddhylnuUCdv9EZtu0bFyy0Sw=
-			</data>
 			<key>hash2</key>
 			<data>
 			BRceIGANmeFCYDYTGs6cXnQEMrhOpm5bb64xiBdpTSc=
@@ -4606,10 +5065,6 @@
 		</dict>
 		<key>Headers/MPLocationsProvider.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Cz3xvBXzRgE0p02tpaWXxNF1EQE=
-			</data>
 			<key>hash2</key>
 			<data>
 			m7mz1R1xmYbAxq+tPeTKeHmp9tnAlCgOZ1zkpCLsA8s=
@@ -4617,10 +5072,6 @@
 		</dict>
 		<key>Headers/MPMIAPI.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			zKTY3jjIix+18FT2yVYSj+w7nB0=
-			</data>
 			<key>hash2</key>
 			<data>
 			hF0svrzYELM0jZ/hD4tUfHBfKVEz5hvdUQfQzXoAUh0=
@@ -4628,10 +5079,6 @@
 		</dict>
 		<key>Headers/MPMQTTSubscriptionClient.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			oZFks10EQfgbKP1UQVQAXA3bxoY=
-			</data>
 			<key>hash2</key>
 			<data>
 			DyeZROSu7lptFwfNyEm+7OG7gpoEA9UhXJsvov4Vzh4=
@@ -4639,10 +5086,6 @@
 		</dict>
 		<key>Headers/MPMapControl+LiveData.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			xQlrdV44NLwv6VF1Yc4AsZwFFkA=
-			</data>
 			<key>hash2</key>
 			<data>
 			BRhprnIkYe7dI72xqwwBMYMsOOeHYJwze0tYjIzatxk=
@@ -4650,10 +5093,6 @@
 		</dict>
 		<key>Headers/MPMapControl.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			64pNmOyk8wx1PZgXcqzlM8le0Hs=
-			</data>
 			<key>hash2</key>
 			<data>
 			mG1iqN7iD4G0Cyae+5TAMRjd3JeO99yGpJg+/VVRXXY=
@@ -4661,10 +5100,6 @@
 		</dict>
 		<key>Headers/MPMapExtend.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			4UXsDv53K2FR9nqCW9qEHyZHGSA=
-			</data>
 			<key>hash2</key>
 			<data>
 			W5Zfq8Utk9ZQpt7oqX+ZbCVCuOk51zvIxpQDnQMF+qU=
@@ -4672,10 +5107,6 @@
 		</dict>
 		<key>Headers/MPMapRouteLegButton.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			AsnuRD/e8AXtbuL/w+EeSo319og=
-			</data>
 			<key>hash2</key>
 			<data>
 			UNrfPydWlBmsOzDaGRgtwfyV6uFJ/o2jHt7Sd2PynLY=
@@ -4683,10 +5114,6 @@
 		</dict>
 		<key>Headers/MPMapStyle.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			F/ljFqqXhmETFspjHABu870JNpA=
-			</data>
 			<key>hash2</key>
 			<data>
 			lcXLYa9EbEJ62CtlA1knwvFrzZrcKP2DD8hpn5UQbDM=
@@ -4694,10 +5121,6 @@
 		</dict>
 		<key>Headers/MPMappedLocationUpdateHandler.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			5mBX9V3ZEvCtaCROlJyjY0huWeg=
-			</data>
 			<key>hash2</key>
 			<data>
 			BcqPBTgnYwrp002Kq3s4OTKgGNhvF5c81XBTKHshxFQ=
@@ -4705,10 +5128,6 @@
 		</dict>
 		<key>Headers/MPMapsIndoors.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			oGZ+SsNbsldSrJrF68SG9vJh2n0=
-			</data>
 			<key>hash2</key>
 			<data>
 			HIoknM9dPVF8KMp6r2sMDTNTZzoJiUERZy24xVN/g1s=
@@ -4716,10 +5135,6 @@
 		</dict>
 		<key>Headers/MPMapsIndoorsDelegate.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			kBcHj5y6EKcr681WAAd9JBRFWXo=
-			</data>
 			<key>hash2</key>
 			<data>
 			UjC8MjlsqZsx113ySQWWHA3ItBkdN2rpBTyz9FCdzLk=
@@ -4727,10 +5142,6 @@
 		</dict>
 		<key>Headers/MPMarkerView.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			HQmLttoIfHFlCz1H+8D0OtBMaHU=
-			</data>
 			<key>hash2</key>
 			<data>
 			xyGA6N3o/8NyMruc0mNpH1SjHk3EnI7ipyJ+CQQ9+fg=
@@ -4738,10 +5149,6 @@
 		</dict>
 		<key>Headers/MPMenuItem.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			tWA5+dIihc3+dbGHcKUYMgEvDA4=
-			</data>
 			<key>hash2</key>
 			<data>
 			IVUBKiyuyHobgIe0zAHz3PDUpkEn7UuJIwR1HJ0JpZk=
@@ -4749,10 +5156,6 @@
 		</dict>
 		<key>Headers/MPMessage.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			zHG3+RWPv2+IkgczoTmbhwQif1E=
-			</data>
 			<key>hash2</key>
 			<data>
 			H2uEBN86UkEjT6C6S0mqFQu45Ye04454/njhW/MJCOo=
@@ -4760,10 +5163,6 @@
 		</dict>
 		<key>Headers/MPMessageDataset.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			rbKMFJheBd7GHlGAWtMoQSCoBho=
-			</data>
 			<key>hash2</key>
 			<data>
 			fhQ26tggcTuicDI0A7EMGtfGKecub6vJr6yTYAJLdmk=
@@ -4771,10 +5170,6 @@
 		</dict>
 		<key>Headers/MPMessageProvider.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			UyhMVK+KiLIDrfjQhGBZRLNWnDA=
-			</data>
 			<key>hash2</key>
 			<data>
 			lTZSCT0qxZuE6xOd42Ql04mX9nHUT2DESwtNatiRsc0=
@@ -4782,10 +5177,6 @@
 		</dict>
 		<key>Headers/MPMyLocationButton.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			wSb62kboKP9iEmnkzHlvvzl+5aY=
-			</data>
 			<key>hash2</key>
 			<data>
 			cW6ESzdquW4oxy4nBLoOvUJMe/488gYZGSzERQ/JsHg=
@@ -4793,10 +5184,6 @@
 		</dict>
 		<key>Headers/MPNotificationsHelper.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			MaDHBKsCi9XfBU5ZJGcZJj6PXhg=
-			</data>
 			<key>hash2</key>
 			<data>
 			Rznnp7zZZJFv2hgkLKLmxi1C0GTUnGXywKnNDI01PjU=
@@ -4804,10 +5191,6 @@
 		</dict>
 		<key>Headers/MPOccupancyLiveUpdate.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			dX+SxefiL2dKNhr2xjK4CNZ7CVg=
-			</data>
 			<key>hash2</key>
 			<data>
 			Zue8RjZz9TlX2nXVj1uzAEP18koda8Rv6uQcl9rUeL8=
@@ -4815,10 +5198,6 @@
 		</dict>
 		<key>Headers/MPOnlineTileLayer.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			q5z1c6iV0StB9S197svI1a251qw=
-			</data>
 			<key>hash2</key>
 			<data>
 			2JrkjDXFBW0xwYBU3fDmMX6ttlcEh1RanM9Eo3RZr1U=
@@ -4826,10 +5205,6 @@
 		</dict>
 		<key>Headers/MPPersistentCacheGMSTileLayer.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			6rZT54wCe733KGiif5YqL05rJE4=
-			</data>
 			<key>hash2</key>
 			<data>
 			aEglG1rL7TMz16bPGd6pYudktG3fYferTr0R/w7s0Xg=
@@ -4837,10 +5212,6 @@
 		</dict>
 		<key>Headers/MPPngImageProvider.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			QiMdG9i9BYGcYJdaSmvwo7Gtd+4=
-			</data>
 			<key>hash2</key>
 			<data>
 			qKEGHoiFpJH/HYofFX1is3xIBym3Rkrcv1tSmlPiAvo=
@@ -4848,10 +5219,6 @@
 		</dict>
 		<key>Headers/MPPoint.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			d1YRcAYMuNVP9WMkG9TbudmgNlc=
-			</data>
 			<key>hash2</key>
 			<data>
 			F8rS7dryFzchy1JnMnVAu+9gefTkufWljle3U+/8vBc=
@@ -4859,10 +5226,6 @@
 		</dict>
 		<key>Headers/MPPolygonGeometry.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			GUIjxSERTU1PN2Y1y622KszX8Tg=
-			</data>
 			<key>hash2</key>
 			<data>
 			lE6AsYZLvZAWoOruLfd217It+/sx5bl3Sfv5UyFN3VY=
@@ -4870,10 +5233,6 @@
 		</dict>
 		<key>Headers/MPPositionIndicator.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			QD4hg1gShPT8NRN+5fPwfNp9TMA=
-			</data>
 			<key>hash2</key>
 			<data>
 			3l4duedKwufEE0x5SKRAOxnoLy6EElVk585gJ5XMn5U=
@@ -4881,10 +5240,6 @@
 		</dict>
 		<key>Headers/MPPositionLiveUpdate.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			nC++eYuyfsuxph8hVLUJfrZ3fbw=
-			</data>
 			<key>hash2</key>
 			<data>
 			JrZFYWpe1agRerWNLef64vnd+HecD1UfAnq9ygnW8y8=
@@ -4892,10 +5247,6 @@
 		</dict>
 		<key>Headers/MPPositionProvider.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/1HAG+eXZEqZtHJy261mMvIXhtI=
-			</data>
 			<key>hash2</key>
 			<data>
 			jUIWjDu3ZBee5SF5qXRkdAvxztGdjvEEi5f/Qu9m1T4=
@@ -4903,10 +5254,6 @@
 		</dict>
 		<key>Headers/MPPositionResult.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			MbtHV/p/oPTwntrg4ZsfmQk/8/k=
-			</data>
 			<key>hash2</key>
 			<data>
 			jm/sXgTnNQeYSwBry+FfP2Eg8jSgUimhOUxszr1Cz9E=
@@ -4914,10 +5261,6 @@
 		</dict>
 		<key>Headers/MPQuery.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			3Q8WwQONbihOPpW4JGhSk0KwtL8=
-			</data>
 			<key>hash2</key>
 			<data>
 			V2rcLJX5vq4OCsMAW49E21Jg3+gp7xwqRD0VZPhHfek=
@@ -4925,10 +5268,6 @@
 		</dict>
 		<key>Headers/MPRoute.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			BVuW+kpw3zRgx+w9y0FnOipV/pA=
-			</data>
 			<key>hash2</key>
 			<data>
 			S+GkRz3hbpz+fMx+WauIob8rzLcVFqWgzligK+viN+k=
@@ -4936,10 +5275,6 @@
 		</dict>
 		<key>Headers/MPRouteBounds.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			iMWReaIwtsL3+BrxjsNW6EGz3pE=
-			</data>
 			<key>hash2</key>
 			<data>
 			1ByWtEJBWUfHyBp3u6pOmRXqfTxHvK0xwyQIMYcZjZE=
@@ -4947,10 +5282,6 @@
 		</dict>
 		<key>Headers/MPRouteCoordinate.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			WeD7OoF5FFCMr7mFWKlQxKgJJIw=
-			</data>
 			<key>hash2</key>
 			<data>
 			6Wa+KNdRyV3ndFSKTdRgygDYMR0AeHWqdlPQ91XObDs=
@@ -4958,10 +5289,6 @@
 		</dict>
 		<key>Headers/MPRouteLeg.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			rdwdHJl3dWVKFktWcWB3IQoF+ZY=
-			</data>
 			<key>hash2</key>
 			<data>
 			a5Tqihhi5kfvyaaYCqvoX8zdgf6DckjN1fD5zNH+11o=
@@ -4969,10 +5296,6 @@
 		</dict>
 		<key>Headers/MPRouteProperty.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			W94MGRPKZJL48yy0oZxC/rqoAUk=
-			</data>
 			<key>hash2</key>
 			<data>
 			PBQB+KwtlPqxu5xmjniC6HYneem9JqV6gIwJKzmu6RY=
@@ -4980,10 +5303,6 @@
 		</dict>
 		<key>Headers/MPRouteResult.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			fkUorEvmJogEdi8XJCkUBq06f3I=
-			</data>
 			<key>hash2</key>
 			<data>
 			Yp1GNSTH35Op56SmcO5Dhmj2BPzFvZOjqWJhVVqDZsA=
@@ -4991,10 +5310,6 @@
 		</dict>
 		<key>Headers/MPRouteStep.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			4naoFvftgJ3LpUCwcVYUEGgGo+g=
-			</data>
 			<key>hash2</key>
 			<data>
 			uVY6OPNd92THa6YKpn5Ga4ppjb8V0ZBpgHrDDQP0CdE=
@@ -5002,10 +5317,6 @@
 		</dict>
 		<key>Headers/MPRoutingProvider.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			HnyNHKpFlt2hB59m53Oz000Ltqc=
-			</data>
 			<key>hash2</key>
 			<data>
 			kiQUJ+mx32RR6YPVoGwU1aqtwkA1R+KlNPtRHfCntHc=
@@ -5013,10 +5324,6 @@
 		</dict>
 		<key>Headers/MPSolution.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			p7kW0rPtIvDbrY32mJzLY+8/SN8=
-			</data>
 			<key>hash2</key>
 			<data>
 			0h5fSW/VKQvN9nskw3ojjwy3V/QnQ3lr4tB4XUw7Po4=
@@ -5024,10 +5331,6 @@
 		</dict>
 		<key>Headers/MPSolutionProvider.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			o0Mb1XvxXKfkUQYpvD6H2cwryGM=
-			</data>
 			<key>hash2</key>
 			<data>
 			s42sV/atxZvdMXY7VCy7OkGneSEoDS8ccjh4ehUTsQU=
@@ -5035,10 +5338,6 @@
 		</dict>
 		<key>Headers/MPSubscriptionClient.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			tqAGM1/qfGOd5AtI3c+eeaR7i+g=
-			</data>
 			<key>hash2</key>
 			<data>
 			biO0ibouhMseEzGJsgvmmopEx4Cn8hb9noHU+7/PrKo=
@@ -5046,21 +5345,13 @@
 		</dict>
 		<key>Headers/MPSubscriptionClientDelegate.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			DwNQ9FnFa+LYOA4FO4xqyzpPrPA=
-			</data>
 			<key>hash2</key>
 			<data>
-			TvFYzPgghvnUT5bv+viEg0KujeVO8ZXcMp5SMu3X2rg=
+			6djqJSon4wbpuEc8RdJREftoTv1CM84tvxq6uGoOU5A=
 			</data>
 		</dict>
 		<key>Headers/MPSubscriptionState.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			b48qhtakHsEbPej9brJuKfQpRto=
-			</data>
 			<key>hash2</key>
 			<data>
 			PbgQs4HkgDCNiTCK9MHhhTg0eLsipvRZQgeL9HUmirE=
@@ -5068,10 +5359,6 @@
 		</dict>
 		<key>Headers/MPSubscriptionTopic.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			uvc7Cmg64xSdQWtK4BPFUnaQAVM=
-			</data>
 			<key>hash2</key>
 			<data>
 			abI5zayEFdL++6xdJiyaICsIc7A8t50bBqoaheFrMjs=
@@ -5079,10 +5366,6 @@
 		</dict>
 		<key>Headers/MPTemperatureLiveUpdate.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			h6OBWPeQ0o9H2QlKHpiL0kWKXfU=
-			</data>
 			<key>hash2</key>
 			<data>
 			lOtQaOhf4OeB1d5RJJVOnP4raHLtgw5PJ1THbRaUUnw=
@@ -5090,10 +5373,6 @@
 		</dict>
 		<key>Headers/MPTransitAgency.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			8vBi+De0jqnGNcZKEAu+uaX+yHE=
-			</data>
 			<key>hash2</key>
 			<data>
 			BERiR5Bk3WzEZj2b9/G5A6gzO0wJb7gUqp4l1qMLmRw=
@@ -5101,10 +5380,6 @@
 		</dict>
 		<key>Headers/MPTransitDetails.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			NZ7X5YrEpYzPVbH9NmS5RNcUPWo=
-			</data>
 			<key>hash2</key>
 			<data>
 			iv2zTphExkjC/wM7ImqowTeu4ndF5spugRrX4I/H0zg=
@@ -5112,10 +5387,6 @@
 		</dict>
 		<key>Headers/MPTransitLine.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			lfhPL9n9SwSQi6fCI3m4abrAXc4=
-			</data>
 			<key>hash2</key>
 			<data>
 			9Wb/7jnjbfAYi/LfQIokM5J/csR6PaeHSSnc5lKvqUo=
@@ -5123,10 +5394,6 @@
 		</dict>
 		<key>Headers/MPTransitStop.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			kESt56t//ND8yggXRQtL9+76L5c=
-			</data>
 			<key>hash2</key>
 			<data>
 			gOxZR6M0yStSOacipKZjFi9BH56pvR1MGVtbAPo6frw=
@@ -5134,10 +5401,6 @@
 		</dict>
 		<key>Headers/MPTransitTime.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			aziNbKqN/dO4J98N1Gaw/V25rZ8=
-			</data>
 			<key>hash2</key>
 			<data>
 			r+zEhsgtz9olmDCpHtQ6I2BqXeZgO0SXdt41QwfHwu4=
@@ -5145,10 +5408,6 @@
 		</dict>
 		<key>Headers/MPTransitVehicle.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			qgF07QxzYZ1tFVeRpx6vPuSDzc0=
-			</data>
 			<key>hash2</key>
 			<data>
 			e0zMJlODH5U9yJOJ7GA84FSnz1gCgRvdGCrBUfcPzao=
@@ -5156,10 +5415,6 @@
 		</dict>
 		<key>Headers/MPType.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			PwVusDhdOk9iVohnr1neispbDAw=
-			</data>
 			<key>hash2</key>
 			<data>
 			dG80ZppvIqBL4sKwR/U0M9nKwAlS14viU8Pft8a135U=
@@ -5167,10 +5422,6 @@
 		</dict>
 		<key>Headers/MPURITemplate.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ZjGHDDXP8SRnoghA6h3YOXd6imw=
-			</data>
 			<key>hash2</key>
 			<data>
 			4H5OJFi4aa2asPDHL/+Tr7xsvjN5RA+yzJHj7xlltks=
@@ -5178,10 +5429,6 @@
 		</dict>
 		<key>Headers/MPUserRole.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			PnmWrp6V7lkrcEPod3hozbveN8w=
-			</data>
 			<key>hash2</key>
 			<data>
 			dmEu2JKct20ywcbl2cB73xcZzcCZTsvM18Y6+Qtdm9c=
@@ -5189,10 +5436,6 @@
 		</dict>
 		<key>Headers/MPVector.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/+tzfr6kBpKiyNMp8AXFiqYyQMM=
-			</data>
 			<key>hash2</key>
 			<data>
 			fvnoAIK+/mTehdSf6BBb4n8yp8+eM1HeQc8RRIBSrPU=
@@ -5200,10 +5443,6 @@
 		</dict>
 		<key>Headers/MPVenue.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			lWWJACGuGIUxsF9Y/G5sWBsUn34=
-			</data>
 			<key>hash2</key>
 			<data>
 			E5l+pHj44y8suYZE+1BYo+FhZ6Mh2rBEA0i3gpQSm8c=
@@ -5211,10 +5450,6 @@
 		</dict>
 		<key>Headers/MPVenueCollection.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			JQP1HsQwbS+n0xkgTjdQIGvn/vo=
-			</data>
 			<key>hash2</key>
 			<data>
 			Bdn5IQ1lvilf1TVz/EV5/bdQGC+guRWrZK2rtMFjcn8=
@@ -5222,10 +5457,6 @@
 		</dict>
 		<key>Headers/MPVenueProvider.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			7aa2yM7bB9mkb0OGAH17GrWHcK4=
-			</data>
 			<key>hash2</key>
 			<data>
 			MpTIjXVg+CJOUIhlW/riJcA1SvbXQuBmi1Ld1BHqoV0=
@@ -5233,10 +5464,6 @@
 		</dict>
 		<key>Headers/MPVersion.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			sHk/5yjSwNNxxOC2kw9YhlaNeb0=
-			</data>
 			<key>hash2</key>
 			<data>
 			qrOcJ1HgErzg6Y2TgEIXJlCn7Qv472XR6HnHnmXeRCU=
@@ -5244,21 +5471,13 @@
 		</dict>
 		<key>Headers/MPVersionConstants.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			QzUV+34gQAv1ZEADvOOYUJp7HQU=
-			</data>
 			<key>hash2</key>
 			<data>
-			pvS8dAnWuremXGOVsJhHKFjWaDSD4EJ47h7RK6ljCu8=
+			w/ahzcUJfCbLCgwudeWhp9VSZ/XzgR91WojLyNCTggk=
 			</data>
 		</dict>
 		<key>Headers/MPWirelessPositionTopic.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			IaPLSlo9m3M6mDleLGkckQf82m0=
-			</data>
 			<key>hash2</key>
 			<data>
 			EnN5MeDcaHMIOcxRaGTYT1ICB5QI2sRsB374WUANlQQ=
@@ -5266,21 +5485,13 @@
 		</dict>
 		<key>Headers/MapsIndoors-Swift.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			XxlLaLzMVTe4CTzOxHvYJ6H5lHA=
-			</data>
 			<key>hash2</key>
 			<data>
-			E+7kuj5hCsO27iv71xSCD4MXjAimmACL6VRbtXOC7eE=
+			4yq76UjOUeNDunWBkqfSNb20wzYQ41PHwNHqM4l0v6c=
 			</data>
 		</dict>
 		<key>Headers/MapsIndoors.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			DIwIubgiAOkfpZ+eCJRlTjcKsBw=
-			</data>
 			<key>hash2</key>
 			<data>
 			0btP0w7s2yVf/HlsDLyXdG6tOFicJs4Fo09IfBbtaic=
@@ -5288,10 +5499,6 @@
 		</dict>
 		<key>Headers/NSDictionary+MPLocationPropertiesDictionary.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			mXzp7c4yPcjIwgCGwzY7gpySiGo=
-			</data>
 			<key>hash2</key>
 			<data>
 			bIYPKGC+YhVOXj92NyDKca6i9zQHJbpIb3jQKpa8VVg=
@@ -5299,10 +5506,6 @@
 		</dict>
 		<key>Headers/NSObject+MPLanguageSupport.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			a9zO3gE2IQxNNUubdSSb5Xg8aq0=
-			</data>
 			<key>hash2</key>
 			<data>
 			ai1AvEbNL0Se4IU6y7oMp8T9wWfglbnn73Dz3ICmVRg=
@@ -5310,10 +5513,6 @@
 		</dict>
 		<key>Headers/NSString+CustomFont.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			th/Ei30pVq01LL8h7CjK7ECT248=
-			</data>
 			<key>hash2</key>
 			<data>
 			QoFuTCNBm4k1ZrliW/bGnran4YIvtZLjVCXuC4pmB5M=
@@ -5321,10 +5520,6 @@
 		</dict>
 		<key>Headers/NSString+UrlRequest.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			IyK7OTH10v75ZZVWfjcwms4qPuE=
-			</data>
 			<key>hash2</key>
 			<data>
 			e2eSwG6ML8g1DiG5NX6agGRsd1DQcvrdPAepzBa2YIo=
@@ -5332,10 +5527,6 @@
 		</dict>
 		<key>Headers/NSURL+QueryParser.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			sN99lfjl6agIGCLtphMFUYuIUuY=
-			</data>
 			<key>hash2</key>
 			<data>
 			Upz37uD7kbEAs9rqKM03xYWFNSbC+P7G/AZ9trNJCis=
@@ -5343,10 +5534,6 @@
 		</dict>
 		<key>Headers/UIColor+HexString.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			O/uMUl64vPkEcyrefBtpiDOuyrI=
-			</data>
 			<key>hash2</key>
 			<data>
 			1aYcDbC321SLrUWK9dFoDWuOG1np4fzxJ8FEdsfaCdw=
@@ -5354,10 +5541,6 @@
 		</dict>
 		<key>Headers/UIImage+MapsIndoorsBundle.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			noisdf/x7MC2MBRAvMGkTXWeb18=
-			</data>
 			<key>hash2</key>
 			<data>
 			Uehh3Pz0K/aL+2CYbMrdFj11mPSoj2/eC3XpTfR9ejw=
@@ -5365,10 +5548,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/.gitkeep</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			2jmj7l5rSw0yVb/vlWAYkK/YBwk=
-			</data>
 			<key>hash2</key>
 			<data>
 			47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
@@ -5376,10 +5555,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/FontAwesome.ttf</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			fwnJfzM5FwNK0I+nKV6RbJ9y/T8=
-			</data>
 			<key>hash2</key>
 			<data>
 			a0k0itU4htCc5MMvoUbomcgg3j+FqN03BKBiTrO/f6E=
@@ -5387,10 +5562,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/Info.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			mvBI3RSUj4kKXfgnznU7ox8jWkI=
-			</data>
 			<key>hash2</key>
 			<data>
 			6mnBIY/asH+Zlg5Otycby9EXiI5iEs/MzPE22rdPwVQ=
@@ -5398,10 +5569,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/Mylocation@3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			zztlK44T1HUGET3zE11j6eAO7UM=
-			</data>
 			<key>hash2</key>
 			<data>
 			ZNVQnqoW1ZWFrvxQFbf1MuvudEnENso7JLGhRsGm4Cs=
@@ -5409,10 +5576,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/Mylocation_direction@3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			5OVHsyJK8Kpw7poCImZHXCx4E1w=
-			</data>
 			<key>hash2</key>
 			<data>
 			NRpmx8oInbV2KDX0tAexmn02cUnI+1yLoHfUJDXjlog=
@@ -5420,10 +5583,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/da.lproj/MapsIndoorsSDKLocalizable.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			HnQnGk4EOSV2TzJoyiYI944qrSs=
-			</data>
 			<key>hash2</key>
 			<data>
 			fQlGxlqiOn1y15/1g9iGOObaMQesB2Hj++Q9k521UhM=
@@ -5433,10 +5592,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/default_googlemaps_style.json</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			yXMuZl0VpHxv9/40yiLmRDg09a8=
-			</data>
 			<key>hash2</key>
 			<data>
 			8FvJPza1tUtt+TmG49cjtJmvmPXRcZGnkRvqXn/qOaI=
@@ -5444,10 +5599,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/elevator.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			kCLgqaGFL6e74buuW9FLq//nrvA=
-			</data>
 			<key>hash2</key>
 			<data>
 			vWflmZFWMxqkpA4fbeSUpFrNjr02J7kCy625CVFSsYU=
@@ -5455,10 +5606,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/elevator@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			u1YaeuEhmMNpDf+qYltD7mvhKdU=
-			</data>
 			<key>hash2</key>
 			<data>
 			ciP7iarlM6Gw29husbryGW8ZWysmYh9n68Urwg7ZhOU=
@@ -5466,10 +5613,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/elevator@3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			rdjzGdogmITdguGXAsVCYP6vQ/E=
-			</data>
 			<key>hash2</key>
 			<data>
 			F8Owa8U9+3TOLIm13pIGCKMA9D0Wr0XEd75rLKyhFIY=
@@ -5477,10 +5620,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/empty_icon@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			5OHILnqkyI0gbbgXbJunl4rEZmk=
-			</data>
 			<key>hash2</key>
 			<data>
 			wPI2O6I5gE763gJsHC+M0NHsiXx+IN5yTWFFAY1dozY=
@@ -5488,10 +5627,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/en.lproj/MapsIndoorsSDKLocalizable.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			HnQnGk4EOSV2TzJoyiYI944qrSs=
-			</data>
 			<key>hash2</key>
 			<data>
 			fQlGxlqiOn1y15/1g9iGOObaMQesB2Hj++Q9k521UhM=
@@ -5501,10 +5636,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/enter.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			f9o2wncDtywC/F1IKSHPvcaqWJg=
-			</data>
 			<key>hash2</key>
 			<data>
 			ts/2OD+Dw0ZrSGZOvnFbXTGsiiSbtxs9eyVkBPJMl4M=
@@ -5512,10 +5643,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/enter@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			JtSnGVYHwnl5Ym+ENDi54hoJFxQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			KOSepxnWW9Os7ABm8daHy+216EqyQPgolfvcbI+KJG4=
@@ -5523,10 +5650,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/enter@3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			3RpF0NuoefHpfUWfiy7l+z4qvsQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			IfJ6Mr90w95LXCG86vkr1zuV42kzabvpazOKDe3Ew3k=
@@ -5534,10 +5657,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/escalator.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			MtrFSWBvZvs/xInKGo6ZhqKJ2vA=
-			</data>
 			<key>hash2</key>
 			<data>
 			9WMM6JffkUlxHgXNundLZxuUTZAruSPkA1x19Ku8DmY=
@@ -5545,10 +5664,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/escalator@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			1atFH/W1LBk03g6+UnxxBItXRIQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			wIU0jwXF5T/zrgzM/geAnIrjbqwi9rt1/BMETJxmGVo=
@@ -5556,10 +5671,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/escalator@3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Op0Y5n11mZp+yYu8anm1M/FlsXI=
-			</data>
 			<key>hash2</key>
 			<data>
 			7xZAHoRWoATK8u+DuzlKV7o5peccqkWpbHqqC/bJQ38=
@@ -5567,10 +5678,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/exit.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			XrKXvVpxJAKJlLSxLpitY4G5kWA=
-			</data>
 			<key>hash2</key>
 			<data>
 			TSVXfZ+4Ab6Fx2zUV2iNNf7NNgNHitEJQCczNFmn0uY=
@@ -5578,10 +5685,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/exit@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			FElgIzNU9hcpzxq3rcPAOcjHbEY=
-			</data>
 			<key>hash2</key>
 			<data>
 			FEL6X4dfjUZUyz8zJrH/KBdGnX/xfEskXiFqgGK1U5Q=
@@ -5589,10 +5692,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/exit@3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			nQmmOPQkaU8pUvrVVtAX5obAuyM=
-			</data>
 			<key>hash2</key>
 			<data>
 			9h2gEfrbu7AgA6/BesuBg750Bb49g5ASybxWCxrB+Cc=
@@ -5600,10 +5699,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/google-maps.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			awZ8hINo6DXd0MplyaGrIKSxL/4=
-			</data>
 			<key>hash2</key>
 			<data>
 			8giPHuCXHTurZ0I+fh2G8ImCws5OWqQohxntqrUQUvA=
@@ -5611,10 +5706,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/google-maps@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			u8WospPXNDsxDi6xRlB+lGGQhGU=
-			</data>
 			<key>hash2</key>
 			<data>
 			UE9WSj4cT1rHhoKBfUF6ILE/IZ78xi3pQvNkVGSZYzw=
@@ -5622,10 +5713,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/google-maps@3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			espbaG6vsm0Mg0EJsGmwZCE7Pmg=
-			</data>
 			<key>hash2</key>
 			<data>
 			91MFGWb23JpKo3Eg9bMz0lini5qq7/Jw9683HrQloBU=
@@ -5633,10 +5720,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/icomoon.ttf</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			tr7eShPpmWvSS0rbRFFo8xZz0s4=
-			</data>
 			<key>hash2</key>
 			<data>
 			VPCpRQgX0jM6TlXyDpH3D7mhcmuaKj0qXIC5ycBCaB8=
@@ -5644,10 +5727,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/mi_default_marker.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			E5M/kGa3uWdn0qw7I6fk4qV1y/o=
-			</data>
 			<key>hash2</key>
 			<data>
 			9rgQIX4M1js1MHfwSkLb+6u4JGJtbFKyVq9O5UR7ZTs=
@@ -5655,10 +5734,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/mi_default_marker@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			NKkInJ+Scxjt1p9mWITjA70IqcM=
-			</data>
 			<key>hash2</key>
 			<data>
 			nkgT0jkOy+EC8eA6pgvaoGoKWSe6P/tTxDqJrkXQRG0=
@@ -5666,10 +5741,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/mi_default_marker@3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			7LanzAXkVIRa7qcs2/JhxUx7PJk=
-			</data>
 			<key>hash2</key>
 			<data>
 			LIcgWbed2RqF68xXgHflzdtjfdruZLGIPz8VkzGVp18=
@@ -5677,10 +5748,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/mi_map_logo.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			SoUxEMKLG/VSi9PbJkcjpT9fReo=
-			</data>
 			<key>hash2</key>
 			<data>
 			x61Bf1dIZZjixNvdKegnZEeKsmQlWAu75y/9LXf3Hbs=
@@ -5688,10 +5755,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/mi_map_logo@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			eiU64TaYEau/woiuoFHHjbDWDSg=
-			</data>
 			<key>hash2</key>
 			<data>
 			jWRVE1uc9FvtUKj5hBGzbX1dDaJ8uaC/7wWrrgs+iQs=
@@ -5699,10 +5762,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/mi_map_logo@3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			7GuQoLZPPNic3Q46re64qvsVR5U=
-			</data>
 			<key>hash2</key>
 			<data>
 			zACScyBGBbmYAXbyQAO32GLVqMf1UwYcChfRsZhwUp8=
@@ -5710,10 +5769,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/next@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			wTwzwpptsYMsEdznjqAfODV3lpg=
-			</data>
 			<key>hash2</key>
 			<data>
 			slkjVrVSFN7jxDJNSV92VJU+yqI2UzeD4ihW2BxT5Ek=
@@ -5721,10 +5776,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/origin@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			COS/WYyAGS/ZkjZCN0EzYnKt4kU=
-			</data>
 			<key>hash2</key>
 			<data>
 			qH5nhSTV+zqdR5raM2l/UEqZWiLx5Svitx3g/B7Aq98=
@@ -5732,10 +5783,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/previous.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			3xlU+gsoKum+qehTTPlniZYr0j4=
-			</data>
 			<key>hash2</key>
 			<data>
 			Cm3oJBPozW4IiaH3SjUzQfYUx+mUqdBtXoJxExzb5Wc=
@@ -5743,10 +5790,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/previous@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			nm8Pj2Zk4ehfYojS+xfemLeXjAs=
-			</data>
 			<key>hash2</key>
 			<data>
 			xjw7SIcBwSm2sdqfMq2lrn0dMbwpbSPsrHQBFerdowM=
@@ -5754,10 +5797,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/previous@3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			PYrLf6AJoTMzFBUcGygrzpbVm1Q=
-			</data>
 			<key>hash2</key>
 			<data>
 			uHzixzmaFu7HUgrhphDYDw9QjkAbEX3AyzJLAaKBKB8=
@@ -5765,10 +5804,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/steps.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			UWiVTsXUf5YFlPcxLEoooUSw53M=
-			</data>
 			<key>hash2</key>
 			<data>
 			bsm596Adbm9qTfJFD0F5A0BuzTJbMykS8iV0a1p8U+A=
@@ -5776,10 +5811,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/steps@2x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			YIn/wk1c7aYigDD+lW+Gt8GVmJQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			TgCyw+m4gDpqf//ca8LzsPWx4p7cby+CWH/aXZYwNY4=
@@ -5787,10 +5818,6 @@
 		</dict>
 		<key>MapsIndoors.bundle/steps@3x.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			i1EMvbC++ZGACbN/JJaurpgD9L4=
-			</data>
 			<key>hash2</key>
 			<data>
 			tusulRylo0oeuM9b7CLwqIu/7K0yYeC0axkHhvMiwh8=
@@ -5798,43 +5825,27 @@
 		</dict>
 		<key>Modules/MapsIndoors.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			6miitmZhgBdxUXAlz/bpFRXs5NY=
-			</data>
 			<key>hash2</key>
 			<data>
-			mK6ZiwjaxXPrs08a5zcUmu+/2jprTVcuzGeZJutExRw=
+			94DblW2lWLpUIOJt5E4AJBQrkhBUZQzoMPvnDA5xpdQ=
 			</data>
 		</dict>
 		<key>Modules/MapsIndoors.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			cMiqs4pmYd9KUWWQ5xX3Z6vAalE=
-			</data>
 			<key>hash2</key>
 			<data>
-			+5xWnRG4GrgW5PoVAcx5fnpbRSjBsKG7mUTb1CA8uj4=
+			iYQRUef4lHtvBnGHAiZsDV6+MAJhkmC8CgFT2Utwdno=
 			</data>
 		</dict>
 		<key>Modules/MapsIndoors.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			4EYYFn9AGIT9qgHsK1ElPhTajsM=
-			</data>
 			<key>hash2</key>
 			<data>
-			C1b5Yh1ywQKhD0aUgGI3xUzfR9PiANw4+7Zehu84isY=
+			CvaxXZJLwvxxf+dLeJducUYMasx0j3TuaXY/lAfZjPY=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			h/qbQ7ZrWtY9gEZ1PXXieRPqNP0=
-			</data>
 			<key>hash2</key>
 			<data>
 			mkODXKfSkoSkhK8CstVvxOvQrAUWEVxJ/PdO6pG2eys=
@@ -5842,10 +5853,6 @@
 		</dict>
 		<key>Modules/module.private.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			QtEmx3TiJpOEaKO+pPJAQ/Z74Rc=
-			</data>
 			<key>hash2</key>
 			<data>
 			IVusrAQwkIh/IzdBlQb/+50p1ibrldan7uidtLmm9JU=
@@ -5853,10 +5860,6 @@
 		</dict>
 		<key>PrivateHeaders/GoogleMaps+MapsPeople.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			SZa/phkewpPchBLAH/0JndqdQfE=
-			</data>
 			<key>hash2</key>
 			<data>
 			GHTc5J0mjx9IneK1PdBinrqPxlyxLY1jBiK321oh0SE=
@@ -5864,10 +5867,6 @@
 		</dict>
 		<key>PrivateHeaders/MIGeometry+Zero.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Xs2CA7XYwcf4hCvw/VVyZlm2lN0=
-			</data>
 			<key>hash2</key>
 			<data>
 			Roi7OH9sRbiVlTwAGwD4J65frRccVRJUlxeuwZT0fFw=
@@ -5875,10 +5874,6 @@
 		</dict>
 		<key>PrivateHeaders/MPAppData+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			vOd+JGlVZ03q8+N93g9XqxXg5uc=
-			</data>
 			<key>hash2</key>
 			<data>
 			YZ51YuGay6dHKtJZVEAL5oYG/CtHqC0WCx0lXh1kiBg=
@@ -5886,10 +5881,6 @@
 		</dict>
 		<key>PrivateHeaders/MPBackendDetails+JSONConversion.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Co1NAe6E9i4WFF7oCoi82Q7Q85k=
-			</data>
 			<key>hash2</key>
 			<data>
 			of3O/jzmtoRLp9VF2R357jpBS7GjSbUTWbo5Su7LlWI=
@@ -5897,10 +5888,6 @@
 		</dict>
 		<key>PrivateHeaders/MPBackendDetails.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			JKPnPz/GoTFrPRsoBKadkUfArB8=
-			</data>
 			<key>hash2</key>
 			<data>
 			S2ElYs/57GYmO44wTx7mIWkCXCoYSYdWT7XnUcLxu6s=
@@ -5908,10 +5895,6 @@
 		</dict>
 		<key>PrivateHeaders/MPBadgedIcon.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			X3JDnQjvo0x8lJyr7I3+DGBpKrc=
-			</data>
 			<key>hash2</key>
 			<data>
 			eDgO3TpZskVeEeucK9w+Lha+8bD+6sv98/XljT0PNxU=
@@ -5919,10 +5902,6 @@
 		</dict>
 		<key>PrivateHeaders/MPBadgedIconCache.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			C9ab5ZRs9SpUX6OmxCm3p1nqih0=
-			</data>
 			<key>hash2</key>
 			<data>
 			C2Lk2Cg7a0oOPYB3NKShseuWPI2H4cwFXmn4hDurqI0=
@@ -5930,10 +5909,6 @@
 		</dict>
 		<key>PrivateHeaders/MPBadgedIconConfiguration.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			3+N3xgEViETNErqippJlnsYGa54=
-			</data>
 			<key>hash2</key>
 			<data>
 			F4FCIDRZOeB38aQQTNA7ihcSKMbawQO6AcFRhZUILIE=
@@ -5941,10 +5916,6 @@
 		</dict>
 		<key>PrivateHeaders/MPBooking+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			CmoZlPtHW8PXSKATmtioPWIhxrk=
-			</data>
 			<key>hash2</key>
 			<data>
 			U7ic1KUWcHrGO0Ze3EDNAqeyCkeJ8hr4jBvzT7/gYGQ=
@@ -5952,10 +5923,6 @@
 		</dict>
 		<key>PrivateHeaders/MPBookingService+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			SOrwN+bJGGGx0so7rBni+1VMWYY=
-			</data>
 			<key>hash2</key>
 			<data>
 			D1la3athX0tb8ISVQSocMxl8IPfUekl6chT2FJ+aDKA=
@@ -5963,10 +5930,6 @@
 		</dict>
 		<key>PrivateHeaders/MPBuilding+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			39za45RaFiFRpTqpDgV/nAnr+TE=
-			</data>
 			<key>hash2</key>
 			<data>
 			YCrdDruGnHfglntaAxwmvEeYj3626iiOAbw24ZVtadk=
@@ -5974,10 +5937,6 @@
 		</dict>
 		<key>PrivateHeaders/MPBuildingInfoCache.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			y89hNYA6xnk9GG9mOXtA3hjZF+A=
-			</data>
 			<key>hash2</key>
 			<data>
 			W6rsC05yhi9pbT6Q/hAHsErQ291lQHDEMBDUPDI3qgs=
@@ -5985,10 +5944,6 @@
 		</dict>
 		<key>PrivateHeaders/MPClusterImageRenderer.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			iPt3lQMxrjmO3Hv8/oIpBSyHM1E=
-			</data>
 			<key>hash2</key>
 			<data>
 			BobZnoox5J0PYS45jZC4VM5mSk2IGA5iv+u/WthEoGI=
@@ -5996,10 +5951,6 @@
 		</dict>
 		<key>PrivateHeaders/MPDataProvider.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			2af4mHEzZd6GWMEeSG+x62hZmmg=
-			</data>
 			<key>hash2</key>
 			<data>
 			MlgEakF8mP79YzUTaLe+FY3AmNKSoP5kfrna7VhMHrY=
@@ -6007,10 +5958,6 @@
 		</dict>
 		<key>PrivateHeaders/MPDataSetCache+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			GxnU2X+lkx+fT7FOY2vTOxy550g=
-			</data>
 			<key>hash2</key>
 			<data>
 			MtOzVVYGOOyFzHU/l2/RBSTqVfH4WGpSxzcLxrc769U=
@@ -6018,10 +5965,6 @@
 		</dict>
 		<key>PrivateHeaders/MPDataSetCacheItem+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			OXCbzJNErI3gnnY+nmiCzTnksPY=
-			</data>
 			<key>hash2</key>
 			<data>
 			1GsEiHByH2RVdGF8899+A2d9lP/jnQtUTGRT7zUsc74=
@@ -6029,10 +5972,6 @@
 		</dict>
 		<key>PrivateHeaders/MPDataSetCacheManager+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			YhoCG67J63GRdBE8wUE6/3dQiNw=
-			</data>
 			<key>hash2</key>
 			<data>
 			Wwj/hjm1jxak+qa1mpJ/U+Q76bcLYWSHw+MYR9vm1lM=
@@ -6040,10 +5979,6 @@
 		</dict>
 		<key>PrivateHeaders/MPDataSetCacheTask.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			fcO6Bsy/0TjRvNIETQSvQzoZbQ0=
-			</data>
 			<key>hash2</key>
 			<data>
 			VF8Jw+op/P/Coegn9GVWs/jzlTSXsMpoMDNsG+qf7WM=
@@ -6051,10 +5986,6 @@
 		</dict>
 		<key>PrivateHeaders/MPDataSetCacheTrimTask.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			b3Bnj2+rz96SyO0/FjVmKzzMAE8=
-			</data>
 			<key>hash2</key>
 			<data>
 			yoRMQlmPs+88ule9weUwXZpXMTl/iT7+50LeXq2KTgY=
@@ -6062,10 +5993,6 @@
 		</dict>
 		<key>PrivateHeaders/MPDataSetCacheWorkScheduler.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			eeGD+jwC4WARaT/q0PU0Hk2x2gY=
-			</data>
 			<key>hash2</key>
 			<data>
 			Ct7AO6d0lnEbCZByNdFC4ek3WT+rGc/vDDKSEHHLZow=
@@ -6073,10 +6000,6 @@
 		</dict>
 		<key>PrivateHeaders/MPDataSetManagerDebugDelegate.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			yUQuMq+fcU0pXghVeBOHdUBe5v8=
-			</data>
 			<key>hash2</key>
 			<data>
 			gZokDp8F7Hmcu/flkHiJr7d6VshVrpwddwb1apdEXrA=
@@ -6084,10 +6007,6 @@
 		</dict>
 		<key>PrivateHeaders/MPDataSetUrlDownloadTask.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Z9QuuMU3J7hu27MraM5RmTaJ/so=
-			</data>
 			<key>hash2</key>
 			<data>
 			ycO97eq+qhCzfAXaim3o4/SaDBCWXbmovGwnvKM8TGU=
@@ -6095,10 +6014,6 @@
 		</dict>
 		<key>PrivateHeaders/MPDirectionsHelper.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			lwo3Jfjqo+DjWgcV+cV/+kQ6nsM=
-			</data>
 			<key>hash2</key>
 			<data>
 			706Yk+LqFXJkcxb10S85jqHd24+u9LF1UDnytQQkuhc=
@@ -6106,10 +6021,6 @@
 		</dict>
 		<key>PrivateHeaders/MPDirectionsServiceImpl.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			fWxqDUAjlsswfSFhFpsRbAF+zP8=
-			</data>
 			<key>hash2</key>
 			<data>
 			4YX4L0WYE5iVVTn2NIv9qJ0IzCMMPgMwaOdTxWwqNaU=
@@ -6117,10 +6028,6 @@
 		</dict>
 		<key>PrivateHeaders/MPDynamicContentSizeHelper.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			TUmJvwmOdeR9Hu0dnE/+3HbCWhM=
-			</data>
 			<key>hash2</key>
 			<data>
 			+X0GvJlvNN0UxhhOXYloPDWKiB+GKFQuIaKyfzQtCDA=
@@ -6128,10 +6035,6 @@
 		</dict>
 		<key>PrivateHeaders/MPDynamicFont.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			XprTC7aVj3SVI/BKByNHnmAeNa4=
-			</data>
 			<key>hash2</key>
 			<data>
 			/m1jSCeNtls3X6vRn5kko+dxr6pJh54HwZGtmBb69ck=
@@ -6139,10 +6042,6 @@
 		</dict>
 		<key>PrivateHeaders/MPFileCache+NSDictionary.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			qj9vbmDwQ3H6RnscVMTt7VO3TWM=
-			</data>
 			<key>hash2</key>
 			<data>
 			dx3qbpYY2ocMpqpxwJN1e2P6wJp3s2eXWjbP5tgyyyE=
@@ -6150,10 +6049,6 @@
 		</dict>
 		<key>PrivateHeaders/MPFileCache.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			3h5OW88P8hBeNmeLdSQdcDN0u8c=
-			</data>
 			<key>hash2</key>
 			<data>
 			a+toSSFOYj+LTsNn+79kssLO/7KssY3EGcQwFAbCxDA=
@@ -6161,10 +6056,6 @@
 		</dict>
 		<key>PrivateHeaders/MPFileCacheHashKeyGenerator.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			UjKjbJQjRObPrgtV6twh3ZmwGK8=
-			</data>
 			<key>hash2</key>
 			<data>
 			7yXBhwL8dLukcOKQJiOBxV03wqK49HzZfv7ewedS13c=
@@ -6172,10 +6063,6 @@
 		</dict>
 		<key>PrivateHeaders/MPFileCacheKeyGenerator.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			zib4fEi6rp5/TKbcdSVJWimKcIA=
-			</data>
 			<key>hash2</key>
 			<data>
 			kAJEkZVkeOFgMW8xuKfGhT3YcEqjJHTxr3OWKL62GRs=
@@ -6183,10 +6070,6 @@
 		</dict>
 		<key>PrivateHeaders/MPFileCacheUrlSanitizingKeyGenerator.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			J+2iJHSdHvZjCrNiVtg77FvmLiA=
-			</data>
 			<key>hash2</key>
 			<data>
 			/RPnHjqmANB4p7VqOQTmKNz6JsonywVljUrIbPhxwZY=
@@ -6194,10 +6077,6 @@
 		</dict>
 		<key>PrivateHeaders/MPFilter+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			zLd9GYBvg8rXBMHqbe/G7pyaoLE=
-			</data>
 			<key>hash2</key>
 			<data>
 			I/sU/Ra4funGjXSP9mkbRBa3K2zh8paMDGVOutafh6g=
@@ -6205,10 +6084,6 @@
 		</dict>
 		<key>PrivateHeaders/MPFloorButton.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			pw9VPCar4kD84ew7+ZB5jmN3Ai0=
-			</data>
 			<key>hash2</key>
 			<data>
 			czBJMgnKu2Tjxe3f2rGj/z9Chn2z5Q7GPw78gMhl+Ug=
@@ -6216,10 +6091,6 @@
 		</dict>
 		<key>PrivateHeaders/MPGeometry+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			9gzKCkU8PbpANOH+YQAgnfvY1aM=
-			</data>
 			<key>hash2</key>
 			<data>
 			xaqC3u98o7munwD6KNfaClKf1w+3TwnEU+Np6U7CkCU=
@@ -6227,10 +6098,6 @@
 		</dict>
 		<key>PrivateHeaders/MPGeometryHelper+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			bnLJRo9ykl4Q82MCedeh4DbyVzw=
-			</data>
 			<key>hash2</key>
 			<data>
 			6v0p+bqWi2s0BInbhZe4pvj8jONzV+xx8QqlbG9S00o=
@@ -6238,10 +6105,6 @@
 		</dict>
 		<key>PrivateHeaders/MPGoogleApiDataProvider.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			egWjEIVbUfWjHYU+48+MLth9akg=
-			</data>
 			<key>hash2</key>
 			<data>
 			XRV5Bv4hpaBU6V36qFCyO5Rn2NJwaz8NAxCY+dw+br8=
@@ -6249,10 +6112,6 @@
 		</dict>
 		<key>PrivateHeaders/MPGraph.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			6umeM5IDeBsMbnGUSTZmq6ZDt9Q=
-			</data>
 			<key>hash2</key>
 			<data>
 			Y2vl8dy1/Ge7NkaZOiamcTYgMWkUJORjYSS4UgGw4eY=
@@ -6260,10 +6119,6 @@
 		</dict>
 		<key>PrivateHeaders/MPGraphEdge.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			JLCn72DB2HaAJolQ/AXUPHBS5Rg=
-			</data>
 			<key>hash2</key>
 			<data>
 			k5+uhLOmBlreG2gB+ZaxAaoZli2/wV7C7NIqrSI/ToQ=
@@ -6271,10 +6126,6 @@
 		</dict>
 		<key>PrivateHeaders/MPGraphEdgePropertyProtocol.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			RVPA3nKKGnEnABYhb+yXMki/s20=
-			</data>
 			<key>hash2</key>
 			<data>
 			BM8LnGbaEUur7ooCY2RG1wMNNIrGbhB7NH9CcRx5evQ=
@@ -6282,10 +6133,6 @@
 		</dict>
 		<key>PrivateHeaders/MPGraphNode.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			qeeHHv8ytKn0VGs1NJibqMB7DRA=
-			</data>
 			<key>hash2</key>
 			<data>
 			k6CxnXso+cWEzoVyQArAo6OdHP/nsW87pxWye+BKnls=
@@ -6293,10 +6140,6 @@
 		</dict>
 		<key>PrivateHeaders/MPGraphNodePropertyProtocol.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			uFN8kZddP6EEUXklHbN1ZjQuyZo=
-			</data>
 			<key>hash2</key>
 			<data>
 			jMRXPMo7461nAqAZ8U/I33Hv/Q9T46EW5RqrAyYS54c=
@@ -6304,10 +6147,6 @@
 		</dict>
 		<key>PrivateHeaders/MPGraphObjectPropertyContainer.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			lo0PrHj3bA7VqVyd39XD/c9GwcQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			/nrHu78x5D8GWsXiBygoILu9s9OXFbbFV3suwO8CyS8=
@@ -6315,10 +6154,6 @@
 		</dict>
 		<key>PrivateHeaders/MPGraphObjectPropertyContainerFactory.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			VXKrf6aSDA4gTD4xhmAjvTAJfTQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			TGt8B44Uuc24uHbo3wRGkWcxr+g42tl2o286Aeq7fUA=
@@ -6326,10 +6161,6 @@
 		</dict>
 		<key>PrivateHeaders/MPGraphPathFinder.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			J8rNxIyc18fED+xD8nmJZ7ndThs=
-			</data>
 			<key>hash2</key>
 			<data>
 			UEmDO5ygUkiTD4yu07jDhRS9g3i6sL5pMQzkKy2cj3A=
@@ -6337,10 +6168,6 @@
 		</dict>
 		<key>PrivateHeaders/MPGraphWeightCalculator.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			M3kZ4LL9nqLH6P5z4ryWLE/Zjsc=
-			</data>
 			<key>hash2</key>
 			<data>
 			tO4ef84BoUPnfxklQzbq9b4fyXNNr+7zTjnDn1n+Pfc=
@@ -6348,10 +6175,6 @@
 		</dict>
 		<key>PrivateHeaders/MPIOSDeviceTypes.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			pP7XpmS2BnBV0Hs76EL5g2HVmtQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			9/X8Kd3CsAfoARsy1HLtPsNW5j9mmDKNCgbzCpPdJ+c=
@@ -6359,10 +6182,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLiveDataInfo+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			k1QwQfq6UpSdedAg9wJ4S4NlQec=
-			</data>
 			<key>hash2</key>
 			<data>
 			4MKAt/vn9y5CQG2gWtQn0wQz3iIfBMV3r1rOqheCZeg=
@@ -6370,10 +6189,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLiveDataManager+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ERLJa7HlyKAF1BmM0LpiiY1haa8=
-			</data>
 			<key>hash2</key>
 			<data>
 			OwcriaUtmXubJOziQ2f0DIoFhTnMHjxqqBXZD8XNaWQ=
@@ -6381,10 +6196,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLiveDataService.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			FWTd/6g4v/4wy3caXf386/4BeqQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			TFh+sOiknogPPAwBAG8Bb541skUhqwmQrfJ0lyf2lIw=
@@ -6392,10 +6203,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLiveLocationSource.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			oEt3xZLARVoDP8iZkv6hhA8EUTI=
-			</data>
 			<key>hash2</key>
 			<data>
 			vSwBWqKdFMN1Xns2xPWshfoOuLbucty7cVHrFZWhjws=
@@ -6403,10 +6210,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLiveUpdate+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/FukhY9qblmetWNb2sJT48vD600=
-			</data>
 			<key>hash2</key>
 			<data>
 			QQx+rY6KMtWkgM/ea3jOT591cHairrQA+z/u7qRsj14=
@@ -6414,10 +6217,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLiveUpdateTopic+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			eLuHa9Kwp0O0ReVyudAJh17jjLQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			2us63KBxBgIP44i/nsrYo47+IZRuON4YXfQzpq6sFu4=
@@ -6425,10 +6224,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLocation+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			OCPV1O/q3C+ihC8zqAF31tcjHFA=
-			</data>
 			<key>hash2</key>
 			<data>
 			mQ5sDYzOq3NuuO2lr82LzTi3Ozk2AqKiuyrGcfO+hgQ=
@@ -6436,10 +6231,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLocationCluster.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			4neSr/HAGPfKIUA8JD2rC9i8q3o=
-			</data>
 			<key>hash2</key>
 			<data>
 			8C/df2rblrj7kznX62aC3JzXssqozyr1qhtmpUH8EYA=
@@ -6447,10 +6238,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLocationClusteringEngine.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/frwB0jmfLtsUrs6lVnhna/U/dM=
-			</data>
 			<key>hash2</key>
 			<data>
 			J+OrO9eiKfv4405PWnTMR02vPAkvqSAgRPKlct+EIiY=
@@ -6458,10 +6245,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLocationDisplayMetadata.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			s0jIa2PcK/tOClPYx6UzAXqXyqQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			yBDtzc2zwCjzhh4Orn87HIacBwvdifQp4SoQFb4n1eY=
@@ -6469,10 +6252,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLocationDisplayRule+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			EN3r9rMd93PKTNObJ6aRt8/oWeU=
-			</data>
 			<key>hash2</key>
 			<data>
 			ImfFbgwlefDG+lRtBGH7KuAMsWl5IeD73I7bvdgyZX0=
@@ -6480,10 +6259,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLocationDisplayRuleDelegate.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			P1u1kWwn8ZXB7Qmn+KSrFeAGKB0=
-			</data>
 			<key>hash2</key>
 			<data>
 			o8Y7O3ZmD6LSTiF8pjva6Vpk6mqEydABrCQL7YCM0O8=
@@ -6491,10 +6266,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLocationDisplayRuleset.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			GpsyAdnv+JSOA0usLMlSjkm5l3Y=
-			</data>
 			<key>hash2</key>
 			<data>
 			sF9leVMRqTe4aJyUm7eRMqXuJPDIcCZDbpkI+Wioaik=
@@ -6502,10 +6273,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLocationMarkerManager.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			AwxOym9cVSLM1T9T0scfAjMmBCc=
-			</data>
 			<key>hash2</key>
 			<data>
 			sWRosL5V4nbluscp7elW9fie/01KVyJuEY/9TDvI2fM=
@@ -6513,10 +6280,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLocationQuery+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			4ePvqT28G1X0Ejha1JX9KEyjKFA=
-			</data>
 			<key>hash2</key>
 			<data>
 			gW2wSicjz5z9xy8T9Y4owTEQdc7EZU+CR8eK6EGnLwY=
@@ -6524,10 +6287,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLocationService+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			pYxf3nNOT6lbzl2YRiS4C09K3eY=
-			</data>
 			<key>hash2</key>
 			<data>
 			sVW3uU3/7hyEZJLt8O/4CeCt0MfAOyp070ik9fLPvxc=
@@ -6535,10 +6294,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLocationSourceIndex.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			z8f2qcyZ49atRM2PBYItspc89cM=
-			</data>
 			<key>hash2</key>
 			<data>
 			UInKDYsRH6ZhqfxAj1hXE1p96VVmRZlT/skBgpu7baQ=
@@ -6546,10 +6301,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLocationSourceInternal.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			cA9Ub/8/iblv+fY6X5DM8nwfwUo=
-			</data>
 			<key>hash2</key>
 			<data>
 			lTWTAW22OKpMr40Zk4hx9vx/Xqm3B+8uth81dEYCioo=
@@ -6557,10 +6308,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLocationUpdate+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Wo7dn8dcDOTwU53d1OyB9LDRCe4=
-			</data>
 			<key>hash2</key>
 			<data>
 			WLEv5Ad/mPSYRZs3okMrF7bXlR4m7d9J+UhIHCWBHgM=
@@ -6568,10 +6315,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLocationsObserverWrapper.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Fn7krMhm5qEjM+w0cB6yrbzpXvI=
-			</data>
 			<key>hash2</key>
 			<data>
 			AHS7PuMAOhVWBCv7WiDyWTwYQzI/AHglL4Zwtkp82Ok=
@@ -6579,10 +6322,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLog.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			j4MJMP3qluhFda3be+BtgqOMVQc=
-			</data>
 			<key>hash2</key>
 			<data>
 			TTHDlCOAcsPLrHfu/fqQWuT+lqDlJkgTf362Tc4MkY8=
@@ -6590,10 +6329,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLogEntry.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			qJVyc9lRXYvfDG/xj/Oyq+hl++4=
-			</data>
 			<key>hash2</key>
 			<data>
 			Esa69bnQK11hae1IpJIRrcSU+1kuYartCG/JHgOt3IM=
@@ -6601,10 +6336,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLogEvent.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			tf5CTdK18luj20WLA7KQO8GmB5o=
-			</data>
 			<key>hash2</key>
 			<data>
 			L6agpdgHsgl2M87NS/GDU/8E8lnjLorEVHtyBglJ68E=
@@ -6612,10 +6343,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLogPackage.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			TdEYrnwbw362nzIedy8IVtgFLbs=
-			</data>
 			<key>hash2</key>
 			<data>
 			gpYhQbKvNZIqsqYYEAb7/hZ3Ymf2CFznwgnUjfkhD2w=
@@ -6623,10 +6350,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLogSessionData.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			xsNB0/OQ9r2rtP6iPIzeIwWg4KA=
-			</data>
 			<key>hash2</key>
 			<data>
 			iHeVlPVj25UtIWr78dB7cYVI39T2Hv4nXdND0cDdKwQ=
@@ -6634,10 +6357,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLogUploadOperation.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/B9lqU2g1V/VwWR2H+YTanjP4UQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			PQrjBfbL7YWoU53IQCDmzo3YIBQZRyz3jmPW9g6GytE=
@@ -6645,10 +6364,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLogUploader.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ZyeS1BKa3SPFwwWpPN5XFEQQGZU=
-			</data>
 			<key>hash2</key>
 			<data>
 			8gPPZliT6//qq5LGS55N8MdgVtESPZH9afX8/cwFSvY=
@@ -6656,10 +6371,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLogger+Configuration.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ftbKwiJJFtwKwAHv8eFAQK2k0MQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			KJkzG5coIkJ2At4Gnbw7WyjEPvpTQuBLczL6UzuFirI=
@@ -6667,10 +6378,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLogger.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			g9Kv6L/TtadV2kKwCDYuQsrHA2c=
-			</data>
 			<key>hash2</key>
 			<data>
 			VueY+Za9CkEo2elQd35HETOhIVwOvFZUunwCjmjNiNc=
@@ -6678,10 +6385,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLoggingConfig+JSON.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			v1yOT3Vy0Q9ACpDM6ULPTzNoHXY=
-			</data>
 			<key>hash2</key>
 			<data>
 			LJ/K9HFqeaNHAFqMU4R59yspSybJ/c+ikF15+zEOkls=
@@ -6689,10 +6392,6 @@
 		</dict>
 		<key>PrivateHeaders/MPLoggingConfig.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			0ApgKmwQ0tKBK9ERJGVwt7DhYbc=
-			</data>
 			<key>hash2</key>
 			<data>
 			IDPwUdX/4aCNcE/H17zOTFdXK3zQPN5GQrbYRXyXXHQ=
@@ -6700,10 +6399,6 @@
 		</dict>
 		<key>PrivateHeaders/MPMIAPI+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			E78EZjTr8Py3V8H26ZObe9LzsQo=
-			</data>
 			<key>hash2</key>
 			<data>
 			IE3r57mBr5Zsnsgbj+qdp7+W3M3vQfRpRHS/XSzQMWA=
@@ -6711,10 +6406,6 @@
 		</dict>
 		<key>PrivateHeaders/MPManualGraphEdgeProperties.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			yYWoZ/F47CcvxcFh9m17QLwFIJc=
-			</data>
 			<key>hash2</key>
 			<data>
 			wt366xRGQeUBrig2ADpQ536hm1X0BSElMxFHIqxK/XI=
@@ -6722,10 +6413,6 @@
 		</dict>
 		<key>PrivateHeaders/MPManualGraphNodeProperties.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			JxhBJPcZRnKejyu31TSWdGbeie8=
-			</data>
 			<key>hash2</key>
 			<data>
 			Zz/tTDey58NkzPRyQL9mA15RuuR3zkmGFbsSwZpgDY8=
@@ -6733,10 +6420,6 @@
 		</dict>
 		<key>PrivateHeaders/MPMapControl+LiveDataPrivate.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			nuB1ZZj0Gta6PcoiSTPlKnSJYJo=
-			</data>
 			<key>hash2</key>
 			<data>
 			Woo2jdNW1G+cGZf0BeDqkB8aHJ7q1//AGm4TC/kDp1c=
@@ -6744,10 +6427,6 @@
 		</dict>
 		<key>PrivateHeaders/MPMapExtend+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			bYrcbhDDoQ0cM//9kjHG2CM1XRk=
-			</data>
 			<key>hash2</key>
 			<data>
 			x1QRFhC8GXP2xYsy+VoGj3j9tgzqSuTv3VUduf6KFb0=
@@ -6755,10 +6434,6 @@
 		</dict>
 		<key>PrivateHeaders/MPMapExtend+Zero.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			po8/cNkr7kQ8DEEOdIeaOUrp9ao=
-			</data>
 			<key>hash2</key>
 			<data>
 			MtS4yU3g6ijv3pRKNZLm6RxUDxf9+DhLkg35713zN+Y=
@@ -6766,10 +6441,6 @@
 		</dict>
 		<key>PrivateHeaders/MPMappedLocationUpdateHandlerWrapper.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Nudntei9HdjPp+Y2wk8rwkmcKOE=
-			</data>
 			<key>hash2</key>
 			<data>
 			8COzSoeKmPIqEnQ/sUF3fMMuMDU3eCljg5rVYY9R6Uw=
@@ -6777,10 +6448,6 @@
 		</dict>
 		<key>PrivateHeaders/MPMapsIndoorsBundle.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Y2rUF1E9FdQV8IAkXZxtjajpihk=
-			</data>
 			<key>hash2</key>
 			<data>
 			cNRFAn44VO3XP0hlVsSjNSV5C/qm/eFSRKe/C5/oQZw=
@@ -6788,10 +6455,6 @@
 		</dict>
 		<key>PrivateHeaders/MPMapsIndoorsLocationSource+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			zK/HF8lNNgorR+MqhYYWOUXIC34=
-			</data>
 			<key>hash2</key>
 			<data>
 			0RaayzhglP2MyzoJNKfrzRbIsUwBey2ddHlbIpxTb+Q=
@@ -6799,10 +6462,6 @@
 		</dict>
 		<key>PrivateHeaders/MPMarkerImageRenderer.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			jQBZQ04IA8zdI6NJ2uQPYZNKU2c=
-			</data>
 			<key>hash2</key>
 			<data>
 			hZx7psAJfz1hc/AGLSiUDai/rp5dGB3ON6k2dl9GOLk=
@@ -6810,10 +6469,6 @@
 		</dict>
 		<key>PrivateHeaders/MPMarkerViewImageCache.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			8wqS+KSjHtYg5rMuSojmaK8UpY0=
-			</data>
 			<key>hash2</key>
 			<data>
 			qxB89tr65CSmAmI+ZxesBIeHC+JBeP3bnymg7/lVyBc=
@@ -6821,10 +6476,6 @@
 		</dict>
 		<key>PrivateHeaders/MPMemoryCache.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			lI8EdRI4ZWdODwm1xYfSwEsmyGg=
-			</data>
 			<key>hash2</key>
 			<data>
 			dH9cEIbSUaC974sAr+p0iRc6/Rs4+H1MypH9O5qEX/M=
@@ -6832,10 +6483,6 @@
 		</dict>
 		<key>PrivateHeaders/MPMultiPolygonGeometry.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			wiyRn1TpsbFpOPOQwijWYTTH7mg=
-			</data>
 			<key>hash2</key>
 			<data>
 			aYroR56LKhsw4jLtTNoCmU9bkK0Gx9uTH7JKwnPIs2Y=
@@ -6843,10 +6490,6 @@
 		</dict>
 		<key>PrivateHeaders/MPOfflineBundleHelper.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			51x8LCgfYFQ+zsx0PLQfNMoBqk8=
-			</data>
 			<key>hash2</key>
 			<data>
 			TDq5uwKPn9EheIsFAxNpupkYowa5Ya+pl39jUtlVcoM=
@@ -6854,10 +6497,6 @@
 		</dict>
 		<key>PrivateHeaders/MPOfflineRoutingService.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/g2dFDjFepRmaZOO/epJr8wh3zk=
-			</data>
 			<key>hash2</key>
 			<data>
 			oIVChyzA16EcD2bzg0oyJ45n//5UuAPWvB+JSf7zdBY=
@@ -6865,10 +6504,6 @@
 		</dict>
 		<key>PrivateHeaders/MPOnlineRoutingService.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ldAxB/QbqmPcmuxEKBsoo+906cc=
-			</data>
 			<key>hash2</key>
 			<data>
 			rYgBNvw2tpZFFgmpc1RZK/FB0icA7d24D/huRJofmAk=
@@ -6876,10 +6511,6 @@
 		</dict>
 		<key>PrivateHeaders/MPPathOptimization.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			PFKPknSJyCFzdjQvedEAEuABzCc=
-			</data>
 			<key>hash2</key>
 			<data>
 			QdqcZr70ruBO6uGlcjXjnMmU+TQnp7WdTeJN+U0IiCI=
@@ -6887,10 +6518,6 @@
 		</dict>
 		<key>PrivateHeaders/MPPoint+Zero.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Bm+feFOGQJ6ssXzgcQeQHjRd2iM=
-			</data>
 			<key>hash2</key>
 			<data>
 			b+G4gfpYKp6ZdNASmKx4YSkDnBlRye6oRe/c8N2fUnw=
@@ -6898,10 +6525,6 @@
 		</dict>
 		<key>PrivateHeaders/MPPolygonGeometry+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			qJJhGKkb5ffiPoD5jMtheDTySUE=
-			</data>
 			<key>hash2</key>
 			<data>
 			Hv+PLbx0khbSrJLaZ6ggrSGdmO3Im2clAK6x2E75cYU=
@@ -6909,10 +6532,6 @@
 		</dict>
 		<key>PrivateHeaders/MPQuery+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			lk98LT1/l1Xtn/Yn7jzS+L7Rx/A=
-			</data>
 			<key>hash2</key>
 			<data>
 			l5jlUFAVoLDhvDBzipJEcsOP9aw1Yar8+gEdKP8TyzA=
@@ -6920,10 +6539,6 @@
 		</dict>
 		<key>PrivateHeaders/MPReachability.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			NM3T6ZW0ILWWHOsKhbG0BIRZxBc=
-			</data>
 			<key>hash2</key>
 			<data>
 			X+8bUHgWYFkXS0JRa3zFYZ2XDMienfFw3puGjvkwm98=
@@ -6931,10 +6546,6 @@
 		</dict>
 		<key>PrivateHeaders/MPRouteEdge.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			LzJbBTvg/U8CTRt7mowCmv+Afhk=
-			</data>
 			<key>hash2</key>
 			<data>
 			CWLWBRihP4TxzRNR3RIMPtCNuGEMEbF8xADf3BCQ6j0=
@@ -6942,10 +6553,6 @@
 		</dict>
 		<key>PrivateHeaders/MPRouteGraphResult.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			H2obHeGb8TjxJL+A5jX+UQv6VBk=
-			</data>
 			<key>hash2</key>
 			<data>
 			xIcsAhA35Lg6nx3XYJiG2T7ZD+ty0MJ20FcaFrfAcvo=
@@ -6953,10 +6560,6 @@
 		</dict>
 		<key>PrivateHeaders/MPRouteLayerService.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			LnCaQAWOSbMKxHRi312uliSPZzU=
-			</data>
 			<key>hash2</key>
 			<data>
 			kz5XGaWQ0BXhTqtyobBtC1qiwouNJiz5hceJnnzjHxo=
@@ -6964,10 +6567,6 @@
 		</dict>
 		<key>PrivateHeaders/MPRouteNetwork.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			KWvSnQaqtYsBB4ve6j+7V7nDlDA=
-			</data>
 			<key>hash2</key>
 			<data>
 			/oSwWo4ZsN/x0WlecZJtOIbkxmCya1mI/SWV0INtLR4=
@@ -6975,10 +6574,6 @@
 		</dict>
 		<key>PrivateHeaders/MPRouteNetworkData.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			PqfwYvkSzYmZSlCgnYIoBJrYVqU=
-			</data>
 			<key>hash2</key>
 			<data>
 			8Qm6GC15H3Gg7FqAw+od/HMLc9FV76Di7h53suJ7D1c=
@@ -6986,10 +6581,6 @@
 		</dict>
 		<key>PrivateHeaders/MPRouteNetworkEntryPoint.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			DcTnYjjvehW9uaQq3hKK7l1nhS0=
-			</data>
 			<key>hash2</key>
 			<data>
 			EsuH5E2xwXBoLNPSuXmy0WBnxS2iv/NUa2a83oLk29k=
@@ -6997,10 +6588,6 @@
 		</dict>
 		<key>PrivateHeaders/MPRouteNetworkService.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			tEDuf+6Xd1pN4x0M9o9km4e/iuk=
-			</data>
 			<key>hash2</key>
 			<data>
 			W5JnYM2vcuCtf+tbeiPxQ3HMNK2N+13TDdrWUOc3PIM=
@@ -7008,10 +6595,6 @@
 		</dict>
 		<key>PrivateHeaders/MPRouteNetworkValueMapper.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			SqwcI8xtzIDDAmIGfNAFMGafZXc=
-			</data>
 			<key>hash2</key>
 			<data>
 			j2ODgi7tmXFcpxSd4wrUsgBqCOaFWQ6zdAL6zA0GHgo=
@@ -7019,10 +6602,6 @@
 		</dict>
 		<key>PrivateHeaders/MPRouteNode.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			FDnhdTWhVEd/gPNV/n0eqz346M8=
-			</data>
 			<key>hash2</key>
 			<data>
 			oQ4lDaFxuW8/Q450n4jPdOq4MMsJGSPUp4l94DRfvVI=
@@ -7030,10 +6609,6 @@
 		</dict>
 		<key>PrivateHeaders/MPRouteObstacle.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			AB8t3ZMqQhvfbQXw+35a9Z+fZoY=
-			</data>
 			<key>hash2</key>
 			<data>
 			5zhohOU75P9/Y5JbRVhgQb28GwsdHS73hjHiDXzdKKQ=
@@ -7041,10 +6616,6 @@
 		</dict>
 		<key>PrivateHeaders/MPRouteStep+Heading.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			jOgk9WjDGP+k6chfvcHlY6xaqpg=
-			</data>
 			<key>hash2</key>
 			<data>
 			GYwtl24tvLjX3yQ5h5EqAx/cJvuz5XGkeQDbvnbjx7c=
@@ -7052,10 +6623,6 @@
 		</dict>
 		<key>PrivateHeaders/MPRoutingConstants.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			n20akzqyjv+3HSYP8e+bLyYXBrE=
-			</data>
 			<key>hash2</key>
 			<data>
 			GkkJ3g3UUCP9z3asRLUMzccGqPFf3dydtaOgPbeT2QM=
@@ -7063,10 +6630,6 @@
 		</dict>
 		<key>PrivateHeaders/MPRoutingProvider+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			+LuLQ/xoegfIlF884bf1HWklEAM=
-			</data>
 			<key>hash2</key>
 			<data>
 			zJ0vNCOfZTX9RrZ4MMHxcyzFZrL2CzWaTama1MLRgT0=
@@ -7074,10 +6637,6 @@
 		</dict>
 		<key>PrivateHeaders/MPRoutingServiceInterface.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			GWoTSIrkbf9Nkx4mBu9hZn/POV4=
-			</data>
 			<key>hash2</key>
 			<data>
 			nCDCGMA4djQ2laUCcgitJ2UKVjVFM/4E6Tj+4F3tr9s=
@@ -7085,10 +6644,6 @@
 		</dict>
 		<key>PrivateHeaders/MPSize.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			GhasnQ2G6Fce5xEn0luX2LlBPtg=
-			</data>
 			<key>hash2</key>
 			<data>
 			TJ9PzG2LTjg+/M/8hm4I6dgKTiPMkdgG0RlSxsm8UO0=
@@ -7096,10 +6651,6 @@
 		</dict>
 		<key>PrivateHeaders/MPSolution+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Ie0Vz0MTjfcy7br7lGmH9F/t1n0=
-			</data>
 			<key>hash2</key>
 			<data>
 			SMUeVB918u2ahK2Plt4PpoA6UqGZ8cy36TS7SemJSMk=
@@ -7107,10 +6658,6 @@
 		</dict>
 		<key>PrivateHeaders/MPSwitchToOnlineTilesTask.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			SHYWV3Ss+f6vFVLj+zfEk8+951M=
-			</data>
 			<key>hash2</key>
 			<data>
 			EKKOupXCAbmQO4hFg+VK29ixvOs8YO7Hcqmo9pQ4zVw=
@@ -7118,10 +6665,6 @@
 		</dict>
 		<key>PrivateHeaders/MPTileCache.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			h6+ouW7yxbxqKFiob6hSNrlZ98M=
-			</data>
 			<key>hash2</key>
 			<data>
 			TePp+hCM5PjXckNz2bjN4sa4GXxG8UZlXQ574ubaNfs=
@@ -7129,10 +6672,6 @@
 		</dict>
 		<key>PrivateHeaders/MPTilePackageUnzipTask.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			6S6KfO46WOqLZOw3P1upLLVYSIQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			UsvJboVJggP1D2xtTRN98YQb7ZWm/c1f+2EZYCHmOsk=
@@ -7140,10 +6679,6 @@
 		</dict>
 		<key>PrivateHeaders/MPUrlResourceCollection.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			2j25wvqQ4gF4dUXm+WGFQTT8iEk=
-			</data>
 			<key>hash2</key>
 			<data>
 			s+c7CqGgh+cIMmBG3UWznEG2nMQkrPi5d7PCgokZKX4=
@@ -7151,10 +6686,6 @@
 		</dict>
 		<key>PrivateHeaders/MPUrlResourceGroup.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			TIfre1roaP2sIXxWfOeSCi9I0aQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			FtRAZI5QTBJYisdXuGqcb2JcTMDKzuLS3eKRntd1Ulc=
@@ -7162,10 +6693,6 @@
 		</dict>
 		<key>PrivateHeaders/MPUserDefaultCache.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			PjF2CC0n3JEBpiFsqGMhMGgc8yE=
-			</data>
 			<key>hash2</key>
 			<data>
 			k/5JYptMjVCLgCKdx+dGLjOVG1F0o7oMVXYLlp5b/KM=
@@ -7173,10 +6700,6 @@
 		</dict>
 		<key>PrivateHeaders/MPVenue+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			PaRCP8+t6Rf8ZUjETe3nA5XkRQo=
-			</data>
 			<key>hash2</key>
 			<data>
 			V6E1fCsnGD88EfOkdCn0Mb0hM6Fxa0LejmsCUQQLnME=
@@ -7184,10 +6707,6 @@
 		</dict>
 		<key>PrivateHeaders/MapsIndoors+Private.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			+Wb03mcHIWQBGt9CIlxp7sYEENg=
-			</data>
 			<key>hash2</key>
 			<data>
 			Z6ve7iX8SVSnK556hMXfLECzsBde6Gu2KJ00W8nYZwc=
@@ -7195,10 +6714,6 @@
 		</dict>
 		<key>PrivateHeaders/NSDate+MPDateUtils.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			pnDtW/prn759TIth4ZgCjhKC074=
-			</data>
 			<key>hash2</key>
 			<data>
 			QADLfAuTxqSq+hJYT3ce6WGwmPJIt9uO1+M11AZFmcw=
@@ -7206,10 +6721,6 @@
 		</dict>
 		<key>PrivateHeaders/NSIndexSet+FromImmutableNodesString.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			yJlT9iesdsq3kndOY8X3Db4kkMM=
-			</data>
 			<key>hash2</key>
 			<data>
 			gnWAf8Yd226sr5T9Z6D6qVYXvw9EVfabrh+hWAuwSXA=
@@ -7217,10 +6728,6 @@
 		</dict>
 		<key>PrivateHeaders/NSObject+GeoDataStatus.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			N/G5Z3VzD7THXIzX7mFJIgJllnY=
-			</data>
 			<key>hash2</key>
 			<data>
 			pGRpwWFchXvUkYpaDM9ZIFXjJBIKAtKvZLui97OT36o=
@@ -7228,10 +6735,6 @@
 		</dict>
 		<key>PrivateHeaders/NSObject+GeometryProperties.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			iLir6ZZlPZQ7gKYxBlsg1FSEOwQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			O5fudgly2urcHEQ5V8JZfGE9Rf4C4SEHFeQL0As7eKk=
@@ -7239,10 +6742,6 @@
 		</dict>
 		<key>PrivateHeaders/NSObject+MISDKContentSizeChange.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			YySam4mdxyeSqdNsfsJ+m4aaNEA=
-			</data>
 			<key>hash2</key>
 			<data>
 			T1GdDo4dga+q80CrkuNpfY/u8Vug7s9ddYzlb34AEkk=
@@ -7250,10 +6749,6 @@
 		</dict>
 		<key>PrivateHeaders/NSObject+MPTileCache.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/JoTEBjng3iT8ZlmT3tLRLceB40=
-			</data>
 			<key>hash2</key>
 			<data>
 			omSI80TusPbJWNPBwtY0gJOarslwJtLk5XIVy9r/4TM=
@@ -7261,10 +6756,6 @@
 		</dict>
 		<key>PrivateHeaders/NSOperation+MapsPeople.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			KSgAwBKOM1IXvpSsAtbxI0N2b9w=
-			</data>
 			<key>hash2</key>
 			<data>
 			BIxe8DJLTB2kC4oDtVGbTH+6SZXu2V4j1LDr/xo5bh4=
@@ -7272,10 +6763,6 @@
 		</dict>
 		<key>PrivateHeaders/NSString+ExtendedFileAttributes.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			6NYskxa/1zJQwIImLNexLkF1/zA=
-			</data>
 			<key>hash2</key>
 			<data>
 			ui1jNg67k7GxxeaO3rEsElO0ov1Yi3Tb2B/1O9qw3I0=
@@ -7283,10 +6770,6 @@
 		</dict>
 		<key>PrivateHeaders/NSString+MPLocationBaseType.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			n2cm4GJP9RUXEDAeZWptIK/MxMk=
-			</data>
 			<key>hash2</key>
 			<data>
 			Bjq09mUXorynyILcEoWakDdkXgEG/ybHKIvwZ7pnWxY=
@@ -7294,10 +6777,6 @@
 		</dict>
 		<key>PrivateHeaders/NSString+MPPropertyClassification.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			MTMK1Cm4UTcQoUOUfwCU1VhKtNM=
-			</data>
 			<key>hash2</key>
 			<data>
 			XpXJ90YNUriT6f7M+jWzEr4LeXU1+GXtX0b/jBfsyFc=
@@ -7305,10 +6784,6 @@
 		</dict>
 		<key>PrivateHeaders/NSString+MPTravelMode.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			n4r42nIoYvkwCboZNTe/Jh+4kFQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			Zx8leXvIEcR4HrzaYDAEIjHrcjhOJEUZIloEQw0PtO0=
@@ -7316,10 +6791,6 @@
 		</dict>
 		<key>PrivateHeaders/NSString+MapsPeopleExtendedFileAttributes.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			4MOkU/+WRUmk5JqMDku1KUVhlbI=
-			</data>
 			<key>hash2</key>
 			<data>
 			i+iamnqOh90v/7474EwS9TrncN2+j/hBdiVXSMs+xRU=
@@ -7327,10 +6798,6 @@
 		</dict>
 		<key>PrivateHeaders/NSURL+MPPercentEncodingPath.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			f06fli8hoxZVQmlDvZeCdXxp6L8=
-			</data>
 			<key>hash2</key>
 			<data>
 			hiT7RepMFreCqbXXIf81xPMwqXwDFPvCZLCk0Tn+VZ4=
@@ -7338,21 +6805,13 @@
 		</dict>
 		<key>PrivateHeaders/SwiftPrivate.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			QaJNm0DJfAiE0qSfwIyyiFblWAg=
-			</data>
 			<key>hash2</key>
 			<data>
-			O0p8oDkv/jIBOWzDwV0Ny19txfhtrltNL8VMXo+p1tU=
+			sCMNEJNdp7ovnT9k5egoK/0YO+0o9ZJ/rG9IKUx58xw=
 			</data>
 		</dict>
 		<key>PrivateHeaders/UIImage+MPHash.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			sO0UzUN2bXOrDb6l8p7IGQEgNUY=
-			</data>
 			<key>hash2</key>
 			<data>
 			gcqejZ0fNVqaZ1hxGrVBK/0G4PmfTPmkyHQOlVZ3iW4=
