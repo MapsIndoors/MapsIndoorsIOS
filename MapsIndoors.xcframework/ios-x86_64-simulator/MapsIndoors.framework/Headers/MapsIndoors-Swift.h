@@ -220,6 +220,13 @@ SWIFT_CLASS("_TtC11MapsIndoors20MPDisplayRuleManager")
 @end
 
 
+SWIFT_CLASS("_TtC11MapsIndoors29MPMQTTSubscriptionClientSwift")
+@interface MPMQTTSubscriptionClientSwift : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop
 #endif

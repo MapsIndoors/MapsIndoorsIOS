@@ -1,5 +1,5 @@
 //
-//  MPSubcriptionClientDelegate.h
+//  MPSubscriptionClientDelegate.h
 //  MapsIndoors
 //
 //  Created by Daniel Nielsen on 27/07/2020.
