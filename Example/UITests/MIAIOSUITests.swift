@@ -11,7 +11,7 @@ import MapsIndoors
 
 class MapsIndoors_App_UITests: XCTestCase {
     
-    var solutionId:String?
+    var solutionId: String?
     
     override func setUp() {
         super.setUp()
@@ -33,22 +33,29 @@ class MapsIndoors_App_UITests: XCTestCase {
     
     func testSolution() {
         let app = XCUIApplication()
-        
-        _ = addUIInterruptionMonitor(withDescription: "Any Dialog") { (alert) -> Bool in
-            alert.buttons.element(boundBy: alert.buttons.count-1).tap()
-            return true
+
+        let interruptionToken = addUIInterruptionMonitor(withDescription: "LocationService permission") { (alert) -> Bool in
+            let button = alert.buttons["Allow While Using App"]
+            if button.exists {
+                button.tap()
+                return true // The alert was handled
+            }
+
+            return false // The alert was not handled
         }
         
-        let indexOfSolutionIdKey = app.launchArguments.index(of: "-solutionId")
-        if indexOfSolutionIdKey != nil {
-            self.solutionId = app.launchArguments[indexOfSolutionIdKey!+1]
+        _ = app.wait(for: .runningForeground, timeout: 10)
+        app.tap()
+
+        if let indexOfSolutionIdKey = app.launchArguments.firstIndex(of: "-solutionId") {
+            self.solutionId = app.launchArguments[indexOfSolutionIdKey + 1]
             MapsIndoors.provideAPIKey(self.solutionId!, googleAPIKey: nil)
         } else {
-            let bundle = Bundle.init(for: MapsIndoors_App_UITests.self)
+            let bundle = Bundle(for: MapsIndoors_App_UITests.self)
             if let fileUrl = bundle.url(forResource: "mapsindoors", withExtension: "plist"),
                 let data = try? Data(contentsOf: fileUrl) {
                 if let result = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [String: Any] { // [String: Any] which ever it is
-                    self.solutionId = result!["MapsIndoorsAPIKey"] as? String
+                    self.solutionId = result["MapsIndoorsAPIKey"] as? String
                     MapsIndoors.provideAPIKey(self.solutionId!, googleAPIKey: nil)
                 }
             }
@@ -56,29 +63,24 @@ class MapsIndoors_App_UITests: XCTestCase {
         
         let exp = expectation(description: "Expect test complete")
         
-        
-        MapsIndoors.synchronizeContent { (error) in
-            
-            MPVenueProvider.init().getVenuesWithCompletion({ (venuesColl, vErr) in
-                
-                assert(venuesColl!.venues!.count > 0 && vErr == nil)
-                
-                MPLocationsProvider.init().getLocationsWithCompletion({ (locations, locError) in
-                    
-                    assert((locations!.list?.count)! > 0 && locError == nil)
-                    
-                    let venues:[MPVenue] = venuesColl!.venues as! [MPVenue]
-                    
-                    let from:MPLocation? = locations?.list?.filter({ (loc) -> Bool in
-                        venues.first!.venueKey?.compare(loc.venue!.lowercased()) == .orderedSame
-                    }).first
-                    
-                    let to:MPLocation? = locations?.list?.filter({ (loc) -> Bool in
-                        venues.last!.venueKey?.compare(loc.venue!.lowercased()) == .orderedSame
-                    }).last
+        MapsIndoors.synchronizeContent { error in
+            MPVenueProvider().getVenuesWithCompletion { venuesColl, vErr in
+                XCTAssertNil(vErr)
+                XCTAssertTrue(venuesColl?.venues?.count ?? 0 > 0)
+
+                let venues = venuesColl!.venues as! [MPVenue]
+                let filter = MPFilter()
+                filter.types = ["MeetingRoom", "Workstation", "Office"]
+                filter.parents = [venues.first!.venueId!]
+                filter.depth = 4
+                MPLocationService.sharedInstance().getLocationsUsing(MPQuery(), filter: filter) { locations, locError in
+                    XCTAssertNil(locError)
+                    XCTAssertTrue(locations?.count ?? 0 > 0)
+
+                    let from = locations?.first
+                    let to = locations?.last
                     
                     DispatchQueue.main.async {
-                        
                         snapshot("0-Start-\(self.solutionId!)")
                         
                         if (app.tables.count == 0) {
@@ -89,10 +91,11 @@ class MapsIndoors_App_UITests: XCTestCase {
                         }
                         
                         snapshot("1-Menu-\(self.solutionId!)")
-                        
-                        app.searchFields.element(boundBy: 0).tap()
-                        app.searchFields.element(boundBy: 0).typeText(from!.name!)
-                        
+
+                        let toSearchField = app.searchFields.element(boundBy: 0)
+                        toSearchField.tap()
+                        toSearchField.typeText(to!.name!)
+
                         snapshot("2-Search-\(self.solutionId!)")
                         
                         app.tables.cells.element(boundBy: 0).tap()
@@ -104,9 +107,11 @@ class MapsIndoors_App_UITests: XCTestCase {
                         snapshot("4-Directions-Init\(self.solutionId!)")
                         
                         app/*@START_MENU_TOKEN@*/.buttons["chooseStartingPointButton"]/*[[".otherElements[\"dismiss popup\"]",".buttons[\"Choose starting point\"]",".buttons[\"chooseStartingPointButton\"]",".otherElements[\"PopoverDismissRegion\"]"],[[[-1,2],[-1,1],[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
-                        
-                        app.searchFields.element(boundBy: 0).typeText(to!.name!)
-                        
+
+                        let fromSearchField = app.searchFields.element(boundBy: 0)
+                        fromSearchField.tap()
+                        fromSearchField.typeText(from!.name!)
+
                         snapshot("5-Choose-Origin-\(self.solutionId!)")
                         
                         app.tables.cells.element(boundBy: 0).tap()
@@ -134,10 +139,11 @@ class MapsIndoors_App_UITests: XCTestCase {
                         
                         exp.fulfill()
                     }
-                })
-            })
+                }
+            }
         }
         
-        waitForExpectations(timeout: 300, handler: nil)
+        waitForExpectations(timeout: 300)
+        removeUIInterruptionMonitor(interruptionToken)
     }
 }

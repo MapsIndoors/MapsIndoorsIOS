@@ -29,6 +29,10 @@ target 'Demos' do
   pod 'MapsIndoorsUtils', '0.1.0-alpha6'
 end
 
+target "MIAIOSUITests" do
+  mapsindoors_deps
+end
+
 PROJECT_ROOT_DIR = File.dirname(File.expand_path(__FILE__))
 PODS_DIR = File.join(PROJECT_ROOT_DIR, 'Pods')
 PODS_TARGET_SUPPORT_FILES_DIR = File.join(PODS_DIR, 'Target Support Files')

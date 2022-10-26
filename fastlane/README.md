@@ -15,6 +15,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
+### ios test_mapsindoors_app
+
+```sh
+[bundle exec] fastlane ios test_mapsindoors_app
+```
+
+Test MapsIndoors app
+
 ### ios test_demo_app
 
 ```sh
