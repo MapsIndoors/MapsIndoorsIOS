@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D3305CC2907E567000B446F /* mapsindoors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 302B0C3320653A72009C7BF9 /* mapsindoors.plist */; };
 		2D973569275A1D6E003670A2 /* SingleSignOnController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D973567275A1D6E003670A2 /* SingleSignOnController.swift */; };
 		2D97356A275A1D6E003670A2 /* SingleSignOnHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D973568275A1D6E003670A2 /* SingleSignOnHelper.swift */; };
 		2DF73BCE27F4402800EC7A5B /* Editing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF73BCD27F4402800EC7A5B /* Editing.swift */; };
@@ -130,7 +131,6 @@
 		30549B1022C49D5B00F86C50 /* MPUserRoleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30549B0722C49D5B00F86C50 /* MPUserRoleManager.m */; };
 		30549B1F22C49E3500F86C50 /* MPRouteSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30549B1622C49E3400F86C50 /* MPRouteSettingsViewController.m */; };
 		3055B436210EFEA3005CF4B3 /* MPAccessibilityHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3055B42B210EF2FB005CF4B3 /* MPAccessibilityHelper.m */; };
-		309BF94624E16A5B0078EA9D /* Pods-MI App Cisco DNA-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 309BF94524E16A5B0078EA9D /* Pods-MI App Cisco DNA-acknowledgements.plist */; };
 		30AA81E72344ADCA00B9FEF9 /* CustomInfoWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AA81E52344ADCA00B9FEF9 /* CustomInfoWindowController.swift */; };
 		30AA81EA2344AE0600B9FEF9 /* AppUserRolesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AA81E92344AE0600B9FEF9 /* AppUserRolesController.swift */; };
 		30B988912563FEAF002CA287 /* LiveDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9888F2563FEAF002CA287 /* LiveDataController.swift */; };
@@ -286,7 +286,6 @@
 		307C26EF206B7B4000517F1E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		308B481A1F580581000120EF /* TransitSourcesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitSourcesTableViewController.h; sourceTree = "<group>"; };
 		308B481B1F580581000120EF /* TransitSourcesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitSourcesTableViewController.m; sourceTree = "<group>"; };
-		309BF94524E16A5B0078EA9D /* Pods-MI App Cisco DNA-acknowledgements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "Pods-MI App Cisco DNA-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-MI App Cisco DNA/Pods-MI App Cisco DNA-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
 		30A03B121F8E324F0014654D /* AppInformationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppInformationViewController.h; sourceTree = "<group>"; };
 		30A03B131F8E324F0014654D /* AppInformationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppInformationViewController.m; sourceTree = "<group>"; };
 		30A03B1A1F8E34F90014654D /* AppInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AppInfo.storyboard; sourceTree = "<group>"; };
@@ -968,7 +967,6 @@
 				A25BDFAD1EF3B0FD002681B9 /* Products */,
 				D6F23D8AF087E5FF0CB1B030 /* Frameworks */,
 				34BB8508795A10A9D4BA3AFF /* Pods */,
-				A2D3AC7A25C4028A00DD8DB4 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1261,14 +1259,6 @@
 			path = "Route Tracking";
 			sourceTree = "<group>";
 		};
-		A2D3AC7A25C4028A00DD8DB4 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				309BF94524E16A5B0078EA9D /* Pods-MI App Cisco DNA-acknowledgements.plist */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		A2F4566D22BCA359004F7781 /* Custom Info Window */ = {
 			isa = PBXGroup;
 			children = (
@@ -1504,9 +1494,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D3305CC2907E567000B446F /* mapsindoors.plist in Resources */,
 				300A2D872099CA0A00882D4E /* kitten.jpg in Resources */,
 				300A2D852099CA0A00882D4E /* kitten2.jpg in Resources */,
-				309BF94624E16A5B0078EA9D /* Pods-MI App Cisco DNA-acknowledgements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
