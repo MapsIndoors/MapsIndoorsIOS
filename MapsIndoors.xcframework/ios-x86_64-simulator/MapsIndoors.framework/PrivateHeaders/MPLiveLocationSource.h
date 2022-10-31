@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "MPLocationSource.h"
-#import "MPLiveUpdate.h"
+
+@class MPLiveUpdate;
 
 NS_ASSUME_NONNULL_BEGIN
 

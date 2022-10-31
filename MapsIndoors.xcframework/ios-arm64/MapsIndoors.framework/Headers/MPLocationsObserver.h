@@ -7,13 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MPLocation.h"
 #import "MPLocationSourceStatus.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class MPLocation;
 @protocol MPLocationSource;
-
 
 /**
  Location observer protocol.

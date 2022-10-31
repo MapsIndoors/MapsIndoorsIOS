@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
  @return The list of locations
  */
 @required
-- (nonnull NSArray<MPLocation *> *)getLocations;
+- (NSArray<MPLocation*>*)getLocations;
 
 /**
  Add an observer that gets callbacks about updates, additions and deletions to locations in this location source
