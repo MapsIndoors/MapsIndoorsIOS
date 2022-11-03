@@ -7,8 +7,9 @@
 //
 
 #import "JSONModel.h"
-#import "MPDataField.h"
 
+@class MPDataField;
+@protocol MPDataField;
 
 @interface MPCategories : JSONModel
 

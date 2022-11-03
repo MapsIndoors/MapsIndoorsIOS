@@ -6,7 +6,6 @@
 //  Copyright (c) 2017 MapsPeople A/S. All rights reserved.
 //
 
-
 #define kLocationPropertyDescription @"description"
 #define kLocationPropertyDirections @"directions"
 #define kLocationPropertyImage @"image"
@@ -20,15 +19,15 @@
 #define kLocationPropertyUrl @"www"
 #define kLocationPropertyVideo @"video"
 
-#import <Foundation/Foundation.h>
-#import "MPPoint.h"
-#import "MPLocationProperty.h"
-#import "NSDictionary+MPLocationPropertiesDictionary.h"
-#import "MPLocationField.h"
 #import "JSONModel.h"
 #import "MPLocationBaseType.h"
 #import <GoogleMaps/GoogleMaps.h>
-#import "MPLiveUpdate.h"
+
+@class MPLiveUpdate;
+@class MPLocationField;
+@class MPLocationProperty;
+@class MPPoint;
+@protocol MPLocationField;
 
 /**
  This class holds the data for a single location and a marker to display the data on a map.

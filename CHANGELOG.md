@@ -22,11 +22,19 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 Please note that support for iOS 10 in MapsIndoors SDK v3 will soon end. The minimum supported version will then be iOS 11. The required version of Xcode will remain Xcode 13 a bit longer.
 
-## [3.43.0] 2022-10-28
+## [3.43.0] 2022-11-03
 
 ### Added
 
-- New method on MPLocationService: `getLocationsByExternalIds:`.
+- We added a new method on MPLocationService: `getLocationsByExternalIds:`.
+
+### Fixed
+
+- A single network call had snuck on to the main thread. It has now been relegated to the background so Xcode 14 will no longer tell you that MapsIndoors is behaving badly.
+
+### Changed
+
+- The images for 2D Models are now fetched only with the DataSetManager meaning less device storage is claimed when using 2D Models.
 
 ## [3.42.0] 2022-10-13
 
