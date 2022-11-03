@@ -61,9 +61,19 @@ typedef void (^mpLocationsHandlerBlockType)(
  @param filter The filter object
  @param handler The handler block
  */
-- (void)getLocationsUsingQuery:(nonnull MPQuery *)query
-                        filter:(nonnull MPFilter *)filter
+- (void)getLocationsUsingQuery:(MPQuery *)query
+                        filter:(MPFilter *)filter
              completionHandler:(nullable mpLocationsHandlerBlockType)handler;
+
+/**
+ * Get the Locations that have the provided external IDs associated.
+ * Multiple Locations may have the same external ID associated, so a request with e.g. two external IDs may return more than two Locations.
+
+ @param externalIds The list of external IDs to get Locations for.
+
+ @return An array of Locations that have the requested external IDs. The number of returned Locations may be higher than number of provided external IDs.
+ */
+- (NSArray<MPLocation*>*)getLocationsByExternalIds:(NSArray<NSString*>*)externalIds;
 
 @end
 

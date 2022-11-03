@@ -27,53 +27,46 @@ class AppLinkTests: XCTestCase {
     }
 
     func testAppLinkForDirections() {
-        
         let url = "mapsindoors://57e4e4992e74800ef8b69718/directions?originLocation=21ffaa29fdfa4a5491bb0379&destinationLocation=3002f54bae4d4c4e8ecce4a1"
         
         openUrlInSafari(url: url)
         
         let app = XCUIApplication()
-        
+
         let predicate = NSPredicate(format: "label CONTAINS[c] 'Start Route from Marrakech'")
         
-        let routeCalculated = app.buttons.containing(predicate).firstMatch.exists
+        let routeCalculated = app.buttons.containing(predicate).firstMatch.waitForExistence(timeout: 15)
         
         XCTAssert(routeCalculated)
-        
     }
     
     func testAppLinkForDirectionsOnColdLaunch() {
-        
         let app = XCUIApplication()
 
         app.terminate()
         
         testAppLinkForDirections()
-        
     }
 
     func openUrlInSafari(url:String) {
-        
         let safari = XCUIApplication(bundleIdentifier: "com.apple.mobilesafari")
         safari.terminate()
         safari.launch()
 
         _ = safari.wait(for: .runningForeground, timeout: 10)
         
-        safari.buttons["URL"].tap()
         safari.typeText(url)
         safari.typeText("\n")
         safari.buttons["Open"].tap()
         
         let app = XCUIApplication()
         
-        _ = app.wait(for: .runningForeground, timeout: 5)
+        _ = app.wait(for: .runningForeground, timeout: 15)
         
-        sleep(5) //Boo
+//        sleep(5) //Boo
             
         if app.alerts.firstMatch.exists {
             app.alerts.firstMatch.buttons["Cancel"].tap()
         }
-        
     }
 }

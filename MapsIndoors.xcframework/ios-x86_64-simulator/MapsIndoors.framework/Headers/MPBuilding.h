@@ -7,18 +7,15 @@
 //
 
 #import "JSONModel.h"
-#import "MPFloor.h"
-#import "MPGeometry.h"
-#import "MPPoint.h"
-#import "MPLocationField.h"
 
 #import <GoogleMaps/GoogleMaps.h>
 
-@protocol MPBuilding
-@end
-
-@protocol MPFloor
-@end
+@class MPFloor;
+@class MPLocationField;
+@class MPPoint;
+@protocol MPBuilding;
+@protocol MPFloor;
+@protocol MPLocationField;
 
 /**
  Delegate protocol that holds the building ready event method. Relevant when using offline mode, as it will take a while to load the database upon first app start.

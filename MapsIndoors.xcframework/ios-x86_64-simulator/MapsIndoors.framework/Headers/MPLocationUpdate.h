@@ -9,10 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "MPLocation.h"
 #import "MPLocationField.h"
-#import "MPLocationSource.h"
-
 
 @class MPLocationDisplayRule;
+@protocol MPLocationSource;
 
 extern const NSInteger MPLocationUpdateFloorInvalid;
 
@@ -23,7 +22,6 @@ NS_ASSUME_NONNULL_BEGIN
  Location Update / Builder class
  */
 @interface MPLocationUpdate : NSObject
-
 
 /**
  The id of the Location Source where this location was created

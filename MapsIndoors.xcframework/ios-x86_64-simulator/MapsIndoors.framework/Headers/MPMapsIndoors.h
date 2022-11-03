@@ -10,14 +10,14 @@
 #import "MPDefines.h"
 
 
-@protocol MPImageProvider;
-@protocol MPPositionProvider;
-@protocol MPLocationsProvider;
-@protocol MPLocationSource;
 @class MPDataSetCacheManager;
 @class MPUserRole;
 @protocol MPAuthDetails;
+@protocol MPImageProvider;
+@protocol MPLocationSource;
+@protocol MPLocationsProvider;
 @protocol MPMapsIndoorsDelegate;
+@protocol MPPositionProvider;
 
 
 /**

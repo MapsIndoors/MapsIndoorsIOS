@@ -20,8 +20,13 @@ platform :ios do
     xcode_select("/Applications/Xcode\ 13.4.1.app")
   end
 
+  desc "Test MapsIndoors app"
+  lane :test_mapsindoors_app do
+    run_tests(scheme: "MapsIndoors GitHub App")
+  end
+
   desc "Test Demo app"
   lane :test_demo_app do
-    run_tests scheme: "Demos", workspace: "Example/MIAIOS.xcworkspace"
+    run_tests(scheme: "Demos")
   end
 end

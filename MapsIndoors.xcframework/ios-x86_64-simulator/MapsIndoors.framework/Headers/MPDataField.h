@@ -8,10 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-#import "MPLocationField.h"
 
-@protocol MPDataField
-@end
+@class MPLocationField;
+@protocol MPLocationField;
 
 @interface MPDataField : JSONModel
 

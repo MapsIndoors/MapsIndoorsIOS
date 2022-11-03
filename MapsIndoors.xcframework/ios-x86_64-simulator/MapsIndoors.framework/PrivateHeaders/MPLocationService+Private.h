@@ -7,8 +7,10 @@
 //
 
 #import "MPLocationService.h"
-#import "MPLocationSource.h"
 #import "MPLocationSourceInternal.h"
+
+@class MPMapsIndoorsLocationSource;
+@protocol MPLocationSource;
 
 NS_ASSUME_NONNULL_BEGIN
 
