@@ -25,8 +25,8 @@ pod "MapsIndoors"
 
 ## Author
 
-MapsPeople A/S, Daniel Nielsen, dn@mapspeople.com
+MapsPeople A/S, info@mapspeople.com
 
 ## License
 
-MapsIndoors SDK is released under a commercial license. The MapsIndoors demonstration app is released under MIT license.
+MapsIndoors SDK is released under a commercial license. The MapsIndoors demonstration apps are released under MIT license.
