@@ -55,16 +55,16 @@ class AppLinkTests: XCTestCase {
 
         _ = safari.wait(for: .runningForeground, timeout: 10)
         
+        safari.textFields["Address"].tap()
         safari.typeText(url)
-        safari.typeText("\n")
-        safari.buttons["Open"].tap()
+        safari.buttons["Go"].tap()
         
+        safari.buttons["Open"].tap()
+
         let app = XCUIApplication()
         
         _ = app.wait(for: .runningForeground, timeout: 15)
         
-//        sleep(5) //Boo
-            
         if app.alerts.firstMatch.exists {
             app.alerts.firstMatch.buttons["Cancel"].tap()
         }
