@@ -1,6 +1,0 @@
-framework module VCMaterialDesignIcons {
-  umbrella header "VCMaterialDesignIcons-umbrella.h"
-
-  export *
-  module * { export * }
-}
