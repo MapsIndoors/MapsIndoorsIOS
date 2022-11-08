@@ -62,7 +62,14 @@ typedef void(^mpAuthDetailsHandlerBlockType)( id<MPAuthDetails> _Nullable authDe
  @param googleAPIKey The Google API key.
  @return Whether the API key and content key was successfully provided
  */
-+ (BOOL) provideAPIKey:(nonnull NSString*)mapsIndoorsAPIKey googleAPIKey:(nullable NSString*)googleAPIKey;
++ (BOOL) provideAPIKey:(nonnull NSString*)mapsIndoorsAPIKey googleAPIKey:(nullable NSString*)googleAPIKey
+DEPRECATED_MSG_ATTRIBUTE("Use -(void)provideAPIKeys:googleAPIKey: instead");
+
+/// Provides the API key to MapsIndoors SDK after validating the key.
+/// @param mapsIndoorsAPIKey The MapsIndoors API key
+/// @param googleAPIKey The Google API key
+/// @param completion Whether the API key and content key was successfully provided
++ (void) provideAPIKey:(nonnull NSString*)mapsIndoorsAPIKey googleAPIKey:(nullable NSString*)googleAPIKey completionBlock:(void (^_Nullable)(BOOL))completion;
 
 /**
  Gets the current MapsIndoors API key.

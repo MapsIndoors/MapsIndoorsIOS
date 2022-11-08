@@ -152,3 +152,4 @@
 #import <MapsIndoors/MPAuthClientInfo.h>
 #import <MapsIndoors/MPMapsIndoorsDelegate.h>
 #import <MapsIndoors/MPType.h>
+#import <MapsIndoors/NSDictionary+MPLocationPropertiesDictionary.h>

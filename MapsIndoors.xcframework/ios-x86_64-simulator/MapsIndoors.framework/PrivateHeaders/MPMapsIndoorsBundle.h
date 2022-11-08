@@ -12,7 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MPMapsIndoorsBundle : NSObject
 
-+ (NSBundle *)bundle;
++ (NSBundle*)bundle;
++ (void)checkBundlePresence;
 
 @end
 
