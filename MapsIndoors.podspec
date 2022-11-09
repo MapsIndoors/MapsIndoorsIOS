@@ -24,7 +24,4 @@ Pod::Spec.new do |s|
   s.dependency 'GoogleMaps', '4.2.0'
 
   s.ios.vendored_frameworks  = 'MapsIndoors.xcframework'
-  s.resource_bundle = {
-    "MapsIndoors" => ["MapsIndoors.xcframework/ios-arm64/MapsIndoors.framework/MapsIndoors.bundle/*"]
-  }
 end
