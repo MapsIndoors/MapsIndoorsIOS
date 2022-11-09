@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MPMapsIndoorsBundle : NSObject
 
-+ (NSBundle *)bundle;
+@property (class, nonatomic, nullable, readonly) NSBundle* bundle;
 
 @end
 

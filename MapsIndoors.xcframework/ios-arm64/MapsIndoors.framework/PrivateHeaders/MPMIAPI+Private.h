@@ -62,6 +62,9 @@ typedef void (^RefreshSessionCompletionBlock)(void);
 
 - (nullable NSString*) graphSyncUrlForSolutionId:(NSString*)solutionId language:(nullable NSString*)language;
 - (NSString*) locationSyncUrlForSolutionId:(NSString*)solutionId language:(nullable NSString*)language;
+/// Method to validate the MP key
+/// - Parameter apiKey: Pass the test MP API Key
+- (NSString*) validateKeyURL:(NSString*)apiKey;
 - (NSString*) locationSyncUrlForSolutionId:(NSString*)solutionId language:(nullable NSString*)language userRoles:(nullable NSArray<MPUserRole*>*) roles;
 - (NSString*) venueSyncUrlForSolutionId:(NSString*)solutionId language:(nullable NSString*)language;
 - (NSString*) buildingSyncUrlForSolutionId:(NSString*)solutionId language:(nullable NSString*)language;

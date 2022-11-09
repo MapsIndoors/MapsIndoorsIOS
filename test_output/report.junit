@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<testsuites name='DemosUITests.xctest' tests='1' failures='0'>
-  <testsuite name='DemosUITests.DemosUITests' tests='1' failures='0'>
-    <testcase classname='DemosUITests.DemosUITests' name='testDemoSamples' time='48.527'/>
-  </testsuite>
-</testsuites>

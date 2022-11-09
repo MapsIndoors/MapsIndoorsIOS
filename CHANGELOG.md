@@ -22,6 +22,16 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 
 Please note that support for iOS 10 in MapsIndoors SDK v3 will soon end. The minimum supported version will then be iOS 11. The required version of Xcode will remain Xcode 13 a bit longer.
 
+## [3.43.1] 2022-11-09
+
+### Added
+
+- We added the method `provideAPIKey:googleAPIKey:completionBlock:` that will validate the MapsIndoors API key before returning control of flow to the app.
+
+### Fixed
+
+- Default images for MapsIndoors are now shown properly, including the User Position (blue dot). This also fixes an issue that prohibited making a custom User Position Display Rule.
+
 ## [3.43.0] 2022-11-03
 
 ### Added
