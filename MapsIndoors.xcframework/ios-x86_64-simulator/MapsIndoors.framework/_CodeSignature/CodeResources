@@ -1151,7 +1151,7 @@
 		</data>
 		<key>Headers/MPMapsIndoors.h</key>
 		<data>
-		IVfilbawwOKXiLTsUVxyNcbTLwc=
+		5UwDW6lw/op6LWBtEU76i2QD73k=
 		</data>
 		<key>Headers/MPMapsIndoorsDelegate.h</key>
 		<data>
@@ -1347,7 +1347,7 @@
 		</data>
 		<key>Headers/MPVersionConstants.h</key>
 		<data>
-		6EqK46Tc/vKnJwd2IMoXcHrbxCA=
+		EL5M1wO+4eB7PoZ71BP5KivzgRs=
 		</data>
 		<key>Headers/MPWirelessPositionTopic.h</key>
 		<data>
@@ -1391,7 +1391,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		bSdr3QzQAGqgS3/w3li7aIuHq3c=
+		xlBPItx+8YOkZe5oYkFK1wpkfkY=
 		</data>
 		<key>MapsIndoors.bundle/.gitkeep</key>
 		<data>
@@ -1569,7 +1569,7 @@
 		</data>
 		<key>Modules/MapsIndoors.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		wd5RoRACJ2rnF11nqA4mK/2Tcdc=
+		GCUcgFa3l1r22zTklGaNzpuql8E=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -1917,7 +1917,7 @@
 		</data>
 		<key>PrivateHeaders/MPMapsIndoorsBundle.h</key>
 		<data>
-		buaKRLt8p4iFYTbabALWi916dlE=
+		b3MVeHa0WV7sHvmII9v71m/RuLc=
 		</data>
 		<key>PrivateHeaders/MPMapsIndoorsLocationSource+Private.h</key>
 		<data>
@@ -4707,11 +4707,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			IVfilbawwOKXiLTsUVxyNcbTLwc=
+			5UwDW6lw/op6LWBtEU76i2QD73k=
 			</data>
 			<key>hash2</key>
 			<data>
-			fQuia17Zjs3445eC2wXXNixi7bvYVKegn1h+Ww9KdXo=
+			GJh6H7EOwOJTQbb+PNHsjI5/WbixbNz74L2kHtN9/RM=
 			</data>
 		</dict>
 		<key>Headers/MPMapsIndoorsDelegate.h</key>
@@ -5246,11 +5246,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			6EqK46Tc/vKnJwd2IMoXcHrbxCA=
+			EL5M1wO+4eB7PoZ71BP5KivzgRs=
 			</data>
 			<key>hash2</key>
 			<data>
-			95bA05opczLr4rJxj5Fkbo7nVfs0uTz7iIio5T4s1HA=
+			w+ull54g+ZHAEsoxUq8PYAVR91nbV9ZD5WU9UHNPHHE=
 			</data>
 		</dict>
 		<key>Headers/MPWirelessPositionTopic.h</key>
@@ -5822,11 +5822,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			wd5RoRACJ2rnF11nqA4mK/2Tcdc=
+			GCUcgFa3l1r22zTklGaNzpuql8E=
 			</data>
 			<key>hash2</key>
 			<data>
-			wa+UCCypZP1GhG7y+6bUI4vLLc+aiKSiUns1x7O9Kpc=
+			eBcIHNC4lGijjqAGcsucZRiMsGqqrxA3oDyHWTK350Y=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -6779,11 +6779,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			buaKRLt8p4iFYTbabALWi916dlE=
+			b3MVeHa0WV7sHvmII9v71m/RuLc=
 			</data>
 			<key>hash2</key>
 			<data>
-			sDfIAeyzmBCNTgxI9g8rh4dn4WbVOBAvE+5ApoD9O38=
+			5p8jneuUbE+in1HzYgb/d1ULK25VBZ2lSL9Zxxz/d9c=
 			</data>
 		</dict>
 		<key>PrivateHeaders/MPMapsIndoorsLocationSource+Private.h</key>
