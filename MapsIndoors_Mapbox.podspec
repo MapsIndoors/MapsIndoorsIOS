@@ -22,8 +22,9 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '13.0'
   s.swift_version = "5.0"
 
-  s.dependency 'MapsIndoorsCore', s.version
   s.dependency 'MapboxMaps', '10.8.1'
+  s.dependency 'MapsIndoorsCore', s.version.to_s
+  s.dependency 'ValueAnimator', '0.6.8'
 
   s.ios.vendored_frameworks  = "#{s.name}.xcframework"
 end
