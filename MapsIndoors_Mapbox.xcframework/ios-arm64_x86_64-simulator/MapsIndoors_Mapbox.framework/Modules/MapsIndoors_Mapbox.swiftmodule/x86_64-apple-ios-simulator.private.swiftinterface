@@ -1,0 +1,44 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MapsIndoors_Mapbox
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import CommonCrypto
+import Foundation
+import MapboxMaps
+import MapsIndoorsCore
+import Swift
+import ValueAnimator
+import Vision
+import _Concurrency
+import _StringProcessing
+@objc @objcMembers public class MBMapConfig : ObjectiveC.NSObject, MapsIndoorsCore.MPMapConfig {
+  @objc public var mapboxProvider: MapsIndoors_Mapbox.MapBoxProvider
+  @objc public var mapProvider: MapsIndoorsCore.MPMapProvider
+  @objc public init(MBMapView: MapboxMaps.MapView, accessToken: Swift.String)
+  @objc public func temporaryMapView() -> UIKit.UIView
+  @objc deinit
+}
+@objc @objcMembers public class MapBoxProvider : ObjectiveC.NSObject, MapsIndoorsCore.MPMapProvider {
+  @objc public func applyBundle(_ bundle: Foundation.Bundle)
+  @objc public func showInfoWindow(_ shouldShowInfowindow: Swift.Bool, locationID: Swift.String)
+  @objc public func setTileProvider(tileProvider: MapsIndoorsCore.MPTileProvider)
+  @objc public func reloadTilesForFloorChange()
+  @objc final public let view: UIKit.UIView?
+  @objc public var padding: UIKit.UIEdgeInsets
+  @objc public var MPaccessibilityElementsHidden: Swift.Bool
+  @objc public var delegate: MapsIndoorsCore.MPMapProviderDelegate?
+  @objc public var positionPresenter: MapsIndoorsCore.MPPositionPresenter
+  @objc public var utils: MapsIndoorsCore.MPUtils
+  @objc public var tileLayerClass: MapsIndoorsCore.MPTileLayerClass
+  @objc public func selectLocation(_ location: MapsIndoorsCore.MPLocation)
+  @objc public var routeRenderer: MapsIndoorsCore.MPRouteRenderer {
+    @objc get
+  }
+  @objc public func setViewModels(producer: MapsIndoorsCore.MPViewModelProducer)
+  @objc public var cameraOperator: MapsIndoorsCore.MPCameraOperator {
+    @objc get
+  }
+  @objc required public init(mapView: MapboxMaps.MapView, googleApiKey: Swift.String? = nil)
+  @objc public func setup()
+  @objc deinit
+}

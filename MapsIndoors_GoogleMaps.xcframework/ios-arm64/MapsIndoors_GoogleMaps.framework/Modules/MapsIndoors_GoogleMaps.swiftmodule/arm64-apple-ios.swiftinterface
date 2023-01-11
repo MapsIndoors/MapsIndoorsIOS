@@ -1,0 +1,66 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MapsIndoors_GoogleMaps
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import CommonCrypto
+import Foundation
+import GameplayKit
+import GoogleMaps
+import MapsIndoorsCore
+import MapsIndoorsCore_Private
+import MapsIndoors_GoogleMaps_Private
+import Swift
+import UIKit
+import ValueAnimator
+import _Concurrency
+import _StringProcessing
+@objc @objcMembers public class GMMapConfig : ObjectiveC.NSObject, MapsIndoorsCore.MPMapConfig {
+  @objc public var mapProvider: MapsIndoorsCore.MPMapProvider
+  @objc public init(googleMapView: GoogleMaps.GMSMapView, googleApiKey: Swift.String)
+  @objc public func temporaryMapView() -> GoogleMaps.GMSMapView
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class LatLngBoundsConverter : ObjectiveC.NSObject {
+  public class func convertToMPBounds(bounds: GoogleMapsBase.GMSCoordinateBounds) -> MapsIndoorsCore.CoreBounds
+  public class func convertToGoogleBounds(bounds: MapsIndoorsCore.CoreBounds) -> GoogleMapsBase.GMSCoordinateBounds
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @objcMembers public class GoogleMapProvider : ObjectiveC.NSObject, MapsIndoorsCore.MPMapProvider {
+  @objc public func showInfoWindow(_ shouldShowInfowindow: Swift.Bool, locationID: Swift.String)
+  @objc public func reloadTilesForFloorChange()
+  @objc public var cameraOperator: MapsIndoorsCore.MPCameraOperator {
+    @objc get
+  }
+  @objc public var routeRenderer: MapsIndoorsCore.MPRouteRenderer {
+    @objc get
+  }
+  @objc public func setTileProvider(tileProvider: MapsIndoorsCore.MPTileProvider)
+  @objc public var tileLayerClass: MapsIndoorsCore.MPTileLayerClass {
+    @objc get
+  }
+  @objc public var delegate: MapsIndoorsCore.MPMapProviderDelegate? {
+    @objc get
+    @objc set
+  }
+  @objc public var positionPresenter: MapsIndoorsCore.MPPositionPresenter
+  @objc public var utils: MapsIndoorsCore.MPUtils {
+    @objc get
+  }
+  @objc public var cameraPosition: MapsIndoorsCore.MPCameraPosition
+  @objc public init(mapView: GoogleMaps.GMSMapView, googleApiKey: Swift.String? = nil)
+  @objc public func applyBundle(_ bundle: Foundation.Bundle)
+  @objc public func setViewModels(producer: MapsIndoorsCore.MPViewModelProducer)
+  @objc public var view: UIKit.UIView? {
+    @objc get
+  }
+  @objc public var MPaccessibilityElementsHidden: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var padding: UIKit.UIEdgeInsets {
+    @objc get
+    @objc set
+  }
+  @objc deinit
+}

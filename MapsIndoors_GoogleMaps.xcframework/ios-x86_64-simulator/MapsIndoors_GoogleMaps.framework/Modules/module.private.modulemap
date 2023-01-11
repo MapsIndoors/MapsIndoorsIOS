@@ -1,0 +1,3 @@
+framework module MapsIndoors_GoogleMaps_Private {
+    export *
+}
