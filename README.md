@@ -16,11 +16,16 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-MapsIndoors is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+MapsIndoors is available through [CocoaPods](http://cocoapods.org). To install it, add one of the following lines to your Podfile, depending on which map engine you will be using, Google Maps or Mapbox:
 
+To use the Google Maps map engine add
 ```ruby
-pod "MapsIndoors"
+pod "MapsIndoors_GoogleMaps"
+```
+
+To use the Mapbox map engine add
+```ruby
+pod "MapsIndoors_Mapbox"
 ```
 
 ## Author
