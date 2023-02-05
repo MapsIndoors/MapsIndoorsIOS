@@ -23,6 +23,9 @@ typedef NS_ENUM(NSUInteger, MPTopicIdx) {
     MPTopicIdxCount = 7,
 };
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPLiveUpdateTopic (Private)
 
 - (instancetype)initWithJsonDictionary:(NSDictionary<NSString *, id<NSObject>> *)dictionary;

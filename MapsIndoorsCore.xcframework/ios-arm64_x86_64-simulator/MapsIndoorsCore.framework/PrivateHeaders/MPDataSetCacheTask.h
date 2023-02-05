@@ -32,9 +32,13 @@ typedef NS_ENUM(NSUInteger, MPDataSetCacheTaskPriority ) {
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// > Warning: [INTERNAL - DO NOT USE]
 @protocol  MPDataSetCacheTaskDelegate;
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPDataSetCacheTask : NSOperation
 
 @property (nonatomic, weak, readonly)   id                              owner;
@@ -60,7 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-
+/// > Warning: [INTERNAL - DO NOT USE]
 @protocol MPDataSetCacheTaskDelegate <NSObject>
 
 @required

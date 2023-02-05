@@ -16,6 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 @class MPRouteNetworkValueMapper;
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPGraphObjectPropertyContainerFactory : NSObject
 
 + (nullable instancetype) newWithValueMapper:(MPRouteNetworkValueMapper*)valueMapper sharePropertyContainers:(BOOL)sharePropertyContainers;

@@ -254,33 +254,20 @@ using UInt = size_t;
 
 #if defined(__OBJC__)
 
-@protocol MPMapProvider;
-@class GMSMapView;
 @class NSString;
-
-SWIFT_CLASS("_TtC22MapsIndoors_GoogleMaps11GMMapConfig")
-@interface GMMapConfig : NSObject <MPMapConfig>
-@property (nonatomic, strong) id <MPMapProvider> _Nonnull mapProvider;
-- (nonnull instancetype)initWithGoogleMapView:(GMSMapView * _Nonnull)googleMapView googleApiKey:(NSString * _Nonnull)googleApiKey OBJC_DESIGNATED_INITIALIZER;
-- (GMSMapView * _Nonnull)temporaryMapView SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
 @protocol MPCameraOperator;
 @protocol MPRouteRenderer;
 @protocol MPTileProvider;
 @protocol MPTileLayerClass;
 @protocol MPMapProviderDelegate;
 @protocol MPPositionPresenter;
-@protocol MPUtils;
 @protocol MPCameraPosition;
+@class GMSMapView;
 @class NSBundle;
-@class MPViewModelProducer;
 @class UIView;
 
 SWIFT_CLASS("_TtC22MapsIndoors_GoogleMaps17GoogleMapProvider")
-@interface GoogleMapProvider : NSObject <MPMapProvider>
+@interface GoogleMapProvider : NSObject
 - (void)showInfoWindow:(BOOL)shouldShowInfowindow locationID:(NSString * _Nonnull)locationID;
 - (void)reloadTilesForFloorChange;
 @property (nonatomic, readonly, strong) id <MPCameraOperator> _Nonnull cameraOperator;
@@ -289,11 +276,9 @@ SWIFT_CLASS("_TtC22MapsIndoors_GoogleMaps17GoogleMapProvider")
 @property (nonatomic, readonly, strong) id <MPTileLayerClass> _Nonnull tileLayerClass;
 @property (nonatomic, strong) id <MPMapProviderDelegate> _Nullable delegate;
 @property (nonatomic, strong) id <MPPositionPresenter> _Nonnull positionPresenter;
-@property (nonatomic, readonly, strong) id <MPUtils> _Nonnull utils;
 @property (nonatomic, strong) id <MPCameraPosition> _Nonnull cameraPosition;
 - (nonnull instancetype)initWithMapView:(GMSMapView * _Nonnull)mapView googleApiKey:(NSString * _Nullable)googleApiKey OBJC_DESIGNATED_INITIALIZER;
 - (void)applyBundle:(NSBundle * _Nonnull)bundle;
-- (void)setViewModelsWithProducer:(MPViewModelProducer * _Nonnull)producer;
 @property (nonatomic, readonly, strong) UIView * _Nullable view;
 @property (nonatomic) BOOL MPaccessibilityElementsHidden;
 @property (nonatomic) UIEdgeInsets padding;
@@ -305,6 +290,11 @@ SWIFT_CLASS("_TtC22MapsIndoors_GoogleMaps17GoogleMapProvider")
 SWIFT_CLASS("_TtC22MapsIndoors_GoogleMaps21LatLngBoundsConverter")
 @interface LatLngBoundsConverter : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface MPMapConfig (SWIFT_EXTENSION(MapsIndoors_GoogleMaps))
+- (nonnull instancetype)initWithGmsMapView:(GMSMapView * _Nonnull)gmsMapView googleApiKey:(NSString * _Nonnull)googleApiKey;
 @end
 
 

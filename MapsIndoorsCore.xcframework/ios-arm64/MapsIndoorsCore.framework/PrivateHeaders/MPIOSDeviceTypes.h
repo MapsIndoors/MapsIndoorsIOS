@@ -43,6 +43,9 @@ typedef enum : NSUInteger {
     MPIOSDeviceScreenType_Unknown
 } MPIOSDeviceScreenType;
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPIOSDeviceTypes : NSObject
 + (MPIOSDeviceScreenType) currentDeviceScreenType;
 @end

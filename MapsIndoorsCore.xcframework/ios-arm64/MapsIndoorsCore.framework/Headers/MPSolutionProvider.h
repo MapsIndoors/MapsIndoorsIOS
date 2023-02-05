@@ -16,7 +16,7 @@
 typedef void(^mpSolutionHandlerBlockType)(MPSolution* _Nullable solution, NSError* _Nullable error);
 typedef void(^mpUserRoleCompletion)( NSArray<MPUserRole*>* _Nullable userRoles, NSError* _Nullable error );
 
-
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Solution provider delegate.
  */
@@ -31,6 +31,9 @@ typedef void(^mpUserRoleCompletion)( NSArray<MPUserRole*>* _Nullable userRoles, 
 
 @end
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Solution provider interface, that defines a delegate and a method for solution queries.
  */

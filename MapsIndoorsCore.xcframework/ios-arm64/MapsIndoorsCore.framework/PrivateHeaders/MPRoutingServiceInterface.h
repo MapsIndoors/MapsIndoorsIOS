@@ -20,6 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void(^MPRoutingServiceHandlerBlockType)(MPRoute* _Nullable route, NSError* _Nullable error);
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @protocol MPRoutingServiceInterface <NSObject>
 
 - (void) getRouteForSolutionId:(NSString*)solutionId

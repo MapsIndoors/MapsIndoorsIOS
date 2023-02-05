@@ -7,6 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Provides a static way to access the possible layer types for general purpose MapsPeople services
  */

@@ -12,13 +12,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPVenue (MapStyleOverride)
 
 @property (nonatomic, strong, nullable, readwrite) MPMapStyle<Optional>*   mapStyleOverride;
 
 @end
 
-
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPVenue (Private)
 
 - (MPMutableLocation*) getLocation;

@@ -10,9 +10,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
 /// Live Topic Criteria model used for subscriptions to Live Updates using MPLiveDataManager.
 /// A Live Topic Criteria is hierarchical in the way it is defined, and its relation to MapsIndoors data is derivable by its 7 components: Dataset, Venue, Building, Floor, Room, Location and Domain Type.
 /// All properties can be left out but datasetId will then default to the currently active dataset.
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPLiveTopicCriteria : MPLiveUpdateTopic
 
 /// Initialise a Topic Criteria with given Dataset id.

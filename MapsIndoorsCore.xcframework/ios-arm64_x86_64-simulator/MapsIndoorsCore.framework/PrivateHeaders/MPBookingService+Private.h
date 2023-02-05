@@ -14,6 +14,9 @@ typedef NS_ENUM(NSUInteger, MPBookableState) {
 };
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPBookingService (Private)
 
 - (NSString*) urlForBookingsUsingQuery:(MPBookingsQuery*)q;

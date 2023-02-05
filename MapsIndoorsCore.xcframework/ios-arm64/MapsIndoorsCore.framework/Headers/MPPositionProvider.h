@@ -17,6 +17,9 @@ typedef NS_ENUM(NSUInteger, MPPositionProviderType) {
     SENSOR_BASED_POSITION_PROVIDER = 4
 };
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Protocol specifying how an indoor positioning provider delegate should be implemented as the receiver of user positions.
  */
@@ -39,7 +42,7 @@ typedef NS_ENUM(NSUInteger, MPPositionProviderType) {
 - (void)onPositionFailed:(nonnull id)provider;
 @end
 
-
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Protocol specifying how an indoor positioning provider should be implemented if the users location is to be exposed to MPMapControl
  */

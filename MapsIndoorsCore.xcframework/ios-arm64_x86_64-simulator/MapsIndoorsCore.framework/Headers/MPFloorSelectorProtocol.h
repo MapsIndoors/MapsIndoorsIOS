@@ -13,6 +13,9 @@
 @protocol MPFloorSelectorDelegate;
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @protocol MPFloorSelectorProtocol <NSObject>
 
 /**
@@ -33,17 +36,27 @@
   @param building The building that the floor selector should reflect.
  */
 @required
-- (void) updateFloors:(nullable MPBuilding*)building;
+- (void) setBuilding:(nullable MPBuilding*)building;
 
 /**
- *
+ * Invoked when the SDK indicates to show the floor selector (e.g. a building is present in the viewport)
+ */
+- (void) onShow;
+
+/**
+ * Invoked when the SDK indicates to hide the floor selector (e.g. no buildings are present in the viewport)
+ */
+- (void) onHide;
+
+/**
+ * Removes the floor selector view from its super view (usually the map view)
  */
 @required
-- (void) deactivate;
+- (void) remove;
 
 @end
 
-
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
   Delegate protocol specification to hold the floor change event.
  */
@@ -53,7 +66,7 @@
   Floor change event method. Must be implemented by delegate object.
  */
 @required
-- (void) floorHasChanged:(nonnull NSNumber*)floorIndex;
+- (void) onFloorIndexChanged:(nonnull NSNumber*)floorIndex;
 
 @end
 

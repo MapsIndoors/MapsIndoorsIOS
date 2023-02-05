@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol MPImageProvider;
 @protocol MPLocationSource;
 @protocol MPLocationsProvider;
-@protocol MPMapsIndoorsDelegate;
+@protocol MPMapsIndoorsLegacyDelegate;
 @protocol MPPositionProvider;
 
 /**
@@ -51,19 +51,33 @@ typedef void(^mpAuthDetailsHandlerBlockType)( id<MPAuthDetails> _Nullable authDe
 #define kMPNotificationAppDataErrorKey                  @"kMPNotificationAppDataErrorKey"
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
+ [DEPRECATED]
  Main class for initialisation, configuration and content synchronisation.
  */
-@interface MapsIndoors : NSObject
+@interface MapsIndoorsLegacy : NSObject
 
 /**
  Provides your API key and content key to the MapsIndoors SDK. These keys are unique for your MapsIndoors solution and are used to identify and authorise use of the data provided by MapsIndoors.
 
  @param mapsIndoorsAPIKey The MapsIndoors API key
- @param googleAPIKey The Google API key.
  @return Whether the API key and content key was successfully provided
  */
-+ (BOOL)provideAPIKey:(NSString*)mapsIndoorsAPIKey googleAPIKey:(nullable NSString*)googleAPIKey;
++ (void)provideAPIKey:(NSString*)mapsIndoorsAPIKey completion:(void(^_Nonnull)(void))completion;
+
+/**
+ Reset MapsIndoors API key, to facilitate the "log out" functionality of the POC app.
+ */
++ (void) __unProvideAPIKey;
+
+/**
+ Gets the current MapsIndoors API key.
+ @return The MapsIndoors API key as a string value.
+ */
++ (nullable NSString*) getMapsIndoorsAPIKey;
 
 /**
  Sets the language for the content provided by MapsIndoors.
@@ -147,7 +161,7 @@ typedef void(^mpAuthDetailsHandlerBlockType)( id<MPAuthDetails> _Nullable authDe
 /**
  Get or set the delegate object.
  */
-@property (class, nonatomic, weak, nullable) id<MPMapsIndoorsDelegate>       delegate;
+@property (class, nonatomic, weak, nullable) id<MPMapsIndoorsLegacyDelegate>       delegate;
 
 
 /// The MPSolution for the current API Key/language.

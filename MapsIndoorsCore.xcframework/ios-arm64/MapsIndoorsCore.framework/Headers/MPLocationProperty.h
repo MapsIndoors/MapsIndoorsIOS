@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Creates a location property, holding a type identifier and a value
  */

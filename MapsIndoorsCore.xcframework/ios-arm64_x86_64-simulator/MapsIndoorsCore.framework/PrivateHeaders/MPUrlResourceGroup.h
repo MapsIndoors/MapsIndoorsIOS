@@ -17,6 +17,9 @@ extern const MPUrlResourceGroupType _Nonnull MPUrlResourceGroupType_MapTiles;
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPUrlResourceGroup : NSObject
 
 - (nullable instancetype) initWithJsonDictionary:(NSDictionary*)dictionary;

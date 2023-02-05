@@ -10,7 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
 /// Model for live temperature measurement for a given Location.
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPTemperatureLiveUpdate : MPLiveUpdate
 
 /// Get the measured temperature for a given Location. Base unit is Kelvin.

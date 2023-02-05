@@ -19,6 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void (^BuildingInfoCompletion)(MPBuildingInfoCache* bic);
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPBuildingInfoCache : NSObject
 
 @property (nonatomic, strong, readonly, nullable) NSString*                               solutionId;

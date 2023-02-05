@@ -1,5 +1,5 @@
 //
-//  MPMapsIndoors+Private.h
+//  MPMapsIndoorsLegacy+Private.h
 //  MapsIndoors
 //
 //  Created by Daniel Nielsen on 26/10/2018.
@@ -8,19 +8,21 @@
 
 
 #import <Foundation/Foundation.h>
-#import "MPMapsIndoors.h"
+#import "MPMapsIndoorsLegacy.h"
 #import "MPLocationService.h"
 #import "MPSolution.h"
 
 @class MPMemoryCache;
-@protocol MPMapConfig;
+@class MPMapConfig;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MapsIndoors ()
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
+@interface MapsIndoorsLegacy ()
 
 @property (class, readonly) MPLocationService* locationService;
-@property (class) id<MPMapConfig> mapConfig;
 
 + (nullable MPMapsIndoorsLocationSource*) defaultLocationSource;
 
@@ -31,18 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (BOOL) provideSolutionId:(NSString*)solutionId;
 
-/**
- Reset MapsIndoors API key, to facilitate the "log out" functionality of the POC app.
- */
-+ (void) __unProvideAPIKey;
-
 @property (class, readonly) MPMemoryCache* memoryCache;
-
-/**
- Gets the current MapsIndoors API key.
- @return The MapsIndoors API key as a string value.
- */
-+ (nullable NSString*) getMapsIndoorsAPIKey;
 
 /**
  Gets the current Google API key.

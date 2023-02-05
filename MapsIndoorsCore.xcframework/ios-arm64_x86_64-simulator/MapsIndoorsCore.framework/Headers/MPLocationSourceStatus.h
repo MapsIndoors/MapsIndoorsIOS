@@ -8,6 +8,10 @@
  * Inactive       intentionally inactive and not expected to provide data;
  * Complete       The location service is ready to be used;
  */
+
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 typedef NS_ENUM(NSInteger, MPLocationSourceStatus)
 {
     MPLocationSourceStatusAvailable,

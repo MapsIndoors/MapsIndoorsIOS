@@ -14,6 +14,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPFileCache : NSObject
 
 @property (nonatomic, strong, class, nullable) id<MPFileCacheKeyGenerator>      cacheKeyGenerator;

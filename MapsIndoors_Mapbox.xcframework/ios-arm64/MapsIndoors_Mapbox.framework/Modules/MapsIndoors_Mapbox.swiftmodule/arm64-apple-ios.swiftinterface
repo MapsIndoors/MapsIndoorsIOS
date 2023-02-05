@@ -11,12 +11,8 @@ import ValueAnimator
 import Vision
 import _Concurrency
 import _StringProcessing
-@objc @objcMembers public class MBMapConfig : ObjectiveC.NSObject, MapsIndoorsCore.MPMapConfig {
-  @objc public var mapboxProvider: MapsIndoors_Mapbox.MapBoxProvider
-  @objc public var mapProvider: MapsIndoorsCore.MPMapProvider
-  @objc public init(MBMapView: MapboxMaps.MapView, accessToken: Swift.String)
-  @objc public func temporaryMapView() -> UIKit.UIView
-  @objc deinit
+@objc extension MapsIndoorsCore.MPMapConfig {
+  @objc convenience dynamic public init(mapBoxView: MapboxMaps.MapView, accessToken: Swift.String)
 }
 @objc @objcMembers public class MapBoxProvider : ObjectiveC.NSObject, MapsIndoorsCore.MPMapProvider {
   @objc public func applyBundle(_ bundle: Foundation.Bundle)
@@ -28,13 +24,12 @@ import _StringProcessing
   @objc public var MPaccessibilityElementsHidden: Swift.Bool
   @objc public var delegate: MapsIndoorsCore.MPMapProviderDelegate?
   @objc public var positionPresenter: MapsIndoorsCore.MPPositionPresenter
-  @objc public var utils: MapsIndoorsCore.MPUtils
   @objc public var tileLayerClass: MapsIndoorsCore.MPTileLayerClass
   @objc public func selectLocation(_ location: MapsIndoorsCore.MPLocation)
   @objc public var routeRenderer: MapsIndoorsCore.MPRouteRenderer {
     @objc get
   }
-  @objc public func setViewModels(producer: MapsIndoorsCore.MPViewModelProducer)
+  public func setViewModels(models: [MapsIndoorsCore.MPViewModel])
   @objc public var cameraOperator: MapsIndoorsCore.MPCameraOperator {
     @objc get
   }

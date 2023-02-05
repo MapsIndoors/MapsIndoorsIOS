@@ -18,6 +18,9 @@
 @end
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
   Floor selection UI element. Can be added to the map, but should be linked to an MPBuilding to make sense.
  */

@@ -11,6 +11,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 // Filter behavior class that determines how a filter should be display on the map. Get the default behavior from `MPFilterBehavior.default`. The default behavior is no camera movement and no infowindow shown.
 @interface MPFilterBehavior : NSObject<MPMapBehavior>
 

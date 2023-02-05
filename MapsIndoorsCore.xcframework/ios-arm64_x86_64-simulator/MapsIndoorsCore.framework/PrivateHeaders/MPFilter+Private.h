@@ -11,6 +11,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPFilter (Private)
 
 @property (nonatomic) BOOL                  ignoreLocationSearchableStatus;     //! Make queries return location-results that are marked as non-searchable.
@@ -19,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPFilter (Override)
 
 - (void) overrideWithFilter:(MPFilter*) filter;

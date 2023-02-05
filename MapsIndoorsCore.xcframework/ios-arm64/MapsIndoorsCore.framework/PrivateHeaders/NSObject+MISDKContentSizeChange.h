@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void (^MPDynamicTextSizeChangeBlock)( MPDynamicTextSize dynamicTextSize );
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface NSObject (ContentSizeChange)
 
 @property (nonatomic, readonly) MPDynamicTextSize mp_currentContentSize;

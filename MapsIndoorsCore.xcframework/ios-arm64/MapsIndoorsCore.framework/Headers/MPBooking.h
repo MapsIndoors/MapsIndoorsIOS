@@ -14,6 +14,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  MPBooking represents an existing booking object or a booking to be made.
  bookingId will be non-null for an existing booking, and null for a booking to be made.

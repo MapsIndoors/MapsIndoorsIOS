@@ -29,6 +29,9 @@ typedef void (^RefreshSessionCompletionBlock)(void);
 
 @class MPUserRole;
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPMIAPI (Private)
 
 + (instancetype) sharedInstance;

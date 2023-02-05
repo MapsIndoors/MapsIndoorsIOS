@@ -8,6 +8,9 @@
 
 #import "JSONModel.h"
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Route property model
  */

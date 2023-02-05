@@ -13,6 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// > Warning: [INTERNAL - DO NOT USE]
 @protocol MPRouteNodeProtocol <NSObject>
 
 @property (nonatomic, readonly)                   NSUInteger                nodeId;
@@ -23,6 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPRouteNode : NSObject< MPRouteNodeProtocol >
 
 - (instancetype)initWithMINode:(MINode*) miNode graphNode:(id<MPRouteNodeProtocol>)graphNode;

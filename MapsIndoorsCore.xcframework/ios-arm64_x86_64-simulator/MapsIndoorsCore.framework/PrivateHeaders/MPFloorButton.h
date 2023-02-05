@@ -10,6 +10,9 @@
 #import "MPDefines.h"
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Create a button with a floor index property
  */

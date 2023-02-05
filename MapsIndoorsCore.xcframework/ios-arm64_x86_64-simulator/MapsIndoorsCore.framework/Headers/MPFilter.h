@@ -11,6 +11,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
 Filter object used when making a request to `MPLocationService`. The filters will be applied in the following order:
  1. Bounds filter

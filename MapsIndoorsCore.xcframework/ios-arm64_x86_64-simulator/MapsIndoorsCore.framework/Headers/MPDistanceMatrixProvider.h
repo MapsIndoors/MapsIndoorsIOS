@@ -13,7 +13,7 @@
 @class MPUserRole;
 typedef void(^mpMatrixHandlerBlockType)(MPDistanceMatrixResult* _Nullable matrixResult, NSError* _Nullable error);
 
-
+/// > Warning: [INTERNAL - DO NOT USE]
 @protocol MPDistanceMatrixProviderDelegate <NSObject>
 /**
  Distance matrix result ready event.
@@ -24,6 +24,9 @@ typedef void(^mpMatrixHandlerBlockType)(MPDistanceMatrixResult* _Nullable matrix
 @end
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPDistanceMatrixProvider : NSObject
 
 @property (nonatomic, weak, nullable) id <MPDistanceMatrixProviderDelegate> delegate;

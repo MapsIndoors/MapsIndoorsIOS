@@ -29,12 +29,9 @@
 #import <MapsIndoorsCore/MPLocationBaseType.h>
 #import <MapsIndoorsCore/MPLocationUpdate.h>
 #import <MapsIndoorsCore/MPLocationProperty.h>
-#import <MapsIndoorsCore/MPMapControl.h>
 #import <MapsIndoorsCore/MPFilterBehavior.h>
 #import <MapsIndoorsCore/MPSelectionBehavior.h>
 #import <MapsIndoorsCore/MPMapBehavior.h>
-#import <MapsIndoorsCore/MPMapControl+LiveData.h>
-#import <MapsIndoorsCore/MPMappedLocationUpdateHandler.h>
 #import <MapsIndoorsCore/MPMapStyle.h>
 
 #import <MapsIndoorsCore/MPPoint.h>
@@ -56,7 +53,6 @@
 #import <MapsIndoorsCore/MPImageProvider.h>
 #import <MapsIndoorsCore/MPPngImageProvider.h>
 #import <MapsIndoorsCore/MPErrorCodes.h>
-#import <MapsIndoorsCore/MPMarkerView.h>
 #import <MapsIndoorsCore/NSString+UrlRequest.h>
 #import <MapsIndoorsCore/UIImage+MapsIndoorsBundle.h>
 #import <MapsIndoorsCore/MPMessage.h>
@@ -67,8 +63,7 @@
 #import <MapsIndoorsCore/MPMIAPI.h>
 #import <MapsIndoorsCore/MPVersion.h>
 #import <MapsIndoorsCore/MPVersionConstants.h>
-#import <MapsIndoorsCore/MPNotificationsHelper.h>
-#import <MapsIndoorsCore/MPMapsIndoors.h>
+#import <MapsIndoorsCore/MPMapsIndoorsLegacy.h>
 
 #import <MapsIndoorsCore/MPLocationsObserver.h>
 #import <MapsIndoorsCore/MPLocationSource.h>
@@ -89,7 +84,6 @@
 #import <MapsIndoorsCore/MPLiveDataManager.h>
 #import <MapsIndoorsCore/MPLiveDataInfo.h>
 
-#import <MapsIndoorsCore/MPDirectionsRenderer.h>
 #import <MapsIndoorsCore/MPDirectionsService.h>
 #import <MapsIndoorsCore/MPDirectionsQuery.h>
 #import <MapsIndoorsCore/MPDistanceMatrixElements.h>
@@ -138,5 +132,5 @@
 
 #import <MapsIndoorsCore/MPAuthDetails.h>
 #import <MapsIndoorsCore/MPAuthClientInfo.h>
-#import <MapsIndoorsCore/MPMapsIndoorsDelegate.h>
+#import <MapsIndoorsCore/MPMapsIndoorsLegacyDelegate.h>
 #import <MapsIndoorsCore/MPLocationDataset.h>

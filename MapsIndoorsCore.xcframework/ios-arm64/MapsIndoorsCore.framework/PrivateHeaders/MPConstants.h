@@ -11,6 +11,9 @@
 
 #import <Foundation/Foundation.h>
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 typedef NS_ENUM(SInt32, MapOverlayZIndex) {
     MapOverlayZIndexStartMapsIndoorOverlays   = 1000000,
 

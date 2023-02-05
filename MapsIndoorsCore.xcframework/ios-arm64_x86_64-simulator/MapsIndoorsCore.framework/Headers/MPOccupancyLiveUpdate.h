@@ -10,7 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
 /// Model for live occupancy information for a given Location.
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPOccupancyLiveUpdate : MPLiveUpdate
 
 /// Get the number of people measured for a given Location.

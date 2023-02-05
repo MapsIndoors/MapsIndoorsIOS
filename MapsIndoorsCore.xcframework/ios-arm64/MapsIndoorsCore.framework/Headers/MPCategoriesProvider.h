@@ -18,6 +18,9 @@
 typedef void(^mpCategoriesHandlerBlockType)( NSArray<MPDataField*>* _Nullable categories, NSError* _Nullable error );
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Categories provider delegate.
  */
@@ -31,6 +34,7 @@ typedef void(^mpCategoriesHandlerBlockType)( NSArray<MPDataField*>* _Nullable ca
 - (void) onCategoriesReady: (nullable NSArray*)categories;
 @end
 
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  A categories provider acts as a service for the location categories belonging to a specific MapsIndoors solution/dataset.
  */

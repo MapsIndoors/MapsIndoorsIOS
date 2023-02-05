@@ -9,12 +9,16 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+/// > Warning: [INTERNAL - DO NOT USE]
 @protocol MPImageProvider<NSObject>
 
 - (void)getImageFromUrlStringAsync: (nonnull NSString*)url imageSize: (CGSize) size completionHandler: (nonnull void (^)(UIImage* _Nullable image, NSError* _Nullable error)) completionHandler;
 
 @end
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPImageProvider : NSObject<MPImageProvider>
 
 - (void)getImageFromUrlStringAsync: (nonnull NSString*)url imageSize: (CGSize) size completionHandler: (nonnull void (^)(UIImage* _Nullable image, NSError* _Nullable error)) completionHandler;

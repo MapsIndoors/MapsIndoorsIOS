@@ -17,6 +17,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPLocationField : JSONModel
 
 @property (nonatomic, strong, readonly) NSString* type;

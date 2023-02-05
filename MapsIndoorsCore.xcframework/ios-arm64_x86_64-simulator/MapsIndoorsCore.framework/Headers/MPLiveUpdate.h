@@ -12,7 +12,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
 /// Model for a Live Update. Used in MPLiveDataManagerDelegate and MPLocation::getLiveUpdate().
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPLiveUpdate : NSObject
 
 /// Get the Topic of the Live Update.

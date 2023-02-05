@@ -31,6 +31,7 @@ struct MPRouteSegmentPath {
 };
 typedef struct MPRouteSegmentPath MPRouteSegmentPath;
 
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Protocol MPRouteLeg specification.
  */
@@ -39,6 +40,9 @@ typedef struct MPRouteSegmentPath MPRouteSegmentPath;
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  The route model contains the route components: The start and end point, the overall route distance, the duration using the given travel mode(s), the actual route components (legs and steps) containing the route geometry and actions (shifts, turns, climbs etc.) performed to get to the destination point. Typically this object is not manually instantiated, but returns as a result from the `MPDirectionsService`.
  */

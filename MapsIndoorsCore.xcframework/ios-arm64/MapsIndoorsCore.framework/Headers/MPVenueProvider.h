@@ -64,6 +64,9 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* _Nullable venue, MPBuilding* _
 
 #pragma mark - MPVenueProviderDelegate
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Venue provider delegate.
  */
@@ -100,6 +103,7 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* _Nullable venue, MPBuilding* _
 
 #pragma mark - MPVenueProvider
 
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Venue provider interface, that defines a delegate and a method for venue queries.
  */

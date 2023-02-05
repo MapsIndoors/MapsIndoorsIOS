@@ -12,6 +12,9 @@
 @protocol MPMenuItem
 @end
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPMenuItem : JSONModel
 
 @property (nonatomic, strong, nullable) NSString<Optional>* categoryKey;

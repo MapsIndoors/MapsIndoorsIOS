@@ -29,15 +29,24 @@
 
 #import "MPLiveUpdate.h"
 
+@class MPDisplayRule;
 @class CoreBounds;
 @protocol MPLocationField;
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  This class holds the data for a single location and a marker to display the data on a map.
  */
 @interface MPLocation : JSONModel
+
+/**
+ Location display rule.
+ */
+@property (nonatomic, strong, nullable, readwrite) MPDisplayRule<Optional>* displayRule;
 
 /**
  Location id property.
@@ -66,6 +75,11 @@ NS_ASSUME_NONNULL_BEGIN
  Location description property.
  */
 @property (nonatomic, strong, nullable, readonly) NSString<Optional>* locationDescription;
+
+/**
+ Will return YES if location is indoors and belongs to a building, otherwise NO.
+ */
+@property (nonatomic, readonly) BOOL        isIndoors;
 
 /**
  Custom properties associated with the location object.
@@ -151,6 +165,10 @@ Get a live update based on a known domain type
  */
 @property (nonatomic, readonly) BOOL isBookable;
 
+/**
+ For internal use only, set byt the ClusterEngine if the MPLocation is part of a cluster.
+ */
+@property (nonatomic, assign) BOOL isPartOfCluster;
 @end
 
 NS_ASSUME_NONNULL_END

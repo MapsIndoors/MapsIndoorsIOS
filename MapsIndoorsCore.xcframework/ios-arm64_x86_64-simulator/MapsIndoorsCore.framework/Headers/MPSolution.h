@@ -7,11 +7,15 @@
 //
 
 #import "JSONModel.h"
+#import "MPType.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class MPSolutionConfig;
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  The solution model holds data about the buildings and floors in a solution, plus additional meta-data.
  */
@@ -24,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, nullable, readonly) NSString* mapClientUrl;
 @property (nonatomic, strong, readonly) NSArray<NSString*>*           modules;
 @property (nonatomic, strong, readonly) NSString*                     name;
+@property (nonatomic, strong) NSArray<MPType*>*                       types;
 
 /**
  Optionally contains configuration data for the positioning systems used with the solution.

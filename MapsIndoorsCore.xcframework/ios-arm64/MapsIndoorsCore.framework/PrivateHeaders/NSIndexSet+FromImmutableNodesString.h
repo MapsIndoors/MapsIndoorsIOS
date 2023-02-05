@@ -11,6 +11,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface NSIndexSet (FromImmutableNodesString)
 
 + (instancetype _Nullable) mp_newWithImmutableNodesString:(nullable NSString*)immutableNodes;

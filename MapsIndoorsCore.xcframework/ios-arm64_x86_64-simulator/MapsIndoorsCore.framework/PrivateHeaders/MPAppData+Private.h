@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class MPLoggingConfig;
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPAppData (Private)
 
 @property (nonatomic, strong, nullable, readwrite) MPLoggingConfig* loggingConfig;

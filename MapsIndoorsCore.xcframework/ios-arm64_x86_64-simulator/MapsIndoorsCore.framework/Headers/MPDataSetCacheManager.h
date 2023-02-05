@@ -19,6 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol MPDataSetCacheManagerSizeDelegate;
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Data set manager class.
  */

@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^mpLiveDataInfoHandlerBlockType)(MPLiveDataInfo* _Nullable info, NSError* _Nullable error);
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPLiveDataService : NSObject
 
 + (MPLiveDataService*) sharedInstance;

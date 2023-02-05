@@ -23,6 +23,9 @@ typedef NS_ENUM(NSUInteger, RoutingServiceSelection) {
 };
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPRoutingProvider (Private)
 
 /**

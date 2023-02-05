@@ -34,7 +34,12 @@ typedef void(^mpLocationsHandlerBlockType)(NSArray<MPLocation*>* _Nullable locat
  */
 typedef void(^mpSingleLocationHandlerBlockType)(MPLocation* _Nullable location, NSError* _Nullable error);
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
+ * [DEPRECATED] Use MapsIndoors.shared instance to get or search in data instead.
+ *
  * The `LocationService` acts as service for search and filtering in the full, aggregated collection of Locations. The service requests from all registered Location sources, both internal MapsIndoors and external. Get the shared instance through `MPLocationService.sharedInstance`.
  */
 @interface MPLocationService : NSObject
@@ -44,6 +49,8 @@ typedef void(^mpSingleLocationHandlerBlockType)(MPLocation* _Nullable location, 
  * Get the shared instance.
  */
 + (instancetype) sharedInstance;
+
++ (void) shutdown;
 
 /**
  Get locations with given filter, query and callback handler block.
@@ -76,6 +83,39 @@ Get a location specified by its id.
  @param sources The sources of Location data to use in the current session.
  */
 + (void)registerLocationSources: (NSArray<id<MPLocationSource>>*) sources;
+
+
+// SECTION FROM MPLOCATIONSERVICEINTERNAL HEADER
+/**
+ Add an observer that gets callbacks about updates, additions and deletions to locations in this location source
+ 
+ @param observer The observer object
+ */
+- (void)iAddLocationsObserver:(id<MPLocationsObserver>)observer;
+
+/**
+ Remove an observer that gets callbacks about updates, additions and deletions to locations in this location source
+ 
+ @param observer The observer object to remove
+ */
+- (void)iRemoveLocationsObserver:(id<MPLocationsObserver>)observer;
+
+/**
+ Get the status of the location source:
+ .available      available and expected to provide data
+ .unavailable    unavailable but expected to provide data under normal circumstances
+ .initialising   processing and expected to provide data when initialised
+ .inactive       intentionally inactive and not expected to provide data
+ 
+ @return The status of the location source
+ */
+- (MPLocationSourceStatus)iStatus;
+/**
+ Get the id of the location source
+ */
+- (NSInteger)iSourceId;
+// -------------------------------------------------
+
 
 /**
  The currently registered location sources.

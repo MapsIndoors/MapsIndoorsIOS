@@ -11,6 +11,9 @@
 
 #import "MPVersionConstants.h"
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPSDKVersion : NSObject
 
 + (nonnull NSString*)versionString;

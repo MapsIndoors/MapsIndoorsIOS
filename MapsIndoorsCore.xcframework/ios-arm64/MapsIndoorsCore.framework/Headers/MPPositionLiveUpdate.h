@@ -11,7 +11,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
 /// Model for live position information for a given Location.
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPPositionLiveUpdate : MPLiveUpdate
 
 /// Get the geographic coordinates.

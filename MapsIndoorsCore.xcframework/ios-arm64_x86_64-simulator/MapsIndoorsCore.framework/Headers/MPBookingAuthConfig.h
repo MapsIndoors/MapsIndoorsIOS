@@ -10,7 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
 /// Booking authentication configuration model. This may be used if the `MPBookingService` should book on behalf of an authenticated user.
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPBookingAuthConfig : NSObject
 - (instancetype)init NS_UNAVAILABLE;
 

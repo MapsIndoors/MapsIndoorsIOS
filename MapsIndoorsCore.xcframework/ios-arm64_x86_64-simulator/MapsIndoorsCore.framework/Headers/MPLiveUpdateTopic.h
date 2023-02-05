@@ -14,7 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 @class MPLiveTopicCriteria;
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
 /// Topic model for a Live Update. A Live Update Topic is hierarchical in the way it is defined, and its relation to MapsIndoors data is derivable by its 7 components: Dataset, Venue, Building, Floor, Room, Location and Domain Type
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPLiveUpdateTopic : NSObject<MPSubscriptionTopic>
 
 /// Initialises a Topic with a 7-component path formatted string, for example "datasetId/venueId/buildingId/floorId/roomId/locationId/domainType"

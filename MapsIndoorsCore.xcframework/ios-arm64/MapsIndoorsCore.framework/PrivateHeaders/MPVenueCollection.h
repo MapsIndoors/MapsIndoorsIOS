@@ -10,11 +10,16 @@
 #import "MPBuilding.h"
 #import "MPVenue.h"
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Venue protocol specification
  */
 @protocol MPVenue
 @end
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Venue collection model, just holds an array.
  */

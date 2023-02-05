@@ -13,6 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 @class MPType;
 @protocol MPType;
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPSolution ()
 
 @property (nonatomic, strong, nullable, readwrite) NSArray<NSString*>* availableLanguages;
@@ -23,7 +26,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, nullable, readwrite) NSString* name;
 @property (nonatomic, strong, nullable, readwrite) NSDictionary<NSString*, NSDictionary*>* positionProviderConfigs;
 @property (nonatomic, strong, nullable) NSString* solutionId;
-@property (nonatomic, strong, nullable) NSArray<MPType*><MPType>* types;
 @property (nonatomic) BOOL whiteLabel;
 
 @end

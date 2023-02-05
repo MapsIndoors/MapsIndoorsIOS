@@ -9,6 +9,9 @@
 #import "JSONModel.h"
 #import "MPGeometry.h"
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Floor data model. Holds the floor geometry, display name, z-index and id of the building it belongs to.
  */

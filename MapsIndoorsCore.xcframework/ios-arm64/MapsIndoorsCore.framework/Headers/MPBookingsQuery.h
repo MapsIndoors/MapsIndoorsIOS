@@ -14,6 +14,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Query object to be used with MPBookingService.getBookingsUsingQuery()
  Queries can be either for a location or a user (organizerId), and may optionally be limited to a given timespan.

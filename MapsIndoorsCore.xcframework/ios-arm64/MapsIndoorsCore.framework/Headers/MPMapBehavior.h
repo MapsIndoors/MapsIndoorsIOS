@@ -10,6 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @protocol MPMapBehavior <NSObject>
 
 @property (nonatomic, class, readonly) id<MPMapBehavior> defaultBehavior;

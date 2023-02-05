@@ -14,11 +14,8 @@ import UIKit
 import ValueAnimator
 import _Concurrency
 import _StringProcessing
-@objc @objcMembers public class GMMapConfig : ObjectiveC.NSObject, MapsIndoorsCore.MPMapConfig {
-  @objc public var mapProvider: MapsIndoorsCore.MPMapProvider
-  @objc public init(googleMapView: GoogleMaps.GMSMapView, googleApiKey: Swift.String)
-  @objc public func temporaryMapView() -> GoogleMaps.GMSMapView
-  @objc deinit
+@objc extension MapsIndoorsCore.MPMapConfig {
+  @objc convenience dynamic public init(gmsMapView: GoogleMaps.GMSMapView, googleApiKey: Swift.String)
 }
 @objc @_inheritsConvenienceInitializers public class LatLngBoundsConverter : ObjectiveC.NSObject {
   public class func convertToMPBounds(bounds: GoogleMapsBase.GMSCoordinateBounds) -> MapsIndoorsCore.CoreBounds
@@ -44,13 +41,10 @@ import _StringProcessing
     @objc set
   }
   @objc public var positionPresenter: MapsIndoorsCore.MPPositionPresenter
-  @objc public var utils: MapsIndoorsCore.MPUtils {
-    @objc get
-  }
   @objc public var cameraPosition: MapsIndoorsCore.MPCameraPosition
   @objc public init(mapView: GoogleMaps.GMSMapView, googleApiKey: Swift.String? = nil)
   @objc public func applyBundle(_ bundle: Foundation.Bundle)
-  @objc public func setViewModels(producer: MapsIndoorsCore.MPViewModelProducer)
+  public func setViewModels(models: [MapsIndoorsCore.MPViewModel])
   @objc public var view: UIKit.UIView? {
     @objc get
   }

@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @class MPPoint;
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPRouteNetworkData : NSObject
 
 - (nullable instancetype) initWithData:(NSData*)data error:(NSError**)error;

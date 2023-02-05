@@ -12,6 +12,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  App data provider delegate.
  */
@@ -25,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  The app data provider acts as a service for the metadata (MPAppData) of a MapsIndoors app solution.
  */

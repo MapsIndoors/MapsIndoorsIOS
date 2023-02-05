@@ -13,6 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 @class MPRouteLeg;
 @class MPRouteStep;
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPDirectionsHelper : NSObject
 
 + (NSArray<NSString*>*) floorConnectors;

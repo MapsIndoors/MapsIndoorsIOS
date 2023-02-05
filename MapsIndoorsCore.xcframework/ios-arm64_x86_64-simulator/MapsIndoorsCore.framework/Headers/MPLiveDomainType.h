@@ -25,7 +25,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
 /// Convenience class for static Live Domain Types
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPLiveDomainType : NSObject
 /// Get the Occupancy Domain Type
 @property (class, readonly, nonatomic, strong) NSString* occupancy;

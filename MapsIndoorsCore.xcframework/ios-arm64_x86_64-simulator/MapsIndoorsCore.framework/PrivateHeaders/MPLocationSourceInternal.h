@@ -15,7 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol MPLocationsObserver;
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @protocol MPLocationSourceInternal<NSObject>
+
 /**
  The Locations available from the location source at this point in time
 */
@@ -26,14 +30,14 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param observer The observer object
  */
-- (void)iAddLocationsObserver:(id<MPLocationsObserver>)observer;
+//- (void)iAddLocationsObserver:(id<MPLocationsObserver>)observer;
 
 /**
  Remove an observer that gets callbacks about updates, additions and deletions to locations in this location source
  
  @param observer The observer object to remove
  */
-- (void)iRemoveLocationsObserver:(id<MPLocationsObserver>)observer;
+//- (void)iRemoveLocationsObserver:(id<MPLocationsObserver>)observer;
 
 /**
  Get the status of the location source:
@@ -44,11 +48,11 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return The status of the location source
  */
-- (MPLocationSourceStatus)iStatus;
+//- (MPLocationSourceStatus)iStatus;
 /**
  Get the id of the location source
  */
-- (NSInteger)iSourceId;
+//- (NSInteger)iSourceId;
 
 @end
 

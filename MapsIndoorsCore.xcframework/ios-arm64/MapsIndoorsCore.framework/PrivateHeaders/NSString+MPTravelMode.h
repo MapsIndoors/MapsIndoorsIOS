@@ -10,6 +10,9 @@
 #import "MPDirectionsQuery.h"       // This is where MPTravelMode lives...
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface NSString (MPTravelMode)
 
 - (MPTravelMode) as_MPTravelMode;

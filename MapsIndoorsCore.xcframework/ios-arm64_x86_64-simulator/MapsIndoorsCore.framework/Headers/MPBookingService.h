@@ -23,6 +23,9 @@ typedef void (^mpBookingListCompletion)( NSArray<MPBooking*>* _Nullable bookings
 typedef void (^mpLocationListCompletion)( NSArray<MPLocation*>* _Nullable locations, NSError* _Nullable error );
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  MPBookingService allows for access to the MapsIndoors booking service.
  The booking service is a special integration that has to be enabled in the MapsIndoors cloud systems.

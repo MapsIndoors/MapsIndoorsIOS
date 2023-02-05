@@ -13,6 +13,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPLogPackage : NSObject
 
 - (instancetype)initWithApiKey:apiKey sessionId:(NSString*)sessId sessionStartDate:(NSDate*)startDate logEntries:(NSArray<MPLogEntry*>*)entries component: (NSString*) comp componentVersion:(NSString*) version;

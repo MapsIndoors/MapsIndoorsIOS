@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol MPLocationsObserver;
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Location source protocol.
  */

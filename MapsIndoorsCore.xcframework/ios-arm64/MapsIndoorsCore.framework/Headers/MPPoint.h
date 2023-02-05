@@ -15,6 +15,9 @@
 @protocol MPPoint
 @end
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Basic point geometry class.
  */

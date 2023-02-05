@@ -55,6 +55,9 @@ enum MPRouteActionDirection {
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Route step model. A step is segment on a `MPRouteLeg` (`MPRouteLeg` is a segment on a `MPRoute`). The step contains start and end locations, distance and duration information, as well as navigational instructions.
  */

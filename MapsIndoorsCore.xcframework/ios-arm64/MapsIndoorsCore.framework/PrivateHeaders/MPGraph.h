@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @class MPGraphEdge;
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPGraph : NSObject
 
 @property (nonatomic, readonly, strong, nullable) NSArray<MPGraphNode*>*    nodes;

@@ -16,6 +16,9 @@
 @protocol MPMessage
 @end
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Dataset that holds Messages, searched results and a filter.
  */

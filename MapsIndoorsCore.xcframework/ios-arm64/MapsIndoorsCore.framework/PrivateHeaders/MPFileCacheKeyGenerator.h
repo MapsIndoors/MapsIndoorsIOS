@@ -11,6 +11,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @protocol MPFileCacheKeyGenerator <NSObject>
 
 - (NSString*) cacheKeyFromItemid:(NSString*)itemId;

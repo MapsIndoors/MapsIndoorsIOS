@@ -21,6 +21,9 @@ typedef NS_ENUM(NSUInteger, MPLocationQueryMode) {
     MPLocationQueryModeNormal
 };
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Locations query object used in conjunction with the MPLocationsProvider
  */

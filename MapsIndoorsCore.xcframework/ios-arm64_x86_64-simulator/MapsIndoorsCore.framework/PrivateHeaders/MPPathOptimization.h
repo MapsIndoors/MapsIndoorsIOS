@@ -27,6 +27,9 @@ typedef NS_OPTIONS(NSUInteger, MPPathOptimizationStrategy) {
 };
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPPathOptimization : NSObject
 
 + (MPRouteGraphResult*) optimizePath:(NSArray<MPGraphEdge*>*)path nodes:(NSArray<MPGraphNode*>*)nodes obstacles:(MPRouteLayerService*)obstacleService routeNetworkAllowsOptimization:(BOOL)routeNetworkAllowsOptimization;

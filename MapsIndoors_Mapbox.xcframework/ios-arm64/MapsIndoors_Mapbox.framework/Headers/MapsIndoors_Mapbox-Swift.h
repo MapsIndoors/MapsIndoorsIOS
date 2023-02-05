@@ -253,35 +253,25 @@ using UInt = size_t;
 #endif
 
 #if defined(__OBJC__)
-@class MapBoxProvider;
-@protocol MPMapProvider;
 @class MapView;
 @class NSString;
-@class UIView;
 
-SWIFT_CLASS("_TtC18MapsIndoors_Mapbox11MBMapConfig")
-@interface MBMapConfig : NSObject <MPMapConfig>
-@property (nonatomic, strong) MapBoxProvider * _Nonnull mapboxProvider;
-@property (nonatomic, strong) id <MPMapProvider> _Nonnull mapProvider;
-- (nonnull instancetype)initWithMBMapView:(MapView * _Nonnull)MBMapView accessToken:(NSString * _Nonnull)accessToken OBJC_DESIGNATED_INITIALIZER;
-- (UIView * _Nonnull)temporaryMapView SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@interface MPMapConfig (SWIFT_EXTENSION(MapsIndoors_Mapbox))
+- (nonnull instancetype)initWithMapBoxView:(MapView * _Nonnull)mapBoxView accessToken:(NSString * _Nonnull)accessToken;
 @end
 
 @class NSBundle;
 @protocol MPTileProvider;
+@class UIView;
 @protocol MPMapProviderDelegate;
 @protocol MPPositionPresenter;
-@protocol MPUtils;
 @protocol MPTileLayerClass;
 @class MPLocation;
 @protocol MPRouteRenderer;
-@class MPViewModelProducer;
 @protocol MPCameraOperator;
 
 SWIFT_CLASS("_TtC18MapsIndoors_Mapbox14MapBoxProvider")
-@interface MapBoxProvider : NSObject <MPMapProvider>
+@interface MapBoxProvider : NSObject
 - (void)applyBundle:(NSBundle * _Nonnull)bundle;
 - (void)showInfoWindow:(BOOL)shouldShowInfowindow locationID:(NSString * _Nonnull)locationID;
 - (void)setTileProviderWithTileProvider:(id <MPTileProvider> _Nonnull)tileProvider;
@@ -291,11 +281,9 @@ SWIFT_CLASS("_TtC18MapsIndoors_Mapbox14MapBoxProvider")
 @property (nonatomic) BOOL MPaccessibilityElementsHidden;
 @property (nonatomic, strong) id <MPMapProviderDelegate> _Nullable delegate;
 @property (nonatomic, strong) id <MPPositionPresenter> _Nonnull positionPresenter;
-@property (nonatomic, strong) id <MPUtils> _Nonnull utils;
 @property (nonatomic, strong) id <MPTileLayerClass> _Nonnull tileLayerClass;
 - (void)selectLocation:(MPLocation * _Nonnull)location;
 @property (nonatomic, readonly, strong) id <MPRouteRenderer> _Nonnull routeRenderer;
-- (void)setViewModelsWithProducer:(MPViewModelProducer * _Nonnull)producer;
 @property (nonatomic, readonly, strong) id <MPCameraOperator> _Nonnull cameraOperator;
 - (nonnull instancetype)initWithMapView:(MapView * _Nonnull)mapView googleApiKey:(NSString * _Nullable)googleApiKey OBJC_DESIGNATED_INITIALIZER;
 - (void)setup;

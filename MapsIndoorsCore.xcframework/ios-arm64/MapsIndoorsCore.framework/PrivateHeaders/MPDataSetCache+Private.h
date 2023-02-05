@@ -16,6 +16,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPDataSetCache (Private)
 
 - (instancetype) initWithId:(NSString*)dataSetId cache:(MPFileCache*)cache;
@@ -29,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPDataSetCache ()
 
 @property (nonatomic, strong) NSDate*                           lastUsedTime;   /// Time the dataset was last referenced in [MapsIndoors provideApiKey:

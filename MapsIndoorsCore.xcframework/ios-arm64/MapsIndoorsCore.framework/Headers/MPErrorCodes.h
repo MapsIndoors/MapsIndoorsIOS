@@ -6,6 +6,9 @@
 //  Copyright  Daniel Nielsen. All rights reserved.
 //
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 #define kMPErrorCodeLocationsCacheNotBuilt                          100100
 #define kMPErrorCodeLocationsCacheNotAvailableForMapExtend          100130
 #define kMPErrorCodeLocationsNotFound                               100110

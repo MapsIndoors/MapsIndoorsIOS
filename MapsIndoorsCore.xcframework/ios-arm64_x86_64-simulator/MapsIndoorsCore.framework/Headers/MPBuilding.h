@@ -19,6 +19,9 @@
 @protocol MPFloor;
 @protocol MPLocationField;
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Holds relevant data for a single building, and the buildings floor levels.
  */

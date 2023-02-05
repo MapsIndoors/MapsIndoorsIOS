@@ -18,6 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 @class MPGraphEdge;
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPGraphWeightCalculator : NSObject
 
 @property (nonatomic) BOOL                          avoiding;

@@ -10,7 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
 /// Live Data information model. Holds the currently active domain types for a dataset.
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPLiveDataInfo : NSObject
 
 /// Get the currently active domain types for a dataset.

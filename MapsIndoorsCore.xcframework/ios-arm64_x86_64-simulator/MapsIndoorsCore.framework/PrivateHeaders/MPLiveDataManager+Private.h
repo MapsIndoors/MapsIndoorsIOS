@@ -10,9 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPLiveDataManager (Private)
 
-@property (nonatomic, strong, readonly, nullable) NSArray<NSString*>* domainTypesForCurrentDataset;
 - (void)invalidateSubscriptionState;
 - (void)updateSubscriptions;
 

@@ -10,6 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPLogSessionData : NSObject
 
 - (instancetype)initWithSessionId:(NSString*)sessId startDate:(NSDate*) date component: (NSString*) component componentVersion:(NSString*) componentVersion;

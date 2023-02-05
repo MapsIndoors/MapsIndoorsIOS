@@ -10,6 +10,9 @@
 #import <CoreLocation/CoreLocation.h>
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPGeometryContainmentMetadata : NSObject
 
 @property (nonatomic, strong) NSObject*         geoSpatialObject;       // For now only MPLocation can be here.

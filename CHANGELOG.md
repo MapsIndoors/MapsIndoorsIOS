@@ -1,8 +1,8 @@
 ---
-title: iOS SDK v3 Changelog
+title: iOS SDK v4 Changelog
 permalink: /changelogs/ios/v3/
 eleventyNavigation:
-  key: iOS SDK v3 Changlog
+  key: iOS SDK v4 Changlog
   parent: changelogs
   order: 3
 ---
@@ -17,6 +17,14 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Changed
 ### Removed
 -->
+
+## [4.0.0-beta2] 2023-02-03
+
+### Changed
+
+* Many interface changes. See migration guide for help in migrating from MapsIndoors SDK v3.
+* Minimum iOS version supported is iOS 13.
+* Required Xcode version is Xcode 14.
 
 ## [4.0.0-beta1] 2023-01-11
 

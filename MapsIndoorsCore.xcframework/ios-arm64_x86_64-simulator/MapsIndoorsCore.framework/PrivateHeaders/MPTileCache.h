@@ -18,6 +18,9 @@ typedef NS_ENUM( NSUInteger, MPTileCacheStrategy )
 };
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPTileCache : NSObject
 
 @property (nonatomic) MPTileCacheStrategy               strategy;

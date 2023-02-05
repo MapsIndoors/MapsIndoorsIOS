@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 @class MPLocation;
 @protocol MPLocation;
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Dataset that holds locations, searched results and a filter.
  */

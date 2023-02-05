@@ -10,7 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
 /// Model for live CO2 measurement for a given Location.
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPCO2LiveUpdate : MPLiveUpdate
 
 /// Get the measured CO2 level for a given Location. Base unit is Parts Per Million (PPM).

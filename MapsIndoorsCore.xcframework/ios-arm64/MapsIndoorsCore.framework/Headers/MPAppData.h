@@ -8,6 +8,9 @@
 
 #import "JSONModel.h"
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /** 
    Provides the contextual information needed for setting up a map with specific MapsPeople site data
  */

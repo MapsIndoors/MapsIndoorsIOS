@@ -23,6 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class MPDisplayRule;
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPLocation (Private)
 
 
@@ -57,23 +60,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, readonly)                     CGPoint                         iconMapAnchor;
 
-/**
- Will return YES if location is indoors and belongs to a building, otherwise NO.
- */
-@property (nonatomic, readonly) BOOL        isIndoors;
 
 @end
 
 
-
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPLocation()
 
 - (instancetype)initWithLocationUpdate:(MPLocationUpdate*) update;
 
-/**
- Location display rule.
- */
-@property (nonatomic, strong, nullable, readwrite)  MPDisplayRule*    displayRule;
 /**
  Location map icon anchor.
  */

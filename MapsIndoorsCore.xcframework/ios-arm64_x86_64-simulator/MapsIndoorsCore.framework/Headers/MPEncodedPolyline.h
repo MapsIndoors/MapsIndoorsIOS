@@ -7,6 +7,9 @@
 //
 #import "JSONModel.h"
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPEncodedPolyline : JSONModel
 
 @property (nonatomic, strong, nullable, readonly) NSString* points;

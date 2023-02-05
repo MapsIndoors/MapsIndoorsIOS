@@ -11,6 +11,9 @@
 @class MPPoint;
 @protocol MPUserRole;
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPOnlineRoutingService : NSObject <MPRoutingServiceInterface>
 
 + (nullable NSString*) urlForFetchingRouteForSolutionId:(nonnull NSString*)solutionId

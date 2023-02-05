@@ -27,6 +27,9 @@
 @protocol MPVenueInfo;
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  The venue model holds data about the buildings and floors in a venue, plus additional meta-data.
  */

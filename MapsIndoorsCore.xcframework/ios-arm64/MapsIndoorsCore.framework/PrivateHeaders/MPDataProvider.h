@@ -12,6 +12,9 @@ typedef void(^mpDataHandlerBlockType)(NSData* _Nullable data, NSError* _Nullable
 typedef void(^mpFileHandlerBlockType)(NSString* _Nullable filePath, NSError* _Nullable error, NSHTTPURLResponse* _Nullable response);
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPDataProvider : NSObject
 
 // Method variants returning NSData:

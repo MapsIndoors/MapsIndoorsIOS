@@ -16,6 +16,9 @@ typedef NS_OPTIONS( NSUInteger, MPGeoDataStatus )
 };
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface NSObject (GeoDataStatus)
 
 @property (nonatomic, setter=mp_setGeoDataStatus:) MPGeoDataStatus      mp_geoDataStatus;

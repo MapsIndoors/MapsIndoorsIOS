@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPBuildingInfo : JSONModel
 
 @property (nonatomic, strong, nullable) NSString* name;

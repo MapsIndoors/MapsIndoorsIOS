@@ -10,7 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
 /// Model for live event information for a given Location.
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPCountLiveUpdate : MPLiveUpdate
 
 /// Get the the number of times an arbitrary event has been fired for a given Location.

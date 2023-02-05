@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface NSString(UrlRequest)
 
 + (nullable NSString*)mp_stringWithContentsOfURL:(nonnull NSURL *)url

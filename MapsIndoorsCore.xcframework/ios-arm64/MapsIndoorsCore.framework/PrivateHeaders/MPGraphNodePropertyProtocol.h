@@ -10,6 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @protocol MPGraphNodePropertyProtocol <NSObject>
 
 @property (nonatomic, readonly)                   NSUInteger                boundary;

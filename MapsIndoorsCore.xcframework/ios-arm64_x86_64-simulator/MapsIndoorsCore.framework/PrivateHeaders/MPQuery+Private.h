@@ -12,6 +12,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPQuery (Private)
 
 @property (nonatomic, readonly) MIQuery* miQuery;

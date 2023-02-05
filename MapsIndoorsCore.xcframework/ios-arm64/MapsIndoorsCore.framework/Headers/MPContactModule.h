@@ -11,6 +11,9 @@
 
 @class MPDataField;
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPContactModule : JSONModel
 
 @property (nonatomic, strong, nullable) MPDataField<Optional>* email;

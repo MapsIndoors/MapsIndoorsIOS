@@ -10,6 +10,9 @@
 #import "MPTransitAgency.h"
 #import "MPTransitVehicle.h"
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Transit line information.
  */

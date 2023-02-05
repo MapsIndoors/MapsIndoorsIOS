@@ -10,6 +10,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface UIColor (HexString)
 
 + (nullable UIColor *)colorFromHexString:(nonnull NSString *)hexString;

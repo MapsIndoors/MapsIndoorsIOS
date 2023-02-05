@@ -18,6 +18,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Geometry helper methods
  */
@@ -31,17 +34,6 @@ NS_ASSUME_NONNULL_BEGIN
  @return Array of polygons
  */
 + (NSArray<MPPolygonGeometry*>* _Nullable) polygonsForLocation:(MPLocation*)location;
-
-/**
-Calculates a coordinate in a Quadratic Bézier Curve
-
-@param p0 The start coordinate
-@param p1 The control point coordinate
-@param p2 The end coordinate
-@param t The interpolation factor (0-1)
-@return A CLLocationCoordinate2D
-*/
-+ (CLLocationCoordinate2D) coordinateInQuadCurve:(CLLocationCoordinate2D) p0 p1: (CLLocationCoordinate2D) p1 p2: (CLLocationCoordinate2D) p2 t: (float) t;
 
 @end
 

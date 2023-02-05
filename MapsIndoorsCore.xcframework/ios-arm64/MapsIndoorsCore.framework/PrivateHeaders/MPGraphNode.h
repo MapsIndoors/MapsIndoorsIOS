@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @class MINode;
 typedef NSString* MPHighwayType;
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPGraphNode : NSObject <NSCopying, MPRouteNodeProtocol>
 
 @property (nonatomic, readonly)                   NSUInteger                nodeId;

@@ -10,6 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPAuthClientInfo : NSObject
 @property (nonatomic, readonly) NSString *clientID;
 @property (nonatomic, readonly) NSArray<NSString *> *preferredIDPS;

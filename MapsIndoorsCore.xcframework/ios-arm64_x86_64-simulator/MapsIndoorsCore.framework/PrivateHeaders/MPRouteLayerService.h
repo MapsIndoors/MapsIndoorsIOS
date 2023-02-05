@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^mpRouteElementsCompletion)(NSError* _Nullable error);
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPRouteLayerService : NSObject
 
 - (NSArray<MPRouteObstacle*>*) obstaclesForLocationsWithIds:(NSArray<NSString*>*) locationIds;

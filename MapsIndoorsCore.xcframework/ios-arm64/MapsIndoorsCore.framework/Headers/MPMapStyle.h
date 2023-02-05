@@ -8,6 +8,9 @@
 
 #import "JSONModel.h"
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Map style used by MapsPeoples services. The map style refers to a graphical layout of the building floor plans.
  */

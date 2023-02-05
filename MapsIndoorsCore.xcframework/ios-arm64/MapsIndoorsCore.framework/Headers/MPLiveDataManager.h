@@ -26,7 +26,10 @@ typedef NS_ENUM(NSInteger, MPLiveDataManagerState) {
 @class MPLiveTopicCriteria;
 @class MPLiveDataInfo;
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
 /// Live Data Manager Delegate protocol. Conforming to this protocol makes it possible to get Live Updates, state changes, errors and other calls from MPLiveDataManager.
+/// > Warning: [INTERNAL - DO NOT USE]
 @protocol MPLiveDataManagerDelegate <NSObject>
 
 @optional
@@ -74,6 +77,7 @@ typedef NS_ENUM(NSInteger, MPLiveDataManagerState) {
 @end
 
 /// The Live Data Manager class is the central class for managing Live Update subscriptions.
+/// /// > Warning: [INTERNAL - DO NOT USE]
 @interface MPLiveDataManager : NSObject
 /// Set or get the Live Data Manager Delegate. The delegate recieves all Live Updates, state changes, errors and other calls from the Live Data Manager.
 @property (nonatomic, weak) id<MPLiveDataManagerDelegate> delegate;
@@ -96,6 +100,9 @@ typedef NS_ENUM(NSInteger, MPLiveDataManagerState) {
 - (void) unsubscribeAll;
 /// Update Live Data information, including list of active Domain Types for the current dataset.
 - (void) updateLiveDataInfo;
+
+@property (nonatomic, strong, readonly, nullable) NSArray<NSString*>* domainTypesForCurrentDataset;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -14,7 +14,7 @@
 typedef void(^mpMessageDetailsHandlerBlockType)(MPMessage* _Nullable message, NSError* _Nullable error);
 typedef void(^mpMessageListHandlerBlockType)(NSArray<MPMessage>* _Nullable messages, NSError* _Nullable error);
 
-
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Messages provider delegate.
  */
@@ -29,6 +29,8 @@ typedef void(^mpMessageListHandlerBlockType)(NSArray<MPMessage>* _Nullable messa
 @required
 - (void) onMessageDetailsReady: (nonnull MPMessage*)message;
 @end
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Messages provider protocol.
  */
@@ -50,6 +52,9 @@ typedef void(^mpMessageListHandlerBlockType)(NSArray<MPMessage>* _Nullable messa
 @end
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Messages provider that defines a delegate and a method to initiate fetching of Messages from the provider.
  */

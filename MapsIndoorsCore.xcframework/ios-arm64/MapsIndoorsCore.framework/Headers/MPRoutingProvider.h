@@ -13,7 +13,7 @@
 
 @class MPUserRole;
 
-
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Directions service delegate
  */
@@ -35,6 +35,9 @@
 typedef void(^mpRouteHandlerBlockType)(MPRoute* _Nullable route, NSError* _Nullable error);
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPRoutingProvider : NSObject
 
 @property (nonatomic, weak, nullable) id <MPRoutingProviderDelegate> delegate;

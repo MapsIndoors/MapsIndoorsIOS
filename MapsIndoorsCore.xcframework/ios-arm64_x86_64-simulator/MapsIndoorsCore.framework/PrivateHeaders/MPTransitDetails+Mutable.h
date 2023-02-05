@@ -12,6 +12,9 @@
 #import "MPRouteProperty.h"
 #import "MPTransitTime.h"
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Transit details information.
  */

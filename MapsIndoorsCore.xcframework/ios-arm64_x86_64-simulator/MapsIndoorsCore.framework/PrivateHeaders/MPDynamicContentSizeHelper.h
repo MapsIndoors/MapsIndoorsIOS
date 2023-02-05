@@ -34,6 +34,9 @@ typedef NS_ENUM( NSUInteger, MPDynamicTextSize) {
 typedef void (^MPDynamicTextSizeWillUpdateBlock)( MPDynamicTextSize dynamicTextSize );
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPDynamicContentSizeHelper : NSObject
 
 + (instancetype) sharedInstance;

@@ -12,6 +12,9 @@
 #import <CoreLocation/CoreLocation.h>       // CLLocationCoordinate2D
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  A structure that contains a coordinate in 3D space: latitude/longitude and floor.
  

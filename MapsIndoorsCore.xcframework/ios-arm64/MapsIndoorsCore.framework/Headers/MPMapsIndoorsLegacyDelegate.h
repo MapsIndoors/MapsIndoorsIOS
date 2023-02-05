@@ -10,8 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
 ///MapsIndoors delegate protocol
-@protocol MPMapsIndoorsDelegate <NSObject>
+/// > Warning: [INTERNAL - DO NOT USE]
+@protocol MPMapsIndoorsLegacyDelegate <NSObject>
 
 
 /// Called when error occurs while initialising or synchronising.

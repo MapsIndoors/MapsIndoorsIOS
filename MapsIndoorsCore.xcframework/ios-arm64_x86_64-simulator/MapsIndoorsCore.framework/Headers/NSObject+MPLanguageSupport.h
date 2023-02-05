@@ -12,6 +12,9 @@
 extern NSNotificationName _Nonnull kNotificationMapsIndoorsLanguageChanged;
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface NSObject (MPLanguageSupport)
 
 - (BOOL) mi_setLanguage:(nonnull NSString*)languageCode;

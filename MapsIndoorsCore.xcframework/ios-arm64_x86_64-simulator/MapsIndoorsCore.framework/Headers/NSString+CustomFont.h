@@ -61,6 +61,9 @@ typedef NS_ENUM(NSInteger, CustomFontIcon) {
 
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface NSString (CustomFont)
 
 /**

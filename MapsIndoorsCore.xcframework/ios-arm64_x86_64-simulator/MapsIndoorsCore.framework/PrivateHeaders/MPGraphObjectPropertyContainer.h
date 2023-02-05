@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @class MPRouteNetworkValueMapper;
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPGraphObjectPropertyContainer : NSObject <MPGraphNodePropertyProtocol, MPGraphEdgePropertyProtocol>
 
 @property (nonatomic, readonly, strong, nullable) NSArray<NSNumber*>*         properties;

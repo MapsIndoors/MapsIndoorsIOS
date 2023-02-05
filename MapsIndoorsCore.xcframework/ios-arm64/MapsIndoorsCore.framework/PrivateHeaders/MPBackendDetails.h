@@ -5,7 +5,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Object interfaces
 
+#pragma mark - [INTERNAL - DO NOT USE]
 
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPBackendDetails : NSObject<MPAuthDetails>
 @property (nonatomic, readonly)   NSString *authIssuer;
 @property (nonatomic, readonly)   NSString *authScope;

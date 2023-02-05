@@ -10,6 +10,9 @@
 #import <UIKit/UIKit.h>
 #import "MPImageProvider.h"
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  The image provider acts as a service for fetching images either online or cached offline. Only intended for png images.
  */

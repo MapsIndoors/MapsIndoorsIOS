@@ -22,6 +22,9 @@ typedef NS_ENUM(NSUInteger, MPTravelMode) {
     MPTravelModeTransit,
 };
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Directions query model.
  */

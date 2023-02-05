@@ -26,6 +26,9 @@ typedef NS_ENUM(unsigned char, MPBoundaryType) {
 
 BOOL  mp_boundaryIsEntryPoint( MPBoundaryType boundaryType );
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface NSString (MPPropertyClassification)
 
 - (MPBarrierType) as_MPBarrierType;

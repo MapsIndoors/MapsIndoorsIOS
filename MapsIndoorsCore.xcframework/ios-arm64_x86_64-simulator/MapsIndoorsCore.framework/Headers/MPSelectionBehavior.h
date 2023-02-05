@@ -11,6 +11,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 // Selection behavior class that determines how a location selection should be displayed on the map. Get the default behavior from `MPSelectionBehavior.default`. The default behavior is that the camera moves to display the selected location and the infowindow is shown.
 @interface MPSelectionBehavior : NSObject<MPMapBehavior>
 

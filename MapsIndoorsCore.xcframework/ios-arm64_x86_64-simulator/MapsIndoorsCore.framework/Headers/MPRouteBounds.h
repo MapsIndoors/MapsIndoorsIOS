@@ -9,6 +9,9 @@
 #import "JSONModel.h"
 #import "MPRouteCoordinate.h"
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
  Route bounds model
  */

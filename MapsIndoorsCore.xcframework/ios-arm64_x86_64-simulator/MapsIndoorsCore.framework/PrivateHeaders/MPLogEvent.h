@@ -9,6 +9,9 @@
 #ifndef MPLogEvent_h
 #define MPLogEvent_h
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 typedef NS_ENUM(int, MPLogDomain) {
     MPLogDomainAppLifeTime,
     MPLogDomainConfiguration,

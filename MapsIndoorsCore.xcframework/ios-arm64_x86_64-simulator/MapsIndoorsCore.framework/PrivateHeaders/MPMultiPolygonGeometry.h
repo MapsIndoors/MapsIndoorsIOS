@@ -13,6 +13,9 @@
 @class MPPolygonGeometry;
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPMultiPolygonGeometry : MPGeometry <MPGeometryQueryProtocol>
 
 @property (nonatomic, strong, readonly) NSArray<MPPolygonGeometry*>*    polygons;

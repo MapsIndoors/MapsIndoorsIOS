@@ -6,6 +6,9 @@
 //  Copyright © 2018 MapsPeople A/S. All rights reserved.
 //
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 #ifndef MPDefines_h
 #define MPDefines_h
 

@@ -9,6 +9,9 @@
 #ifndef MPDataSetEnums_h
 #define MPDataSetEnums_h
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 /**
 Data set caching scope. Currently only a full cache (non-partial) scope is supported (basic and detailed scope will sync full dataset)
 */

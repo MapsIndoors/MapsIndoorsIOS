@@ -10,6 +10,9 @@
 #import "MPDefines.h"
 
 
+#pragma mark - [INTERNAL - DO NOT USE]
+
+/// > Warning: [INTERNAL - DO NOT USE]
 @interface MPRoutingConstants : NSObject
 
 @property (nonatomic, readonly, class) double           walkingSpeedMetersPerSecond;
