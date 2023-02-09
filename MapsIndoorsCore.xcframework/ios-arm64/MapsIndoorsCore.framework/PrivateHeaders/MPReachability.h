@@ -87,27 +87,27 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Creates and returns a network reachability manager for the specified domain.
 
- @param domain The domain used to evaluate network reachability.
+ - Parameter domain: The domain used to evaluate network reachability.
 
- @return An initialized network reachability manager, actively monitoring the specified domain.
+ - Returns: An initialized network reachability manager, actively monitoring the specified domain.
  */
 + (instancetype)managerForDomain:(NSString *)domain;
 
 /**
  Creates and returns a network reachability manager for the socket address.
 
- @param address The socket address (`sockaddr_in`) used to evaluate network reachability.
+ - Parameter address: The socket address (`sockaddr_in`) used to evaluate network reachability.
 
- @return An initialized network reachability manager, actively monitoring the specified socket address.
+ - Returns: An initialized network reachability manager, actively monitoring the specified socket address.
  */
 + (instancetype)managerForAddress:(const void *)address;
 
 /**
  Initializes an instance of a network reachability manager from the specified reachability object.
 
- @param reachability The reachability object to monitor.
+ - Parameter reachability: The reachability object to monitor.
 
- @return An initialized network reachability manager, actively monitoring the specified reachability.
+ - Returns: An initialized network reachability manager, actively monitoring the specified reachability.
  */
 - (instancetype)initWithReachability:(SCNetworkReachabilityRef)reachability NS_DESIGNATED_INITIALIZER;
 
@@ -141,7 +141,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Sets a callback to be executed when the network availability of the `baseURL` host changes.
 
- @param block A block object to be executed when the network availability of the `baseURL` host changes.. This block has no return value and takes a single argument which represents the various reachability states from the device to the `baseURL`.
+ - Parameter block: A block object to be executed when the network availability of the `baseURL` host changes.. This block has no return value and takes a single argument which represents the various reachability states from the device to the `baseURL`.
  */
 - (void)setReachabilityStatusChangeBlock:(nullable void (^)(MPNetworkReachabilityStatus status))block;
 

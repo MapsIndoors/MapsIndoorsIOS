@@ -20,7 +20,7 @@
 @protocol MPRoutingProviderDelegate <NSObject>
 /**
  Routing result ready event method.
- @param route The Routing data collection.
+ - Parameter route: The Routing data collection.
  */
 @required
 - (void) onRouteResultReady: (nonnull MPRoute*)route;
@@ -29,8 +29,8 @@
 /**
  Callback handler for route result
 
- @param route Route object.
- @param error Error object.
+ - Parameter route: Route object.
+ - Parameter error: Error object.
  */
 typedef void(^mpRouteHandlerBlockType)(MPRoute* _Nullable route, NSError* _Nullable error);
 

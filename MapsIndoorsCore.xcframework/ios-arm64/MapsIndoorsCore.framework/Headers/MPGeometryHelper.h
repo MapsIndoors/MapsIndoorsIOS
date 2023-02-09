@@ -30,8 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Get Location polygon geometries if applicable. Some locations have multi polygons which is why this method returns an array.
 
- @param location Location object to get polygon geometries from
- @return Array of polygons
+ - Parameter location: Location object to get polygon geometries from
+ - Returns: Array of polygons
  */
 + (NSArray<MPPolygonGeometry*>* _Nullable) polygonsForLocation:(MPLocation*)location;
 

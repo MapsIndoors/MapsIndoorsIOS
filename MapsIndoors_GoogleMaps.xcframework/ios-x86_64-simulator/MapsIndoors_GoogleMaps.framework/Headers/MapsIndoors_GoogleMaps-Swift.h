@@ -254,31 +254,29 @@ using UInt = size_t;
 
 #if defined(__OBJC__)
 
-@class NSString;
+@protocol MPInfoWindowGenerator;
 @protocol MPCameraOperator;
 @protocol MPRouteRenderer;
 @protocol MPTileProvider;
-@protocol MPTileLayerClass;
 @protocol MPMapProviderDelegate;
 @protocol MPPositionPresenter;
 @protocol MPCameraPosition;
 @class GMSMapView;
-@class NSBundle;
+@class NSString;
 @class UIView;
 
 SWIFT_CLASS("_TtC22MapsIndoors_GoogleMaps17GoogleMapProvider")
 @interface GoogleMapProvider : NSObject
-- (void)showInfoWindow:(BOOL)shouldShowInfowindow locationID:(NSString * _Nonnull)locationID;
+@property (nonatomic, strong) id <MPInfoWindowGenerator> _Nullable infoWindowGenerator;
 - (void)reloadTilesForFloorChange;
+@property (nonatomic) enum MPCollisionHandling collisionHandling;
 @property (nonatomic, readonly, strong) id <MPCameraOperator> _Nonnull cameraOperator;
 @property (nonatomic, readonly, strong) id <MPRouteRenderer> _Nonnull routeRenderer;
 - (void)setTileProviderWithTileProvider:(id <MPTileProvider> _Nonnull)tileProvider;
-@property (nonatomic, readonly, strong) id <MPTileLayerClass> _Nonnull tileLayerClass;
 @property (nonatomic, strong) id <MPMapProviderDelegate> _Nullable delegate;
 @property (nonatomic, strong) id <MPPositionPresenter> _Nonnull positionPresenter;
 @property (nonatomic, strong) id <MPCameraPosition> _Nonnull cameraPosition;
 - (nonnull instancetype)initWithMapView:(GMSMapView * _Nonnull)mapView googleApiKey:(NSString * _Nullable)googleApiKey OBJC_DESIGNATED_INITIALIZER;
-- (void)applyBundle:(NSBundle * _Nonnull)bundle;
 @property (nonatomic, readonly, strong) UIView * _Nullable view;
 @property (nonatomic) BOOL MPaccessibilityElementsHidden;
 @property (nonatomic) UIEdgeInsets padding;

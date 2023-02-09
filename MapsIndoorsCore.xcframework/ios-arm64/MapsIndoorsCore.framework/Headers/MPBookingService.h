@@ -46,37 +46,36 @@ typedef void (^mpLocationListCompletion)( NSArray<MPLocation*>* _Nullable locati
 
 /**
  Query for bookable locations given the query filter.
- @param q filter to apply
- @param completion handler
+ - Parameter q: filter to apply
+ - Parameter completion: handler
  */
 - (void) getBookableLocationsUsingQuery:(MPBookableQuery*)q completion:(mpLocationListCompletion)completion;
 
 /**
  Query for locations that are configured for booking given the query filter.
- @param query filter to apply
- @param completion handler
+ - Parameter query: filter to apply
+ - Parameter completion: handler
  */
 - (void) getLocationsConfiguredForBooking:(MPBookableQuery*)query completion:(mpLocationListCompletion)completion NS_SWIFT_NAME(getLocationsConfiguredForBooking(query:completion:));
 
 /**
- Get existing booking according the the given query.
- @sa MPBookingsQuery
- @param q filter to apply
- @param completion handler
+ Get existing booking according the the given ``MPBookingsQuery``
+ - Parameter q: filter to apply
+ - Parameter completion: handler
  */
 - (void) getBookingsUsingQuery:(MPBookingsQuery*)q completion:(mpBookingListCompletion)completion;
 
 /**
  Book the resource identified by the booking parameter.
- @param booking identification of resource, timespan etc to book
- @param completion handler
+ - Parameter booking: identification of resource, timespan etc to book
+ - Parameter completion: handler
  */
 - (void) performBooking:(MPBooking*)booking completion:(mpBookingCompletion)completion;
 
 /**
  Cancel the booking identified by the booking parameter.
- @param booking booking to cancel
- @param completion handler
+ - Parameter booking: booking to cancel
+ - Parameter completion: handler
 */
 - (void) cancelBooking:(MPBooking*)booking completion:(mpBookingCompletion)completion;
 

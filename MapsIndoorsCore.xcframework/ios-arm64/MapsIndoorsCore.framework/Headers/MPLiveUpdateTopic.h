@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MPLiveUpdateTopic : NSObject<MPSubscriptionTopic>
 
 /// Initialises a Topic with a 7-component path formatted string, for example "datasetId/venueId/buildingId/floorId/roomId/locationId/domainType"
-/// @param topic The topic string
+/// - Parameter topic: The topic string
 - (instancetype)initWithTopicString:(NSString*)topic;
 
 /// Get the id of the Dataset related to this topic
@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /// Method to determine whether a Live Update Topic qualifies for a given Topic Criteria
-/// @param criteria The Topic Criteria
+/// - Parameter criteria: The Topic Criteria
 - (BOOL) matchesCriteria:(MPLiveTopicCriteria*)criteria;
 
 @end

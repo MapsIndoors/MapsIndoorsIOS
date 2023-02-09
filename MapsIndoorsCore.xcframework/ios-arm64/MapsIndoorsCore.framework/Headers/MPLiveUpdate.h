@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// Get the timestamp for a Live Update.
 @property (nonatomic, strong, readonly) NSString *timestamp;
 /// Get a value from a specific Live Update property. If no value exists the method returns nil.
-/// @param key The key for the property.
+/// - Parameter key: The key for the property.
 - (nullable NSObject*) getLiveValueForKey:(NSString*)key;
 
 @end

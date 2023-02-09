@@ -19,47 +19,47 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MPLiveTopicCriteria : MPLiveUpdateTopic
 
 /// Initialise a Topic Criteria with given Dataset id.
-/// @param datasetId The Dataset id
+/// - Parameter datasetId: The Dataset id
 + (MPLiveTopicCriteria*) dataset:(NSString*)datasetId;
 /// Initialise a Topic Criteria with given Venue id.
-/// @param venueId The Venue id.
+/// - Parameter venueId: The Venue id.
 + (MPLiveTopicCriteria*) venue:(NSString*)venueId;
 /// Initialise a Topic Criteria with given Building id.
-/// @param buildingId The Building id.
+/// - Parameter buildingId: The Building id.
 + (MPLiveTopicCriteria*) building:(NSString*)buildingId;
 /// Initialise a Topic Criteria with given Floor id.
-/// @param floorId The Floor id.
+/// - Parameter floorId: The Floor id.
 + (MPLiveTopicCriteria*) floor:(NSString*)floorId;
 /// Initialise a Topic Criteria with given Room id.
-/// @param roomId The Room id.
+/// - Parameter roomId: The Room id.
 + (MPLiveTopicCriteria*) room:(NSString*)roomId;
 /// Initialise a Topic Criteria with given Location id.
-/// @param locationId The Location id.
+/// - Parameter locationId: The Location id.
 + (MPLiveTopicCriteria*) location:(NSString*)locationId;
 /// Initialise a Topic Criteria with given Domain Type.
-/// @param domainType The Domain Type.
+/// - Parameter domainType: The Domain Type.
 + (MPLiveTopicCriteria*) domainType:(NSString*)domainType;
 
 /// Get Topic Criteria with given Dataset id changed.
-/// @param datasetId The Dataset id
+/// - Parameter datasetId: The Dataset id
 - (MPLiveTopicCriteria*) dataset:(NSString*)datasetId;
 /// Get Topic Criteria with given Venue id changed.
-/// @param venueId The Venue id.
+/// - Parameter venueId: The Venue id.
 - (MPLiveTopicCriteria*) venue:(NSString*)venueId;
 /// Get Topic Criteria with given Building id changed.
-/// @param buildingId The Building id.
+/// - Parameter buildingId: The Building id.
 - (MPLiveTopicCriteria*) building:(NSString*)buildingId;
 /// Get Topic Criteria with given Floor id changed.
-/// @param floorId The Floor id.
+/// - Parameter floorId: The Floor id.
 - (MPLiveTopicCriteria*) floor:(NSString*)floorId;
 /// Get Topic Criteria with given Room id changed.
-/// @param roomId The Room id.
+/// - Parameter roomId: The Room id.
 - (MPLiveTopicCriteria*) room:(NSString*)roomId;
 /// Get Topic Criteria with given Location id changed.
-/// @param locationId The Location id.
+/// - Parameter locationId: The Location id.
 - (MPLiveTopicCriteria*) location:(NSString*)locationId;
 /// Get Topic Criteria with given Domain Type changed.
-/// @param domainType The Domain Type.
+/// - Parameter domainType: The Domain Type.
 - (MPLiveTopicCriteria*) domainType:(NSString*)domainType;
 
 @end

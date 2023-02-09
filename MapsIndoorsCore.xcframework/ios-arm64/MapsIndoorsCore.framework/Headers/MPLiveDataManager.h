@@ -34,44 +34,44 @@ typedef NS_ENUM(NSInteger, MPLiveDataManagerState) {
 
 @optional
 /// Called when a Live Update was recieved.
-/// @param liveUpdate The Live Update.
+/// - Parameter liveUpdate: The Live Update.
 - (void) didReceiveLiveUpdate:(MPLiveUpdate*)liveUpdate;
 
 @optional
 /// Called when the state of the Live Data Manager changes.
-/// @param state The new state of the Live Data Manager.
+/// - Parameter state: The new state of the Live Data Manager.
 - (void) didUpdateState:(MPLiveDataManagerState)state;
 
 @optional
 /// Called when a Topic Criteria has successfully been subscribed for Live Updates.
-/// @param topic The Topic Criteria that was subscribed.
+/// - Parameter topic: The Topic Criteria that was subscribed.
 - (void) didSubscribe:(MPLiveTopicCriteria*)topic;
 
 @optional
 /// Called when a Topic Criteria has successfully ended subscription for Live Updates.
-/// @param topic The Topic Criteria that was unsubscribed.
+/// - Parameter topic: The Topic Criteria that was unsubscribed.
 - (void) didUnsubscribe:(MPLiveTopicCriteria*)topic;
 
 @optional
 /// Called when a subscription fails. The subscription will be not automatically be retried.
-/// @param error The subscription error.
-/// @param topic The Topic Criteria that failed its subscription.
+/// - Parameter error: The subscription error.
+/// - Parameter topic: The Topic Criteria that failed its subscription.
 - (void) onSubscriptionError:(NSError*)error topic:(MPLiveTopicCriteria*)topic;
 
 @optional
 /// Called when a unsubscription fails. The unsubscription will be not automatically be retried.
-/// @param error The unsubscription error.
-/// @param topic The Topic Criteria that failed its unsubscription.
+/// - Parameter error: The unsubscription error.
+/// - Parameter topic: The Topic Criteria that failed its unsubscription.
 - (void) onUnsubscriptionError:(NSError*)error topic:(MPLiveTopicCriteria*)topic;
 
 @optional
 /// Called when an error occurs. If the error is due to lack of network connectivity, the Live Data Manager will automatically do reconnection attempts.
-/// @param error The unsubscription error.
+/// - Parameter error: The unsubscription error.
 - (void) onError:(NSError*)error;
 
 @optional
 /// Called when information about Liva Data for for a dataset is determined. The information will contain the currently active domain types.
-/// @param info The information about Liva Data for for a dataset.
+/// - Parameter info: The information about Liva Data for for a dataset.
 - (void) didReceiveLiveDataInfo:(MPLiveDataInfo*)info;
 
 @end
@@ -91,10 +91,10 @@ typedef NS_ENUM(NSInteger, MPLiveDataManagerState) {
 /// Get (or create and get) the shared instance of the Live Data Manager.
 + (MPLiveDataManager*) sharedInstance;
 /// Subscribe to Live Updates with a given Topic Criteria. If no previous subscriptions have been made, the Live Data Manager will first connect to the Live Update remote services.
-/// @param topic The Topic Criteria.
+/// - Parameter topic: The Topic Criteria.
 - (void) subscribe:(MPLiveTopicCriteria*)topic;
 /// Unsubscribe to Live Updates with a given Topic Criteria. When the last Topic Criteria is successfully unsubscribed the Live Data Manager will disconnect from the Live Update remote services.
-/// @param topic The Topic Criteria.
+/// - Parameter topic: The Topic Criteria.
 - (void) unsubscribe:(MPLiveTopicCriteria*)topic;
 /// Unsubscribe all Live Updates. When the last Topic Criteria is successfully unsubscribed the Live Data Manager will disconnect from the Live Update remote services.
 - (void) unsubscribeAll;

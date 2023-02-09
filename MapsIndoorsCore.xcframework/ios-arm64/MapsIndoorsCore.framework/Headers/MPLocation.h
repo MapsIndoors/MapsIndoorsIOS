@@ -83,15 +83,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Custom properties associated with the location object.
- Keys are case sensitive.  For case-insensitive access to custom properties use -[getPropertyForKey:]
- @sa -[getPropertyForKey:]
+ Keys are case sensitive.  For case-insensitive access to custom properties use ``getPropertyForKey:``
  */
 @property (nonatomic, strong, readonly) NSDictionary<NSString*, MPLocationField*><Optional, MPLocationField>* properties;
 
 /**
  Get data for custom property with key, disregarding casing of key.
- @param key identifier for custom property.
- @return MPLocationField* or nil.
+ - Parameter key: identifier for custom property.
+ - Returns: MPLocationField* or nil.
  */
 - (nullable MPLocationField*) getPropertyForKey:(NSString*)key NS_SWIFT_NAME(getProperty(forKey:));
 

@@ -34,8 +34,8 @@
 /**
  Get directions.
 
- @param directionsQuery Directions query
- @param handler Callback handler block
+ - Parameter directionsQuery: Directions query
+ - Parameter handler: Callback handler block
  */
 - (void)routingWithQuery:(nonnull MPDirectionsQuery*)directionsQuery completionHandler: (nonnull mpRouteHandlerBlockType)handler;
 

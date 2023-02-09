@@ -22,25 +22,25 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol MPDataSetCacheManagerSizeDelegate <NSObject>
 
 /// Called when the DataSetManager starts determing sync sizes for its managed datasets.
-/// @param dsm MPDataSEtManager
+/// - Parameter dsm: MPDataSEtManager
 @optional
 - (void) dataSetManagerWillStartFetchingSyncSizes:(MPDataSetCacheManager*)dsm;
 
 /// Called to indicate the start of fetching sync size for a single dataset.
-/// @param dsm MPDataSEtManager
-/// @param dataSet The dataset for which sync size is being determined.
+/// - Parameter dsm: MPDataSEtManager
+/// - Parameter dataSet: The dataset for which sync size is being determined.
 @optional
 - (void) dataSetManager:(MPDataSetCacheManager*)dsm willStartFetchingSyncSizesForDataSet:(MPDataSetCache*)dataSet;
 
 @optional
 /// Called to indicate the fnish of fetching sync size for a single dataset.
-/// @param dsm MPDataSEtManager
-/// @param dataSet The dataset for which sync size is being determined.
+/// - Parameter dsm: MPDataSEtManager
+/// - Parameter dataSet: The dataset for which sync size is being determined.
 - (void) dataSetManager:(MPDataSetCacheManager*)dsm didFetchSyncSizesForDataSet:(MPDataSetCache*)dataSet;
 
 @optional
 /// Called to indicate that the DataSetManager has finished determining sync sizes for all managed datasets..
-/// @param dsm MPDataSEtManager
+/// - Parameter dsm: MPDataSEtManager
 - (void) dataSetManagerDidFinishFetchingSyncSizes:(MPDataSetCacheManager*)dsm;
 
 @end

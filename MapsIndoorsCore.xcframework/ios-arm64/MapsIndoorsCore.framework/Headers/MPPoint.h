@@ -60,22 +60,22 @@
 /**
  Get latitude/logitude value as a string
 
- @return Latitude/logitude as comma separated string
+ - Returns: Latitude/logitude as comma separated string
  */
 - (nonnull NSString *)latLngString;
 
 /**
  Static MPPoint builder. Parses a comma separated string an returns an MPPoint instance.
 
- @param coordinate Latitude, longitude, floor as a comma separated string
- @return The resulting MPPoint instance
+ - Parameter coordinate: Latitude, longitude, floor as a comma separated string
+ - Returns: The resulting MPPoint instance
  */
 + (nullable MPPoint*)parse: (nonnull NSString*) coordinate;
 
 /**
  Get a CoreLocation coordinate struct representation of the MPPoint
 
- @return A 2d coordinate struct
+ - Returns: A 2d coordinate struct
  */
 - (CLLocationCoordinate2D)getCoordinate;
 

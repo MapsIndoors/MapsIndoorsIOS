@@ -28,14 +28,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Add an observer that gets callbacks about updates, additions and deletions to locations in this location source
  
- @param observer The observer object
+ - Parameter observer: The observer object
  */
 //- (void)iAddLocationsObserver:(id<MPLocationsObserver>)observer;
 
 /**
  Remove an observer that gets callbacks about updates, additions and deletions to locations in this location source
  
- @param observer The observer object to remove
+ - Parameter observer: The observer object to remove
  */
 //- (void)iRemoveLocationsObserver:(id<MPLocationsObserver>)observer;
 
@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
  .initialising   processing and expected to provide data when initialised
  .inactive       intentionally inactive and not expected to provide data
  
- @return The status of the location source
+ - Returns: The status of the location source
  */
 //- (MPLocationSourceStatus)iStatus;
 /**

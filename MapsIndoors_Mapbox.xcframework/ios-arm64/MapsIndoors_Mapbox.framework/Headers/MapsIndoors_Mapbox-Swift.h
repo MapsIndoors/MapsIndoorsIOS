@@ -260,20 +260,18 @@ using UInt = size_t;
 - (nonnull instancetype)initWithMapBoxView:(MapView * _Nonnull)mapBoxView accessToken:(NSString * _Nonnull)accessToken;
 @end
 
-@class NSBundle;
+@protocol MPInfoWindowGenerator;
 @protocol MPTileProvider;
 @class UIView;
 @protocol MPMapProviderDelegate;
 @protocol MPPositionPresenter;
 @protocol MPTileLayerClass;
-@class MPLocation;
 @protocol MPRouteRenderer;
 @protocol MPCameraOperator;
 
 SWIFT_CLASS("_TtC18MapsIndoors_Mapbox14MapBoxProvider")
 @interface MapBoxProvider : NSObject
-- (void)applyBundle:(NSBundle * _Nonnull)bundle;
-- (void)showInfoWindow:(BOOL)shouldShowInfowindow locationID:(NSString * _Nonnull)locationID;
+@property (nonatomic, strong) id <MPInfoWindowGenerator> _Nullable infoWindowGenerator;
 - (void)setTileProviderWithTileProvider:(id <MPTileProvider> _Nonnull)tileProvider;
 - (void)reloadTilesForFloorChange;
 @property (nonatomic, readonly, strong) UIView * _Nullable view;
@@ -282,7 +280,7 @@ SWIFT_CLASS("_TtC18MapsIndoors_Mapbox14MapBoxProvider")
 @property (nonatomic, strong) id <MPMapProviderDelegate> _Nullable delegate;
 @property (nonatomic, strong) id <MPPositionPresenter> _Nonnull positionPresenter;
 @property (nonatomic, strong) id <MPTileLayerClass> _Nonnull tileLayerClass;
-- (void)selectLocation:(MPLocation * _Nonnull)location;
+@property (nonatomic) enum MPCollisionHandling collisionHandling;
 @property (nonatomic, readonly, strong) id <MPRouteRenderer> _Nonnull routeRenderer;
 @property (nonatomic, readonly, strong) id <MPCameraOperator> _Nonnull cameraOperator;
 - (nonnull instancetype)initWithMapView:(MapView * _Nonnull)mapView googleApiKey:(NSString * _Nullable)googleApiKey OBJC_DESIGNATED_INITIALIZER;
@@ -290,6 +288,7 @@ SWIFT_CLASS("_TtC18MapsIndoors_Mapbox14MapBoxProvider")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
 
 
 #endif

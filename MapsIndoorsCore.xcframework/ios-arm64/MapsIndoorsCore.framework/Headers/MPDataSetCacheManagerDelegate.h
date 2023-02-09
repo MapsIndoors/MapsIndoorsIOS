@@ -26,16 +26,16 @@ Data set manager delegate protocol.
 
 /**
  Called when a data set is added to a data set manager.
- @param dataSetManager Originator of the callback
- @param dataset Data set that was added.
+ - Parameter dataSetManager: Originator of the callback
+ - Parameter dataset: Data set that was added.
 */
 @optional
 - (void) dataSetManager:(MPDataSetCacheManager*)dataSetManager didAddDataSet: (MPDataSetCache*) dataset;
 
 /**
  Called when a data set is removed from a data set manager.
- @param dataSetManager Originator of the callback
- @param dataset Data set that was removed.
+ - Parameter dataSetManager: Originator of the callback
+ - Parameter dataset: Data set that was removed.
 */
 @optional
 - (void) dataSetManager:(MPDataSetCacheManager*)dataSetManager didRemoveDataSet: (MPDataSetCache*) dataset;
@@ -43,60 +43,60 @@ Data set manager delegate protocol.
 
 /**
  Called when the data set manager starts to synchronize one or more datasets.
- @param dataSetManager Originator of the callback
+ - Parameter dataSetManager: Originator of the callback
 */
 @optional
 - (void) dataSetManagerWillStartSynchronizing:(MPDataSetCacheManager*)dataSetManager;
 
 /**
  Called when the data set manager starts to synchronize one or more datasets.
- @param dataSetManager Originator of the callback
+ - Parameter dataSetManager: Originator of the callback
 */
 @optional
 - (void) dataSetManagerDidFinishSynchronizing:(MPDataSetCacheManager*)dataSetManager;
 
 /**
  Called when a data set is scheduled for synchronization by the dataset manager.
- @param dataSetManager Originator of the callback
- @param dataset Data set that was scheduled for synchronization.
+ - Parameter dataSetManager: Originator of the callback
+ - Parameter dataset: Data set that was scheduled for synchronization.
 */
 @optional
 - (void) dataSetManager:(MPDataSetCacheManager*)dataSetManager willStartSynchronizingDataSet:(MPDataSetCache*)dataset;
 
 /**
  Called when a data set has finished synchronization.
- @param dataSetManager Originator of the callback
- @param dataset Data set that was scheduled for synchronization.
+ - Parameter dataSetManager: Originator of the callback
+ - Parameter dataset: Data set that was scheduled for synchronization.
 */
 @optional
 - (void) dataSetManager:(MPDataSetCacheManager*)dataSetManager didFinishSynchronizingDataSet:(MPDataSetCache*)dataset;
 
 ///**
 // Called when a cache item batch synchronisation is started.
-// @param items Items that will be synchronised.
+// - Parameter items: Items that will be synchronised.
 //*/
 //@optional
 //- (void) dataSetManager:(MPDataSetCacheManager*)dataSetManager willStartSynchronizingItems: (NSArray<MPDataSetCacheItem*>*) items;
 //
 ///**
 // Called when a cache item batch synchronisation is finished.
-// @param items Items that was synchronised.
+// - Parameter items: Items that was synchronised.
 //*/
 //@optional
 //- (void) dataSetManager:(MPDataSetCacheManager*)dataSetManager didFinishSynchronizingItems: (NSArray<MPDataSetCacheItem*>*) items;
 
 /**
  Called when a cache item synchronisation is started.
- @param dataSetManager Originator of the callback
- @param item Item that will be synchronised.
+ - Parameter dataSetManager: Originator of the callback
+ - Parameter item: Item that will be synchronised.
 */
 @optional
 - (void) dataSetManager:(MPDataSetCacheManager*)dataSetManager willStartSynchronizingItem: (MPDataSetCacheItem*) item;
 
 /**
  Called when a cache item synchronisation is finished.
- @param dataSetManager Originator of the callback
- @param item Item that was synchronised.
+ - Parameter dataSetManager: Originator of the callback
+ - Parameter item: Item that was synchronised.
 */
 @optional
 - (void) dataSetManager:(MPDataSetCacheManager*)dataSetManager didFinishSynchronizingItem: (MPDataSetCacheItem*) item;

@@ -137,6 +137,17 @@ import _StringProcessing
   @objc var layer: MapsIndoorsCore.MPTileLayer { get }
   @objc init?(venue: MapsIndoorsCore.MPVenue, andFloor floor: MapsIndoorsCore.MPFloor)
 }
+@_inheritsConvenienceInitializers @objc public class MPFilterBehavior : ObjectiveC.NSObject, MapsIndoorsCore.MPMapBehavior {
+  @objc public static var `default`: MapsIndoorsCore.MPFilterBehavior {
+    @objc get
+  }
+  @objc public var moveCamera: Swift.Bool
+  @objc public var showInfoWindow: Swift.Bool
+  @objc public var allowFloorChange: Swift.Bool
+  @objc public var animationDuration: Swift.Int
+  @objc override dynamic public init()
+  @objc deinit
+}
 @objc public protocol MPDirectionsRendererDelegate {
   @objc func onDirectionsRendererChangedFloor(floorIndex: Swift.Int)
 }
@@ -190,6 +201,7 @@ public protocol MPViewModel : Swift.Hashable {
   var model2D: MapsIndoorsCore.MPFeature? { get }
   var data: [MapsIndoorsCore.MPModelData : Any?] { get }
   var isSelected: Swift.Bool { get }
+  var showInfoWindow: Swift.Bool { get }
 }
 extension MapsIndoorsCore.MPViewModel {
   public static func == (lhs: Self, rhs: Self) -> Swift.Bool
@@ -216,9 +228,9 @@ extension MapsIndoorsCore.MPViewModel {
   @objc var selectedLocation: MapsIndoorsCore.MPLocation? { get }
   @objc var selectedBuilding: MapsIndoorsCore.MPBuilding? { get }
   @objc var selectedVenue: MapsIndoorsCore.MPVenue? { get }
-  @objc func select(location: MapsIndoorsCore.MPLocation?, moveCamera: Swift.Bool)
-  @objc func select(building: MapsIndoorsCore.MPBuilding?, moveCamera: Swift.Bool)
-  @objc func select(venue: MapsIndoorsCore.MPVenue?, moveCamera: Swift.Bool)
+  @objc func select(location: MapsIndoorsCore.MPLocation?, behavior: MapsIndoorsCore.MPSelectionBehavior)
+  @objc func select(building: MapsIndoorsCore.MPBuilding?, behavior: MapsIndoorsCore.MPSelectionBehavior)
+  @objc func select(venue: MapsIndoorsCore.MPVenue?, behavior: MapsIndoorsCore.MPSelectionBehavior)
   @objc func select(floorIndex: Swift.Int)
   @objc func setFilter(locations: [MapsIndoorsCore.MPLocation], behavior: MapsIndoorsCore.MPFilterBehavior)
   @objc func setFilter(filter: MapsIndoorsCore.MPFilter, behavior: MapsIndoorsCore.MPFilterBehavior)
@@ -230,7 +242,8 @@ extension MapsIndoorsCore.MPViewModel {
 }
 @objc public protocol MPMapControlDelegate {
   @objc optional func didTap(coordinate: MapsIndoorsCore.MPPoint) -> Swift.Bool
-  @objc optional func didTapIcon(markerId: Swift.String) -> Swift.Bool
+  @objc optional func didTapIcon(location: MapsIndoorsCore.MPLocation) -> Swift.Bool
+  @objc optional func didTapInfoWindow(location: MapsIndoorsCore.MPLocation) -> Swift.Bool
   @objc optional func didChange(selectedLocation: MapsIndoorsCore.MPLocation?) -> Swift.Bool
   @objc optional func didChange(selectedVenue: MapsIndoorsCore.MPVenue?) -> Swift.Bool
   @objc optional func didChange(selectedBuilding: MapsIndoorsCore.MPBuilding?) -> Swift.Bool
@@ -243,8 +256,9 @@ extension MapsIndoorsCore.MPViewModel {
   @objc func infoWindowFor(location: MapsIndoorsCore.MPLocation) -> UIKit.UIView
 }
 @objc public protocol MPMapProviderDelegate {
-  @objc func didTapAtCoordinateDelegate(coordinates: CoreLocation.CLLocationCoordinate2D, mapExtend: MapsIndoorsCore.MPMapExtend, zoom: Swift.Float, distanceLimit: Swift.Double, areaLimit: Swift.Double)
+  @objc func didTapAtCoordinateDelegate(coordinates: CoreLocation.CLLocationCoordinate2D)
   @objc func didChangeCameraPositionDelegate()
+  @objc func didTapInfoWindow(locationId: Swift.String) -> Swift.Bool
   @objc func didTapIconDelegate(markerId: Swift.String) -> Swift.Bool
 }
 @objc public protocol MPCameraPosition {
@@ -351,14 +365,13 @@ public protocol MPMapProvider {
   var MPaccessibilityElementsHidden: Swift.Bool { get set }
   var delegate: MapsIndoorsCore.MPMapProviderDelegate? { get set }
   var positionPresenter: MapsIndoorsCore.MPPositionPresenter { get }
-  var tileLayerClass: MapsIndoorsCore.MPTileLayerClass { get }
-  func showInfoWindow(_ shouldShowInfowindow: Swift.Bool, locationID: Swift.String)
+  var infoWindowGenerator: MapsIndoorsCore.MPInfoWindowGenerator? { get set }
+  var routeRenderer: MapsIndoorsCore.MPRouteRenderer { get }
+  var collisionHandling: MapsIndoorsCore.MPCollisionHandling { get set }
   var cameraOperator: MapsIndoorsCore.MPCameraOperator { get }
   func setViewModels(models: [MapsIndoorsCore.MPViewModel])
   func setTileProvider(tileProvider: MapsIndoorsCore.MPTileProvider)
   func reloadTilesForFloorChange()
-  var routeRenderer: MapsIndoorsCore.MPRouteRenderer { get }
-  func applyBundle(_ bundle: Foundation.Bundle)
 }
 public struct MPFeature : Swift.Encodable, Swift.Hashable {
   public var id: Swift.String
@@ -395,6 +408,17 @@ public struct MPFeatureGeometry : Swift.Encodable {
 @objc public protocol MPTileLayerClass {
   @objc func tileLayer() -> MapsIndoorsCore.MPTileLayer
   @objc func clearTileCache()
+}
+@_inheritsConvenienceInitializers @objc public class MPSelectionBehavior : ObjectiveC.NSObject, MapsIndoorsCore.MPMapBehavior {
+  @objc public static var `default`: MapsIndoorsCore.MPSelectionBehavior {
+    @objc get
+  }
+  @objc public var moveCamera: Swift.Bool
+  @objc public var showInfoWindow: Swift.Bool
+  @objc public var allowFloorChange: Swift.Bool
+  @objc public var animationDuration: Swift.Int
+  @objc override dynamic public init()
+  @objc deinit
 }
 public typealias Key = MapsIndoorsCore.MPModelPropertyKey
 public enum MPModelPropertyKey : Swift.String {
@@ -472,6 +496,12 @@ public enum MPModelData {
 }
 extension UIKit.UIColor {
   convenience public init?(hex: Swift.String)
+}
+@objc public protocol MPMapBehavior {
+  @objc var moveCamera: Swift.Bool { get set }
+  @objc var showInfoWindow: Swift.Bool { get set }
+  @objc var allowFloorChange: Swift.Bool { get set }
+  @objc var animationDuration: Swift.Int { get set }
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers public class MPRouteNetworkEntryPoint : MapsIndoorsCore.MPPoint {
   @objc public var boundaryType: MapsIndoorsCore_Private.MPBoundaryType {

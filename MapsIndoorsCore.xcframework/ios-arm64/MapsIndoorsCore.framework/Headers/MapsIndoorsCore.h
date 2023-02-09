@@ -29,9 +29,6 @@
 #import <MapsIndoorsCore/MPLocationBaseType.h>
 #import <MapsIndoorsCore/MPLocationUpdate.h>
 #import <MapsIndoorsCore/MPLocationProperty.h>
-#import <MapsIndoorsCore/MPFilterBehavior.h>
-#import <MapsIndoorsCore/MPSelectionBehavior.h>
-#import <MapsIndoorsCore/MPMapBehavior.h>
 #import <MapsIndoorsCore/MPMapStyle.h>
 
 #import <MapsIndoorsCore/MPPoint.h>

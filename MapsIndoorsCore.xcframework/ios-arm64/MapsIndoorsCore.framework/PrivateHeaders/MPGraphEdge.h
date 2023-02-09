@@ -65,9 +65,9 @@ NS_ASSUME_NONNULL_BEGIN
     weight = 0
     directed = NO
 
- @param nodeIndex1 Node index of node at one end of the edge
- @param nodeIndex2 Node index of node at one end of the edge
- @return instance of MPGraphEdge
+ - Parameter nodeIndex1: Node index of node at one end of the edge
+ - Parameter nodeIndex2: Node index of node at one end of the edge
+ - Returns: instance of MPGraphEdge
  */
 - (nullable instancetype) initGraphEdgeBetween:(NSUInteger)nodeIndex1
                                            and:(NSUInteger)nodeIndex2
@@ -77,9 +77,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Create and initialize an MPGraphEdge.
 
- @param nodeIndex1 Node index of node at one end of the edge
- @param nodeIndex2 Node index of node at one end of the edge
- @return instance of MPGraphEdge
+ - Parameter nodeIndex1: Node index of node at one end of the edge
+ - Parameter nodeIndex2: Node index of node at one end of the edge
+ - Returns: instance of MPGraphEdge
  */
 + (nullable instancetype) newGraphEdgeBetween:(NSUInteger)nodeIndex1
                                           and:(NSUInteger)nodeIndex2
@@ -88,32 +88,32 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Create a reversed version of the graph edge.
 
- @return Reversed graph edge.
+ - Returns: Reversed graph edge.
  */
 - (MPGraphEdge*) reversed;
 
 /**
  Check if this edge is equal to another edge.
 
- @param otherEdge MPGraphEdge to compare against
- @return YES if equal, else NO.
+ - Parameter otherEdge: MPGraphEdge to compare against
+ - Returns: YES if equal, else NO.
  */
 - (BOOL) isEqualToEdge:(MPGraphEdge*)otherEdge;
 
 /**
  Check if this edge is accessible with the given access tokens.
 
- @param accessTokens Collection of acces tokens
- @return YES if accessible, else NO.
+ - Parameter accessTokens: Collection of acces tokens
+ - Returns: YES if accessible, else NO.
  */
 - (BOOL) isAccessibleWithAccessTokens:(nullable NSSet<NSString*>*)accessTokens;
 
 /**
 Generate MICommon representation of this edge.
 
-@param u Start node.
-@param v End node.
-@return The generated edge.
+- Parameter u: Start node.
+- Parameter v: End node.
+- Returns: The generated edge.
 */
 - (MIEdge*) miEdgeWithNodeU:(MINode*)u v:(MINode*)v;
 

@@ -54,10 +54,10 @@ NS_ASSUME_NONNULL_BEGIN
 
  To search on all floors, set coordinate.floorId = NSNotFound.
  
- @param coordinate Latitude, longitude and optionally floor index to search for.
- @param radius  Optional radius limit.  0 means no limit.
- @param maxResults Optional limit on the number of results.  0 means no limit.
- @return Array of MPGraphNode instances matching criteria.
+ - Parameter coordinate: Latitude, longitude and optionally floor index to search for.
+ - Parameter radius:  Optional radius limit.  0 means no limit.
+ - Parameter maxResults: Optional limit on the number of results.  0 means no limit.
+ - Returns: Array of MPGraphNode instances matching criteria.
  */
 - (nullable NSArray<MPGraphNode*>*) closestNodesToCoordinate:(MPLocationCoordinate3D)coordinate radius:(double)radius maxResults:(NSUInteger)maxResults;
 
@@ -68,21 +68,21 @@ NS_ASSUME_NONNULL_BEGIN
 
  Note: this method disregards temporary graph edges, and only searches the 'original' graph content.
 
- @param coordinate Latitude, longitude and optionally floor index to search for.
- @param radius  Optional radius limit.  0 means no limit.
- @param maxResults Optional limit on the number of results.  0 means no limit.
- @return Array of MPGraphEdge instances matching criteria.
+ - Parameter coordinate: Latitude, longitude and optionally floor index to search for.
+ - Parameter radius:  Optional radius limit.  0 means no limit.
+ - Parameter maxResults: Optional limit on the number of results.  0 means no limit.
+ - Returns: Array of MPGraphEdge instances matching criteria.
  */
 - (nullable NSArray<MPGraphEdge*>*) closestEdgesToCoordinate:(MPLocationCoordinate3D)coordinate radius:(double)radius maxResults:(NSUInteger)maxResults;
 
 /**
  Get all graph-edges on a specific floor that have a bounding box overlap with the given bounding box.
 
- @param northEast NE corner of bounding box
- @param southWest SW corner of bounding box
- @param floor Floor index
+ - Parameter northEast: NE corner of bounding box
+ - Parameter southWest: SW corner of bounding box
+ - Parameter floor: Floor index
 
- @return array of graph edges.
+ - Returns: array of graph edges.
  */
 - (NSArray<MPGraphEdge*>*) edgesWithBoundingBoxOverlappingNorthEast:(CLLocationCoordinate2D)northEast southWest:(CLLocationCoordinate2D)southWest floor:(NSInteger)floor;
 

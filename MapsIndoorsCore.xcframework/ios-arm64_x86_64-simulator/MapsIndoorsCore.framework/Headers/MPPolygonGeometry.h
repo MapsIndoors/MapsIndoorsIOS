@@ -29,7 +29,7 @@
 /**
  Get a MPPath representing the path of the polygon.
 
- @return MPPath
+ - Returns: MPPath
  */
 - (nullable id<MPPath>) mpPathForPath;
 
@@ -42,7 +42,7 @@
 /**
  Return an array of MPPaths for the hole in the polygon.
 
- @return Array of MPPath, nil if the polygon have no holes.
+ - Returns: Array of MPPath, nil if the polygon have no holes.
  */
 - (nullable NSArray<CorePolyline*>*) mpPathsForHoles;
 

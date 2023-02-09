@@ -24,8 +24,9 @@ import _StringProcessing
   @objc deinit
 }
 @objc @objcMembers public class GoogleMapProvider : ObjectiveC.NSObject, MapsIndoorsCore.MPMapProvider {
-  @objc public func showInfoWindow(_ shouldShowInfowindow: Swift.Bool, locationID: Swift.String)
+  @objc public var infoWindowGenerator: MapsIndoorsCore.MPInfoWindowGenerator?
   @objc public func reloadTilesForFloorChange()
+  @objc public var collisionHandling: MapsIndoorsCore.MPCollisionHandling
   @objc public var cameraOperator: MapsIndoorsCore.MPCameraOperator {
     @objc get
   }
@@ -33,9 +34,6 @@ import _StringProcessing
     @objc get
   }
   @objc public func setTileProvider(tileProvider: MapsIndoorsCore.MPTileProvider)
-  @objc public var tileLayerClass: MapsIndoorsCore.MPTileLayerClass {
-    @objc get
-  }
   @objc public var delegate: MapsIndoorsCore.MPMapProviderDelegate? {
     @objc get
     @objc set
@@ -43,7 +41,6 @@ import _StringProcessing
   @objc public var positionPresenter: MapsIndoorsCore.MPPositionPresenter
   @objc public var cameraPosition: MapsIndoorsCore.MPCameraPosition
   @objc public init(mapView: GoogleMaps.GMSMapView, googleApiKey: Swift.String? = nil)
-  @objc public func applyBundle(_ bundle: Foundation.Bundle)
   public func setViewModels(models: [MapsIndoorsCore.MPViewModel])
   @objc public var view: UIKit.UIView? {
     @objc get

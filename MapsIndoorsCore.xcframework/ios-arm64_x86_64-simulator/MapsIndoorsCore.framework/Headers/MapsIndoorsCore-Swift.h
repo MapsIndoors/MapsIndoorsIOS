@@ -355,7 +355,6 @@ SWIFT_CLASS("_TtC15MapsIndoorsCore10CoreRegion")
 @end
 
 
-
 SWIFT_CLASS("_TtC15MapsIndoorsCore15InfoWindowUtils")
 @interface InfoWindowUtils : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -422,6 +421,7 @@ typedef SWIFT_ENUM(NSInteger, MPCollisionHandling, open) {
   MPCollisionHandlingRemoveIconAndLabel = 3,
 };
 
+/// Which information to show from the Location close to the end of a route leg.
 typedef SWIFT_ENUM(NSInteger, MPContextualInfoScope, open) {
   MPContextualInfoScopeIconAndName = 0,
   MPContextualInfoScopeIconOnly = 1,
@@ -574,6 +574,31 @@ typedef SWIFT_ENUM(NSInteger, MPError, open) {
 };
 static NSString * _Nonnull const MPErrorDomain = @"MapsIndoorsCore.MPError";
 
+
+SWIFT_PROTOCOL("_TtP15MapsIndoorsCore13MPMapBehavior_")
+@protocol MPMapBehavior
+@property (nonatomic) BOOL moveCamera;
+@property (nonatomic) BOOL showInfoWindow;
+@property (nonatomic) BOOL allowFloorChange;
+@property (nonatomic) NSInteger animationDuration;
+@end
+
+
+/// Filter behavior class that determines how a filter should be display on the map. Get the default behavior from <code>MPFilterBehavior.default</code>. The default behavior is no camera movement and no infowindow shown.
+SWIFT_CLASS("_TtC15MapsIndoorsCore16MPFilterBehavior")
+@interface MPFilterBehavior : NSObject <MPMapBehavior>
+/// Default filter behavior
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong, getter=default) MPFilterBehavior * _Nonnull default_;)
++ (MPFilterBehavior * _Nonnull)default SWIFT_WARN_UNUSED_RESULT;
+/// Whether <code>MPMapControl</code> should move the camera and fit the map view to the filtered locations. The default behavior is no camera movement (NO).
+@property (nonatomic) BOOL moveCamera;
+/// Whether <code>MPMapControl</code> should show the info window if a filter only contains one Location. The default behavior is no infowindow shown (NO).
+@property (nonatomic) BOOL showInfoWindow;
+@property (nonatomic) BOOL allowFloorChange;
+@property (nonatomic) NSInteger animationDuration;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @protocol MPTileLayer;
 @class MPVenue;
 @class MPFloor;
@@ -607,6 +632,7 @@ SWIFT_PROTOCOL("_TtP15MapsIndoorsCore21MPInfoWindowGenerator_")
 
 
 
+
 SWIFT_CLASS("_TtC15MapsIndoorsCore11MPMapConfig")
 @interface MPMapConfig : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -616,7 +642,7 @@ SWIFT_CLASS("_TtC15MapsIndoorsCore11MPMapConfig")
 @protocol MPFloorSelectorProtocol;
 @class MPMapStyle;
 @class MPBuilding;
-@class MPFilterBehavior;
+@class MPSelectionBehavior;
 @class MPFilter;
 @class MPLiveUpdate;
 
@@ -646,11 +672,11 @@ SWIFT_PROTOCOL("_TtP15MapsIndoorsCore12MPMapControl_")
 /// Get the currently selected venue
 @property (nonatomic, readonly, strong) MPVenue * _Nullable selectedVenue;
 /// Select a location
-- (void)selectWithLocation:(MPLocation * _Nullable)location moveCamera:(BOOL)moveCamera;
+- (void)selectWithLocation:(MPLocation * _Nullable)location behavior:(MPSelectionBehavior * _Nonnull)behavior;
 /// Select a building
-- (void)selectWithBuilding:(MPBuilding * _Nullable)building moveCamera:(BOOL)moveCamera;
+- (void)selectWithBuilding:(MPBuilding * _Nullable)building behavior:(MPSelectionBehavior * _Nonnull)behavior;
 /// Select a venue
-- (void)selectWithVenue:(MPVenue * _Nullable)venue moveCamera:(BOOL)moveCamera;
+- (void)selectWithVenue:(MPVenue * _Nullable)venue behavior:(MPSelectionBehavior * _Nonnull)behavior;
 /// Select a floor index
 - (void)selectWithFloorIndex:(NSInteger)floorIndex;
 /// Apply a filter to the map. Only show the MPLocations included in the list
@@ -678,7 +704,9 @@ SWIFT_PROTOCOL("_TtP15MapsIndoorsCore20MPMapControlDelegate_")
 /// Return true to indidate that you will handle the event, and bypass default MapsIndoors SDK behavior
 - (BOOL)didTapWithCoordinate:(MPPoint * _Nonnull)coordinate SWIFT_WARN_UNUSED_RESULT;
 /// Triggered when the map with a given marker was tapped
-- (BOOL)didTapIconWithMarkerId:(NSString * _Nonnull)markerId SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)didTapIconWithLocation:(MPLocation * _Nonnull)location SWIFT_WARN_UNUSED_RESULT;
+/// Triggered when the info window with a marker with a given id was tapped
+- (BOOL)didTapInfoWindowWithLocation:(MPLocation * _Nonnull)location SWIFT_WARN_UNUSED_RESULT;
 /// Triggered when location selection has changed
 /// Return true to indidate that you will handle the event, and bypass default MapsIndoors SDK behavior
 - (BOOL)didChangeWithSelectedLocation:(MPLocation * _Nullable)selectedLocation SWIFT_WARN_UNUSED_RESULT;
@@ -693,12 +721,12 @@ SWIFT_PROTOCOL("_TtP15MapsIndoorsCore20MPMapControlDelegate_")
 - (BOOL)didChangeWithFloorIndex:(NSInteger)floorIndex SWIFT_WARN_UNUSED_RESULT;
 @end
 
-@class MPMapExtend;
 
 SWIFT_PROTOCOL("_TtP15MapsIndoorsCore21MPMapProviderDelegate_")
 @protocol MPMapProviderDelegate
-- (void)didTapAtCoordinateDelegateWithCoordinates:(CLLocationCoordinate2D)coordinates mapExtend:(MPMapExtend * _Nonnull)mapExtend zoom:(float)zoom distanceLimit:(double)distanceLimit areaLimit:(double)areaLimit;
+- (void)didTapAtCoordinateDelegateWithCoordinates:(CLLocationCoordinate2D)coordinates;
 - (void)didChangeCameraPositionDelegate;
+- (BOOL)didTapInfoWindowWithLocationId:(NSString * _Nonnull)locationId SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)didTapIconDelegateWithMarkerId:(NSString * _Nonnull)markerId SWIFT_WARN_UNUSED_RESULT;
 @end
 
@@ -765,6 +793,22 @@ SWIFT_PROTOCOL("_TtP15MapsIndoorsCore15MPRouteRenderer_")
 - (void)moveCameraWithPoints:(NSArray<NSValue *> * _Nonnull)points animate:(BOOL)animate durationMs:(NSInteger)durationMs tilt:(float)tilt fitMode:(enum MPCameraViewFitMode)fitMode;
 - (void)clear;
 - (void)setOnRouteMarkerClickedDelegateWithDelegate:(id <MPOnRouteMarkerClickedDelegate> _Nonnull)delegate;
+@end
+
+
+/// Selection behavior class that determines how a location selection should be displayed on the map. Get the default behavior from <code>MPSelectionBehavior.default</code>. The default behavior is that the camera moves to display the selected location and the infowindow is shown.
+SWIFT_CLASS("_TtC15MapsIndoorsCore19MPSelectionBehavior")
+@interface MPSelectionBehavior : NSObject <MPMapBehavior>
+/// Default selection behavior
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong, getter=default) MPSelectionBehavior * _Nonnull default_;)
++ (MPSelectionBehavior * _Nonnull)default SWIFT_WARN_UNUSED_RESULT;
+/// Whether <code>MPMapControl</code> should move the camera and fit the map view to show the selected location. The default value is YES.
+@property (nonatomic) BOOL moveCamera;
+/// Whether <code>MPMapControl</code> should show the info window if a filter only contains one Location. The default behavior is no infowindow shown YES.
+@property (nonatomic) BOOL showInfoWindow;
+@property (nonatomic) BOOL allowFloorChange;
+@property (nonatomic) NSInteger animationDuration;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -856,6 +900,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) id <MapsIndo
 @class MPQuery;
 @class MPAppData;
 @class MPDataField;
+@class MPMapExtend;
 
 SWIFT_PROTOCOL("_TtP15MapsIndoorsCore19MapsIndoorsInstance_")
 @protocol MapsIndoorsInstance
@@ -1306,7 +1351,6 @@ SWIFT_CLASS("_TtC15MapsIndoorsCore10CoreRegion")
 @end
 
 
-
 SWIFT_CLASS("_TtC15MapsIndoorsCore15InfoWindowUtils")
 @interface InfoWindowUtils : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -1373,6 +1417,7 @@ typedef SWIFT_ENUM(NSInteger, MPCollisionHandling, open) {
   MPCollisionHandlingRemoveIconAndLabel = 3,
 };
 
+/// Which information to show from the Location close to the end of a route leg.
 typedef SWIFT_ENUM(NSInteger, MPContextualInfoScope, open) {
   MPContextualInfoScopeIconAndName = 0,
   MPContextualInfoScopeIconOnly = 1,
@@ -1525,6 +1570,31 @@ typedef SWIFT_ENUM(NSInteger, MPError, open) {
 };
 static NSString * _Nonnull const MPErrorDomain = @"MapsIndoorsCore.MPError";
 
+
+SWIFT_PROTOCOL("_TtP15MapsIndoorsCore13MPMapBehavior_")
+@protocol MPMapBehavior
+@property (nonatomic) BOOL moveCamera;
+@property (nonatomic) BOOL showInfoWindow;
+@property (nonatomic) BOOL allowFloorChange;
+@property (nonatomic) NSInteger animationDuration;
+@end
+
+
+/// Filter behavior class that determines how a filter should be display on the map. Get the default behavior from <code>MPFilterBehavior.default</code>. The default behavior is no camera movement and no infowindow shown.
+SWIFT_CLASS("_TtC15MapsIndoorsCore16MPFilterBehavior")
+@interface MPFilterBehavior : NSObject <MPMapBehavior>
+/// Default filter behavior
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong, getter=default) MPFilterBehavior * _Nonnull default_;)
++ (MPFilterBehavior * _Nonnull)default SWIFT_WARN_UNUSED_RESULT;
+/// Whether <code>MPMapControl</code> should move the camera and fit the map view to the filtered locations. The default behavior is no camera movement (NO).
+@property (nonatomic) BOOL moveCamera;
+/// Whether <code>MPMapControl</code> should show the info window if a filter only contains one Location. The default behavior is no infowindow shown (NO).
+@property (nonatomic) BOOL showInfoWindow;
+@property (nonatomic) BOOL allowFloorChange;
+@property (nonatomic) NSInteger animationDuration;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @protocol MPTileLayer;
 @class MPVenue;
 @class MPFloor;
@@ -1558,6 +1628,7 @@ SWIFT_PROTOCOL("_TtP15MapsIndoorsCore21MPInfoWindowGenerator_")
 
 
 
+
 SWIFT_CLASS("_TtC15MapsIndoorsCore11MPMapConfig")
 @interface MPMapConfig : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -1567,7 +1638,7 @@ SWIFT_CLASS("_TtC15MapsIndoorsCore11MPMapConfig")
 @protocol MPFloorSelectorProtocol;
 @class MPMapStyle;
 @class MPBuilding;
-@class MPFilterBehavior;
+@class MPSelectionBehavior;
 @class MPFilter;
 @class MPLiveUpdate;
 
@@ -1597,11 +1668,11 @@ SWIFT_PROTOCOL("_TtP15MapsIndoorsCore12MPMapControl_")
 /// Get the currently selected venue
 @property (nonatomic, readonly, strong) MPVenue * _Nullable selectedVenue;
 /// Select a location
-- (void)selectWithLocation:(MPLocation * _Nullable)location moveCamera:(BOOL)moveCamera;
+- (void)selectWithLocation:(MPLocation * _Nullable)location behavior:(MPSelectionBehavior * _Nonnull)behavior;
 /// Select a building
-- (void)selectWithBuilding:(MPBuilding * _Nullable)building moveCamera:(BOOL)moveCamera;
+- (void)selectWithBuilding:(MPBuilding * _Nullable)building behavior:(MPSelectionBehavior * _Nonnull)behavior;
 /// Select a venue
-- (void)selectWithVenue:(MPVenue * _Nullable)venue moveCamera:(BOOL)moveCamera;
+- (void)selectWithVenue:(MPVenue * _Nullable)venue behavior:(MPSelectionBehavior * _Nonnull)behavior;
 /// Select a floor index
 - (void)selectWithFloorIndex:(NSInteger)floorIndex;
 /// Apply a filter to the map. Only show the MPLocations included in the list
@@ -1629,7 +1700,9 @@ SWIFT_PROTOCOL("_TtP15MapsIndoorsCore20MPMapControlDelegate_")
 /// Return true to indidate that you will handle the event, and bypass default MapsIndoors SDK behavior
 - (BOOL)didTapWithCoordinate:(MPPoint * _Nonnull)coordinate SWIFT_WARN_UNUSED_RESULT;
 /// Triggered when the map with a given marker was tapped
-- (BOOL)didTapIconWithMarkerId:(NSString * _Nonnull)markerId SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)didTapIconWithLocation:(MPLocation * _Nonnull)location SWIFT_WARN_UNUSED_RESULT;
+/// Triggered when the info window with a marker with a given id was tapped
+- (BOOL)didTapInfoWindowWithLocation:(MPLocation * _Nonnull)location SWIFT_WARN_UNUSED_RESULT;
 /// Triggered when location selection has changed
 /// Return true to indidate that you will handle the event, and bypass default MapsIndoors SDK behavior
 - (BOOL)didChangeWithSelectedLocation:(MPLocation * _Nullable)selectedLocation SWIFT_WARN_UNUSED_RESULT;
@@ -1644,12 +1717,12 @@ SWIFT_PROTOCOL("_TtP15MapsIndoorsCore20MPMapControlDelegate_")
 - (BOOL)didChangeWithFloorIndex:(NSInteger)floorIndex SWIFT_WARN_UNUSED_RESULT;
 @end
 
-@class MPMapExtend;
 
 SWIFT_PROTOCOL("_TtP15MapsIndoorsCore21MPMapProviderDelegate_")
 @protocol MPMapProviderDelegate
-- (void)didTapAtCoordinateDelegateWithCoordinates:(CLLocationCoordinate2D)coordinates mapExtend:(MPMapExtend * _Nonnull)mapExtend zoom:(float)zoom distanceLimit:(double)distanceLimit areaLimit:(double)areaLimit;
+- (void)didTapAtCoordinateDelegateWithCoordinates:(CLLocationCoordinate2D)coordinates;
 - (void)didChangeCameraPositionDelegate;
+- (BOOL)didTapInfoWindowWithLocationId:(NSString * _Nonnull)locationId SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)didTapIconDelegateWithMarkerId:(NSString * _Nonnull)markerId SWIFT_WARN_UNUSED_RESULT;
 @end
 
@@ -1716,6 +1789,22 @@ SWIFT_PROTOCOL("_TtP15MapsIndoorsCore15MPRouteRenderer_")
 - (void)moveCameraWithPoints:(NSArray<NSValue *> * _Nonnull)points animate:(BOOL)animate durationMs:(NSInteger)durationMs tilt:(float)tilt fitMode:(enum MPCameraViewFitMode)fitMode;
 - (void)clear;
 - (void)setOnRouteMarkerClickedDelegateWithDelegate:(id <MPOnRouteMarkerClickedDelegate> _Nonnull)delegate;
+@end
+
+
+/// Selection behavior class that determines how a location selection should be displayed on the map. Get the default behavior from <code>MPSelectionBehavior.default</code>. The default behavior is that the camera moves to display the selected location and the infowindow is shown.
+SWIFT_CLASS("_TtC15MapsIndoorsCore19MPSelectionBehavior")
+@interface MPSelectionBehavior : NSObject <MPMapBehavior>
+/// Default selection behavior
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong, getter=default) MPSelectionBehavior * _Nonnull default_;)
++ (MPSelectionBehavior * _Nonnull)default SWIFT_WARN_UNUSED_RESULT;
+/// Whether <code>MPMapControl</code> should move the camera and fit the map view to show the selected location. The default value is YES.
+@property (nonatomic) BOOL moveCamera;
+/// Whether <code>MPMapControl</code> should show the info window if a filter only contains one Location. The default behavior is no infowindow shown YES.
+@property (nonatomic) BOOL showInfoWindow;
+@property (nonatomic) BOOL allowFloorChange;
+@property (nonatomic) NSInteger animationDuration;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -1807,6 +1896,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) id <MapsIndo
 @class MPQuery;
 @class MPAppData;
 @class MPDataField;
+@class MPMapExtend;
 
 SWIFT_PROTOCOL("_TtP15MapsIndoorsCore19MapsIndoorsInstance_")
 @protocol MapsIndoorsInstance

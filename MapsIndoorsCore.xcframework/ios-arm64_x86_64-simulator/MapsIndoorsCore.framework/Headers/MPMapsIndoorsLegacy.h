@@ -24,22 +24,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Content synchronisation callback handler block
 
- @param error Error object.
+ - Parameter error: Error object.
  */
 typedef void(^mpSyncContentHandlerBlockType)( NSError* _Nullable error );
 
 /**
  Offline content availability callback handler block
 
- @param error Error object.
+ - Parameter error: Error object.
  */
 typedef void(^mpOfflineDataHandlerBlockType)( NSError* _Nullable error);
 
 /**
  Authentication details callback handler block
 
- @param authDetails MPAuthDetails object with necessary authentication information.
- @param error Error object.
+ - Parameter authDetails: MPAuthDetails object with necessary authentication information.
+ - Parameter error: Error object.
  */
 typedef void(^mpAuthDetailsHandlerBlockType)( id<MPAuthDetails> _Nullable authDetails, NSError* _Nullable error );
 
@@ -63,8 +63,8 @@ typedef void(^mpAuthDetailsHandlerBlockType)( id<MPAuthDetails> _Nullable authDe
 /**
  Provides your API key and content key to the MapsIndoors SDK. These keys are unique for your MapsIndoors solution and are used to identify and authorise use of the data provided by MapsIndoors.
 
- @param mapsIndoorsAPIKey The MapsIndoors API key
- @return Whether the API key and content key was successfully provided
+ - Parameter mapsIndoorsAPIKey: The MapsIndoors API key
+ - Returns: Whether the API key and content key was successfully provided
  */
 + (void)provideAPIKey:(NSString*)mapsIndoorsAPIKey completion:(void(^_Nonnull)(void))completion;
 
@@ -75,13 +75,13 @@ typedef void(^mpAuthDetailsHandlerBlockType)( id<MPAuthDetails> _Nullable authDe
 
 /**
  Gets the current MapsIndoors API key.
- @return The MapsIndoors API key as a string value.
+ - Returns: The MapsIndoors API key as a string value.
  */
 + (nullable NSString*) getMapsIndoorsAPIKey;
 
 /**
  Sets the language for the content provided by MapsIndoors.
- @param languageCode The language for which the content should be fetched. Uses the two-letter language code ISO 639-1.
+ - Parameter languageCode: The language for which the content should be fetched. Uses the two-letter language code ISO 639-1.
  */
 + (void)setLanguage:(NSString*)languageCode;
 
@@ -94,8 +94,8 @@ typedef void(^mpAuthDetailsHandlerBlockType)( id<MPAuthDetails> _Nullable authDe
 /**
  Fetch all neccesary content to be able to run MapsIndoors in offline environments.
  If you have registered custom location sources, they are not synchronized by this method - it is the responsibility of the provider of the custom location source to synchronize as appropriate.
- This method only synchronizes the current dataset - If you need to synchronize data for non-current datasets, please see @see dataSetCacheManager and MPDataSetCacheManager.synchronizeContent()
- @param  completionHandler Callback function that fires when content has been fetched or if this process resolves in an error. Note: Does not automtically retry fetch.
+ This method only synchronizes the current dataset - If you need to synchronize data for non-current datasets, please see ``dataSetCacheManager`` and ``MPDataSetCacheManager/synchronizeContent``
+ - Parameter completionHandler: Callback function that fires when content has been fetched or if this process resolves in an error. Note: Does not automtically retry fetch.
  */
 + (void)synchronizeContent:(mpSyncContentHandlerBlockType)completionHandler;
 
@@ -103,21 +103,21 @@ typedef void(^mpAuthDetailsHandlerBlockType)( id<MPAuthDetails> _Nullable authDe
  Determine if enough data is available for a good user experience in offline mode.
  For results that are not dependent on timing of async calls, this is best used in the completion handler of +[MapsIndoors checkOfflineDataAvailabilityAsync:].
 
- @return YES if offline data is available, else NO.
+ - Returns: YES if offline data is available, else NO.
  */
 + (BOOL) isOfflineDataAvailable;
 
 /**
  Check availability of offline data.
 
- @param completion callback
+ - Parameter completion: callback
  */
 + (void) checkOfflineDataAvailabilityAsync:(void(^_Nonnull)(void))completion;
 
 /**
  Fetch authentication details needed to perform an Auth2 supported single signon flow in your application.
 
- @param completion callback
+ - Parameter completion: callback
  */
 + (void) fetchAuthenticationDetails:(mpAuthDetailsHandlerBlockType _Nonnull)completion;
 

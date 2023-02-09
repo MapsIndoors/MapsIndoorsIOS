@@ -35,19 +35,19 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Return the path used for caching 'item'.
  This does not indicate that the item has cached contetn, only the path where content will reside.
- @param item item identifier.
+ - Parameter item: item identifier.
  */
 - (NSString*) pathForCachingItem:(NSString*)item;
 
 /**
  Return the path for a cached item or nil if no data has been cached.
- @param item item identifier.
+ - Parameter item: item identifier.
  */
 - (nullable NSString*) pathForCachedItem:(NSString*)item;
 
 /**
  Return the cached data for item or nil if no data has been cached.
- @param item item identifier.
+ - Parameter item: item identifier.
 */
 - (NSData*) cachedDataForItem:(NSString*)item;
 
@@ -59,44 +59,44 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Get the path for caching 'item' in a specific cachefolder.
  Class-level version for -[pathForCachingItem:]
- @param item item id
- @param cacheFolder base folder for the cache
+ - Parameter item: item id
+ - Parameter cacheFolder: base folder for the cache
  */
 + (NSString* _Nullable) pathForCachingItem:(NSString*)item inFolder:(NSString*)cacheFolder;
 
 
 /**
  Get the paths for cached items in a specific cachefolder and with a specific file attribute.
- @param attr endpoint attribute value
- @param cacheFolder base folder for the cache
+ - Parameter attr: endpoint attribute value
+ - Parameter cacheFolder: base folder for the cache
  */
 + (NSArray<NSString*>*) pathsForCacheItemsWithApiEndpointAttr:(NSString*)attr inFolder:(NSString*)cacheFolder;
 
 /**
  Get the path for a cached 'item' in a specific cachefolder, nil of no cached data exists.
  Class-level version for -[pathForCachedItem:]
- @param item item id
- @param cacheFolder base folder for the cache
+ - Parameter item: item id
+ - Parameter cacheFolder: base folder for the cache
  */
 + (nullable NSString*) pathForCachedItem:(NSString*)item inFolder:(NSString*)cacheFolder;
 
 /**
  Store 'data' in the cache using 'item' as identifier.
- @param data data to store
- @param item item id.
+ - Parameter data: data to store
+ - Parameter item: item id.
  */
 - (BOOL) saveData:(NSData*)data item:(NSString*)item;
 
 /**
  Store 'data' in the cache using explicit filename (not derived from an 'item id').
- @param data data to store
- @param filename file name.
+ - Parameter data: data to store
+ - Parameter filename: file name.
  */
 - (BOOL) saveData:(NSData*)data filename:(NSString*)filename;
 
 /**
  Return any cached data for the given 'filename', return nil if no data is cached.
- @param filename file name
+ - Parameter filename: file name
  */
 - (nullable NSData*) cachedDataForFilename:(NSString*)filename;
 

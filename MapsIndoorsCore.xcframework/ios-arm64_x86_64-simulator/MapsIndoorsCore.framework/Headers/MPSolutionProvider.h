@@ -24,7 +24,7 @@ typedef void(^mpUserRoleCompletion)( NSArray<MPUserRole*>* _Nullable userRoles, 
 
 /**
  Solution data ready event method.
- @param solution The solution data.
+ - Parameter solution: The solution data.
  */
 @required
 - (void) onSolutionsReady: (nonnull MPSolution*)solution;
@@ -56,15 +56,15 @@ typedef void(^mpUserRoleCompletion)( NSArray<MPUserRole*>* _Nullable userRoles, 
 /**
  Determine if cached or preloaded data is available for the given solutionId.
  
- @param solutionId solutionId to check for offline data availability.
- @return YES if offline or preloaded data is available, else NO,
+ - Parameter solutionId: solutionId to check for offline data availability.
+ - Returns: YES if offline or preloaded data is available, else NO,
  */
 + (BOOL) isOfflineDataAvailableForSolutionId:(nonnull NSString*)solutionId;
 
 /**
  Get user roles associated with the solution
 
- @param completionHandler called when user roles or error has been found
+ - Parameter completionHandler: called when user roles or error has been found
  */
 - (void) getUserRolesWithCompletion:(nonnull mpUserRoleCompletion)completionHandler;
 

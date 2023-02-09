@@ -17,7 +17,7 @@ typedef void(^mpMatrixHandlerBlockType)(MPDistanceMatrixResult* _Nullable matrix
 @protocol MPDistanceMatrixProviderDelegate <NSObject>
 /**
  Distance matrix result ready event.
- @param distanceMatrixResult The resulting distance matrix.
+ - Parameter distanceMatrixResult: The resulting distance matrix.
  */
 @required
 - (void) onDistanceMatrixResultReady: (nonnull MPDistanceMatrixResult*)distanceMatrixResult;

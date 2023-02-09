@@ -55,17 +55,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Add data set to the list of managed data sets.
 
- @param dataSetId Data set id of the data set that should be added.
- @return The cache object if data set was successfully added as a result of this call, if the dataset already existed this method returns nil.
+ - Parameter dataSetId: Data set id of the data set that should be added.
+ - Returns: The cache object if data set was successfully added as a result of this call, if the dataset already existed this method returns nil.
  */
 - (nullable MPDataSetCache*) addDataSet:(NSString*)dataSetId;
 
 /**
  Add data set to the list of managed data sets.
 
- @param dataSetId Data set id of the data set that should be added.
- @param scope Caching scope for this dataset.
- @return The cache object if data set was successfully added as a result of this call, if the dataset already existed this method returns nil.
+ - Parameter dataSetId: Data set id of the data set that should be added.
+ - Parameter scope: Caching scope for this dataset.
+ - Returns: The cache object if data set was successfully added as a result of this call, if the dataset already existed this method returns nil.
 */
 - (nullable MPDataSetCache*) addDataSet:(NSString*)dataSetId cachingScope: (MPDataSetCacheScope) scope;
 
@@ -73,39 +73,39 @@ NS_ASSUME_NONNULL_BEGIN
  Remove data set from the list of managed data sets. This will remove any cached content for that data set as well.
  If the dataset to be removed is the current MapsIndoors dataset, it is not removed at this time, but scheduled for deletion at a later time.
  
- @param dataSet Data set that should be removed.
- @return YES if data set was successfully removed, else NO.
+ - Parameter dataSet: Data set that should be removed.
+ - Returns: YES if data set was successfully removed, else NO.
  */
 - (BOOL) removeDataSet:(MPDataSetCache*)dataSet;
 
 /**
  Get the dataset-object for the given dataSetId.
- @param dataSetId dataSetId to find corresponding MPDataSetCache object for.
- @return MPDataSetCache* or nil
+ - Parameter dataSetId: dataSetId to find corresponding MPDataSetCache object for.
+ - Returns: MPDataSetCache* or nil
  */
 - (nullable MPDataSetCache*) dataSetWithId:(NSString*)dataSetId;
 
 /**
 Get the dataset-object for the current MapsIndoors API key / solution
-@return MPDataSetCache*
+- Returns: MPDataSetCache*
 */
 - (nullable MPDataSetCache*) dataSetForCurrentMapsIndoorsAPIKey;
 
 /**
  Set a caching strategy for given cache item.
 
- @param strategy Caching strategy.
- @param cacheItem Cache item.
- @return YES if strategy is set for this item, else NO.
+ - Parameter strategy: Caching strategy.
+ - Parameter cacheItem: Cache item.
+ - Returns: YES if strategy is set for this item, else NO.
  */
 - (BOOL) setCachingStrategy:(MPDataSetCachingStrategy) strategy cacheItem: (MPDataSetCacheItem*)cacheItem;
 
 /**
  Set a caching scope for given cache item.
 
- @param scope Caching scope.
- @param cacheItem Cache item.
- @return YES if strategy is changed for this item, else NO.
+ - Parameter scope: Caching scope.
+ - Parameter cacheItem: Cache item.
+ - Returns: YES if strategy is changed for this item, else NO.
  */
 - (BOOL) setCachingScope:(MPDataSetCacheScope)scope cacheItem: (MPDataSetCacheItem*)cacheItem;
 
@@ -117,7 +117,7 @@ Get the dataset-object for the current MapsIndoors API key / solution
 /**
  Fetch and update content for given cache items. The delegate object receives the completion event.
 
- @param items The cache items to perform a synchronisation for.
+ - Parameter items: The cache items to perform a synchronisation for.
  */
 - (void) synchronizeCacheItems:(NSArray<MPDataSetCacheItem*>*)items;
 
@@ -128,15 +128,15 @@ Get the dataset-object for the current MapsIndoors API key / solution
 
 /**
  Cancel synchronization of data for the given cache items.
- @param items CacheItems to cancel sync of.
+ - Parameter items: CacheItems to cancel sync of.
  */
 - (void) cancelSynchronizationOfCacheItems:(NSArray<MPDataSetCacheItem*>*)items;
 
 
 /**
  Determine synchronization sizes for the given set of MPDataSetCaches.
- @param dataSetCaches    MPDataSetCaches to determine sync sizes for.
- @param delegate     callback/progress receiver
+ - Parameter dataSetCaches:    MPDataSetCaches to determine sync sizes for.
+ - Parameter delegate:     callback/progress receiver
  */
 - (void) fetchSyncSizesForDataSetCaches:(NSArray<MPDataSetCache*>*)dataSetCaches delegate:(id<MPDataSetCacheManagerSizeDelegate>)delegate;
 

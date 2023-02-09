@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)init NS_UNAVAILABLE;
 
 /// Constructor that takes an access token
-/// @param accessToken The access token to use when performing bookings.
+/// - Parameter accessToken: The access token to use when performing bookings.
 - (instancetype)initWithAccessToken:(NSString*)accessToken;
 
 /// Set the access token that must be used when performing bookings.

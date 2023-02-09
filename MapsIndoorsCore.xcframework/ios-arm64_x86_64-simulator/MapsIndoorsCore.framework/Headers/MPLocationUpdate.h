@@ -69,17 +69,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Initialiser that creates a MPLocationUpdate instance based on an existing location.
 
- @param location The existing location.
- @return The updater object.
+ - Parameter location: The existing location.
+ - Returns: The updater object.
  */
 + (MPLocationUpdate*) updateWithLocation:(MPLocation*) location;
 
 /**
  Initialiser that creates a MPLocationUpdate instance based on an id and a location source.
 
- @param locationId Location id. This id is expected to be unique for a given location source, but not necessarily unique across multiple location sources.
- @param locationSource The location source that is going to maintain this location.
- @return The updater object.
+ - Parameter locationId: Location id. This id is expected to be unique for a given location source, but not necessarily unique across multiple location sources.
+ - Parameter locationSource: The location source that is going to maintain this location.
+ - Returns: The updater object.
  */
 + (MPLocationUpdate*) updateWithId:(NSInteger)locationId fromSource:(id<MPLocationSource>) locationSource;
 
@@ -87,15 +87,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Adds a property to the location update. Some keys will be recognised as a key for a known property on the resulting `MPLocation`. If they are not recognised or the known property only supports one value, the property will be added as a field on `MPLocation.fields`
 
- @param value The string value for the property
- @param key The key for the property
+ - Parameter value: The string value for the property
+ - Parameter key: The key for the property
  */
 - (void) addPropertyValue: (NSString*) value forKey:(NSString*) key;
 
 /**
  Add category key. Possible categories can be reviewed in MapsIndoors CMS or programmatically using the `MPCategoriesProvider`
 
- @param categoryKey The category key
+ - Parameter categoryKey: The category key
  */
 - (void) addCategory: (NSString*) categoryKey;
 

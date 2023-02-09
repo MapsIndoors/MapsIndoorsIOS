@@ -22,42 +22,42 @@
 /**
  Handler block for fetching venues.
 
- @param venue Venue object. Can be nil.
- @param error Error object. Can be nil.
+ - Parameter venue: Venue object. Can be nil.
+ - Parameter error: Error object. Can be nil.
  */
 typedef void(^mpVenueDetailsHandlerBlockType)(MPVenue* _Nullable venue, NSError* _Nullable error);
 
 /**
  Handler block for fetching venues.
 
- @param venueCollection Venue collection. Can be nil.
- @param error Error object. Can be nil.
+ - Parameter venueCollection: Venue collection. Can be nil.
+ - Parameter error: Error object. Can be nil.
  */
 typedef void(^mpVenueListHandlerBlockType)(NSArray<MPVenue*>* _Nullable venueCollection, NSError* _Nullable error);
 
 /**
  Handler block for fetching buildings
 
- @param building Building object. Can be nil.
- @param error Error object. Can be nil.
+ - Parameter building: Building object. Can be nil.
+ - Parameter error: Error object. Can be nil.
  */
 typedef void(^mpBuildingDetailsHandlerBlockType)(MPBuilding* _Nullable building, NSError* _Nullable error);
 
 /**
  Handler block for fetching buildings
 
- @param buildings Building objects. Can be nil.
- @param error Error object. Can be nil.
+ - Parameter buildings: Building objects. Can be nil.
+ - Parameter error: Error object. Can be nil.
  */
 typedef void(^mpBuildingListHandlerBlockType)(NSArray<MPBuilding*>* _Nullable buildings, NSError* _Nullable error);
 
 /**
  Handler block for fetching data related to a geographic point
 
- @param venue Building containing the geographic point. Can be nil.
- @param building Building containing the geographic point. Can be nil.
- @param floor Building containing the geographic point. Can be nil.
- @param error Error object. Can be nil.
+ - Parameter venue: Building containing the geographic point. Can be nil.
+ - Parameter building: Building containing the geographic point. Can be nil.
+ - Parameter floor: Building containing the geographic point. Can be nil.
+ - Parameter error: Error object. Can be nil.
  */
 typedef void(^mpGeocodeHandlerBlockType)(MPVenue* _Nullable venue, MPBuilding* _Nullable building, MPFloor* _Nullable floor, NSError* _Nullable error);
 
@@ -75,27 +75,27 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* _Nullable venue, MPBuilding* _
 @required
 /**
  Venue data ready event method.
- @param  venueCollection The venue data array.
+ - Parameter venueCollection: The venue data array.
  */
 - (void) onVenuesReady: (nonnull NSArray<MPVenue*>*)venueCollection;
 /**
  Building data ready event method.
- @param  building The building data object.
+ - Parameter building: The building data object.
  */
 - (void) onBuildingWithinBoundsReady: (nonnull MPBuilding*)building;
 /**
  Building data ready event method.
- @param  building The building data object.
+ - Parameter building: The building data object.
  */
 - (void) onBuildingDetailsReady: (nonnull MPBuilding*)building;
 /**
  Venue data ready event method.
- @param  venue The venue data object.
+ - Parameter venue: The venue data object.
  */
 - (void) onVenueDetailsReady: (nonnull MPVenue*)venue;
 /**
  Building data ready event method.
- @param  buildings The buildings data object.
+ - Parameter buildings: The buildings data object.
  */
 - (void) onBuildingsReady: (nonnull NSArray<MPBuilding*>*)buildings;
 @end
@@ -122,7 +122,7 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* _Nullable venue, MPBuilding* _
 /**
  Get a single building within given bounds
  
- @param mapExtend The geographic bounds, defined by north, south, west and east
+ - Parameter mapExtend: The geographic bounds, defined by north, south, west and east
  */
 - (void)getBuildingWithinBounds: (nonnull MPMapExtend*)mapExtend;
 
@@ -135,76 +135,76 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* _Nullable venue, MPBuilding* _
 /**
  Get a single building detail object
  
- @param buildingId Building id
+ - Parameter buildingId: Building id
  */
 - (void)getBuildingWithId: (nonnull NSString*)buildingId;
 
 /**
  Get a single venue object
  
- @param venueId Venue id
+ - Parameter venueId: Venue id
  */
 - (void)getVenueWithId: (nonnull NSString*)venueId;
 
 /**
  Get all venues from this provider
  
- @param handler Venue fetch callback block
+ - Parameter handler: Venue fetch callback block
  */
 - (void)getVenuesWithCompletion:(nullable mpVenueListHandlerBlockType)handler;
 
 /**
  Get a single building within given bounds
  
- @param mapExtend The geographic bounds, defined by north, south, west and east
- @param handler Building fetch callback block
+ - Parameter mapExtend: The geographic bounds, defined by north, south, west and east
+ - Parameter handler: Building fetch callback block
  */
 - (void)getBuildingWithinBounds: (nonnull MPMapExtend*)mapExtend completionHandler:(nullable mpBuildingDetailsHandlerBlockType)handler;
 /**
  Get buildings from this provider
  
- @param handler Buildings fetch callback block
+ - Parameter handler: Buildings fetch callback block
  */
 - (void)getBuildingsWithCompletion:(nullable mpBuildingListHandlerBlockType)handler;
 
 /**
  Get single building detail object
  
- @param buildingId Building id
- @param handler Building details fetch callback block
+ - Parameter buildingId: Building id
+ - Parameter handler: Building details fetch callback block
  */
 - (void)getBuildingWithId: (nonnull NSString*)buildingId completionHandler:(nullable mpBuildingDetailsHandlerBlockType)handler;
 
 /**
  Get single venue details object
  
- @param venueId Venue id
- @param handler Venue details fetch callback block
+ - Parameter venueId: Venue id
+ - Parameter handler: Venue details fetch callback block
  */
 - (void)getVenueWithId: (nonnull NSString*)venueId completionHandler:(nullable mpVenueDetailsHandlerBlockType)handler;
 
 /**
  Get all possible data related to the provided geographical point. Callback arguments will be nullable venue, building and floor objects.
  
- @param point Geographic point
- @param completionHandler Data fetch callback block. Arguments will be nullable venue, building and floor objects.
+ - Parameter point: Geographic point
+ - Parameter completionHandler: Data fetch callback block. Arguments will be nullable venue, building and floor objects.
  */
 - (void)getDataFromPoint: (nonnull MPPoint*)point completionHandler:(nullable mpGeocodeHandlerBlockType)completionHandler;
 
 /**
  Synchronously get all possible data related to the provided geographical point.
  
- @param point Geographic point
- @return A dictionary of venue, building and floor objects. Can be empty.
+ - Parameter point: Geographic point
+ - Returns: A dictionary of venue, building and floor objects. Can be empty.
  */
 + (nullable NSDictionary*)getDataFromPoint: (nonnull MPPoint*)point;
 
 /**
  Determine if cached or preloaded data is available for the given solutionId.
  
- @param solutionId  solutionId to checkfor offline data availability.
- @param language language to check for offline availability.
- @return YES if offline or preloaded data is available, else NO,
+ - Parameter solutionId:  solutionId to checkfor offline data availability.
+ - Parameter language: language to check for offline availability.
+ - Returns: YES if offline or preloaded data is available, else NO,
  */
 + (BOOL) isOfflineDataAvailableForSolutionId:(nonnull NSString*)solutionId language:(nonnull NSString*)language;
 

@@ -30,14 +30,14 @@ typedef NS_ENUM(NSUInteger, MPPositionProviderType) {
 /**
  Position update method. Will return a position result.
 
- @param positionResult The position result as estimated or calculated by a MPPositionProvider
+ - Parameter positionResult: The position result as estimated or calculated by a MPPositionProvider
  */
 - (void)onPositionUpdate:(nonnull MPPositionResult*)positionResult;
 
 /**
  Positioning fail method. Will return the reference to the actual provider
 
- @param provider A provider that failed determining user position
+ - Parameter provider: A provider that failed determining user position
  */
 - (void)onPositionFailed:(nonnull id)provider;
 @end

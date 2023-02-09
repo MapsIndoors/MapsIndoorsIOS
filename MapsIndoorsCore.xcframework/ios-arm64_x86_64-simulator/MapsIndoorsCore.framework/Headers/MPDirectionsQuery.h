@@ -36,17 +36,17 @@ typedef NS_ENUM(NSUInteger, MPTravelMode) {
 /**
  Initialiser that takes locations as origin and destination.
 
- @param origin Origin location.
- @param destination Destination location.
- @return The directions query instance.
+ - Parameter origin: Origin location.
+ - Parameter destination: Destination location.
+ - Returns: The directions query instance.
  */
 -(nonnull instancetype) initWithOrigin:(nonnull MPLocation*)origin destination:(nonnull MPLocation*)destination;
 /**
  Initialiser that takes points as origin and destination.
  
- @param origin Origin point.
- @param destination Destination point.
- @return The directions query instance.
+ - Parameter origin: Origin point.
+ - Parameter destination: Destination point.
+ - Returns: The directions query instance.
  */
 -(nonnull instancetype) initWithOriginPoint:(nonnull MPPoint*)origin destinationPoint:(nonnull MPPoint*)destination;
 

@@ -1,12 +1,3 @@
----
-title: iOS SDK v4 Changelog
-permalink: /changelogs/ios/v3/
-eleventyNavigation:
-  key: iOS SDK v4 Changlog
-  parent: changelogs
-  order: 3
----
-
 Changelog for MapsIndoors for iOS. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!---
@@ -17,6 +8,25 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Changed
 ### Removed
 -->
+
+## [4.0.0-beta3] 2023-02-09
+
+### Added
+
+* Added support for MPSelectionBehavior
+* Added support for MPFilterBehavior
+
+### Fixed
+
+* InfoWindow shows when Location is selected
+* Support of "Hide icon over label" configuration
+* 2D models are shown on Google Maps
+
+### Known issues
+
+* Content rendering order (polygons, markers, models, etc.)
+* Clustering not working
+* Directions relying on external routing not working
 
 ## [4.0.0-beta2] 2023-02-03
 

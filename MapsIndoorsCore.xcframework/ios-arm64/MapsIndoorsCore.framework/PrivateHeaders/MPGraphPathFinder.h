@@ -28,32 +28,32 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, class) MPPathfindingAlgorithm     preferredPathfindingAlgorithm;
 
 /// Find path from startNodeId to endNodeId through nodes and edges, using the preferredPathfindingAlgorithm.
-/// @param startNodeId startNodeId Start node id
-/// @param endNodeId endNodeId End node id
-/// @param nodes Graph nodes
-/// @param edges Graph edges
+/// - Parameter startNodeId: startNodeId Start node id
+/// - Parameter endNodeId: endNodeId End node id
+/// - Parameter nodes: Graph nodes
+/// - Parameter edges: Graph edges
 + (nullable NSArray<MPGraphNode*>*) findPathFromStartNode:(NSUInteger)startNodeId endNode:(NSUInteger)endNodeId usingNodes:(NSArray<MPGraphNode*>*)nodes andEdges:(NSArray<MPGraphEdge*>*)edges;
 
 /// Find path from startNodeId to endNodeId through nodes and edges, using the specified path finding algorithm.
-/// @param startNodeId startNodeId Start node id
-/// @param endNodeId endNodeId End node id
-/// @param nodes Graph nodes
-/// @param edges Graph edges
-/// @param pathFindingAlgorithm Path finding algorithm
+/// - Parameter startNodeId: startNodeId Start node id
+/// - Parameter endNodeId: endNodeId End node id
+/// - Parameter nodes: Graph nodes
+/// - Parameter edges: Graph edges
+/// - Parameter pathFindingAlgorithm: Path finding algorithm
 + (nullable NSArray<MPGraphNode*>*) findPathFromStartNode:(NSUInteger)startNodeId endNode:(NSUInteger)endNodeId usingNodes:(NSArray<MPGraphNode*>*)nodes andEdges:(NSArray<MPGraphEdge*>*)edges andAlgorithm:(MPPathfindingAlgorithm)pathFindingAlgorithm;
 
 /// Find path from startNodeId to endNodeId through nodes and edges, using A*.
-/// @param startNodeId startNodeId Start node id
-/// @param endNodeId endNodeId End node id
-/// @param nodes Graph nodes
-/// @param edges Graph edges
+/// - Parameter startNodeId: startNodeId Start node id
+/// - Parameter endNodeId: endNodeId End node id
+/// - Parameter nodes: Graph nodes
+/// - Parameter edges: Graph edges
 + (nullable NSArray<MPGraphNode*>*) findAStarPathFromStartNode:(NSUInteger)startNodeId endNode:(NSUInteger)endNodeId usingNodes:(NSArray<MPGraphNode*>*)nodes andEdges:(NSArray<MPGraphEdge*>*)edges;
 
 /// Find path from startNodeId to endNodeId through nodes and edges, using Dijkstra.
-/// @param startNodeId startNodeId Start node id
-/// @param endNodeId endNodeId End node id
-/// @param nodes Graph nodes
-/// @param edges Graph edges
+/// - Parameter startNodeId: startNodeId Start node id
+/// - Parameter endNodeId: endNodeId End node id
+/// - Parameter nodes: Graph nodes
+/// - Parameter edges: Graph edges
 + (nullable NSArray<MPGraphNode*>*) findDijkstraPathFromStartNode:(NSUInteger)startNodeId endNode:(NSUInteger)endNodeId usingNodes:(NSArray<MPGraphNode*>*)nodes andEdges:(NSArray<MPGraphEdge*>*)edges;
 
 @end

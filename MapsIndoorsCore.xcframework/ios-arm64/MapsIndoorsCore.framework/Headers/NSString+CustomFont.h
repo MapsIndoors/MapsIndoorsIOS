@@ -26,9 +26,7 @@
 
 static NSString * _Nonnull const kCustomFontFamilyName = @"icomoon";
 
-/**
- @brief CustomIcon Icons.
- */
+/// CustomIcon Icons.
 typedef NS_ENUM(NSInteger, CustomFontIcon) {
     bicycle,
     car,
@@ -67,19 +65,19 @@ typedef NS_ENUM(NSInteger, CustomFontIcon) {
 @interface NSString (CustomFont)
 
 /**
- @brief Returns the correct enum for a font-awesome icon.
+ Returns the correct enum for a font-awesome icon.
  
  The list of identifiers can be found here: http://fortawesome.github.com/Font-Awesome/#all-icons
  */
 + (CustomFontIcon)customEnumForIconIdentifier:(nonnull NSString*)string;
 
 /**
- @brief Returns the font-awesome character associated to the icon enum passed as argument
+ Returns the font-awesome character associated to the icon enum passed as argument
  */
 + (nullable NSString*)customIconStringForEnum:(CustomFontIcon)value;
 
 /**
- @brief Returns the font-awesome character associated to the font-awesome identifier.
+ Returns the font-awesome character associated to the font-awesome identifier.
  
  The list of identifiers can be found here: http://fortawesome.github.com/Font-Awesome/#all-icons
  */

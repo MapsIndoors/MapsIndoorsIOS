@@ -20,8 +20,8 @@
 /**
  Initialise a map style with a string, corresponding to the folder identifier.
 
- @param string The map style identifier (folder)
- @return The map style instance
+ - Parameter string: The map style identifier (folder)
+ - Returns: The map style instance
  */
 - (instancetype _Nullable )initWithString: (NSString*_Nullable)string;
 /**

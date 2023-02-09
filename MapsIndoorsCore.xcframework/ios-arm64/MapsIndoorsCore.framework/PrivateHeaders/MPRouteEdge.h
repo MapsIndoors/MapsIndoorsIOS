@@ -53,14 +53,14 @@ Waittime somewhere on this edge
 
 /**
  Initalize an instance of MPGraphEdge with an edge from MICommon
- @return instance of MPGraphEdge
+ - Returns: instance of MPGraphEdge
  */
 - (nullable instancetype) initGraphEdgeWithMIEdge:(MIEdge*)miEdge
                     NS_DESIGNATED_INITIALIZER;
 
 /**
  Create and initialize an MPGraphEdge with an edge from MICommon
- @return instance of MPGraphEdge
+ - Returns: instance of MPGraphEdge
  */
 + (nullable instancetype) newGraphEdgeWithMIEdge:(MIEdge*)miEdge;
 

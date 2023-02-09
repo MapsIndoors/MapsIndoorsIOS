@@ -68,6 +68,13 @@
       },
       {
         "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "MapsIndoors_Mapbox"
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -282,64 +289,121 @@
         "printedName": "MapBoxProvider",
         "children": [
           {
-            "kind": "Function",
-            "name": "applyBundle",
-            "printedName": "applyBundle(_:)",
+            "kind": "Var",
+            "name": "infoWindowGenerator",
+            "printedName": "infoWindowGenerator",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Bundle",
-                "printedName": "Foundation.Bundle",
-                "usr": "c:objc(cs)NSBundle"
+                "name": "Optional",
+                "printedName": "MapsIndoorsCore.MPInfoWindowGenerator?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MPInfoWindowGenerator",
+                    "printedName": "MapsIndoorsCore.MPInfoWindowGenerator",
+                    "usr": "c:@M@MapsIndoorsCore@objc(pl)MPInfoWindowGenerator"
+                  }
+                ],
+                "usr": "s:Sq"
               }
             ],
-            "declKind": "Func",
-            "usr": "c:@M@MapsIndoors_Mapbox@objc(cs)MapBoxProvider(im)applyBundle:",
-            "mangledName": "$s18MapsIndoors_Mapbox14MapBoxProviderC11applyBundleyySo8NSBundleCF",
+            "declKind": "Var",
+            "usr": "c:@M@MapsIndoors_Mapbox@objc(cs)MapBoxProvider(py)infoWindowGenerator",
+            "mangledName": "$s18MapsIndoors_Mapbox14MapBoxProviderC19infoWindowGenerator0aB4Core06MPInfohI0_pSgvp",
             "moduleName": "MapsIndoors_Mapbox",
             "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
               "AccessControl",
               "ObjC"
             ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "showInfoWindow",
-            "printedName": "showInfoWindow(_:locationID:)",
-            "children": [
+            "hasStorage": true,
+            "accessors": [
               {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "MapsIndoorsCore.MPInfoWindowGenerator?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MPInfoWindowGenerator",
+                        "printedName": "MapsIndoorsCore.MPInfoWindowGenerator",
+                        "usr": "c:@M@MapsIndoorsCore@objc(pl)MPInfoWindowGenerator"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MapsIndoors_Mapbox@objc(cs)MapBoxProvider(im)infoWindowGenerator",
+                "mangledName": "$s18MapsIndoors_Mapbox14MapBoxProviderC19infoWindowGenerator0aB4Core06MPInfohI0_pSgvg",
+                "moduleName": "MapsIndoors_Mapbox",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
               },
               {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "MapsIndoorsCore.MPInfoWindowGenerator?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MPInfoWindowGenerator",
+                        "printedName": "MapsIndoorsCore.MPInfoWindowGenerator",
+                        "usr": "c:@M@MapsIndoorsCore@objc(pl)MPInfoWindowGenerator"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MapsIndoors_Mapbox@objc(cs)MapBoxProvider(im)setInfoWindowGenerator:",
+                "mangledName": "$s18MapsIndoors_Mapbox14MapBoxProviderC19infoWindowGenerator0aB4Core06MPInfohI0_pSgvs",
+                "moduleName": "MapsIndoors_Mapbox",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
               },
               {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:18MapsIndoors_Mapbox14MapBoxProviderC19infoWindowGenerator0aB4Core06MPInfohI0_pSgvM",
+                "mangledName": "$s18MapsIndoors_Mapbox14MapBoxProviderC19infoWindowGenerator0aB4Core06MPInfohI0_pSgvM",
+                "moduleName": "MapsIndoors_Mapbox",
+                "implicit": true,
+                "accessorKind": "_modify"
               }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@MapsIndoors_Mapbox@objc(cs)MapBoxProvider(im)showInfoWindow:locationID:",
-            "mangledName": "$s18MapsIndoors_Mapbox14MapBoxProviderC14showInfoWindow_10locationIDySb_SStF",
-            "moduleName": "MapsIndoors_Mapbox",
-            "declAttributes": [
-              "AccessControl",
-              "ObjC"
-            ],
-            "funcSelfKind": "NonMutating"
+            ]
           },
           {
             "kind": "Function",
@@ -944,31 +1008,97 @@
             ]
           },
           {
-            "kind": "Function",
-            "name": "selectLocation",
-            "printedName": "selectLocation(_:)",
+            "kind": "Var",
+            "name": "collisionHandling",
+            "printedName": "collisionHandling",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "MPLocation",
-                "printedName": "MapsIndoorsCore.MPLocation",
-                "usr": "c:objc(cs)MPLocation"
+                "name": "MPCollisionHandling",
+                "printedName": "MapsIndoorsCore.MPCollisionHandling",
+                "usr": "c:@M@MapsIndoorsCore@E@MPCollisionHandling"
               }
             ],
-            "declKind": "Func",
-            "usr": "c:@M@MapsIndoors_Mapbox@objc(cs)MapBoxProvider(im)selectLocation:",
-            "mangledName": "$s18MapsIndoors_Mapbox14MapBoxProviderC14selectLocationyySo10MPLocationCF",
+            "declKind": "Var",
+            "usr": "c:@M@MapsIndoors_Mapbox@objc(cs)MapBoxProvider(py)collisionHandling",
+            "mangledName": "$s18MapsIndoors_Mapbox14MapBoxProviderC17collisionHandling0aB4Core011MPCollisionH0Ovp",
             "moduleName": "MapsIndoors_Mapbox",
             "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
               "AccessControl",
               "ObjC"
             ],
-            "funcSelfKind": "NonMutating"
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MPCollisionHandling",
+                    "printedName": "MapsIndoorsCore.MPCollisionHandling",
+                    "usr": "c:@M@MapsIndoorsCore@E@MPCollisionHandling"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MapsIndoors_Mapbox@objc(cs)MapBoxProvider(im)collisionHandling",
+                "mangledName": "$s18MapsIndoors_Mapbox14MapBoxProviderC17collisionHandling0aB4Core011MPCollisionH0Ovg",
+                "moduleName": "MapsIndoors_Mapbox",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MPCollisionHandling",
+                    "printedName": "MapsIndoorsCore.MPCollisionHandling",
+                    "usr": "c:@M@MapsIndoorsCore@E@MPCollisionHandling"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MapsIndoors_Mapbox@objc(cs)MapBoxProvider(im)setCollisionHandling:",
+                "mangledName": "$s18MapsIndoors_Mapbox14MapBoxProviderC17collisionHandling0aB4Core011MPCollisionH0Ovs",
+                "moduleName": "MapsIndoors_Mapbox",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:18MapsIndoors_Mapbox14MapBoxProviderC17collisionHandling0aB4Core011MPCollisionH0OvM",
+                "mangledName": "$s18MapsIndoors_Mapbox14MapBoxProviderC17collisionHandling0aB4Core011MPCollisionH0OvM",
+                "moduleName": "MapsIndoors_Mapbox",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
           },
           {
             "kind": "Var",
@@ -1435,8 +1565,15 @@
   "ConstValues": [
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/MapBoxProvider\/MBRenderer.swift",
+      "kind": "StringLiteral",
+      "offset": 8028,
+      "length": 16,
+      "value": "\"viewAnnotation\""
+    },
+    {
+      "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/MapBoxProvider\/MBRenderer.swift",
       "kind": "IntegerLiteral",
-      "offset": 13741,
+      "offset": 16617,
       "length": 3,
       "value": "100"
     },
@@ -1618,77 +1755,77 @@
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/MapBoxProvider\/MBPositionPresenter.swift",
       "kind": "BooleanLiteral",
-      "offset": 272,
+      "offset": 271,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/MapBoxProvider\/MBPositionPresenter.swift",
       "kind": "FloatLiteral",
-      "offset": 646,
+      "offset": 738,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/MapBoxProvider\/MBPositionPresenter.swift",
       "kind": "FloatLiteral",
-      "offset": 662,
+      "offset": 754,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/MapBoxProvider\/MBPositionPresenter.swift",
       "kind": "Array",
-      "offset": 711,
+      "offset": 803,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/MapBoxProvider\/MBPositionPresenter.swift",
       "kind": "BooleanLiteral",
-      "offset": 2907,
+      "offset": 2996,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/MapBoxProvider\/MBPositionPresenter.swift",
       "kind": "FloatLiteral",
-      "offset": 2937,
+      "offset": 3026,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/MapBoxProvider\/MapBoxProvider.swift",
       "kind": "IntegerLiteral",
-      "offset": 1113,
+      "offset": 915,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/MapBoxProvider\/MapBoxProvider.swift",
       "kind": "IntegerLiteral",
-      "offset": 1122,
+      "offset": 924,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/MapBoxProvider\/MapBoxProvider.swift",
       "kind": "IntegerLiteral",
-      "offset": 1133,
+      "offset": 935,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/MapBoxProvider\/MapBoxProvider.swift",
       "kind": "IntegerLiteral",
-      "offset": 1143,
+      "offset": 945,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/MapBoxProvider\/MapBoxProvider.swift",
       "kind": "BooleanLiteral",
-      "offset": 1204,
+      "offset": 1006,
       "length": 5,
       "value": "false"
     },

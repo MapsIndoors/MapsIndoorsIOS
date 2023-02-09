@@ -44,21 +44,21 @@
 /**
  Get the probability of the position. This is a radius in meters. Can be used to generate an approximation circle.
 
- @return A double representing the positions accuracy in meters.
+ - Returns: A double representing the positions accuracy in meters.
  */
 - (double) getProbability;
 
 /**
  Get the heading in degrees from north
 
- @return The heading value in degrees from north as a double
+ - Returns: The heading value in degrees from north as a double
  */
 - (double) getHeadingDegrees;
 
 /**
  Get the floor index property
 
- @return The floor index
+ - Returns: The floor index
  */
 - (nullable NSNumber*)getFloorIndex;
 
@@ -66,7 +66,7 @@
 /**
  Set the heading of the position result in degrees from north
  
- @param heading The heading value in degrees from north as a double
+ - Parameter heading: The heading value in degrees from north as a double
  */
 - (void) setHeadingDegrees:(double)heading;
 

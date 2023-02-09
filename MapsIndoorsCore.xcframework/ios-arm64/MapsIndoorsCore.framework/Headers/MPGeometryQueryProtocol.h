@@ -26,28 +26,28 @@
 /**
  Check if the given point is contained within the polygon.
  
- @param point point to check for containment.
- @return YES of the point is inside the polygon boundary AND outside any holes in the polygon.
- @return NO if the point is outside the polygon, or inside any holes in the polygon.
+ - Parameter point: point to check for containment.
+ - Returns: YES of the point is inside the polygon boundary AND outside any holes in the polygon.
+ - Returns: NO if the point is outside the polygon, or inside any holes in the polygon.
  */
 - (BOOL) containsPoint:(nonnull MPPoint*) point;
 
 /**
  Check if the given coordinate is contained within the polygon.
 
- @param coordinate coordinate to check for containment.
- @return YES of the coordinate is inside the polygon boundary AND outside any holes in the polygon.
- @return NO if the coordinate is outside the polygon, or inside any holes in the polygon.
+ - Parameter coordinate: coordinate to check for containment.
+ - Returns: YES of the coordinate is inside the polygon boundary AND outside any holes in the polygon.
+ - Returns: NO if the coordinate is outside the polygon, or inside any holes in the polygon.
  */
 - (BOOL) containsCoordinate:(CLLocationCoordinate2D)coordinate;
 
 /**
  Check if the given coordinate is contained within the polygon.
  
- @param coordinate coordinate to check for containment.
- @param ignorePolygonHoles Should holes in a polygon be ignored
- @return YES of the coordinate is inside the polygon boundary AND outside any holes in the polygon.
- @return NO if the coordinate is outside the polygon, or inside any holes in the polygon.
+ - Parameter coordinate: coordinate to check for containment.
+ - Parameter ignorePolygonHoles: Should holes in a polygon be ignored
+ - Returns: YES of the coordinate is inside the polygon boundary AND outside any holes in the polygon.
+ - Returns: NO if the coordinate is outside the polygon, or inside any holes in the polygon.
  */
 - (BOOL) containsCoordinate:(CLLocationCoordinate2D)coordinate ignorePolygonHoles:(BOOL)ignorePolygonHoles;
 
@@ -56,20 +56,20 @@
  If the polygon contains the coordinate, 'coordinate' is returned as nearestPoint.
  If coordinate is not contained, the nearest point is calculated.
 
- @param coordinate coordinate to check for containment.
- @param containmentMetadata If not nil, the nearest point and distance on the polygon boundary is returned. Note this may be the nearest point on a polygon-hole.
- @param ignorePolygonHoles  YES to ignore polygon holes.
- @return NO if the coordinate is outside the polygon, or inside any holes in the polygon.
+ - Parameter coordinate: coordinate to check for containment.
+ - Parameter containmentMetadata: If not nil, the nearest point and distance on the polygon boundary is returned. Note this may be the nearest point on a polygon-hole.
+ - Parameter ignorePolygonHoles:  YES to ignore polygon holes.
+ - Returns: NO if the coordinate is outside the polygon, or inside any holes in the polygon.
  */
 - (BOOL) containsCoordinate:(CLLocationCoordinate2D)coordinate ignorePolygonHoles:(BOOL)ignorePolygonHoles containmentMetadata:(nullable MPGeometryContainmentMetadata*)containmentMetadata;
 
 /**
  Check if the given linesegment is fully contained within the polygon.
 
- @param u start coordinate of linesegment to check for containment.
- @param v end coordinate of linesegment to check for containment.
- @return YES of the linesegment is fully inside the polygon boundary AND outside any holes in the polygon.
- @return NO if the linesegment is not fully inside the polygon, or inside any holes in the polygon.
+ - Parameter u: start coordinate of linesegment to check for containment.
+ - Parameter v: end coordinate of linesegment to check for containment.
+ - Returns: YES of the linesegment is fully inside the polygon boundary AND outside any holes in the polygon.
+ - Returns: NO if the linesegment is not fully inside the polygon, or inside any holes in the polygon.
  */
 - (BOOL) containsLineSegmentFromCoordinate:(CLLocationCoordinate2D)u toCoordinate:(CLLocationCoordinate2D)v;
 

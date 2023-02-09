@@ -539,37 +539,121 @@
         "printedName": "GoogleMapProvider",
         "children": [
           {
-            "kind": "Function",
-            "name": "showInfoWindow",
-            "printedName": "showInfoWindow(_:locationID:)",
+            "kind": "Var",
+            "name": "infoWindowGenerator",
+            "printedName": "infoWindowGenerator",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
+                "name": "Optional",
+                "printedName": "MapsIndoorsCore.MPInfoWindowGenerator?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MPInfoWindowGenerator",
+                    "printedName": "MapsIndoorsCore.MPInfoWindowGenerator",
+                    "usr": "c:@M@MapsIndoorsCore@objc(pl)MPInfoWindowGenerator"
+                  }
+                ],
+                "usr": "s:Sq"
               }
             ],
-            "declKind": "Func",
-            "usr": "c:@M@MapsIndoors_GoogleMaps@objc(cs)GoogleMapProvider(im)showInfoWindow:locationID:",
-            "mangledName": "$s018MapsIndoors_GoogleA00C11MapProviderC14showInfoWindow_10locationIDySb_SStF",
+            "declKind": "Var",
+            "usr": "c:@M@MapsIndoors_GoogleMaps@objc(cs)GoogleMapProvider(py)infoWindowGenerator",
+            "mangledName": "$s018MapsIndoors_GoogleA00C11MapProviderC19infoWindowGenerator0aB4Core06MPInfogH0_pSgvp",
             "moduleName": "MapsIndoors_GoogleMaps",
             "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
               "AccessControl",
               "ObjC"
             ],
-            "funcSelfKind": "NonMutating"
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "MapsIndoorsCore.MPInfoWindowGenerator?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MPInfoWindowGenerator",
+                        "printedName": "MapsIndoorsCore.MPInfoWindowGenerator",
+                        "usr": "c:@M@MapsIndoorsCore@objc(pl)MPInfoWindowGenerator"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MapsIndoors_GoogleMaps@objc(cs)GoogleMapProvider(im)infoWindowGenerator",
+                "mangledName": "$s018MapsIndoors_GoogleA00C11MapProviderC19infoWindowGenerator0aB4Core06MPInfogH0_pSgvg",
+                "moduleName": "MapsIndoors_GoogleMaps",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "MapsIndoorsCore.MPInfoWindowGenerator?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MPInfoWindowGenerator",
+                        "printedName": "MapsIndoorsCore.MPInfoWindowGenerator",
+                        "usr": "c:@M@MapsIndoorsCore@objc(pl)MPInfoWindowGenerator"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MapsIndoors_GoogleMaps@objc(cs)GoogleMapProvider(im)setInfoWindowGenerator:",
+                "mangledName": "$s018MapsIndoors_GoogleA00C11MapProviderC19infoWindowGenerator0aB4Core06MPInfogH0_pSgvs",
+                "moduleName": "MapsIndoors_GoogleMaps",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:018MapsIndoors_GoogleA00C11MapProviderC19infoWindowGenerator0aB4Core06MPInfogH0_pSgvM",
+                "mangledName": "$s018MapsIndoors_GoogleA00C11MapProviderC19infoWindowGenerator0aB4Core06MPInfogH0_pSgvM",
+                "moduleName": "MapsIndoors_GoogleMaps",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
           },
           {
             "kind": "Function",
@@ -591,6 +675,99 @@
               "ObjC"
             ],
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "collisionHandling",
+            "printedName": "collisionHandling",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MPCollisionHandling",
+                "printedName": "MapsIndoorsCore.MPCollisionHandling",
+                "usr": "c:@M@MapsIndoorsCore@E@MPCollisionHandling"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MapsIndoors_GoogleMaps@objc(cs)GoogleMapProvider(py)collisionHandling",
+            "mangledName": "$s018MapsIndoors_GoogleA00C11MapProviderC17collisionHandling0aB4Core011MPCollisionG0Ovp",
+            "moduleName": "MapsIndoors_GoogleMaps",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MPCollisionHandling",
+                    "printedName": "MapsIndoorsCore.MPCollisionHandling",
+                    "usr": "c:@M@MapsIndoorsCore@E@MPCollisionHandling"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MapsIndoors_GoogleMaps@objc(cs)GoogleMapProvider(im)collisionHandling",
+                "mangledName": "$s018MapsIndoors_GoogleA00C11MapProviderC17collisionHandling0aB4Core011MPCollisionG0Ovg",
+                "moduleName": "MapsIndoors_GoogleMaps",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MPCollisionHandling",
+                    "printedName": "MapsIndoorsCore.MPCollisionHandling",
+                    "usr": "c:@M@MapsIndoorsCore@E@MPCollisionHandling"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MapsIndoors_GoogleMaps@objc(cs)GoogleMapProvider(im)setCollisionHandling:",
+                "mangledName": "$s018MapsIndoors_GoogleA00C11MapProviderC17collisionHandling0aB4Core011MPCollisionG0Ovs",
+                "moduleName": "MapsIndoors_GoogleMaps",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:018MapsIndoors_GoogleA00C11MapProviderC17collisionHandling0aB4Core011MPCollisionG0OvM",
+                "mangledName": "$s018MapsIndoors_GoogleA00C11MapProviderC17collisionHandling0aB4Core011MPCollisionG0OvM",
+                "moduleName": "MapsIndoors_GoogleMaps",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
           },
           {
             "kind": "Var",
@@ -706,50 +883,6 @@
               "ObjC"
             ],
             "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Var",
-            "name": "tileLayerClass",
-            "printedName": "tileLayerClass",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "MPTileLayerClass",
-                "printedName": "MapsIndoorsCore.MPTileLayerClass",
-                "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileLayerClass"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@MapsIndoors_GoogleMaps@objc(cs)GoogleMapProvider(py)tileLayerClass",
-            "mangledName": "$s018MapsIndoors_GoogleA00C11MapProviderC14tileLayerClass0aB4Core06MPTilegH0_pvp",
-            "moduleName": "MapsIndoors_GoogleMaps",
-            "declAttributes": [
-              "AccessControl",
-              "ObjC"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "MPTileLayerClass",
-                    "printedName": "MapsIndoorsCore.MPTileLayerClass",
-                    "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileLayerClass"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@MapsIndoors_GoogleMaps@objc(cs)GoogleMapProvider(im)tileLayerClass",
-                "mangledName": "$s018MapsIndoors_GoogleA00C11MapProviderC14tileLayerClass0aB4Core06MPTilegH0_pvg",
-                "moduleName": "MapsIndoors_GoogleMaps",
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              }
-            ]
           },
           {
             "kind": "Var",
@@ -1089,33 +1222,6 @@
               "ObjC"
             ],
             "init_kind": "Designated"
-          },
-          {
-            "kind": "Function",
-            "name": "applyBundle",
-            "printedName": "applyBundle(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Bundle",
-                "printedName": "Foundation.Bundle",
-                "usr": "c:objc(cs)NSBundle"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@MapsIndoors_GoogleMaps@objc(cs)GoogleMapProvider(im)applyBundle:",
-            "mangledName": "$s018MapsIndoors_GoogleA00C11MapProviderC11applyBundleyySo8NSBundleCF",
-            "moduleName": "MapsIndoors_GoogleMaps",
-            "declAttributes": [
-              "AccessControl",
-              "ObjC"
-            ],
-            "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Function",
@@ -1701,119 +1807,133 @@
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "FloatLiteral",
-      "offset": 1298,
+      "offset": 1324,
       "length": 5,
       "value": "0.014"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "IntegerLiteral",
-      "offset": 2404,
+      "offset": 2430,
       "length": 3,
       "value": "100"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "BooleanLiteral",
-      "offset": 2974,
+      "offset": 3000,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3655,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3387,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "IntegerLiteral",
-      "offset": 3497,
+      "offset": 4097,
       "length": 7,
       "value": "1200000"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "FloatLiteral",
-      "offset": 3679,
+      "offset": 4279,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "BooleanLiteral",
-      "offset": 3890,
+      "offset": 4490,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "FloatLiteral",
-      "offset": 7385,
+      "offset": 7986,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "FloatLiteral",
-      "offset": 7484,
+      "offset": 8085,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "IntegerLiteral",
-      "offset": 8999,
+      "offset": 9600,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "IntegerLiteral",
-      "offset": 9013,
+      "offset": 9614,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "FloatLiteral",
-      "offset": 9696,
+      "offset": 10297,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "FloatLiteral",
-      "offset": 10535,
+      "offset": 11136,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "FloatLiteral",
-      "offset": 10569,
+      "offset": 11170,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "StringLiteral",
-      "offset": 16395,
+      "offset": 17065,
       "length": 6,
       "value": "\"noId\""
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "IntegerLiteral",
-      "offset": 27753,
+      "offset": 28425,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "IntegerLiteral",
-      "offset": 27777,
+      "offset": 28449,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "IntegerLiteral",
-      "offset": 27802,
+      "offset": 28474,
       "length": 1,
       "value": "1"
     },
@@ -1872,6 +1992,13 @@
       "offset": 294,
       "length": 17,
       "value": "\"MapsIndoors_GoogleMaps.GoogleMapProvider\""
+    },
+    {
+      "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/GoogleMapViewDelegate.swift",
+      "kind": "StringLiteral",
+      "offset": 242,
+      "length": 21,
+      "value": "\"MapsIndoors_GoogleMaps.GoogleMapViewDelegate\""
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/GMRouteRenderer.swift",

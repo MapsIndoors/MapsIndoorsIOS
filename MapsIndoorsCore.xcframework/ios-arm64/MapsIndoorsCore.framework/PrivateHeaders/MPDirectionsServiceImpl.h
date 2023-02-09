@@ -34,13 +34,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Get a route!
 
- @param origin from
- @param destination to
- @param mode travel mode
- @param restrictions restrictions
- @param departureTime departureTime
- @param arrivalTime arrivalTime
- @param handler completion block, always called on the main queue.
+ - Parameter origin: from
+ - Parameter destination: to
+ - Parameter mode: travel mode
+ - Parameter restrictions: restrictions
+ - Parameter departureTime: departureTime
+ - Parameter arrivalTime: arrivalTime
+ - Parameter handler: completion block, always called on the main queue.
  */
 - (void)routingFrom:(MPLocation *)origin to:(MPLocation *)destination by:(NSString *)mode avoid:(nullable NSArray *)restrictions depart:(nullable NSDate *)departureTime arrive:(nullable NSDate *)arrivalTime userRoles:(nullable NSArray<MPUserRole*>*)userRoles completionHandler:(mpRouteHandlerBlockType)handler;
 

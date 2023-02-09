@@ -16,7 +16,7 @@
 /**
  Create a button with a floor index property
  */
-MP_DEPRECATED_ATTRIBUTE
+DEPRECATED_ATTRIBUTE
 @interface MPFloorButton : UIButton
 
 /**

@@ -24,8 +24,8 @@
 /**
  Get the default travelling speed given the highwayType.
 
- @param highwayType highwayType to determin espeed for.
- @return Travelling speed in meters per second.
+ - Parameter highwayType: highwayType to determin espeed for.
+ - Returns: Travelling speed in meters per second.
  */
 + (double) speedForHighwayType:(MPHighwayType)highwayType;
 

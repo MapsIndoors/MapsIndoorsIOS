@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /// Called when error occurs while initialising or synchronising.
-/// @param error The error object.
+/// - Parameter error: The error object.
 - (void) onError:(NSError*)error;
 
 @end

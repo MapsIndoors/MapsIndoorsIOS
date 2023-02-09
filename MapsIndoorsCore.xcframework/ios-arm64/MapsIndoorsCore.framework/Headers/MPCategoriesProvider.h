@@ -12,8 +12,8 @@
 /**
  Callback block for getting category data or handling error in doing so.
  
- @param categories Array of categories. Will be nil if an error occurred
- @param error Error object. Will be nil if fetching was complete
+ - Parameter categories: Array of categories. Will be nil if an error occurred
+ - Parameter error: Error object. Will be nil if fetching was complete
  */
 typedef void(^mpCategoriesHandlerBlockType)( NSArray<MPDataField*>* _Nullable categories, NSError* _Nullable error );
 
@@ -28,7 +28,7 @@ typedef void(^mpCategoriesHandlerBlockType)( NSArray<MPDataField*>* _Nullable ca
 
 /**
  Categories data ready event method.
- @param categories The Categories data collection.
+ - Parameter categories: The Categories data collection.
  */
 @required
 - (void) onCategoriesReady: (nullable NSArray*)categories;
@@ -52,15 +52,15 @@ typedef void(^mpCategoriesHandlerBlockType)( NSArray<MPDataField*>* _Nullable ca
 - (void)getCategories;
 /**
  Get Categories from this provider and provide a callback handler.
- @param completion Block with code to execute when categories become available.
+ - Parameter completion: Block with code to execute when categories become available.
  */
 - (void)getCategoriesWithCompletion: (nullable mpCategoriesHandlerBlockType) completion;
 /**
  Determine if cached or preloaded data is available for the given solutionId.
  
- @param solutionId solutionId to check for offline data availability.
- @param language Language to check for offline data availability.
- @return YES if offline or preloaded data is available, else NO,
+ - Parameter solutionId: solutionId to check for offline data availability.
+ - Parameter language: Language to check for offline data availability.
+ - Returns: YES if offline or preloaded data is available, else NO,
  */
 + (BOOL) isOfflineDataAvailableForSolutionId:(nonnull NSString*)solutionId language:(nonnull NSString*)language;
 

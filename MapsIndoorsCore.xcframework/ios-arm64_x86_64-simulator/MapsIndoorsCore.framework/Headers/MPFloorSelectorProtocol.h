@@ -26,14 +26,14 @@
 
 /**
   Set floor index.
-  @param floor The index of the floor to switch to.
+  - Parameter floor: The index of the floor to switch to.
  */
 @required
 - (void)setFloorIndex:(nullable NSNumber*)floorIndex;
 
 /**
   Update the floor selector based on a building.
-  @param building The building that the floor selector should reflect.
+  - Parameter building: The building that the floor selector should reflect.
  */
 @required
 - (void) setBuilding:(nullable MPBuilding*)building;

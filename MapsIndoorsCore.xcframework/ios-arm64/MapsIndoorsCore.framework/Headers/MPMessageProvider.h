@@ -21,7 +21,7 @@ typedef void(^mpMessageListHandlerBlockType)(NSArray<MPMessage>* _Nullable messa
 @protocol MPMessageProviderDelegate <NSObject>
 /**
  Messages data ready event method.
- @param messages The Messages data collection.
+ - Parameter messages: The Messages data collection.
  */
 @required
 - (void) onMessagesReady: (nonnull NSArray<MPMessage>*)messages;
@@ -40,13 +40,13 @@ typedef void(^mpMessageListHandlerBlockType)(NSArray<MPMessage>* _Nullable messa
 
 /**
  Method to initiate fetching of all Messages from the provider.
- @param  handler The handler callback block. Contains the MPMessage object (can be nil) and an NSError object (can be nil).
+ - Parameter handler: The handler callback block. Contains the MPMessage object (can be nil) and an NSError object (can be nil).
  */
 - (void)getMessagesWithCompletion: (nullable mpMessageListHandlerBlockType) handler;
 /**
  Method to query a unique Message from the provider based on an id.
- @param  messageId The MapsIndoors Message ID.
- @param  handler The handler callback block. Contains the MPMessage object (can be nil) and an NSError object (can be nil).
+ - Parameter messageId: The MapsIndoors Message ID.
+ - Parameter handler: The handler callback block. Contains the MPMessage object (can be nil) and an NSError object (can be nil).
  */
 - (void)getMessageWithId:(nonnull NSString*)messageId completionHandler: (nullable mpMessageDetailsHandlerBlockType) handler;
 @end

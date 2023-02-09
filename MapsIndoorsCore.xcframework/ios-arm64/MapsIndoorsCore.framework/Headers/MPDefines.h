@@ -12,15 +12,6 @@
 #ifndef MPDefines_h
 #define MPDefines_h
 
-
-#if defined(MP_DISABLE_DEPRECATION_WARNINGS)
-    #define MP_DEPRECATED_MSG_ATTRIBUTE(mESSAGE)    /* disabled */
-    #define MP_DEPRECATED_ATTRIBUTE                 /* disabled */
-#else
-    #define MP_DEPRECATED_MSG_ATTRIBUTE(mESSAGE)    DEPRECATED_MSG_ATTRIBUTE(mESSAGE)
-    #define MP_DEPRECATED_ATTRIBUTE                 DEPRECATED_ATTRIBUTE
-#endif
-
 #define kMPUIApplicationDidReceiveMemoryWarningNotification @"UIApplicationDidReceiveMemoryWarningNotification"
 #define kMPRequestClearCacheMemoryNotification @"MPRequestClearCacheMemoryNotification"
 #define kMPRequestResetMapNotification @"MPRequestResetMapNotification"

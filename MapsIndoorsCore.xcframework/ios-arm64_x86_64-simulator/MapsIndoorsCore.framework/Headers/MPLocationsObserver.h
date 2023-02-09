@@ -27,24 +27,24 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Location update event method.
 
- @param locationUpdates Array of updated locations.
- @param source The source of the updated locations.
+ - Parameter locationUpdates: Array of updated locations.
+ - Parameter source: The source of the updated locations.
  */
 - (void)onLocationsUpdate:(NSArray<MPLocation *> *)locationUpdates source:(id<MPLocationSource>)source;
 
 /**
  Location delete event method.
  
- @param locations Array of deleted location ids.
- @param source The source of the deleted locations.
+ - Parameter locations: Array of deleted location ids.
+ - Parameter source: The source of the deleted locations.
  */
 - (void)onLocationsDelete:(NSArray<NSString *> *)locations source:(id<MPLocationSource>)source;
 
 /**
  Status change event method.
 
- @param status The new status of the location source.
- @param source The location source changing status.
+ - Parameter status: The new status of the location source.
+ - Parameter source: The location source changing status.
  */
 - (void)onStatusChange:(MPLocationSourceStatus)status source:(id<MPLocationSource>)source;
 

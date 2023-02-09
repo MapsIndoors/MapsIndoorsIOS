@@ -7,6 +7,7 @@ import Foundation
 import MapboxMaps
 import MapsIndoorsCore
 import Swift
+import UIKit
 import ValueAnimator
 import Vision
 import _Concurrency
@@ -15,8 +16,7 @@ import _StringProcessing
   @objc convenience dynamic public init(mapBoxView: MapboxMaps.MapView, accessToken: Swift.String)
 }
 @objc @objcMembers public class MapBoxProvider : ObjectiveC.NSObject, MapsIndoorsCore.MPMapProvider {
-  @objc public func applyBundle(_ bundle: Foundation.Bundle)
-  @objc public func showInfoWindow(_ shouldShowInfowindow: Swift.Bool, locationID: Swift.String)
+  @objc public var infoWindowGenerator: MapsIndoorsCore.MPInfoWindowGenerator?
   @objc public func setTileProvider(tileProvider: MapsIndoorsCore.MPTileProvider)
   @objc public func reloadTilesForFloorChange()
   @objc final public let view: UIKit.UIView?
@@ -25,7 +25,7 @@ import _StringProcessing
   @objc public var delegate: MapsIndoorsCore.MPMapProviderDelegate?
   @objc public var positionPresenter: MapsIndoorsCore.MPPositionPresenter
   @objc public var tileLayerClass: MapsIndoorsCore.MPTileLayerClass
-  @objc public func selectLocation(_ location: MapsIndoorsCore.MPLocation)
+  @objc public var collisionHandling: MapsIndoorsCore.MPCollisionHandling
   @objc public var routeRenderer: MapsIndoorsCore.MPRouteRenderer {
     @objc get
   }

@@ -22,15 +22,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Handler block for a locations query
 
- @param locations Locations result array
- @param error Error object
+ - Parameter locations: Locations result array
+ - Parameter error: Error object
  */
 typedef void(^mpLocationsHandlerBlockType)(NSArray<MPLocation*>* _Nullable locations, NSError* _Nullable error);
 /**
  Handler block for a single Location query
 
- @param location Location result object
- @param error Error object
+ - Parameter location: Location result object
+ - Parameter error: Error object
  */
 typedef void(^mpSingleLocationHandlerBlockType)(MPLocation* _Nullable location, NSError* _Nullable error);
 
@@ -55,24 +55,24 @@ typedef void(^mpSingleLocationHandlerBlockType)(MPLocation* _Nullable location, 
 /**
  Get locations with given filter, query and callback handler block.
 
- @param query The query object
- @param filter The filter object
- @param handler The handler block
+ - Parameter query: The query object
+ - Parameter filter: The filter object
+ - Parameter handler: The handler block
  */
 - (void)getLocationsUsingQuery:(MPQuery*)query filter:(MPFilter*)filter completionHandler:(nullable mpLocationsHandlerBlockType)handler;
 
 /**
  Get Location with given id and callback handler block.
 
- @param locationId The id of the requested Location
- @param handler The handler block
+ - Parameter locationId: The id of the requested Location
+ - Parameter handler: The handler block
  */
 - (void)getLocationById:(NSString*)locationId completionHandler:(nullable mpSingleLocationHandlerBlockType)handler;
 
 /**
 Get a location specified by its id.
 
- @param locationId The id of the requested Location.
+ - Parameter locationId: The id of the requested Location.
  @returns MPLocation object with the requested location id. Might be nil if the location id does not exist or if the data has not yet been loaded.
  */
 - (nullable MPLocation *)getLocationById:(NSString *)locationId;
@@ -80,7 +80,7 @@ Get a location specified by its id.
 /**
  Register Location data sources.
  All registered location sources must have a unique sourceId.
- @param sources The sources of Location data to use in the current session.
+ - Parameter sources: The sources of Location data to use in the current session.
  */
 + (void)registerLocationSources: (NSArray<id<MPLocationSource>>*) sources;
 
@@ -89,14 +89,14 @@ Get a location specified by its id.
 /**
  Add an observer that gets callbacks about updates, additions and deletions to locations in this location source
  
- @param observer The observer object
+ - Parameter observer: The observer object
  */
 - (void)iAddLocationsObserver:(id<MPLocationsObserver>)observer;
 
 /**
  Remove an observer that gets callbacks about updates, additions and deletions to locations in this location source
  
- @param observer The observer object to remove
+ - Parameter observer: The observer object to remove
  */
 - (void)iRemoveLocationsObserver:(id<MPLocationsObserver>)observer;
 
@@ -107,7 +107,7 @@ Get a location specified by its id.
  .initialising   processing and expected to provide data when initialised
  .inactive       intentionally inactive and not expected to provide data
  
- @return The status of the location source
+ - Returns: The status of the location source
  */
 - (MPLocationSourceStatus)iStatus;
 /**

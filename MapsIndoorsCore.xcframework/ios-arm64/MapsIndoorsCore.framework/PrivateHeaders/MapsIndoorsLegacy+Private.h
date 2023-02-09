@@ -28,8 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Provides your Solution Id to the MapsIndoors SDK for iOS. This key is generated for your solution.
- @param solutionId The MapsIndoors content key
- @return YES if the Solution Id was successfully provided
+ - Parameter solutionId: The MapsIndoors content key
+ - Returns: YES if the Solution Id was successfully provided
  */
 + (BOOL) provideSolutionId:(NSString*)solutionId;
 
@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Gets the current Google API key.
- @return The Google API key as a string value.
+ - Returns: The Google API key as a string value.
  */
 + (nullable NSString*) getGoogleAPIKey;
 

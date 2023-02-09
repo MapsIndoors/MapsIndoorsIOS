@@ -10,14 +10,6 @@
 
 #import "MPFloorSelectorProtocol.h"
 
-
-/**
-  Empty UIButton protocol specification
- */
-@protocol MPFloorButton
-@end
-
-
 #pragma mark - [INTERNAL - DO NOT USE]
 
 /// > Warning: [INTERNAL - DO NOT USE]
@@ -111,7 +103,7 @@
 
 /**
   Method that fires when a floor button is pressed.
-  @param sender The button tapped
+  - Parameter sender: The button tapped
  */
 - (void)notifyFloorSelect:(nonnull id)sender;
 

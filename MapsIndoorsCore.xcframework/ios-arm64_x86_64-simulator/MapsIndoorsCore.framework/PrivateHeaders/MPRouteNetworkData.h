@@ -31,16 +31,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Get all entry points for a given graph.
 
- @param routingGraphId GraphId to get entry points for.
- @return return List of routing entry points.
+ - Parameter routingGraphId: GraphId to get entry points for.
+ - Returns: return List of routing entry points.
  */
 - (NSArray<MPRouteNetworkEntryPoint*>*) networkEntryPointsForRoutingGraphId:(NSString*)routingGraphId accessTokens:(nullable NSSet<NSString*>*)accessTokens;
 
 /**
  Given a MPPoint, return the corresponding graphId if any.
 
- @param point point to determine graphId for
- @return graphId. always lowercase.
+ - Parameter point: point to determine graphId for
+ - Returns: graphId. always lowercase.
  */
 - (nullable NSString*) getGraphIdFromPoint:(MPPoint*)point;
 
