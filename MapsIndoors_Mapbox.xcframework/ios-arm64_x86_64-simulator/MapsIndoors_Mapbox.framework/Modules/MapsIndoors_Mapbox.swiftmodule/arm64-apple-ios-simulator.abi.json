@@ -1225,7 +1225,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(mapView:googleApiKey:)",
+            "printedName": "init(mapView:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -1238,26 +1238,11 @@
                 "name": "MapView",
                 "printedName": "MapboxMaps.MapView",
                 "usr": "c:@M@MapboxMaps@objc(cs)MapView"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "hasDefaultArg": true,
-                "usr": "s:Sq"
               }
             ],
             "declKind": "Constructor",
-            "usr": "c:@M@MapsIndoors_Mapbox@objc(cs)MapBoxProvider(im)initWithMapView:googleApiKey:",
-            "mangledName": "$s18MapsIndoors_Mapbox14MapBoxProviderC7mapView12googleApiKeyAC0cA00dH0C_SSSgtcfc",
+            "usr": "c:@M@MapsIndoors_Mapbox@objc(cs)MapBoxProvider(im)initWithMapView:",
+            "mangledName": "$s18MapsIndoors_Mapbox14MapBoxProviderC7mapViewAC0cA00dH0C_tcfc",
             "moduleName": "MapsIndoors_Mapbox",
             "declAttributes": [
               "Required",

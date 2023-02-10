@@ -9,6 +9,18 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [4.0.0-beta4] 2023-02-10
+
+### Fixed
+
+* Locations now show on Mapbox Map in apps using Cocoapod or XCFramework
+
+### Known issues
+
+* Content rendering order (polygons, markers, models, etc.)
+* Clustering not working
+* Directions relying on external routing not working
+
 ## [4.0.0-beta3] 2023-02-09
 
 ### Added

@@ -283,7 +283,7 @@ SWIFT_CLASS("_TtC18MapsIndoors_Mapbox14MapBoxProvider")
 @property (nonatomic) enum MPCollisionHandling collisionHandling;
 @property (nonatomic, readonly, strong) id <MPRouteRenderer> _Nonnull routeRenderer;
 @property (nonatomic, readonly, strong) id <MPCameraOperator> _Nonnull cameraOperator;
-- (nonnull instancetype)initWithMapView:(MapView * _Nonnull)mapView googleApiKey:(NSString * _Nullable)googleApiKey OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithMapView:(MapView * _Nonnull)mapView OBJC_DESIGNATED_INITIALIZER;
 - (void)setup;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");

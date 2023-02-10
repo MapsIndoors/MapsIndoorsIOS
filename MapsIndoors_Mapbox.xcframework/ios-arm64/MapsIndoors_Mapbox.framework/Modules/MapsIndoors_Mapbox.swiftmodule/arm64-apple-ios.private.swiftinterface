@@ -33,7 +33,7 @@ import _StringProcessing
   @objc public var cameraOperator: MapsIndoorsCore.MPCameraOperator {
     @objc get
   }
-  @objc required public init(mapView: MapboxMaps.MapView, googleApiKey: Swift.String? = nil)
+  @objc required public init(mapView: MapboxMaps.MapView)
   @objc public func setup()
   @objc deinit
 }
