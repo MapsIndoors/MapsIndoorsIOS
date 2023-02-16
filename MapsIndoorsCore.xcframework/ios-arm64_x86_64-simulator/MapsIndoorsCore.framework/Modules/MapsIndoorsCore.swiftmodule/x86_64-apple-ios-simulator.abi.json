@@ -230,8 +230,8 @@
       },
       {
         "kind": "TypeDecl",
-        "name": "MPDisplayRule",
-        "printedName": "MPDisplayRule",
+        "name": "MPDisplayRuleType",
+        "printedName": "MPDisplayRuleType",
         "children": [
           {
             "kind": "Var",
@@ -239,26 +239,260 @@
             "printedName": "buildingOutline",
             "children": [
               {
-                "kind": "TypeNominal",
-                "name": "MPDisplayRule",
-                "printedName": "MapsIndoorsCore.MPDisplayRule",
-                "usr": "c:@M@MapsIndoorsCore@objc(cs)MPDisplayRule"
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(MapsIndoorsCore.MPDisplayRuleType.Type) -> MapsIndoorsCore.MPDisplayRuleType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MPDisplayRuleType",
+                    "printedName": "MapsIndoorsCore.MPDisplayRuleType",
+                    "usr": "c:@M@MapsIndoorsCore@E@MPDisplayRuleType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "MapsIndoorsCore.MPDisplayRuleType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MPDisplayRuleType",
+                        "printedName": "MapsIndoorsCore.MPDisplayRuleType",
+                        "usr": "c:@M@MapsIndoorsCore@E@MPDisplayRuleType"
+                      }
+                    ]
+                  }
+                ]
               }
             ],
-            "declKind": "Var",
-            "usr": "c:@M@MapsIndoorsCore@objc(cs)MPDisplayRule(cpy)buildingOutline",
-            "mangledName": "$s15MapsIndoorsCore13MPDisplayRuleC15buildingOutlineACvpZ",
+            "declKind": "EnumElement",
+            "usr": "c:@M@MapsIndoorsCore@E@MPDisplayRuleType@MPDisplayRuleTypeBuildingOutline",
+            "mangledName": "$s15MapsIndoorsCore17MPDisplayRuleTypeO15buildingOutlineyA2CmF",
             "moduleName": "MapsIndoorsCore",
-            "static": true,
             "declAttributes": [
-              "HasInitialValue",
-              "Final",
-              "HasStorage",
-              "AccessControl",
               "RawDocComment",
               "ObjC"
             ],
-            "hasStorage": true,
+            "fixedbinaryorder": 0
+          },
+          {
+            "kind": "Var",
+            "name": "selectionHighlight",
+            "printedName": "selectionHighlight",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(MapsIndoorsCore.MPDisplayRuleType.Type) -> MapsIndoorsCore.MPDisplayRuleType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MPDisplayRuleType",
+                    "printedName": "MapsIndoorsCore.MPDisplayRuleType",
+                    "usr": "c:@M@MapsIndoorsCore@E@MPDisplayRuleType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "MapsIndoorsCore.MPDisplayRuleType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MPDisplayRuleType",
+                        "printedName": "MapsIndoorsCore.MPDisplayRuleType",
+                        "usr": "c:@M@MapsIndoorsCore@E@MPDisplayRuleType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@MapsIndoorsCore@E@MPDisplayRuleType@MPDisplayRuleTypeSelectionHighlight",
+            "mangledName": "$s15MapsIndoorsCore17MPDisplayRuleTypeO18selectionHighlightyA2CmF",
+            "moduleName": "MapsIndoorsCore",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 1
+          },
+          {
+            "kind": "Var",
+            "name": "blueDot",
+            "printedName": "blueDot",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(MapsIndoorsCore.MPDisplayRuleType.Type) -> MapsIndoorsCore.MPDisplayRuleType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MPDisplayRuleType",
+                    "printedName": "MapsIndoorsCore.MPDisplayRuleType",
+                    "usr": "c:@M@MapsIndoorsCore@E@MPDisplayRuleType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "MapsIndoorsCore.MPDisplayRuleType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MPDisplayRuleType",
+                        "printedName": "MapsIndoorsCore.MPDisplayRuleType",
+                        "usr": "c:@M@MapsIndoorsCore@E@MPDisplayRuleType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@MapsIndoorsCore@E@MPDisplayRuleType@MPDisplayRuleTypeBlueDot",
+            "mangledName": "$s15MapsIndoorsCore17MPDisplayRuleTypeO7blueDotyA2CmF",
+            "moduleName": "MapsIndoorsCore",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 2
+          },
+          {
+            "kind": "Var",
+            "name": "default",
+            "printedName": "default",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(MapsIndoorsCore.MPDisplayRuleType.Type) -> MapsIndoorsCore.MPDisplayRuleType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MPDisplayRuleType",
+                    "printedName": "MapsIndoorsCore.MPDisplayRuleType",
+                    "usr": "c:@M@MapsIndoorsCore@E@MPDisplayRuleType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "MapsIndoorsCore.MPDisplayRuleType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MPDisplayRuleType",
+                        "printedName": "MapsIndoorsCore.MPDisplayRuleType",
+                        "usr": "c:@M@MapsIndoorsCore@E@MPDisplayRuleType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@MapsIndoorsCore@E@MPDisplayRuleType@MPDisplayRuleTypeDefault",
+            "mangledName": "$s15MapsIndoorsCore17MPDisplayRuleTypeO7defaultyA2CmF",
+            "moduleName": "MapsIndoorsCore",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 3
+          },
+          {
+            "kind": "Var",
+            "name": "main",
+            "printedName": "main",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(MapsIndoorsCore.MPDisplayRuleType.Type) -> MapsIndoorsCore.MPDisplayRuleType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MPDisplayRuleType",
+                    "printedName": "MapsIndoorsCore.MPDisplayRuleType",
+                    "usr": "c:@M@MapsIndoorsCore@E@MPDisplayRuleType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "MapsIndoorsCore.MPDisplayRuleType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MPDisplayRuleType",
+                        "printedName": "MapsIndoorsCore.MPDisplayRuleType",
+                        "usr": "c:@M@MapsIndoorsCore@E@MPDisplayRuleType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@MapsIndoorsCore@E@MPDisplayRuleType@MPDisplayRuleTypeMain",
+            "mangledName": "$s15MapsIndoorsCore17MPDisplayRuleTypeO4mainyA2CmF",
+            "moduleName": "MapsIndoorsCore",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 4
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "MapsIndoorsCore.MPDisplayRuleType?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MPDisplayRuleType",
+                    "printedName": "MapsIndoorsCore.MPDisplayRuleType",
+                    "usr": "c:@M@MapsIndoorsCore@E@MPDisplayRuleType"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:15MapsIndoorsCore17MPDisplayRuleTypeO8rawValueACSgSi_tcfc",
+            "mangledName": "$s15MapsIndoorsCore17MPDisplayRuleTypeO8rawValueACSgSi_tcfc",
+            "moduleName": "MapsIndoorsCore",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15MapsIndoorsCore17MPDisplayRuleTypeO8rawValueSivp",
+            "mangledName": "$s15MapsIndoorsCore17MPDisplayRuleTypeO8rawValueSivp",
+            "moduleName": "MapsIndoorsCore",
+            "implicit": true,
             "accessors": [
               {
                 "kind": "Accessor",
@@ -267,76 +501,75 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "MPDisplayRule",
-                    "printedName": "MapsIndoorsCore.MPDisplayRule",
-                    "usr": "c:@M@MapsIndoorsCore@objc(cs)MPDisplayRule"
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "c:@M@MapsIndoorsCore@objc(cs)MPDisplayRule(cm)buildingOutline",
-                "mangledName": "$s15MapsIndoorsCore13MPDisplayRuleC15buildingOutlineACvgZ",
+                "usr": "s:15MapsIndoorsCore17MPDisplayRuleTypeO8rawValueSivg",
+                "mangledName": "$s15MapsIndoorsCore17MPDisplayRuleTypeO8rawValueSivg",
                 "moduleName": "MapsIndoorsCore",
-                "static": true,
                 "implicit": true,
-                "declAttributes": [
-                  "Final",
-                  "ObjC"
-                ],
                 "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "MPDisplayRule",
-                    "printedName": "MapsIndoorsCore.MPDisplayRule",
-                    "usr": "c:@M@MapsIndoorsCore@objc(cs)MPDisplayRule"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@MapsIndoorsCore@objc(cs)MPDisplayRule(cm)setBuildingOutline:",
-                "mangledName": "$s15MapsIndoorsCore13MPDisplayRuleC15buildingOutlineACvsZ",
-                "moduleName": "MapsIndoorsCore",
-                "static": true,
-                "implicit": true,
-                "declAttributes": [
-                  "Final",
-                  "ObjC"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:15MapsIndoorsCore13MPDisplayRuleC15buildingOutlineACvMZ",
-                "mangledName": "$s15MapsIndoorsCore13MPDisplayRuleC15buildingOutlineACvMZ",
-                "moduleName": "MapsIndoorsCore",
-                "static": true,
-                "implicit": true,
-                "declAttributes": [
-                  "Final"
-                ],
-                "accessorKind": "_modify"
               }
             ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "c:@M@MapsIndoorsCore@E@MPDisplayRuleType",
+        "mangledName": "$s15MapsIndoorsCore17MPDisplayRuleTypeO",
+        "moduleName": "MapsIndoorsCore",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
           },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MPDisplayRule",
+        "printedName": "MPDisplayRule",
+        "children": [
           {
             "kind": "Var",
             "name": "icon",
@@ -1180,110 +1413,6 @@
                 "mangledName": "$s15MapsIndoorsCore13MPDisplayRuleC11labelZoomToSdvM",
                 "moduleName": "MapsIndoorsCore",
                 "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "locationHighlight",
-            "printedName": "locationHighlight",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "MPDisplayRule",
-                "printedName": "MapsIndoorsCore.MPDisplayRule",
-                "usr": "c:@M@MapsIndoorsCore@objc(cs)MPDisplayRule"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@MapsIndoorsCore@objc(cs)MPDisplayRule(cpy)locationHighlight",
-            "mangledName": "$s15MapsIndoorsCore13MPDisplayRuleC17locationHighlightACvpZ",
-            "moduleName": "MapsIndoorsCore",
-            "static": true,
-            "declAttributes": [
-              "HasInitialValue",
-              "Final",
-              "HasStorage",
-              "AccessControl",
-              "RawDocComment",
-              "ObjC"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "MPDisplayRule",
-                    "printedName": "MapsIndoorsCore.MPDisplayRule",
-                    "usr": "c:@M@MapsIndoorsCore@objc(cs)MPDisplayRule"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@MapsIndoorsCore@objc(cs)MPDisplayRule(cm)locationHighlight",
-                "mangledName": "$s15MapsIndoorsCore13MPDisplayRuleC17locationHighlightACvgZ",
-                "moduleName": "MapsIndoorsCore",
-                "static": true,
-                "implicit": true,
-                "declAttributes": [
-                  "Final",
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "MPDisplayRule",
-                    "printedName": "MapsIndoorsCore.MPDisplayRule",
-                    "usr": "c:@M@MapsIndoorsCore@objc(cs)MPDisplayRule"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@MapsIndoorsCore@objc(cs)MPDisplayRule(cm)setLocationHighlight:",
-                "mangledName": "$s15MapsIndoorsCore13MPDisplayRuleC17locationHighlightACvsZ",
-                "moduleName": "MapsIndoorsCore",
-                "static": true,
-                "implicit": true,
-                "declAttributes": [
-                  "Final",
-                  "ObjC"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:15MapsIndoorsCore13MPDisplayRuleC17locationHighlightACvMZ",
-                "mangledName": "$s15MapsIndoorsCore13MPDisplayRuleC17locationHighlightACvMZ",
-                "moduleName": "MapsIndoorsCore",
-                "static": true,
-                "implicit": true,
-                "declAttributes": [
-                  "Final"
-                ],
                 "accessorKind": "_modify"
               }
             ]
@@ -2661,109 +2790,6 @@
           },
           {
             "kind": "Var",
-            "name": "userPosition",
-            "printedName": "userPosition",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "MPDisplayRule",
-                "printedName": "MapsIndoorsCore.MPDisplayRule",
-                "usr": "c:@M@MapsIndoorsCore@objc(cs)MPDisplayRule"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@MapsIndoorsCore@objc(cs)MPDisplayRule(cpy)userPosition",
-            "mangledName": "$s15MapsIndoorsCore13MPDisplayRuleC12userPositionACvpZ",
-            "moduleName": "MapsIndoorsCore",
-            "static": true,
-            "declAttributes": [
-              "HasInitialValue",
-              "Final",
-              "HasStorage",
-              "AccessControl",
-              "ObjC"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "MPDisplayRule",
-                    "printedName": "MapsIndoorsCore.MPDisplayRule",
-                    "usr": "c:@M@MapsIndoorsCore@objc(cs)MPDisplayRule"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@MapsIndoorsCore@objc(cs)MPDisplayRule(cm)userPosition",
-                "mangledName": "$s15MapsIndoorsCore13MPDisplayRuleC12userPositionACvgZ",
-                "moduleName": "MapsIndoorsCore",
-                "static": true,
-                "implicit": true,
-                "declAttributes": [
-                  "Final",
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "MPDisplayRule",
-                    "printedName": "MapsIndoorsCore.MPDisplayRule",
-                    "usr": "c:@M@MapsIndoorsCore@objc(cs)MPDisplayRule"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@MapsIndoorsCore@objc(cs)MPDisplayRule(cm)setUserPosition:",
-                "mangledName": "$s15MapsIndoorsCore13MPDisplayRuleC12userPositionACvsZ",
-                "moduleName": "MapsIndoorsCore",
-                "static": true,
-                "implicit": true,
-                "declAttributes": [
-                  "Final",
-                  "ObjC"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:15MapsIndoorsCore13MPDisplayRuleC12userPositionACvMZ",
-                "mangledName": "$s15MapsIndoorsCore13MPDisplayRuleC12userPositionACvMZ",
-                "moduleName": "MapsIndoorsCore",
-                "static": true,
-                "implicit": true,
-                "declAttributes": [
-                  "Final"
-                ],
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
             "name": "visible",
             "printedName": "visible",
             "children": [
@@ -3314,133 +3340,6 @@
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
           }
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "MapsIndoorsCore",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "MapsIndoorsCore_Private",
-        "printedName": "MapsIndoorsCore_Private",
-        "declKind": "Import",
-        "moduleName": "MapsIndoorsCore"
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "MPFloorTileLayer",
-        "printedName": "MPFloorTileLayer",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "layer",
-            "printedName": "layer",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "MPTileLayer",
-                "printedName": "MapsIndoorsCore.MPTileLayer",
-                "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileLayer"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@MapsIndoorsCore@objc(pl)MPFloorTileLayer(py)layer",
-            "mangledName": "$s15MapsIndoorsCore16MPFloorTileLayerP5layerAA06MPTileF0_pvp",
-            "moduleName": "MapsIndoorsCore",
-            "protocolReq": true,
-            "declAttributes": [
-              "ObjC"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "MPTileLayer",
-                    "printedName": "MapsIndoorsCore.MPTileLayer",
-                    "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileLayer"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@MapsIndoorsCore@objc(pl)MPFloorTileLayer(im)layer",
-                "mangledName": "$s15MapsIndoorsCore16MPFloorTileLayerP5layerAA06MPTileF0_pvg",
-                "moduleName": "MapsIndoorsCore",
-                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPFloorTileLayer>",
-                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPFloorTileLayer>",
-                "protocolReq": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "reqNewWitnessTableEntry": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(venue:andFloor:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "τ_0_0?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "GenericTypeParam",
-                    "printedName": "τ_0_0"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "MPVenue",
-                "printedName": "MapsIndoorsCore.MPVenue",
-                "usr": "c:objc(cs)MPVenue"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "MPFloor",
-                "printedName": "MapsIndoorsCore.MPFloor",
-                "usr": "c:objc(cs)MPFloor"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@MapsIndoorsCore@objc(pl)MPFloorTileLayer(im)initWithVenue:andFloor:",
-            "mangledName": "$s15MapsIndoorsCore16MPFloorTileLayerP5venue8andFloorxSgSo7MPVenueC_So0D0Ctcfc",
-            "moduleName": "MapsIndoorsCore",
-            "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPFloorTileLayer>",
-            "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPFloorTileLayer>",
-            "protocolReq": true,
-            "objc_name": "initWithVenue:andFloor:",
-            "declAttributes": [
-              "ObjC"
-            ],
-            "reqNewWitnessTableEntry": true,
-            "init_kind": "Designated"
-          }
-        ],
-        "declKind": "Protocol",
-        "usr": "c:@M@MapsIndoorsCore@objc(pl)MPFloorTileLayer",
-        "mangledName": "$s15MapsIndoorsCore16MPFloorTileLayerP",
-        "moduleName": "MapsIndoorsCore",
-        "genericSig": "<τ_0_0 : AnyObject>",
-        "sugared_genericSig": "<Self : AnyObject>",
-        "declAttributes": [
-          "AccessControl",
-          "ObjC"
         ]
       },
       {
@@ -6239,6 +6138,63 @@
                 "protocolReq": true,
                 "reqNewWitnessTableEntry": true,
                 "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "MapsIndoorsCore.MPFeature?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MPFeature",
+                        "printedName": "MapsIndoorsCore.MPFeature",
+                        "usr": "s:15MapsIndoorsCore9MPFeatureV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15MapsIndoorsCore11MPViewModelP6markerAA9MPFeatureVSgvs",
+                "mangledName": "$s15MapsIndoorsCore11MPViewModelP6markerAA9MPFeatureVSgvs",
+                "moduleName": "MapsIndoorsCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPViewModel>",
+                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPViewModel>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15MapsIndoorsCore11MPViewModelP6markerAA9MPFeatureVSgvM",
+                "mangledName": "$s15MapsIndoorsCore11MPViewModelP6markerAA9MPFeatureVSgvM",
+                "moduleName": "MapsIndoorsCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPViewModel>",
+                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPViewModel>",
+                "protocolReq": true,
+                "implicit": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "_modify"
               }
             ]
           },
@@ -6297,6 +6253,63 @@
                 "protocolReq": true,
                 "reqNewWitnessTableEntry": true,
                 "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "MapsIndoorsCore.MPFeature?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MPFeature",
+                        "printedName": "MapsIndoorsCore.MPFeature",
+                        "usr": "s:15MapsIndoorsCore9MPFeatureV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15MapsIndoorsCore11MPViewModelP7polygonAA9MPFeatureVSgvs",
+                "mangledName": "$s15MapsIndoorsCore11MPViewModelP7polygonAA9MPFeatureVSgvs",
+                "moduleName": "MapsIndoorsCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPViewModel>",
+                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPViewModel>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15MapsIndoorsCore11MPViewModelP7polygonAA9MPFeatureVSgvM",
+                "mangledName": "$s15MapsIndoorsCore11MPViewModelP7polygonAA9MPFeatureVSgvM",
+                "moduleName": "MapsIndoorsCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPViewModel>",
+                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPViewModel>",
+                "protocolReq": true,
+                "implicit": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "_modify"
               }
             ]
           },
@@ -6355,6 +6368,63 @@
                 "protocolReq": true,
                 "reqNewWitnessTableEntry": true,
                 "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "MapsIndoorsCore.MPFeature?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MPFeature",
+                        "printedName": "MapsIndoorsCore.MPFeature",
+                        "usr": "s:15MapsIndoorsCore9MPFeatureV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15MapsIndoorsCore11MPViewModelP8polylineAA9MPFeatureVSgvs",
+                "mangledName": "$s15MapsIndoorsCore11MPViewModelP8polylineAA9MPFeatureVSgvs",
+                "moduleName": "MapsIndoorsCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPViewModel>",
+                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPViewModel>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15MapsIndoorsCore11MPViewModelP8polylineAA9MPFeatureVSgvM",
+                "mangledName": "$s15MapsIndoorsCore11MPViewModelP8polylineAA9MPFeatureVSgvM",
+                "moduleName": "MapsIndoorsCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPViewModel>",
+                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPViewModel>",
+                "protocolReq": true,
+                "implicit": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "_modify"
               }
             ]
           },
@@ -6413,6 +6483,63 @@
                 "protocolReq": true,
                 "reqNewWitnessTableEntry": true,
                 "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "MapsIndoorsCore.MPFeature?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MPFeature",
+                        "printedName": "MapsIndoorsCore.MPFeature",
+                        "usr": "s:15MapsIndoorsCore9MPFeatureV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15MapsIndoorsCore11MPViewModelP7model2DAA9MPFeatureVSgvs",
+                "mangledName": "$s15MapsIndoorsCore11MPViewModelP7model2DAA9MPFeatureVSgvs",
+                "moduleName": "MapsIndoorsCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPViewModel>",
+                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPViewModel>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15MapsIndoorsCore11MPViewModelP7model2DAA9MPFeatureVSgvM",
+                "mangledName": "$s15MapsIndoorsCore11MPViewModelP7model2DAA9MPFeatureVSgvM",
+                "moduleName": "MapsIndoorsCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPViewModel>",
+                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPViewModel>",
+                "protocolReq": true,
+                "implicit": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "_modify"
               }
             ]
           },
@@ -6500,6 +6627,76 @@
                 "protocolReq": true,
                 "reqNewWitnessTableEntry": true,
                 "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[MapsIndoorsCore.MPModelData : Any?]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MPModelData",
+                        "printedName": "MapsIndoorsCore.MPModelData",
+                        "usr": "s:15MapsIndoorsCore11MPModelDataO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Any?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ProtocolComposition",
+                            "printedName": "Any"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15MapsIndoorsCore11MPViewModelP4dataSDyAA11MPModelDataOypSgGvs",
+                "mangledName": "$s15MapsIndoorsCore11MPViewModelP4dataSDyAA11MPModelDataOypSgGvs",
+                "moduleName": "MapsIndoorsCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPViewModel>",
+                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPViewModel>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15MapsIndoorsCore11MPViewModelP4dataSDyAA11MPModelDataOypSgGvM",
+                "mangledName": "$s15MapsIndoorsCore11MPViewModelP4dataSDyAA11MPModelDataOypSgGvM",
+                "moduleName": "MapsIndoorsCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPViewModel>",
+                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPViewModel>",
+                "protocolReq": true,
+                "implicit": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "_modify"
               }
             ]
           },
@@ -6542,6 +6739,55 @@
                 "protocolReq": true,
                 "reqNewWitnessTableEntry": true,
                 "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15MapsIndoorsCore11MPViewModelP10isSelectedSbvs",
+                "mangledName": "$s15MapsIndoorsCore11MPViewModelP10isSelectedSbvs",
+                "moduleName": "MapsIndoorsCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPViewModel>",
+                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPViewModel>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15MapsIndoorsCore11MPViewModelP10isSelectedSbvM",
+                "mangledName": "$s15MapsIndoorsCore11MPViewModelP10isSelectedSbvM",
+                "moduleName": "MapsIndoorsCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPViewModel>",
+                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPViewModel>",
+                "protocolReq": true,
+                "implicit": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "_modify"
               }
             ]
           },
@@ -6584,6 +6830,55 @@
                 "protocolReq": true,
                 "reqNewWitnessTableEntry": true,
                 "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15MapsIndoorsCore11MPViewModelP14showInfoWindowSbvs",
+                "mangledName": "$s15MapsIndoorsCore11MPViewModelP14showInfoWindowSbvs",
+                "moduleName": "MapsIndoorsCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPViewModel>",
+                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPViewModel>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15MapsIndoorsCore11MPViewModelP14showInfoWindowSbvM",
+                "mangledName": "$s15MapsIndoorsCore11MPViewModelP14showInfoWindowSbvM",
+                "moduleName": "MapsIndoorsCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPViewModel>",
+                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPViewModel>",
+                "protocolReq": true,
+                "implicit": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "_modify"
               }
             ]
           },
@@ -7748,8 +8043,8 @@
           },
           {
             "kind": "Var",
-            "name": "selectedBuilding",
-            "printedName": "selectedBuilding",
+            "name": "currentBuilding",
+            "printedName": "currentBuilding",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -7767,8 +8062,8 @@
               }
             ],
             "declKind": "Var",
-            "usr": "c:@M@MapsIndoorsCore@objc(pl)MPMapControl(py)selectedBuilding",
-            "mangledName": "$s15MapsIndoorsCore12MPMapControlP16selectedBuildingSo10MPBuildingCSgvp",
+            "usr": "c:@M@MapsIndoorsCore@objc(pl)MPMapControl(py)currentBuilding",
+            "mangledName": "$s15MapsIndoorsCore12MPMapControlP15currentBuildingSo10MPBuildingCSgvp",
             "moduleName": "MapsIndoorsCore",
             "protocolReq": true,
             "declAttributes": [
@@ -7797,8 +8092,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "c:@M@MapsIndoorsCore@objc(pl)MPMapControl(im)selectedBuilding",
-                "mangledName": "$s15MapsIndoorsCore12MPMapControlP16selectedBuildingSo10MPBuildingCSgvg",
+                "usr": "c:@M@MapsIndoorsCore@objc(pl)MPMapControl(im)currentBuilding",
+                "mangledName": "$s15MapsIndoorsCore12MPMapControlP15currentBuildingSo10MPBuildingCSgvg",
                 "moduleName": "MapsIndoorsCore",
                 "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPMapControl>",
                 "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPMapControl>",
@@ -7813,8 +8108,8 @@
           },
           {
             "kind": "Var",
-            "name": "selectedVenue",
-            "printedName": "selectedVenue",
+            "name": "currentVenue",
+            "printedName": "currentVenue",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -7832,8 +8127,8 @@
               }
             ],
             "declKind": "Var",
-            "usr": "c:@M@MapsIndoorsCore@objc(pl)MPMapControl(py)selectedVenue",
-            "mangledName": "$s15MapsIndoorsCore12MPMapControlP13selectedVenueSo7MPVenueCSgvp",
+            "usr": "c:@M@MapsIndoorsCore@objc(pl)MPMapControl(py)currentVenue",
+            "mangledName": "$s15MapsIndoorsCore12MPMapControlP12currentVenueSo7MPVenueCSgvp",
             "moduleName": "MapsIndoorsCore",
             "protocolReq": true,
             "declAttributes": [
@@ -7862,8 +8157,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "c:@M@MapsIndoorsCore@objc(pl)MPMapControl(im)selectedVenue",
-                "mangledName": "$s15MapsIndoorsCore12MPMapControlP13selectedVenueSo7MPVenueCSgvg",
+                "usr": "c:@M@MapsIndoorsCore@objc(pl)MPMapControl(im)currentVenue",
+                "mangledName": "$s15MapsIndoorsCore12MPMapControlP12currentVenueSo7MPVenueCSgvg",
                 "moduleName": "MapsIndoorsCore",
                 "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPMapControl>",
                 "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPMapControl>",
@@ -8183,7 +8478,7 @@
           {
             "kind": "Function",
             "name": "goTo",
-            "printedName": "goTo(location:)",
+            "printedName": "goTo(entity:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -8192,19 +8487,19 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "MPLocation",
-                "printedName": "MapsIndoorsCore.MPLocation",
-                "usr": "c:objc(cs)MPLocation"
+                "name": "MPEntity",
+                "printedName": "MapsIndoorsCore.MPEntity",
+                "usr": "c:@M@MapsIndoorsCore@objc(pl)MPEntity"
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@MapsIndoorsCore@objc(pl)MPMapControl(im)goToLocation:",
-            "mangledName": "$s15MapsIndoorsCore12MPMapControlP4goTo8locationySo10MPLocationC_tF",
+            "usr": "c:@M@MapsIndoorsCore@objc(pl)MPMapControl(im)goToEntity:",
+            "mangledName": "$s15MapsIndoorsCore12MPMapControlP4goTo6entityyAA8MPEntity_p_tF",
             "moduleName": "MapsIndoorsCore",
             "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPMapControl>",
             "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPMapControl>",
             "protocolReq": true,
-            "objc_name": "goToLocation:",
+            "objc_name": "goToEntity:",
             "declAttributes": [
               "ObjC",
               "RawDocComment"
@@ -8301,6 +8596,109 @@
             ],
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "positionProvider",
+            "printedName": "positionProvider",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "MapsIndoorsCore.MPPositionProvider?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MPPositionProvider",
+                    "printedName": "MapsIndoorsCore.MPPositionProvider",
+                    "usr": "c:objc(pl)MPPositionProvider"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MapsIndoorsCore@objc(pl)MPMapControl(py)positionProvider",
+            "mangledName": "$s15MapsIndoorsCore12MPMapControlP16positionProviderSo010MPPositionG0_pSgvp",
+            "moduleName": "MapsIndoorsCore",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "MapsIndoorsCore.MPPositionProvider?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MPPositionProvider",
+                        "printedName": "MapsIndoorsCore.MPPositionProvider",
+                        "usr": "c:objc(pl)MPPositionProvider"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MapsIndoorsCore@objc(pl)MPMapControl(im)positionProvider",
+                "mangledName": "$s15MapsIndoorsCore12MPMapControlP16positionProviderSo010MPPositionG0_pSgvg",
+                "moduleName": "MapsIndoorsCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPMapControl>",
+                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPMapControl>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "MapsIndoorsCore.MPPositionProvider?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MPPositionProvider",
+                        "printedName": "MapsIndoorsCore.MPPositionProvider",
+                        "usr": "c:objc(pl)MPPositionProvider"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MapsIndoorsCore@objc(pl)MPMapControl(im)setPositionProvider:",
+                "mangledName": "$s15MapsIndoorsCore12MPMapControlP16positionProviderSo010MPPositionG0_pSgvs",
+                "moduleName": "MapsIndoorsCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPMapControl>",
+                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPMapControl>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "set"
+              }
+            ]
           }
         ],
         "declKind": "Protocol",
@@ -9460,246 +9858,11 @@
         "moduleName": "MapsIndoorsCore"
       },
       {
-        "kind": "TypeDecl",
-        "name": "MPViewModelProducer",
-        "printedName": "MPViewModelProducer",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "size",
-            "printedName": "size",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:15MapsIndoorsCore19MPViewModelProducerC4sizeSivp",
-            "mangledName": "$s15MapsIndoorsCore19MPViewModelProducerC4sizeSivp",
-            "moduleName": "MapsIndoorsCore",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:15MapsIndoorsCore19MPViewModelProducerC4sizeSivg",
-                "mangledName": "$s15MapsIndoorsCore19MPViewModelProducerC4sizeSivg",
-                "moduleName": "MapsIndoorsCore",
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(withLocations:mapControl:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "MPViewModelProducer",
-                "printedName": "MapsIndoorsCore.MPViewModelProducer",
-                "usr": "c:@M@MapsIndoorsCore@objc(cs)MPViewModelProducer"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[MapsIndoorsCore.MPLocation]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "MPLocation",
-                    "printedName": "MapsIndoorsCore.MPLocation",
-                    "usr": "c:objc(cs)MPLocation"
-                  }
-                ],
-                "usr": "s:Sa"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "MPMapControl",
-                "printedName": "MapsIndoorsCore.MPMapControl",
-                "usr": "c:@M@MapsIndoorsCore@objc(pl)MPMapControl"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:15MapsIndoorsCore19MPViewModelProducerC13withLocations10mapControlACSaySo10MPLocationCG_AA05MPMapJ0_ptcfc",
-            "mangledName": "$s15MapsIndoorsCore19MPViewModelProducerC13withLocations10mapControlACSaySo10MPLocationCG_AA05MPMapJ0_ptcfc",
-            "moduleName": "MapsIndoorsCore",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Function",
-            "name": "produce",
-            "printedName": "produce()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[MapsIndoorsCore.MPViewModel]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "MPViewModel",
-                    "printedName": "MapsIndoorsCore.MPViewModel",
-                    "usr": "s:15MapsIndoorsCore11MPViewModelP"
-                  }
-                ],
-                "usr": "s:Sa"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:15MapsIndoorsCore19MPViewModelProducerC7produceSayAA0dE0_pGyYaF",
-            "mangledName": "$s15MapsIndoorsCore19MPViewModelProducerC7produceSayAA0dE0_pGyYaF",
-            "moduleName": "MapsIndoorsCore",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "viewModelFor",
-            "printedName": "viewModelFor(location:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "MapsIndoorsCore.MPViewModel?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "MPViewModel",
-                    "printedName": "MapsIndoorsCore.MPViewModel",
-                    "usr": "s:15MapsIndoorsCore11MPViewModelP"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "MPLocation",
-                "printedName": "MapsIndoorsCore.MPLocation",
-                "usr": "c:objc(cs)MPLocation"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:15MapsIndoorsCore19MPViewModelProducerC04viewE3For8locationAA0dE0_pSgSo10MPLocationC_tYaF",
-            "mangledName": "$s15MapsIndoorsCore19MPViewModelProducerC04viewE3For8locationAA0dE0_pSgSo10MPLocationC_tYaF",
-            "moduleName": "MapsIndoorsCore",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "MPViewModelProducer",
-                "printedName": "MapsIndoorsCore.MPViewModelProducer",
-                "usr": "c:@M@MapsIndoorsCore@objc(cs)MPViewModelProducer"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@MapsIndoorsCore@objc(cs)MPViewModelProducer(im)init",
-            "mangledName": "$s15MapsIndoorsCore19MPViewModelProducerCACycfc",
-            "moduleName": "MapsIndoorsCore",
-            "overriding": true,
-            "implicit": true,
-            "objc_name": "init",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Override"
-            ],
-            "init_kind": "Designated"
-          }
-        ],
-        "declKind": "Class",
-        "usr": "c:@M@MapsIndoorsCore@objc(cs)MPViewModelProducer",
-        "mangledName": "$s15MapsIndoorsCore19MPViewModelProducerC",
-        "moduleName": "MapsIndoorsCore",
-        "declAttributes": [
-          "AccessControl",
-          "ObjC",
-          "RawDocComment"
-        ],
-        "superclassUsr": "c:objc(cs)NSObject",
-        "superclassNames": [
-          "ObjectiveC.NSObject"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CVarArg",
-            "printedName": "CVarArg",
-            "usr": "s:s7CVarArgP",
-            "mangledName": "$ss7CVarArgP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObservingPublishing",
-            "printedName": "_KeyValueCodingAndObservingPublishing",
-            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
-            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObserving",
-            "printedName": "_KeyValueCodingAndObserving",
-            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
-            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomStringConvertible",
-            "printedName": "CustomStringConvertible",
-            "usr": "s:s23CustomStringConvertibleP",
-            "mangledName": "$ss23CustomStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomDebugStringConvertible",
-            "printedName": "CustomDebugStringConvertible",
-            "usr": "s:s28CustomDebugStringConvertibleP",
-            "mangledName": "$ss28CustomDebugStringConvertibleP"
-          }
-        ]
+        "kind": "Import",
+        "name": "CommonCrypto",
+        "printedName": "CommonCrypto",
+        "declKind": "Import",
+        "moduleName": "MapsIndoorsCore"
       },
       {
         "kind": "Import",
@@ -11973,10 +12136,7 @@
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
-        "moduleName": "MapsIndoorsCore",
-        "declAttributes": [
-          "RawDocComment"
-        ]
+        "moduleName": "MapsIndoorsCore"
       },
       {
         "kind": "Import",
@@ -11987,32 +12147,9 @@
       },
       {
         "kind": "TypeDecl",
-        "name": "TileProvider",
-        "printedName": "TileProvider",
+        "name": "MPTileProvider",
+        "printedName": "MPTileProvider",
         "children": [
-          {
-            "kind": "Function",
-            "name": "clearMap",
-            "printedName": "clearMap()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@MapsIndoorsCore@objc(cs)TileProvider(im)clearMap",
-            "mangledName": "$s15MapsIndoorsCore12TileProviderC8clearMapyyF",
-            "moduleName": "MapsIndoorsCore",
-            "objc_name": "clearMap",
-            "declAttributes": [
-              "ObjC",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
           {
             "kind": "Constructor",
             "name": "init",
@@ -12020,9 +12157,9 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "TileProvider",
-                "printedName": "MapsIndoorsCore.TileProvider",
-                "usr": "c:@M@MapsIndoorsCore@objc(cs)TileProvider"
+                "name": "MPTileProvider",
+                "printedName": "MapsIndoorsCore.MPTileProvider",
+                "usr": "s:15MapsIndoorsCore14MPTileProviderC"
               },
               {
                 "kind": "TypeNominal",
@@ -12044,38 +12181,14 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "c:@M@MapsIndoorsCore@objc(cs)TileProvider(im)initWithVenue:floor:tileSize:",
-            "mangledName": "$s15MapsIndoorsCore12TileProviderC5venue5floor8tileSizeACSo7MPVenueC_S2itcfc",
+            "usr": "s:15MapsIndoorsCore14MPTileProviderC5venue5floor8tileSizeACSo7MPVenueC_S2itcfc",
+            "mangledName": "$s15MapsIndoorsCore14MPTileProviderC5venue5floor8tileSizeACSo7MPVenueC_S2itcfc",
             "moduleName": "MapsIndoorsCore",
-            "objc_name": "initWithVenue:floor:tileSize:",
             "declAttributes": [
               "AccessControl",
-              "Required",
-              "ObjC",
-              "RawDocComment"
+              "Required"
             ],
             "init_kind": "Designated"
-          },
-          {
-            "kind": "Function",
-            "name": "getTileUrl",
-            "printedName": "getTileUrl()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:15MapsIndoorsCore12TileProviderC03getD3UrlSSyF",
-            "mangledName": "$s15MapsIndoorsCore12TileProviderC03getD3UrlSSyF",
-            "moduleName": "MapsIndoorsCore",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Function",
@@ -12116,12 +12229,10 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@MapsIndoorsCore@objc(cs)TileProvider(im)getTileWithX:y:zoom:",
-            "mangledName": "$s15MapsIndoorsCore12TileProviderC03getD01x1y4zoomSo7UIImageCSgSu_S2utF",
+            "usr": "s:15MapsIndoorsCore14MPTileProviderC7getTile1x1y4zoomSo7UIImageCSgSu_S2utF",
+            "mangledName": "$s15MapsIndoorsCore14MPTileProviderC7getTile1x1y4zoomSo7UIImageCSgSu_S2utF",
             "moduleName": "MapsIndoorsCore",
-            "objc_name": "getTileWithX:y:zoom:",
             "declAttributes": [
-              "ObjC",
               "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
@@ -12157,8 +12268,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:15MapsIndoorsCore12TileProviderC03getD3Url4zoom1x1ySSSu_S2utF",
-            "mangledName": "$s15MapsIndoorsCore12TileProviderC03getD3Url4zoom1x1ySSSu_S2utF",
+            "usr": "s:15MapsIndoorsCore14MPTileProviderC10getTileUrl4zoom1x1ySSSu_S2utF",
+            "mangledName": "$s15MapsIndoorsCore14MPTileProviderC10getTileUrl4zoom1x1ySSSu_S2utF",
             "moduleName": "MapsIndoorsCore",
             "declAttributes": [
               "AccessControl"
@@ -12178,12 +12289,10 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@MapsIndoorsCore@objc(cs)TileProvider(im)tileSize",
-            "mangledName": "$s15MapsIndoorsCore12TileProviderC8tileSizeSdyF",
+            "usr": "s:15MapsIndoorsCore14MPTileProviderC8tileSizeSdyF",
+            "mangledName": "$s15MapsIndoorsCore14MPTileProviderC8tileSizeSdyF",
             "moduleName": "MapsIndoorsCore",
-            "objc_name": "tileSize",
             "declAttributes": [
-              "ObjC",
               "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
@@ -12201,112 +12310,21 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@MapsIndoorsCore@objc(cs)TileProvider(im)templateUrl",
-            "mangledName": "$s15MapsIndoorsCore12TileProviderC11templateUrlSSyF",
+            "usr": "s:15MapsIndoorsCore14MPTileProviderC11templateUrlSSyF",
+            "mangledName": "$s15MapsIndoorsCore14MPTileProviderC11templateUrlSSyF",
             "moduleName": "MapsIndoorsCore",
-            "objc_name": "templateUrl",
             "declAttributes": [
-              "ObjC",
               "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "TileProvider",
-                "printedName": "MapsIndoorsCore.TileProvider",
-                "usr": "c:@M@MapsIndoorsCore@objc(cs)TileProvider"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@MapsIndoorsCore@objc(cs)TileProvider(im)init",
-            "mangledName": "$s15MapsIndoorsCore12TileProviderCACycfc",
-            "moduleName": "MapsIndoorsCore",
-            "overriding": true,
-            "implicit": true,
-            "objc_name": "init",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Override"
-            ],
-            "init_kind": "Designated"
           }
         ],
         "declKind": "Class",
-        "usr": "c:@M@MapsIndoorsCore@objc(cs)TileProvider",
-        "mangledName": "$s15MapsIndoorsCore12TileProviderC",
+        "usr": "s:15MapsIndoorsCore14MPTileProviderC",
+        "mangledName": "$s15MapsIndoorsCore14MPTileProviderC",
         "moduleName": "MapsIndoorsCore",
         "declAttributes": [
-          "AccessControl",
-          "ObjC"
-        ],
-        "superclassUsr": "c:objc(cs)NSObject",
-        "superclassNames": [
-          "ObjectiveC.NSObject"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "MPTileProvider",
-            "printedName": "MPTileProvider",
-            "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileProvider",
-            "mangledName": "$s15MapsIndoorsCore14MPTileProviderP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CVarArg",
-            "printedName": "CVarArg",
-            "usr": "s:s7CVarArgP",
-            "mangledName": "$ss7CVarArgP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObservingPublishing",
-            "printedName": "_KeyValueCodingAndObservingPublishing",
-            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
-            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObserving",
-            "printedName": "_KeyValueCodingAndObserving",
-            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
-            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomStringConvertible",
-            "printedName": "CustomStringConvertible",
-            "usr": "s:s23CustomStringConvertibleP",
-            "mangledName": "$ss23CustomStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomDebugStringConvertible",
-            "printedName": "CustomDebugStringConvertible",
-            "usr": "s:s28CustomDebugStringConvertibleP",
-            "mangledName": "$ss28CustomDebugStringConvertibleP"
-          }
+          "AccessControl"
         ]
       },
       {
@@ -13060,12 +13078,12 @@
                 "kind": "TypeNominal",
                 "name": "MPTileProvider",
                 "printedName": "MapsIndoorsCore.MPTileProvider",
-                "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileProvider"
+                "usr": "s:15MapsIndoorsCore14MPTileProviderC"
               }
             ],
             "declKind": "Func",
-            "usr": "s:15MapsIndoorsCore13MPMapProviderP07setTileE004tileE0yAA06MPTileE0_p_tF",
-            "mangledName": "$s15MapsIndoorsCore13MPMapProviderP07setTileE004tileE0yAA06MPTileE0_p_tF",
+            "usr": "s:15MapsIndoorsCore13MPMapProviderP07setTileE004tileE0yAA06MPTileE0C_tF",
+            "mangledName": "$s15MapsIndoorsCore13MPMapProviderP07setTileE004tileE0yAA06MPTileE0C_tF",
             "moduleName": "MapsIndoorsCore",
             "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPMapProvider>",
             "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPMapProvider>",
@@ -13961,55 +13979,6 @@
           },
           {
             "kind": "Var",
-            "name": "mainDisplayRule",
-            "printedName": "mainDisplayRule",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "MPDisplayRule",
-                "printedName": "MapsIndoorsCore.MPDisplayRule",
-                "usr": "c:@M@MapsIndoorsCore@objc(cs)MPDisplayRule"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@MapsIndoorsCore@objc(cs)MPSolutionConfig(py)mainDisplayRule",
-            "mangledName": "$s15MapsIndoorsCore16MPSolutionConfigC15mainDisplayRuleAA09MPDisplayH0Cvp",
-            "moduleName": "MapsIndoorsCore",
-            "declAttributes": [
-              "HasInitialValue",
-              "HasStorage",
-              "SetterAccess",
-              "AccessControl",
-              "ObjC"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "MPDisplayRule",
-                    "printedName": "MapsIndoorsCore.MPDisplayRule",
-                    "usr": "c:@M@MapsIndoorsCore@objc(cs)MPDisplayRule"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@MapsIndoorsCore@objc(cs)MPSolutionConfig(im)mainDisplayRule",
-                "mangledName": "$s15MapsIndoorsCore16MPSolutionConfigC15mainDisplayRuleAA09MPDisplayH0Cvg",
-                "moduleName": "MapsIndoorsCore",
-                "implicit": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
             "name": "settings3D",
             "printedName": "settings3D",
             "children": [
@@ -14264,82 +14233,6 @@
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
           }
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "MapsIndoorsCore",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "MPTileLayerClass",
-        "printedName": "MPTileLayerClass",
-        "children": [
-          {
-            "kind": "Function",
-            "name": "tileLayer",
-            "printedName": "tileLayer()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "MPTileLayer",
-                "printedName": "MapsIndoorsCore.MPTileLayer",
-                "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileLayer"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileLayerClass(im)tileLayer",
-            "mangledName": "$s15MapsIndoorsCore16MPTileLayerClassP04tileE0AA0dE0_pyF",
-            "moduleName": "MapsIndoorsCore",
-            "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPTileLayerClass>",
-            "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPTileLayerClass>",
-            "protocolReq": true,
-            "declAttributes": [
-              "ObjC"
-            ],
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "clearTileCache",
-            "printedName": "clearTileCache()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileLayerClass(im)clearTileCache",
-            "mangledName": "$s15MapsIndoorsCore16MPTileLayerClassP14clearTileCacheyyF",
-            "moduleName": "MapsIndoorsCore",
-            "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPTileLayerClass>",
-            "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPTileLayerClass>",
-            "protocolReq": true,
-            "declAttributes": [
-              "ObjC"
-            ],
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          }
-        ],
-        "declKind": "Protocol",
-        "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileLayerClass",
-        "mangledName": "$s15MapsIndoorsCore16MPTileLayerClassP",
-        "moduleName": "MapsIndoorsCore",
-        "genericSig": "<τ_0_0 : AnyObject>",
-        "sugared_genericSig": "<Self : AnyObject>",
-        "declAttributes": [
-          "AccessControl",
-          "ObjC"
         ]
       },
       {
@@ -14970,8 +14863,8 @@
           },
           {
             "kind": "Var",
-            "name": "polygonOpacity",
-            "printedName": "polygonOpacity",
+            "name": "polygonFillOpacity",
+            "printedName": "polygonFillOpacity",
             "children": [
               {
                 "kind": "TypeFunc",
@@ -15001,8 +14894,8 @@
               }
             ],
             "declKind": "EnumElement",
-            "usr": "s:15MapsIndoorsCore18MPModelPropertyKeyO14polygonOpacityyA2CmF",
-            "mangledName": "$s15MapsIndoorsCore18MPModelPropertyKeyO14polygonOpacityyA2CmF",
+            "usr": "s:15MapsIndoorsCore18MPModelPropertyKeyO18polygonFillOpacityyA2CmF",
+            "mangledName": "$s15MapsIndoorsCore18MPModelPropertyKeyO18polygonFillOpacityyA2CmF",
             "moduleName": "MapsIndoorsCore"
           },
           {
@@ -15077,6 +14970,43 @@
             "declKind": "EnumElement",
             "usr": "s:15MapsIndoorsCore18MPModelPropertyKeyO23polygonStrokeColorAlphayA2CmF",
             "mangledName": "$s15MapsIndoorsCore18MPModelPropertyKeyO23polygonStrokeColorAlphayA2CmF",
+            "moduleName": "MapsIndoorsCore"
+          },
+          {
+            "kind": "Var",
+            "name": "polygonStrokeOpacity",
+            "printedName": "polygonStrokeOpacity",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(MapsIndoorsCore.MPModelPropertyKey.Type) -> MapsIndoorsCore.MPModelPropertyKey",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MPModelPropertyKey",
+                    "printedName": "MapsIndoorsCore.MPModelPropertyKey",
+                    "usr": "s:15MapsIndoorsCore18MPModelPropertyKeyO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "MapsIndoorsCore.MPModelPropertyKey.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MPModelPropertyKey",
+                        "printedName": "MapsIndoorsCore.MPModelPropertyKey",
+                        "usr": "s:15MapsIndoorsCore18MPModelPropertyKeyO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15MapsIndoorsCore18MPModelPropertyKeyO20polygonStrokeOpacityyA2CmF",
+            "mangledName": "$s15MapsIndoorsCore18MPModelPropertyKeyO20polygonStrokeOpacityyA2CmF",
             "moduleName": "MapsIndoorsCore"
           },
           {
@@ -17335,23 +17265,6 @@
         "moduleName": "MapsIndoorsCore"
       },
       {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "MapsIndoorsCore",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "MapsIndoorsCore_Private",
-        "printedName": "MapsIndoorsCore_Private",
-        "declKind": "Import",
-        "moduleName": "MapsIndoorsCore"
-      },
-      {
         "kind": "TypeDecl",
         "name": "MPRouteNetworkEntryPoint",
         "printedName": "MPRouteNetworkEntryPoint",
@@ -17944,163 +17857,6 @@
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
-        "moduleName": "MapsIndoorsCore",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "MPTileProvider",
-        "printedName": "MPTileProvider",
-        "children": [
-          {
-            "kind": "Function",
-            "name": "getTile",
-            "printedName": "getTile(x:y:zoom:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "UIKit.UIImage?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "UIImage",
-                    "printedName": "UIKit.UIImage",
-                    "usr": "c:objc(cs)UIImage"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "UInt",
-                "printedName": "Swift.UInt",
-                "usr": "s:Su"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "UInt",
-                "printedName": "Swift.UInt",
-                "usr": "s:Su"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "UInt",
-                "printedName": "Swift.UInt",
-                "usr": "s:Su"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileProvider(im)getTileWithX:y:zoom:",
-            "mangledName": "$s15MapsIndoorsCore14MPTileProviderP7getTile1x1y4zoomSo7UIImageCSgSu_S2utF",
-            "moduleName": "MapsIndoorsCore",
-            "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPTileProvider>",
-            "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPTileProvider>",
-            "protocolReq": true,
-            "objc_name": "getTileWithX:y:zoom:",
-            "declAttributes": [
-              "ObjC",
-              "RawDocComment"
-            ],
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "templateUrl",
-            "printedName": "templateUrl()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileProvider(im)templateUrl",
-            "mangledName": "$s15MapsIndoorsCore14MPTileProviderP11templateUrlSSyF",
-            "moduleName": "MapsIndoorsCore",
-            "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPTileProvider>",
-            "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPTileProvider>",
-            "protocolReq": true,
-            "declAttributes": [
-              "ObjC",
-              "RawDocComment"
-            ],
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "tileSize",
-            "printedName": "tileSize()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Double",
-                "printedName": "Swift.Double",
-                "usr": "s:Sd"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileProvider(im)tileSize",
-            "mangledName": "$s15MapsIndoorsCore14MPTileProviderP8tileSizeSdyF",
-            "moduleName": "MapsIndoorsCore",
-            "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPTileProvider>",
-            "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPTileProvider>",
-            "protocolReq": true,
-            "declAttributes": [
-              "ObjC",
-              "RawDocComment"
-            ],
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "clearMap",
-            "printedName": "clearMap()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileProvider(im)clearMap",
-            "mangledName": "$s15MapsIndoorsCore14MPTileProviderP8clearMapyyF",
-            "moduleName": "MapsIndoorsCore",
-            "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPTileProvider>",
-            "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPTileProvider>",
-            "protocolReq": true,
-            "declAttributes": [
-              "ObjC",
-              "RawDocComment"
-            ],
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          }
-        ],
-        "declKind": "Protocol",
-        "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileProvider",
-        "mangledName": "$s15MapsIndoorsCore14MPTileProviderP",
-        "moduleName": "MapsIndoorsCore",
-        "genericSig": "<τ_0_0 : AnyObject>",
-        "sugared_genericSig": "<Self : AnyObject>",
-        "declAttributes": [
-          "AccessControl",
-          "ObjC"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
         "moduleName": "MapsIndoorsCore"
       },
       {
@@ -18556,6 +18312,71 @@
                 ],
                 "reqNewWitnessTableEntry": true,
                 "accessorKind": "set"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "availableUserRoles",
+            "printedName": "availableUserRoles",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[MapsIndoorsCore.MPUserRole]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MPUserRole",
+                    "printedName": "MapsIndoorsCore.MPUserRole",
+                    "usr": "c:objc(cs)MPUserRole"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MapsIndoorsCore@objc(pl)MapsIndoorsInstance(py)availableUserRoles",
+            "mangledName": "$s15MapsIndoorsCore0aB8InstanceP18availableUserRolesSaySo10MPUserRoleCGvp",
+            "moduleName": "MapsIndoorsCore",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[MapsIndoorsCore.MPUserRole]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MPUserRole",
+                        "printedName": "MapsIndoorsCore.MPUserRole",
+                        "usr": "c:objc(cs)MPUserRole"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MapsIndoorsCore@objc(pl)MapsIndoorsInstance(im)availableUserRoles",
+                "mangledName": "$s15MapsIndoorsCore0aB8InstanceP18availableUserRolesSaySo10MPUserRoleCGvg",
+                "moduleName": "MapsIndoorsCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MapsIndoorsInstance>",
+                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MapsIndoorsInstance>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
               }
             ]
           },
@@ -19537,6 +19358,47 @@
           },
           {
             "kind": "Function",
+            "name": "displayRuleFor",
+            "printedName": "displayRuleFor(displayRuleType:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "MapsIndoorsCore.MPDisplayRule?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MPDisplayRule",
+                    "printedName": "MapsIndoorsCore.MPDisplayRule",
+                    "usr": "c:@M@MapsIndoorsCore@objc(cs)MPDisplayRule"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MPDisplayRuleType",
+                "printedName": "MapsIndoorsCore.MPDisplayRuleType",
+                "usr": "c:@M@MapsIndoorsCore@E@MPDisplayRuleType"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@MapsIndoorsCore@objc(pl)MapsIndoorsInstance(im)displayRuleForDisplayRuleType:",
+            "mangledName": "$s15MapsIndoorsCore0aB8InstanceP14displayRuleFor0eF4TypeAA09MPDisplayF0CSgAA0ifH0O_tF",
+            "moduleName": "MapsIndoorsCore",
+            "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MapsIndoorsInstance>",
+            "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MapsIndoorsInstance>",
+            "protocolReq": true,
+            "objc_name": "displayRuleForDisplayRuleType:",
+            "declAttributes": [
+              "ObjC",
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "set",
             "printedName": "set(displayRule:location:)",
             "children": [
@@ -19641,8 +19503,8 @@
           },
           {
             "kind": "Function",
-            "name": "newMapControl",
-            "printedName": "newMapControl(mapConfig:)",
+            "name": "createMapControl",
+            "printedName": "createMapControl(mapConfig:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -19666,11 +19528,11 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@MapsIndoorsCore@objc(cs)MapsIndoors(cm)newMapControlWithMapConfig:",
-            "mangledName": "$s15MapsIndoorsCore0aB0C13newMapControl9mapConfigAA05MPMapF0_pSgAA0iH0C_tFZ",
+            "usr": "c:@M@MapsIndoorsCore@objc(cs)MapsIndoors(cm)createMapControlWithMapConfig:",
+            "mangledName": "$s15MapsIndoorsCore0aB0C16createMapControl9mapConfigAA05MPMapF0_pSgAA0iH0C_tFZ",
             "moduleName": "MapsIndoorsCore",
             "static": true,
-            "objc_name": "newMapControlWithMapConfig:",
+            "objc_name": "createMapControlWithMapConfig:",
             "declAttributes": [
               "Final",
               "AccessControl",
@@ -20329,6 +20191,181 @@
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
           }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MapsIndoorsCore",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MPEntity",
+        "printedName": "MPEntity",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "entityPosition",
+            "printedName": "entityPosition",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MPPoint",
+                "printedName": "MapsIndoorsCore.MPPoint",
+                "usr": "c:objc(cs)MPPoint"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MapsIndoorsCore@objc(pl)MPEntity(py)entityPosition",
+            "mangledName": "$s15MapsIndoorsCore8MPEntityP14entityPositionSo7MPPointCvp",
+            "moduleName": "MapsIndoorsCore",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MPPoint",
+                    "printedName": "MapsIndoorsCore.MPPoint",
+                    "usr": "c:objc(cs)MPPoint"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MapsIndoorsCore@objc(pl)MPEntity(im)entityPosition",
+                "mangledName": "$s15MapsIndoorsCore8MPEntityP14entityPositionSo7MPPointCvg",
+                "moduleName": "MapsIndoorsCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPEntity>",
+                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPEntity>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "entityBounds",
+            "printedName": "entityBounds",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CoreBounds",
+                "printedName": "MapsIndoorsCore.CoreBounds",
+                "usr": "c:@M@MapsIndoorsCore@objc(cs)CoreBounds"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MapsIndoorsCore@objc(pl)MPEntity(py)entityBounds",
+            "mangledName": "$s15MapsIndoorsCore8MPEntityP12entityBoundsAA0cF0Cvp",
+            "moduleName": "MapsIndoorsCore",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CoreBounds",
+                    "printedName": "MapsIndoorsCore.CoreBounds",
+                    "usr": "c:@M@MapsIndoorsCore@objc(cs)CoreBounds"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MapsIndoorsCore@objc(pl)MPEntity(im)entityBounds",
+                "mangledName": "$s15MapsIndoorsCore8MPEntityP12entityBoundsAA0cF0Cvg",
+                "moduleName": "MapsIndoorsCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPEntity>",
+                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPEntity>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "entityIsPoint",
+            "printedName": "entityIsPoint",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MapsIndoorsCore@objc(pl)MPEntity(py)entityIsPoint",
+            "mangledName": "$s15MapsIndoorsCore8MPEntityP13entityIsPointSbvp",
+            "moduleName": "MapsIndoorsCore",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MapsIndoorsCore@objc(pl)MPEntity(im)entityIsPoint",
+                "mangledName": "$s15MapsIndoorsCore8MPEntityP13entityIsPointSbvg",
+                "moduleName": "MapsIndoorsCore",
+                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPEntity>",
+                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPEntity>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@MapsIndoorsCore@objc(pl)MPEntity",
+        "mangledName": "$s15MapsIndoorsCore8MPEntityP",
+        "moduleName": "MapsIndoorsCore",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
         ]
       },
       {
@@ -23085,369 +23122,6 @@
         ]
       },
       {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "MapsIndoorsCore",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "MPTileLayer",
-        "printedName": "MPTileLayer",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "zIndex",
-            "printedName": "zIndex",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileLayer(py)zIndex",
-            "mangledName": "$s15MapsIndoorsCore11MPTileLayerP6zIndexSivp",
-            "moduleName": "MapsIndoorsCore",
-            "protocolReq": true,
-            "declAttributes": [
-              "ObjC"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileLayer(im)zIndex",
-                "mangledName": "$s15MapsIndoorsCore11MPTileLayerP6zIndexSivg",
-                "moduleName": "MapsIndoorsCore",
-                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPTileLayer>",
-                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPTileLayer>",
-                "protocolReq": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "reqNewWitnessTableEntry": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileLayer(im)setZIndex:",
-                "mangledName": "$s15MapsIndoorsCore11MPTileLayerP6zIndexSivs",
-                "moduleName": "MapsIndoorsCore",
-                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPTileLayer>",
-                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPTileLayer>",
-                "protocolReq": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "reqNewWitnessTableEntry": true,
-                "accessorKind": "set"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "tileSize",
-            "printedName": "tileSize",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileLayer(py)tileSize",
-            "mangledName": "$s15MapsIndoorsCore11MPTileLayerP8tileSizeSivp",
-            "moduleName": "MapsIndoorsCore",
-            "protocolReq": true,
-            "declAttributes": [
-              "ObjC"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileLayer(im)tileSize",
-                "mangledName": "$s15MapsIndoorsCore11MPTileLayerP8tileSizeSivg",
-                "moduleName": "MapsIndoorsCore",
-                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPTileLayer>",
-                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPTileLayer>",
-                "protocolReq": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "reqNewWitnessTableEntry": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileLayer(im)setTileSize:",
-                "mangledName": "$s15MapsIndoorsCore11MPTileLayerP8tileSizeSivs",
-                "moduleName": "MapsIndoorsCore",
-                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPTileLayer>",
-                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPTileLayer>",
-                "protocolReq": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "reqNewWitnessTableEntry": true,
-                "accessorKind": "set"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "opacity",
-            "printedName": "opacity",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Float",
-                "printedName": "Swift.Float",
-                "usr": "s:Sf"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileLayer(py)opacity",
-            "mangledName": "$s15MapsIndoorsCore11MPTileLayerP7opacitySfvp",
-            "moduleName": "MapsIndoorsCore",
-            "protocolReq": true,
-            "declAttributes": [
-              "ObjC"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Float",
-                    "printedName": "Swift.Float",
-                    "usr": "s:Sf"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileLayer(im)opacity",
-                "mangledName": "$s15MapsIndoorsCore11MPTileLayerP7opacitySfvg",
-                "moduleName": "MapsIndoorsCore",
-                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPTileLayer>",
-                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPTileLayer>",
-                "protocolReq": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "reqNewWitnessTableEntry": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Float",
-                    "printedName": "Swift.Float",
-                    "usr": "s:Sf"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileLayer(im)setOpacity:",
-                "mangledName": "$s15MapsIndoorsCore11MPTileLayerP7opacitySfvs",
-                "moduleName": "MapsIndoorsCore",
-                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPTileLayer>",
-                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPTileLayer>",
-                "protocolReq": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "reqNewWitnessTableEntry": true,
-                "accessorKind": "set"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "fadeIn",
-            "printedName": "fadeIn",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileLayer(py)fadeIn",
-            "mangledName": "$s15MapsIndoorsCore11MPTileLayerP6fadeInSbvp",
-            "moduleName": "MapsIndoorsCore",
-            "protocolReq": true,
-            "declAttributes": [
-              "ObjC"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileLayer(im)fadeIn",
-                "mangledName": "$s15MapsIndoorsCore11MPTileLayerP6fadeInSbvg",
-                "moduleName": "MapsIndoorsCore",
-                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPTileLayer>",
-                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPTileLayer>",
-                "protocolReq": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "reqNewWitnessTableEntry": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileLayer(im)setFadeIn:",
-                "mangledName": "$s15MapsIndoorsCore11MPTileLayerP6fadeInSbvs",
-                "moduleName": "MapsIndoorsCore",
-                "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPTileLayer>",
-                "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPTileLayer>",
-                "protocolReq": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "reqNewWitnessTableEntry": true,
-                "accessorKind": "set"
-              }
-            ]
-          },
-          {
-            "kind": "Function",
-            "name": "clearLayerCache",
-            "printedName": "clearLayerCache()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileLayer(im)clearLayerCache",
-            "mangledName": "$s15MapsIndoorsCore11MPTileLayerP05clearE5CacheyyF",
-            "moduleName": "MapsIndoorsCore",
-            "genericSig": "<τ_0_0 where τ_0_0 : MapsIndoorsCore.MPTileLayer>",
-            "sugared_genericSig": "<Self where Self : MapsIndoorsCore.MPTileLayer>",
-            "protocolReq": true,
-            "declAttributes": [
-              "ObjC"
-            ],
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          }
-        ],
-        "declKind": "Protocol",
-        "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileLayer",
-        "mangledName": "$s15MapsIndoorsCore11MPTileLayerP",
-        "moduleName": "MapsIndoorsCore",
-        "genericSig": "<τ_0_0 : AnyObject>",
-        "sugared_genericSig": "<Self : AnyObject>",
-        "declAttributes": [
-          "AccessControl",
-          "ObjC"
-        ]
-      },
-      {
         "kind": "TypeDecl",
         "name": "UIColor",
         "printedName": "UIColor",
@@ -23578,6 +23252,699 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "MPLocation",
+        "printedName": "MPLocation",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "entityPosition",
+            "printedName": "entityPosition",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MPPoint",
+                "printedName": "MapsIndoorsCore.MPPoint",
+                "usr": "c:objc(cs)MPPoint"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@MapsIndoorsCore@@objc(cs)MPLocation(py)entityPosition",
+            "mangledName": "$sSo10MPLocationC15MapsIndoorsCoreE14entityPositionSo7MPPointCvp",
+            "moduleName": "MapsIndoorsCore",
+            "objc_name": "entityPosition",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MPPoint",
+                    "printedName": "MapsIndoorsCore.MPPoint",
+                    "usr": "c:objc(cs)MPPoint"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@MapsIndoorsCore@@objc(cs)MPLocation(im)entityPosition",
+                "mangledName": "$sSo10MPLocationC15MapsIndoorsCoreE14entityPositionSo7MPPointCvg",
+                "moduleName": "MapsIndoorsCore",
+                "objc_name": "entityPosition",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "entityBounds",
+            "printedName": "entityBounds",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CoreBounds",
+                "printedName": "MapsIndoorsCore.CoreBounds",
+                "usr": "c:@M@MapsIndoorsCore@objc(cs)CoreBounds"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@MapsIndoorsCore@@objc(cs)MPLocation(py)entityBounds",
+            "mangledName": "$sSo10MPLocationC15MapsIndoorsCoreE12entityBoundsAC0dF0Cvp",
+            "moduleName": "MapsIndoorsCore",
+            "objc_name": "entityBounds",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CoreBounds",
+                    "printedName": "MapsIndoorsCore.CoreBounds",
+                    "usr": "c:@M@MapsIndoorsCore@objc(cs)CoreBounds"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@MapsIndoorsCore@@objc(cs)MPLocation(im)entityBounds",
+                "mangledName": "$sSo10MPLocationC15MapsIndoorsCoreE12entityBoundsAC0dF0Cvg",
+                "moduleName": "MapsIndoorsCore",
+                "objc_name": "entityBounds",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "entityIsPoint",
+            "printedName": "entityIsPoint",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@MapsIndoorsCore@@objc(cs)MPLocation(py)entityIsPoint",
+            "mangledName": "$sSo10MPLocationC15MapsIndoorsCoreE13entityIsPointSbvp",
+            "moduleName": "MapsIndoorsCore",
+            "objc_name": "entityIsPoint",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@MapsIndoorsCore@@objc(cs)MPLocation(im)entityIsPoint",
+                "mangledName": "$sSo10MPLocationC15MapsIndoorsCoreE13entityIsPointSbvg",
+                "moduleName": "MapsIndoorsCore",
+                "objc_name": "entityIsPoint",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)MPLocation",
+        "moduleName": "MapsIndoorsCore",
+        "isOpen": true,
+        "objc_name": "MPLocation",
+        "declAttributes": [
+          "ObjC",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)JSONModel",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "MapsIndoorsCore.JSONModel",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "MPEntity",
+            "printedName": "MPEntity",
+            "usr": "c:@M@MapsIndoorsCore@objc(pl)MPEntity",
+            "mangledName": "$s15MapsIndoorsCore8MPEntityP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MPBuilding",
+        "printedName": "MPBuilding",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "entityPosition",
+            "printedName": "entityPosition",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MPPoint",
+                "printedName": "MapsIndoorsCore.MPPoint",
+                "usr": "c:objc(cs)MPPoint"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@MapsIndoorsCore@@objc(cs)MPBuilding(py)entityPosition",
+            "mangledName": "$sSo10MPBuildingC15MapsIndoorsCoreE14entityPositionSo7MPPointCvp",
+            "moduleName": "MapsIndoorsCore",
+            "objc_name": "entityPosition",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MPPoint",
+                    "printedName": "MapsIndoorsCore.MPPoint",
+                    "usr": "c:objc(cs)MPPoint"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@MapsIndoorsCore@@objc(cs)MPBuilding(im)entityPosition",
+                "mangledName": "$sSo10MPBuildingC15MapsIndoorsCoreE14entityPositionSo7MPPointCvg",
+                "moduleName": "MapsIndoorsCore",
+                "objc_name": "entityPosition",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "entityBounds",
+            "printedName": "entityBounds",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CoreBounds",
+                "printedName": "MapsIndoorsCore.CoreBounds",
+                "usr": "c:@M@MapsIndoorsCore@objc(cs)CoreBounds"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@MapsIndoorsCore@@objc(cs)MPBuilding(py)entityBounds",
+            "mangledName": "$sSo10MPBuildingC15MapsIndoorsCoreE12entityBoundsAC0dF0Cvp",
+            "moduleName": "MapsIndoorsCore",
+            "objc_name": "entityBounds",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CoreBounds",
+                    "printedName": "MapsIndoorsCore.CoreBounds",
+                    "usr": "c:@M@MapsIndoorsCore@objc(cs)CoreBounds"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@MapsIndoorsCore@@objc(cs)MPBuilding(im)entityBounds",
+                "mangledName": "$sSo10MPBuildingC15MapsIndoorsCoreE12entityBoundsAC0dF0Cvg",
+                "moduleName": "MapsIndoorsCore",
+                "objc_name": "entityBounds",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "entityIsPoint",
+            "printedName": "entityIsPoint",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@MapsIndoorsCore@@objc(cs)MPBuilding(py)entityIsPoint",
+            "mangledName": "$sSo10MPBuildingC15MapsIndoorsCoreE13entityIsPointSbvp",
+            "moduleName": "MapsIndoorsCore",
+            "objc_name": "entityIsPoint",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@MapsIndoorsCore@@objc(cs)MPBuilding(im)entityIsPoint",
+                "mangledName": "$sSo10MPBuildingC15MapsIndoorsCoreE13entityIsPointSbvg",
+                "moduleName": "MapsIndoorsCore",
+                "objc_name": "entityIsPoint",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)MPBuilding",
+        "moduleName": "MapsIndoorsCore",
+        "isOpen": true,
+        "objc_name": "MPBuilding",
+        "declAttributes": [
+          "ObjC",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)JSONModel",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "MapsIndoorsCore.JSONModel",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "MPEntity",
+            "printedName": "MPEntity",
+            "usr": "c:@M@MapsIndoorsCore@objc(pl)MPEntity",
+            "mangledName": "$s15MapsIndoorsCore8MPEntityP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MPVenue",
+        "printedName": "MPVenue",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "entityPosition",
+            "printedName": "entityPosition",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MPPoint",
+                "printedName": "MapsIndoorsCore.MPPoint",
+                "usr": "c:objc(cs)MPPoint"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@MapsIndoorsCore@@objc(cs)MPVenue(py)entityPosition",
+            "mangledName": "$sSo7MPVenueC15MapsIndoorsCoreE14entityPositionSo7MPPointCvp",
+            "moduleName": "MapsIndoorsCore",
+            "objc_name": "entityPosition",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MPPoint",
+                    "printedName": "MapsIndoorsCore.MPPoint",
+                    "usr": "c:objc(cs)MPPoint"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@MapsIndoorsCore@@objc(cs)MPVenue(im)entityPosition",
+                "mangledName": "$sSo7MPVenueC15MapsIndoorsCoreE14entityPositionSo7MPPointCvg",
+                "moduleName": "MapsIndoorsCore",
+                "objc_name": "entityPosition",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "entityBounds",
+            "printedName": "entityBounds",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CoreBounds",
+                "printedName": "MapsIndoorsCore.CoreBounds",
+                "usr": "c:@M@MapsIndoorsCore@objc(cs)CoreBounds"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@MapsIndoorsCore@@objc(cs)MPVenue(py)entityBounds",
+            "mangledName": "$sSo7MPVenueC15MapsIndoorsCoreE12entityBoundsAC0dF0Cvp",
+            "moduleName": "MapsIndoorsCore",
+            "objc_name": "entityBounds",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CoreBounds",
+                    "printedName": "MapsIndoorsCore.CoreBounds",
+                    "usr": "c:@M@MapsIndoorsCore@objc(cs)CoreBounds"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@MapsIndoorsCore@@objc(cs)MPVenue(im)entityBounds",
+                "mangledName": "$sSo7MPVenueC15MapsIndoorsCoreE12entityBoundsAC0dF0Cvg",
+                "moduleName": "MapsIndoorsCore",
+                "objc_name": "entityBounds",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "entityIsPoint",
+            "printedName": "entityIsPoint",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@MapsIndoorsCore@@objc(cs)MPVenue(py)entityIsPoint",
+            "mangledName": "$sSo7MPVenueC15MapsIndoorsCoreE13entityIsPointSbvp",
+            "moduleName": "MapsIndoorsCore",
+            "objc_name": "entityIsPoint",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@MapsIndoorsCore@@objc(cs)MPVenue(im)entityIsPoint",
+                "mangledName": "$sSo7MPVenueC15MapsIndoorsCoreE13entityIsPointSbvg",
+                "moduleName": "MapsIndoorsCore",
+                "objc_name": "entityIsPoint",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)MPVenue",
+        "moduleName": "MapsIndoorsCore",
+        "isOpen": true,
+        "objc_name": "MPVenue",
+        "declAttributes": [
+          "ObjC",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)JSONModel",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "MapsIndoorsCore.JSONModel",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "MPEntity",
+            "printedName": "MPEntity",
+            "usr": "c:@M@MapsIndoorsCore@objc(pl)MPEntity",
+            "mangledName": "$s15MapsIndoorsCore8MPEntityP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "CLLocationCoordinate2D",
         "printedName": "CLLocationCoordinate2D",
         "children": [
@@ -23657,6 +24024,62 @@
     "json_format_version": 8
   },
   "ConstValues": [
+    {
+      "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MPDisplayRule.swift",
+      "kind": "IntegerLiteral",
+      "offset": 957,
+      "length": 18,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MPDisplayRule.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1091,
+      "length": 7,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MPDisplayRule.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1272,
+      "length": 9,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MPDisplayRule.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1399,
+      "length": 4,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MPDisplayRule.swift",
+      "kind": "IntegerLiteral",
+      "offset": 957,
+      "length": 18,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MPDisplayRule.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1091,
+      "length": 7,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MPDisplayRule.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1272,
+      "length": 9,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MPDisplayRule.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1399,
+      "length": 4,
+      "value": "4"
+    },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/ObjC\/Public\/mapcontrol\/MPFilterBehavior.swift",
       "kind": "BooleanLiteral",
@@ -23812,95 +24235,137 @@
       "value": "\"MapsIndoorsCore.MPDirectionsRenderer\""
     },
     {
+      "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/ViewModel\/MPViewModel.swift",
+      "kind": "BooleanLiteral",
+      "offset": 980,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/ViewModel\/MPViewModel.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1011,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/ViewModel\/MPViewModel.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1256,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/ViewModel\/MPViewModel.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1287,
+      "length": 5,
+      "value": "false"
+    },
+    {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MPMapControl.swift",
       "kind": "BooleanLiteral",
-      "offset": 7984,
+      "offset": 8296,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MPMapControl.swift",
       "kind": "StringLiteral",
-      "offset": 10319,
+      "offset": 11283,
       "length": 36,
       "value": "\"mapsindoors.renderqueue.mapcontrol\""
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MPMapControl.swift",
       "kind": "BooleanLiteral",
-      "offset": 14241,
+      "offset": 15075,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MPMapControl.swift",
       "kind": "BooleanLiteral",
-      "offset": 14741,
+      "offset": 15572,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MPMapControl.swift",
       "kind": "BooleanLiteral",
-      "offset": 15220,
+      "offset": 16048,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MPMapControl.swift",
       "kind": "BooleanLiteral",
-      "offset": 15718,
+      "offset": 16546,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MPMapControl.swift",
       "kind": "IntegerLiteral",
-      "offset": 15431,
+      "offset": 16259,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MPMapControl.swift",
       "kind": "BooleanLiteral",
-      "offset": 18389,
+      "offset": 19184,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MPMapControl.swift",
       "kind": "BooleanLiteral",
-      "offset": 23435,
+      "offset": 24228,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MPMapControl.swift",
       "kind": "StringLiteral",
-      "offset": 6317,
+      "offset": 6631,
       "length": 20,
       "value": "\"MapsIndoorsCore.MPMapControlInternal\""
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/ViewModel\/MPViewModelProducer.swift",
+      "kind": "StringLiteral",
+      "offset": 25,
+      "length": 19,
+      "value": "\"MapsIndoorsCore.MPViewModelProducer\""
+    },
+    {
+      "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/ViewModel\/MPViewModelProducer.swift",
       "kind": "IntegerLiteral",
-      "offset": 119,
+      "offset": 11254,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/ViewModel\/MPViewModelProducer.swift",
       "kind": "IntegerLiteral",
-      "offset": 135,
+      "offset": 11270,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/ViewModel\/MPViewModelProducer.swift",
       "kind": "StringLiteral",
-      "offset": 1528,
-      "length": 19,
-      "value": "\"MapsIndoorsCore.MPViewModelProducer\""
+      "offset": 13207,
+      "length": 25,
+      "value": "\"mapsindoors.cachethread\""
+    },
+    {
+      "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/ViewModel\/MPViewModelProducer.swift",
+      "kind": "IntegerLiteral",
+      "offset": 13360,
+      "length": 3,
+      "value": "100"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/mapcontrol\/MPPositionController.swift",
@@ -23950,20 +24415,6 @@
       "offset": 521,
       "length": 9,
       "value": "6371009.0"
-    },
-    {
-      "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/mapcontrol\/TileProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 1053,
-      "length": 13,
-      "value": "\"renderQueue\""
-    },
-    {
-      "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/mapcontrol\/TileProvider.swift",
-      "kind": "StringLiteral",
-      "offset": 224,
-      "length": 12,
-      "value": "\"MapsIndoorsCore.TileProvider\""
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/ViewModel\/MPFeature.swift",
@@ -24094,7 +24545,7 @@
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MPSolutionConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 551,
+      "offset": 599,
       "length": 5,
       "value": "false"
     },
@@ -24136,42 +24587,42 @@
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/ViewModel\/Enums.swift",
       "kind": "IntegerLiteral",
-      "offset": 1369,
+      "offset": 1403,
       "length": 16,
       "value": "1"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/ViewModel\/Enums.swift",
       "kind": "IntegerLiteral",
-      "offset": 1499,
+      "offset": 1533,
       "length": 15,
       "value": "2"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/ViewModel\/Enums.swift",
       "kind": "IntegerLiteral",
-      "offset": 1596,
+      "offset": 1630,
       "length": 18,
       "value": "3"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/ViewModel\/Enums.swift",
       "kind": "IntegerLiteral",
-      "offset": 1369,
+      "offset": 1403,
       "length": 16,
       "value": "1"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/ViewModel\/Enums.swift",
       "kind": "IntegerLiteral",
-      "offset": 1499,
+      "offset": 1533,
       "length": 15,
       "value": "2"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/ViewModel\/Enums.swift",
       "kind": "IntegerLiteral",
-      "offset": 1596,
+      "offset": 1630,
       "length": 18,
       "value": "3"
     },
@@ -24213,49 +24664,49 @@
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapsIndoors.swift",
       "kind": "IntegerLiteral",
-      "offset": 4858,
+      "offset": 5152,
       "length": 13,
       "value": "1"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapsIndoors.swift",
       "kind": "IntegerLiteral",
-      "offset": 4881,
+      "offset": 5175,
       "length": 12,
       "value": "2"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapsIndoors.swift",
       "kind": "IntegerLiteral",
-      "offset": 4903,
+      "offset": 5197,
       "length": 12,
       "value": "3"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapsIndoors.swift",
       "kind": "IntegerLiteral",
-      "offset": 4858,
+      "offset": 5152,
       "length": 13,
       "value": "1"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapsIndoors.swift",
       "kind": "IntegerLiteral",
-      "offset": 4881,
+      "offset": 5175,
       "length": 12,
       "value": "2"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapsIndoors.swift",
       "kind": "IntegerLiteral",
-      "offset": 4903,
+      "offset": 5197,
       "length": 12,
       "value": "3"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapsIndoors.swift",
       "kind": "BooleanLiteral",
-      "offset": 6092,
+      "offset": 6386,
       "length": 5,
       "value": "false"
     },

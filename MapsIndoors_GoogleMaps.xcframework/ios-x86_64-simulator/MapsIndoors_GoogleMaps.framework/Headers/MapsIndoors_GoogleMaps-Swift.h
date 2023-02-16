@@ -257,7 +257,6 @@ using UInt = size_t;
 @protocol MPInfoWindowGenerator;
 @protocol MPCameraOperator;
 @protocol MPRouteRenderer;
-@protocol MPTileProvider;
 @protocol MPMapProviderDelegate;
 @protocol MPPositionPresenter;
 @protocol MPCameraPosition;
@@ -272,7 +271,6 @@ SWIFT_CLASS("_TtC22MapsIndoors_GoogleMaps17GoogleMapProvider")
 @property (nonatomic) enum MPCollisionHandling collisionHandling;
 @property (nonatomic, readonly, strong) id <MPCameraOperator> _Nonnull cameraOperator;
 @property (nonatomic, readonly, strong) id <MPRouteRenderer> _Nonnull routeRenderer;
-- (void)setTileProviderWithTileProvider:(id <MPTileProvider> _Nonnull)tileProvider;
 @property (nonatomic, strong) id <MPMapProviderDelegate> _Nullable delegate;
 @property (nonatomic, strong) id <MPPositionPresenter> _Nonnull positionPresenter;
 @property (nonatomic, strong) id <MPCameraPosition> _Nonnull cameraPosition;

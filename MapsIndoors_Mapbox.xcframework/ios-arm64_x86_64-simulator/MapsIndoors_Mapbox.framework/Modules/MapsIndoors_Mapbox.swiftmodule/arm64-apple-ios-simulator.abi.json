@@ -150,23 +150,6 @@
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
-        "moduleName": "MapsIndoors_Mapbox",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "MapsIndoorsCore",
-        "printedName": "MapsIndoorsCore",
-        "declKind": "Import",
-        "moduleName": "MapsIndoors_Mapbox"
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
         "moduleName": "MapsIndoors_Mapbox"
       },
       {
@@ -419,16 +402,15 @@
                 "kind": "TypeNominal",
                 "name": "MPTileProvider",
                 "printedName": "MapsIndoorsCore.MPTileProvider",
-                "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileProvider"
+                "usr": "s:15MapsIndoorsCore14MPTileProviderC"
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@MapsIndoors_Mapbox@objc(cs)MapBoxProvider(im)setTileProviderWithTileProvider:",
-            "mangledName": "$s18MapsIndoors_Mapbox14MapBoxProviderC07setTileF004tileF0y0aB4Core06MPTileF0_p_tF",
+            "usr": "s:18MapsIndoors_Mapbox14MapBoxProviderC07setTileF004tileF0y0aB4Core06MPTileF0C_tF",
+            "mangledName": "$s18MapsIndoors_Mapbox14MapBoxProviderC07setTileF004tileF0y0aB4Core06MPTileF0C_tF",
             "moduleName": "MapsIndoors_Mapbox",
             "declAttributes": [
-              "AccessControl",
-              "ObjC"
+              "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -916,99 +898,6 @@
           },
           {
             "kind": "Var",
-            "name": "tileLayerClass",
-            "printedName": "tileLayerClass",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "MPTileLayerClass",
-                "printedName": "MapsIndoorsCore.MPTileLayerClass",
-                "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileLayerClass"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@MapsIndoors_Mapbox@objc(cs)MapBoxProvider(py)tileLayerClass",
-            "mangledName": "$s18MapsIndoors_Mapbox14MapBoxProviderC14tileLayerClass0aB4Core06MPTilehI0_pvp",
-            "moduleName": "MapsIndoors_Mapbox",
-            "declAttributes": [
-              "HasInitialValue",
-              "HasStorage",
-              "AccessControl",
-              "ObjC"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "MPTileLayerClass",
-                    "printedName": "MapsIndoorsCore.MPTileLayerClass",
-                    "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileLayerClass"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@MapsIndoors_Mapbox@objc(cs)MapBoxProvider(im)tileLayerClass",
-                "mangledName": "$s18MapsIndoors_Mapbox14MapBoxProviderC14tileLayerClass0aB4Core06MPTilehI0_pvg",
-                "moduleName": "MapsIndoors_Mapbox",
-                "implicit": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "MPTileLayerClass",
-                    "printedName": "MapsIndoorsCore.MPTileLayerClass",
-                    "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileLayerClass"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@MapsIndoors_Mapbox@objc(cs)MapBoxProvider(im)setTileLayerClass:",
-                "mangledName": "$s18MapsIndoors_Mapbox14MapBoxProviderC14tileLayerClass0aB4Core06MPTilehI0_pvs",
-                "moduleName": "MapsIndoors_Mapbox",
-                "implicit": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:18MapsIndoors_Mapbox14MapBoxProviderC14tileLayerClass0aB4Core06MPTilehI0_pvM",
-                "mangledName": "$s18MapsIndoors_Mapbox14MapBoxProviderC14tileLayerClass0aB4Core06MPTilehI0_pvM",
-                "moduleName": "MapsIndoors_Mapbox",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
             "name": "collisionHandling",
             "printedName": "collisionHandling",
             "children": [
@@ -1390,23 +1279,6 @@
       },
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "MapsIndoors_Mapbox",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "MapsIndoorsCore",
-        "printedName": "MapsIndoorsCore",
-        "declKind": "Import",
-        "moduleName": "MapsIndoors_Mapbox"
-      },
-      {
-        "kind": "Import",
         "name": "MapboxMaps",
         "printedName": "MapboxMaps",
         "declKind": "Import",
@@ -1551,14 +1423,14 @@
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/MapBoxProvider\/MBRenderer.swift",
       "kind": "StringLiteral",
-      "offset": 8028,
+      "offset": 8147,
       "length": 16,
       "value": "\"viewAnnotation\""
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/MapBoxProvider\/MBRenderer.swift",
       "kind": "IntegerLiteral",
-      "offset": 16617,
+      "offset": 16736,
       "length": 3,
       "value": "100"
     },
@@ -1820,34 +1692,6 @@
       "offset": 252,
       "length": 14,
       "value": "\"MapsIndoors_Mapbox.MapBoxProvider\""
-    },
-    {
-      "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/MapBoxProvider\/MBTileLayer.swift",
-      "kind": "IntegerLiteral",
-      "offset": 262,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/MapBoxProvider\/MBTileLayer.swift",
-      "kind": "IntegerLiteral",
-      "offset": 293,
-      "length": 3,
-      "value": "256"
-    },
-    {
-      "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/MapBoxProvider\/MBTileLayer.swift",
-      "kind": "IntegerLiteral",
-      "offset": 327,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/MapBoxProvider\/MBTileLayer.swift",
-      "kind": "BooleanLiteral",
-      "offset": 357,
-      "length": 4,
-      "value": "true"
     }
   ]
 }

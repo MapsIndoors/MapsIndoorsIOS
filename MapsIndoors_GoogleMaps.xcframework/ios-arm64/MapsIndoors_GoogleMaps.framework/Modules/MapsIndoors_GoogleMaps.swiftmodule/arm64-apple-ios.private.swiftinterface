@@ -33,7 +33,7 @@ import _StringProcessing
   @objc public var routeRenderer: MapsIndoorsCore.MPRouteRenderer {
     @objc get
   }
-  @objc public func setTileProvider(tileProvider: MapsIndoorsCore.MPTileProvider)
+  public func setTileProvider(tileProvider: MapsIndoorsCore.MPTileProvider)
   @objc public var delegate: MapsIndoorsCore.MPMapProviderDelegate? {
     @objc get
     @objc set

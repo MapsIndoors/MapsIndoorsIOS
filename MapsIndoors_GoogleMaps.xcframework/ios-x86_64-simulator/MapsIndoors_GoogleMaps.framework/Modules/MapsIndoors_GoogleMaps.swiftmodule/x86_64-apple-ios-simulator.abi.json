@@ -497,37 +497,6 @@
       },
       {
         "kind": "Import",
-        "name": "MapsIndoorsCore_Private",
-        "printedName": "MapsIndoorsCore_Private",
-        "declKind": "Import",
-        "moduleName": "MapsIndoors_GoogleMaps"
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "MapsIndoors_GoogleMaps",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "GoogleMaps",
-        "printedName": "GoogleMaps",
-        "declKind": "Import",
-        "moduleName": "MapsIndoors_GoogleMaps"
-      },
-      {
-        "kind": "Import",
-        "name": "MapsIndoorsCore",
-        "printedName": "MapsIndoorsCore",
-        "declKind": "Import",
-        "moduleName": "MapsIndoors_GoogleMaps"
-      },
-      {
-        "kind": "Import",
         "name": "MapsIndoors_GoogleMaps_Private",
         "printedName": "MapsIndoors_GoogleMaps_Private",
         "declKind": "Import",
@@ -871,16 +840,15 @@
                 "kind": "TypeNominal",
                 "name": "MPTileProvider",
                 "printedName": "MapsIndoorsCore.MPTileProvider",
-                "usr": "c:@M@MapsIndoorsCore@objc(pl)MPTileProvider"
+                "usr": "s:15MapsIndoorsCore14MPTileProviderC"
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@MapsIndoors_GoogleMaps@objc(cs)GoogleMapProvider(im)setTileProviderWithTileProvider:",
-            "mangledName": "$s018MapsIndoors_GoogleA00C11MapProviderC07setTileE004tileE0y0aB4Core06MPTileE0_p_tF",
+            "usr": "s:018MapsIndoors_GoogleA00C11MapProviderC07setTileE004tileE0y0aB4Core06MPTileE0C_tF",
+            "mangledName": "$s018MapsIndoors_GoogleA00C11MapProviderC07setTileE004tileE0y0aB4Core06MPTileE0C_tF",
             "moduleName": "MapsIndoors_GoogleMaps",
             "declAttributes": [
-              "AccessControl",
-              "ObjC"
+              "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -1655,37 +1623,6 @@
         "moduleName": "MapsIndoors_GoogleMaps"
       },
       {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "MapsIndoors_GoogleMaps",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "GoogleMaps",
-        "printedName": "GoogleMaps",
-        "declKind": "Import",
-        "moduleName": "MapsIndoors_GoogleMaps"
-      },
-      {
-        "kind": "Import",
-        "name": "MapsIndoorsCore",
-        "printedName": "MapsIndoorsCore",
-        "declKind": "Import",
-        "moduleName": "MapsIndoors_GoogleMaps"
-      },
-      {
-        "kind": "Import",
-        "name": "MapsIndoorsCore_Private",
-        "printedName": "MapsIndoorsCore_Private",
-        "declKind": "Import",
-        "moduleName": "MapsIndoors_GoogleMaps"
-      },
-      {
         "kind": "TypeDecl",
         "name": "MPMapConfig",
         "printedName": "MPMapConfig",
@@ -1863,77 +1800,77 @@
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "FloatLiteral",
-      "offset": 7986,
+      "offset": 7966,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "FloatLiteral",
-      "offset": 8085,
+      "offset": 8065,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "IntegerLiteral",
-      "offset": 9600,
+      "offset": 9580,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "IntegerLiteral",
-      "offset": 9614,
+      "offset": 9594,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "FloatLiteral",
-      "offset": 10297,
+      "offset": 10277,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "FloatLiteral",
-      "offset": 11136,
+      "offset": 11116,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "FloatLiteral",
-      "offset": 11170,
+      "offset": 11150,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "StringLiteral",
-      "offset": 17065,
+      "offset": 17045,
       "length": 6,
       "value": "\"noId\""
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "IntegerLiteral",
-      "offset": 28425,
+      "offset": 27767,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "IntegerLiteral",
-      "offset": 28449,
+      "offset": 27791,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/ViewState.swift",
       "kind": "IntegerLiteral",
-      "offset": 28474,
+      "offset": 27816,
       "length": 1,
       "value": "1"
     },
@@ -2006,13 +1943,6 @@
       "offset": 787,
       "length": 3,
       "value": "3.0"
-    },
-    {
-      "filePath": "\/Users\/ciuser\/builds\/hR_k36Qo\/0\/MapsIndoors\/SDK\/MISDKIOS\/Source\/Swift\/Private\/MapProvider\/GoogleMapProvider\/GMTileLayer.swift",
-      "kind": "StringLiteral",
-      "offset": 263,
-      "length": 11,
-      "value": "\"MapsIndoors_GoogleMaps.GMTileLayer\""
     }
   ]
 }

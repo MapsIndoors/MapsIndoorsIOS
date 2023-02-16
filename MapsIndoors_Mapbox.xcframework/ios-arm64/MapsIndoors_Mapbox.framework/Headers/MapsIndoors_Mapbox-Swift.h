@@ -261,25 +261,21 @@ using UInt = size_t;
 @end
 
 @protocol MPInfoWindowGenerator;
-@protocol MPTileProvider;
 @class UIView;
 @protocol MPMapProviderDelegate;
 @protocol MPPositionPresenter;
-@protocol MPTileLayerClass;
 @protocol MPRouteRenderer;
 @protocol MPCameraOperator;
 
 SWIFT_CLASS("_TtC18MapsIndoors_Mapbox14MapBoxProvider")
 @interface MapBoxProvider : NSObject
 @property (nonatomic, strong) id <MPInfoWindowGenerator> _Nullable infoWindowGenerator;
-- (void)setTileProviderWithTileProvider:(id <MPTileProvider> _Nonnull)tileProvider;
 - (void)reloadTilesForFloorChange;
 @property (nonatomic, readonly, strong) UIView * _Nullable view;
 @property (nonatomic) UIEdgeInsets padding;
 @property (nonatomic) BOOL MPaccessibilityElementsHidden;
 @property (nonatomic, strong) id <MPMapProviderDelegate> _Nullable delegate;
 @property (nonatomic, strong) id <MPPositionPresenter> _Nonnull positionPresenter;
-@property (nonatomic, strong) id <MPTileLayerClass> _Nonnull tileLayerClass;
 @property (nonatomic) enum MPCollisionHandling collisionHandling;
 @property (nonatomic, readonly, strong) id <MPRouteRenderer> _Nonnull routeRenderer;
 @property (nonatomic, readonly, strong) id <MPCameraOperator> _Nonnull cameraOperator;

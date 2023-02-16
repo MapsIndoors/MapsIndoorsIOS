@@ -9,6 +9,33 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ### Removed
 -->
 
+## [4.0.0-beta6] 2023-02-16
+
+### Changed
+
+* `MapsIndoors.shared.newMapControl(mapConfig:)` has been renamed to `MapsIndoors.shared.createMapControl(mapConfig:)` 
+* Assignment of PositionProvider is moved to MapControl.
+* Access to pre-defined DisplayRules and those from the CMS are now accessed via `MapsIndoors.shared.displayRuleFor(displayRuleType:)`
+
+### Fixed
+
+* Tiles load faster on Google Map.
+* 2D Models use less resources.
+* Building outline is drawn in correct width.
+* Location polygons respect opacity.
+
+## [4.0.0-beta5] 2023-02-13
+
+### Fixed
+
+* Locations now actually show on Mapbox Map in apps using Cocoapod or XCFramework
+
+### Known issues
+
+* Content rendering order (polygons, markers, models, etc.)
+* Clustering not working
+* Directions relying on external routing not working
+
 ## [4.0.0-beta4] 2023-02-10
 
 ### Fixed

@@ -2,6 +2,7 @@
 // swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
 // swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MapsIndoorsCore
 // swift-module-flags-ignorable: -enable-bare-slash-regex
+import CommonCrypto
 import Foundation
 import GameplayKit
 @_exported import MapsIndoorsCore
@@ -14,8 +15,19 @@ import _StringProcessing
   @objc override dynamic public init()
   @objc deinit
 }
+@objc public enum MPDisplayRuleType : Swift.Int {
+  case buildingOutline
+  case selectionHighlight
+  case blueDot
+  case `default`
+  case main
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers public class MPDisplayRule : ObjectiveC.NSObject {
-  @objc public static var buildingOutline: MapsIndoorsCore.MPDisplayRule
   @objc public var icon: UIKit.UIImage {
     @objc get
     @objc set
@@ -52,7 +64,6 @@ import _StringProcessing
     @objc get
     @objc set
   }
-  @objc public static var locationHighlight: MapsIndoorsCore.MPDisplayRule
   @objc public var model2DBearing: Swift.Double {
     @objc get
     @objc set
@@ -110,7 +121,6 @@ import _StringProcessing
     @objc set
   }
   @objc public func showAt(zoom: Swift.Double) -> Swift.Bool
-  @objc public static var userPosition: MapsIndoorsCore.MPDisplayRule
   @objc public var visible: Swift.Bool {
     @objc get
     @objc set
@@ -132,10 +142,6 @@ import _StringProcessing
     @objc get
   }
   @objc deinit
-}
-@objc public protocol MPFloorTileLayer {
-  @objc var layer: MapsIndoorsCore.MPTileLayer { get }
-  @objc init?(venue: MapsIndoorsCore.MPVenue, andFloor floor: MapsIndoorsCore.MPFloor)
 }
 @_inheritsConvenienceInitializers @objc public class MPFilterBehavior : ObjectiveC.NSObject, MapsIndoorsCore.MPMapBehavior {
   @objc public static var `default`: MapsIndoorsCore.MPFilterBehavior {
@@ -195,13 +201,13 @@ import _StringProcessing
 }
 public protocol MPViewModel : Swift.Hashable {
   var id: Swift.String { get }
-  var marker: MapsIndoorsCore.MPFeature? { get }
-  var polygon: MapsIndoorsCore.MPFeature? { get }
-  var polyline: MapsIndoorsCore.MPFeature? { get }
-  var model2D: MapsIndoorsCore.MPFeature? { get }
-  var data: [MapsIndoorsCore.MPModelData : Any?] { get }
-  var isSelected: Swift.Bool { get }
-  var showInfoWindow: Swift.Bool { get }
+  var marker: MapsIndoorsCore.MPFeature? { get set }
+  var polygon: MapsIndoorsCore.MPFeature? { get set }
+  var polyline: MapsIndoorsCore.MPFeature? { get set }
+  var model2D: MapsIndoorsCore.MPFeature? { get set }
+  var data: [MapsIndoorsCore.MPModelData : Any?] { get set }
+  var isSelected: Swift.Bool { get set }
+  var showInfoWindow: Swift.Bool { get set }
 }
 extension MapsIndoorsCore.MPViewModel {
   public static func == (lhs: Self, rhs: Self) -> Swift.Bool
@@ -226,8 +232,8 @@ extension MapsIndoorsCore.MPViewModel {
   @objc var clusterIconGenerator: MapsIndoorsCore.MPClusterIconGenerator? { get set }
   @objc var infoWindowGenerator: MapsIndoorsCore.MPInfoWindowGenerator? { get set }
   @objc var selectedLocation: MapsIndoorsCore.MPLocation? { get }
-  @objc var selectedBuilding: MapsIndoorsCore.MPBuilding? { get }
-  @objc var selectedVenue: MapsIndoorsCore.MPVenue? { get }
+  @objc var currentBuilding: MapsIndoorsCore.MPBuilding? { get }
+  @objc var currentVenue: MapsIndoorsCore.MPVenue? { get }
   @objc func select(location: MapsIndoorsCore.MPLocation?, behavior: MapsIndoorsCore.MPSelectionBehavior)
   @objc func select(building: MapsIndoorsCore.MPBuilding?, behavior: MapsIndoorsCore.MPSelectionBehavior)
   @objc func select(venue: MapsIndoorsCore.MPVenue?, behavior: MapsIndoorsCore.MPSelectionBehavior)
@@ -236,9 +242,10 @@ extension MapsIndoorsCore.MPViewModel {
   @objc func setFilter(filter: MapsIndoorsCore.MPFilter, behavior: MapsIndoorsCore.MPFilterBehavior)
   @objc func clearFilter()
   @objc func refresh()
-  @objc func goTo(location: MapsIndoorsCore.MPLocation)
+  @objc func goTo(entity: MapsIndoorsCore.MPEntity)
   @objc func enableLiveData(domain: Swift.String, completion: ((MapsIndoorsCore.MPLiveUpdate) -> Swift.Void)?)
   @objc func disableLiveData(domain: Swift.String)
+  @objc var positionProvider: MapsIndoorsCore.MPPositionProvider? { get set }
 }
 @objc public protocol MPMapControlDelegate {
   @objc optional func didTap(coordinate: MapsIndoorsCore.MPPoint) -> Swift.Bool
@@ -274,19 +281,6 @@ extension MapsIndoorsCore.MPViewModel {
   @objc var position: MapsIndoorsCore.MPPositionResult { get set }
   @objc func redrawUserLocation(currentFloorIndex: Swift.Int, userFloorIndex: Swift.Int, icon: UIKit.UIImage)
   @objc func setUserLocation(position: CoreLocation.CLLocationCoordinate2D, floorIndex: Swift.Int, accuracy: Swift.Double, heading: Swift.Double)
-}
-@objc public class MPViewModelProducer : ObjectiveC.NSObject {
-  public var size: Swift.Int {
-    get
-  }
-  public init(withLocations locations: [MapsIndoorsCore.MPLocation], mapControl: MapsIndoorsCore.MPMapControl)
-  #if compiler(>=5.3) && $AsyncAwait
-  public func produce() async -> [MapsIndoorsCore.MPViewModel]
-  #endif
-  #if compiler(>=5.3) && $AsyncAwait
-  public func viewModelFor(location: MapsIndoorsCore.MPLocation) async -> (MapsIndoorsCore.MPViewModel)?
-  #endif
-  @objc deinit
 }
 @objc @objcMembers public class MPPositionController : ObjectiveC.NSObject {
   @objc public var floorIndex: Swift.Int
@@ -349,14 +343,12 @@ extension MapsIndoorsCore.MPViewModel {
   @objc func pointForCoordinate(_ coordinate: CoreLocation.CLLocationCoordinate2D) -> CoreFoundation.CGPoint
   @objc func coordinateForPoint(_ point: CoreFoundation.CGPoint) -> CoreLocation.CLLocationCoordinate2D
 }
-@objc public class TileProvider : ObjectiveC.NSObject, MapsIndoorsCore.MPTileProvider {
-  @objc public func clearMap()
-  @objc required public init(venue: MapsIndoorsCore.MPVenue, floor: Swift.Int, tileSize: Swift.Int)
-  public func getTileUrl() -> Swift.String
-  @objc public func getTile(x: Swift.UInt, y: Swift.UInt, zoom: Swift.UInt) -> UIKit.UIImage?
+public class MPTileProvider {
+  required public init(venue: MapsIndoorsCore.MPVenue, floor: Swift.Int, tileSize: Swift.Int)
+  public func getTile(x: Swift.UInt, y: Swift.UInt, zoom: Swift.UInt) -> UIKit.UIImage?
   public func getTileUrl(zoom: Swift.UInt, x: Swift.UInt, y: Swift.UInt) -> Swift.String
-  @objc public func tileSize() -> Swift.Double
-  @objc public func templateUrl() -> Swift.String
+  public func tileSize() -> Swift.Double
+  public func templateUrl() -> Swift.String
   @objc deinit
 }
 public protocol MPMapProvider {
@@ -395,19 +387,12 @@ public struct MPFeatureGeometry : Swift.Encodable {
 @objc @objcMembers public class MPSolutionConfig : ObjectiveC.NSObject, Swift.Decodable {
   @objc public var enableClustering: Swift.Bool
   @objc public var collisionHandling: MapsIndoorsCore.MPCollisionHandling
-  @objc public var mainDisplayRule: MapsIndoorsCore.MPDisplayRule {
-    get
-  }
   @objc public var settings3D: [Swift.String : Swift.Int] {
     get
   }
   required public init(from decoder: Swift.Decoder) throws
   @objc public func `init`(dictionary dict: [Swift.AnyHashable : Any]!) throws -> MapsIndoorsCore.MPSolutionConfig
   @objc deinit
-}
-@objc public protocol MPTileLayerClass {
-  @objc func tileLayer() -> MapsIndoorsCore.MPTileLayer
-  @objc func clearTileCache()
 }
 @_inheritsConvenienceInitializers @objc public class MPSelectionBehavior : ObjectiveC.NSObject, MapsIndoorsCore.MPMapBehavior {
   @objc public static var `default`: MapsIndoorsCore.MPSelectionBehavior {
@@ -424,9 +409,10 @@ public typealias Key = MapsIndoorsCore.MPModelPropertyKey
 public enum MPModelPropertyKey : Swift.String {
   case polygonFillcolor
   case polygonFillcolorAlpha
-  case polygonOpacity
+  case polygonFillOpacity
   case polygonStrokeColor
   case polygonStrokeColorAlpha
+  case polygonStrokeOpacity
   case polygonStrokeWidth
   case polygonArea
   case markerLabel
@@ -514,12 +500,6 @@ extension UIKit.UIColor {
   }
   @objc deinit
 }
-@objc public protocol MPTileProvider {
-  @objc func getTile(x: Swift.UInt, y: Swift.UInt, zoom: Swift.UInt) -> UIKit.UIImage?
-  @objc func templateUrl() -> Swift.String
-  @objc func tileSize() -> Swift.Double
-  @objc func clearMap()
-}
 @objc public protocol MapsIndoorsInstance {
   #if compiler(>=5.3) && $AsyncAwait
   @objc func isApiKeyValid(apiKey: Swift.String) async -> Swift.Bool
@@ -541,6 +521,7 @@ extension UIKit.UIColor {
   @objc var apiKey: Swift.String? { get }
   @objc var solution: MapsIndoorsCore.MPSolution? { get }
   @objc var language: Swift.String { get set }
+  @objc var availableUserRoles: [MapsIndoorsCore.MPUserRole] { get }
   @objc var userRoles: [MapsIndoorsCore.MPUserRole] { get set }
   @objc var authToken: Swift.String? { get set }
   @objc var positionProvider: MapsIndoorsCore.MPPositionProvider? { get set }
@@ -575,13 +556,14 @@ extension UIKit.UIColor {
   #endif
   @objc func displayRuleFor(location: MapsIndoorsCore.MPLocation) -> MapsIndoorsCore.MPDisplayRule?
   @objc func displayRuleFor(type: Swift.String) -> MapsIndoorsCore.MPDisplayRule?
+  @objc func displayRuleFor(displayRuleType: MapsIndoorsCore.MPDisplayRuleType) -> MapsIndoorsCore.MPDisplayRule?
   @objc func set(displayRule: MapsIndoorsCore.MPDisplayRule, location: MapsIndoorsCore.MPLocation)
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class MapsIndoors : ObjectiveC.NSObject {
   @objc public static var shared: MapsIndoorsCore.MapsIndoorsInstance {
     @objc get
   }
-  @objc public static func newMapControl(mapConfig: MapsIndoorsCore.MPMapConfig) -> MapsIndoorsCore.MPMapControl?
+  @objc public static func createMapControl(mapConfig: MapsIndoorsCore.MPMapConfig) -> MapsIndoorsCore.MPMapControl?
   @objc deinit
 }
 @objc public enum MPError : Swift.Int, Swift.Error {
@@ -603,6 +585,44 @@ extension UIKit.UIColor {
   public static func boxSize(for text: Swift.String?, maxWidth: CoreFoundation.CGFloat, maxHeight: CoreFoundation.CGFloat) -> CoreFoundation.CGSize
   @objc override dynamic public init()
   @objc deinit
+}
+@objc public protocol MPEntity {
+  @objc var entityPosition: MapsIndoorsCore.MPPoint { get }
+  @objc var entityBounds: MapsIndoorsCore.CoreBounds { get }
+  @objc var entityIsPoint: Swift.Bool { get }
+}
+@objc extension MapsIndoorsCore.MPBuilding : MapsIndoorsCore.MPEntity {
+  @objc dynamic public var entityPosition: MapsIndoorsCore.MPPoint {
+    @objc get
+  }
+  @objc dynamic public var entityBounds: MapsIndoorsCore.CoreBounds {
+    @objc get
+  }
+  @objc dynamic public var entityIsPoint: Swift.Bool {
+    @objc get
+  }
+}
+@objc extension MapsIndoorsCore.MPVenue : MapsIndoorsCore.MPEntity {
+  @objc dynamic public var entityPosition: MapsIndoorsCore.MPPoint {
+    @objc get
+  }
+  @objc dynamic public var entityBounds: MapsIndoorsCore.CoreBounds {
+    @objc get
+  }
+  @objc dynamic public var entityIsPoint: Swift.Bool {
+    @objc get
+  }
+}
+@objc extension MapsIndoorsCore.MPLocation : MapsIndoorsCore.MPEntity {
+  @objc dynamic public var entityPosition: MapsIndoorsCore.MPPoint {
+    @objc get
+  }
+  @objc dynamic public var entityBounds: MapsIndoorsCore.CoreBounds {
+    @objc get
+  }
+  @objc dynamic public var entityIsPoint: Swift.Bool {
+    @objc get
+  }
 }
 @objc public protocol MPGeometryProtocol {
   @objc var bounds: MapsIndoorsCore.CoreBounds { get }
@@ -726,13 +746,9 @@ extension CoreLocation.CLLocationCoordinate2D : Swift.Equatable {
   @objc public func distanceTo(other: MapsIndoorsCore.MPGeometryProtocol) -> Swift.Double
   @objc deinit
 }
-@objc public protocol MPTileLayer {
-  @objc var zIndex: Swift.Int { get set }
-  @objc var tileSize: Swift.Int { get set }
-  @objc var opacity: Swift.Float { get set }
-  @objc var fadeIn: Swift.Bool { get set }
-  @objc func clearLayerCache()
-}
+extension MapsIndoorsCore.MPDisplayRuleType : Swift.Equatable {}
+extension MapsIndoorsCore.MPDisplayRuleType : Swift.Hashable {}
+extension MapsIndoorsCore.MPDisplayRuleType : Swift.RawRepresentable {}
 extension MapsIndoorsCore.MPContextualInfoScope : Swift.Equatable {}
 extension MapsIndoorsCore.MPContextualInfoScope : Swift.Hashable {}
 extension MapsIndoorsCore.MPContextualInfoScope : Swift.RawRepresentable {}
