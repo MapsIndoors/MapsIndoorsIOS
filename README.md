@@ -20,12 +20,12 @@ MapsIndoors is available through [CocoaPods](http://cocoapods.org). To install i
 
 To use the Google Maps map engine add
 ```ruby
-pod "MapsIndoors_GoogleMaps"
+pod "MapsIndoorsGoogleMaps"
 ```
 
 To use the Mapbox map engine add
 ```ruby
-pod "MapsIndoors_Mapbox"
+pod "MapsIndoorsMapbox"
 ```
 
 ## Author

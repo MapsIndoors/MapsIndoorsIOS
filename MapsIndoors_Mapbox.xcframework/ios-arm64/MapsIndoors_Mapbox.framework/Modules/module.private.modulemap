@@ -1,3 +1,0 @@
-framework module MapsIndoors_Mapbox_Private {
-    export *
-}
