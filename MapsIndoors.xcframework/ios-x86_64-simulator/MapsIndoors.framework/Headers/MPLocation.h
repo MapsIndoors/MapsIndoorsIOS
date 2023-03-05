@@ -21,8 +21,10 @@
 
 #import "JSONModel.h"
 #import "MPLocationBaseType.h"
-#import <GoogleMaps/GoogleMaps.h>
+#import <UIKit/UIKit.h>
 
+@class GMSCoordinateBounds;
+@class GMSMarker;
 @class MPLiveUpdate;
 @class MPLocationField;
 @class MPLocationProperty;

@@ -7,7 +7,7 @@
 //
 
 #import "MPLocation.h"
-
+#import <CoreLocation/CoreLocation.h>
 
 DEPRECATED_ATTRIBUTE
 @interface MPPositionIndicator : MPLocation

@@ -6,6 +6,7 @@
 //  Copyright © 2018 MapsPeople A/S. All rights reserved.
 //
 
+#import <CoreGraphics/CoreGraphics.h>
 #import "MapsIndoors/MPLocation.h"
 
 @class MILocation;

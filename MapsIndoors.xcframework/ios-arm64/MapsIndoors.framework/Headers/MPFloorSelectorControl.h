@@ -6,17 +6,15 @@
 //  Copyright (c) 2017 MapsPeople A/S. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <GoogleMaps/GoogleMaps.h>
 #import "MPFloorSelectorProtocol.h"
+#import <UIKit/UIKit.h>
 
+@class GMSMapView;
 
 /**
   Empty UIButton protocol specification
  */
-@protocol MPFloorButton
-@end
-
+@protocol MPFloorButton;
 
 /**
   Floor selection UI element. Can be added to the map, but should be linked to an MPBuilding to make sense.
