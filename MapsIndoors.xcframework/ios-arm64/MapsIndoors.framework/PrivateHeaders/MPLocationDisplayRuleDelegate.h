@@ -8,8 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class MPLocationDisplayRule;
+
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol MPLocationDisplayRuleDelegate <NSObject>
 
 - (void) displayRuleWasUpdated:(MPLocationDisplayRule*)rule;
 
 @end
+
+NS_ASSUME_NONNULL_END

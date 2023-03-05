@@ -6,13 +6,10 @@
 //  Copyright © 2018 MapsPeople A/S. All rights reserved.
 //
 
-#import <GoogleMaps/GoogleMaps.h>
 #import "MPGeometry.h"
 #import "MPGeometryQueryProtocol.h"
 
-
-@class MPGeometryContainmentMetadata;
-
+@class GMSPath;
 
 @interface MPPolygonGeometry : MPGeometry <MPGeometryQueryProtocol>
 

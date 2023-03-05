@@ -1,13 +1,18 @@
 ---
-title: iOS SDK v3 Changelog
-permalink: /changelogs/ios/v3/
-eleventyNavigation:
-  key: iOS SDK v3 Changlog
-  parent: changelogs
-  order: 3
+title: iOS SDK
+hide_title: false
+hide_table_of_contents: true
+sidebar_position: 2
+slug: /changelogs/ios
 ---
 
-Changelog for MapsIndoors for iOS. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Changelog for the MapsIndoors iOS SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
+<Tabs>
+<TabItem value="v3" label="iOS SDK V3">
 
 <!---
 ## [Unreleased]
@@ -21,6 +26,12 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 ## iOS Version Support
 
 Please note that support for iOS 10 in MapsIndoors SDK v3 will soon end. The minimum supported version will then be iOS 11. The required version of Xcode will remain Xcode 13 a bit longer.
+
+## [3.43.2] 2023-03-03
+
+### Fixed
+
+- 2D Models will now render in their proper place in the rendering stack to avoid being overlapped by polygons.
 
 ## [3.43.1] 2022-11-09
 
@@ -44,7 +55,7 @@ Please note that support for iOS 10 in MapsIndoors SDK v3 will soon end. The min
 
 ### Changed
 
-- The images for 2D Models are now fetched only with the DataSetManager meaning less device storage is claimed when using 2D Models.
+- The images for 2D Models are now fetched only with the DataSetManager meaning less device storage is claimed when using 2D Models.
 
 ## [3.42.0] 2022-10-13
 
@@ -178,7 +189,7 @@ __*Note: Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issu
 
 ### Added
 
-- We added support for Obstacles to our [Directions Service](https://docs.mapsindoors.com/directions/directions-service/directions-service-ios/). No interface changes are made, but the routing engine will fetch and respect Obstacles created in the MapsIndoors backbone when creating routes.  
+- We added support for Obstacles to our [Directions Service](https://docs.mapsindoors.com/directions/directions-service/directions-service-ios/). No interface changes are made, but the routing engine will fetch and respect Obstacles created in the MapsIndoors backbone when creating routes.
 
 ### Changed
 
@@ -725,3 +736,6 @@ __*Note: Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issu
 ### Removed
 
 - Removed a number of deprecated methods that was introduced in V1
+
+</TabItem>
+</Tabs>

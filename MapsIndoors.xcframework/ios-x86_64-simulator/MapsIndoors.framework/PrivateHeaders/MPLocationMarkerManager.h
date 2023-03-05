@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <GoogleMaps/GoogleMaps.h>
 #import "MPLocation+Private.h"
+
+@class GMSMapView;
+@class GMSMarker;
 
 NS_ASSUME_NONNULL_BEGIN
 

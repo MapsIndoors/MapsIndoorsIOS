@@ -6,26 +6,12 @@
 //  Copyright (c) 2017 MapsPeople A/S. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <GoogleMaps/GoogleMaps.h>
-#import "MPDefines.h"
-#import "MPLocation.h"
-#import "MPAppData.h"
-#import "MPLocationDataset.h"
-#import "MPFloorSelectorControl.h"
-#import "MPLoadIndicator.h"
-#import "MPOnlineTileLayer.h"
-#import "MPBuildingDataset.h"
-#import "MPLocationDataset.h"
-#import "MPLayerType.h"
-#import "MPRoutingProvider.h"
-#import "MPLocationsProvider.h"
-#import "MPVenueProvider.h"
-#import "MPSolutionProvider.h"
-#import "MPLocationDisplayRule.h"
+#import "MPBuilding.h"
+#import "MPFloorSelectorProtocol.h"
 #import "MPPositionProvider.h"
-#import "MPPositionIndicator.h"
-
+#import "MPVenueProvider.h"
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 //! Project version number for MapsIndoors.
 FOUNDATION_EXPORT double MapsIndoorsVNum;
@@ -33,13 +19,16 @@ FOUNDATION_EXPORT double MapsIndoorsVNum;
 //! Project version string for MapsIndoors.
 FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 
-
-/**
-  Empty protocol specification.
- */
-@protocol MPOnlineTileLayer
-@end
-
+@class GMSMarker;
+@class MPFloorSelectorControl;
+@class MPLocation;
+@class MPLocationDisplayRule;
+@class MPMapStyle;
+@class MPPositionIndicator;
+@class MPPositionResult;
+@protocol GMSMapViewDelegate;
+@protocol MPFloorSelectorProtocol;
+@protocol MPOnlineTileLayer;
 
 #pragma mark - MPMapControlDelegate
 
@@ -182,7 +171,7 @@ FOUNDATION_EXPORT const unsigned char MapsIndoorsVStr[];
 /**
  Convenience class for setting up a Google map with MapsIndoors venues, buildings, locations and other map content.
  */
-@interface MPMapControl : NSObject<GMSMapViewDelegate, MPFloorSelectorDelegate, MPBuildingDelegate, MPVenueProviderDelegate, MPPositionProviderDelegate>
+@interface MPMapControl : NSObject<MPFloorSelectorDelegate, MPBuildingDelegate, MPVenueProviderDelegate, MPPositionProviderDelegate>
 
 /**
   Delegate object containing data events

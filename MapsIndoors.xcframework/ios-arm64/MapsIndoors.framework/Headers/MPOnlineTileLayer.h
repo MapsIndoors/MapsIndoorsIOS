@@ -6,7 +6,6 @@
 //  Copyright (c) 2017 MapsPeople A/S. All rights reserved.
 //
 
-#import <GoogleMaps/GoogleMaps.h>
 #import "MPVenue.h"
 #import "MPFloor.h"
 
