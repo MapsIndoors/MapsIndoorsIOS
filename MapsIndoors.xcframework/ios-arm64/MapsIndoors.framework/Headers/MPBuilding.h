@@ -8,8 +8,8 @@
 
 #import "JSONModel.h"
 
-#import <GoogleMaps/GoogleMaps.h>
-
+@class GMSCoordinateBounds;
+@class GMSMapView;
 @class MPFloor;
 @class MPLocationField;
 @class MPPoint;

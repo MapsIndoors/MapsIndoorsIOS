@@ -863,7 +863,7 @@
 		</data>
 		<key>Headers/MPBuilding.h</key>
 		<data>
-		g+qsMmfAqWmPHT/uxLVMvXPLyXw=
+		J4DK0Q8r6DXQ0PjUI+os+zFlQlw=
 		</data>
 		<key>Headers/MPBuildingCollection.h</key>
 		<data>
@@ -935,7 +935,7 @@
 		</data>
 		<key>Headers/MPDirectionsRenderer.h</key>
 		<data>
-		Q0gq6oVLiUUNSpT7WIpSZ1d/VcA=
+		VVH/4rp+HbTYJJozrjmQWy6bYok=
 		</data>
 		<key>Headers/MPDirectionsService.h</key>
 		<data>
@@ -971,11 +971,11 @@
 		</data>
 		<key>Headers/MPFloor.h</key>
 		<data>
-		mOyLk8ZTT7TllT4Ecv9aoiPiY3g=
+		M8VK1VL6J0PX1o8E5/qWSALhhpc=
 		</data>
 		<key>Headers/MPFloorSelectorControl.h</key>
 		<data>
-		C1Ap5sE69mc8SE4YywaIoci5vbo=
+		ksNgkhTT86hEUmTfl2hBrhaDePI=
 		</data>
 		<key>Headers/MPFloorSelectorProtocol.h</key>
 		<data>
@@ -1059,7 +1059,7 @@
 		</data>
 		<key>Headers/MPLocation.h</key>
 		<data>
-		XrpW2iXvxaKwzEoUdfNjIn+YoMc=
+		oUdkEQsKzpIfgN12jEmzNPcgRv8=
 		</data>
 		<key>Headers/MPLocationBaseType.h</key>
 		<data>
@@ -1107,7 +1107,7 @@
 		</data>
 		<key>Headers/MPLocationUpdate.h</key>
 		<data>
-		MCnwzFfQxTiCIRuCDByw8v6Jx20=
+		5oiTAiINqLOyTaNqV73aeqy5aVw=
 		</data>
 		<key>Headers/MPLocationsObserver.h</key>
 		<data>
@@ -1131,11 +1131,11 @@
 		</data>
 		<key>Headers/MPMapControl.h</key>
 		<data>
-		64pNmOyk8wx1PZgXcqzlM8le0Hs=
+		ZYvC+ZzisxgoIPLSgX+xBf4tKi8=
 		</data>
 		<key>Headers/MPMapExtend.h</key>
 		<data>
-		4UXsDv53K2FR9nqCW9qEHyZHGSA=
+		HP95DkdR38vqdSkeblwbzV5vzZY=
 		</data>
 		<key>Headers/MPMapRouteLegButton.h</key>
 		<data>
@@ -1191,11 +1191,7 @@
 		</data>
 		<key>Headers/MPOnlineTileLayer.h</key>
 		<data>
-		q5z1c6iV0StB9S197svI1a251qw=
-		</data>
-		<key>Headers/MPPersistentCacheGMSTileLayer.h</key>
-		<data>
-		6rZT54wCe733KGiif5YqL05rJE4=
+		Oujn6Xz4V7XoLDYnjPGWsiew7Js=
 		</data>
 		<key>Headers/MPPngImageProvider.h</key>
 		<data>
@@ -1207,11 +1203,11 @@
 		</data>
 		<key>Headers/MPPolygonGeometry.h</key>
 		<data>
-		GUIjxSERTU1PN2Y1y622KszX8Tg=
+		gZE50AqtBlVwBA22elEjCsnmw3Y=
 		</data>
 		<key>Headers/MPPositionIndicator.h</key>
 		<data>
-		QD4hg1gShPT8NRN+5fPwfNp9TMA=
+		4HCNp0isiljrEe3yJhwYe/Q9nVI=
 		</data>
 		<key>Headers/MPPositionLiveUpdate.h</key>
 		<data>
@@ -1231,7 +1227,7 @@
 		</data>
 		<key>Headers/MPRoute.h</key>
 		<data>
-		BVuW+kpw3zRgx+w9y0FnOipV/pA=
+		ODBdQ86ZTgwPNWDhuwX3mOfMD3U=
 		</data>
 		<key>Headers/MPRouteBounds.h</key>
 		<data>
@@ -1331,7 +1327,7 @@
 		</data>
 		<key>Headers/MPVenue.h</key>
 		<data>
-		lWWJACGuGIUxsF9Y/G5sWBsUn34=
+		boR81mx+cNjxAM9jDTGjSsZf35I=
 		</data>
 		<key>Headers/MPVenueCollection.h</key>
 		<data>
@@ -1347,7 +1343,7 @@
 		</data>
 		<key>Headers/MPVersionConstants.h</key>
 		<data>
-		EL5M1wO+4eB7PoZ71BP5KivzgRs=
+		6uDvzEgacgoWcLMG0dPkS1D1uLw=
 		</data>
 		<key>Headers/MPWirelessPositionTopic.h</key>
 		<data>
@@ -1359,7 +1355,7 @@
 		</data>
 		<key>Headers/MapsIndoors.h</key>
 		<data>
-		cBP8Jk1VMJwwy3ZaKbmjE479pjw=
+		7LeQAoa8VyiLdxcYM4BwqzvhXhQ=
 		</data>
 		<key>Headers/NSDictionary+MPLocationPropertiesDictionary.h</key>
 		<data>
@@ -1391,7 +1387,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		xlBPItx+8YOkZe5oYkFK1wpkfkY=
+		shOe1HkQdHsEfm4bDVaS5zBxq6w=
 		</data>
 		<key>MapsIndoors.bundle/.gitkeep</key>
 		<data>
@@ -1569,7 +1565,7 @@
 		</data>
 		<key>Modules/MapsIndoors.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		GCUcgFa3l1r22zTklGaNzpuql8E=
+		wd5RoRACJ2rnF11nqA4mK/2Tcdc=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -1711,6 +1707,10 @@
 		<data>
 		pw9VPCar4kD84ew7+ZB5jmN3Ai0=
 		</data>
+		<key>PrivateHeaders/MPGMSMapViewDelegate.h</key>
+		<data>
+		MuOEBk1C2Lac9sPQHqNM4sbRg5I=
+		</data>
 		<key>PrivateHeaders/MPGeometry+Private.h</key>
 		<data>
 		9gzKCkU8PbpANOH+YQAgnfvY1aM=
@@ -1789,7 +1789,7 @@
 		</data>
 		<key>PrivateHeaders/MPLocation+Private.h</key>
 		<data>
-		OCPV1O/q3C+ihC8zqAF31tcjHFA=
+		u2fk24mqL4jJqOzxz7Q0hc6uDyc=
 		</data>
 		<key>PrivateHeaders/MPLocationCluster.h</key>
 		<data>
@@ -1809,7 +1809,7 @@
 		</data>
 		<key>PrivateHeaders/MPLocationDisplayRuleDelegate.h</key>
 		<data>
-		P1u1kWwn8ZXB7Qmn+KSrFeAGKB0=
+		jXh0lcGF3WtXd8AEYQk5FrwCvn4=
 		</data>
 		<key>PrivateHeaders/MPLocationDisplayRuleset.h</key>
 		<data>
@@ -1817,7 +1817,7 @@
 		</data>
 		<key>PrivateHeaders/MPLocationMarkerManager.h</key>
 		<data>
-		AwxOym9cVSLM1T9T0scfAjMmBCc=
+		uLFYLU8oqSVhZAYvyZp9SMAgjj4=
 		</data>
 		<key>PrivateHeaders/MPLocationQuery+Private.h</key>
 		<data>
@@ -1901,7 +1901,11 @@
 		</data>
 		<key>PrivateHeaders/MPMapControl+LiveDataPrivate.h</key>
 		<data>
-		nuB1ZZj0Gta6PcoiSTPlKnSJYJo=
+		vgvO3szNmFq1xvbQJjHwQlcm3Dk=
+		</data>
+		<key>PrivateHeaders/MPMapControl+Private.h</key>
+		<data>
+		FWaJVfnODRj9irY+dFkDpvjGC9E=
 		</data>
 		<key>PrivateHeaders/MPMapExtend+Private.h</key>
 		<data>
@@ -1954,6 +1958,10 @@
 		<key>PrivateHeaders/MPPathOptimization.h</key>
 		<data>
 		PFKPknSJyCFzdjQvedEAEuABzCc=
+		</data>
+		<key>PrivateHeaders/MPPersistentCacheGMSTileLayer.h</key>
+		<data>
+		JfwwyMIhDEweSkrf+v8n7Hl2xAc=
 		</data>
 		<key>PrivateHeaders/MPPoint+Zero.h</key>
 		<data>
@@ -3915,11 +3923,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			g+qsMmfAqWmPHT/uxLVMvXPLyXw=
+			J4DK0Q8r6DXQ0PjUI+os+zFlQlw=
 			</data>
 			<key>hash2</key>
 			<data>
-			ij7WVov9DRqvOSd3Mt/IFNhdhb55hTyKq+aBRoqsKEM=
+			OKNVJ35eLXHXX3RyD4V7zKz/jWIo8QOH1T2qROo6W6A=
 			</data>
 		</dict>
 		<key>Headers/MPBuildingCollection.h</key>
@@ -4113,11 +4121,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Q0gq6oVLiUUNSpT7WIpSZ1d/VcA=
+			VVH/4rp+HbTYJJozrjmQWy6bYok=
 			</data>
 			<key>hash2</key>
 			<data>
-			YUSQnQfCwnexUb1Qp7hTKUo7ahIoaJvLUXQ0S1d1kv4=
+			1i9+Uvh9GuQeJpKEBk6sN8vuEEreAKGuy4vCAuhyJBo=
 			</data>
 		</dict>
 		<key>Headers/MPDirectionsService.h</key>
@@ -4212,22 +4220,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mOyLk8ZTT7TllT4Ecv9aoiPiY3g=
+			M8VK1VL6J0PX1o8E5/qWSALhhpc=
 			</data>
 			<key>hash2</key>
 			<data>
-			mXdHF3u1mxeeZ2noLAcxde+HdkpRCU2QbZ2REWYB4mo=
+			irW7ssjUwCOI7INtpaVgSGDvACNuWflY+DgSlu6kVgE=
 			</data>
 		</dict>
 		<key>Headers/MPFloorSelectorControl.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			C1Ap5sE69mc8SE4YywaIoci5vbo=
+			ksNgkhTT86hEUmTfl2hBrhaDePI=
 			</data>
 			<key>hash2</key>
 			<data>
-			9kf2ad/9O3Y5h7N9T8zATVm0BnJD92VU06e4pLyBN7Y=
+			LDvUqCI/eGcRiVkOjrjKfrncoc5PrcsxySn4yeZ87zI=
 			</data>
 		</dict>
 		<key>Headers/MPFloorSelectorProtocol.h</key>
@@ -4454,11 +4462,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			XrpW2iXvxaKwzEoUdfNjIn+YoMc=
+			oUdkEQsKzpIfgN12jEmzNPcgRv8=
 			</data>
 			<key>hash2</key>
 			<data>
-			5cuWQgIEVuOAggtLCGztwE+MEU9Ie3ZZZqrhm20OiMs=
+			uZCmJqyOzDTRQ+QYb50G7Pjh/mw1IQXr5XEVCeLiDJA=
 			</data>
 		</dict>
 		<key>Headers/MPLocationBaseType.h</key>
@@ -4586,11 +4594,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			MCnwzFfQxTiCIRuCDByw8v6Jx20=
+			5oiTAiINqLOyTaNqV73aeqy5aVw=
 			</data>
 			<key>hash2</key>
 			<data>
-			xaErkBnTFvO73EvVqilt0NScmgWKTQSH/+29iXbbe5g=
+			nd0bIm63ZHKDYK3mm1QBjp5cptLE8ojvzsOQGUSouCI=
 			</data>
 		</dict>
 		<key>Headers/MPLocationsObserver.h</key>
@@ -4652,22 +4660,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			64pNmOyk8wx1PZgXcqzlM8le0Hs=
+			ZYvC+ZzisxgoIPLSgX+xBf4tKi8=
 			</data>
 			<key>hash2</key>
 			<data>
-			mG1iqN7iD4G0Cyae+5TAMRjd3JeO99yGpJg+/VVRXXY=
+			U8PkFiGb1wAVib8RwM5iUpwtcFcp/+cAV/vCKe676es=
 			</data>
 		</dict>
 		<key>Headers/MPMapExtend.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			4UXsDv53K2FR9nqCW9qEHyZHGSA=
+			HP95DkdR38vqdSkeblwbzV5vzZY=
 			</data>
 			<key>hash2</key>
 			<data>
-			W5Zfq8Utk9ZQpt7oqX+ZbCVCuOk51zvIxpQDnQMF+qU=
+			Q5sxqwlfTTSnWbcP2V5CnQrLqrfUEfKzvsqrMkv2dJo=
 			</data>
 		</dict>
 		<key>Headers/MPMapRouteLegButton.h</key>
@@ -4817,22 +4825,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			q5z1c6iV0StB9S197svI1a251qw=
+			Oujn6Xz4V7XoLDYnjPGWsiew7Js=
 			</data>
 			<key>hash2</key>
 			<data>
-			2JrkjDXFBW0xwYBU3fDmMX6ttlcEh1RanM9Eo3RZr1U=
-			</data>
-		</dict>
-		<key>Headers/MPPersistentCacheGMSTileLayer.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			6rZT54wCe733KGiif5YqL05rJE4=
-			</data>
-			<key>hash2</key>
-			<data>
-			aEglG1rL7TMz16bPGd6pYudktG3fYferTr0R/w7s0Xg=
+			VzVzEv4gn6CUDcRJEygg/QWNPelkCyxat/H2hIDNAFQ=
 			</data>
 		</dict>
 		<key>Headers/MPPngImageProvider.h</key>
@@ -4861,22 +4858,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			GUIjxSERTU1PN2Y1y622KszX8Tg=
+			gZE50AqtBlVwBA22elEjCsnmw3Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			lE6AsYZLvZAWoOruLfd217It+/sx5bl3Sfv5UyFN3VY=
+			XOGgtDXLskucTs+u6P8Npem4HuMqsfK71yYcWOLGxwg=
 			</data>
 		</dict>
 		<key>Headers/MPPositionIndicator.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			QD4hg1gShPT8NRN+5fPwfNp9TMA=
+			4HCNp0isiljrEe3yJhwYe/Q9nVI=
 			</data>
 			<key>hash2</key>
 			<data>
-			3l4duedKwufEE0x5SKRAOxnoLy6EElVk585gJ5XMn5U=
+			sxhpRDTU6uI911XeH8hqdhMA/meG9dXOIW0z/IvwdFk=
 			</data>
 		</dict>
 		<key>Headers/MPPositionLiveUpdate.h</key>
@@ -4927,11 +4924,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BVuW+kpw3zRgx+w9y0FnOipV/pA=
+			ODBdQ86ZTgwPNWDhuwX3mOfMD3U=
 			</data>
 			<key>hash2</key>
 			<data>
-			S+GkRz3hbpz+fMx+WauIob8rzLcVFqWgzligK+viN+k=
+			/YcuB/pI0tvM0OANdTTK+28np4ENMixFXBV7TY8bihA=
 			</data>
 		</dict>
 		<key>Headers/MPRouteBounds.h</key>
@@ -5202,11 +5199,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lWWJACGuGIUxsF9Y/G5sWBsUn34=
+			boR81mx+cNjxAM9jDTGjSsZf35I=
 			</data>
 			<key>hash2</key>
 			<data>
-			E5l+pHj44y8suYZE+1BYo+FhZ6Mh2rBEA0i3gpQSm8c=
+			UlfZhUzYOJbIWjXRV7d/I2UbV7K9CGcK63pvbbml1fE=
 			</data>
 		</dict>
 		<key>Headers/MPVenueCollection.h</key>
@@ -5246,11 +5243,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			EL5M1wO+4eB7PoZ71BP5KivzgRs=
+			6uDvzEgacgoWcLMG0dPkS1D1uLw=
 			</data>
 			<key>hash2</key>
 			<data>
-			w+ull54g+ZHAEsoxUq8PYAVR91nbV9ZD5WU9UHNPHHE=
+			lDj0VIa0c/gv6eQ6YxVYdgWrYKgioLOMvldUcu6C7PM=
 			</data>
 		</dict>
 		<key>Headers/MPWirelessPositionTopic.h</key>
@@ -5279,11 +5276,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cBP8Jk1VMJwwy3ZaKbmjE479pjw=
+			7LeQAoa8VyiLdxcYM4BwqzvhXhQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			mId/McIzUwiI4Fa4v9biF7aE/+LfAGFJJ3oJftgyEN8=
+			0Qnqsv3SSf03EJj1XNmK9qC8TdoHBGvc2Htjy7ZGeLc=
 			</data>
 		</dict>
 		<key>Headers/NSDictionary+MPLocationPropertiesDictionary.h</key>
@@ -5822,11 +5819,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			GCUcgFa3l1r22zTklGaNzpuql8E=
+			wd5RoRACJ2rnF11nqA4mK/2Tcdc=
 			</data>
 			<key>hash2</key>
 			<data>
-			eBcIHNC4lGijjqAGcsucZRiMsGqqrxA3oDyHWTK350Y=
+			wa+UCCypZP1GhG7y+6bUI4vLLc+aiKSiUns1x7O9Kpc=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -6214,6 +6211,17 @@
 			czBJMgnKu2Tjxe3f2rGj/z9Chn2z5Q7GPw78gMhl+Ug=
 			</data>
 		</dict>
+		<key>PrivateHeaders/MPGMSMapViewDelegate.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			MuOEBk1C2Lac9sPQHqNM4sbRg5I=
+			</data>
+			<key>hash2</key>
+			<data>
+			tinDUHqavxWHcAW6pEnXbaaA4yMWZDbdwk0ZtKd6kvo=
+			</data>
+		</dict>
 		<key>PrivateHeaders/MPGeometry+Private.h</key>
 		<dict>
 			<key>hash</key>
@@ -6427,11 +6435,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			OCPV1O/q3C+ihC8zqAF31tcjHFA=
+			u2fk24mqL4jJqOzxz7Q0hc6uDyc=
 			</data>
 			<key>hash2</key>
 			<data>
-			mQ5sDYzOq3NuuO2lr82LzTi3Ozk2AqKiuyrGcfO+hgQ=
+			bDLo86ITAXz9MkXb/hb+FavnFUrrWfKqgyG2XeK7EA8=
 			</data>
 		</dict>
 		<key>PrivateHeaders/MPLocationCluster.h</key>
@@ -6482,11 +6490,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			P1u1kWwn8ZXB7Qmn+KSrFeAGKB0=
+			jXh0lcGF3WtXd8AEYQk5FrwCvn4=
 			</data>
 			<key>hash2</key>
 			<data>
-			o8Y7O3ZmD6LSTiF8pjva6Vpk6mqEydABrCQL7YCM0O8=
+			wMfM1mYhqYOox10pL6+q6zsJwo66wEhA3d5UiKwS1uE=
 			</data>
 		</dict>
 		<key>PrivateHeaders/MPLocationDisplayRuleset.h</key>
@@ -6504,11 +6512,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			AwxOym9cVSLM1T9T0scfAjMmBCc=
+			uLFYLU8oqSVhZAYvyZp9SMAgjj4=
 			</data>
 			<key>hash2</key>
 			<data>
-			sWRosL5V4nbluscp7elW9fie/01KVyJuEY/9TDvI2fM=
+			cjUSKTphXiMEgqtDe9kqKe7uDjsrCBhz4omM0XV6S4o=
 			</data>
 		</dict>
 		<key>PrivateHeaders/MPLocationQuery+Private.h</key>
@@ -6735,11 +6743,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nuB1ZZj0Gta6PcoiSTPlKnSJYJo=
+			vgvO3szNmFq1xvbQJjHwQlcm3Dk=
 			</data>
 			<key>hash2</key>
 			<data>
-			Woo2jdNW1G+cGZf0BeDqkB8aHJ7q1//AGm4TC/kDp1c=
+			2xdje1TdmUJV+IbOLOuu177RaV1yoox+k76FT9JlaSU=
+			</data>
+		</dict>
+		<key>PrivateHeaders/MPMapControl+Private.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			FWaJVfnODRj9irY+dFkDpvjGC9E=
+			</data>
+			<key>hash2</key>
+			<data>
+			CCsqzsTHB2psd1siD+EmXYopj/04OgFPbbKShM/6T/o=
 			</data>
 		</dict>
 		<key>PrivateHeaders/MPMapExtend+Private.h</key>
@@ -6883,6 +6902,17 @@
 			<key>hash2</key>
 			<data>
 			QdqcZr70ruBO6uGlcjXjnMmU+TQnp7WdTeJN+U0IiCI=
+			</data>
+		</dict>
+		<key>PrivateHeaders/MPPersistentCacheGMSTileLayer.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			JfwwyMIhDEweSkrf+v8n7Hl2xAc=
+			</data>
+			<key>hash2</key>
+			<data>
+			eNlsGYuGXDlQrD6M+4Cf/NL2ZtGUhnY+d5sJJrIKTpk=
 			</data>
 		</dict>
 		<key>PrivateHeaders/MPPoint+Zero.h</key>

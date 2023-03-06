@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 MapsPeople A/S. All rights reserved.
 //
 #import <Foundation/Foundation.h>
-#import <GoogleMaps/GoogleMaps.h>
 
+@class GMSCoordinateBounds;
 
 @interface MPMapExtend : NSObject
 

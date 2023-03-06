@@ -6,9 +6,10 @@
 //  Copyright © 2018 MapsPeople A/S. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "MPLocation.h"
 #import "MPLocationField.h"
+#import <CoreLocation/CoreLocation.h>
+#import <Foundation/Foundation.h>
 
 @class MPLocationDisplayRule;
 @protocol MPLocationSource;

@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <GoogleMaps/GoogleMaps.h>
-#import "MPRoute.h"
+#import <UIKit/UIKit.h>
+
+@class GMSMapView;
+@class MPRoute;
 
 #define kMPNotificationDirectionsRenderingStarted @"MP_DIRECTIONS_RENDERING_STARTED"
 #define kMPNotificationDirectionsRenderingStopped @"MP_DIRECTIONS_RENDERING_STOPPED"

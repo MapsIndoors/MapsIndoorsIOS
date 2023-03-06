@@ -22,7 +22,6 @@
 #import <MapsIndoors/MPFloor.h>
 #import <MapsIndoors/MPFloorSelectorControl.h>
 #import <MapsIndoors/MPFloorTileLayer.h>
-#import <MapsIndoors/MPPersistentCacheGMSTileLayer.h>
 #import <MapsIndoors/MPGeometry.h>
 #import <MapsIndoors/MPLatLng.h>
 #import <MapsIndoors/MPLatLngBounds.h>
@@ -153,3 +152,4 @@
 #import <MapsIndoors/MPMapsIndoorsDelegate.h>
 #import <MapsIndoors/MPType.h>
 #import <MapsIndoors/NSDictionary+MPLocationPropertiesDictionary.h>
+#import <MapsIndoors/MPPositionIndicator.h>

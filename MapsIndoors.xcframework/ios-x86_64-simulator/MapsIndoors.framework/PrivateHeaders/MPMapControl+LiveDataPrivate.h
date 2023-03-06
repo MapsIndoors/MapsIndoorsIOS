@@ -8,11 +8,13 @@
 
 #import "MPMapControl.h"
 
+@class MPLocationDataset;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MPMapControl (LiveDataPrivate)
 
-@property (nonatomic, readonly) MPLocationDataset*     locationData;
+@property (nonatomic, readonly) MPLocationDataset* locationData;
 
 - (void)updateLiveAppearanceForLocations:(NSArray<MPLocation *> * _Nonnull)locations;
 - (void)updateLiveSubscriptionsForLocations:(NSArray<MPLocation*>*)locations;
