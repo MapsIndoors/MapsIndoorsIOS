@@ -18,10 +18,10 @@ Pod::Spec.new do |s|
   s.author           = { "MapsPeople" => "info@mapspeople.com" }
   s.source           = { http: "https://github.com/MapsIndoors/MapsIndoorsIOS/releases/download/#{s.version.to_s}/MapsIndoors.xcframework.zip" }
 
-  s.platform = :ios, "10.0"
-  s.ios.deployment_target = '10.0'
+  s.platform = :ios, "13.0"
+  s.ios.deployment_target = '13.0'
 
-  s.dependency 'GoogleMaps', '4.2.0'
+  s.dependency 'GoogleMaps', '7.4.0'
 
   s.ios.vendored_frameworks  = 'MapsIndoors.xcframework'
 end
