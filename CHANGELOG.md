@@ -1,3 +1,13 @@
+---
+title: iOS SDK
+hide_title: false
+hide_table_of_contents: true
+sidebar_position: 2
+slug: /changelogs/ios
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Changelog for the MapsIndoors iOS SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
@@ -16,12 +26,6 @@ Changelog for the MapsIndoors iOS SDK. This document structure is based on [Keep
 ## iOS Version Support
 
 Please note that support for iOS 10 in MapsIndoors SDK v3 will soon end. The minimum supported version will then be iOS 11. The required version of Xcode will remain Xcode 13 a bit longer.
-
-## [3.43.3] 2023-03-08
-
-### Fixed
-
-- MapsIndoors will no longer crash on initialisation if there is no network connection.
 
 ## [3.43.2] 2023-03-03
 
