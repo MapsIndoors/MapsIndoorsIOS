@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '13.0'
   s.swift_version = "5.0"
 
-  s.dependency 'GoogleMaps', '7.3.0'
+  s.dependency 'GoogleMaps', '7.4.0'
   s.dependency 'MapsIndoorsCore', s.version.to_s
   s.dependency 'ValueAnimator', '0.6.8'
 
