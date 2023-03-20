@@ -24,5 +24,5 @@ Pod::Spec.new do |s|
 
   s.dependency 'MapsIndoors', s.version.to_s
 
-  s.ios.vendored_frameworks  = 'MapsIndoorsCore.xcframework'
+  s.ios.vendored_frameworks  = "#{s.name}.xcframework"
 end
