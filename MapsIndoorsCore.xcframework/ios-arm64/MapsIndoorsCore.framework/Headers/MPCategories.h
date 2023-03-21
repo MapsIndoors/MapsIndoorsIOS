@@ -10,15 +10,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class MPDataField;
 @protocol MPDataField;
+@protocol MPDataFieldInternal;
 
 #pragma mark - [INTERNAL - DO NOT USE]
 
 /// > Warning: [INTERNAL - DO NOT USE]
 @interface MPCategories : JSONModel
 
-@property (nonatomic, strong) NSArray<MPDataField*><MPDataField>* list;
+@property (nonatomic, strong) NSArray<id<MPDataField>><MPDataFieldInternal>* list;
 
 @end
 

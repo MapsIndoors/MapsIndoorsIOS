@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-@class MPBuilding;
+@class MPBuildingInternal;
 @class MPBuildingInfoCache;
 
 
@@ -28,8 +28,8 @@ typedef void (^BuildingInfoCompletion)(MPBuildingInfoCache* bic);
 @property (nonatomic, strong, readonly, nullable) NSString*                               language;
 
 @property (nonatomic, strong, readonly, nullable) NSError*                                error;
-@property (nonatomic, strong, readonly, nullable) NSArray<MPBuilding*>*                   buildings;
-@property (nonatomic, strong, readonly, nullable) NSDictionary<NSString*,MPBuilding*>*    buildingFromBuildingId;
+@property (nonatomic, strong, readonly, nullable) NSArray<MPBuildingInternal*>*                   buildings;
+@property (nonatomic, strong, readonly, nullable) NSDictionary<NSString*,MPBuildingInternal*>*    buildingFromBuildingId;
 @property (nonatomic, strong, readonly, nullable) NSDictionary<NSNumber*,NSString*>*      floorNameFromFloorNumber;
 
 + (nullable instancetype) newWithSolutionId:(NSString*)solutionId language:(NSString*)language completion:(BuildingInfoCompletion)completion;

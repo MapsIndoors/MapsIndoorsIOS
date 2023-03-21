@@ -6,20 +6,21 @@
 //  Copyright © 2020 MapsPeople A/S. All rights reserved.
 //
 
-#import "MPLiveUpdate.h"
+#import "MPLiveUpdateInternal.h"
+#import "MPLiveUpdateTopicInternal.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - [INTERNAL - DO NOT USE]
 
 /// > Warning: [INTERNAL - DO NOT USE]
-@interface MPLiveUpdate (Private)
+@interface MPLiveUpdateInternal (Private)
 
 /// Get the data properties of the Live Update as key/value pairs.
 @property (nonatomic, strong, readwrite) NSDictionary<NSString*, id> *properties;
 
-+ (MPLiveUpdate*)liveUpdateWithDictionary:(NSDictionary<NSString *, id<NSObject>> *)dictionary topic:(nullable NSString*)topic;
-- (instancetype)initWithJsonDictionary:(NSDictionary<NSString *, id> *)dict topicObject:(MPLiveUpdateTopic*)topic;
++ (MPLiveUpdateInternal*)liveUpdateWithDictionary:(NSDictionary<NSString *, id<NSObject>> *)dictionary topic:(nullable NSString*)topic;
+- (instancetype)initWithJsonDictionary:(NSDictionary<NSString *, id> *)dict topicObject:(MPLiveUpdateTopicInternal*)topic;
 - (instancetype)initWithJsonDictionary:(NSDictionary<NSString *, id<NSObject>> *)dictionary topic:(nullable NSString*)topic;
 - (nullable instancetype)initWithJsonValue:(nullable id<NSObject>)jsonValue topic:(nullable NSString*)topic;
 

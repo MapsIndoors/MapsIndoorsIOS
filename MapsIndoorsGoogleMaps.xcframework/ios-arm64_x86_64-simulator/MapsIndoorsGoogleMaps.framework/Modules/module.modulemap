@@ -1,0 +1,4 @@
+framework module MapsIndoorsGoogleMaps {
+  header "MapsIndoorsGoogleMaps-Swift.h"
+  requires objc
+}

@@ -7,17 +7,13 @@
 //
 
 #import "JSONModel.h"
-#import "MPBuilding.h"
-#import "MPVenue.h"
+
+@class MPBuildingInternal;
+@class MPPoint;
+@class MPVenueInternal;
+@protocol MPVenueInternal;
 
 #pragma mark - [INTERNAL - DO NOT USE]
-
-/// > Warning: [INTERNAL - DO NOT USE]
-/**
- Venue protocol specification
- */
-@protocol MPVenue
-@end
 
 /// > Warning: [INTERNAL - DO NOT USE]
 /**
@@ -28,10 +24,10 @@
 /**
  The array of venues in this collection.
  */
-@property (nonatomic, strong, nullable) NSArray<MPVenue>* venues;
+@property (nonatomic, strong, nullable) NSArray<MPVenueInternal*><MPVenueInternal>* venues;
 
-- (nullable MPBuilding*) getBuilding:(nullable NSString*)buildingId;
+- (nullable MPBuildingInternal*) getBuilding:(nullable NSString*)buildingId;
 
-- (nullable MPVenue *)getNearestVenue:(nonnull MPPoint*)geometry withinRadius: (int)meterRadius;
+- (nullable MPVenueInternal*)getNearestVenue:(nonnull MPPoint*)geometry withinRadius:(int)meterRadius;
 
 @end

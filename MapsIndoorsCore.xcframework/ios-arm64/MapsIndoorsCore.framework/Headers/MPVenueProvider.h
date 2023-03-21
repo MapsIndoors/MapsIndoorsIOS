@@ -8,14 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "MPDefines.h"
+@import MapsIndoors;
 
-
-@class MPBuilding;
-@class MPVenue;
-@class MPMapExtend;
-@class MPFloor;
-@class MPPoint;
-@class MPMapExtend;
+@class MPBuildingInternal;
+@class MPFloorInternal;
+@class MPVenueInternal;
 
 
 #pragma mark - typedefs
@@ -25,7 +22,7 @@
  - Parameter venue: Venue object. Can be nil.
  - Parameter error: Error object. Can be nil.
  */
-typedef void(^mpVenueDetailsHandlerBlockType)(MPVenue* _Nullable venue, NSError* _Nullable error);
+typedef void(^mpVenueDetailsHandlerBlockType)(MPVenueInternal* _Nullable venue, NSError* _Nullable error);
 
 /**
  Handler block for fetching venues.
@@ -33,7 +30,7 @@ typedef void(^mpVenueDetailsHandlerBlockType)(MPVenue* _Nullable venue, NSError*
  - Parameter venueCollection: Venue collection. Can be nil.
  - Parameter error: Error object. Can be nil.
  */
-typedef void(^mpVenueListHandlerBlockType)(NSArray<MPVenue*>* _Nullable venueCollection, NSError* _Nullable error);
+typedef void(^mpVenueListHandlerBlockType)(NSArray<MPVenueInternal*>* _Nullable venueCollection, NSError* _Nullable error);
 
 /**
  Handler block for fetching buildings
@@ -41,7 +38,7 @@ typedef void(^mpVenueListHandlerBlockType)(NSArray<MPVenue*>* _Nullable venueCol
  - Parameter building: Building object. Can be nil.
  - Parameter error: Error object. Can be nil.
  */
-typedef void(^mpBuildingDetailsHandlerBlockType)(MPBuilding* _Nullable building, NSError* _Nullable error);
+typedef void(^mpBuildingDetailsHandlerBlockType)(id<MPBuilding> _Nullable building, NSError* _Nullable error);
 
 /**
  Handler block for fetching buildings
@@ -49,7 +46,7 @@ typedef void(^mpBuildingDetailsHandlerBlockType)(MPBuilding* _Nullable building,
  - Parameter buildings: Building objects. Can be nil.
  - Parameter error: Error object. Can be nil.
  */
-typedef void(^mpBuildingListHandlerBlockType)(NSArray<MPBuilding*>* _Nullable buildings, NSError* _Nullable error);
+typedef void(^mpBuildingListHandlerBlockType)(NSArray<id<MPBuilding>>* _Nullable buildings, NSError* _Nullable error);
 
 /**
  Handler block for fetching data related to a geographic point
@@ -59,7 +56,7 @@ typedef void(^mpBuildingListHandlerBlockType)(NSArray<MPBuilding*>* _Nullable bu
  - Parameter floor: Building containing the geographic point. Can be nil.
  - Parameter error: Error object. Can be nil.
  */
-typedef void(^mpGeocodeHandlerBlockType)(MPVenue* _Nullable venue, MPBuilding* _Nullable building, MPFloor* _Nullable floor, NSError* _Nullable error);
+typedef void(^mpGeocodeHandlerBlockType)(MPVenueInternal* _Nullable venue, MPBuildingInternal* _Nullable building, MPFloorInternal* _Nullable floor, NSError* _Nullable error);
 
 
 #pragma mark - MPVenueProviderDelegate
@@ -77,27 +74,27 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* _Nullable venue, MPBuilding* _
  Venue data ready event method.
  - Parameter venueCollection: The venue data array.
  */
-- (void) onVenuesReady: (nonnull NSArray<MPVenue*>*)venueCollection;
+- (void) onVenuesReady: (nonnull NSArray<MPVenueInternal*>*)venueCollection;
 /**
  Building data ready event method.
  - Parameter building: The building data object.
  */
-- (void) onBuildingWithinBoundsReady: (nonnull MPBuilding*)building;
+- (void) onBuildingWithinBoundsReady: (nonnull MPBuildingInternal*)building;
 /**
  Building data ready event method.
  - Parameter building: The building data object.
  */
-- (void) onBuildingDetailsReady: (nonnull MPBuilding*)building;
+- (void) onBuildingDetailsReady: (nonnull id<MPBuilding>)building;
 /**
  Venue data ready event method.
  - Parameter venue: The venue data object.
  */
-- (void) onVenueDetailsReady: (nonnull MPVenue*)venue;
+- (void) onVenueDetailsReady: (nonnull MPVenueInternal*)venue;
 /**
  Building data ready event method.
  - Parameter buildings: The buildings data object.
  */
-- (void) onBuildingsReady: (nonnull NSArray<MPBuilding*>*)buildings;
+- (void) onBuildingsReady: (nonnull NSArray<id<MPBuilding>>*)buildings;
 @end
 
 
@@ -124,7 +121,7 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* _Nullable venue, MPBuilding* _
  
  - Parameter mapExtend: The geographic bounds, defined by north, south, west and east
  */
-- (void)getBuildingWithinBounds: (nonnull MPMapExtend*)mapExtend;
+- (void)getBuildingWithinBounds: (nonnull MPGeoBounds*)bounds;
 
 /**
  Get buildings from this provider
@@ -159,7 +156,7 @@ typedef void(^mpGeocodeHandlerBlockType)(MPVenue* _Nullable venue, MPBuilding* _
  - Parameter mapExtend: The geographic bounds, defined by north, south, west and east
  - Parameter handler: Building fetch callback block
  */
-- (void)getBuildingWithinBounds: (nonnull MPMapExtend*)mapExtend completionHandler:(nullable mpBuildingDetailsHandlerBlockType)handler;
+- (void)getBuildingWithinBounds: (nonnull MPGeoBounds*)bounds completionHandler:(nullable mpBuildingDetailsHandlerBlockType)handler;
 /**
  Get buildings from this provider
  

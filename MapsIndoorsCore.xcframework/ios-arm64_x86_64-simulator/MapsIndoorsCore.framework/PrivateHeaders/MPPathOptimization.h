@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "MPGraphEdge.h"
 #import "MPGraphNode.h"
-#import "MPLocation.h"
 #import "MPRouteGraphResult.h"
 #import "MPRouteLayerService.h"
 
@@ -33,7 +32,7 @@ typedef NS_OPTIONS(NSUInteger, MPPathOptimizationStrategy) {
 @interface MPPathOptimization : NSObject
 
 + (MPRouteGraphResult*) optimizePath:(NSArray<MPGraphEdge*>*)path nodes:(NSArray<MPGraphNode*>*)nodes obstacles:(MPRouteLayerService*)obstacleService routeNetworkAllowsOptimization:(BOOL)routeNetworkAllowsOptimization;
-+ (NSArray<MPLocation*>*) getLocationsFromNodePath:(NSArray<MPGraphNode *> *)nodePath;
++ (NSArray<id<MPLocation>>*) getLocationsFromNodePath:(NSArray<MPGraphNode *> *)nodePath;
 
 @property (nonatomic, class) MPPathOptimizationStrategy    pathOptimizationStrategy;
 

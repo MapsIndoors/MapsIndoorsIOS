@@ -1,19 +1,29 @@
-Changelog for MapsIndoors for iOS. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-<!---
-## [Unreleased]
-### Fixed
+## iOS Version Requirements
+
+MapsIndoors SDK v4 requires at least iOS 13 and Xcode 14.
+
+## [4.0.0-beta7] 2023-03-20
+
+MapsIndoors iOS v4 SDK is considered feature complete but some changes to the public interface is to be expected. The beta status indicates that there may be bugs and unresponsive or slow map rendering under certain conditions.
+
 ### Added
-### Fixed
+
+- MapsIndoors framework that contains the public interface for MapsIndoors.
+
 ### Changed
-### Removed
--->
+
+- With the addition of the MapsIndoors framework it is now necessary to `import MapsIndoors` instead of `import MapsIndoorsCore` (`import MapsIndoorsCore` is still needed in a few cases as described in the documentation and migration guide).
+
+### Fixed
+
+- Directions now work with external routes as well, using Google Maps Directions API or Mapbox Navigation API, respectively.
 
 ## [4.0.0-beta6] 2023-02-16
 
 ### Changed
 
-* `MapsIndoors.shared.newMapControl(mapConfig:)` has been renamed to `MapsIndoors.shared.createMapControl(mapConfig:)` 
+* `MapsIndoors.shared.newMapControl(mapConfig:)` has been renamed to `MapsIndoors.shared.createMapControl(mapConfig:)`
 * Assignment of PositionProvider is moved to MapControl.
 * Access to pre-defined DisplayRules and those from the CMS are now accessed via `MapsIndoors.shared.displayRuleFor(displayRuleType:)`
 
@@ -86,3 +96,4 @@ Changelog for MapsIndoors for iOS. This document structure is based on [Keep a C
 * Many interface changes. See migration guide for help in migrating from MapsIndoors SDK v3.
 * Minimum iOS version supported is iOS 13.
 * Required Xcode version is Xcode 14.
+

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MPSubscriptionClient.h"
+@import MapsIndoors;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// > Warning: [INTERNAL - DO NOT USE]
 @interface MPMQTTSubscriptionClient : NSObject<MPSubscriptionClient>
 
-@property (nonatomic, weak) id<MPSubscriptionClientDelegate> delegate;
+@property (nonatomic, retain) id<MPSubscriptionClientDelegate> delegate;
 @property (nonatomic) MPSubscriptionState state;
 
 @end

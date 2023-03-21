@@ -10,7 +10,7 @@
 #import <Foundation/Foundation.h>
 #import "MPMapsIndoorsLegacy.h"
 #import "MPLocationService.h"
-#import "MPSolution.h"
+#import "MPSolutionInternal.h"
 
 @class MPMemoryCache;
 @class MPMapConfig;
@@ -25,13 +25,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (class, readonly) MPLocationService* locationService;
 
 + (nullable MPMapsIndoorsLocationSource*) defaultLocationSource;
-
-/**
- Provides your Solution Id to the MapsIndoors SDK for iOS. This key is generated for your solution.
- - Parameter solutionId: The MapsIndoors content key
- - Returns: YES if the Solution Id was successfully provided
- */
-+ (BOOL) provideSolutionId:(NSString*)solutionId;
 
 @property (class, readonly) MPMemoryCache* memoryCache;
 

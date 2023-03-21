@@ -8,15 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "NSString+MPPropertyClassification.h"
-typedef NSString* MPHighwayType;
-
 
 NS_ASSUME_NONNULL_BEGIN
 
-
-@class MPGraphNode;
 @class MPGraphEdge;
-
+@class MPGraphNode;
+@class MPHighway;
 
 #pragma mark - [INTERNAL - DO NOT USE]
 
@@ -26,9 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL                          avoiding;
 @property (nonatomic, strong) NSSet<NSString*>*     accessTokens;
 
-- (NSInteger) getWeightFromNode:(MPGraphNode*)from viaEdge:(MPGraphEdge*)edge toNode:(MPGraphNode*)to byAvoiding:(NSArray<MPHighwayType>*)avoid;
+- (NSInteger) getWeightFromNode:(MPGraphNode*)from viaEdge:(MPGraphEdge*)edge toNode:(MPGraphNode*)to byAvoiding:(NSArray<MPHighway*>*)avoid;
 
 @end
-
 
 NS_ASSUME_NONNULL_END

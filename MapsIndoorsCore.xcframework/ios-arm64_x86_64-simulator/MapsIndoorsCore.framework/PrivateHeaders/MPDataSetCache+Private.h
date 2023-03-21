@@ -7,19 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MPDataSetCache.h"
-
+#import "MPDataSetCacheInternal.h"
 
 @class MPFileCache;
 @class MPDataSetCacheTask;
-
 
 NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - [INTERNAL - DO NOT USE]
 
 /// > Warning: [INTERNAL - DO NOT USE]
-@interface MPDataSetCache (Private)
+@interface MPDataSetCacheInternal (Private)
 
 - (instancetype) initWithId:(NSString*)dataSetId cache:(MPFileCache*)cache;
 //- (instancetype) initWithDictionary:(NSDictionary*)dict;
@@ -33,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /// > Warning: [INTERNAL - DO NOT USE]
-@interface MPDataSetCache ()
+@interface MPDataSetCacheInternal ()
 
 @property (nonatomic, strong) NSDate*                           lastUsedTime;   /// Time the dataset was last referenced in [MapsIndoors provideApiKey:
 
@@ -46,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (MPDataSetCacheTask*) getOrCreateTaskForScopingDataSetSize;
 - (BOOL) hasScopedDataSetSize;
 
-- (BOOL) setCachingScope:(MPDataSetCacheScope)scope cacheItem:(MPDataSetCacheItem*)cacheItem;
+- (BOOL) setCachingScope:(MPDataSetCachingScope)scope cacheItem:(id<MPDataSetCacheItem>)cacheItem;
 
 @end
 

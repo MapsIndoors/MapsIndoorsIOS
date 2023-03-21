@@ -9,10 +9,6 @@
 #import "MPDataSetCacheTask.h"
 #import "NSOperation+MapsPeople.h"
 
-
-@class MPDataSetCacheItem;
-
-
 NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - [INTERNAL - DO NOT USE]

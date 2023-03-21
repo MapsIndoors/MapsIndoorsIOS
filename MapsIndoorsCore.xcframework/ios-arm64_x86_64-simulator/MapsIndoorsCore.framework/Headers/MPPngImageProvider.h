@@ -6,8 +6,6 @@
 //  Copyright  Daniel Nielsen. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 #import "MPImageProvider.h"
 
 #pragma mark - [INTERNAL - DO NOT USE]
@@ -16,6 +14,6 @@
 /**
  The image provider acts as a service for fetching images either online or cached offline. Only intended for png images.
  */
-@interface MPPngImageProvider : NSObject<MPImageProvider>
+@interface MPPngImageProvider : NSObject<MPImageProviderProtocol>
 
 @end

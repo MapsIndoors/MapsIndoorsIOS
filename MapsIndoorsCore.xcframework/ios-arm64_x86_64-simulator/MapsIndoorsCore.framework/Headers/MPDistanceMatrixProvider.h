@@ -31,7 +31,6 @@ typedef void(^mpMatrixHandlerBlockType)(MPDistanceMatrixResult* _Nullable matrix
 
 @property (nonatomic, weak, nullable) id <MPDistanceMatrixProviderDelegate> delegate;
 @property (nonatomic, strong, nullable) NSString* solutionId;
-@property (nonatomic, strong, nullable) NSString* googleApiKey;
 @property (nonatomic, strong, nullable) NSString* graphId;
 @property (nonatomic, strong, nullable) NSString* vehicle;
 
@@ -57,19 +56,5 @@ typedef void(^mpMatrixHandlerBlockType)(MPDistanceMatrixResult* _Nullable matrix
 - (void) getDistanceMatrixWithOrigins:(nonnull NSArray*)origins
                          destinations:(nonnull NSArray*)destinations
                            travelMode:(nonnull NSString*)travelMode;
-
-
-#pragma mark - Google distance matrix
-- (void) getGoogleDistanceMatrixWithOrigins:(nonnull NSArray*)origins
-                               destinations:(nonnull NSArray*)destinations
-                                 travelMode:(nonnull NSString*)travelMode
-                                      avoid:(nullable NSArray*)restrictions
-                                     depart:(nullable NSDate*)departureTime
-                                     arrive:(nullable NSDate*)arrivalTime
-                          completionHandler:(nullable mpMatrixHandlerBlockType)handler;
-
-- (void) getGoogleDistanceMatrixWithOrigins:(nonnull NSArray*)origins
-                               destinations:(nonnull NSArray*)destinations
-                                 travelMode:(nonnull NSString*)travelMode;
 
 @end

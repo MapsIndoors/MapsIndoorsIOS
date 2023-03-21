@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MPPolygonGeometry.h"
+@import MapsIndoors;
 
 NS_ASSUME_NONNULL_BEGIN
 

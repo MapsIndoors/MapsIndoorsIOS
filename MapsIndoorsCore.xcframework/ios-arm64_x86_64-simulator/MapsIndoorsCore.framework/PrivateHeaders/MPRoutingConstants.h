@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MPDefines.h"
 
+@class MPHighway;
 
 #pragma mark - [INTERNAL - DO NOT USE]
 
@@ -27,7 +28,7 @@
  - Parameter highwayType: highwayType to determin espeed for.
  - Returns: Travelling speed in meters per second.
  */
-+ (double) speedForHighwayType:(MPHighwayType)highwayType;
++ (double) speedForHighwayType:(MPHighway*)highwayType;
 
 
 @end

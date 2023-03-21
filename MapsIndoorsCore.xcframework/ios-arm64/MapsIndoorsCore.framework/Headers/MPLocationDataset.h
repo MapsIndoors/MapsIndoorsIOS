@@ -6,13 +6,12 @@
 //  Copyright (c) 2017 MapsPeople A/S. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "JSONModel.h"
+@import MapsIndoors;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class MPLocation;
-@protocol MPLocation;
+@protocol MPLocationInternal;
 
 #pragma mark - [INTERNAL - DO NOT USE]
 
@@ -22,12 +21,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface MPLocationDataset : JSONModel
 
-- (instancetype)initWithLocations:(NSArray<MPLocation*>*) locations;
+- (instancetype)initWithLocations:(NSArray<id<MPLocation>><MPLocationInternal>*) locations;
 
 /**
  Main location array in the data set.
  */
-@property (nonatomic, strong, nullable, readonly) NSArray<MPLocation*><MPLocation> *list;
+@property (nonatomic, strong, nullable, readonly) NSArray<id<MPLocation>><MPLocationInternal> *list;
 
 @end
 

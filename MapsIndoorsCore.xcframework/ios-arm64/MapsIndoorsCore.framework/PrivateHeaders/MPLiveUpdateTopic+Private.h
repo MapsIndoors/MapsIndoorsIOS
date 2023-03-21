@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MPLiveUpdateTopic.h"
+#import "MPLiveUpdateTopicInternal.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,7 +26,7 @@ typedef NS_ENUM(NSUInteger, MPTopicIdx) {
 #pragma mark - [INTERNAL - DO NOT USE]
 
 /// > Warning: [INTERNAL - DO NOT USE]
-@interface MPLiveUpdateTopic (Private)
+@interface MPLiveUpdateTopicInternal (Private)
 
 - (instancetype)initWithJsonDictionary:(NSDictionary<NSString *, id<NSObject>> *)dictionary;
 - (nullable instancetype)initWithJsonValue:(nullable id<NSObject>)jsonValue;
@@ -41,21 +41,21 @@ typedef NS_ENUM(NSUInteger, MPTopicIdx) {
 
 @property (nonatomic, strong, readonly) NSString *topicStringUrlEscaped;
 
-+ (MPLiveUpdateTopic*) building:(NSString*)buildingId;
-+ (MPLiveUpdateTopic*) dataset:(NSString*)datasetId;
-+ (MPLiveUpdateTopic*) floor:(NSString*)floorId;
-+ (MPLiveUpdateTopic*) room:(NSString*)roomId;
-+ (MPLiveUpdateTopic*) venue:(NSString*)venueId;
-+ (MPLiveUpdateTopic*) location:(NSString*)locationId;
-+ (MPLiveUpdateTopic*) domainType:(NSString*)domainType;
++ (MPLiveUpdateTopicInternal*) building:(NSString*)buildingId;
++ (MPLiveUpdateTopicInternal*) dataset:(NSString*)datasetId;
++ (MPLiveUpdateTopicInternal*) floor:(NSString*)floorId;
++ (MPLiveUpdateTopicInternal*) room:(NSString*)roomId;
++ (MPLiveUpdateTopicInternal*) venue:(NSString*)venueId;
++ (MPLiveUpdateTopicInternal*) location:(NSString*)locationId;
++ (MPLiveUpdateTopicInternal*) domainType:(NSString*)domainType;
 
-- (MPLiveUpdateTopic*) building:(NSString*)buildingId;
-- (MPLiveUpdateTopic*) dataset:(NSString*)datasetId;
-- (MPLiveUpdateTopic*) floor:(NSString*)floorId;
-- (MPLiveUpdateTopic*) room:(NSString*)roomId;
-- (MPLiveUpdateTopic*) venue:(NSString*)venueId;
-- (MPLiveUpdateTopic*) location:(NSString*)locationId;
-- (MPLiveUpdateTopic*) domainType:(NSString*)domainType;
+- (MPLiveUpdateTopicInternal*) building:(NSString*)buildingId;
+- (MPLiveUpdateTopicInternal*) dataset:(NSString*)datasetId;
+- (MPLiveUpdateTopicInternal*) floor:(NSString*)floorId;
+- (MPLiveUpdateTopicInternal*) room:(NSString*)roomId;
+- (MPLiveUpdateTopicInternal*) venue:(NSString*)venueId;
+- (MPLiveUpdateTopicInternal*) location:(NSString*)locationId;
+- (MPLiveUpdateTopicInternal*) domainType:(NSString*)domainType;
 
 @end
 

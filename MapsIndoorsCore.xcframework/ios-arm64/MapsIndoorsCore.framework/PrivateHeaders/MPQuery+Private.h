@@ -6,9 +6,8 @@
 //  Copyright © 2018 MapsPeople A/S. All rights reserved.
 //
 
-#import "MPQuery.h"
 #import "MIQuery.h"
-#import "MIOrdering.h"
+@import MapsIndoors;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,7 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MPQuery (Private)
 
 @property (nonatomic, readonly) MIQuery* miQuery;
-@property (nonatomic) NSMutableArray<MIOrdering*>* miOrdering;
 
 @end
 

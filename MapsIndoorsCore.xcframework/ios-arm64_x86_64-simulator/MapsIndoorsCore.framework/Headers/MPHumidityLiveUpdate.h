@@ -6,7 +6,7 @@
 //  Copyright © 2020 MapsPeople A/S. All rights reserved.
 //
 
-#import "MPLiveUpdate.h"
+#import "MPLiveUpdateInternal.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// Model for live humidity measurement for a given Location.
 /// > Warning: [INTERNAL - DO NOT USE]
-@interface MPHumidityLiveUpdate : MPLiveUpdate
+@interface MPHumidityLiveUpdate : MPLiveUpdateInternal
 
 /// Get the measured relative humidity for a given Location. 
 @property (nonatomic, readonly) NSMeasurement* relativeHumidity;

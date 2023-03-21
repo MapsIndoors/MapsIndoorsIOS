@@ -7,10 +7,9 @@
 
 #import <Foundation/Foundation.h>
 #import "NSString+MPPropertyClassification.h"
-#import "MPDefines.h"
 
 @class MIEdge;
-
+@class MPHighway;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -32,19 +31,19 @@ NS_ASSUME_NONNULL_BEGIN
 /**
 Highway type as enum
 */
-@property (nonatomic, readonly)                   MPHighwayType     highway;
+@property (nonatomic, readonly)                   MPHighway*     highway;
 /**
 Context value
 */
-@property (nonatomic, readonly, strong, nullable) NSString*         context;
+@property (nonatomic, readonly, strong, nullable) NSString*      context;
 /**
 Distance of the edge in millimeters
 */
-@property (nonatomic, readonly)                   NSUInteger        distance;       // mm
+@property (nonatomic, readonly)                   NSUInteger     distance;       // mm
 /**
 Waittime somewhere on this edge
 */
-@property (nonatomic, readonly)                   NSTimeInterval    waittime;
+@property (nonatomic, readonly)                   NSTimeInterval waittime;
 
 @end
 

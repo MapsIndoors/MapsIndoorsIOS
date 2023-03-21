@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MPDataField.h"
+#import "MPDataFieldInternal.h"
 
 /**
  Callback block for getting category data or handling error in doing so.
@@ -15,7 +15,7 @@
  - Parameter categories: Array of categories. Will be nil if an error occurred
  - Parameter error: Error object. Will be nil if fetching was complete
  */
-typedef void(^mpCategoriesHandlerBlockType)( NSArray<MPDataField*>* _Nullable categories, NSError* _Nullable error );
+typedef void(^mpCategoriesHandlerBlockType)( NSArray<id<MPDataField>>* _Nullable categories, NSError* _Nullable error );
 
 
 #pragma mark - [INTERNAL - DO NOT USE]

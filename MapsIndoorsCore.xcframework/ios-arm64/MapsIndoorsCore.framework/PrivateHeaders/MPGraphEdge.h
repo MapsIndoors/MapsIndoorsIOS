@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-
+@class MPHighway;
 @protocol MPGraphEdgePropertyProtocol;
 
 
@@ -50,13 +50,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, readonly) BOOL    directed;   // "oneway" flag
 
-@property (nonatomic, readonly)                   MPHighwayType     highway;
+@property (nonatomic, readonly)                   MPHighway*        highway;
 @property (nonatomic, readonly, strong, nullable) NSString*         context;
 @property (nonatomic, readonly)                   NSUInteger        distance;       // mm
 @property (nonatomic, readonly)                   double            speedFactor;
 @property (nonatomic, readonly)                   NSTimeInterval    waittime;
 
-@property (nonatomic, strong, nullable) NSArray<MPHighwayType>*         restrictions;
+@property (nonatomic, strong, nullable) NSArray<NSString*>*         restrictions;
 
 
 /**

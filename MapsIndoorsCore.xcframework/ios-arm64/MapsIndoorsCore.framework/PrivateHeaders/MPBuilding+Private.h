@@ -6,24 +6,19 @@
 //  Copyright © 2018 MapsPeople A/S. All rights reserved.
 //
 
-
-#import "MPMutableLocation.h"
-#import "MPBuilding.h"
+#import "MPBuildingInternal.h"
 
 
 #pragma mark - [INTERNAL - DO NOT USE]
 
 /// > Warning: [INTERNAL - DO NOT USE]
-@interface MPBuilding (Private)
+@interface MPBuildingInternal (Private)
 
-
-
-- (NSArray<MPMutableLocation*>*_Nullable) getLocationsForBuildingAndFloors;
+- (NSArray<id<MPLocation>>* _Nullable) getLocationsForBuildingAndFloors;
 
 /**
  Get the MPLocation object that corresponds to this MPBuilding object.
  */
-@property (nonatomic, strong, readonly, nonnull) MPLocation*    asLocationObject;
-
+@property (nonatomic, strong, readonly, nonnull) id<MPLocation> asLocationObject;
 
 @end

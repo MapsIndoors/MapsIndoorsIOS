@@ -16,13 +16,13 @@ NS_ASSUME_NONNULL_BEGIN
 /// > Warning: [INTERNAL - DO NOT USE]
 @interface MPLocationService () <MPLocationSourceInternal, MPLocationsObserver>
 
-@property (nonatomic) NSArray<MPLocation*>* allLocations;
+@property (nonatomic) NSArray<id<MPLocation>>* allLocations;
 @property (nonatomic, nullable) MPMapsIndoorsLocationSource* defaultLocationSource;
 
 - (void)registerLocationSources:(NSArray<id<MPLocationSource>>*) sources;
 - (void)iGetLocationsUsingQuery:(MPQuery *)query filter:(MPFilter *)filter completionHandler:(mpLocationsHandlerBlockType)handler;
-- (NSArray<NSArray<MPLocation*>*>*)getLocationsUsingFilters:(NSArray<MPFilter *>*)filters;
-- (NSArray<MPLocation*>*)getLocationsUsingFilter:(MPFilter *)filter;
+- (NSArray<NSArray<id<MPLocation>>*>*)getLocationsUsingFilters:(NSArray<MPFilter *>*)filters;
+- (NSArray<id<MPLocation>>*)getLocationsUsingFilter:(MPFilter *)filter;
 - (void)logSearch:(MPFilter * _Nonnull)filter query:(MPQuery * _Nonnull)query extraParams:(nullable NSDictionary*) extraParams;
 - (void) reinitWithNewSolutionId:(NSString*)solutionId;
 

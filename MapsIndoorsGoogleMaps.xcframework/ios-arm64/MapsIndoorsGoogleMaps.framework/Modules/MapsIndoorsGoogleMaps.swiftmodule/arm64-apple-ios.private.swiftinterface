@@ -1,0 +1,85 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MapsIndoorsGoogleMaps
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import CommonCrypto
+import CoreLocation
+import Foundation
+import GameplayKit
+import GoogleMaps
+import MapsIndoors
+import MapsIndoorsCore
+import MapsIndoorsGoogleMaps_Private
+import Swift
+import UIKit
+import ValueAnimator
+import _Concurrency
+import _StringProcessing
+@objc extension GoogleMaps.GMSMapView {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func getMapsIndoorsGoogleMapsIndexRange(for mpLayer: MapsIndoorsGoogleMaps.MPLayer) -> Foundation.NSRange
+}
+@objc public enum MPLayer : Swift.Int {
+  case MAPSINDOORS_ALL_LAYERS_RANGE
+  case MARKER_RANGE
+  case POLYGONS_RANGE
+  case BUILDING_OUTLINE_HIGHLIGHT_RANGE
+  case LOCATION_OUTLINE_HIGHLIGHT_RANGE
+  case DIRECTIONS_RANGE
+  case MODEL_2D_RANGE
+  case BLUEDOT_RANGE
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc extension MapsIndoors.MPMapConfig {
+  @objc convenience dynamic public init(gmsMapView: GoogleMaps.GMSMapView, googleApiKey: Swift.String)
+}
+@objc @_inheritsConvenienceInitializers public class LatLngBoundsConverter : ObjectiveC.NSObject {
+  public class func convertToMPBounds(bounds: GoogleMapsBase.GMSCoordinateBounds) -> MapsIndoors.MPGeoBounds
+  public class func convertToGoogleBounds(bounds: MapsIndoors.MPGeoBounds) -> GoogleMapsBase.GMSCoordinateBounds
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @objcMembers public class GoogleMapProvider : ObjectiveC.NSObject, MapsIndoorsCore.MPMapProvider {
+  @objc public var routingService: MapsIndoorsCore.MPExternalDirectionsService {
+    @objc get
+  }
+  @objc public var distanceMatrixService: MapsIndoorsCore.MPExternalDistanceMatrixService {
+    @objc get
+  }
+  @objc public var customInfoWindow: MapsIndoors.MPCustomInfoWindow?
+  @objc public func reloadTilesForFloorChange()
+  @objc public var collisionHandling: MapsIndoors.MPCollisionHandling
+  @objc public var cameraOperator: MapsIndoorsCore.MPCameraOperator {
+    @objc get
+  }
+  public var routeRenderer: MapsIndoorsCore.MPRouteRenderer {
+    get
+  }
+  public func setTileProvider(tileProvider: MapsIndoorsCore.MPTileProvider)
+  @objc public var delegate: MapsIndoorsCore.MPMapProviderDelegate? {
+    @objc get
+    @objc set
+  }
+  @objc public var positionPresenter: MapsIndoorsCore.MPPositionPresenter
+  @objc public var cameraPosition: MapsIndoors.MPCameraPosition
+  @objc public init(mapView: GoogleMaps.GMSMapView, googleApiKey: Swift.String? = nil)
+  public func setViewModels(models: [MapsIndoorsCore.MPViewModel])
+  @objc public var view: UIKit.UIView? {
+    @objc get
+  }
+  @objc public var MPaccessibilityElementsHidden: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var padding: UIKit.UIEdgeInsets {
+    @objc get
+    @objc set
+  }
+  @objc deinit
+}
+extension MapsIndoorsGoogleMaps.MPLayer : Swift.Equatable {}
+extension MapsIndoorsGoogleMaps.MPLayer : Swift.Hashable {}
+extension MapsIndoorsGoogleMaps.MPLayer : Swift.RawRepresentable {}

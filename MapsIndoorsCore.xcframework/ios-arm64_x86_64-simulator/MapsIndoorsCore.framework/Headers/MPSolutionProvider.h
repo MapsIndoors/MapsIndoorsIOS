@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "MPDefines.h"
 
-@class MPSolution;
+@class MPSolutionInternal;
 @class MPUserRole;
 
 
-typedef void(^mpSolutionHandlerBlockType)(MPSolution* _Nullable solution, NSError* _Nullable error);
+typedef void(^mpSolutionHandlerBlockType)(MPSolutionInternal* _Nullable solution, NSError* _Nullable error);
 typedef void(^mpUserRoleCompletion)( NSArray<MPUserRole*>* _Nullable userRoles, NSError* _Nullable error );
 
 /// > Warning: [INTERNAL - DO NOT USE]
@@ -27,7 +27,7 @@ typedef void(^mpUserRoleCompletion)( NSArray<MPUserRole*>* _Nullable userRoles, 
  - Parameter solution: The solution data.
  */
 @required
-- (void) onSolutionsReady: (nonnull MPSolution*)solution;
+- (void) onSolutionsReady: (nonnull MPSolutionInternal*)solution;
 
 @end
 

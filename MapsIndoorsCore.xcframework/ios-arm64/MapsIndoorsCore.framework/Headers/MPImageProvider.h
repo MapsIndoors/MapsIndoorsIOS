@@ -6,22 +6,17 @@
 //  Copyright © 2017 MapsPeople A/S. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-
-/// > Warning: [INTERNAL - DO NOT USE]
-@protocol MPImageProvider<NSObject>
-
-- (void)getImageFromUrlStringAsync: (nonnull NSString*)url imageSize: (CGSize) size completionHandler: (nonnull void (^)(UIImage* _Nullable image, NSError* _Nullable error)) completionHandler;
-
-@end
+@import MapsIndoors;
 
 #pragma mark - [INTERNAL - DO NOT USE]
 
 /// > Warning: [INTERNAL - DO NOT USE]
-@interface MPImageProvider : NSObject<MPImageProvider>
+@interface MPImageProvider : NSObject<MPImageProviderProtocol>
 
-- (void)getImageFromUrlStringAsync: (nonnull NSString*)url imageSize: (CGSize) size completionHandler: (nonnull void (^)(UIImage* _Nullable image, NSError* _Nullable error)) completionHandler;
-+ (void)getImageFromUrlStringAsync: (nonnull NSString*)url completionHandler: (nonnull void (^)(UIImage* _Nullable image, NSError* _Nullable error)) completionHandler;
++ (void)imageFromUrlString:(NSString * _Nonnull)urlString imageSize:(CGSize)imageSize completionHandler:(void (^ _Nonnull)(UIImage * _Nullable, NSError * _Nullable))completionHandler;
+
+- (void)imageFromUrlString:(NSString * _Nonnull)urlString completionHandler:(void (^ _Nonnull)(UIImage * _Nullable, NSError * _Nullable))completionHandler;
+
+- (void)imageFromUrlString:(NSString * _Nonnull)urlString imageSize:(CGSize)imageSize completionHandler:(void (^ _Nonnull)(UIImage * _Nullable, NSError * _Nullable))completionHandler;
 
 @end

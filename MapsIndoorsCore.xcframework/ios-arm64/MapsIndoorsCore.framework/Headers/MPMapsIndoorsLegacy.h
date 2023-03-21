@@ -11,11 +11,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class MPDataSetCacheManager;
-@class MPSolution;
+@class MPDataSetCacheManagerInternal;
+@class MPSolutionInternal;
 @class MPUserRole;
 @protocol MPAuthDetails;
-@protocol MPImageProvider;
+@protocol MPImageProviderProtocol;
 @protocol MPLocationSource;
 @protocol MPLocationsProvider;
 @protocol MPMapsIndoorsLegacyDelegate;
@@ -130,7 +130,7 @@ typedef void(^mpAuthDetailsHandlerBlockType)( id<MPAuthDetails> _Nullable authDe
 /**
  The image provider that MapsIndoors should use when image ressources are needed. MapsIndoors will provide a default if this property is nil.
  */
-@property (class, nullable) id<MPImageProvider> imageProvider;
+@property (class, nullable) id<MPImageProviderProtocol> imageProvider;
 
 /**
  Returns whether the current API key is valid or not.
@@ -141,7 +141,7 @@ typedef void(^mpAuthDetailsHandlerBlockType)( id<MPAuthDetails> _Nullable authDe
 /**
  Get the shared dataset cache manager.
  */
-@property (class, readonly) MPDataSetCacheManager* dataSetCacheManager;
+@property (class, readonly) MPDataSetCacheManagerInternal* dataSetCacheManager;
 
 /**
  Get or set the user roles that should apply generally for querying routes and locations. The roles are applied in an OR fashion. This means that if for example a locations internal restrictions matches one or more of the given roles, the location will be included in response object. Setting the user roles will only work when online.
@@ -167,7 +167,7 @@ typedef void(^mpAuthDetailsHandlerBlockType)( id<MPAuthDetails> _Nullable authDe
 /// The MPSolution for the current API Key/language.
 ///
 /// Is `nil` if no data is present for the current API Key/language set
-@property (class, nullable, readonly) MPSolution* solution;
+@property (class, nullable, readonly) MPSolutionInternal* solution;
 
 @end
 

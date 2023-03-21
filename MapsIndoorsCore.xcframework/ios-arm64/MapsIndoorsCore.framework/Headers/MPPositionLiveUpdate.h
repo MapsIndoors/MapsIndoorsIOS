@@ -6,7 +6,7 @@
 //  Copyright © 2020 MapsPeople A/S. All rights reserved.
 //
 
-#import "MPLiveUpdate.h"
+#import "MPLiveUpdateInternal.h"
 #import <CoreLocation/CoreLocation.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// Model for live position information for a given Location.
 /// > Warning: [INTERNAL - DO NOT USE]
-@interface MPPositionLiveUpdate : MPLiveUpdate
+@interface MPPositionLiveUpdate : MPLiveUpdateInternal
 
 /// Get the geographic coordinates.
 @property (nonatomic, readonly) CLLocationCoordinate2D position;

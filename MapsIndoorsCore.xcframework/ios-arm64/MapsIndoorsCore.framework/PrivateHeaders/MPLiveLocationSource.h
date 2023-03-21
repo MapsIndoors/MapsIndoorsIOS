@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MPLocationSource.h"
-#import "MPLiveUpdate.h"
+#import "MPLiveUpdateInternal.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// > Warning: [INTERNAL - DO NOT USE]
 @interface MPMapsIndoorsLocationSource (LiveData)
 
-- (void)notifyLiveUpdate:(nonnull MPLiveUpdate *)liveUpdate;
+- (void)notifyLiveUpdate:(nonnull MPLiveUpdateInternal *)liveUpdate;
 
 @end
 

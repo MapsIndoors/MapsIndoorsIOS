@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-#import "MPFloorSelectorProtocol.h"
+@import MapsIndoors;
 
 #pragma mark - [INTERNAL - DO NOT USE]
 
@@ -16,7 +15,7 @@
 /**
   Floor selection UI element. Can be added to the map, but should be linked to an MPBuilding to make sense.
  */
-@interface MPFloorSelectorControl : UIView <MPFloorSelectorProtocol>
+@interface MPFloorSelectorControl : UIView <MPCustomFloorSelector>
 
 /**
   Get the background color for the selected floor button.

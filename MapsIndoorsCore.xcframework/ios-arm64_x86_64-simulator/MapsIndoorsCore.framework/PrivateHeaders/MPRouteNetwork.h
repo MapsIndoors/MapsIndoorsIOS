@@ -6,15 +6,13 @@
 //  Copyright © 2017 MapsPeople A/S. All rights reserved.
 //
 
-#import "JSONModel.h"
-#import <CoreLocation/CoreLocation.h>
 #import "MPLocationCoordinate3D.h"
+#import <CoreLocation/CoreLocation.h>
+@import MapsIndoors;
 
 @class MPGraph;
 @class MPGraphNode;
 @class MPGraphEdge;
-@class MPPolygonGeometry;
-
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -46,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSArray*) closestNodesInNetworkFromCoordinate: (CLLocationCoordinate2D)coordinate floor: (NSInteger)floor max: (int)max accessTokens:(nullable NSSet<NSString*>*)accessTokens;
 - (MPGraphEdge* _Nullable) closestEdgeInGraphFromCoordinate:(CLLocationCoordinate2D)coordinate floor:(NSInteger)floor closestNode:(MPGraphNode*_Nullable*_Nullable)closestNode closestCoordinate:(MPLocationCoordinate3D* _Nullable)closestCoordinate accessTokens:(nullable NSSet<NSString*>*)accessTokens;
 
-- (NSArray<MPGraphNode*>*) findPathFromNode:(MPGraphNode*)startNode toNode:(MPGraphNode*)endNode restrictions:(nullable NSArray<NSString*>*)restrictions accessTokens:(nullable NSSet<NSString*>*)accessTokens;
+- (NSArray<MPGraphNode*>*) findPathFromNode:(MPGraphNode*)startNode toNode:(MPGraphNode*)endNode restrictions:(nullable NSArray<MPHighway*>*)restrictions accessTokens:(nullable NSSet<NSString*>*)accessTokens;
 - (NSArray<MPGraphEdge*>*) edgePathFromNodePath:(NSArray<MPGraphNode*>*)nodePath;
 
 @end

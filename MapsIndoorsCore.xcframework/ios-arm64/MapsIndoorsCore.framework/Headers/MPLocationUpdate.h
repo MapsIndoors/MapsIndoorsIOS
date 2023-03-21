@@ -6,11 +6,9 @@
 //  Copyright © 2018 MapsPeople A/S. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "MPLocation.h"
-#import "MPLocationField.h"
 #import "MPLocationSource.h"
-
+@import CoreLocation;
+@import Foundation;
 
 extern const NSInteger MPLocationUpdateFloorInvalid;
 
@@ -72,7 +70,7 @@ NS_ASSUME_NONNULL_BEGIN
  - Parameter location: The existing location.
  - Returns: The updater object.
  */
-+ (MPLocationUpdate*) updateWithLocation:(MPLocation*) location;
++ (MPLocationUpdate*) updateWithLocation:(id<MPLocation>) location;
 
 /**
  Initialiser that creates a MPLocationUpdate instance based on an id and a location source.
@@ -102,8 +100,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Builds the location object. Should only be called once per intended location instance.
  */
-- (MPLocation*) location;
-
+- (id<MPLocation>) location;
 
 @end
 

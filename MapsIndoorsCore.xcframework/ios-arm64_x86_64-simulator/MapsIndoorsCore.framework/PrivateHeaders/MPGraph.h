@@ -9,13 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "MPLocationCoordinate3D.h"
 
-
 NS_ASSUME_NONNULL_BEGIN
 
-
-@class MPGraphNode;
 @class MPGraphEdge;
-
+@class MPGraphNode;
+@class MPHighway;
 
 #pragma mark - [INTERNAL - DO NOT USE]
 
@@ -43,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable MPGraphNode*) nodeAtIndex:(NSUInteger)nodeIndex;
 - (nullable NSArray<MPGraphEdge*>*) edgesForNodeAtIndex:(NSUInteger)nodeIndex;
 
-- (nullable NSArray<MPGraphNode*>*) findPathFromNode:(MPGraphNode*)startNode toNode:(MPGraphNode*)endNode restrictions:(nullable NSArray<NSString*>*)restrictions accessTokens:(nullable NSSet<NSString*>*)accessTokens;
+- (nullable NSArray<MPGraphNode*>*) findPathFromNode:(MPGraphNode*)startNode toNode:(MPGraphNode*)endNode restrictions:(nullable NSArray<MPHighway*>*)restrictions accessTokens:(nullable NSSet<NSString*>*)accessTokens;
 - (nullable NSArray<MPGraphEdge*>*) edgePathFromNodePath:(NSArray<MPGraphNode*>*)nodePath;
 
 - (void) setTemporaryGraphNodes:(NSArray<MPGraphNode*>*)nodes andEdges:(NSArray<MPGraphEdge*>*)edges;

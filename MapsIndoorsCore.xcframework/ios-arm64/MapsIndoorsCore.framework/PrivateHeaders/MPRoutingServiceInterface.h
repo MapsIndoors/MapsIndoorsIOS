@@ -6,18 +6,15 @@
 //  Copyright © 2017 MapsPeople A/S. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <CoreLocation/CoreLocation.h>
-typedef NSString* MPHighwayType;
-
-@class MPUserRole;
-
+@import CoreLocation;
+@import Foundation;
+@import MapsIndoors;
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class MPRouteInternal;
 
-@class MPRoute;
-typedef void(^MPRoutingServiceHandlerBlockType)(MPRoute* _Nullable route, NSError* _Nullable error);
+typedef void(^MPRoutingServiceHandlerBlockType)(MPRouteInternal* _Nullable route, NSError* _Nullable error);
 
 
 #pragma mark - [INTERNAL - DO NOT USE]
@@ -28,17 +25,16 @@ typedef void(^MPRoutingServiceHandlerBlockType)(MPRoute* _Nullable route, NSErro
 - (void) getRouteForSolutionId:(NSString*)solutionId
                        graphId:(NSString*)graphId
                           from:(CLLocationCoordinate2D)from
-                     fromFloor:(int)fromFloor
+                     fromFloor:(NSInteger)fromFloor
                             to:(CLLocationCoordinate2D)to
-                       toFloor:(int)toFloor
+                       toFloor:(NSInteger)toFloor
                     travelMode:(NSString*)travelMode
-                         avoid:(nullable NSArray<MPHighwayType>*)restrictions
+                         avoid:(nullable NSArray<MPHighway*>*)restrictions
                  departureTime:(nullable NSDate*)departureTime
                    arrivalTime:(nullable NSDate *)arrivalTime
                      userRoles:(nullable NSArray<MPUserRole*>*)userRoles
              completionHandler:(MPRoutingServiceHandlerBlockType)completion;
 
 @end
-
 
 NS_ASSUME_NONNULL_END

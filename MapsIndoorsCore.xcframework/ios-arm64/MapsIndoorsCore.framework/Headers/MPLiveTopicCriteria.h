@@ -6,7 +6,7 @@
 //  Copyright © 2020 MapsPeople A/S. All rights reserved.
 //
 
-#import "MPLiveUpdateTopic.h"
+#import "MPLiveUpdateTopicInternal.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// A Live Topic Criteria is hierarchical in the way it is defined, and its relation to MapsIndoors data is derivable by its 7 components: Dataset, Venue, Building, Floor, Room, Location and Domain Type.
 /// All properties can be left out but datasetId will then default to the currently active dataset.
 /// > Warning: [INTERNAL - DO NOT USE]
-@interface MPLiveTopicCriteria : MPLiveUpdateTopic
+@interface MPLiveTopicCriteria : MPLiveUpdateTopicInternal
 
 /// Initialise a Topic Criteria with given Dataset id.
 /// - Parameter datasetId: The Dataset id

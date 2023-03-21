@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MPGraphEdgePropertyProtocol.h"
 
+@class MPHighway;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MPManualGraphEdgeProperties : NSObject <MPGraphEdgePropertyProtocol>
 
 + (instancetype) newGraphEdgePropertiesWithContext:(NSString*)context
-                                           highway:(NSString*)highway
+                                           highway:(MPHighway*)highway
                                           distance:(NSUInteger)distance
                                        speedFactor:(double)speedFactor
                                           waittime:(NSTimeInterval)waittime
@@ -26,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
                                                   ;
 
 + (instancetype) newDirectedGraphEdgePropertiesWithContext:(NSString*)context
-                                                   highway:(NSString*)highway
+                                                   highway:(MPHighway*)highway
                                                   distance:(NSUInteger)distance
                                                           ;
 

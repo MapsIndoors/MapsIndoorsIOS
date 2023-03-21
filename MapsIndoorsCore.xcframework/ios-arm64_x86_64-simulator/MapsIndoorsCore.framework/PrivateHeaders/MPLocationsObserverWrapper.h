@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MPLocationsObserver.h"
+@import MapsIndoors;
 
 NS_ASSUME_NONNULL_BEGIN
 

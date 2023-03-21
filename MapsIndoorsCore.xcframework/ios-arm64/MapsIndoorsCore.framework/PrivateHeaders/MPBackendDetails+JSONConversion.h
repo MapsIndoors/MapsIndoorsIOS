@@ -7,7 +7,7 @@
 //
 
 #import "MPBackendDetails.h"
-#import "MPAuthClientInfo.h"
+#import "MPAuthClientInfoInternal.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)fromJSONDictionary:(NSDictionary *)dict;
 @end
 /// > Warning: [INTERNAL - DO NOT USE]
-@interface MPAuthClientInfo (JSONConversion)
+@interface MPAuthClientInfoInternal (JSONConversion)
 + (instancetype)fromJSONDictionary:(NSDictionary *)dict;
 @end
 

@@ -6,7 +6,7 @@
 //  Copyright © 2020 MapsPeople A/S. All rights reserved.
 //
 
-#import "MPLiveUpdate.h"
+#import "MPLiveUpdateInternal.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// Model for live CO2 measurement for a given Location.
 /// > Warning: [INTERNAL - DO NOT USE]
-@interface MPCO2LiveUpdate : MPLiveUpdate
+@interface MPCO2LiveUpdate : MPLiveUpdateInternal
 
 /// Get the measured CO2 level for a given Location. Base unit is Parts Per Million (PPM).
 @property (nonatomic, readonly) NSMeasurement* co2Level;

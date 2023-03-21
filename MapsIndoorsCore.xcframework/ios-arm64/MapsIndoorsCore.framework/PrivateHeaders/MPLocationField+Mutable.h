@@ -6,18 +6,18 @@
 //  Copyright © 2021 MapsPeople A/S. All rights reserved.
 //
 
-#import "MPLocationField.h"
+#import "MPLocationFieldInternal.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - [INTERNAL - DO NOT USE]
 
 /// > Warning: [INTERNAL - DO NOT USE]
-@interface MPLocationField ()
+@interface MPLocationFieldInternal ()
 
-@property (nonatomic, strong, nullable, readwrite) NSString* type;
-@property (nonatomic, strong, nullable, readwrite) NSString* text;
-@property (nonatomic, strong, nullable, readwrite) NSString<Optional>* value;
+@property (nonatomic, copy, readwrite) NSString* type;
+@property (nonatomic, copy, readwrite) NSString* text;
+@property (nonatomic, copy, nullable, readwrite) NSString* value;
 
 @end
 

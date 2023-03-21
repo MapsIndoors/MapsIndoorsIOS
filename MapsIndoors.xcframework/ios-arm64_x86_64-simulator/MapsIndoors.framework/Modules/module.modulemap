@@ -1,0 +1,11 @@
+framework module MapsIndoors {
+  umbrella header "MapsIndoors.h"
+
+  export *
+  module * { export * }
+}
+
+module MapsIndoors.Swift {
+  header "MapsIndoors-Swift.h"
+  requires objc
+}

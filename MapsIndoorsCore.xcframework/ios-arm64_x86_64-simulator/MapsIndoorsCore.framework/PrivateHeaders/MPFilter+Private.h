@@ -6,8 +6,8 @@
 //  Copyright © 2018 MapsPeople A/S. All rights reserved.
 //
 
-#import "MPFilter.h"
 #import "MIFilter.h"
+@import MapsIndoors;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,8 +24,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// > Warning: [INTERNAL - DO NOT USE]
 @interface MPFilter (Override)
-
-- (void) overrideWithFilter:(MPFilter*) filter;
 
 @end
 

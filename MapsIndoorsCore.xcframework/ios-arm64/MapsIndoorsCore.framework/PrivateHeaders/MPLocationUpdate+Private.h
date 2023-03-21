@@ -8,7 +8,9 @@
 
 
 #import "MPLocationUpdate.h"
-#import "MPLocationField.h"
+@import MapsIndoors;
+
+@protocol MPLocationFieldInternal;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,8 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MPLocationUpdate (Private)
 
 @property (atomic, nullable) NSMutableArray<NSString*>* categories;
-@property (atomic, nullable) NSMutableArray<MPLocationField*>* properties;
-@property (atomic, nullable) MPLocation* prototypeLocation;
+@property (atomic, nullable) NSMutableArray<id<MPLocationField>><MPLocationFieldInternal>* properties;
+@property (atomic, nullable) id<MPLocation> prototypeLocation;
 
 @end
 

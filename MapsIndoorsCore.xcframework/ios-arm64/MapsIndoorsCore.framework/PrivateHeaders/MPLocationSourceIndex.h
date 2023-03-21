@@ -7,9 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-#import "MPMutableLocation.h"
-
+@import MapsIndoors;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (nullable NSMutableDictionary<NSString*, NSNumber*>*) locationIdMap;
 - (nullable NSMutableDictionary<NSString*, NSString*>*) readableLocationIdMap;
-- (nullable NSMutableDictionary<NSNumber*, MPMutableLocation*>*) miLocationIdToMPLocationMap;
+- (nullable NSMutableDictionary<NSNumber*, id<MPLocation>>*) miLocationIdToMPLocationMap;
 - (int) intIdforStringId:(nonnull NSString*)stringId;
 - (nullable NSString*) stringIdForIntId:(int)intId;
 

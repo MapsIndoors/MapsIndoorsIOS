@@ -6,8 +6,7 @@
 //  Copyright © 2020 MapsPeople A/S. All rights reserved.
 //
 
-#import "MPDataSetCacheManagerDelegate.h"
-
+@import MapsIndoors;
 
 NS_ASSUME_NONNULL_BEGIN
 

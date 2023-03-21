@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MPDirectionsQuery.h"       // This is where MPTravelMode lives...
-
+@import MapsIndoors;
 
 #pragma mark - [INTERNAL - DO NOT USE]
 

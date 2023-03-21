@@ -1,0 +1,66 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MapsIndoorsMapbox
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import CommonCrypto
+import Foundation
+import MapboxDirections
+import MapboxMaps
+import MapsIndoors
+import MapsIndoorsCore
+import Swift
+import UIKit
+import ValueAnimator
+import Vision
+import _Concurrency
+import _StringProcessing
+@objc extension MapsIndoors.MPMapConfig {
+  @objc convenience dynamic public init(mapBoxView: MapboxMaps.MapView, accessToken: Swift.String)
+}
+@objc extension MapboxMaps.MapboxMap {
+  @objc final public func getMapsIndoorsMapboxLayerId(for mpLayer: MapsIndoorsMapbox.MPLayer) -> Swift.String
+}
+@objc public enum MPLayer : Swift.Int {
+  case TILE_LAYER
+  case MARKER_LAYER
+  case POLYGON_FILL_LAYER
+  case POLYGON_LINE_LAYER
+  case MODEL_2D_LAYER
+  case ACCURACY_CIRCLE_LAYER
+  case BLUEDOT_LAYER
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @objcMembers public class MapBoxProvider : ObjectiveC.NSObject, MapsIndoorsCore.MPMapProvider {
+  @objc public var routingService: MapsIndoorsCore.MPExternalDirectionsService {
+    @objc get
+  }
+  @objc public var distanceMatrixService: MapsIndoorsCore.MPExternalDistanceMatrixService {
+    @objc get
+  }
+  @objc public var customInfoWindow: MapsIndoors.MPCustomInfoWindow?
+  public func setTileProvider(tileProvider: MapsIndoorsCore.MPTileProvider)
+  @objc public func reloadTilesForFloorChange()
+  @objc final public let view: UIKit.UIView?
+  @objc public var padding: UIKit.UIEdgeInsets
+  @objc public var MPaccessibilityElementsHidden: Swift.Bool
+  @objc public var delegate: MapsIndoorsCore.MPMapProviderDelegate?
+  @objc public var positionPresenter: MapsIndoorsCore.MPPositionPresenter
+  @objc public var collisionHandling: MapsIndoors.MPCollisionHandling
+  public var routeRenderer: MapsIndoorsCore.MPRouteRenderer {
+    get
+  }
+  public func setViewModels(models: [MapsIndoorsCore.MPViewModel])
+  @objc public var cameraOperator: MapsIndoorsCore.MPCameraOperator {
+    @objc get
+  }
+  @objc required public init(mapView: MapboxMaps.MapView, accessToken: Swift.String)
+  @objc public func setup()
+  @objc deinit
+}
+extension MapsIndoorsMapbox.MPLayer : Swift.Equatable {}
+extension MapsIndoorsMapbox.MPLayer : Swift.Hashable {}
+extension MapsIndoorsMapbox.MPLayer : Swift.RawRepresentable {}

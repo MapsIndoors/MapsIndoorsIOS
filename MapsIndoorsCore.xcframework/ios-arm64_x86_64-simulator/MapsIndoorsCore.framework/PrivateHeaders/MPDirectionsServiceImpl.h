@@ -7,12 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MPLocation.h"
-#import "MPDirectionsService.h"
-
-
-@class MPUserRole;
-
+#import "MPDirectionsServiceInternal.h"
+#import "MPRoutingProvider.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -42,9 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
  - Parameter arrivalTime: arrivalTime
  - Parameter handler: completion block, always called on the main queue.
  */
-- (void)routingFrom:(MPLocation *)origin to:(MPLocation *)destination by:(NSString *)mode avoid:(nullable NSArray *)restrictions depart:(nullable NSDate *)departureTime arrive:(nullable NSDate *)arrivalTime userRoles:(nullable NSArray<MPUserRole*>*)userRoles completionHandler:(mpRouteHandlerBlockType)handler;
+- (void)routingFrom:(id<MPLocation>)origin to:(id<MPLocation>)destination by:(NSString *)mode avoid:(nullable NSArray *)restrictions depart:(nullable NSDate *)departureTime arrive:(nullable NSDate *)arrivalTime userRoles:(nullable NSArray<MPUserRole*>*)userRoles completionHandler:(mpRouteHandlerBlockType)handler;
 
 @end
-
 
 NS_ASSUME_NONNULL_END

@@ -1,0 +1,1449 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MapsIndoors
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import CoreLocation
+import Foundation
+@_exported import MapsIndoors
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+@objc public protocol MPRoute {
+  @objc var bounds: MapsIndoors.MPRouteBounds? { get }
+  @objc var copyrights: Swift.String? { get }
+  @objc var distance: Foundation.NSNumber { get }
+  @objc var duration: Foundation.NSNumber { get }
+  @objc var legs: [MapsIndoors.MPRouteLeg] { get }
+  @objc var overview_polyline: MapsIndoors.MPEncodedPolyline? { get }
+  @objc var restrictions: [Swift.String] { get }
+  @objc var summary: Swift.String? { get }
+  @objc var warnings: [Swift.String] { get }
+  @objc func findNearestRouteSegmentPathFromPoint(_ point: MapsIndoors.MPPoint, floorIndex: Foundation.NSNumber) -> MapsIndoors.MPRouteSegmentPath
+}
+@objc public protocol MPSolution {
+  @objc var availableLanguages: [Swift.String] { get }
+  @objc var config: MapsIndoors.MPSolutionConfig { get }
+  @objc var dataSetId: Swift.String? { get }
+  @objc var defaultLanguage: Swift.String { get }
+  @objc var mapClientUrl: Swift.String? { get }
+  @objc var modules: [Swift.String] { get }
+  @objc var name: Swift.String { get }
+  @objc var positionProviderConfigs: [Swift.String : [Swift.String : Swift.String]]? { get }
+  @objc var types: [MapsIndoors.MPType] { get }
+  @objc func getMapClientUrlFor(venueId: Swift.String, locationId: Swift.String) -> Swift.String?
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(MPPolygonGeometry) public class MPPolygonGeometry : MapsIndoors.MPGeometry, MapsIndoors.MPGeometryQueryProtocol {
+  @objc public var coordinates: [[MapsIndoors.MPPoint]]
+  @objc public var area: Swift.Double {
+    @objc get
+  }
+  @objc override public var bbox: [Swift.Double]? {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc convenience public init?(coordinates: [[MapsIndoors.MPPoint]])
+  override public func encode(to encoder: Swift.Encoder) throws
+  @objc public func containsPoint(_ point: MapsIndoors.MPPoint) -> Swift.Bool
+  @objc public func containsCoordinate(_ coordinate: CoreLocation.CLLocationCoordinate2D) -> Swift.Bool
+  @objc public func containsCoordinate(_ coordinate: CoreLocation.CLLocationCoordinate2D, ignorePolygonHoles: Swift.Bool) -> Swift.Bool
+  @objc public func containsCoordinate(_ coordinate: CoreLocation.CLLocationCoordinate2D, ignorePolygonHoles: Swift.Bool, containmentMetadata: MapsIndoors.MPGeometryContainmentMetadata?) -> Swift.Bool
+  @objc public func containsLineSegmentFromCoordinate(_ u: CoreLocation.CLLocationCoordinate2D, toCoordinate v: CoreLocation.CLLocationCoordinate2D) -> Swift.Bool
+  @objc public var path: [MapsIndoors.MPPoint]? {
+    @objc get
+  }
+  @objc override public func `init`(dictionary dict: [Swift.AnyHashable : Any]!) throws -> MapsIndoors.MPPolygonGeometry
+  @objc deinit
+}
+@objc public protocol MPSubscriptionTopic {
+  @objc var topicString: Swift.String { get }
+  @objc init(topic: Swift.String)
+}
+@objc public protocol MPType {
+  @objc var displayRule: MapsIndoors.MPDisplayRule? { get set }
+  @objc var fields: [Swift.String : MapsIndoors.MPLocationField]? { get set }
+  @objc var name: Swift.String? { get set }
+  @objc var restrictions: [Swift.String]? { get set }
+  @objc var translatedName: Swift.String? { get set }
+}
+@objc public protocol MPMapBehavior {
+  @objc var moveCamera: Swift.Bool { get set }
+  @objc var showInfoWindow: Swift.Bool { get set }
+  @objc var allowFloorChange: Swift.Bool { get set }
+  @objc var animationDuration: Swift.Int { get set }
+}
+@objc public class MPDirectionsQuery : ObjectiveC.NSObject {
+  @objc public var arrival: Foundation.Date?
+  @objc public var avoidWayTypes: [MapsIndoors.MPHighway]?
+  @objc public var departure: Foundation.Date?
+  @objc public var destination: MapsIndoors.MPLocation
+  @objc public var origin: MapsIndoors.MPLocation
+  @objc public var travelMode: MapsIndoors.MPTravelMode
+  @objc public init(origin: MapsIndoors.MPLocation, destination: MapsIndoors.MPLocation)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc public class MPHighway : ObjectiveC.NSObject, Swift.Codable {
+  @objc final public let type: MapsIndoors.MPHighwayType
+  @objc public var typeString: Swift.String {
+    @objc get
+  }
+  @objc public init(typeString: Swift.String)
+  @objc public static var unclassified: MapsIndoors.MPHighway {
+    @objc get
+  }
+  @objc public static var footway: MapsIndoors.MPHighway {
+    @objc get
+  }
+  @objc public static var residential: MapsIndoors.MPHighway {
+    @objc get
+  }
+  @objc public static var service: MapsIndoors.MPHighway {
+    @objc get
+  }
+  @objc public static var ramp: MapsIndoors.MPHighway {
+    @objc get
+  }
+  @objc public static var stairs: MapsIndoors.MPHighway {
+    @objc get
+  }
+  @objc public static var escalator: MapsIndoors.MPHighway {
+    @objc get
+  }
+  @objc public static var travelator: MapsIndoors.MPHighway {
+    @objc get
+  }
+  @objc public static var elevator: MapsIndoors.MPHighway {
+    @objc get
+  }
+  @objc public static var wheelchairramp: MapsIndoors.MPHighway {
+    @objc get
+  }
+  @objc public static var wheelchairlift: MapsIndoors.MPHighway {
+    @objc get
+  }
+  @objc public static var ladder: MapsIndoors.MPHighway {
+    @objc get
+  }
+  public enum CodingKeys : Swift.String, Swift.CodingKey {
+    case type
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias RawValue = Swift.String
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+}
+@objc public enum MPHighwayType : Swift.Int, Swift.RawRepresentable, Swift.Codable {
+  case unclassified
+  case footway
+  case residential
+  case service
+  case ramp
+  case stairs
+  case escalator
+  case travelator
+  case elevator
+  case wheelchairramp
+  case wheelchairlift
+  case ladder
+  public typealias RawValue = Swift.String
+  public var rawValue: MapsIndoors.MPHighwayType.RawValue {
+    get
+  }
+  public init(rawValue: MapsIndoors.MPHighwayType.RawValue)
+}
+@objc public enum MPTravelMode : Swift.Int {
+  case unknown
+  case walking
+  case bicycling
+  case driving
+  case transit
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public protocol MPRouteLeg {
+  @objc var distance: Foundation.NSNumber { get }
+  @objc var duration: Foundation.NSNumber { get }
+  @objc var end_address: Swift.String { get }
+  @objc var end_location: MapsIndoors.MPRouteCoordinate { get }
+  @objc var routeLegType: MapsIndoors.MPRouteLegType { get }
+  @objc var start_address: Swift.String { get }
+  @objc var start_location: MapsIndoors.MPRouteCoordinate { get }
+  @objc var steps: [MapsIndoors.MPRouteStep] { get }
+}
+@objc public enum MPRouteLegType : Swift.Int, Swift.Codable {
+  case MapsIndoors
+  case Google
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public protocol MPLocationField {
+  @objc var type: Swift.String { get }
+  @objc var text: Swift.String { get }
+  @objc var value: Swift.String? { get }
+}
+public class MPLocationFieldCodable : MapsIndoors.MPLocationField, Swift.Codable {
+  @objc public var type: Swift.String
+  @objc public var text: Swift.String
+  @objc public var value: Swift.String?
+  public init(withLocationField: MapsIndoors.MPLocationField)
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class MPBookingsQuery : ObjectiveC.NSObject {
+  @objc public var location: MapsIndoors.MPLocation?
+  @objc public var organizerId: Swift.String?
+  @objc public var startTime: Foundation.Date?
+  @objc public var endTime: Foundation.Date?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public protocol MPDataSetCacheManager {
+  @objc var delegate: MapsIndoors.MPDataSetCacheManagerDelegate? { get set }
+  @objc var isSyncing: Swift.Bool { get }
+  @objc var managedDataSets: [MapsIndoors.MPDataSetCache] { get }
+  @objc func addDataSet(_ dataSetId: Swift.String) -> MapsIndoors.MPDataSetCache?
+  @objc func addDataSet(_ dataSetId: Swift.String, cachingScope: MapsIndoors.MPDataSetCachingScope) -> MapsIndoors.MPDataSetCache?
+  @objc func cancelSynchronization()
+  @objc func cancelSynchronizationOfCacheItems(_ items: [MapsIndoors.MPDataSetCacheItem])
+  @objc func dataSetForCurrentMapsIndoorsAPIKey() -> MapsIndoors.MPDataSetCache?
+  @objc func dataSetWithId(_ id: Swift.String) -> MapsIndoors.MPDataSetCache?
+  @objc func fetchSyncSizesFor(dataSetCaches: [MapsIndoors.MPDataSetCache], delegate: MapsIndoors.MPDataSetCacheManagerSizeDelegate)
+  @objc func removeDataSet(_ dataset: MapsIndoors.MPDataSetCache) -> Swift.Bool
+  @objc func setCachingScope(_ scope: MapsIndoors.MPDataSetCachingScope, cacheItem: MapsIndoors.MPDataSetCacheItem) -> Swift.Bool
+  @objc func setCachingStrategy(_ strategy: MapsIndoors.MPDataSetCachingStrategy, cacheItem: MapsIndoors.MPDataSetCacheItem) -> Swift.Bool
+  @objc func synchronizeCacheItems(_ items: [MapsIndoors.MPDataSetCacheItem])
+  @objc func synchronizeContent()
+}
+@objc public enum MPDataSetCachingStrategy : Swift.Int {
+  case dontCache
+  case automatic
+  case manual
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum MPDataSetCachingScope : Swift.Int {
+  case basic
+  case detailed
+  case full
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum MPLocationBaseType : Swift.UInt, Swift.Codable {
+  case pointOfInterest, area, room, floor, building, venue
+  public init?(rawValue: Swift.UInt)
+  public typealias RawValue = Swift.UInt
+  public var rawValue: Swift.UInt {
+    get
+  }
+}
+@objc extension Foundation.NSString {
+  @objc dynamic public func as_MPLocationBaseType() -> MapsIndoors.MPLocationBaseType
+}
+@objc public protocol MPAuthDetails {
+  @objc var authIssuer: Swift.String { get }
+  @objc var authScope: Swift.String { get }
+  @objc var isAuthRequired: Swift.Bool { get }
+  @objc var authClients: [MapsIndoors.MPAuthClientInfo] { get }
+}
+@objc public enum MPCollisionHandling : Swift.Int, Swift.Codable {
+  case allowOverLap
+  case removeLabelFirst
+  case removeIconFirst
+  case removeIconAndLabel
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct MPDisplayRuleData : Swift.Codable {
+  public init()
+  public func encode(to encoder: Swift.Encoder) throws
+  public static var buildingOutlineData: MapsIndoors.MPDisplayRuleData {
+    get
+  }
+  public static var defaultRuleData: MapsIndoors.MPDisplayRuleData {
+    get
+  }
+  public static var highlightData: MapsIndoors.MPDisplayRuleData {
+    get
+  }
+  public static var userPositionData: MapsIndoors.MPDisplayRuleData {
+    get
+  }
+  public init(from decoder: Swift.Decoder) throws
+}
+extension UIKit.UIColor {
+  convenience public init?(hex: Swift.String)
+}
+@objc(MPFloor) public protocol MPFloor {
+  @objc var aliases: [Swift.String]? { get }
+  @objc var buildingId: Swift.String? { get }
+  @objc var floorId: Swift.String { get }
+  @objc var floorIndex: Foundation.NSNumber? { get }
+  @objc var name: Swift.String { get }
+  @objc var style: Swift.String? { get }
+}
+@objc public protocol MPLocationsObserver : ObjectiveC.NSObjectProtocol {
+  @objc func onLocationsDelete(_ locations: [Swift.String], source: MapsIndoors.MPLocationSource)
+  @objc func onLocationsUpdate(_ locationUpdates: [MapsIndoors.MPLocation], source: MapsIndoors.MPLocationSource)
+  @objc func onStatusChange(_ status: MapsIndoors.MPLocationSourceStatus, source: MapsIndoors.MPLocationSource)
+}
+@_hasMissingDesignatedInitializers @objc(MPMultiPolygonGeometry) public class MPMultiPolygonGeometry : MapsIndoors.MPGeometry, MapsIndoors.MPGeometryQueryProtocol {
+  @objc public var coordinates: [MapsIndoors.MPPolygonGeometry]
+  @objc public var area: Swift.Double {
+    @objc get
+  }
+  override public func encode(to encoder: Swift.Encoder) throws
+  @objc public func containsPoint(_ point: MapsIndoors.MPPoint) -> Swift.Bool
+  @objc public func containsCoordinate(_ coordinate: CoreLocation.CLLocationCoordinate2D) -> Swift.Bool
+  @objc public func containsCoordinate(_ coordinate: CoreLocation.CLLocationCoordinate2D, ignorePolygonHoles: Swift.Bool) -> Swift.Bool
+  @objc public func containsCoordinate(_ coordinate: CoreLocation.CLLocationCoordinate2D, ignorePolygonHoles: Swift.Bool, containmentMetadata: MapsIndoors.MPGeometryContainmentMetadata?) -> Swift.Bool
+  @objc public func containsLineSegmentFromCoordinate(_ u: CoreLocation.CLLocationCoordinate2D, toCoordinate v: CoreLocation.CLLocationCoordinate2D) -> Swift.Bool
+  @objc override public func `init`(dictionary dict: [Swift.AnyHashable : Any]!) throws -> MapsIndoors.MPMultiPolygonGeometry
+  @objc deinit
+}
+@objc public protocol MPRouteBounds {
+  @objc var northeast: MapsIndoors.MPRouteCoordinate? { get }
+  @objc var southwest: MapsIndoors.MPRouteCoordinate? { get }
+}
+@_inheritsConvenienceInitializers @objc public class MPQuery : ObjectiveC.NSObject, Swift.Codable {
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  @objc public var queryProperties: [Swift.String] {
+    @objc get
+    @objc set
+  }
+  @objc public var query: Swift.String
+  @objc public var near: MapsIndoors.MPPoint
+  @objc deinit
+}
+@objc public enum MPError : Swift.Int, Swift.Codable, Swift.Error {
+  case noError
+  case invalidApiKey
+  case networkError
+  case unknownError
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public static var _nsErrorDomain: Swift.String {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public protocol MPLocationSource : ObjectiveC.NSObjectProtocol {
+  @objc var sourceId: Swift.Int { get }
+  @objc var status: MapsIndoors.MPLocationSourceStatus { get }
+  @objc func addLocationsObserver(_ observer: MapsIndoors.MPLocationsObserver)
+  @objc func getLocations() -> [MapsIndoors.MPLocation]
+  @objc func removeLocationsObserver(_ observer: MapsIndoors.MPLocationsObserver)
+}
+@_inheritsConvenienceInitializers @objc public class MPFilterBehavior : ObjectiveC.NSObject, Swift.Codable, MapsIndoors.MPMapBehavior {
+  @objc public static var `default`: MapsIndoors.MPFilterBehavior {
+    @objc get
+  }
+  @objc public var moveCamera: Swift.Bool
+  @objc public var showInfoWindow: Swift.Bool
+  @objc public var allowFloorChange: Swift.Bool
+  @objc public var animationDuration: Swift.Int
+  @objc override dynamic public init()
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@objc public protocol MPDataSetCacheManagerSizeDelegate : ObjectiveC.NSObjectProtocol {
+  @objc optional func dataSetManagerDidFinishFetchingSyncSizes(_ dataSetManager: MapsIndoors.MPDataSetCacheManager)
+  @objc optional func dataSetManagerWillStartFetchingSyncSizes(_ dataSetManager: MapsIndoors.MPDataSetCacheManager)
+  @objc optional func dataSetManager(_ dataSetManager: MapsIndoors.MPDataSetCacheManager, didFetchSyncSizesForDataSet dataset: MapsIndoors.MPDataSetCache)
+  @objc optional func dataSetManager(_ dataSetManager: MapsIndoors.MPDataSetCacheManager, willStartFetchingSyncSizesForDataSet dataset: MapsIndoors.MPDataSetCache)
+}
+@objc public protocol MPCameraPosition {
+  @objc var target: CoreLocation.CLLocationCoordinate2D { get }
+  @objc var zoom: Swift.Float { get }
+  @objc var bearing: CoreLocation.CLLocationDirection { get }
+  @objc var viewingAngle: Swift.Double { get }
+  @objc func camera(target: CoreLocation.CLLocationCoordinate2D, zoom: Swift.Float) -> MapsIndoors.MPCameraPosition?
+  @objc func initCamera(target: CoreLocation.CLLocationCoordinate2D, zoom: Swift.Float, bearing: CoreLocation.CLLocationDirection, viewingAngle: Swift.Double) -> MapsIndoors.MPCameraPosition?
+}
+@objc public protocol MPBookingService {
+  @objc static var sharedInstance: MapsIndoors.MPBookingService { get }
+  @objc var authenticationConfig: MapsIndoors.MPBookingAuthConfig? { get set }
+  #if compiler(>=5.3) && $AsyncAwait
+  @objc func bookableLocationsUsing(query: MapsIndoors.MPBookableQuery) async throws -> [MapsIndoors.MPLocation]?
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  @objc func locationsConfiguredForBooking(_ query: MapsIndoors.MPBookableQuery) async throws -> [MapsIndoors.MPLocation]?
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  @objc func bookingsUsing(query: MapsIndoors.MPBookingsQuery) async throws -> [MapsIndoors.MPBooking]?
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  @objc func performBooking(_ booking: MapsIndoors.MPBooking) async throws -> MapsIndoors.MPBooking?
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  @objc func cancelBooking(_ booking: MapsIndoors.MPBooking) async throws -> MapsIndoors.MPBooking?
+  #endif
+}
+@objc public protocol MPAppConfig {
+  @objc var appSettings: [Swift.String : Swift.String]? { get }
+  @objc var colorAccent: Swift.String? { get }
+  @objc var colorPrimary: Swift.String? { get }
+  @objc var colorPrimaryDark: Swift.String? { get }
+  @objc var menuInfo: [Swift.String : [MapsIndoors.MPMenuInfo]]? { get }
+  @objc var venueImages: [Swift.String : Swift.String]? { get }
+}
+@_inheritsConvenienceInitializers @objc(MPPoint) open class MPPoint : MapsIndoors.MPGeometry {
+  @objc(copyWithZone:) public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @objc public var coordinates: [Swift.Double]
+  @objc override public var bbox: [Swift.Double]? {
+    @objc get
+  }
+  @objc public var coordinate: CoreLocation.CLLocationCoordinate2D {
+    @objc get
+  }
+  @objc public var latitude: Swift.Double {
+    @objc get
+  }
+  @objc public var latLongString: Swift.String {
+    @objc get
+  }
+  @objc public var longitude: Swift.Double {
+    @objc get
+  }
+  @objc public var z: Swift.Double {
+    @objc get
+    @objc set
+  }
+  @objc public var zIndex: Swift.Int {
+    @objc get
+  }
+  @objc override convenience dynamic public init()
+  @objc required convenience public init(latitude: Swift.Double, longitude: Swift.Double)
+  @objc required public init(latitude: Swift.Double, longitude: Swift.Double, z: Swift.Double)
+  required public init(from decoder: Swift.Decoder) throws
+  override public func encode(to encoder: Swift.Encoder) throws
+  @objc public static func parse(_ coordinate: Swift.String) -> MapsIndoors.MPPoint?
+  @objc public func distanceTo(_ point: MapsIndoors.MPPoint) -> Swift.Double
+  @objc public var isZero: Swift.Bool {
+    @objc get
+  }
+  @objc override dynamic open var debugDescription: Swift.String {
+    @objc get
+  }
+  @objc override open func `init`(dictionary dict: [Swift.AnyHashable : Any]!) throws -> MapsIndoors.MPPoint
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public protocol MPPositionProvider {
+  @objc var delegate: MapsIndoors.MPPositionProviderDelegate? { get set }
+  @objc var latestPosition: MapsIndoors.MPPositionResult? { get set }
+}
+@objc public protocol MPVenue : MapsIndoors.MPEntity {
+  @objc var administrativeId: Swift.String? { get }
+  @objc var anchor: MapsIndoors.MPPoint? { get }
+  @objc var boundingBox: MapsIndoors.MPGeoBounds { get }
+  @objc var buildings: [MapsIndoors.MPBuilding]? { get }
+  @objc var defaultFloor: Foundation.NSNumber? { get }
+  @objc var defaultStyle: MapsIndoors.MPMapStyle? { get }
+  @objc var entryPoints: [MapsIndoors.MPPoint]? { get }
+  @objc var externalId: Swift.String? { get }
+  @objc var geometry: MapsIndoors.MPPolygonGeometry? { get }
+  @objc var graphId: Swift.String? { get }
+  @objc var hasGraph: Swift.Bool { get }
+  @objc var name: Swift.String? { get }
+  @objc var properties: [Swift.String : MapsIndoors.MPLocationField]? { get }
+  @objc var solutionId: Swift.String? { get }
+  @objc var styles: [MapsIndoors.MPMapStyle]? { get }
+  @objc var tilesUrl: Swift.String? { get }
+  @objc var venueId: Swift.String? { get }
+  @objc var venueInfo: MapsIndoors.MPEntityInfo { get }
+}
+@objc public protocol MPDataSetCacheItem : ObjectiveC.NSObjectProtocol {
+  @objc var cachedSize: Swift.UInt { get }
+  @objc var cachedTimestamp: Foundation.Date? { get }
+  @objc var cachingItemId: Swift.String { get }
+  @objc var cachingScope: MapsIndoors.MPDataSetCachingScope { get }
+  @objc var cachingStrategy: MapsIndoors.MPDataSetCachingStrategy { get }
+  @objc var isCached: Swift.Bool { get }
+  @objc var isSyncing: Swift.Bool { get }
+  @objc var language: Swift.String? { get }
+  @objc var name: Swift.String? { get }
+  @objc var syncResult: Swift.Error? { get }
+  @objc var syncSize: Swift.UInt { get }
+  @objc var syncTimestamp: Foundation.Date? { get }
+  @objc init(id: Swift.String)
+}
+@objc public enum MPDisplayRuleType : Swift.Int, Swift.Codable {
+  case buildingOutline
+  case selectionHighlight
+  case blueDot
+  case `default`
+  case main
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class MPDisplayRule : ObjectiveC.NSObject, Swift.Codable {
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  @objc public init(name: Swift.String)
+  @objc public var icon: UIKit.UIImage?
+  @objc public var iconSize: CoreFoundation.CGSize {
+    @objc get
+    @objc set
+  }
+  @objc public var iconURL: Foundation.URL? {
+    @objc get
+    @objc set
+  }
+  @objc public var iconVisible: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var label: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var labelMaxWidth: Swift.UInt {
+    @objc get
+    @objc set
+  }
+  @objc public var labelVisible: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var labelZoomFrom: Swift.Double {
+    @objc get
+    @objc set
+  }
+  @objc public var labelZoomTo: Swift.Double {
+    @objc get
+    @objc set
+  }
+  @objc public var model2DBearing: Swift.Double {
+    @objc get
+    @objc set
+  }
+  @objc public var model2DHeightMeters: Swift.Double {
+    @objc get
+    @objc set
+  }
+  @objc public var model2DModel: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var model2DVisible: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var model2DWidthMeters: Swift.Double {
+    @objc get
+    @objc set
+  }
+  @objc public var model2DZoomFrom: Swift.Double {
+    @objc get
+    @objc set
+  }
+  @objc public var model2DZoomTo: Swift.Double {
+    @objc get
+    @objc set
+  }
+  @objc public var name: Swift.String? {
+    @objc get
+  }
+  @objc public var polygonFillColor: UIKit.UIColor? {
+    @objc get
+    @objc set
+  }
+  public var polygonFillOpacity: Swift.Double? {
+    get
+    set
+  }
+  @objc public var polygonStrokeColor: UIKit.UIColor? {
+    @objc get
+    @objc set
+  }
+  public var polygonStrokeOpacity: Swift.Double? {
+    get
+    set
+  }
+  @objc public var polygonStrokeWidth: Swift.Double {
+    @objc get
+    @objc set
+  }
+  @objc public var polygonVisible: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var polygonZoomFrom: Swift.Double {
+    @objc get
+    @objc set
+  }
+  @objc public var polygonZoomTo: Swift.Double {
+    @objc get
+    @objc set
+  }
+  @objc public func showAt(zoom: Swift.Double) -> Swift.Bool
+  @objc public var visible: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var zoomFrom: Swift.Double {
+    @objc get
+    @objc set
+  }
+  @objc public var zoomTo: Swift.Double {
+    @objc get
+    @objc set
+  }
+  @objc public var extrusionZoomFrom: Swift.Double {
+    @objc get
+    @objc set
+  }
+  @objc public var extrusionZoomTo: Swift.Double {
+    @objc get
+    @objc set
+  }
+  @objc public var extrusionColor: UIKit.UIColor? {
+    @objc get
+    @objc set
+  }
+  @objc public var extrusionHeight: Swift.Double {
+    @objc get
+    @objc set
+  }
+  public var extrusionVisible: Swift.Bool? {
+    get
+    set
+  }
+  @objc public var wallsZoomTo: Swift.Double {
+    @objc get
+    @objc set
+  }
+  @objc public var wallsZoomFrom: Swift.Double {
+    @objc get
+    @objc set
+  }
+  @objc public var wallsColor: UIKit.UIColor? {
+    @objc get
+    @objc set
+  }
+  @objc public var wallsHeight: Swift.Double {
+    @objc get
+    @objc set
+  }
+  public var wallsVisible: Swift.Bool? {
+    get
+    set
+  }
+  @objc convenience public init(rule: MapsIndoors.MPDisplayRule, parent: MapsIndoors.MPDisplayRule)
+  @objc convenience public init(rule: MapsIndoors.MPDisplayRule)
+  @objc override dynamic public init()
+  public init(ruleData: MapsIndoors.MPDisplayRuleData)
+  @objc public func reset()
+  @objc public init(dictionary dict: [Swift.AnyHashable : Any]!) throws
+  @objc override dynamic public var debugDescription: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public protocol MPCustomFloorSelector {
+  @objc var building: MapsIndoors.MPBuilding? { get set }
+  @objc var delegate: MapsIndoors.MPFloorSelectorDelegate? { get set }
+  @objc var floorIndex: Foundation.NSNumber? { get set }
+  @objc func onShow()
+  @objc func onHide()
+  @objc optional func remove()
+}
+@objc public protocol MPFloorSelectorDelegate {
+  @objc func onFloorIndexChanged(_ floorIndex: Foundation.NSNumber)
+}
+@objc public protocol MPPositionProviderDelegate {
+  @objc func onPositionUpdate(position: MapsIndoors.MPPositionResult)
+}
+@_inheritsConvenienceInitializers @objc public class MPBooking : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var bookingDescription: Swift.String?
+  @objc public var bookingId: Swift.String?
+  @objc public var endTime: Foundation.Date?
+  @objc public var isManaged: Swift.Bool {
+    @objc get
+  }
+  @objc public var location: MapsIndoors.MPLocation? {
+    @objc get
+    @objc set
+  }
+  @objc public var locationId: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var participantIds: [Swift.String]?
+  @objc public var startTime: Foundation.Date?
+  @objc public var title: Swift.String?
+  @objc public func initWith(dictionary: Any) -> MapsIndoors.MPBooking?
+  @objc public func asDictionary() -> [Swift.String : Any]?
+  @objc override dynamic public init()
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@objc public protocol MPDirectionsService {
+  #if compiler(>=5.3) && $AsyncAwait
+  @objc func routingWith(query: MapsIndoors.MPDirectionsQuery) async throws -> MapsIndoors.MPRoute?
+  #endif
+}
+@objc public protocol MPMenuInfo {
+  @objc var categoryKey: Swift.String? { get }
+  @objc var iconUrl: Swift.String? { get }
+  @objc var menuImageUrl: Swift.String? { get }
+}
+@objc public protocol MPGeometryP {
+  @objc var bbox: [Swift.Double]? { get }
+  @objc var type: Swift.String? { get }
+}
+@_inheritsConvenienceInitializers @objc(MPGeometry) open class MPGeometry : ObjectiveC.NSObject, MapsIndoors.MPGeometryP, Swift.Codable {
+  @objc public var bbox: [Swift.Double]? {
+    get
+  }
+  @objc public var type: Swift.String?
+  @objc public func `init`(dictionary dict: [Swift.AnyHashable : Any]!) throws -> MapsIndoors.MPGeometry
+  @objc override dynamic public init()
+  @objc deinit
+  open func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@objc public protocol MPTransitStop {
+  @objc var location: MapsIndoors.MPRouteCoordinate { get }
+  @objc var name: Swift.String { get }
+}
+@objc public protocol MPRouteCoordinate {
+  @objc var floor_name: Swift.String? { get }
+  @objc var label: Swift.String? { get }
+  @objc var lat: Foundation.NSNumber { get }
+  @objc var lng: Foundation.NSNumber { get }
+  @objc var zLevel: Foundation.NSNumber { get }
+}
+@objc public protocol MPDataField {
+  @objc var fields: [Swift.String : MapsIndoors.MPLocationField]? { get }
+  @objc var key: Swift.String { get }
+  @objc var value: Swift.String? { get }
+}
+public class MPDataFieldCodable : MapsIndoors.MPDataField, Swift.Codable {
+  @objc public var fields: [Swift.String : MapsIndoors.MPLocationField]?
+  @objc public var key: Swift.String
+  @objc public var value: Swift.String?
+  public init(withDataField: MapsIndoors.MPDataField)
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+}
+@objc public protocol MPLiveUpdate {
+  @objc var topic: MapsIndoors.MPLiveUpdateTopic { get }
+  @objc var itemId: Swift.String { get }
+  @objc var originSourceId: Swift.String { get }
+  @objc var timestamp: Swift.String { get }
+  @objc func getLiveValueForKey(_ key: Swift.String) -> Any?
+}
+@_inheritsConvenienceInitializers @objc public class MPSelectionBehavior : ObjectiveC.NSObject, Swift.Codable, MapsIndoors.MPMapBehavior {
+  @objc public static var `default`: MapsIndoors.MPSelectionBehavior {
+    @objc get
+  }
+  @objc public var moveCamera: Swift.Bool
+  @objc public var showInfoWindow: Swift.Bool
+  @objc public var allowFloorChange: Swift.Bool
+  @objc public var animationDuration: Swift.Int
+  @objc override dynamic public init()
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@objc public protocol MPEncodedPolyline {
+  @objc var points: Swift.String? { get }
+}
+@objc public protocol MPAuthClientInfo {
+  @objc var clientID: Swift.String { get }
+  @objc var preferredIDPS: [Swift.String] { get }
+}
+@objc public class MPUserRole : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var userRoleId: Swift.String {
+    get
+  }
+  @objc public var userRoleName: Swift.String {
+    get
+  }
+  @objc public init?(dictionary: [Swift.String : Any])
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@objc public class MPBookableQuery : ObjectiveC.NSObject {
+  @objc public var building: MapsIndoors.MPBuilding?
+  @objc public var category: Swift.String?
+  @objc public var endTime: Foundation.Date
+  @objc public var floorIndex: Foundation.NSNumber?
+  @objc public var location: MapsIndoors.MPLocation?
+  @objc public var locationType: Swift.String?
+  @objc public var startTime: Foundation.Date
+  @objc public var venue: MapsIndoors.MPVenue?
+  @objc public init(startTime: Foundation.Date, endTime: Foundation.Date)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class MPMapConfig : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public protocol MPLocation : MapsIndoors.MPEntity {
+  @objc var aliases: [Swift.String] { get }
+  @objc var baseType: MapsIndoors.MPLocationBaseType { get }
+  @objc var building: Swift.String? { get }
+  @objc var categories: [Swift.String] { get }
+  @objc var coordinateBounds: MapsIndoors.MPGeoBounds? { get }
+  @objc var externalId: Swift.String? { get }
+  @objc var floorIndex: Foundation.NSNumber { get }
+  @objc var floorName: Swift.String { get }
+  @objc var icon: UIKit.UIImage? { get }
+  @objc var iconUrl: Foundation.URL? { get }
+  @objc var imageURL: Swift.String? { get }
+  @objc var isBookable: Swift.Bool { get }
+  @objc var locationDescription: Swift.String? { get }
+  @objc var locationId: Swift.String { get }
+  @objc var name: Swift.String { get }
+  @objc var position: MapsIndoors.MPPoint { get }
+  @objc var fields: [Swift.String : MapsIndoors.MPLocationField] { get }
+  @objc var restrictions: [Swift.String]? { get }
+  @objc var type: Swift.String { get }
+  @objc var venue: Swift.String? { get }
+  @objc func liveValue(key forKey: Swift.String, domainType: Swift.String) -> Swift.AnyObject?
+  @objc func property(key: Swift.String) -> MapsIndoors.MPLocationField?
+}
+@objc public protocol MPDataSetCacheManagerDelegate : ObjectiveC.NSObjectProtocol {
+  @objc optional func dataSetManager(_ dataSetManager: MapsIndoors.MPDataSetCacheManager, didAddDataSet dataset: MapsIndoors.MPDataSetCache)
+  @objc optional func dataSetManager(_ dataSetManager: MapsIndoors.MPDataSetCacheManager, didFinishSynchronizingDataSet dataset: MapsIndoors.MPDataSetCache)
+  @objc optional func dataSetManager(_ dataSetManager: MapsIndoors.MPDataSetCacheManager, didFinishSynchronizingItem item: MapsIndoors.MPDataSetCacheItem)
+  @objc optional func dataSetManager(_ dataSetManager: MapsIndoors.MPDataSetCacheManager, didRemoveDataSet dataset: MapsIndoors.MPDataSetCache)
+  @objc optional func dataSetManager(_ dataSetManager: MapsIndoors.MPDataSetCacheManager, willStartSynchronizingDataSet dataset: MapsIndoors.MPDataSetCache)
+  @objc optional func dataSetManager(_ dataSetManager: MapsIndoors.MPDataSetCacheManager, willStartSynchronizingItem item: MapsIndoors.MPDataSetCacheItem)
+  @objc optional func dataSetManagerDidFinishSynchronizing(_ dataSetManager: MapsIndoors.MPDataSetCacheManager)
+  @objc optional func dataSetManagerWillStartSynchronizing(_ dataSetManager: MapsIndoors.MPDataSetCacheManager)
+}
+@objc public protocol MPTransitTime {
+  @objc var text: Swift.String? { get }
+  @objc var time_zone: Swift.String? { get }
+  @objc var value: Foundation.NSNumber? { get }
+}
+@objc public class MPPositionResult : ObjectiveC.NSObject, Swift.Codable {
+  @objc required public init(coordinate: CoreLocation.CLLocationCoordinate2D, floorIndex: Swift.Int = 0, accuracy: Swift.Double = 0, bearing: Swift.Double = 0)
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  @objc public var coordinate: CoreLocation.CLLocationCoordinate2D
+  @objc public var floorIndex: Swift.Int
+  @objc public var accuracy: Swift.Double
+  @objc public var bearing: Swift.Double
+  @objc deinit
+}
+@objc public enum MPLocationSourceStatus : Swift.Int {
+  case available
+  case unavailable
+  case initialising
+  case inactive
+  case complete
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc public class MPGeometryUtils : ObjectiveC.NSObject {
+  public static func computeBoundingBox(coordinates: [CoreLocation.CLLocationCoordinate2D]) -> MapsIndoors.MPGeoBounds
+  public static func pointIntersectsPolygon(point: MapsIndoors.MPGeoPoint, polygon: MapsIndoors.MPGeoPolygon) -> Swift.Bool
+  public static func polygonIntersectsPolygon(a: MapsIndoors.MPGeoPolygon, b: MapsIndoors.MPGeoPolygon) -> Swift.Bool
+  public static func polylineIntersectsPolygon(a: MapsIndoors.MPGeoPolyline, b: MapsIndoors.MPGeoPolygon) -> Swift.Bool
+  public static func polylineIntersectsPolyline(a: MapsIndoors.MPGeoPolyline, b: MapsIndoors.MPGeoPolyline) -> Swift.Bool
+  @objc public static func bearingBetweenPoints(from: CoreLocation.CLLocationCoordinate2D, to: CoreLocation.CLLocationCoordinate2D) -> Swift.Double
+  @objc public static func distance(from: MapsIndoors.MPGeoPoint, to: MapsIndoors.MPGeoPoint) -> Swift.Double
+  public static func distancePointToLine(point: CoreLocation.CLLocationCoordinate2D, lineStart: CoreLocation.CLLocationCoordinate2D, lineEnd: CoreLocation.CLLocationCoordinate2D) -> Swift.Double
+  public static func distanceLineToLine(a1: CoreLocation.CLLocationCoordinate2D, a2: CoreLocation.CLLocationCoordinate2D, b1: CoreLocation.CLLocationCoordinate2D, b2: CoreLocation.CLLocationCoordinate2D) -> Swift.Double
+  @objc public static func closestPointOnLineSegment(point: CoreLocation.CLLocationCoordinate2D, lineStart: CoreLocation.CLLocationCoordinate2D, lineEnd: CoreLocation.CLLocationCoordinate2D) -> CoreLocation.CLLocationCoordinate2D
+  public static func coordinateInQuadCurve(p0: CoreLocation.CLLocationCoordinate2D, p1: CoreLocation.CLLocationCoordinate2D, p2: CoreLocation.CLLocationCoordinate2D, t: Swift.Double) -> CoreLocation.CLLocationCoordinate2D
+  @objc public static func interpolate(from: CoreLocation.CLLocationCoordinate2D, to: CoreLocation.CLLocationCoordinate2D, fraction: Swift.Double) -> CoreLocation.CLLocationCoordinate2D
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public protocol MPEntity {
+  @objc var entityPosition: MapsIndoors.MPPoint { get }
+  @objc var entityBounds: MapsIndoors.MPGeoBounds { get }
+  @objc var entityIsPoint: Swift.Bool { get }
+}
+@objc public protocol MPImageProviderProtocol {
+  #if compiler(>=5.3) && $AsyncAwait
+  @objc func imageFrom(urlString: Swift.String, imageSize: CoreFoundation.CGSize) async throws -> UIKit.UIImage?
+  #endif
+}
+@objc @objcMembers public class MPEntityInfo : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var name: Swift.String?
+  @objc public var aliases: [Swift.String]?
+  @objc public var properties: [Swift.String : MapsIndoors.MPLocationField]?
+  @objc public var language: Swift.String?
+  public enum CodingKeys : Swift.String, Swift.CodingKey {
+    case name
+    case aliases
+    case properties
+    case language
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias RawValue = Swift.String
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  @objc public init(withName: Swift.String? = nil, withAliases: [Swift.String]? = nil, withProperties: [Swift.String : MapsIndoors.MPLocationField]? = nil, withLanguage: Swift.String? = nil)
+  @objc public init(withEntityInfo: MapsIndoors.MPEntityInfo)
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  @objc public func `init`(dictionary dict: [Swift.AnyHashable : Any]!) throws -> MapsIndoors.MPEntityInfo
+  @objc deinit
+}
+@objc public protocol MPRouteResult {
+  @objc var routes: [MapsIndoors.MPRoute]? { get }
+  @objc var status: Swift.String? { get }
+}
+@objc public protocol MPLiveUpdateTopic : MapsIndoors.MPSubscriptionTopic {
+  @objc var datasetId: Swift.String { get }
+  @objc var venueId: Swift.String? { get }
+  @objc var buildingId: Swift.String? { get }
+  @objc var floorId: Swift.String? { get }
+  @objc var roomId: Swift.String? { get }
+  @objc var locationId: Swift.String? { get }
+  @objc var domainType: Swift.String? { get }
+  @objc init(topic: Swift.String)
+}
+@objc public protocol MPRouteStep {
+  @objc var distance: Foundation.NSNumber { get }
+  @objc var duration: Foundation.NSNumber { get }
+  @objc var end_location: MapsIndoors.MPRouteCoordinate { get }
+  @objc var highway: MapsIndoors.MPHighway { get }
+  @objc var html_instructions: Swift.String { get }
+  @objc var maneuver: Swift.String { get }
+  @objc var polyline: MapsIndoors.MPEncodedPolyline { get }
+  @objc var routeContext: Swift.String { get }
+  @objc var start_location: MapsIndoors.MPRouteCoordinate { get }
+  @objc var transit_details: MapsIndoors.MPTransitDetails { get }
+  @objc var travel_mode: Swift.String { get }
+}
+@objc public protocol MPSubscriptionClient {
+  @objc var delegate: MapsIndoors.MPSubscriptionClientDelegate { get set }
+  @objc var state: MapsIndoors.MPSubscriptionState { get set }
+  @objc func connect(_ cleanSessionFlag: Swift.Bool)
+  @objc func disconnect()
+  @objc func subscribe(_ topic: MapsIndoors.MPSubscriptionTopic)
+  @objc func unsubscribe(_ topic: MapsIndoors.MPSubscriptionTopic)
+}
+@objc public protocol MPSubscriptionClientDelegate {
+  @objc func didReceiveMessage(_ message: Foundation.Data, onTopic: Swift.String)
+  @objc func didSubscribe(_ topic: MapsIndoors.MPSubscriptionTopic)
+  @objc func didUnsubscribe(_ topic: MapsIndoors.MPSubscriptionTopic)
+  @objc func didUpdateState(_ state: MapsIndoors.MPSubscriptionState)
+  @objc func onError(_ error: Swift.Error)
+  @objc func onSubscriptionError(_ error: Swift.Error, topic: MapsIndoors.MPSubscriptionTopic)
+  @objc func onUnsubscriptionError(_ error: Swift.Error, topic: MapsIndoors.MPSubscriptionTopic)
+}
+@objc public enum MPSubscriptionState : Swift.Int, Swift.Codable {
+  case closed
+  case connecting
+  case connected
+  case disconnecting
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public protocol MPMapStyle {
+  @objc var displayName: Swift.String? { get }
+  @objc var folder: Swift.String { get }
+}
+@objc public class MPBookingAuthConfig : ObjectiveC.NSObject {
+  @objc public var accessToken: Swift.String
+  @objc public var tenantId: Swift.String?
+  @objc public init(accessToken: Swift.String)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class MPFilter : ObjectiveC.NSObject, Swift.Codable {
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  @objc public var categories: [Swift.String]
+  @objc public var bounds: MapsIndoors.MPGeoBounds?
+  @objc public var parents: [Swift.String]
+  @objc public var take: Swift.Int
+  @objc public var skip: Swift.Int
+  @objc public var depth: Swift.Int
+  @objc public var locations: [Swift.String]
+  @objc public var floorIndex: Foundation.NSNumber?
+  @objc public var types: [Swift.String]
+  @objc public init?(categories: [Swift.String]? = [], bounds: MapsIndoors.MPGeoBounds? = nil, parents: [Swift.String]? = [], take: Swift.Int = intmax_t(), skip: Swift.Int = 0, depth: Swift.Int = 1)
+  @objc override convenience dynamic public init()
+  @objc deinit
+}
+@objc @objcMembers public class MPSolutionConfig : ObjectiveC.NSObject, Swift.Codable {
+  public var mainDisplayRuleData: MapsIndoors.MPDisplayRuleData?
+  @objc public var enableClustering: Swift.Bool
+  @objc public var collisionHandling: MapsIndoors.MPCollisionHandling
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  @objc public func `init`(dictionary dict: [Swift.AnyHashable : Any]!) throws -> MapsIndoors.MPSolutionConfig
+  @objc deinit
+}
+@objc public enum MPContextualInfoScope : Swift.Int {
+  case iconAndName
+  case icon
+  case name
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc public class MPContextualInfoSettings : ObjectiveC.NSObject {
+  @objc public var types: [Swift.String]
+  @objc public var categories: [Swift.String]
+  @objc public var maxDistance: Swift.Double
+  @objc public var infoScope: MapsIndoors.MPContextualInfoScope
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public protocol MPTransitDetails {
+  @objc var arrival_stop: MapsIndoors.MPTransitStop? { get }
+  @objc var arrival_time: MapsIndoors.MPTransitTime? { get }
+  @objc var departure_stop: MapsIndoors.MPTransitStop? { get }
+  @objc var departure_time: MapsIndoors.MPTransitTime? { get }
+  @objc var headsign: Swift.String? { get }
+  @objc var headway: Foundation.NSNumber? { get }
+  @objc var line: MapsIndoors.MPTransitLine? { get }
+  @objc var num_stops: Foundation.NSNumber? { get }
+}
+@objc public protocol MapsIndoorsShared {
+  #if compiler(>=5.3) && $AsyncAwait
+  @objc func isApiKeyValid(apiKey: Swift.String) async -> Swift.Bool
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  @objc func isOfflineDataAvailable(apiKey: Swift.String) async -> Swift.Bool
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  @objc func load(apiKey: Swift.String) async -> MapsIndoors.MPError
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  @objc func synchronize() async -> MapsIndoors.MPError
+  #endif
+  @objc func shutdown()
+  #if compiler(>=5.3) && $AsyncAwait
+  @objc func fetchAuthDetails() async throws -> MapsIndoors.MPAuthDetails?
+  #endif
+  @objc var ready: Swift.Bool { get }
+  @objc var apiKey: Swift.String? { get }
+  @objc var solution: MapsIndoors.MPSolution? { get }
+  @objc var language: Swift.String { get set }
+  @objc var availableUserRoles: [MapsIndoors.MPUserRole] { get }
+  @objc var userRoles: [MapsIndoors.MPUserRole] { get set }
+  @objc var authToken: Swift.String? { get set }
+  @objc var eventLoggingDisabled: Swift.Bool { get set }
+  @objc var datasetCacheManager: MapsIndoors.MPDataSetCacheManager { get }
+  @objc var imageProvider: MapsIndoors.MPImageProviderProtocol { get }
+  @objc func locationWith(locationId: Swift.String) -> MapsIndoors.MPLocation?
+  @objc func locationsWith(externalIds: [Swift.String]) -> [MapsIndoors.MPLocation]
+  #if compiler(>=5.3) && $AsyncAwait
+  @objc func locationsWith(query: MapsIndoors.MPQuery?, filter: MapsIndoors.MPFilter?) async -> [MapsIndoors.MPLocation]
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  @objc func appData() async -> MapsIndoors.MPAppConfig?
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  @objc func categories() async -> [MapsIndoors.MPDataField]
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  @objc func venues() async -> [MapsIndoors.MPVenue]
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  @objc func venueWith(id: Swift.String) async -> MapsIndoors.MPVenue?
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  @objc func buildings() async -> [MapsIndoors.MPBuilding]
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  @objc func buildingWith(id: Swift.String) async -> MapsIndoors.MPBuilding?
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  @objc func buildingIn(bounds: MapsIndoors.MPGeoBounds) async -> MapsIndoors.MPBuilding?
+  #endif
+  @objc func displayRuleFor(location: MapsIndoors.MPLocation) -> MapsIndoors.MPDisplayRule?
+  @objc func displayRuleFor(type: Swift.String) -> MapsIndoors.MPDisplayRule?
+  @objc func displayRuleFor(displayRuleType: MapsIndoors.MPDisplayRuleType) -> MapsIndoors.MPDisplayRule?
+  @objc func set(displayRule: MapsIndoors.MPDisplayRule, location: MapsIndoors.MPLocation)
+  @objc var directionsService: MapsIndoors.MPDirectionsService { get }
+  @objc var bookingService: MapsIndoors.MPBookingService { get }
+}
+@objc public protocol MPDirectionsRendererDelegate {
+  @objc func onDirectionsRendererChangedFloor(floorIndex: Swift.Int)
+}
+@objc public protocol MPDirectionsRenderer {
+  @objc var contextualInfoSettings: MapsIndoors.MPContextualInfoSettings? { get set }
+  @objc var delegate: MapsIndoors.MPDirectionsRendererDelegate? { get set }
+  @objc var fitBounds: Swift.Bool { get set }
+  @objc var fitMode: MapsIndoors.MPCameraViewFitMode { get set }
+  @objc var isRouteShown: Swift.Bool { get }
+  @objc var padding: UIKit.UIEdgeInsets { get set }
+  @objc var pathColor: UIKit.UIColor? { get set }
+  @objc var route: MapsIndoors.MPRoute? { get set }
+  @objc var routeLegIndex: Swift.Int { get set }
+  @objc func animate(duration: Foundation.TimeInterval)
+  @objc func clear()
+  @objc func nextLeg() -> Swift.Bool
+  @objc func previousLeg() -> Swift.Bool
+  @objc func update()
+}
+@objc public protocol MPTransitLine {
+  @objc var agencies: [MapsIndoors.MPTransitAgency] { get }
+  @objc var color: Swift.String { get }
+  @objc var icon: Swift.String { get }
+  @objc var name: Swift.String { get }
+  @objc var short_name: Swift.String { get }
+  @objc var text_color: Swift.String { get }
+  @objc var url: Swift.String { get }
+  @objc var vehicle: MapsIndoors.MPTransitVehicle { get }
+}
+@objc public protocol MPMapControl {
+  @objc var delegate: MapsIndoors.MPMapControlDelegate? { get set }
+  @objc var floorSelector: MapsIndoors.MPCustomFloorSelector? { get set }
+  @objc var hideFloorSelector: Swift.Bool { get set }
+  @objc var currentFloorIndex: Swift.Int { get }
+  @objc var mapStyle: MapsIndoors.MPMapStyle? { get set }
+  @objc var showUserPosition: Swift.Bool { get set }
+  @objc var cameraPosition: MapsIndoors.MPCameraPosition { get }
+  @objc var customClusterIcon: MapsIndoors.MPCustomClusterIcon? { get set }
+  @objc var customInfoWindow: MapsIndoors.MPCustomInfoWindow? { get set }
+  @objc var selectedLocation: MapsIndoors.MPLocation? { get }
+  @objc var currentBuilding: MapsIndoors.MPBuilding? { get }
+  @objc var currentVenue: MapsIndoors.MPVenue? { get }
+  @objc func select(location: MapsIndoors.MPLocation?, behavior: MapsIndoors.MPSelectionBehavior)
+  @objc func select(building: MapsIndoors.MPBuilding?, behavior: MapsIndoors.MPSelectionBehavior)
+  @objc func select(venue: MapsIndoors.MPVenue?, behavior: MapsIndoors.MPSelectionBehavior)
+  @objc func select(floorIndex: Swift.Int)
+  @objc func setFilter(locations: [MapsIndoors.MPLocation], behavior: MapsIndoors.MPFilterBehavior)
+  @objc func setFilter(filter: MapsIndoors.MPFilter, behavior: MapsIndoors.MPFilterBehavior)
+  @objc func clearFilter()
+  @objc func refresh()
+  @objc func goTo(entity: MapsIndoors.MPEntity)
+  @objc func enableLiveData(domain: Swift.String, completion: ((MapsIndoors.MPLiveUpdate) -> Swift.Void)?)
+  @objc func disableLiveData(domain: Swift.String)
+  @objc func newDirectionsRenderer() -> MapsIndoors.MPDirectionsRenderer
+  @objc var positionProvider: MapsIndoors.MPPositionProvider? { get set }
+}
+@objc public protocol MPMapControlDelegate {
+  @objc optional func didTap(coordinate: MapsIndoors.MPPoint) -> Swift.Bool
+  @objc optional func didTapIcon(location: MapsIndoors.MPLocation) -> Swift.Bool
+  @objc optional func didTapInfoWindow(location: MapsIndoors.MPLocation) -> Swift.Bool
+  @objc optional func didChange(selectedLocation: MapsIndoors.MPLocation?) -> Swift.Bool
+  @objc optional func didChange(selectedVenue: MapsIndoors.MPVenue?) -> Swift.Bool
+  @objc optional func didChange(selectedBuilding: MapsIndoors.MPBuilding?) -> Swift.Bool
+  @objc optional func didChange(floorIndex: Swift.Int) -> Swift.Bool
+}
+@objc public protocol MPCustomClusterIcon {
+  @objc func clusterIconFor(type: Swift.String, size: Swift.Int) -> UIKit.UIImage
+}
+@objc public protocol MPCustomInfoWindow {
+  @objc func infoWindowFor(location: MapsIndoors.MPLocation) -> UIKit.UIView
+}
+@objc public protocol MPTransitAgency {
+  @objc var name: Swift.String? { get }
+  @objc var phone: Swift.String? { get }
+  @objc var url: Swift.String? { get }
+}
+@objc public enum MPCameraViewFitMode : Swift.Int {
+  case northAligned
+  case firstStepAligned
+  case startToEndAligned
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public protocol MPGeometryQueryProtocol : ObjectiveC.NSObjectProtocol {
+  @objc var area: Swift.Double { get }
+  @objc func containsPoint(_ point: MapsIndoors.MPPoint) -> Swift.Bool
+  @objc func containsCoordinate(_ coordinate: CoreLocation.CLLocationCoordinate2D) -> Swift.Bool
+  @objc func containsCoordinate(_ coordinate: CoreLocation.CLLocationCoordinate2D, ignorePolygonHoles: Swift.Bool) -> Swift.Bool
+  @objc func containsCoordinate(_ coordinate: CoreLocation.CLLocationCoordinate2D, ignorePolygonHoles: Swift.Bool, containmentMetadata: MapsIndoors.MPGeometryContainmentMetadata?) -> Swift.Bool
+  @objc func containsLineSegmentFromCoordinate(_ u: CoreLocation.CLLocationCoordinate2D, toCoordinate v: CoreLocation.CLLocationCoordinate2D) -> Swift.Bool
+}
+extension UIKit.UIImage {
+  public static func bundleImage(named: Swift.String) -> UIKit.UIImage?
+}
+@objc public protocol MPTransitVehicle {
+  @objc var icon: Swift.String? { get }
+  @objc var local_icon: Swift.String? { get }
+  @objc var name: Swift.String? { get }
+  @objc var type: Swift.String? { get }
+}
+@objc public protocol MPGeometryProtocol {
+  @objc var bounds: MapsIndoors.MPGeoBounds { get }
+  @objc var center: MapsIndoors.MPGeoPoint { get }
+  @objc var polygon: MapsIndoors.MPGeoPolygon { get }
+  @objc func intersectsWith(other: MapsIndoors.MPGeometryProtocol) -> Swift.Bool
+  @objc func distanceTo(other: MapsIndoors.MPGeometryProtocol) -> Swift.Double
+}
+public protocol MPExtendableGeometry : MapsIndoors.MPGeometryProtocol {
+  func append(point: CoreLocation.CLLocationCoordinate2D)
+}
+extension CoreLocation.CLLocationCoordinate2D : Swift.Equatable {
+  public static func == (lhs: CoreLocation.CLLocationCoordinate2D, rhs: CoreLocation.CLLocationCoordinate2D) -> Swift.Bool
+}
+@objc @objcMembers public class MPGeoPoint : ObjectiveC.NSObject, Swift.Codable, MapsIndoors.MPGeometryProtocol {
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  @objc public var coordinate: CoreLocation.CLLocationCoordinate2D {
+    get
+  }
+  @objc required public init(coordinate: CoreLocation.CLLocationCoordinate2D)
+  @objc public var bounds: MapsIndoors.MPGeoBounds {
+    @objc get
+  }
+  @objc public var center: MapsIndoors.MPGeoPoint {
+    @objc get
+  }
+  @objc public var polygon: MapsIndoors.MPGeoPolygon {
+    @objc get
+  }
+  @objc public func bearingTo(point: MapsIndoors.MPGeoPoint) -> Swift.Double
+  @objc public func intersectsWith(other: MapsIndoors.MPGeometryProtocol) -> Swift.Bool
+  @objc public func distanceTo(other: MapsIndoors.MPGeometryProtocol) -> Swift.Double
+  @objc deinit
+}
+@objc @objcMembers public class MPGeoBounds : ObjectiveC.NSObject, Swift.Codable, MapsIndoors.MPGeometryProtocol {
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  @objc required public init(southWest: CoreLocation.CLLocationCoordinate2D, northEast: CoreLocation.CLLocationCoordinate2D)
+  @objc required public init(points: [CoreLocation.CLLocationCoordinate2D])
+  @objc public var northEast: CoreLocation.CLLocationCoordinate2D {
+    get
+  }
+  @objc public var southWest: CoreLocation.CLLocationCoordinate2D {
+    get
+  }
+  @objc public var bounds: MapsIndoors.MPGeoBounds {
+    @objc get
+  }
+  @objc public var center: MapsIndoors.MPGeoPoint {
+    @objc get
+  }
+  @objc public var polygon: MapsIndoors.MPGeoPolygon {
+    @objc get
+  }
+  @objc public var area: Swift.Double {
+    @objc get
+  }
+  @objc public func expandWith(coord: CoreLocation.CLLocationCoordinate2D) -> MapsIndoors.MPGeoBounds
+  @objc public func expandWith(other: MapsIndoors.MPGeometryProtocol) -> MapsIndoors.MPGeoBounds
+  @objc public func intersectsWith(other: MapsIndoors.MPGeometryProtocol) -> Swift.Bool
+  @objc public func distanceTo(other: MapsIndoors.MPGeometryProtocol) -> Swift.Double
+  @objc deinit
+}
+@objc @objcMembers public class MPGeoRegion : ObjectiveC.NSObject, Swift.Codable, MapsIndoors.MPGeometryProtocol {
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  @objc final public let nearLeft: CoreLocation.CLLocationCoordinate2D
+  @objc final public let farLeft: CoreLocation.CLLocationCoordinate2D
+  @objc final public let farRight: CoreLocation.CLLocationCoordinate2D
+  @objc final public let nearRight: CoreLocation.CLLocationCoordinate2D
+  @objc required public init(nearLeft: CoreLocation.CLLocationCoordinate2D, farLeft: CoreLocation.CLLocationCoordinate2D, farRight: CoreLocation.CLLocationCoordinate2D, nearRight: CoreLocation.CLLocationCoordinate2D)
+  @objc public var bounds: MapsIndoors.MPGeoBounds {
+    @objc get
+  }
+  @objc public var center: MapsIndoors.MPGeoPoint {
+    @objc get
+  }
+  @objc public var polygon: MapsIndoors.MPGeoPolygon {
+    @objc get
+  }
+  @objc public var area: Swift.Double {
+    @objc get
+  }
+  @objc public func intersectsWith(other: MapsIndoors.MPGeometryProtocol) -> Swift.Bool
+  @objc public func distanceTo(other: MapsIndoors.MPGeometryProtocol) -> Swift.Double
+  @objc deinit
+}
+@objc @objcMembers public class MPGeoPolygon : ObjectiveC.NSObject, Swift.Codable, MapsIndoors.MPExtendableGeometry {
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  @objc required public init(points: [CoreLocation.CLLocationCoordinate2D])
+  @objc public var bounds: MapsIndoors.MPGeoBounds {
+    @objc get
+  }
+  @objc public var center: MapsIndoors.MPGeoPoint {
+    @objc get
+  }
+  @objc public var polygon: MapsIndoors.MPGeoPolygon {
+    @objc get
+  }
+  @objc public var points: [CoreLocation.CLLocationCoordinate2D] {
+    get
+  }
+  @objc public func append(point: CoreLocation.CLLocationCoordinate2D)
+  @objc public var area: Swift.Double {
+    @objc get
+  }
+  @objc public func intersectsWith(other: MapsIndoors.MPGeometryProtocol) -> Swift.Bool
+  @objc public func distanceTo(other: MapsIndoors.MPGeometryProtocol) -> Swift.Double
+  @objc deinit
+}
+@objc @objcMembers public class MPGeoPolyline : ObjectiveC.NSObject, Swift.Codable, MapsIndoors.MPExtendableGeometry {
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  @objc required public init(points: [CoreLocation.CLLocationCoordinate2D])
+  @objc public var bounds: MapsIndoors.MPGeoBounds {
+    @objc get
+  }
+  @objc public var center: MapsIndoors.MPGeoPoint {
+    @objc get
+  }
+  @objc public var polygon: MapsIndoors.MPGeoPolygon {
+    @objc get
+  }
+  @objc public var points: [CoreLocation.CLLocationCoordinate2D] {
+    @objc get
+  }
+  @objc public func append(point: CoreLocation.CLLocationCoordinate2D)
+  @objc public func intersectsWith(other: MapsIndoors.MPGeometryProtocol) -> Swift.Bool
+  @objc public func distanceTo(other: MapsIndoors.MPGeometryProtocol) -> Swift.Double
+  @objc deinit
+}
+@objc public protocol MPDataSetCache {
+  @objc var cachingStrategy: MapsIndoors.MPDataSetCachingStrategy { get }
+  @objc var cacheItem: MapsIndoors.MPDataSetCacheItem { get }
+  @objc var dataSetId: Swift.String { get }
+  @objc var haveBundledData: Swift.Bool { get }
+  @objc var isSyncing: Swift.Bool { get }
+  @objc var name: Swift.String { get }
+}
+@_inheritsConvenienceInitializers @objc public class MPGeometryContainmentMetadata : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var coordinate: CoreLocation.CLLocationCoordinate2D
+  @objc public var distance: CoreLocation.CLLocationDistance
+  @objc public var isContained: Swift.Bool
+  @objc public var isContainedInHole: Swift.Bool
+  @objc public var geoSpatialObject: ObjectiveC.NSObject?
+  @objc override dynamic public init()
+  @objc override dynamic public var debugDescription: Swift.String {
+    @objc get
+  }
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+}
+@objc(MPBuilding) public protocol MPBuilding : MapsIndoors.MPEntity {
+  @objc var address: Swift.String? { get }
+  @objc var administrativeId: Swift.String? { get }
+  @objc var anchor: MapsIndoors.MPPoint? { get }
+  @objc var boundingBox: MapsIndoors.MPGeoBounds { get }
+  @objc var buildingId: Swift.String? { get }
+  @objc var currentFloor: Foundation.NSNumber? { get }
+  @objc var defaultFloor: Foundation.NSNumber? { get }
+  @objc var externalId: Swift.String? { get }
+  @objc var floors: [Swift.String : MapsIndoors.MPFloor]? { get }
+  @objc var geometry: MapsIndoors.MPPolygonGeometry? { get }
+  @objc var name: Swift.String? { get }
+  @objc var properties: [Swift.String : MapsIndoors.MPLocationField] { get }
+  @objc var venueId: Swift.String? { get }
+}
+@_inheritsConvenienceInitializers @objc public class MPRouteSegmentPath : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var legIndex: Swift.Int
+  @objc public var stepIndex: Swift.Int
+  @objc override dynamic public init()
+  @objc public init(legIndex: Swift.Int, stepIndex: Swift.Int)
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@objc public protocol MPRouteProperty {
+  @objc var text: Swift.String? { get }
+  @objc var value: Foundation.NSNumber? { get }
+}
+extension MapsIndoors.MPHighway.CodingKeys : Swift.Equatable {}
+extension MapsIndoors.MPHighway.CodingKeys : Swift.Hashable {}
+extension MapsIndoors.MPHighway.CodingKeys : Swift.RawRepresentable {}
+extension MapsIndoors.MPHighwayType : Swift.Equatable {}
+extension MapsIndoors.MPHighwayType : Swift.Hashable {}
+extension MapsIndoors.MPTravelMode : Swift.Equatable {}
+extension MapsIndoors.MPTravelMode : Swift.Hashable {}
+extension MapsIndoors.MPTravelMode : Swift.RawRepresentable {}
+extension MapsIndoors.MPRouteLegType : Swift.Equatable {}
+extension MapsIndoors.MPRouteLegType : Swift.Hashable {}
+extension MapsIndoors.MPRouteLegType : Swift.RawRepresentable {}
+extension MapsIndoors.MPDataSetCachingStrategy : Swift.Equatable {}
+extension MapsIndoors.MPDataSetCachingStrategy : Swift.Hashable {}
+extension MapsIndoors.MPDataSetCachingStrategy : Swift.RawRepresentable {}
+extension MapsIndoors.MPDataSetCachingScope : Swift.Equatable {}
+extension MapsIndoors.MPDataSetCachingScope : Swift.Hashable {}
+extension MapsIndoors.MPDataSetCachingScope : Swift.RawRepresentable {}
+extension MapsIndoors.MPLocationBaseType : Swift.Equatable {}
+extension MapsIndoors.MPLocationBaseType : Swift.Hashable {}
+extension MapsIndoors.MPLocationBaseType : Swift.RawRepresentable {}
+extension MapsIndoors.MPCollisionHandling : Swift.Equatable {}
+extension MapsIndoors.MPCollisionHandling : Swift.Hashable {}
+extension MapsIndoors.MPCollisionHandling : Swift.RawRepresentable {}
+extension MapsIndoors.MPError : Swift.Equatable {}
+extension MapsIndoors.MPError : Swift.Hashable {}
+extension MapsIndoors.MPError : Swift.RawRepresentable {}
+extension MapsIndoors.MPDisplayRuleType : Swift.Equatable {}
+extension MapsIndoors.MPDisplayRuleType : Swift.Hashable {}
+extension MapsIndoors.MPDisplayRuleType : Swift.RawRepresentable {}
+extension MapsIndoors.MPLocationSourceStatus : Swift.Equatable {}
+extension MapsIndoors.MPLocationSourceStatus : Swift.Hashable {}
+extension MapsIndoors.MPLocationSourceStatus : Swift.RawRepresentable {}
+extension MapsIndoors.MPEntityInfo.CodingKeys : Swift.Equatable {}
+extension MapsIndoors.MPEntityInfo.CodingKeys : Swift.Hashable {}
+extension MapsIndoors.MPEntityInfo.CodingKeys : Swift.RawRepresentable {}
+extension MapsIndoors.MPSubscriptionState : Swift.Equatable {}
+extension MapsIndoors.MPSubscriptionState : Swift.Hashable {}
+extension MapsIndoors.MPSubscriptionState : Swift.RawRepresentable {}
+extension MapsIndoors.MPContextualInfoScope : Swift.Equatable {}
+extension MapsIndoors.MPContextualInfoScope : Swift.Hashable {}
+extension MapsIndoors.MPContextualInfoScope : Swift.RawRepresentable {}
+extension MapsIndoors.MPCameraViewFitMode : Swift.Equatable {}
+extension MapsIndoors.MPCameraViewFitMode : Swift.Hashable {}
+extension MapsIndoors.MPCameraViewFitMode : Swift.RawRepresentable {}

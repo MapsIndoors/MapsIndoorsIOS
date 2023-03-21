@@ -22,7 +22,7 @@ typedef NS_ENUM(NSInteger, MPLiveDataManagerState) {
     MPLiveDataManagerStateDisconnecting
 };
 
-@class MPLiveUpdate;
+@class MPLiveUpdateInternal;
 @class MPLiveTopicCriteria;
 @class MPLiveDataInfo;
 
@@ -35,7 +35,7 @@ typedef NS_ENUM(NSInteger, MPLiveDataManagerState) {
 @optional
 /// Called when a Live Update was recieved.
 /// - Parameter liveUpdate: The Live Update.
-- (void) didReceiveLiveUpdate:(MPLiveUpdate*)liveUpdate;
+- (void) didReceiveLiveUpdate:(MPLiveUpdateInternal*)liveUpdate;
 
 @optional
 /// Called when the state of the Live Data Manager changes.

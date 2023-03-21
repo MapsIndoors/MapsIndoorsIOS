@@ -7,23 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MPLocation.h"
-#import "MPLocationSourceStatus.h"
-#import "MPLocationsObserver.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-@protocol MPLocationsObserver;
 
 #pragma mark - [INTERNAL - DO NOT USE]
 
 /// > Warning: [INTERNAL - DO NOT USE]
 @protocol MPLocationSourceInternal<NSObject>
-
 /**
  The Locations available from the location source at this point in time
 */
-@property (nonnull, nonatomic, readonly) NSArray<MPLocation*>* allLocations;
+@property (nonnull, nonatomic, readonly) NSArray<id<MPLocation>>* allLocations;
 
 /**
  Add an observer that gets callbacks about updates, additions and deletions to locations in this location source

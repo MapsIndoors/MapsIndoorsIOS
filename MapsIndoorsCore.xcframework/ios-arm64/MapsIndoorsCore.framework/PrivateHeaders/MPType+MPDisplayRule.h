@@ -6,14 +6,14 @@
 //  Copyright © 2022 MapsPeople A/S. All rights reserved.
 //
 
-#import "MPType.h"
+#import "MPTypeInternal.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - [INTERNAL - DO NOT USE]
 
 /// > Warning: [INTERNAL - DO NOT USE]
-@interface MPType (MPDisplayRule)
+@interface MPTypeInternal (MPDisplayRule)
 
 - (void)setDisplayRuleWithJSONObject:(NSDictionary*)json;
 

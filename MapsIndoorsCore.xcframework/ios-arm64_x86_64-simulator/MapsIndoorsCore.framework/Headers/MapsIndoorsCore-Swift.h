@@ -233,7 +233,7 @@ using UInt = size_t;
 @import CoreFoundation;
 @import CoreLocation;
 @import Foundation;
-@import MapsIndoorsCore_Private;
+@import MapsIndoors;
 @import ObjectiveC;
 @import UIKit;
 #endif
@@ -258,102 +258,6 @@ using UInt = size_t;
 #endif
 
 #if defined(__OBJC__)
-@class CoreBounds;
-@class CorePoint;
-@class CorePolygon;
-
-SWIFT_PROTOCOL("_TtP15MapsIndoorsCore18MPGeometryProtocol_")
-@protocol MPGeometryProtocol
-@property (nonatomic, readonly, strong) CoreBounds * _Nonnull bounds;
-@property (nonatomic, readonly, strong) CorePoint * _Nonnull center;
-@property (nonatomic, readonly, strong) CorePolygon * _Nonnull polygon;
-- (BOOL)intersectsWithOther:(id <MPGeometryProtocol> _Nonnull)other SWIFT_WARN_UNUSED_RESULT;
-- (double)distanceToOther:(id <MPGeometryProtocol> _Nonnull)other SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-SWIFT_CLASS("_TtC15MapsIndoorsCore10CoreBounds")
-@interface CoreBounds : NSObject <MPGeometryProtocol>
-- (nonnull instancetype)initWithSouthWest:(CLLocationCoordinate2D)southWest northEast:(CLLocationCoordinate2D)northEast OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithPoints:(NSArray<NSValue *> * _Nonnull)points OBJC_DESIGNATED_INITIALIZER;
-@property (nonatomic, readonly) CLLocationCoordinate2D northEast;
-@property (nonatomic, readonly) CLLocationCoordinate2D southWest;
-@property (nonatomic, readonly, strong) CoreBounds * _Nonnull bounds;
-@property (nonatomic, readonly, strong) CorePoint * _Nonnull center;
-@property (nonatomic, readonly, strong) CorePolygon * _Nonnull polygon;
-@property (nonatomic, readonly) double area;
-- (CoreBounds * _Nonnull)expandWithCoord:(CLLocationCoordinate2D)coord SWIFT_WARN_UNUSED_RESULT;
-- (CoreBounds * _Nonnull)expandWithOther:(id <MPGeometryProtocol> _Nonnull)other SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)intersectsWithOther:(id <MPGeometryProtocol> _Nonnull)other SWIFT_WARN_UNUSED_RESULT;
-- (double)distanceToOther:(id <MPGeometryProtocol> _Nonnull)other SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC15MapsIndoorsCore9CorePoint")
-@interface CorePoint : NSObject <MPGeometryProtocol>
-@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
-- (nonnull instancetype)initWithCoordinate:(CLLocationCoordinate2D)coordinate OBJC_DESIGNATED_INITIALIZER;
-@property (nonatomic, readonly, strong) CoreBounds * _Nonnull bounds;
-@property (nonatomic, readonly, strong) CorePoint * _Nonnull center;
-@property (nonatomic, readonly, strong) CorePolygon * _Nonnull polygon;
-- (double)bearingToPoint:(CorePoint * _Nonnull)point SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)intersectsWithOther:(id <MPGeometryProtocol> _Nonnull)other SWIFT_WARN_UNUSED_RESULT;
-- (double)distanceToOther:(id <MPGeometryProtocol> _Nonnull)other SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC15MapsIndoorsCore11CorePolygon")
-@interface CorePolygon : NSObject
-- (nonnull instancetype)initWithPoints:(NSArray<NSValue *> * _Nonnull)points OBJC_DESIGNATED_INITIALIZER;
-@property (nonatomic, readonly, strong) CoreBounds * _Nonnull bounds;
-@property (nonatomic, readonly, strong) CorePoint * _Nonnull center;
-@property (nonatomic, readonly, strong) CorePolygon * _Nonnull polygon;
-@property (nonatomic, readonly, copy) NSArray<NSValue *> * _Nonnull points;
-- (void)appendWithPoint:(CLLocationCoordinate2D)point;
-@property (nonatomic, readonly) double area;
-- (BOOL)intersectsWithOther:(id <MPGeometryProtocol> _Nonnull)other SWIFT_WARN_UNUSED_RESULT;
-- (double)distanceToOther:(id <MPGeometryProtocol> _Nonnull)other SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC15MapsIndoorsCore12CorePolyline")
-@interface CorePolyline : NSObject
-- (nonnull instancetype)initWithPoints:(NSArray<NSValue *> * _Nonnull)points OBJC_DESIGNATED_INITIALIZER;
-@property (nonatomic, readonly, strong) CoreBounds * _Nonnull bounds;
-@property (nonatomic, readonly, strong) CorePoint * _Nonnull center;
-@property (nonatomic, readonly, strong) CorePolygon * _Nonnull polygon;
-@property (nonatomic, readonly, copy) NSArray<NSValue *> * _Nonnull points;
-- (void)appendWithPoint:(CLLocationCoordinate2D)point;
-- (BOOL)intersectsWithOther:(id <MPGeometryProtocol> _Nonnull)other SWIFT_WARN_UNUSED_RESULT;
-- (double)distanceToOther:(id <MPGeometryProtocol> _Nonnull)other SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC15MapsIndoorsCore10CoreRegion")
-@interface CoreRegion : NSObject <MPGeometryProtocol>
-@property (nonatomic, readonly) CLLocationCoordinate2D nearLeft;
-@property (nonatomic, readonly) CLLocationCoordinate2D farLeft;
-@property (nonatomic, readonly) CLLocationCoordinate2D farRight;
-@property (nonatomic, readonly) CLLocationCoordinate2D nearRight;
-- (nonnull instancetype)initWithNearLeft:(CLLocationCoordinate2D)nearLeft farLeft:(CLLocationCoordinate2D)farLeft farRight:(CLLocationCoordinate2D)farRight nearRight:(CLLocationCoordinate2D)nearRight OBJC_DESIGNATED_INITIALIZER;
-@property (nonatomic, readonly, strong) CoreBounds * _Nonnull bounds;
-@property (nonatomic, readonly, strong) CorePoint * _Nonnull center;
-@property (nonatomic, readonly, strong) CorePolygon * _Nonnull polygon;
-@property (nonatomic, readonly) double area;
-- (BOOL)intersectsWithOther:(id <MPGeometryProtocol> _Nonnull)other SWIFT_WARN_UNUSED_RESULT;
-- (double)distanceToOther:(id <MPGeometryProtocol> _Nonnull)other SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
 
 SWIFT_CLASS("_TtC15MapsIndoorsCore15InfoWindowUtils")
 @interface InfoWindowUtils : NSObject
@@ -361,22 +265,11 @@ SWIFT_CLASS("_TtC15MapsIndoorsCore15InfoWindowUtils")
 @end
 
 @class MPPoint;
+@class MPGeoBounds;
 
-/// MPEntity is a general protocol implemented by MPLocation, MPBuilding and MPVenue.
-SWIFT_PROTOCOL("_TtP15MapsIndoorsCore8MPEntity_")
-@protocol MPEntity
-/// The mapsindoors entity’s point
+@interface MPBuildingInternal (SWIFT_EXTENSION(MapsIndoorsCore))
 @property (nonatomic, readonly, strong) MPPoint * _Nonnull entityPosition;
-/// The mapsindoors entity’s bounding box
-@property (nonatomic, readonly, strong) CoreBounds * _Nonnull entityBounds;
-/// Indidates if the entity’s geometry is a point or a polygon
-@property (nonatomic, readonly) BOOL entityIsPoint;
-@end
-
-
-@interface MPBuilding (SWIFT_EXTENSION(MapsIndoorsCore)) <MPEntity>
-@property (nonatomic, readonly, strong) MPPoint * _Nonnull entityPosition;
-@property (nonatomic, readonly, strong) CoreBounds * _Nonnull entityBounds;
+@property (nonatomic, readonly, strong) MPGeoBounds * _Nonnull entityBounds;
 @property (nonatomic, readonly) BOOL entityIsPoint;
 @end
 
@@ -387,97 +280,47 @@ SWIFT_PROTOCOL("_TtP15MapsIndoorsCore16MPCameraOperator_")
 @protocol MPCameraOperator
 - (void)moveWithTarget:(CLLocationCoordinate2D)target zoom:(float)zoom;
 - (void)animateWithPos:(id <MPCameraPosition> _Nonnull)pos;
-- (void)animateWithBounds:(CoreBounds * _Nonnull)bounds;
+- (void)animateWithBounds:(MPGeoBounds * _Nonnull)bounds;
 - (void)animateWithTarget:(CLLocationCoordinate2D)target zoom:(float)zoom;
 @property (nonatomic, readonly, strong) id <MPCameraPosition> _Nonnull position;
 @property (nonatomic, readonly, strong) id <MPProjection> _Nonnull projection;
-- (id <MPCameraPosition> _Nonnull)cameraFor:(CoreBounds * _Nonnull)bounds inserts:(UIEdgeInsets)inserts SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-SWIFT_PROTOCOL("_TtP15MapsIndoorsCore16MPCameraPosition_")
-@protocol MPCameraPosition
-@property (nonatomic, readonly) CLLocationCoordinate2D target;
-@property (nonatomic, readonly) float zoom;
-@property (nonatomic, readonly) CLLocationDirection bearing;
-@property (nonatomic, readonly) double viewingAngle;
-- (id <MPCameraPosition> _Nullable)cameraWithTarget:(CLLocationCoordinate2D)target zoom:(float)zoom SWIFT_WARN_UNUSED_RESULT;
-- (id <MPCameraPosition> _Nullable)initCameraWithTarget:(CLLocationCoordinate2D)target zoom:(float)zoom bearing:(CLLocationDirection)bearing viewingAngle:(double)viewingAngle SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
+- (id <MPCameraPosition> _Nonnull)cameraFor:(MPGeoBounds * _Nonnull)bounds inserts:(UIEdgeInsets)inserts SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 SWIFT_PROTOCOL("_TtP15MapsIndoorsCore14MPCameraUpdate_")
 @protocol MPCameraUpdate
-- (id <MPCameraUpdate> _Nonnull)fitBounds:(CoreBounds * _Nonnull)bounds SWIFT_WARN_UNUSED_RESULT;
-- (id <MPCameraUpdate> _Nonnull)fitBoundsWithPadding:(CoreBounds * _Nonnull)bounds padding:(CGFloat)padding SWIFT_WARN_UNUSED_RESULT;
-- (id <MPCameraUpdate> _Nonnull)fitBoundsWithEdgeInserts:(CoreBounds * _Nonnull)bounds edgeInsets:(UIEdgeInsets)edgeInsets SWIFT_WARN_UNUSED_RESULT;
+- (id <MPCameraUpdate> _Nonnull)fitBounds:(MPGeoBounds * _Nonnull)bounds SWIFT_WARN_UNUSED_RESULT;
+- (id <MPCameraUpdate> _Nonnull)fitBoundsWithPadding:(MPGeoBounds * _Nonnull)bounds padding:(CGFloat)padding SWIFT_WARN_UNUSED_RESULT;
+- (id <MPCameraUpdate> _Nonnull)fitBoundsWithEdgeInserts:(MPGeoBounds * _Nonnull)bounds edgeInsets:(UIEdgeInsets)edgeInsets SWIFT_WARN_UNUSED_RESULT;
 @end
-
-typedef SWIFT_ENUM(NSInteger, MPCameraViewFitMode, open) {
-  MPCameraViewFitModeNORTH_ALIGNED = 0,
-  MPCameraViewFitModeFIRST_STEP_ALIGNED = 1,
-  MPCameraViewFitModeSTART_TO_END_ALIGNED = 2,
-};
 
 @class NSString;
-@class UIImage;
+@class NSDate;
 
-/// Optionally create your own cluster icon generator for the SDK to use
-SWIFT_PROTOCOL("_TtP15MapsIndoorsCore22MPClusterIconGenerator_")
-@protocol MPClusterIconGenerator
-/// Given a cluster of a given type and size, produce an appropriate icon to represent the cluster
-- (UIImage * _Nonnull)clusterIconForType:(NSString * _Nonnull)type size:(NSInteger)size SWIFT_WARN_UNUSED_RESULT;
-@end
-
-/// The different ways to handle collisions of icons and labels on the map.
-typedef SWIFT_ENUM(NSInteger, MPCollisionHandling, open) {
-/// Will allow markers to overlap, nothing will be removed.
-  MPCollisionHandlingAllowOverLap = 0,
-/// Will hide labels if they are overlapping with another feature such as an icon or another label.
-  MPCollisionHandlingRemoveLabelFirst = 1,
-/// Will hide icons if they are overlapping with another feature such as an icon or another label.
-  MPCollisionHandlingRemoveIconFirst = 2,
-/// Will hide markers if they are overlapping with another marker.
-  MPCollisionHandlingRemoveIconAndLabel = 3,
-};
-
-/// Which information to show from the Location close to the end of a route leg.
-typedef SWIFT_ENUM(NSInteger, MPContextualInfoScope, open) {
-  MPContextualInfoScopeIconAndName = 0,
-  MPContextualInfoScopeIconOnly = 1,
-  MPContextualInfoScopeNameOnly = 2,
-};
-
-
-/// Settings for showing contextual info along the rendered route
-SWIFT_CLASS("_TtC15MapsIndoorsCore24MPContextualInfoSettings")
-@interface MPContextualInfoSettings : NSObject
-/// The Types of Location that should be used when showing text and icon for a start or end marker.
-/// If no Types are supplied, all Types of Locations will be considered.
-@property (nonatomic, copy) NSArray<NSString *> * _Nonnull types;
-/// The Categories of Location that should be used when showing text and icon for a start or end marker.
-/// If no Categories are supplied, all Categories of Locations will be considered.
-@property (nonatomic, copy) NSArray<NSString *> * _Nonnull categories;
-/// The maximum distance in meters allowed for using text and icon from a Location. Default of 5 meters.
-@property (nonatomic) double maxDistance;
-/// Which content should be used. Default is IconAndName.
-@property (nonatomic) enum MPContextualInfoScope infoScope;
+SWIFT_CLASS("_TtC15MapsIndoorsCore18MPDirectionsConfig")
+@interface MPDirectionsConfig : NSObject
+@property (nonatomic, copy) NSArray<NSString *> * _Nonnull avoidTypes;
+@property (nonatomic, copy) NSString * _Nonnull travelMode;
+@property (nonatomic, copy) NSDate * _Nullable departure;
+@property (nonatomic, copy) NSDate * _Nullable arrival;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
-SWIFT_PROTOCOL("_TtP15MapsIndoorsCore30MPOnRouteMarkerClickedDelegate_")
-@protocol MPOnRouteMarkerClickedDelegate
+SWIFT_PROTOCOL("_TtP15MapsIndoorsCore21MPRouteMarkerDelegate_")
+@protocol MPRouteMarkerDelegate
 - (void)onRouteMarkerClickedWithTag:(NSString * _Nonnull)tag;
 @end
 
 @protocol MPDirectionsRendererDelegate;
+@class MPContextualInfoSettings;
 @class UIColor;
-@class MPRoute;
+@protocol MPRoute;
 @protocol MPMapControl;
 
-SWIFT_CLASS("_TtC15MapsIndoorsCore20MPDirectionsRenderer")
-@interface MPDirectionsRenderer : NSObject <MPOnRouteMarkerClickedDelegate>
+SWIFT_CLASS("_TtC15MapsIndoorsCore28MPDirectionsRendererInternal")
+@interface MPDirectionsRendererInternal : NSObject <MPDirectionsRenderer, MPRouteMarkerDelegate>
 @property (nonatomic, readonly) BOOL isRouteShown;
 @property (nonatomic) enum MPCameraViewFitMode fitMode;
 @property (nonatomic, strong) id <MPDirectionsRendererDelegate> _Nullable delegate;
@@ -486,7 +329,7 @@ SWIFT_CLASS("_TtC15MapsIndoorsCore20MPDirectionsRenderer")
 @property (nonatomic) BOOL fitBounds;
 @property (nonatomic, strong) UIColor * _Nullable pathColor;
 @property (nonatomic) NSInteger routeLegIndex;
-@property (nonatomic, strong) MPRoute * _Nullable route;
+@property (nonatomic, strong) id <MPRoute> _Nullable route;
 - (nonnull instancetype)initWithMapControl:(id <MPMapControl> _Nonnull)mapControl OBJC_DESIGNATED_INITIALIZER;
 - (void)clear;
 - (BOOL)nextLeg SWIFT_WARN_UNUSED_RESULT;
@@ -499,257 +342,26 @@ SWIFT_CLASS("_TtC15MapsIndoorsCore20MPDirectionsRenderer")
 @end
 
 
-SWIFT_PROTOCOL("_TtP15MapsIndoorsCore28MPDirectionsRendererDelegate_")
-@protocol MPDirectionsRendererDelegate
-- (void)onDirectionsRendererChangedFloorWithFloorIndex:(NSInteger)floorIndex;
+SWIFT_PROTOCOL("_TtP15MapsIndoorsCore27MPExternalDirectionsService_")
+@protocol MPExternalDirectionsService
+- (void)queryWithOrigin:(CLLocationCoordinate2D)origin destination:(CLLocationCoordinate2D)destination config:(MPDirectionsConfig * _Nonnull)config completionHandler:(void (^ _Nonnull)(id <MPRoute> _Nullable, NSError * _Nullable))completionHandler;
 @end
 
-@class NSURL;
+@class MPDistanceMatrixResult;
 
-/// This class represents a Display Rule, a MapsIndoors concept which describes a number of styling values for MapsIndoors objects. The values contained within dictates how the MapsIndoors SDK renders a given object on the map (POI, area, selection, model, etc.). Display Rule data can be edited through the MapsIndoors CMS, and can be modified at runtime in SDKs. Invoke <code>reset</code> on a <code>MPDisplayRule</code> to reset all values to those from the CMS.
-SWIFT_CLASS("_TtC15MapsIndoorsCore13MPDisplayRule")
-@interface MPDisplayRule : NSObject
-/// The marker icon to use on markers that apply to the display rule.
-@property (nonatomic, strong) UIImage * _Nonnull icon;
-/// Size of the icon image.
-@property (nonatomic) CGSize iconSize;
-/// URL to the marker icon to use.
-@property (nonatomic, copy) NSURL * _Nullable iconURL;
-/// Whether or not to show an icon.
-@property (nonatomic) BOOL iconVisible;
-/// The label to show for the marker. It can be a fixed string or a label template, e.g. <code>"{{name}}"</code>, <code>"{{roomId}}"</code>, <code>"Room #{{roomId}}"</code> etc..
-@property (nonatomic, copy) NSString * _Nullable label;
-/// Maximum width in points of the label shown on the map. If the text shown in the label
-/// (typically the Location name) is longer than the labelMaxWidth the text will flow onto as many
-/// lines as needed.
-@property (nonatomic) NSUInteger labelMaxWidth;
-/// Whether or not to show a text label. See <code>label</code> property.
-@property (nonatomic) BOOL labelVisible;
-@property (nonatomic) double labelZoomFrom;
-@property (nonatomic) double labelZoomTo;
-/// The bearing of the 2D model. The value is the rotation in degrees clockwise from north.
-@property (nonatomic) double model2DBearing;
-/// The height of the 2D model. The value is in meters to make it easy to associate with the real world.
-@property (nonatomic) double model2DHeightMeters;
-/// The URL of the image for the 2D model.
-@property (nonatomic, copy) NSString * _Nullable model2DModel;
-/// Determines the visibility of the 2D model.
-@property (nonatomic) BOOL model2DVisible;
-/// The width of the 2D model. The value is in meters to make it easy to associate with the real world.
-@property (nonatomic) double model2DWidthMeters;
-/// The 2D model zoom value from dictates from which zoom level the model should start being shown.
-@property (nonatomic) double model2DZoomFrom;
-/// The 2D model zoom to value dictates from which zoom level the model should stop being shown.
-@property (nonatomic) double model2DZoomTo;
-/// Name/identifier of the rule. Also used as the rule condition for the location types.
-@property (nonatomic, copy) NSString * _Nullable name;
-/// The fill color of the polygon drawn on the map.
-@property (nonatomic, strong) UIColor * _Nullable polygonFillColor;
-/// The stroke color of the polygon drawn on the map.
-@property (nonatomic, strong) UIColor * _Nullable polygonStrokeColor;
-/// The stroke width of the polygon drawn on the map.
-@property (nonatomic) double polygonStrokeWidth;
-/// Whether or not to show the location polygon on the map.
-@property (nonatomic) BOOL polygonVisible;
-/// The map zoom level above which the location polygon should be visible.
-@property (nonatomic) double polygonZoomFrom;
-/// The map zoom level beneath which the location marker should be visible.
-@property (nonatomic) double polygonZoomTo;
-/// Should anything be shown at the zoom level
-- (BOOL)showAtZoom:(double)zoom SWIFT_WARN_UNUSED_RESULT;
-/// Whether or not to show the marker.
-@property (nonatomic) BOOL visible;
-/// The map zoom level above which the location marker should be visible.
-@property (nonatomic) double zoomFrom;
-/// The map zoom level beneath which the location marker should be visible.
-@property (nonatomic) double zoomTo;
-- (nonnull instancetype)initWithRule:(MPDisplayRule * _Nonnull)rule parent:(MPDisplayRule * _Nonnull)parent;
-- (nonnull instancetype)initWithRule:(MPDisplayRule * _Nonnull)rule;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-/// Resets the DisplayRule to the original state.
-- (void)reset;
-/// Populate with data via JSONModel.
-/// Should never be used from outside the MapsIndoors SDK.
-- (nullable instancetype)initWithDictionary:(NSDictionary * _Null_unspecified)dict error:(NSError * _Nullable * _Nullable)error OBJC_DESIGNATED_INITIALIZER;
-@property (nonatomic, readonly, copy) NSString * _Nonnull debugDescription;
-@end
-
-/// The MapsIndoors SDK contains a number of display rules used to style non-location content (blue dot, buildings or locations when they are selected).
-/// Display rules are also internally structured as a hierachy where inheritence is applied, the inheritence of values flow as: default -> main -> type -> location (e.g. if a type rule is missing a value, it gets it from main)
-/// The default rule is guaranteed to have non-nil values for all properties.
-typedef SWIFT_ENUM(NSInteger, MPDisplayRuleType, open) {
-/// The display  rule used for drawing outline of the current building, only parts of this display rule is respected
-  MPDisplayRuleTypeBuildingOutline = 0,
-/// The display rule used for drawing a location, if it is selected. This display rule is entirely respected
-  MPDisplayRuleTypeSelectionHighlight = 1,
-/// The display rule used for drawing the blue dot, only parts of this display rule is respected
-  MPDisplayRuleTypeBlueDot = 2,
-/// The display rule at the root of the display rule inheritence. This is hardcoded into the MapsIndoors SDK. The main rule inherits from the default rule
-  MPDisplayRuleTypeDefault = 3,
-/// The display rule which may be edited via the CMS. The main rule inherits from the default rule
-  MPDisplayRuleTypeMain = 4,
-};
-
-
-/// MapsIndoors error codes
-typedef SWIFT_ENUM(NSInteger, MPError, open) {
-  MPErrorNoError = 0,
-  MPErrorInvalidApiKey = 1,
-  MPErrorNetworkError = 2,
-  MPErrorUnknownError = 3,
-};
-static NSString * _Nonnull const MPErrorDomain = @"MapsIndoorsCore.MPError";
-
-
-SWIFT_PROTOCOL("_TtP15MapsIndoorsCore13MPMapBehavior_")
-@protocol MPMapBehavior
-@property (nonatomic) BOOL moveCamera;
-@property (nonatomic) BOOL showInfoWindow;
-@property (nonatomic) BOOL allowFloorChange;
-@property (nonatomic) NSInteger animationDuration;
-@end
-
-
-/// Filter behavior class that determines how a filter should be display on the map. Get the default behavior from <code>MPFilterBehavior.default</code>. The default behavior is no camera movement and no infowindow shown.
-SWIFT_CLASS("_TtC15MapsIndoorsCore16MPFilterBehavior")
-@interface MPFilterBehavior : NSObject <MPMapBehavior>
-/// Default filter behavior
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong, getter=default) MPFilterBehavior * _Nonnull default_;)
-+ (MPFilterBehavior * _Nonnull)default SWIFT_WARN_UNUSED_RESULT;
-/// Whether <code>MPMapControl</code> should move the camera and fit the map view to the filtered locations. The default behavior is no camera movement (NO).
-@property (nonatomic) BOOL moveCamera;
-/// Whether <code>MPMapControl</code> should show the info window if a filter only contains one Location. The default behavior is no infowindow shown (NO).
-@property (nonatomic) BOOL showInfoWindow;
-@property (nonatomic) BOOL allowFloorChange;
-@property (nonatomic) NSInteger animationDuration;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+SWIFT_PROTOCOL("_TtP15MapsIndoorsCore31MPExternalDistanceMatrixService_")
+@protocol MPExternalDistanceMatrixService
+- (void)queryWithOrigins:(NSArray<NSValue *> * _Nonnull)origins destinations:(NSArray<NSValue *> * _Nonnull)destinations config:(MPDirectionsConfig * _Nonnull)config completionHandler:(void (^ _Nonnull)(MPDistanceMatrixResult * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
 
 
-SWIFT_CLASS("_TtC15MapsIndoorsCore15MPGeometryUtils")
-@interface MPGeometryUtils : NSObject
-+ (double)bearingBetweenPointsFrom:(CLLocationCoordinate2D)from to:(CLLocationCoordinate2D)to SWIFT_WARN_UNUSED_RESULT;
-+ (double)distanceFrom:(CorePoint * _Nonnull)from to:(CorePoint * _Nonnull)to SWIFT_WARN_UNUSED_RESULT;
-+ (CLLocationCoordinate2D)closestPointOnLineSegmentWithPoint:(CLLocationCoordinate2D)point lineStart:(CLLocationCoordinate2D)lineStart lineEnd:(CLLocationCoordinate2D)lineEnd SWIFT_WARN_UNUSED_RESULT;
-+ (CLLocationCoordinate2D)interpolateFrom:(CLLocationCoordinate2D)from to:(CLLocationCoordinate2D)to fraction:(double)fraction SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class MPLocation;
-@class UIView;
-
-/// Optionally create your own info window generator for the SDK to use
-SWIFT_PROTOCOL("_TtP15MapsIndoorsCore21MPInfoWindowGenerator_")
-@protocol MPInfoWindowGenerator
-/// Given an MPLocation, produce an info window view
-- (UIView * _Nonnull)infoWindowForLocation:(MPLocation * _Nonnull)location SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-
-@interface MPLocation (SWIFT_EXTENSION(MapsIndoorsCore)) <MPEntity>
+@interface MPLocationInternal (SWIFT_EXTENSION(MapsIndoorsCore))
 @property (nonatomic, readonly, strong) MPPoint * _Nonnull entityPosition;
-@property (nonatomic, readonly, strong) CoreBounds * _Nonnull entityBounds;
+@property (nonatomic, readonly, strong) MPGeoBounds * _Nonnull entityBounds;
 @property (nonatomic, readonly) BOOL entityIsPoint;
 @end
 
-
-
-SWIFT_CLASS("_TtC15MapsIndoorsCore11MPMapConfig")
-@interface MPMapConfig : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@protocol MPMapControlDelegate;
-@protocol MPFloorSelectorProtocol;
-@class MPMapStyle;
-@class MPVenue;
-@class MPSelectionBehavior;
-@class MPFilter;
-@class MPLiveUpdate;
-@protocol MPPositionProvider;
-
-/// This is the control object for the visual representation of the MapsIndoors SDK
-SWIFT_PROTOCOL("_TtP15MapsIndoorsCore12MPMapControl_")
-@protocol MPMapControl
-/// Listen to events
-@property (nonatomic, strong) id <MPMapControlDelegate> _Nullable delegate;
-/// Get or set the floor selector (if none is set, a default floor selector will be used)
-@property (nonatomic, strong) id <MPFloorSelectorProtocol> _Nullable floorSelector;
-/// Get the current floor index
-@property (nonatomic, readonly) NSInteger currentFloorIndex;
-/// Get or set the map styling
-@property (nonatomic, strong) MPMapStyle * _Nullable mapStyle;
-/// Enable/disable showing the users position with a blue dot (customizable) (requires your application to implement a <code>MPPositionProvider</code>)
-@property (nonatomic) BOOL showUserPosition;
-/// Get the current camera position state
-@property (nonatomic, readonly, strong) id <MPCameraPosition> _Nonnull cameraPosition;
-/// Get or set the cluster icon generator (if none is set, the default internal will be used)
-@property (nonatomic, strong) id <MPClusterIconGenerator> _Nullable clusterIconGenerator;
-/// Get or set the info window generator (if none i set, the default internal will be used)
-@property (nonatomic, strong) id <MPInfoWindowGenerator> _Nullable infoWindowGenerator;
-/// Get the currently selected location
-@property (nonatomic, readonly, strong) MPLocation * _Nullable selectedLocation;
-/// Get the currently selected building
-@property (nonatomic, readonly, strong) MPBuilding * _Nullable currentBuilding;
-/// Get the currently selected venue
-@property (nonatomic, readonly, strong) MPVenue * _Nullable currentVenue;
-/// Select a location
-- (void)selectWithLocation:(MPLocation * _Nullable)location behavior:(MPSelectionBehavior * _Nonnull)behavior;
-/// Select a building
-- (void)selectWithBuilding:(MPBuilding * _Nullable)building behavior:(MPSelectionBehavior * _Nonnull)behavior;
-/// Select a venue
-- (void)selectWithVenue:(MPVenue * _Nullable)venue behavior:(MPSelectionBehavior * _Nonnull)behavior;
-/// Select a floor index
-- (void)selectWithFloorIndex:(NSInteger)floorIndex;
-/// Apply a filter to the map. Only show the MPLocations included in the list
-- (void)setFilterWithLocations:(NSArray<MPLocation *> * _Nonnull)locations behavior:(MPFilterBehavior * _Nonnull)behavior;
-/// Apply a filter to the map. Only show the MPLocations captured by the MPFilter
-- (void)setFilterWithFilter:(MPFilter * _Nonnull)filter behavior:(MPFilterBehavior * _Nonnull)behavior;
-/// Clear any previously applied filter
-- (void)clearFilter;
-/// Force a re-render of the MapsIndoors map
-- (void)refresh;
-/// Convenience: Move the camera to the entity
-/// An MPEntity may be an MPVenue, MPBuilding or MPLocation
-- (void)goToEntity:(id <MPEntity> _Nonnull)entity;
-/// Convinience: Enable LiveData for a given domain (includes default live data badged icons)
-- (void)enableLiveDataWithDomain:(NSString * _Nonnull)domain completion:(void (^ _Nullable)(MPLiveUpdate * _Nonnull))completion;
-/// Convinience: Disable LiveData for a given domain (includes default live data badged icons)
-- (void)disableLiveDataWithDomain:(NSString * _Nonnull)domain;
-/// The position provider that MapsIndoors should use when user location services are needed.
-/// <blockquote>
-/// Warning: Experimental implementation subject to change
-///
-/// </blockquote>
-@property (nonatomic, strong) id <MPPositionProvider> _Nullable positionProvider;
-@end
-
-
-SWIFT_PROTOCOL("_TtP15MapsIndoorsCore20MPMapControlDelegate_")
-@protocol MPMapControlDelegate
-@optional
-/// Triggered when the map was clicked at a given point
-/// Return true to indidate that you will handle the event, and bypass default MapsIndoors SDK behavior
-- (BOOL)didTapWithCoordinate:(MPPoint * _Nonnull)coordinate SWIFT_WARN_UNUSED_RESULT;
-/// Triggered when the map with a given marker was tapped
-- (BOOL)didTapIconWithLocation:(MPLocation * _Nonnull)location SWIFT_WARN_UNUSED_RESULT;
-/// Triggered when the info window with a marker with a given id was tapped
-- (BOOL)didTapInfoWindowWithLocation:(MPLocation * _Nonnull)location SWIFT_WARN_UNUSED_RESULT;
-/// Triggered when location selection has changed
-/// Return true to indidate that you will handle the event, and bypass default MapsIndoors SDK behavior
-- (BOOL)didChangeWithSelectedLocation:(MPLocation * _Nullable)selectedLocation SWIFT_WARN_UNUSED_RESULT;
-/// Triggered when venue selection has changed (programatically or by camera movement)
-/// Return true to indidate that you will handle the event, and bypass default MapsIndoors SDK behavior
-- (BOOL)didChangeWithSelectedVenue:(MPVenue * _Nullable)selectedVenue SWIFT_WARN_UNUSED_RESULT;
-/// Triggered when building selection has changed  (programatically or by camera movement)
-/// Return true to indidate that you will handle the event, and bypass default MapsIndoors SDK behavior
-- (BOOL)didChangeWithSelectedBuilding:(MPBuilding * _Nullable)selectedBuilding SWIFT_WARN_UNUSED_RESULT;
-/// Triggered when the selected floor index has changed  (programatically or by camera movement)
-/// Return true to indidate that you will handle the event, and bypass default MapsIndoors SDK behavior
-- (BOOL)didChangeWithFloorIndex:(NSInteger)floorIndex SWIFT_WARN_UNUSED_RESULT;
-@end
 
 
 SWIFT_PROTOCOL("_TtP15MapsIndoorsCore21MPMapProviderDelegate_")
@@ -760,8 +372,26 @@ SWIFT_PROTOCOL("_TtP15MapsIndoorsCore21MPMapProviderDelegate_")
 - (BOOL)didTapIconDelegateWithMarkerId:(NSString * _Nonnull)markerId SWIFT_WARN_UNUSED_RESULT;
 @end
 
+@protocol MapsIndoorsShared;
+@class MPMapConfig;
+
+/// The <code>MPMapsIndoors</code> class is the main entry point to the SDK.
+/// Access the shared instance to load, reload or close MapsIndoors solutions using an API key, and navigate the MapsIndoors data.
+/// Create new MapControl instances to visualize the MapsIndoors data from the shared instance, in an interactive map engine (Google Maps or Mapbox).
+SWIFT_CLASS("_TtC15MapsIndoorsCore13MPMapsIndoors")
+@interface MPMapsIndoors : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+/// Shared instance for a MapsIndoors session, which can be loaded, reloded and closed, as well as reading the data for a given MapsIndoors solution (venues, buildings, locations, etc.)
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) id <MapsIndoorsShared> _Nonnull shared;)
++ (id <MapsIndoorsShared> _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+/// Instantiate a new MapControl - the control objects which is used to navigate and customize the visual representation of MapsIndoors data within a map engine (Google Maps or Mapbox).
+/// If no MapsIndoors shared instance is loaded and ready, this will return nil.
++ (id <MPMapControl> _Nullable)createMapControlWithMapConfig:(MPMapConfig * _Nonnull)mapConfig SWIFT_WARN_UNUSED_RESULT;
+@end
 
 
+@class UIImage;
 
 SWIFT_CLASS("_TtC15MapsIndoorsCore20MPPositionController")
 @interface MPPositionController : NSObject
@@ -780,194 +410,56 @@ SWIFT_CLASS("_TtC15MapsIndoorsCore20MPPositionController")
 SWIFT_PROTOCOL("_TtP15MapsIndoorsCore19MPPositionPresenter_")
 @protocol MPPositionPresenter
 @property (nonatomic) BOOL optionalisVisible;
-@property (nonatomic, strong) MPPositionResult * _Nonnull position;
+@property (nonatomic, strong) MPPositionResult * _Nullable position;
 - (void)redrawUserLocationWithCurrentFloorIndex:(NSInteger)currentFloorIndex userFloorIndex:(NSInteger)userFloorIndex icon:(UIImage * _Nonnull)icon;
 - (void)setUserLocationWithPosition:(CLLocationCoordinate2D)position floorIndex:(NSInteger)floorIndex accuracy:(double)accuracy heading:(double)heading;
 @end
 
+@class MPGeoRegion;
 
 SWIFT_PROTOCOL("_TtP15MapsIndoorsCore12MPProjection_")
 @protocol MPProjection
-@property (nonatomic, readonly, strong) CoreRegion * _Nonnull visibleRegion;
+@property (nonatomic, readonly, strong) MPGeoRegion * _Nonnull visibleRegion;
 - (CGPoint)pointForCoordinate:(CLLocationCoordinate2D)coordinate SWIFT_WARN_UNUSED_RESULT;
 - (CLLocationCoordinate2D)coordinateForPoint:(CGPoint)point SWIFT_WARN_UNUSED_RESULT;
 @end
 
-@class MPGraphNode;
-@class NSCoder;
-@class NSData;
-@class JSONModelError;
 
-SWIFT_CLASS("_TtC15MapsIndoorsCore24MPRouteNetworkEntryPoint")
+@class MPGraphNode;
+
+SWIFT_RESILIENT_CLASS("_TtC15MapsIndoorsCore24MPRouteNetworkEntryPoint")
 @interface MPRouteNetworkEntryPoint : MPPoint
 @property (nonatomic, readonly) MPBoundaryType boundaryType;
 @property (nonatomic, copy) NSString * _Nullable label;
-+ (MPRouteNetworkEntryPoint * _Nonnull)newWithEntryPointNode:(MPGraphNode * _Nonnull)entryNode SWIFT_WARN_UNUSED_RESULT;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
-- (nullable instancetype)initWithData:(NSData * _Null_unspecified)data error:(NSError * _Nullable * _Nullable)error SWIFT_UNAVAILABLE;
-- (nullable instancetype)initWithDictionary:(NSDictionary * _Null_unspecified)dict error:(NSError * _Nullable * _Nullable)error SWIFT_UNAVAILABLE;
++ (MPRouteNetworkEntryPoint * _Nonnull)newWithEntryPointNode:(MPGraphNode * _Nonnull)entryPointNode SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)initWithLatitude:(double)latitude longitude:(double)longitude SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithLatitude:(double)latitude longitude:(double)longitude z:(double)z SWIFT_UNAVAILABLE;
+/// <blockquote>
+/// Warning: [INTERNAL - DO NOT USE]
+///
+/// </blockquote>
+- (MPRouteNetworkEntryPoint * _Nullable)initWithDictionary:(NSDictionary * _Null_unspecified)dict error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, readonly, copy) NSString * _Nonnull debugDescription;
-- (nonnull instancetype)initWithLat:(double)latitude lon:(double)longitude SWIFT_UNAVAILABLE;
-- (nonnull instancetype)initWithLat:(double)latitude lon:(double)longitude zValue:(double)z SWIFT_UNAVAILABLE;
-- (null_unspecified instancetype)initWithString:(NSString * _Null_unspecified)string error:(JSONModelError * _Nullable * _Null_unspecified)err SWIFT_UNAVAILABLE;
-- (null_unspecified instancetype)initWithString:(NSString * _Null_unspecified)string usingEncoding:(NSUInteger)encoding error:(JSONModelError * _Nullable * _Null_unspecified)err SWIFT_UNAVAILABLE;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-@class RouteViewModelProducer;
-
-SWIFT_PROTOCOL("_TtP15MapsIndoorsCore15MPRouteRenderer_")
-@protocol MPRouteRenderer
-- (void)applyWithModel:(RouteViewModelProducer * _Nonnull)model animate:(BOOL)animate duration:(NSTimeInterval)duration repeating:(BOOL)repeating primaryColor:(UIColor * _Nonnull)primaryColor secondaryColor:(UIColor * _Nonnull)secondaryColor primaryWidth:(float)primaryWidth secondaryWidth:(float)secondaryWidth;
-- (void)moveCameraWithPoints:(NSArray<NSValue *> * _Nonnull)points animate:(BOOL)animate durationMs:(NSInteger)durationMs tilt:(float)tilt fitMode:(enum MPCameraViewFitMode)fitMode;
-- (void)clear;
-- (void)setOnRouteMarkerClickedDelegateWithDelegate:(id <MPOnRouteMarkerClickedDelegate> _Nonnull)delegate;
 @end
 
 
-/// Selection behavior class that determines how a location selection should be displayed on the map. Get the default behavior from <code>MPSelectionBehavior.default</code>. The default behavior is that the camera moves to display the selected location and the infowindow is shown.
-SWIFT_CLASS("_TtC15MapsIndoorsCore19MPSelectionBehavior")
-@interface MPSelectionBehavior : NSObject <MPMapBehavior>
-/// Default selection behavior
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong, getter=default) MPSelectionBehavior * _Nonnull default_;)
-+ (MPSelectionBehavior * _Nonnull)default SWIFT_WARN_UNUSED_RESULT;
-/// Whether <code>MPMapControl</code> should move the camera and fit the map view to show the selected location. The default value is YES.
-@property (nonatomic) BOOL moveCamera;
-/// Whether <code>MPMapControl</code> should show the info window if a filter only contains one Location. The default behavior is no infowindow shown YES.
-@property (nonatomic) BOOL showInfoWindow;
-@property (nonatomic) BOOL allowFloorChange;
-@property (nonatomic) NSInteger animationDuration;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-/// MPSolutionConfig is the way to access the Solution settings made in the MapsIndoors CMS.
-/// MPSolutionConfig governs solution level settings such as:
-/// <ul>
-///   <li>
-///     Marker clustering
-///   </li>
-///   <li>
-///     Marker collision handling
-///   </li>
-///   <li>
-///     Main Display Rule
-///   </li>
-///   <li>
-///     MPSettings3D
-///   </li>
-/// </ul>
-SWIFT_CLASS("_TtC15MapsIndoorsCore16MPSolutionConfig")
-@interface MPSolutionConfig : NSObject
-@property (nonatomic) BOOL enableClustering;
-@property (nonatomic) enum MPCollisionHandling collisionHandling;
-@property (nonatomic, readonly, copy) NSDictionary<NSString *, NSNumber *> * _Nonnull settings3D;
-/// Populate with data via JSONModel.
-/// Should never be used from outside the MapsIndoors SDK.
-- (MPSolutionConfig * _Nullable)initWithDictionary:(NSDictionary * _Null_unspecified)dict error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-@interface MPVenue (SWIFT_EXTENSION(MapsIndoorsCore)) <MPEntity>
+@interface MPVenueInternal (SWIFT_EXTENSION(MapsIndoorsCore))
 @property (nonatomic, readonly, strong) MPPoint * _Nonnull entityPosition;
-@property (nonatomic, readonly, strong) CoreBounds * _Nonnull entityBounds;
+@property (nonatomic, readonly, strong) MPGeoBounds * _Nonnull entityBounds;
 @property (nonatomic, readonly) BOOL entityIsPoint;
 @end
 
-@protocol MapsIndoorsInstance;
 
-/// The MapsIndoors class is the main entry point to the SDK.
-/// Access the shared instance to load, reload or close MapsIndoors solutions using an API key, and navigate the MapsIndoors data.
-/// Create new MapControl instances to visualize the MapsIndoors data from the shared instance, in an interactive map engine (Google Maps or Mapbox).
-SWIFT_CLASS("_TtC15MapsIndoorsCore11MapsIndoors")
-@interface MapsIndoors : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-/// Shared instance for a MapsIndoors session, which can be loaded, reloded and closed, as well as reading the data for a given MapsIndoors solution (venues, buildings, locations, etc.)
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) id <MapsIndoorsInstance> _Nonnull shared;)
-+ (id <MapsIndoorsInstance> _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
-/// Instantiate a new MapControl - the control objects which is used to navigate and customize the visual representation of MapsIndoors data within a map engine (Google Maps or Mapbox).
-/// If no MapsIndoors shared instance is loaded and ready, this will return nil.
-+ (id <MPMapControl> _Nullable)createMapControlWithMapConfig:(MPMapConfig * _Nonnull)mapConfig SWIFT_WARN_UNUSED_RESULT;
+SWIFT_PROTOCOL("_TtP15MapsIndoorsCore34MapControlInternalExternalServices_")
+@protocol MapControlInternalExternalServices
+@property (nonatomic, readonly, strong) id <MPExternalDirectionsService> _Nullable externalDirectionService;
+@property (nonatomic, readonly, strong) id <MPExternalDistanceMatrixService> _Nullable externalMatrixService;
 @end
 
-@protocol MPAuthDetails;
-@class MPSolution;
-@class MPUserRole;
-@class MPDataSetCacheManager;
-@protocol MPImageProvider;
-@class MPQuery;
-@class MPAppData;
-@class MPDataField;
-@class MPMapExtend;
 
-SWIFT_PROTOCOL("_TtP15MapsIndoorsCore19MapsIndoorsInstance_")
-@protocol MapsIndoorsInstance
-/// Validate a MapsIndoors API key (requires online connectivity)
-- (void)isApiKeyValidWithApiKey:(NSString * _Nonnull)apiKey completionHandler:(void (^ _Nonnull)(BOOL))completionHandler;
-/// Check whether offline data is available for a given MapsIndoors API key
-- (void)isOfflineDataAvailableWithApiKey:(NSString * _Nonnull)apiKey completionHandler:(void (^ _Nonnull)(BOOL))completionHandler;
-/// Load a MapsIndoors solution using an API key
-- (void)loadWithApiKey:(NSString * _Nonnull)apiKey completionHandler:(void (^ _Nonnull)(enum MPError))completionHandler;
-/// Reload an already loaded MapsIndoors solution
-- (void)synchronizeWithCompletionHandler:(void (^ _Nonnull)(enum MPError))completionHandler;
-/// Close the MapsIndoors SDK (clears the internal state of the SDK)
-- (void)shutdown;
-/// Fetch authentication details using MapsIndoors API key
-- (void)fetchAuthDetailsWithApiKey:(NSString * _Nonnull)apiKey completionHandler:(void (^ _Nonnull)(id <MPAuthDetails> _Nullable, NSError * _Nullable))completionHandler;
-/// Ready flag, indicating whether the SDK is loaded correctly and ready for use
-@property (nonatomic, readonly) BOOL ready;
-/// Returns the currently set MapsIndoors api key
-@property (nonatomic, readonly, copy) NSString * _Nullable apiKey;
-/// Returns the solution object for the currently loaded MapsIndoors solution
-@property (nonatomic, readonly, strong) MPSolution * _Nullable solution;
-/// Get or set the current language code (Uses the two-letter language code ISO 639-1)
-@property (nonatomic, copy) NSString * _Nonnull language;
-/// Get the list of available user roles in the current solution
-@property (nonatomic, readonly, copy) NSArray<MPUserRole *> * _Nonnull availableUserRoles;
-/// Get or set the current list of applied user roles
-@property (nonatomic, copy) NSArray<MPUserRole *> * _Nonnull userRoles;
-/// Get or set the applied authentication token (relevant when using MapsIndoors SSO)
-@property (nonatomic, copy) NSString * _Nullable authToken;
-/// Get or set a position provider
-@property (nonatomic, strong) id <MPPositionProvider> _Nullable positionProvider;
-/// Disable or enable anonymous SDK feature usage logging (enabled by default)
-@property (nonatomic) BOOL eventLoggingDisabled;
-/// Dataset cache manager
-@property (nonatomic, readonly, strong) MPDataSetCacheManager * _Nonnull datasetCacheManager;
-/// The image provider that MapsIndoors should use when image ressources are needed
-@property (nonatomic, readonly, strong) id <MPImageProvider> _Nonnull imageProvider;
-/// Get the MPLocation with a given location id - if one exists
-- (MPLocation * _Nullable)locationWithLocationId:(NSString * _Nonnull)locationId SWIFT_WARN_UNUSED_RESULT;
-/// Get the MPLocation with a given external id - if one exists
-- (MPLocation * _Nullable)locationWithExternalId:(NSString * _Nonnull)externalId SWIFT_WARN_UNUSED_RESULT;
-/// Search for MPLocations using MPQuery and/or MPFilter
-- (void)locationsWithQuery:(MPQuery * _Nullable)query filter:(MPFilter * _Nullable)filter completionHandler:(void (^ _Nonnull)(NSArray<MPLocation *> * _Nonnull))completionHandler;
-/// App configuration data
-- (void)appDataWithCompletionHandler:(void (^ _Nonnull)(MPAppData * _Nullable))completionHandler;
-/// Categories
-- (void)categoriesWithCompletionHandler:(void (^ _Nonnull)(NSArray<MPDataField *> * _Nonnull))completionHandler;
-/// Get all venues
-- (void)venuesWithCompletionHandler:(void (^ _Nonnull)(NSArray<MPVenue *> * _Nonnull))completionHandler;
-/// Get the venue with a given id
-- (void)venueWithId:(NSString * _Nonnull)id completionHandler:(void (^ _Nonnull)(MPVenue * _Nullable))completionHandler;
-/// Get all buildings
-- (void)buildingsWithCompletionHandler:(void (^ _Nonnull)(NSArray<MPBuilding *> * _Nonnull))completionHandler;
-/// Get the building with a given id
-- (void)buildingWithId:(NSString * _Nonnull)id completionHandler:(void (^ _Nonnull)(MPBuilding * _Nullable))completionHandler;
-/// Get a buildings which lies within the given bounds
-- (void)buildingInBounds:(MPMapExtend * _Nonnull)bounds completionHandler:(void (^ _Nonnull)(MPBuilding * _Nullable))completionHandler;
-/// Get the display rule for a given MPLocation
-- (MPDisplayRule * _Nullable)displayRuleForLocation:(MPLocation * _Nonnull)location SWIFT_WARN_UNUSED_RESULT;
-/// Get the display rule for a given type
-- (MPDisplayRule * _Nullable)displayRuleForType:(NSString * _Nonnull)type SWIFT_WARN_UNUSED_RESULT;
-/// Get display rules used for various general styling (e.g. building outline)
-- (MPDisplayRule * _Nullable)displayRuleForDisplayRuleType:(enum MPDisplayRuleType)displayRuleType SWIFT_WARN_UNUSED_RESULT;
-/// Set and apply a display rule for the given MPLocation
-- (void)setWithDisplayRule:(MPDisplayRule * _Nonnull)displayRule location:(MPLocation * _Nonnull)location;
+SWIFT_PROTOCOL("_TtP15MapsIndoorsCore35MapsIndoorsInternalActiveMapControl_")
+@protocol MapsIndoorsInternalActiveMapControl
+@property (nonatomic, strong) id <MPMapControl> _Nullable activeMapControlInstance;
 @end
 
 
@@ -975,7 +467,6 @@ SWIFT_CLASS("_TtC15MapsIndoorsCore22RouteViewModelProducer")
 @interface RouteViewModelProducer : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
-
 
 
 
@@ -1225,7 +716,7 @@ using UInt = size_t;
 @import CoreFoundation;
 @import CoreLocation;
 @import Foundation;
-@import MapsIndoorsCore_Private;
+@import MapsIndoors;
 @import ObjectiveC;
 @import UIKit;
 #endif
@@ -1250,102 +741,6 @@ using UInt = size_t;
 #endif
 
 #if defined(__OBJC__)
-@class CoreBounds;
-@class CorePoint;
-@class CorePolygon;
-
-SWIFT_PROTOCOL("_TtP15MapsIndoorsCore18MPGeometryProtocol_")
-@protocol MPGeometryProtocol
-@property (nonatomic, readonly, strong) CoreBounds * _Nonnull bounds;
-@property (nonatomic, readonly, strong) CorePoint * _Nonnull center;
-@property (nonatomic, readonly, strong) CorePolygon * _Nonnull polygon;
-- (BOOL)intersectsWithOther:(id <MPGeometryProtocol> _Nonnull)other SWIFT_WARN_UNUSED_RESULT;
-- (double)distanceToOther:(id <MPGeometryProtocol> _Nonnull)other SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-SWIFT_CLASS("_TtC15MapsIndoorsCore10CoreBounds")
-@interface CoreBounds : NSObject <MPGeometryProtocol>
-- (nonnull instancetype)initWithSouthWest:(CLLocationCoordinate2D)southWest northEast:(CLLocationCoordinate2D)northEast OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithPoints:(NSArray<NSValue *> * _Nonnull)points OBJC_DESIGNATED_INITIALIZER;
-@property (nonatomic, readonly) CLLocationCoordinate2D northEast;
-@property (nonatomic, readonly) CLLocationCoordinate2D southWest;
-@property (nonatomic, readonly, strong) CoreBounds * _Nonnull bounds;
-@property (nonatomic, readonly, strong) CorePoint * _Nonnull center;
-@property (nonatomic, readonly, strong) CorePolygon * _Nonnull polygon;
-@property (nonatomic, readonly) double area;
-- (CoreBounds * _Nonnull)expandWithCoord:(CLLocationCoordinate2D)coord SWIFT_WARN_UNUSED_RESULT;
-- (CoreBounds * _Nonnull)expandWithOther:(id <MPGeometryProtocol> _Nonnull)other SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)intersectsWithOther:(id <MPGeometryProtocol> _Nonnull)other SWIFT_WARN_UNUSED_RESULT;
-- (double)distanceToOther:(id <MPGeometryProtocol> _Nonnull)other SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC15MapsIndoorsCore9CorePoint")
-@interface CorePoint : NSObject <MPGeometryProtocol>
-@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
-- (nonnull instancetype)initWithCoordinate:(CLLocationCoordinate2D)coordinate OBJC_DESIGNATED_INITIALIZER;
-@property (nonatomic, readonly, strong) CoreBounds * _Nonnull bounds;
-@property (nonatomic, readonly, strong) CorePoint * _Nonnull center;
-@property (nonatomic, readonly, strong) CorePolygon * _Nonnull polygon;
-- (double)bearingToPoint:(CorePoint * _Nonnull)point SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)intersectsWithOther:(id <MPGeometryProtocol> _Nonnull)other SWIFT_WARN_UNUSED_RESULT;
-- (double)distanceToOther:(id <MPGeometryProtocol> _Nonnull)other SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC15MapsIndoorsCore11CorePolygon")
-@interface CorePolygon : NSObject
-- (nonnull instancetype)initWithPoints:(NSArray<NSValue *> * _Nonnull)points OBJC_DESIGNATED_INITIALIZER;
-@property (nonatomic, readonly, strong) CoreBounds * _Nonnull bounds;
-@property (nonatomic, readonly, strong) CorePoint * _Nonnull center;
-@property (nonatomic, readonly, strong) CorePolygon * _Nonnull polygon;
-@property (nonatomic, readonly, copy) NSArray<NSValue *> * _Nonnull points;
-- (void)appendWithPoint:(CLLocationCoordinate2D)point;
-@property (nonatomic, readonly) double area;
-- (BOOL)intersectsWithOther:(id <MPGeometryProtocol> _Nonnull)other SWIFT_WARN_UNUSED_RESULT;
-- (double)distanceToOther:(id <MPGeometryProtocol> _Nonnull)other SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC15MapsIndoorsCore12CorePolyline")
-@interface CorePolyline : NSObject
-- (nonnull instancetype)initWithPoints:(NSArray<NSValue *> * _Nonnull)points OBJC_DESIGNATED_INITIALIZER;
-@property (nonatomic, readonly, strong) CoreBounds * _Nonnull bounds;
-@property (nonatomic, readonly, strong) CorePoint * _Nonnull center;
-@property (nonatomic, readonly, strong) CorePolygon * _Nonnull polygon;
-@property (nonatomic, readonly, copy) NSArray<NSValue *> * _Nonnull points;
-- (void)appendWithPoint:(CLLocationCoordinate2D)point;
-- (BOOL)intersectsWithOther:(id <MPGeometryProtocol> _Nonnull)other SWIFT_WARN_UNUSED_RESULT;
-- (double)distanceToOther:(id <MPGeometryProtocol> _Nonnull)other SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC15MapsIndoorsCore10CoreRegion")
-@interface CoreRegion : NSObject <MPGeometryProtocol>
-@property (nonatomic, readonly) CLLocationCoordinate2D nearLeft;
-@property (nonatomic, readonly) CLLocationCoordinate2D farLeft;
-@property (nonatomic, readonly) CLLocationCoordinate2D farRight;
-@property (nonatomic, readonly) CLLocationCoordinate2D nearRight;
-- (nonnull instancetype)initWithNearLeft:(CLLocationCoordinate2D)nearLeft farLeft:(CLLocationCoordinate2D)farLeft farRight:(CLLocationCoordinate2D)farRight nearRight:(CLLocationCoordinate2D)nearRight OBJC_DESIGNATED_INITIALIZER;
-@property (nonatomic, readonly, strong) CoreBounds * _Nonnull bounds;
-@property (nonatomic, readonly, strong) CorePoint * _Nonnull center;
-@property (nonatomic, readonly, strong) CorePolygon * _Nonnull polygon;
-@property (nonatomic, readonly) double area;
-- (BOOL)intersectsWithOther:(id <MPGeometryProtocol> _Nonnull)other SWIFT_WARN_UNUSED_RESULT;
-- (double)distanceToOther:(id <MPGeometryProtocol> _Nonnull)other SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
 
 SWIFT_CLASS("_TtC15MapsIndoorsCore15InfoWindowUtils")
 @interface InfoWindowUtils : NSObject
@@ -1353,22 +748,11 @@ SWIFT_CLASS("_TtC15MapsIndoorsCore15InfoWindowUtils")
 @end
 
 @class MPPoint;
+@class MPGeoBounds;
 
-/// MPEntity is a general protocol implemented by MPLocation, MPBuilding and MPVenue.
-SWIFT_PROTOCOL("_TtP15MapsIndoorsCore8MPEntity_")
-@protocol MPEntity
-/// The mapsindoors entity’s point
+@interface MPBuildingInternal (SWIFT_EXTENSION(MapsIndoorsCore))
 @property (nonatomic, readonly, strong) MPPoint * _Nonnull entityPosition;
-/// The mapsindoors entity’s bounding box
-@property (nonatomic, readonly, strong) CoreBounds * _Nonnull entityBounds;
-/// Indidates if the entity’s geometry is a point or a polygon
-@property (nonatomic, readonly) BOOL entityIsPoint;
-@end
-
-
-@interface MPBuilding (SWIFT_EXTENSION(MapsIndoorsCore)) <MPEntity>
-@property (nonatomic, readonly, strong) MPPoint * _Nonnull entityPosition;
-@property (nonatomic, readonly, strong) CoreBounds * _Nonnull entityBounds;
+@property (nonatomic, readonly, strong) MPGeoBounds * _Nonnull entityBounds;
 @property (nonatomic, readonly) BOOL entityIsPoint;
 @end
 
@@ -1379,97 +763,47 @@ SWIFT_PROTOCOL("_TtP15MapsIndoorsCore16MPCameraOperator_")
 @protocol MPCameraOperator
 - (void)moveWithTarget:(CLLocationCoordinate2D)target zoom:(float)zoom;
 - (void)animateWithPos:(id <MPCameraPosition> _Nonnull)pos;
-- (void)animateWithBounds:(CoreBounds * _Nonnull)bounds;
+- (void)animateWithBounds:(MPGeoBounds * _Nonnull)bounds;
 - (void)animateWithTarget:(CLLocationCoordinate2D)target zoom:(float)zoom;
 @property (nonatomic, readonly, strong) id <MPCameraPosition> _Nonnull position;
 @property (nonatomic, readonly, strong) id <MPProjection> _Nonnull projection;
-- (id <MPCameraPosition> _Nonnull)cameraFor:(CoreBounds * _Nonnull)bounds inserts:(UIEdgeInsets)inserts SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-SWIFT_PROTOCOL("_TtP15MapsIndoorsCore16MPCameraPosition_")
-@protocol MPCameraPosition
-@property (nonatomic, readonly) CLLocationCoordinate2D target;
-@property (nonatomic, readonly) float zoom;
-@property (nonatomic, readonly) CLLocationDirection bearing;
-@property (nonatomic, readonly) double viewingAngle;
-- (id <MPCameraPosition> _Nullable)cameraWithTarget:(CLLocationCoordinate2D)target zoom:(float)zoom SWIFT_WARN_UNUSED_RESULT;
-- (id <MPCameraPosition> _Nullable)initCameraWithTarget:(CLLocationCoordinate2D)target zoom:(float)zoom bearing:(CLLocationDirection)bearing viewingAngle:(double)viewingAngle SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
+- (id <MPCameraPosition> _Nonnull)cameraFor:(MPGeoBounds * _Nonnull)bounds inserts:(UIEdgeInsets)inserts SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 SWIFT_PROTOCOL("_TtP15MapsIndoorsCore14MPCameraUpdate_")
 @protocol MPCameraUpdate
-- (id <MPCameraUpdate> _Nonnull)fitBounds:(CoreBounds * _Nonnull)bounds SWIFT_WARN_UNUSED_RESULT;
-- (id <MPCameraUpdate> _Nonnull)fitBoundsWithPadding:(CoreBounds * _Nonnull)bounds padding:(CGFloat)padding SWIFT_WARN_UNUSED_RESULT;
-- (id <MPCameraUpdate> _Nonnull)fitBoundsWithEdgeInserts:(CoreBounds * _Nonnull)bounds edgeInsets:(UIEdgeInsets)edgeInsets SWIFT_WARN_UNUSED_RESULT;
+- (id <MPCameraUpdate> _Nonnull)fitBounds:(MPGeoBounds * _Nonnull)bounds SWIFT_WARN_UNUSED_RESULT;
+- (id <MPCameraUpdate> _Nonnull)fitBoundsWithPadding:(MPGeoBounds * _Nonnull)bounds padding:(CGFloat)padding SWIFT_WARN_UNUSED_RESULT;
+- (id <MPCameraUpdate> _Nonnull)fitBoundsWithEdgeInserts:(MPGeoBounds * _Nonnull)bounds edgeInsets:(UIEdgeInsets)edgeInsets SWIFT_WARN_UNUSED_RESULT;
 @end
-
-typedef SWIFT_ENUM(NSInteger, MPCameraViewFitMode, open) {
-  MPCameraViewFitModeNORTH_ALIGNED = 0,
-  MPCameraViewFitModeFIRST_STEP_ALIGNED = 1,
-  MPCameraViewFitModeSTART_TO_END_ALIGNED = 2,
-};
 
 @class NSString;
-@class UIImage;
+@class NSDate;
 
-/// Optionally create your own cluster icon generator for the SDK to use
-SWIFT_PROTOCOL("_TtP15MapsIndoorsCore22MPClusterIconGenerator_")
-@protocol MPClusterIconGenerator
-/// Given a cluster of a given type and size, produce an appropriate icon to represent the cluster
-- (UIImage * _Nonnull)clusterIconForType:(NSString * _Nonnull)type size:(NSInteger)size SWIFT_WARN_UNUSED_RESULT;
-@end
-
-/// The different ways to handle collisions of icons and labels on the map.
-typedef SWIFT_ENUM(NSInteger, MPCollisionHandling, open) {
-/// Will allow markers to overlap, nothing will be removed.
-  MPCollisionHandlingAllowOverLap = 0,
-/// Will hide labels if they are overlapping with another feature such as an icon or another label.
-  MPCollisionHandlingRemoveLabelFirst = 1,
-/// Will hide icons if they are overlapping with another feature such as an icon or another label.
-  MPCollisionHandlingRemoveIconFirst = 2,
-/// Will hide markers if they are overlapping with another marker.
-  MPCollisionHandlingRemoveIconAndLabel = 3,
-};
-
-/// Which information to show from the Location close to the end of a route leg.
-typedef SWIFT_ENUM(NSInteger, MPContextualInfoScope, open) {
-  MPContextualInfoScopeIconAndName = 0,
-  MPContextualInfoScopeIconOnly = 1,
-  MPContextualInfoScopeNameOnly = 2,
-};
-
-
-/// Settings for showing contextual info along the rendered route
-SWIFT_CLASS("_TtC15MapsIndoorsCore24MPContextualInfoSettings")
-@interface MPContextualInfoSettings : NSObject
-/// The Types of Location that should be used when showing text and icon for a start or end marker.
-/// If no Types are supplied, all Types of Locations will be considered.
-@property (nonatomic, copy) NSArray<NSString *> * _Nonnull types;
-/// The Categories of Location that should be used when showing text and icon for a start or end marker.
-/// If no Categories are supplied, all Categories of Locations will be considered.
-@property (nonatomic, copy) NSArray<NSString *> * _Nonnull categories;
-/// The maximum distance in meters allowed for using text and icon from a Location. Default of 5 meters.
-@property (nonatomic) double maxDistance;
-/// Which content should be used. Default is IconAndName.
-@property (nonatomic) enum MPContextualInfoScope infoScope;
+SWIFT_CLASS("_TtC15MapsIndoorsCore18MPDirectionsConfig")
+@interface MPDirectionsConfig : NSObject
+@property (nonatomic, copy) NSArray<NSString *> * _Nonnull avoidTypes;
+@property (nonatomic, copy) NSString * _Nonnull travelMode;
+@property (nonatomic, copy) NSDate * _Nullable departure;
+@property (nonatomic, copy) NSDate * _Nullable arrival;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
-SWIFT_PROTOCOL("_TtP15MapsIndoorsCore30MPOnRouteMarkerClickedDelegate_")
-@protocol MPOnRouteMarkerClickedDelegate
+SWIFT_PROTOCOL("_TtP15MapsIndoorsCore21MPRouteMarkerDelegate_")
+@protocol MPRouteMarkerDelegate
 - (void)onRouteMarkerClickedWithTag:(NSString * _Nonnull)tag;
 @end
 
 @protocol MPDirectionsRendererDelegate;
+@class MPContextualInfoSettings;
 @class UIColor;
-@class MPRoute;
+@protocol MPRoute;
 @protocol MPMapControl;
 
-SWIFT_CLASS("_TtC15MapsIndoorsCore20MPDirectionsRenderer")
-@interface MPDirectionsRenderer : NSObject <MPOnRouteMarkerClickedDelegate>
+SWIFT_CLASS("_TtC15MapsIndoorsCore28MPDirectionsRendererInternal")
+@interface MPDirectionsRendererInternal : NSObject <MPDirectionsRenderer, MPRouteMarkerDelegate>
 @property (nonatomic, readonly) BOOL isRouteShown;
 @property (nonatomic) enum MPCameraViewFitMode fitMode;
 @property (nonatomic, strong) id <MPDirectionsRendererDelegate> _Nullable delegate;
@@ -1478,7 +812,7 @@ SWIFT_CLASS("_TtC15MapsIndoorsCore20MPDirectionsRenderer")
 @property (nonatomic) BOOL fitBounds;
 @property (nonatomic, strong) UIColor * _Nullable pathColor;
 @property (nonatomic) NSInteger routeLegIndex;
-@property (nonatomic, strong) MPRoute * _Nullable route;
+@property (nonatomic, strong) id <MPRoute> _Nullable route;
 - (nonnull instancetype)initWithMapControl:(id <MPMapControl> _Nonnull)mapControl OBJC_DESIGNATED_INITIALIZER;
 - (void)clear;
 - (BOOL)nextLeg SWIFT_WARN_UNUSED_RESULT;
@@ -1491,257 +825,26 @@ SWIFT_CLASS("_TtC15MapsIndoorsCore20MPDirectionsRenderer")
 @end
 
 
-SWIFT_PROTOCOL("_TtP15MapsIndoorsCore28MPDirectionsRendererDelegate_")
-@protocol MPDirectionsRendererDelegate
-- (void)onDirectionsRendererChangedFloorWithFloorIndex:(NSInteger)floorIndex;
+SWIFT_PROTOCOL("_TtP15MapsIndoorsCore27MPExternalDirectionsService_")
+@protocol MPExternalDirectionsService
+- (void)queryWithOrigin:(CLLocationCoordinate2D)origin destination:(CLLocationCoordinate2D)destination config:(MPDirectionsConfig * _Nonnull)config completionHandler:(void (^ _Nonnull)(id <MPRoute> _Nullable, NSError * _Nullable))completionHandler;
 @end
 
-@class NSURL;
+@class MPDistanceMatrixResult;
 
-/// This class represents a Display Rule, a MapsIndoors concept which describes a number of styling values for MapsIndoors objects. The values contained within dictates how the MapsIndoors SDK renders a given object on the map (POI, area, selection, model, etc.). Display Rule data can be edited through the MapsIndoors CMS, and can be modified at runtime in SDKs. Invoke <code>reset</code> on a <code>MPDisplayRule</code> to reset all values to those from the CMS.
-SWIFT_CLASS("_TtC15MapsIndoorsCore13MPDisplayRule")
-@interface MPDisplayRule : NSObject
-/// The marker icon to use on markers that apply to the display rule.
-@property (nonatomic, strong) UIImage * _Nonnull icon;
-/// Size of the icon image.
-@property (nonatomic) CGSize iconSize;
-/// URL to the marker icon to use.
-@property (nonatomic, copy) NSURL * _Nullable iconURL;
-/// Whether or not to show an icon.
-@property (nonatomic) BOOL iconVisible;
-/// The label to show for the marker. It can be a fixed string or a label template, e.g. <code>"{{name}}"</code>, <code>"{{roomId}}"</code>, <code>"Room #{{roomId}}"</code> etc..
-@property (nonatomic, copy) NSString * _Nullable label;
-/// Maximum width in points of the label shown on the map. If the text shown in the label
-/// (typically the Location name) is longer than the labelMaxWidth the text will flow onto as many
-/// lines as needed.
-@property (nonatomic) NSUInteger labelMaxWidth;
-/// Whether or not to show a text label. See <code>label</code> property.
-@property (nonatomic) BOOL labelVisible;
-@property (nonatomic) double labelZoomFrom;
-@property (nonatomic) double labelZoomTo;
-/// The bearing of the 2D model. The value is the rotation in degrees clockwise from north.
-@property (nonatomic) double model2DBearing;
-/// The height of the 2D model. The value is in meters to make it easy to associate with the real world.
-@property (nonatomic) double model2DHeightMeters;
-/// The URL of the image for the 2D model.
-@property (nonatomic, copy) NSString * _Nullable model2DModel;
-/// Determines the visibility of the 2D model.
-@property (nonatomic) BOOL model2DVisible;
-/// The width of the 2D model. The value is in meters to make it easy to associate with the real world.
-@property (nonatomic) double model2DWidthMeters;
-/// The 2D model zoom value from dictates from which zoom level the model should start being shown.
-@property (nonatomic) double model2DZoomFrom;
-/// The 2D model zoom to value dictates from which zoom level the model should stop being shown.
-@property (nonatomic) double model2DZoomTo;
-/// Name/identifier of the rule. Also used as the rule condition for the location types.
-@property (nonatomic, copy) NSString * _Nullable name;
-/// The fill color of the polygon drawn on the map.
-@property (nonatomic, strong) UIColor * _Nullable polygonFillColor;
-/// The stroke color of the polygon drawn on the map.
-@property (nonatomic, strong) UIColor * _Nullable polygonStrokeColor;
-/// The stroke width of the polygon drawn on the map.
-@property (nonatomic) double polygonStrokeWidth;
-/// Whether or not to show the location polygon on the map.
-@property (nonatomic) BOOL polygonVisible;
-/// The map zoom level above which the location polygon should be visible.
-@property (nonatomic) double polygonZoomFrom;
-/// The map zoom level beneath which the location marker should be visible.
-@property (nonatomic) double polygonZoomTo;
-/// Should anything be shown at the zoom level
-- (BOOL)showAtZoom:(double)zoom SWIFT_WARN_UNUSED_RESULT;
-/// Whether or not to show the marker.
-@property (nonatomic) BOOL visible;
-/// The map zoom level above which the location marker should be visible.
-@property (nonatomic) double zoomFrom;
-/// The map zoom level beneath which the location marker should be visible.
-@property (nonatomic) double zoomTo;
-- (nonnull instancetype)initWithRule:(MPDisplayRule * _Nonnull)rule parent:(MPDisplayRule * _Nonnull)parent;
-- (nonnull instancetype)initWithRule:(MPDisplayRule * _Nonnull)rule;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-/// Resets the DisplayRule to the original state.
-- (void)reset;
-/// Populate with data via JSONModel.
-/// Should never be used from outside the MapsIndoors SDK.
-- (nullable instancetype)initWithDictionary:(NSDictionary * _Null_unspecified)dict error:(NSError * _Nullable * _Nullable)error OBJC_DESIGNATED_INITIALIZER;
-@property (nonatomic, readonly, copy) NSString * _Nonnull debugDescription;
-@end
-
-/// The MapsIndoors SDK contains a number of display rules used to style non-location content (blue dot, buildings or locations when they are selected).
-/// Display rules are also internally structured as a hierachy where inheritence is applied, the inheritence of values flow as: default -> main -> type -> location (e.g. if a type rule is missing a value, it gets it from main)
-/// The default rule is guaranteed to have non-nil values for all properties.
-typedef SWIFT_ENUM(NSInteger, MPDisplayRuleType, open) {
-/// The display  rule used for drawing outline of the current building, only parts of this display rule is respected
-  MPDisplayRuleTypeBuildingOutline = 0,
-/// The display rule used for drawing a location, if it is selected. This display rule is entirely respected
-  MPDisplayRuleTypeSelectionHighlight = 1,
-/// The display rule used for drawing the blue dot, only parts of this display rule is respected
-  MPDisplayRuleTypeBlueDot = 2,
-/// The display rule at the root of the display rule inheritence. This is hardcoded into the MapsIndoors SDK. The main rule inherits from the default rule
-  MPDisplayRuleTypeDefault = 3,
-/// The display rule which may be edited via the CMS. The main rule inherits from the default rule
-  MPDisplayRuleTypeMain = 4,
-};
-
-
-/// MapsIndoors error codes
-typedef SWIFT_ENUM(NSInteger, MPError, open) {
-  MPErrorNoError = 0,
-  MPErrorInvalidApiKey = 1,
-  MPErrorNetworkError = 2,
-  MPErrorUnknownError = 3,
-};
-static NSString * _Nonnull const MPErrorDomain = @"MapsIndoorsCore.MPError";
-
-
-SWIFT_PROTOCOL("_TtP15MapsIndoorsCore13MPMapBehavior_")
-@protocol MPMapBehavior
-@property (nonatomic) BOOL moveCamera;
-@property (nonatomic) BOOL showInfoWindow;
-@property (nonatomic) BOOL allowFloorChange;
-@property (nonatomic) NSInteger animationDuration;
-@end
-
-
-/// Filter behavior class that determines how a filter should be display on the map. Get the default behavior from <code>MPFilterBehavior.default</code>. The default behavior is no camera movement and no infowindow shown.
-SWIFT_CLASS("_TtC15MapsIndoorsCore16MPFilterBehavior")
-@interface MPFilterBehavior : NSObject <MPMapBehavior>
-/// Default filter behavior
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong, getter=default) MPFilterBehavior * _Nonnull default_;)
-+ (MPFilterBehavior * _Nonnull)default SWIFT_WARN_UNUSED_RESULT;
-/// Whether <code>MPMapControl</code> should move the camera and fit the map view to the filtered locations. The default behavior is no camera movement (NO).
-@property (nonatomic) BOOL moveCamera;
-/// Whether <code>MPMapControl</code> should show the info window if a filter only contains one Location. The default behavior is no infowindow shown (NO).
-@property (nonatomic) BOOL showInfoWindow;
-@property (nonatomic) BOOL allowFloorChange;
-@property (nonatomic) NSInteger animationDuration;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+SWIFT_PROTOCOL("_TtP15MapsIndoorsCore31MPExternalDistanceMatrixService_")
+@protocol MPExternalDistanceMatrixService
+- (void)queryWithOrigins:(NSArray<NSValue *> * _Nonnull)origins destinations:(NSArray<NSValue *> * _Nonnull)destinations config:(MPDirectionsConfig * _Nonnull)config completionHandler:(void (^ _Nonnull)(MPDistanceMatrixResult * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
 
 
-SWIFT_CLASS("_TtC15MapsIndoorsCore15MPGeometryUtils")
-@interface MPGeometryUtils : NSObject
-+ (double)bearingBetweenPointsFrom:(CLLocationCoordinate2D)from to:(CLLocationCoordinate2D)to SWIFT_WARN_UNUSED_RESULT;
-+ (double)distanceFrom:(CorePoint * _Nonnull)from to:(CorePoint * _Nonnull)to SWIFT_WARN_UNUSED_RESULT;
-+ (CLLocationCoordinate2D)closestPointOnLineSegmentWithPoint:(CLLocationCoordinate2D)point lineStart:(CLLocationCoordinate2D)lineStart lineEnd:(CLLocationCoordinate2D)lineEnd SWIFT_WARN_UNUSED_RESULT;
-+ (CLLocationCoordinate2D)interpolateFrom:(CLLocationCoordinate2D)from to:(CLLocationCoordinate2D)to fraction:(double)fraction SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class MPLocation;
-@class UIView;
-
-/// Optionally create your own info window generator for the SDK to use
-SWIFT_PROTOCOL("_TtP15MapsIndoorsCore21MPInfoWindowGenerator_")
-@protocol MPInfoWindowGenerator
-/// Given an MPLocation, produce an info window view
-- (UIView * _Nonnull)infoWindowForLocation:(MPLocation * _Nonnull)location SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-
-@interface MPLocation (SWIFT_EXTENSION(MapsIndoorsCore)) <MPEntity>
+@interface MPLocationInternal (SWIFT_EXTENSION(MapsIndoorsCore))
 @property (nonatomic, readonly, strong) MPPoint * _Nonnull entityPosition;
-@property (nonatomic, readonly, strong) CoreBounds * _Nonnull entityBounds;
+@property (nonatomic, readonly, strong) MPGeoBounds * _Nonnull entityBounds;
 @property (nonatomic, readonly) BOOL entityIsPoint;
 @end
 
-
-
-SWIFT_CLASS("_TtC15MapsIndoorsCore11MPMapConfig")
-@interface MPMapConfig : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@protocol MPMapControlDelegate;
-@protocol MPFloorSelectorProtocol;
-@class MPMapStyle;
-@class MPVenue;
-@class MPSelectionBehavior;
-@class MPFilter;
-@class MPLiveUpdate;
-@protocol MPPositionProvider;
-
-/// This is the control object for the visual representation of the MapsIndoors SDK
-SWIFT_PROTOCOL("_TtP15MapsIndoorsCore12MPMapControl_")
-@protocol MPMapControl
-/// Listen to events
-@property (nonatomic, strong) id <MPMapControlDelegate> _Nullable delegate;
-/// Get or set the floor selector (if none is set, a default floor selector will be used)
-@property (nonatomic, strong) id <MPFloorSelectorProtocol> _Nullable floorSelector;
-/// Get the current floor index
-@property (nonatomic, readonly) NSInteger currentFloorIndex;
-/// Get or set the map styling
-@property (nonatomic, strong) MPMapStyle * _Nullable mapStyle;
-/// Enable/disable showing the users position with a blue dot (customizable) (requires your application to implement a <code>MPPositionProvider</code>)
-@property (nonatomic) BOOL showUserPosition;
-/// Get the current camera position state
-@property (nonatomic, readonly, strong) id <MPCameraPosition> _Nonnull cameraPosition;
-/// Get or set the cluster icon generator (if none is set, the default internal will be used)
-@property (nonatomic, strong) id <MPClusterIconGenerator> _Nullable clusterIconGenerator;
-/// Get or set the info window generator (if none i set, the default internal will be used)
-@property (nonatomic, strong) id <MPInfoWindowGenerator> _Nullable infoWindowGenerator;
-/// Get the currently selected location
-@property (nonatomic, readonly, strong) MPLocation * _Nullable selectedLocation;
-/// Get the currently selected building
-@property (nonatomic, readonly, strong) MPBuilding * _Nullable currentBuilding;
-/// Get the currently selected venue
-@property (nonatomic, readonly, strong) MPVenue * _Nullable currentVenue;
-/// Select a location
-- (void)selectWithLocation:(MPLocation * _Nullable)location behavior:(MPSelectionBehavior * _Nonnull)behavior;
-/// Select a building
-- (void)selectWithBuilding:(MPBuilding * _Nullable)building behavior:(MPSelectionBehavior * _Nonnull)behavior;
-/// Select a venue
-- (void)selectWithVenue:(MPVenue * _Nullable)venue behavior:(MPSelectionBehavior * _Nonnull)behavior;
-/// Select a floor index
-- (void)selectWithFloorIndex:(NSInteger)floorIndex;
-/// Apply a filter to the map. Only show the MPLocations included in the list
-- (void)setFilterWithLocations:(NSArray<MPLocation *> * _Nonnull)locations behavior:(MPFilterBehavior * _Nonnull)behavior;
-/// Apply a filter to the map. Only show the MPLocations captured by the MPFilter
-- (void)setFilterWithFilter:(MPFilter * _Nonnull)filter behavior:(MPFilterBehavior * _Nonnull)behavior;
-/// Clear any previously applied filter
-- (void)clearFilter;
-/// Force a re-render of the MapsIndoors map
-- (void)refresh;
-/// Convenience: Move the camera to the entity
-/// An MPEntity may be an MPVenue, MPBuilding or MPLocation
-- (void)goToEntity:(id <MPEntity> _Nonnull)entity;
-/// Convinience: Enable LiveData for a given domain (includes default live data badged icons)
-- (void)enableLiveDataWithDomain:(NSString * _Nonnull)domain completion:(void (^ _Nullable)(MPLiveUpdate * _Nonnull))completion;
-/// Convinience: Disable LiveData for a given domain (includes default live data badged icons)
-- (void)disableLiveDataWithDomain:(NSString * _Nonnull)domain;
-/// The position provider that MapsIndoors should use when user location services are needed.
-/// <blockquote>
-/// Warning: Experimental implementation subject to change
-///
-/// </blockquote>
-@property (nonatomic, strong) id <MPPositionProvider> _Nullable positionProvider;
-@end
-
-
-SWIFT_PROTOCOL("_TtP15MapsIndoorsCore20MPMapControlDelegate_")
-@protocol MPMapControlDelegate
-@optional
-/// Triggered when the map was clicked at a given point
-/// Return true to indidate that you will handle the event, and bypass default MapsIndoors SDK behavior
-- (BOOL)didTapWithCoordinate:(MPPoint * _Nonnull)coordinate SWIFT_WARN_UNUSED_RESULT;
-/// Triggered when the map with a given marker was tapped
-- (BOOL)didTapIconWithLocation:(MPLocation * _Nonnull)location SWIFT_WARN_UNUSED_RESULT;
-/// Triggered when the info window with a marker with a given id was tapped
-- (BOOL)didTapInfoWindowWithLocation:(MPLocation * _Nonnull)location SWIFT_WARN_UNUSED_RESULT;
-/// Triggered when location selection has changed
-/// Return true to indidate that you will handle the event, and bypass default MapsIndoors SDK behavior
-- (BOOL)didChangeWithSelectedLocation:(MPLocation * _Nullable)selectedLocation SWIFT_WARN_UNUSED_RESULT;
-/// Triggered when venue selection has changed (programatically or by camera movement)
-/// Return true to indidate that you will handle the event, and bypass default MapsIndoors SDK behavior
-- (BOOL)didChangeWithSelectedVenue:(MPVenue * _Nullable)selectedVenue SWIFT_WARN_UNUSED_RESULT;
-/// Triggered when building selection has changed  (programatically or by camera movement)
-/// Return true to indidate that you will handle the event, and bypass default MapsIndoors SDK behavior
-- (BOOL)didChangeWithSelectedBuilding:(MPBuilding * _Nullable)selectedBuilding SWIFT_WARN_UNUSED_RESULT;
-/// Triggered when the selected floor index has changed  (programatically or by camera movement)
-/// Return true to indidate that you will handle the event, and bypass default MapsIndoors SDK behavior
-- (BOOL)didChangeWithFloorIndex:(NSInteger)floorIndex SWIFT_WARN_UNUSED_RESULT;
-@end
 
 
 SWIFT_PROTOCOL("_TtP15MapsIndoorsCore21MPMapProviderDelegate_")
@@ -1752,8 +855,26 @@ SWIFT_PROTOCOL("_TtP15MapsIndoorsCore21MPMapProviderDelegate_")
 - (BOOL)didTapIconDelegateWithMarkerId:(NSString * _Nonnull)markerId SWIFT_WARN_UNUSED_RESULT;
 @end
 
+@protocol MapsIndoorsShared;
+@class MPMapConfig;
+
+/// The <code>MPMapsIndoors</code> class is the main entry point to the SDK.
+/// Access the shared instance to load, reload or close MapsIndoors solutions using an API key, and navigate the MapsIndoors data.
+/// Create new MapControl instances to visualize the MapsIndoors data from the shared instance, in an interactive map engine (Google Maps or Mapbox).
+SWIFT_CLASS("_TtC15MapsIndoorsCore13MPMapsIndoors")
+@interface MPMapsIndoors : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+/// Shared instance for a MapsIndoors session, which can be loaded, reloded and closed, as well as reading the data for a given MapsIndoors solution (venues, buildings, locations, etc.)
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) id <MapsIndoorsShared> _Nonnull shared;)
++ (id <MapsIndoorsShared> _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+/// Instantiate a new MapControl - the control objects which is used to navigate and customize the visual representation of MapsIndoors data within a map engine (Google Maps or Mapbox).
+/// If no MapsIndoors shared instance is loaded and ready, this will return nil.
++ (id <MPMapControl> _Nullable)createMapControlWithMapConfig:(MPMapConfig * _Nonnull)mapConfig SWIFT_WARN_UNUSED_RESULT;
+@end
 
 
+@class UIImage;
 
 SWIFT_CLASS("_TtC15MapsIndoorsCore20MPPositionController")
 @interface MPPositionController : NSObject
@@ -1772,194 +893,56 @@ SWIFT_CLASS("_TtC15MapsIndoorsCore20MPPositionController")
 SWIFT_PROTOCOL("_TtP15MapsIndoorsCore19MPPositionPresenter_")
 @protocol MPPositionPresenter
 @property (nonatomic) BOOL optionalisVisible;
-@property (nonatomic, strong) MPPositionResult * _Nonnull position;
+@property (nonatomic, strong) MPPositionResult * _Nullable position;
 - (void)redrawUserLocationWithCurrentFloorIndex:(NSInteger)currentFloorIndex userFloorIndex:(NSInteger)userFloorIndex icon:(UIImage * _Nonnull)icon;
 - (void)setUserLocationWithPosition:(CLLocationCoordinate2D)position floorIndex:(NSInteger)floorIndex accuracy:(double)accuracy heading:(double)heading;
 @end
 
+@class MPGeoRegion;
 
 SWIFT_PROTOCOL("_TtP15MapsIndoorsCore12MPProjection_")
 @protocol MPProjection
-@property (nonatomic, readonly, strong) CoreRegion * _Nonnull visibleRegion;
+@property (nonatomic, readonly, strong) MPGeoRegion * _Nonnull visibleRegion;
 - (CGPoint)pointForCoordinate:(CLLocationCoordinate2D)coordinate SWIFT_WARN_UNUSED_RESULT;
 - (CLLocationCoordinate2D)coordinateForPoint:(CGPoint)point SWIFT_WARN_UNUSED_RESULT;
 @end
 
-@class MPGraphNode;
-@class NSCoder;
-@class NSData;
-@class JSONModelError;
 
-SWIFT_CLASS("_TtC15MapsIndoorsCore24MPRouteNetworkEntryPoint")
+@class MPGraphNode;
+
+SWIFT_RESILIENT_CLASS("_TtC15MapsIndoorsCore24MPRouteNetworkEntryPoint")
 @interface MPRouteNetworkEntryPoint : MPPoint
 @property (nonatomic, readonly) MPBoundaryType boundaryType;
 @property (nonatomic, copy) NSString * _Nullable label;
-+ (MPRouteNetworkEntryPoint * _Nonnull)newWithEntryPointNode:(MPGraphNode * _Nonnull)entryNode SWIFT_WARN_UNUSED_RESULT;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
-- (nullable instancetype)initWithData:(NSData * _Null_unspecified)data error:(NSError * _Nullable * _Nullable)error SWIFT_UNAVAILABLE;
-- (nullable instancetype)initWithDictionary:(NSDictionary * _Null_unspecified)dict error:(NSError * _Nullable * _Nullable)error SWIFT_UNAVAILABLE;
++ (MPRouteNetworkEntryPoint * _Nonnull)newWithEntryPointNode:(MPGraphNode * _Nonnull)entryPointNode SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)initWithLatitude:(double)latitude longitude:(double)longitude SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithLatitude:(double)latitude longitude:(double)longitude z:(double)z SWIFT_UNAVAILABLE;
+/// <blockquote>
+/// Warning: [INTERNAL - DO NOT USE]
+///
+/// </blockquote>
+- (MPRouteNetworkEntryPoint * _Nullable)initWithDictionary:(NSDictionary * _Null_unspecified)dict error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, readonly, copy) NSString * _Nonnull debugDescription;
-- (nonnull instancetype)initWithLat:(double)latitude lon:(double)longitude SWIFT_UNAVAILABLE;
-- (nonnull instancetype)initWithLat:(double)latitude lon:(double)longitude zValue:(double)z SWIFT_UNAVAILABLE;
-- (null_unspecified instancetype)initWithString:(NSString * _Null_unspecified)string error:(JSONModelError * _Nullable * _Null_unspecified)err SWIFT_UNAVAILABLE;
-- (null_unspecified instancetype)initWithString:(NSString * _Null_unspecified)string usingEncoding:(NSUInteger)encoding error:(JSONModelError * _Nullable * _Null_unspecified)err SWIFT_UNAVAILABLE;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-@class RouteViewModelProducer;
-
-SWIFT_PROTOCOL("_TtP15MapsIndoorsCore15MPRouteRenderer_")
-@protocol MPRouteRenderer
-- (void)applyWithModel:(RouteViewModelProducer * _Nonnull)model animate:(BOOL)animate duration:(NSTimeInterval)duration repeating:(BOOL)repeating primaryColor:(UIColor * _Nonnull)primaryColor secondaryColor:(UIColor * _Nonnull)secondaryColor primaryWidth:(float)primaryWidth secondaryWidth:(float)secondaryWidth;
-- (void)moveCameraWithPoints:(NSArray<NSValue *> * _Nonnull)points animate:(BOOL)animate durationMs:(NSInteger)durationMs tilt:(float)tilt fitMode:(enum MPCameraViewFitMode)fitMode;
-- (void)clear;
-- (void)setOnRouteMarkerClickedDelegateWithDelegate:(id <MPOnRouteMarkerClickedDelegate> _Nonnull)delegate;
 @end
 
 
-/// Selection behavior class that determines how a location selection should be displayed on the map. Get the default behavior from <code>MPSelectionBehavior.default</code>. The default behavior is that the camera moves to display the selected location and the infowindow is shown.
-SWIFT_CLASS("_TtC15MapsIndoorsCore19MPSelectionBehavior")
-@interface MPSelectionBehavior : NSObject <MPMapBehavior>
-/// Default selection behavior
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong, getter=default) MPSelectionBehavior * _Nonnull default_;)
-+ (MPSelectionBehavior * _Nonnull)default SWIFT_WARN_UNUSED_RESULT;
-/// Whether <code>MPMapControl</code> should move the camera and fit the map view to show the selected location. The default value is YES.
-@property (nonatomic) BOOL moveCamera;
-/// Whether <code>MPMapControl</code> should show the info window if a filter only contains one Location. The default behavior is no infowindow shown YES.
-@property (nonatomic) BOOL showInfoWindow;
-@property (nonatomic) BOOL allowFloorChange;
-@property (nonatomic) NSInteger animationDuration;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-/// MPSolutionConfig is the way to access the Solution settings made in the MapsIndoors CMS.
-/// MPSolutionConfig governs solution level settings such as:
-/// <ul>
-///   <li>
-///     Marker clustering
-///   </li>
-///   <li>
-///     Marker collision handling
-///   </li>
-///   <li>
-///     Main Display Rule
-///   </li>
-///   <li>
-///     MPSettings3D
-///   </li>
-/// </ul>
-SWIFT_CLASS("_TtC15MapsIndoorsCore16MPSolutionConfig")
-@interface MPSolutionConfig : NSObject
-@property (nonatomic) BOOL enableClustering;
-@property (nonatomic) enum MPCollisionHandling collisionHandling;
-@property (nonatomic, readonly, copy) NSDictionary<NSString *, NSNumber *> * _Nonnull settings3D;
-/// Populate with data via JSONModel.
-/// Should never be used from outside the MapsIndoors SDK.
-- (MPSolutionConfig * _Nullable)initWithDictionary:(NSDictionary * _Null_unspecified)dict error:(NSError * _Nullable * _Nullable)error SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-@interface MPVenue (SWIFT_EXTENSION(MapsIndoorsCore)) <MPEntity>
+@interface MPVenueInternal (SWIFT_EXTENSION(MapsIndoorsCore))
 @property (nonatomic, readonly, strong) MPPoint * _Nonnull entityPosition;
-@property (nonatomic, readonly, strong) CoreBounds * _Nonnull entityBounds;
+@property (nonatomic, readonly, strong) MPGeoBounds * _Nonnull entityBounds;
 @property (nonatomic, readonly) BOOL entityIsPoint;
 @end
 
-@protocol MapsIndoorsInstance;
 
-/// The MapsIndoors class is the main entry point to the SDK.
-/// Access the shared instance to load, reload or close MapsIndoors solutions using an API key, and navigate the MapsIndoors data.
-/// Create new MapControl instances to visualize the MapsIndoors data from the shared instance, in an interactive map engine (Google Maps or Mapbox).
-SWIFT_CLASS("_TtC15MapsIndoorsCore11MapsIndoors")
-@interface MapsIndoors : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-/// Shared instance for a MapsIndoors session, which can be loaded, reloded and closed, as well as reading the data for a given MapsIndoors solution (venues, buildings, locations, etc.)
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) id <MapsIndoorsInstance> _Nonnull shared;)
-+ (id <MapsIndoorsInstance> _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
-/// Instantiate a new MapControl - the control objects which is used to navigate and customize the visual representation of MapsIndoors data within a map engine (Google Maps or Mapbox).
-/// If no MapsIndoors shared instance is loaded and ready, this will return nil.
-+ (id <MPMapControl> _Nullable)createMapControlWithMapConfig:(MPMapConfig * _Nonnull)mapConfig SWIFT_WARN_UNUSED_RESULT;
+SWIFT_PROTOCOL("_TtP15MapsIndoorsCore34MapControlInternalExternalServices_")
+@protocol MapControlInternalExternalServices
+@property (nonatomic, readonly, strong) id <MPExternalDirectionsService> _Nullable externalDirectionService;
+@property (nonatomic, readonly, strong) id <MPExternalDistanceMatrixService> _Nullable externalMatrixService;
 @end
 
-@protocol MPAuthDetails;
-@class MPSolution;
-@class MPUserRole;
-@class MPDataSetCacheManager;
-@protocol MPImageProvider;
-@class MPQuery;
-@class MPAppData;
-@class MPDataField;
-@class MPMapExtend;
 
-SWIFT_PROTOCOL("_TtP15MapsIndoorsCore19MapsIndoorsInstance_")
-@protocol MapsIndoorsInstance
-/// Validate a MapsIndoors API key (requires online connectivity)
-- (void)isApiKeyValidWithApiKey:(NSString * _Nonnull)apiKey completionHandler:(void (^ _Nonnull)(BOOL))completionHandler;
-/// Check whether offline data is available for a given MapsIndoors API key
-- (void)isOfflineDataAvailableWithApiKey:(NSString * _Nonnull)apiKey completionHandler:(void (^ _Nonnull)(BOOL))completionHandler;
-/// Load a MapsIndoors solution using an API key
-- (void)loadWithApiKey:(NSString * _Nonnull)apiKey completionHandler:(void (^ _Nonnull)(enum MPError))completionHandler;
-/// Reload an already loaded MapsIndoors solution
-- (void)synchronizeWithCompletionHandler:(void (^ _Nonnull)(enum MPError))completionHandler;
-/// Close the MapsIndoors SDK (clears the internal state of the SDK)
-- (void)shutdown;
-/// Fetch authentication details using MapsIndoors API key
-- (void)fetchAuthDetailsWithApiKey:(NSString * _Nonnull)apiKey completionHandler:(void (^ _Nonnull)(id <MPAuthDetails> _Nullable, NSError * _Nullable))completionHandler;
-/// Ready flag, indicating whether the SDK is loaded correctly and ready for use
-@property (nonatomic, readonly) BOOL ready;
-/// Returns the currently set MapsIndoors api key
-@property (nonatomic, readonly, copy) NSString * _Nullable apiKey;
-/// Returns the solution object for the currently loaded MapsIndoors solution
-@property (nonatomic, readonly, strong) MPSolution * _Nullable solution;
-/// Get or set the current language code (Uses the two-letter language code ISO 639-1)
-@property (nonatomic, copy) NSString * _Nonnull language;
-/// Get the list of available user roles in the current solution
-@property (nonatomic, readonly, copy) NSArray<MPUserRole *> * _Nonnull availableUserRoles;
-/// Get or set the current list of applied user roles
-@property (nonatomic, copy) NSArray<MPUserRole *> * _Nonnull userRoles;
-/// Get or set the applied authentication token (relevant when using MapsIndoors SSO)
-@property (nonatomic, copy) NSString * _Nullable authToken;
-/// Get or set a position provider
-@property (nonatomic, strong) id <MPPositionProvider> _Nullable positionProvider;
-/// Disable or enable anonymous SDK feature usage logging (enabled by default)
-@property (nonatomic) BOOL eventLoggingDisabled;
-/// Dataset cache manager
-@property (nonatomic, readonly, strong) MPDataSetCacheManager * _Nonnull datasetCacheManager;
-/// The image provider that MapsIndoors should use when image ressources are needed
-@property (nonatomic, readonly, strong) id <MPImageProvider> _Nonnull imageProvider;
-/// Get the MPLocation with a given location id - if one exists
-- (MPLocation * _Nullable)locationWithLocationId:(NSString * _Nonnull)locationId SWIFT_WARN_UNUSED_RESULT;
-/// Get the MPLocation with a given external id - if one exists
-- (MPLocation * _Nullable)locationWithExternalId:(NSString * _Nonnull)externalId SWIFT_WARN_UNUSED_RESULT;
-/// Search for MPLocations using MPQuery and/or MPFilter
-- (void)locationsWithQuery:(MPQuery * _Nullable)query filter:(MPFilter * _Nullable)filter completionHandler:(void (^ _Nonnull)(NSArray<MPLocation *> * _Nonnull))completionHandler;
-/// App configuration data
-- (void)appDataWithCompletionHandler:(void (^ _Nonnull)(MPAppData * _Nullable))completionHandler;
-/// Categories
-- (void)categoriesWithCompletionHandler:(void (^ _Nonnull)(NSArray<MPDataField *> * _Nonnull))completionHandler;
-/// Get all venues
-- (void)venuesWithCompletionHandler:(void (^ _Nonnull)(NSArray<MPVenue *> * _Nonnull))completionHandler;
-/// Get the venue with a given id
-- (void)venueWithId:(NSString * _Nonnull)id completionHandler:(void (^ _Nonnull)(MPVenue * _Nullable))completionHandler;
-/// Get all buildings
-- (void)buildingsWithCompletionHandler:(void (^ _Nonnull)(NSArray<MPBuilding *> * _Nonnull))completionHandler;
-/// Get the building with a given id
-- (void)buildingWithId:(NSString * _Nonnull)id completionHandler:(void (^ _Nonnull)(MPBuilding * _Nullable))completionHandler;
-/// Get a buildings which lies within the given bounds
-- (void)buildingInBounds:(MPMapExtend * _Nonnull)bounds completionHandler:(void (^ _Nonnull)(MPBuilding * _Nullable))completionHandler;
-/// Get the display rule for a given MPLocation
-- (MPDisplayRule * _Nullable)displayRuleForLocation:(MPLocation * _Nonnull)location SWIFT_WARN_UNUSED_RESULT;
-/// Get the display rule for a given type
-- (MPDisplayRule * _Nullable)displayRuleForType:(NSString * _Nonnull)type SWIFT_WARN_UNUSED_RESULT;
-/// Get display rules used for various general styling (e.g. building outline)
-- (MPDisplayRule * _Nullable)displayRuleForDisplayRuleType:(enum MPDisplayRuleType)displayRuleType SWIFT_WARN_UNUSED_RESULT;
-/// Set and apply a display rule for the given MPLocation
-- (void)setWithDisplayRule:(MPDisplayRule * _Nonnull)displayRule location:(MPLocation * _Nonnull)location;
+SWIFT_PROTOCOL("_TtP15MapsIndoorsCore35MapsIndoorsInternalActiveMapControl_")
+@protocol MapsIndoorsInternalActiveMapControl
+@property (nonatomic, strong) id <MPMapControl> _Nullable activeMapControlInstance;
 @end
 
 
@@ -1967,7 +950,6 @@ SWIFT_CLASS("_TtC15MapsIndoorsCore22RouteViewModelProducer")
 @interface RouteViewModelProducer : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
-
 
 
 

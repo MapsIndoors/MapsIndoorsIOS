@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "MPAuthDetails.h"
+@import MapsIndoors;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -9,10 +9,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// > Warning: [INTERNAL - DO NOT USE]
 @interface MPBackendDetails : NSObject<MPAuthDetails>
-@property (nonatomic, readonly)   NSString *authIssuer;
-@property (nonatomic, readonly)   NSString *authScope;
-@property (nonatomic, readonly)   BOOL isAuthRequired;
-@property (nonatomic, readonly)   NSArray<MPAuthClientInfo *> *authClients;
+@property (nonatomic, readonly, copy)   NSString *authIssuer;
+@property (nonatomic, readonly, copy)   NSString *authScope;
+@property (nonatomic, readonly)         BOOL isAuthRequired;
+@property (nonatomic, readonly, copy)   NSArray<id<MPAuthClientInfo>> *authClients;
 @property (nonatomic, readonly)   NSArray<NSString *> *backendUrls;
 @property (nonatomic, readonly)   NSString *sessionToken;
 @end

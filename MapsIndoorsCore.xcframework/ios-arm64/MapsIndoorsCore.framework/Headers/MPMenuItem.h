@@ -8,18 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-
-@protocol MPMenuItem
-@end
+@import MapsIndoors;
 
 #pragma mark - [INTERNAL - DO NOT USE]
 
 /// > Warning: [INTERNAL - DO NOT USE]
-@interface MPMenuItem : JSONModel
+@interface MPMenuItem : JSONModel <MPMenuInfo>
 
-@property (nonatomic, strong, nullable) NSString<Optional>* categoryKey;
-@property (nonatomic, strong, nullable) NSString<Optional>* menuImageUrl;
-@property (nonatomic, strong, nullable) NSString<Optional>* iconUrl;
+@property (nonatomic, copy, nullable) NSString* categoryKey;
+@property (nonatomic, copy, nullable) NSString* menuImageUrl;
+@property (nonatomic, copy, nullable) NSString* iconUrl;
 
 @end
 

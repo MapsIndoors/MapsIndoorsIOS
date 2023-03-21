@@ -1,0 +1,11 @@
+framework module MapsIndoorsCodable {
+  umbrella header "MapsIndoorsCodable.h"
+
+  export *
+  module * { export * }
+}
+
+module MapsIndoorsCodable.Swift {
+  header "MapsIndoorsCodable-Swift.h"
+  requires objc
+}

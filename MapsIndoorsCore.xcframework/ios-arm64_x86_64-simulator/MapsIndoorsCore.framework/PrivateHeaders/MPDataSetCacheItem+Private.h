@@ -6,10 +6,8 @@
 //  Copyright © 2020 MapsPeople A/S. All rights reserved.
 //
 
-#import "MPDataSetCacheItem.h"
+#import "MPDataSetCacheItemInternal.h"
 
-
-@class MPDataSetCache;
 @class MPDataSetCacheTask;
 @class MPUrlResourceGroup;
 @class MPFileCache;
@@ -21,17 +19,17 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - [INTERNAL - DO NOT USE]
 
 /// > Warning: [INTERNAL - DO NOT USE]
-@interface MPDataSetCacheItem (Private)
+@interface MPDataSetCacheItemInternal (Private)
 
 - (instancetype) initWithDictionary:(NSDictionary*)dict;
 - (NSDictionary*) asDictionary;
 
-@property (nonatomic, weak)              MPDataSetCache*                    owner;
+@property (nonatomic, weak)              id<MPDataSetCache>                    owner;
 @property (nonatomic, strong, readwrite) MPFileCache*                       cache;
 @property (nonatomic, weak)              id<MPDataSetCacheItemDelegate>     delegate;
 
 @property (nonatomic, readwrite)         MPDataSetCachingStrategy           cachingStrategy;
-@property (nonatomic, readwrite)         MPDataSetCacheScope                cachingScope;
+@property (nonatomic, readwrite)         MPDataSetCachingScope                cachingScope;
 @property (nonatomic, readwrite)         BOOL                               isScheduledForSync;
 @property (nonatomic, readwrite)         NSUInteger                         syncSize;
 @property (nonatomic, readwrite, strong) NSString*                          name;
@@ -59,10 +57,10 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol MPDataSetCacheItemDelegate <NSObject>
 
 @required
-- (void) syncStarted:(MPDataSetCacheItem*)item;
+- (void) syncStarted:(id<MPDataSetCacheItem>)item;
 
 @required
-- (void) syncFinished:(MPDataSetCacheItem*)item;
+- (void) syncFinished:(id<MPDataSetCacheItem>)item;
 
 @end
 

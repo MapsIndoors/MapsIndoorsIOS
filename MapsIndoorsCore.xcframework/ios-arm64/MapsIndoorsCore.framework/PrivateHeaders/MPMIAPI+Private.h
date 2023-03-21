@@ -7,7 +7,7 @@
 //
 
 #import "MPMIAPI.h"
-#import "MPAuthDetails.h"
+@import MapsIndoors;
 
 #define kMPMI_EndPointGraph      @"graph"
 #define kMPMI_EndPointLocation   @"locations"
@@ -24,10 +24,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-
 typedef void (^RefreshSessionCompletionBlock)(void);
-
-@class MPUserRole;
 
 #pragma mark - [INTERNAL - DO NOT USE]
 

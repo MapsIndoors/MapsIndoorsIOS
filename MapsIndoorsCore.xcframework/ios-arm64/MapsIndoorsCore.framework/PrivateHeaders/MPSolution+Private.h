@@ -6,25 +6,22 @@
 //  Copyright © 2018 MapsPeople A/S. All rights reserved.
 //
 
-#import "MPSolution.h"
+#import "MPSolutionInternal.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-@class MPType;
-@protocol MPType;
 
 #pragma mark - [INTERNAL - DO NOT USE]
 
 /// > Warning: [INTERNAL - DO NOT USE]
-@interface MPSolution ()
+@interface MPSolutionInternal ()
 
-@property (nonatomic, strong, nullable, readwrite) NSArray<NSString*>* availableLanguages;
+@property (nonatomic, copy, nullable, readwrite) NSArray<NSString*>* availableLanguages;
 @property (nonatomic, strong, readwrite) MPSolutionConfig* config;
-@property (nonatomic, strong, nullable, readwrite) NSString* defaultLanguage;
-@property (nonatomic, strong, nullable, readwrite) NSString* mapClientUrl;
-@property (nonatomic, strong, nullable, readwrite) NSArray<NSString*>* modules;
-@property (nonatomic, strong, nullable, readwrite) NSString* name;
-@property (nonatomic, strong, nullable, readwrite) NSDictionary<NSString*, NSDictionary*>* positionProviderConfigs;
+@property (nonatomic, copy, nullable, readwrite) NSString* defaultLanguage;
+@property (nonatomic, copy, nullable, readwrite) NSString* mapClientUrl;
+@property (nonatomic, copy, nullable, readwrite) NSArray<NSString*>* modules;
+@property (nonatomic, copy, nullable, readwrite) NSString* name;
+@property (nonatomic, copy, nullable, readwrite) NSDictionary<NSString*, NSDictionary*>* positionProviderConfigs;
 @property (nonatomic, strong, nullable) NSString* solutionId;
 @property (nonatomic) BOOL whiteLabel;
 
