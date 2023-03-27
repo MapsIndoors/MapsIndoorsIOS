@@ -1343,7 +1343,7 @@
 		</data>
 		<key>Headers/MPVersionConstants.h</key>
 		<data>
-		3K470AnN8WBGIGuNSgq/efbk90E=
+		ANwMSX0TaVV5ODg5TnIP2LfBe78=
 		</data>
 		<key>Headers/MPWirelessPositionTopic.h</key>
 		<data>
@@ -1387,7 +1387,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		g9M3OAebPHDrsVAWVCHnqb3iQ1c=
+		w5aMyzUtflsve2HpIhMakQOLNxg=
 		</data>
 		<key>MapsIndoors.bundle/.gitkeep</key>
 		<data>
@@ -1499,6 +1499,18 @@
 		<data>
 		tr7eShPpmWvSS0rbRFFo8xZz0s4=
 		</data>
+		<key>MapsIndoors.bundle/mapspeople-on-map-logo.png</key>
+		<data>
+		oEUe8CbQ9IMNI0Ydt7MzLmSUPmk=
+		</data>
+		<key>MapsIndoors.bundle/mapspeople-on-map-logo@2x.png</key>
+		<data>
+		k60O3UtcT6oC7IF/i68uwuZU6kI=
+		</data>
+		<key>MapsIndoors.bundle/mapspeople-on-map-logo@3x.png</key>
+		<data>
+		3B4hoEmVlrFwcjAIpN41CTMfpEQ=
+		</data>
 		<key>MapsIndoors.bundle/mi_default_marker.png</key>
 		<data>
 		E5M/kGa3uWdn0qw7I6fk4qV1y/o=
@@ -1510,18 +1522,6 @@
 		<key>MapsIndoors.bundle/mi_default_marker@3x.png</key>
 		<data>
 		7LanzAXkVIRa7qcs2/JhxUx7PJk=
-		</data>
-		<key>MapsIndoors.bundle/mi_map_logo.png</key>
-		<data>
-		SoUxEMKLG/VSi9PbJkcjpT9fReo=
-		</data>
-		<key>MapsIndoors.bundle/mi_map_logo@2x.png</key>
-		<data>
-		eiU64TaYEau/woiuoFHHjbDWDSg=
-		</data>
-		<key>MapsIndoors.bundle/mi_map_logo@3x.png</key>
-		<data>
-		7GuQoLZPPNic3Q46re64qvsVR5U=
 		</data>
 		<key>MapsIndoors.bundle/next@2x.png</key>
 		<data>
@@ -4179,7 +4179,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			QsQgf5XHjj/Tw2ZL2JhOtculUW0XltG8p118ZGdTa4c=
+			A/u3QtnCTJFWMLmcYBqREqdbzdONz75XgrcYwcZCm3I=
 			</data>
 		</dict>
 		<key>Headers/MPWirelessPositionTopic.h</key>
@@ -4431,6 +4431,27 @@
 			VPCpRQgX0jM6TlXyDpH3D7mhcmuaKj0qXIC5ycBCaB8=
 			</data>
 		</dict>
+		<key>MapsIndoors.bundle/mapspeople-on-map-logo.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			fGP0DqArXOn82N69hN8+2gf7tQ7x9nOS31x8Y04Bb2M=
+			</data>
+		</dict>
+		<key>MapsIndoors.bundle/mapspeople-on-map-logo@2x.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			wk1AjTgMCkPxRVemtV6c3UAdP4JwNf1iswMLl3tn8TA=
+			</data>
+		</dict>
+		<key>MapsIndoors.bundle/mapspeople-on-map-logo@3x.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			iAZ6HFQjHlgwLGgyk0GFe+GeUmFGhZOumGl4r83602E=
+			</data>
+		</dict>
 		<key>MapsIndoors.bundle/mi_default_marker.png</key>
 		<dict>
 			<key>hash2</key>
@@ -4450,27 +4471,6 @@
 			<key>hash2</key>
 			<data>
 			LIcgWbed2RqF68xXgHflzdtjfdruZLGIPz8VkzGVp18=
-			</data>
-		</dict>
-		<key>MapsIndoors.bundle/mi_map_logo.png</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			x61Bf1dIZZjixNvdKegnZEeKsmQlWAu75y/9LXf3Hbs=
-			</data>
-		</dict>
-		<key>MapsIndoors.bundle/mi_map_logo@2x.png</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			jWRVE1uc9FvtUKj5hBGzbX1dDaJ8uaC/7wWrrgs+iQs=
-			</data>
-		</dict>
-		<key>MapsIndoors.bundle/mi_map_logo@3x.png</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			zACScyBGBbmYAXbyQAO32GLVqMf1UwYcChfRsZhwUp8=
 			</data>
 		</dict>
 		<key>MapsIndoors.bundle/next@2x.png</key>
