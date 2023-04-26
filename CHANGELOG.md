@@ -1,21 +1,16 @@
 
-Changelog for the MapsIndoors iOS SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+## [3.50.0] 2023-04-26
 
-<Tabs>
-<TabItem value="v3" label="iOS SDK V3">
-
-<!---
-## [Unreleased]
-### Fixed
-### Added
-### Fixed
 ### Changed
-### Removed
--->
 
-## iOS Version Support
+- The minimum supported iOS version is now iOS 11.
+- The MapsIndoors XCFramework is now built with Xcode 14.2. This is due to [the Apple announcement](https://developer.apple.com/news/?id=jd9wcyov) that from April 25 all apps submitted to the App Store must be built with Xcode 14.1 or later.
+- MapsIndoors now sports the new MapsPeople logo.
 
-Please note that support for iOS 10 in MapsIndoors SDK v3 will soon end. The minimum supported version will then be iOS 11. The required version of Xcode will remain Xcode 13 a bit longer.
+### Fixed
+
+- 2D Models will now show for POIs as well.
+- Removed potential crash in some circumstances related to offline assets.
 
 ## [3.43.3] 2023-03-08
 
@@ -733,5 +728,3 @@ __*Note: Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issu
 
 - Removed a number of deprecated methods that was introduced in V1
 
-</TabItem>
-</Tabs>
