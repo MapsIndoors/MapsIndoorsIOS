@@ -6,6 +6,6 @@ framework module MapsIndoors {
 }
 
 module MapsIndoors.Swift {
-    header "MapsIndoors-Swift.h"
-    requires objc
+  header "MapsIndoors-Swift.h"
+  requires objc
 }
