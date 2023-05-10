@@ -1,4 +1,10 @@
 
+## [3.50.1] 2023-05-10
+
+### Fixed
+
+- DisplayRules inheriting visibility from the Location type will now be shown.
+
 ## [3.50.0] 2023-04-26
 
 ### Changed
