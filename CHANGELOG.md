@@ -1,4 +1,10 @@
 
+## [3.50.2] 2023-10-05
+
+### Fixed
+
+- Locations only represented with a 2D Model now correctly display info window upon tap.
+
 ## [3.50.1] 2023-05-10
 
 ### Fixed
