@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "MapsIndoors"
-  s.version          = "3.50.1"
+  s.version          = "3.50.2"
   s.summary          = "Library making the MapsIndoors experience available to your iOS users."
   s.description      = "The MapsIndoors SDK is the idea of integrating everything at your venue, like people, goods, offices, shops, rooms and buildings with the mapping, positioning and wayfinding technologies provided in the MapsIndoors platform. We make the MapsIndoors platform available to interested businesses and/or partners. So if you think you should be one of them, please call us or send us an email. Meanwhile, you are most welcome to check out the demo project using 'pod try MapsIndoors'."
 
@@ -17,9 +17,10 @@ Pod::Spec.new do |s|
   s.license          = { type: 'Commercial', text: "Copyright 2016-#{Time.now.year} by MapsPeople A/S" }
   s.author           = { "MapsPeople" => "info@mapspeople.com" }
   s.source           = { http: "https://github.com/MapsIndoors/MapsIndoorsIOS/releases/download/#{s.version.to_s}/MapsIndoors.xcframework.zip" }
+  s.changelog         = "https://github.com/MapsIndoors/MapsIndoorsIOS/blob/master/CHANGELOG.md"
 
-  s.platform = :ios, "10.0"
-  s.ios.deployment_target = '10.0'
+  s.platform = :ios, "11.0"
+  s.ios.deployment_target = '11.0'
 
   s.dependency 'GoogleMaps', '4.2.0'
 
