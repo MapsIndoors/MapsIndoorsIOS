@@ -408,6 +408,11 @@ Once the location-specific display rules are removed, the MPLocations will be di
 @property(class) BOOL   locationHideOnIconOverlapEnabled;
 
 /**
+ Controls whether Location icons along a rendered route are hidden if they obstruct the route. Default is YES.
+ */
+@property (class) BOOL hideIconsOverlappingRoute;
+
+/**
  Overall range reserved for MapsIndoors use.
  */
 @property (readonly) NSRange        zIndexRangeForMapsIndoorsOverlays;
