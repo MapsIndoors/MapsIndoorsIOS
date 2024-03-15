@@ -153,3 +153,5 @@
 #import <MapsIndoors/MPType.h>
 #import <MapsIndoors/NSDictionary+MPLocationPropertiesDictionary.h>
 #import <MapsIndoors/MPPositionIndicator.h>
+
+#import <MapsIndoors/MPLocationDisplayRuleset.h>

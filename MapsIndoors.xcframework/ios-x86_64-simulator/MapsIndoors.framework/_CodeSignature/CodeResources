@@ -793,22 +793,6 @@
 		<data>
 		3Xx/BlT5UQYM2X8QFQU0ZDWYWR4=
 		</data>
-		<key>Headers/JSONKeyMapper.h</key>
-		<data>
-		2NCXcgFIMFgOzec5PT2DHqfTorI=
-		</data>
-		<key>Headers/JSONModel.h</key>
-		<data>
-		nBawwj4vB0j0jZ+dWqovLtP4o1U=
-		</data>
-		<key>Headers/JSONModelError.h</key>
-		<data>
-		bwqIagompeQQnfliS7pcOweyrFY=
-		</data>
-		<key>Headers/JSONValueTransformer.h</key>
-		<data>
-		rm2I4E+8FJmTl9oe6lL0weZpWcA=
-		</data>
 		<key>Headers/MPAppData.h</key>
 		<data>
 		Tne3dsgbhzHXDJ99S6lqEOf248k=
@@ -1077,6 +1061,10 @@
 		<data>
 		quiDvPquiL8cP01Hbvf3P8kb+BQ=
 		</data>
+		<key>Headers/MPLocationDisplayRuleset.h</key>
+		<data>
+		Z0ZiROuj+egIVumOSGZeN8FjPzk=
+		</data>
 		<key>Headers/MPLocationField.h</key>
 		<data>
 		ruDM8yZWUfTkyF5wt0rRyFRCCsw=
@@ -1343,7 +1331,7 @@
 		</data>
 		<key>Headers/MPVersionConstants.h</key>
 		<data>
-		TV5x0InG00NUw8yvwNCwegmzZow=
+		pJoRPR3ymCZyhXky3F6rCBH51Ys=
 		</data>
 		<key>Headers/MPWirelessPositionTopic.h</key>
 		<data>
@@ -1351,11 +1339,11 @@
 		</data>
 		<key>Headers/MapsIndoors-Swift.h</key>
 		<data>
-		+GhEQdprUsKOkvvoIQOEKLI5bc8=
+		il863gpRALCQOnHZna+NWzytcqk=
 		</data>
 		<key>Headers/MapsIndoors.h</key>
 		<data>
-		7LeQAoa8VyiLdxcYM4BwqzvhXhQ=
+		Cgx4yHlHW+Hgi38508l3N1qqSps=
 		</data>
 		<key>Headers/NSDictionary+MPLocationPropertiesDictionary.h</key>
 		<data>
@@ -1387,7 +1375,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Ktf3Pczzu7RUKIEqunf9E9yWBfU=
+		nCoWPwtTWFELssEWPNu7YnduwIo=
 		</data>
 		<key>MapsIndoors.bundle/.gitkeep</key>
 		<data>
@@ -1561,27 +1549,27 @@
 		</data>
 		<key>Modules/MapsIndoors.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		khoBBPqxcskdotKjoKC+TnOwHxk=
+		X3f74BeztPh+mnraZsYamC7n9eA=
 		</data>
 		<key>Modules/MapsIndoors.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		VFf41bq4ZY6S+ubeoUPAkhGkFRc=
+		ZAgU6Oe3WHztEU3u1C+z5EpTdzs=
 		</data>
 		<key>Modules/MapsIndoors.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		khoBBPqxcskdotKjoKC+TnOwHxk=
+		X3f74BeztPh+mnraZsYamC7n9eA=
 		</data>
 		<key>Modules/MapsIndoors.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		cBf3cgtzA0T66pHuWUBAZedYMbo=
+		vNM+EiCNTYjkAnB+gjfrhskLqyw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		FKRdN6QIAFMHQatZN0SeKpfdbbg=
+		NzK0NjeUYXNiSckRNnKWS67SBnE=
 		</data>
 		<key>Modules/module.private.modulemap</key>
 		<data>
-		QtEmx3TiJpOEaKO+pPJAQ/Z74Rc=
+		SKNtQk5zWGVFfHrYL2aSgTAQqiQ=
 		</data>
 		<key>PrivateHeaders/GoogleMaps+MapsPeople.h</key>
 		<data>
@@ -1797,7 +1785,7 @@
 		</data>
 		<key>PrivateHeaders/MPLocation+Private.h</key>
 		<data>
-		u2fk24mqL4jJqOzxz7Q0hc6uDyc=
+		HYVUtWjHauqQPLPYCVAUb1UwX8s=
 		</data>
 		<key>PrivateHeaders/MPLocationCluster.h</key>
 		<data>
@@ -1813,15 +1801,11 @@
 		</data>
 		<key>PrivateHeaders/MPLocationDisplayRule+Private.h</key>
 		<data>
-		EN3r9rMd93PKTNObJ6aRt8/oWeU=
+		EwkugHfvCgckRAo0Gc9L5dv6t4U=
 		</data>
 		<key>PrivateHeaders/MPLocationDisplayRuleDelegate.h</key>
 		<data>
 		jXh0lcGF3WtXd8AEYQk5FrwCvn4=
-		</data>
-		<key>PrivateHeaders/MPLocationDisplayRuleset.h</key>
-		<data>
-		GpsyAdnv+JSOA0usLMlSjkm5l3Y=
 		</data>
 		<key>PrivateHeaders/MPLocationMarkerManager.h</key>
 		<data>
@@ -3196,34 +3180,6 @@
 			qZJF/QFb3AZPslnhmf7Ly+QHPe4I5KJLYhtYOEQrB6k=
 			</data>
 		</dict>
-		<key>Headers/JSONKeyMapper.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			CpTlDGSOAqOwi9zPHe8VjszUxCkO7qHPKdiDyzHiqKg=
-			</data>
-		</dict>
-		<key>Headers/JSONModel.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			o7gHHK2q6op5TpIymETRnWO7ig+eWgcCJxrwzdYVSK0=
-			</data>
-		</dict>
-		<key>Headers/JSONModelError.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			JevPeZUCw/ULWbRuvFzAe6ciPhQv/JoED0i7iflx9VM=
-			</data>
-		</dict>
-		<key>Headers/JSONValueTransformer.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			4NFjyoZoYT4Di+LTaEVCwefNQuhTtQtNA3Li2g3AWsU=
-			</data>
-		</dict>
 		<key>Headers/MPAppData.h</key>
 		<dict>
 			<key>hash2</key>
@@ -3693,6 +3649,13 @@
 			Z+Mmo9/FUZk5x7KlKnACr17y29wVU92AKnfgU+Eh1Lk=
 			</data>
 		</dict>
+		<key>Headers/MPLocationDisplayRuleset.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			44LtuAdxHCZkViP22PnYjCpZ50VwhwuHLvY/axt5g7o=
+			</data>
+		</dict>
 		<key>Headers/MPLocationField.h</key>
 		<dict>
 			<key>hash2</key>
@@ -4159,7 +4122,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			aphhqC2Z2EYZwAwjzt0t5L4IPh/L6/iMaNd0oZNTA8o=
+			I8h1DAzeS49SfwyGj6K82HL4RjJSGbVv6hjj9VcuyKY=
 			</data>
 		</dict>
 		<key>Headers/MPWirelessPositionTopic.h</key>
@@ -4173,14 +4136,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			5QDgTveINaed0JXwUKqimi0Qlup6e/RBVupB8m04nd8=
+			qehC5eXhfHpp/FqtxscuiIFvXhoOq7iwkcD1aOmqbaA=
 			</data>
 		</dict>
 		<key>Headers/MapsIndoors.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0Qnqsv3SSf03EJj1XNmK9qC8TdoHBGvc2Htjy7ZGeLc=
+			tcsl9lKVJGUBPJrZejZdgEfUZ4CrXpy1aat6zPQti3U=
 			</data>
 		</dict>
 		<key>Headers/NSDictionary+MPLocationPropertiesDictionary.h</key>
@@ -4520,42 +4483,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			FZ5dIxDDqrgtISrPNXIofU3rv/YynYTZdMrVRaCy3no=
+			rWmbpTccAZQo7AbEa0taq2kdLBC+ttcFw9EDqR35X9M=
 			</data>
 		</dict>
 		<key>Modules/MapsIndoors.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			X89QhWqhz93EtKNmX5Sxit61uRYbEtnvJRTsg4ziP/Y=
+			7aDSFk+eKaT7wAMmkPQGKfZP/nwJRkwaSejlCDb6SVw=
 			</data>
 		</dict>
 		<key>Modules/MapsIndoors.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FZ5dIxDDqrgtISrPNXIofU3rv/YynYTZdMrVRaCy3no=
+			rWmbpTccAZQo7AbEa0taq2kdLBC+ttcFw9EDqR35X9M=
 			</data>
 		</dict>
 		<key>Modules/MapsIndoors.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ixt4DVxkNx3q1GyYYkklPYn0jtH4LL/CcCCNOeazRZc=
+			L/sz0brJGrAGKRwKjnkSV0MOjg4IArLO+CkX74+peJk=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			cQbUIj9Fy8tVIj1A0dLTG1MxL0A7u1s+UX21zLdMGb4=
+			FGf2bLocsf0O1bnCeuVZfOZZmH+oqvpK0Yk5FKtOULs=
 			</data>
 		</dict>
 		<key>Modules/module.private.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			IVusrAQwkIh/IzdBlQb/+50p1ibrldan7uidtLmm9JU=
+			Ef0U8Cdqtv78Pt4iLCEnYoLrFkuALnkjYzmPUoXg+MY=
 			</data>
 		</dict>
 		<key>PrivateHeaders/GoogleMaps+MapsPeople.h</key>
@@ -4933,7 +4896,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			bDLo86ITAXz9MkXb/hb+FavnFUrrWfKqgyG2XeK7EA8=
+			isl9pkocdQuBJYhH85kUTVTNdnz4xOBEo3tf7oyYh34=
 			</data>
 		</dict>
 		<key>PrivateHeaders/MPLocationCluster.h</key>
@@ -4961,7 +4924,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ImfFbgwlefDG+lRtBGH7KuAMsWl5IeD73I7bvdgyZX0=
+			ueeQ5Vz+DVxct31oQCDlZaTF04nZvSJinWEkyttiMBc=
 			</data>
 		</dict>
 		<key>PrivateHeaders/MPLocationDisplayRuleDelegate.h</key>
@@ -4969,13 +4932,6 @@
 			<key>hash2</key>
 			<data>
 			wMfM1mYhqYOox10pL6+q6zsJwo66wEhA3d5UiKwS1uE=
-			</data>
-		</dict>
-		<key>PrivateHeaders/MPLocationDisplayRuleset.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			sF9leVMRqTe4aJyUm7eRMqXuJPDIcCZDbpkI+Wioaik=
 			</data>
 		</dict>
 		<key>PrivateHeaders/MPLocationMarkerManager.h</key>
