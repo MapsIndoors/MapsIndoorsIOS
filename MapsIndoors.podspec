@@ -23,6 +23,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '11.0'
 
   s.dependency 'GoogleMaps', '4.2.0'
+  s.dependency "JSONModel", '~> 1.8.0'
 
   s.ios.vendored_frameworks  = 'MapsIndoors.xcframework'
 end
