@@ -1,4 +1,9 @@
-# V3
+# MapsIndoors iOS SDK v3
+
+### \[3.50.4] 2024-03-22[​](https://docs.mapsindoors.com/changelogs/ios#3504-2024-03-22) <a href="#3503-2023-11-22" id="3503-2023-11-22"></a>
+
+#### Fixed
+- Use of JSONModel library in MapsIndoors no longer prevents using it in your own app or using other libraries that also use JSONModel.
 
 ### \[3.50.3] 2023-11-22[​](https://docs.mapsindoors.com/changelogs/ios#3503-2023-11-22) <a href="#3503-2023-11-22" id="3503-2023-11-22"></a>
 
