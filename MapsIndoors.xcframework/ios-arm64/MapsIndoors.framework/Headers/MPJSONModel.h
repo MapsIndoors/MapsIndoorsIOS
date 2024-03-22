@@ -121,7 +121,7 @@ DEPRECATED_ATTRIBUTE
 
 // deprecated
 + (NSMutableArray *)arrayOfModelsFromDictionaries:(NSArray *)array DEPRECATED_MSG_ATTRIBUTE("use arrayOfModelsFromDictionaries:error:");
-+ (void)setGlobalKeyMapper:(JSONKeyMapper *)globalKeyMapper DEPRECATED_MSG_ATTRIBUTE("override +keyMapper in a base model class instead");
++ (void)setGlobalKeyMapper:(MPJSONKeyMapper *)globalKeyMapper DEPRECATED_MSG_ATTRIBUTE("override +keyMapper in a base model class instead");
 + (NSString *)protocolForArrayProperty:(NSString *)propertyName DEPRECATED_MSG_ATTRIBUTE("use classForCollectionProperty:");
 - (void)mergeFromDictionary:(NSDictionary *)dict useKeyMapping:(BOOL)useKeyMapping DEPRECATED_MSG_ATTRIBUTE("use mergeFromDictionary:useKeyMapping:error:");
 - (NSString *)indexPropertyName DEPRECATED_ATTRIBUTE;
@@ -137,7 +137,7 @@ DEPRECATED_ATTRIBUTE
  * or a property type in your model is not supported by JSONValueTransformer and its categories
  * @see initWithString:usingEncoding:error: for use of custom text encodings
  */
-- (instancetype)initWithString:(NSString *)string error:(JSONModelError **)err;
+- (instancetype)initWithString:(NSString *)string error:(MPJSONModelError **)err;
 
 /**
  * Create a new model instance and initialize it with the JSON from a text parameter using the given encoding.
@@ -147,7 +147,7 @@ DEPRECATED_ATTRIBUTE
  * @exception JSONModelTypeNotAllowedException thrown when unsupported type is found in the incoming JSON,
  * or a property type in your model is not supported by JSONValueTransformer and its categories
  */
-- (instancetype)initWithString:(NSString *)string usingEncoding:(NSStringEncoding)encoding error:(JSONModelError **)err;
+- (instancetype)initWithString:(NSString *)string usingEncoding:(NSStringEncoding)encoding error:(MPJSONModelError **)err;
 
 /** @name Exporting model contents */
 
@@ -231,7 +231,7 @@ DEPRECATED_ATTRIBUTE
  * Overwrite in your models if your property names don't match your JSON key names.
  * Lookup JSONKeyMapper docs for more details.
  */
-+ (JSONKeyMapper *)keyMapper;
++ (MPJSONKeyMapper *)keyMapper;
 
 /**
  * Indicates whether the property with the given name is Optional.

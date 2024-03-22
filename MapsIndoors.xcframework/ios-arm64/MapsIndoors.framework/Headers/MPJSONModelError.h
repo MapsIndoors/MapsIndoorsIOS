@@ -6,7 +6,7 @@
 #import <Foundation/Foundation.h>
 
 /////////////////////////////////////////////////////////////////////////////////////////////
-typedef NS_ENUM(int, kJSONModelErrorTypes)
+typedef NS_ENUM(int, kMPJSONModelErrorTypes)
 {
     kJSONModelErrorInvalidData = 1,
     kJSONModelErrorBadResponse = 2,
@@ -17,7 +17,7 @@ typedef NS_ENUM(int, kJSONModelErrorTypes)
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 /** The domain name used for the JSONModelError instances */
-extern NSString *const JSONModelErrorDomain;
+extern NSString *const MPJSONModelErrorDomain;
 
 /**
  * If the model JSON input misses keys that are required, check the
@@ -25,7 +25,7 @@ extern NSString *const JSONModelErrorDomain;
  * under the kJSONModelMissingKeys key you will find a list of the
  * names of the missing keys.
  */
-extern NSString *const kJSONModelMissingKeys;
+extern NSString *const kMPJSONModelMissingKeys;
 
 /**
  * If JSON input has a different type than expected by the model, check the
@@ -33,21 +33,21 @@ extern NSString *const kJSONModelMissingKeys;
  * under the kJSONModelTypeMismatch key you will find a description
  * of the mismatched types.
  */
-extern NSString *const kJSONModelTypeMismatch;
+extern NSString *const kMPJSONModelTypeMismatch;
 
 /**
  * If an error occurs in a nested model, check the userInfo dictionary of
  * the JSONModelError instance you get back - under the kJSONModelKeyPath
  * key you will find key-path at which the error occurred.
  */
-extern NSString *const kJSONModelKeyPath;
+extern NSString *const kMPJSONModelKeyPath;
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 /**
  * Custom NSError subclass with shortcut methods for creating
  * the common JSONModel errors
  */
-@interface JSONModelError : NSError
+@interface MPJSONModelError : NSError
 
 @property (strong, nonatomic) NSHTTPURLResponse *httpResponse;
 
