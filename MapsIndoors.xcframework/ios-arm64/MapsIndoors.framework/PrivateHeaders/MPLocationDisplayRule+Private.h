@@ -6,12 +6,11 @@
 //  Copyright © 2018 MapsPeople A/S. All rights reserved.
 //
 
-#import "MapsIndoors/MPLocationDisplayRule.h"
+#import <MapsIndoors/MPLocationDisplayRule.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol MPLocationDisplayRuleDelegate;
-
 @protocol Optional;
 
 @interface MPLocationDisplayRule ()

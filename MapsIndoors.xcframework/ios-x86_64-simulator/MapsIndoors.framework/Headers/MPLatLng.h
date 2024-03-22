@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 
-@interface MPLatLng : JSONModel
+@interface MPLatLng : MPJSONModel
 
 @property double lat;
 @property double lng;

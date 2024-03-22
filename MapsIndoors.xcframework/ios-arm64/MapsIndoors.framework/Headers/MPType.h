@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 MapsPeople A/S. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 #import "MPLocationDisplayRule.h"
 #import "MPLocationField.h"
 
@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Location Type model.
  */
-@interface MPType : JSONModel
+@interface MPType : MPJSONModel
 
 /**
 Location Type name.

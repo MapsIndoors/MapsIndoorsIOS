@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 MapsPeople A/S. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 #import "MPRouteProperty.h"
 
 @protocol MPRoute
@@ -15,7 +15,7 @@
 /**
  Route result model
  */
-@interface MPRouteResult : JSONModel
+@interface MPRouteResult : MPJSONModel
 
 /**
  Routes in the result.

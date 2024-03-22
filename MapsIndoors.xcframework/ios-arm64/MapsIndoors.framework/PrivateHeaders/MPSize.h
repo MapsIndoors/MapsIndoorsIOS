@@ -8,7 +8,7 @@
 
 #import <MapsIndoors/MapsIndoors.h>
 
-@interface MPSize : JSONModel
+@interface MPSize : MPJSONModel
 
 @property (nonatomic, strong) NSNumber<Optional>* width;
 @property (nonatomic, strong) NSNumber<Optional>* height;

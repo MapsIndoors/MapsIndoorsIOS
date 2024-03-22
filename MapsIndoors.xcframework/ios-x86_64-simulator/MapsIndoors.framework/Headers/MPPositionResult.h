@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "MPPoint.h"
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 
 
 /**
  Position result model
  */
-@interface MPPositionResult : JSONModel
+@interface MPPositionResult : MPJSONModel
 
 - (_Nullable instancetype) initWithWirelessPositionData:(nonnull NSData*) positionData;
 

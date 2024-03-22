@@ -6,7 +6,7 @@
 //  Copyright (c) 2017 MapsPeople A/S. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 #import "MPEncodedPolyline.h"
 #import "MPRouteProperty.h"
 #import "MPRouteCoordinate.h"
@@ -39,7 +39,7 @@ typedef struct MPRouteSegmentPath MPRouteSegmentPath;
 /**
  The route model contains the route components: The start and end point, the overall route distance, the duration using the given travel mode(s), the actual route components (legs and steps) containing the route geometry and actions (shifts, turns, climbs etc.) performed to get to the destination point. Typically this object is not manually instantiated, but returns as a result from the `MPDirectionsService`.
  */
-@interface MPRoute : JSONModel
+@interface MPRoute : MPJSONModel
 
 @property (nonatomic, strong, nullable) NSString<Optional>* copyrights;
 /**

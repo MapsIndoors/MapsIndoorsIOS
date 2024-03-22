@@ -6,14 +6,14 @@
 //  Copyright  Daniel-Nielsen. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 #import "MPTransitAgency.h"
 #import "MPTransitVehicle.h"
 
 /**
  Transit line information.
  */
-@interface MPTransitLine : JSONModel
+@interface MPTransitLine : MPJSONModel
 
 /**
  Name contains the full name of this transit line. eg. "7 Avenue Express".

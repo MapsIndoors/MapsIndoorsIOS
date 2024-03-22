@@ -19,7 +19,7 @@
 #define kLocationPropertyUrl @"www"
 #define kLocationPropertyVideo @"video"
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 #import "MPLocationBaseType.h"
 #import <UIKit/UIKit.h>
 
@@ -34,7 +34,7 @@
 /**
  This class holds the data for a single location and a marker to display the data on a map.
  */
-@interface MPLocation : JSONModel
+@interface MPLocation : MPJSONModel
 /**
  Location constructor.
  @param  point The geographic point.

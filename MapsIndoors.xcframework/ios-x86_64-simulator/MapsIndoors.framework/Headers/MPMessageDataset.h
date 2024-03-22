@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 #import "MPMessage.h"
 
 /**
@@ -19,7 +19,7 @@
 /**
  Dataset that holds Messages, searched results and a filter.
  */
-@interface MPMessageDataset : JSONModel
+@interface MPMessageDataset : MPJSONModel
 /**
  Main Message array in the data set.
  */

@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 MapsPeople A/S. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 #import "MPBuilding.h"
 #import "MPVenue.h"
 
@@ -18,7 +18,7 @@
 /**
  Venue collection model, just holds an array.
  */
-@interface MPVenueCollection : JSONModel
+@interface MPVenueCollection : MPJSONModel
 
 /**
  The array of venues in this collection.
