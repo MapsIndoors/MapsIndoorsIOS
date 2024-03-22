@@ -13,6 +13,7 @@
 @class MPLiveUpdate;
 @class MPLocationDisplayRule;
 @class MPLocationUpdate;
+@protocol Ignore;
 
 #define MI_VENUE_ID_PREFIX @"mi_v_"
 #define MI_BUILDING_ID_PREFIX @"mi_b_"

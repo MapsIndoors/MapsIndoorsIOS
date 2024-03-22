@@ -9,7 +9,7 @@
 #import "MPBeacon.h"
 
 
-@interface MPBeaconCollection : JSONModel
+@interface MPBeaconCollection : MPJSONModel
 
 @property (nonatomic, strong, nullable) NSArray<MPBeacon*><MPBeacon>* list;
 

@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 
 @class MPLocationField;
 @protocol MPLocationField;
 
-@interface MPDataField : JSONModel
+@interface MPDataField : MPJSONModel
 
 @property (nonatomic, strong, nullable) NSString<Optional>* key;
 @property (nonatomic, strong, nullable) NSString* value;

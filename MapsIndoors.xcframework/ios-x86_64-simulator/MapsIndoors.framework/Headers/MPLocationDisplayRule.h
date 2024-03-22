@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 #import "MPLocation.h"
 
 
@@ -18,7 +18,7 @@
 /**
  This class serves as a display rule for locations.
  */
-@interface MPLocationDisplayRule : JSONModel
+@interface MPLocationDisplayRule : MPJSONModel
 
 /**
  Name/identifier of the rule. Also used as the rule condition for the location types.

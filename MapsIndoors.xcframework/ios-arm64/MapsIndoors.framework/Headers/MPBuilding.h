@@ -6,7 +6,7 @@
 //  Copyright (c) 2017 MapsPeople A/S. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 
 @class GMSCoordinateBounds;
 @class GMSMapView;
@@ -32,7 +32,7 @@
 /**
  Holds relevant data for a single building, and the buildings floor levels.
  */
-@interface MPBuilding : JSONModel
+@interface MPBuilding : MPJSONModel
 /**
  Holds the current floor.
  */

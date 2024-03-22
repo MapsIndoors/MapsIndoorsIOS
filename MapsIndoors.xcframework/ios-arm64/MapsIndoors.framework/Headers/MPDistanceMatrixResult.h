@@ -1,8 +1,8 @@
 #import <Foundation/Foundation.h> 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 #import "MPDistanceMatrixRows.h"
 
-@interface MPDistanceMatrixResult : JSONModel
+@interface MPDistanceMatrixResult : MPJSONModel
 
 @property (nonatomic, strong, nullable) NSArray* destination_addresses;
 @property (nonatomic, strong, nullable) NSArray* origin_addresses;

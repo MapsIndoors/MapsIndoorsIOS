@@ -7,10 +7,11 @@
 //
 
 #import "MPAppData.h"
-#import "MPLocationDisplayRuleset.h"
 #import "MPLoggingConfig.h"
 
 NS_ASSUME_NONNULL_BEGIN
+
+@class MPLocationDisplayRuleset;
 
 @interface MPAppData (Private)
 

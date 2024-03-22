@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 
 
 @protocol MPMenuItem
 @end
 
-@interface MPMenuItem : JSONModel
+@interface MPMenuItem : MPJSONModel
 
 @property (nonatomic, strong, nullable) NSString<Optional>* categoryKey;
 @property (nonatomic, strong, nullable) NSString<Optional>* menuImageUrl;

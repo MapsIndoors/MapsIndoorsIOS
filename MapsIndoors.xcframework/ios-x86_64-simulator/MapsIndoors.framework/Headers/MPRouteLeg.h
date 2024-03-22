@@ -6,7 +6,7 @@
 //  Copyright (c) 2017 MapsPeople A/S. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 #import "MPLineGeometry.h"
 #import "MPRouteCoordinate.h"
 #import "MPRouteProperty.h"
@@ -22,7 +22,7 @@ typedef NS_ENUM(NSUInteger, MPRouteLegType) {
 /**
  Route leg model. A route model will consist of one ore more route legs. Typically a route from 1st floor to 2nd floor will consist of two route legs. Thus, a route leg defines a continueus route part within the same floor and/or building and/or vehicle.
  */
-@interface MPRouteLeg : JSONModel
+@interface MPRouteLeg : MPJSONModel
 
 /**
  The route leg distance in meters

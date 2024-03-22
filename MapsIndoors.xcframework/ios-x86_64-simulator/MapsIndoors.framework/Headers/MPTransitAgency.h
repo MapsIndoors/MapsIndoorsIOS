@@ -6,7 +6,7 @@
 //  Copyright  Daniel-Nielsen. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 
 
 @protocol MPTransitAgency
@@ -15,7 +15,7 @@
 /**
  Transit agency information.
  */
-@interface MPTransitAgency : JSONModel
+@interface MPTransitAgency : MPJSONModel
 /**
  Name contains the name of the transit agency.
  */

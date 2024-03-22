@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 MapsPeople A/S. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 
 /**
  Route coordinate model
  */
-@interface MPRouteCoordinate : JSONModel
+@interface MPRouteCoordinate : MPJSONModel
 
 /**
  Floor level index

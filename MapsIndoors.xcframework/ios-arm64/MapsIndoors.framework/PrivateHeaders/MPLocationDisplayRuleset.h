@@ -6,14 +6,14 @@
 //  Copyright (c) 2017 MapsPeople A/S. All rights reserved.
 //
 
-#import "MapsIndoors/JSONModel.h"
+#import <Foundation/Foundation.h>
 
 @class MPLocationDisplayRule;
 
 /**
  This class holds a ruleset that defines how and when to show different location markers.
  */
-@interface MPLocationDisplayRuleset : JSONModel
+@interface MPLocationDisplayRuleset : NSObject
 
 /**
  The base url to the bundle containing the icons for this ruleset. Set the value to your bundle identifier.

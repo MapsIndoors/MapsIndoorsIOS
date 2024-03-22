@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 #import "MPDataField.h"
 
-@interface MPContactModule : JSONModel
+@interface MPContactModule : MPJSONModel
 
 @property (nonatomic, strong, nullable) MPDataField<Optional>* email;
 @property (nonatomic, strong, nullable) MPDataField<Optional>* phone;

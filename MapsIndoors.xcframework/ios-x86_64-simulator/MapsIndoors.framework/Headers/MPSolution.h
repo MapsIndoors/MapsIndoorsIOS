@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 MapsPeople A/S. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 
 @class MPType;
 @protocol MPType;
@@ -14,7 +14,7 @@
 /**
  The solution model holds data about the buildings and floors in a solution, plus additional meta-data.
  */
-@interface MPSolution : JSONModel
+@interface MPSolution : MPJSONModel
 
 @property (nonatomic, strong, nullable          ) NSString*                                         name;
 @property (nonatomic, strong, nullable          ) NSString*                                         defaultLanguage;

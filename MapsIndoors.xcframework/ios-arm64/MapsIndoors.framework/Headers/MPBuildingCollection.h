@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 MapsPeople A/S. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "MPJSONModel.h"
 #import "MPBuilding.h"
 
 
-@interface MPBuildingCollection : JSONModel
+@interface MPBuildingCollection : MPJSONModel
 
 @property (nonatomic, strong, nullable) NSArray<MPBuilding*><MPBuilding>* buildings;
 
