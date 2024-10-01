@@ -1,8 +1,8 @@
 # MapsIndoors
 
-[![Version](https://img.shields.io/cocoapods/v/MapsIndoors.svg?style=flat)](http://cocoapods.org/pods/MapsIndoors)
-[![License](https://img.shields.io/cocoapods/l/MapsIndoors.svg?style=flat)](http://cocoapods.org/pods/MapsIndoors)
-[![Platform](https://img.shields.io/cocoapods/p/MapsIndoors.svg?style=flat)](http://cocoapods.org/pods/MapsIndoors)
+This repository is for v3 of MapsIndoors for which support ended as of September 2024.
+
+You should update to MapsIndoors v4, which can be found at https://github.com/MapsPeople/MapsIndoors-SDK-iOS
 
 ## Usage
 
